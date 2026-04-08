@@ -1,0 +1,1053 @@
+fileFormatVersion: 2
+guid: 2e3da081007ddf6468988d1ca8b685d0
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 2181756498914232298
+    second: Ticket Counter Girlll_0
+  - first:
+      213: -2045247124345167655
+    second: Ticket Counter Girlll_1
+  - first:
+      213: 6719979984624559349
+    second: Ticket Counter Girlll_2
+  - first:
+      213: -4717827989652623193
+    second: Ticket Counter Girlll_3
+  - first:
+      213: 4725927972939421421
+    second: Ticket Counter Girlll_4
+  - first:
+      213: -5798639433025372364
+    second: Ticket Counter Girlll_5
+  - first:
+      213: 1839240172293941157
+    second: Ticket Counter Girlll_6
+  - first:
+      213: -2158163463669065989
+    second: Ticket Counter Girlll_7
+  - first:
+      213: 6730926182249352217
+    second: Ticket Counter Girlll_8
+  - first:
+      213: -7045454137478301802
+    second: Ticket Counter Girlll_9
+  - first:
+      213: 1008062218868753901
+    second: Ticket Counter Girlll_10
+  - first:
+      213: 2895527792845384418
+    second: Ticket Counter Girlll_11
+  - first:
+      213: 3107350674812791449
+    second: Ticket Counter Girlll_12
+  - first:
+      213: -3327410874470513430
+    second: Ticket Counter Girlll_13
+  - first:
+      213: 6985842561044390493
+    second: Ticket Counter Girlll_14
+  - first:
+      213: -2643328914036850620
+    second: Ticket Counter Girlll_15
+  - first:
+      213: 253235493595976592
+    second: Ticket Counter Girlll_16
+  - first:
+      213: 573300021454859424
+    second: Ticket Counter Girlll_17
+  - first:
+      213: -7693898881932910889
+    second: Ticket Counter Girlll_18
+  - first:
+      213: -2925759107868565306
+    second: Ticket Counter Girlll_19
+  - first:
+      213: 4214196203474386803
+    second: Ticket Counter Girlll_20
+  - first:
+      213: -7141808513021103320
+    second: Ticket Counter Girlll_21
+  - first:
+      213: -2004630817788560488
+    second: Ticket Counter Girlll_22
+  - first:
+      213: 2237671746560776395
+    second: Ticket Counter Girlll_23
+  - first:
+      213: 9117473883173101587
+    second: Ticket Counter Girlll_24
+  - first:
+      213: 2372628429526023070
+    second: Ticket Counter Girlll_25
+  - first:
+      213: -465397512085045180
+    second: Ticket Counter Girlll_26
+  - first:
+      213: -73398819868923018
+    second: Ticket Counter Girlll_27
+  - first:
+      213: 7232580538666046427
+    second: Ticket Counter Girlll_28
+  - first:
+      213: -3171919995212840343
+    second: Ticket Counter Girlll_29
+  - first:
+      213: 9181397186398478589
+    second: Ticket Counter Girlll_30
+  - first:
+      213: -7282124584612224473
+    second: Ticket Counter Girlll_31
+  - first:
+      213: 636490830459598316
+    second: Ticket Counter Girlll_32
+  - first:
+      213: 7081481117105705082
+    second: Ticket Counter Girlll_33
+  - first:
+      213: 3304730982355144443
+    second: Ticket Counter Girlll_34
+  - first:
+      213: -9118999603989644552
+    second: Ticket Counter Girlll_35
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Ticket Counter Girlll_0
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 183
+        width: 19
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae7ce20f9f7274e10800000000000000
+      internalID: 2181756498914232298
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ticket Counter Girlll_1
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 183
+        width: 19
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9d0648b9392dd93e0800000000000000
+      internalID: -2045247124345167655
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ticket Counter Girlll_2
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 183
+        width: 19
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f42849213a224d50800000000000000
+      internalID: 6719979984624559349
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ticket Counter Girlll_3
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 183
+        width: 19
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7a03c558078e68eb0800000000000000
+      internalID: -4717827989652623193
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ticket Counter Girlll_4
+      rect:
+        serializedVersion: 2
+        x: 89
+        y: 183
+        width: 20
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: de6d22dc37ed59140800000000000000
+      internalID: 4725927972939421421
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ticket Counter Girlll_5
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 182
+        width: 20
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 43f33fd7828178fa0800000000000000
+      internalID: -5798639433025372364
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ticket Counter Girlll_6
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 182
+        width: 19
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a76536213b468910800000000000000
+      internalID: 1839240172293941157
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ticket Counter Girlll_7
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 182
+        width: 19
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf657c4a3c9ac02e0800000000000000
+      internalID: -2158163463669065989
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ticket Counter Girlll_8
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 138
+        width: 19
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 91c495663bd096d50800000000000000
+      internalID: 6730926182249352217
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ticket Counter Girlll_9
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 137
+        width: 19
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 697bc465ac4893e90800000000000000
+      internalID: -7045454137478301802
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ticket Counter Girlll_10
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 137
+        width: 19
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: de50a234f3b5dfd00800000000000000
+      internalID: 1008062218868753901
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ticket Counter Girlll_11
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 137
+        width: 19
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2eae1d9bf2bfe2820800000000000000
+      internalID: 2895527792845384418
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ticket Counter Girlll_12
+      rect:
+        serializedVersion: 2
+        x: 89
+        y: 138
+        width: 20
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 99a69cca9f68f1b20800000000000000
+      internalID: 3107350674812791449
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ticket Counter Girlll_13
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 138
+        width: 20
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae4c9656079a2d1d0800000000000000
+      internalID: -3327410874470513430
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ticket Counter Girlll_14
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 138
+        width: 19
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d522bd3fbc2b2f060800000000000000
+      internalID: 6985842561044390493
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ticket Counter Girlll_15
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 138
+        width: 19
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 440805e8b52015bd0800000000000000
+      internalID: -2643328914036850620
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ticket Counter Girlll_16
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 93
+        width: 19
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0931f48f65ca38300800000000000000
+      internalID: 253235493595976592
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ticket Counter Girlll_17
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 93
+        width: 19
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ac6a800555c4f700800000000000000
+      internalID: 573300021454859424
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ticket Counter Girlll_18
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 93
+        width: 19
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7de1d9c1bb7c93590800000000000000
+      internalID: -7693898881932910889
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ticket Counter Girlll_19
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 93
+        width: 19
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c0612db79d9567d0800000000000000
+      internalID: -2925759107868565306
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ticket Counter Girlll_20
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 93
+        width: 19
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 37ff3e98e15db7a30800000000000000
+      internalID: 4214196203474386803
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ticket Counter Girlll_21
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 48
+        width: 19
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 823348f0ff233ec90800000000000000
+      internalID: -7141808513021103320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ticket Counter Girlll_22
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 48
+        width: 19
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 89b79e764ee1e24e0800000000000000
+      internalID: -2004630817788560488
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ticket Counter Girlll_23
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 48
+        width: 19
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bc8dea9099ecd0f10800000000000000
+      internalID: 2237671746560776395
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ticket Counter Girlll_24
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 48
+        width: 19
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3102f67b036c78e70800000000000000
+      internalID: 9117473883173101587
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ticket Counter Girlll_25
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 48
+        width: 19
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e9b34e56cf44de020800000000000000
+      internalID: 2372628429526023070
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ticket Counter Girlll_26
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 3
+        width: 19
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 44002d4bd639a89f0800000000000000
+      internalID: -465397512085045180
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ticket Counter Girlll_27
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 3
+        width: 19
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 67ba7c6892c3bfef0800000000000000
+      internalID: -73398819868923018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ticket Counter Girlll_28
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 3
+        width: 19
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd3d7981ea94f5460800000000000000
+      internalID: 7232580538666046427
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ticket Counter Girlll_29
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 3
+        width: 19
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9624165e1931bf3d0800000000000000
+      internalID: -3171919995212840343
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ticket Counter Girlll_30
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 3
+        width: 19
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: df06d0d8810ea6f70800000000000000
+      internalID: 9181397186398478589
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ticket Counter Girlll_31
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 3
+        width: 19
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 722ac0cc542b0fa90800000000000000
+      internalID: -7282124584612224473
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ticket Counter Girlll_32
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 3
+        width: 19
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ce5765cb90545d800800000000000000
+      internalID: 636490830459598316
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ticket Counter Girlll_33
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 3
+        width: 20
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a70d8b48e89764260800000000000000
+      internalID: 7081481117105705082
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ticket Counter Girlll_34
+      rect:
+        serializedVersion: 2
+        x: 178
+        y: 3
+        width: 19
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bfe8189b153ccdd20800000000000000
+      internalID: 3304730982355144443
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ticket Counter Girlll_35
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 3
+        width: 19
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8faf449bc2ec27180800000000000000
+      internalID: -9118999603989644552
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Ticket Counter Girlll_0: 2181756498914232298
+      Ticket Counter Girlll_1: -2045247124345167655
+      Ticket Counter Girlll_10: 1008062218868753901
+      Ticket Counter Girlll_11: 2895527792845384418
+      Ticket Counter Girlll_12: 3107350674812791449
+      Ticket Counter Girlll_13: -3327410874470513430
+      Ticket Counter Girlll_14: 6985842561044390493
+      Ticket Counter Girlll_15: -2643328914036850620
+      Ticket Counter Girlll_16: 253235493595976592
+      Ticket Counter Girlll_17: 573300021454859424
+      Ticket Counter Girlll_18: -7693898881932910889
+      Ticket Counter Girlll_19: -2925759107868565306
+      Ticket Counter Girlll_2: 6719979984624559349
+      Ticket Counter Girlll_20: 4214196203474386803
+      Ticket Counter Girlll_21: -7141808513021103320
+      Ticket Counter Girlll_22: -2004630817788560488
+      Ticket Counter Girlll_23: 2237671746560776395
+      Ticket Counter Girlll_24: 9117473883173101587
+      Ticket Counter Girlll_25: 2372628429526023070
+      Ticket Counter Girlll_26: -465397512085045180
+      Ticket Counter Girlll_27: -73398819868923018
+      Ticket Counter Girlll_28: 7232580538666046427
+      Ticket Counter Girlll_29: -3171919995212840343
+      Ticket Counter Girlll_3: -4717827989652623193
+      Ticket Counter Girlll_30: 9181397186398478589
+      Ticket Counter Girlll_31: -7282124584612224473
+      Ticket Counter Girlll_32: 636490830459598316
+      Ticket Counter Girlll_33: 7081481117105705082
+      Ticket Counter Girlll_34: 3304730982355144443
+      Ticket Counter Girlll_35: -9118999603989644552
+      Ticket Counter Girlll_4: 4725927972939421421
+      Ticket Counter Girlll_5: -5798639433025372364
+      Ticket Counter Girlll_6: 1839240172293941157
+      Ticket Counter Girlll_7: -2158163463669065989
+      Ticket Counter Girlll_8: 6730926182249352217
+      Ticket Counter Girlll_9: -7045454137478301802
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,793 @@
+fileFormatVersion: 2
+guid: 1622e3cf1e2e3ad40bdda758d1395170
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 6879202481026234437
+    second: Digging_Buddy_Animation_0
+  - first:
+      213: -7332042814068325344
+    second: Digging_Buddy_Animation_1
+  - first:
+      213: 7798787135858719818
+    second: Digging_Buddy_Animation_2
+  - first:
+      213: -344705736037150252
+    second: Digging_Buddy_Animation_3
+  - first:
+      213: -4216216060963709778
+    second: Digging_Buddy_Animation_4
+  - first:
+      213: -4322992471266001699
+    second: Digging_Buddy_Animation_5
+  - first:
+      213: -2387010508710369255
+    second: Digging_Buddy_Animation_6
+  - first:
+      213: -2124339401388289539
+    second: Digging_Buddy_Animation_7
+  - first:
+      213: 799333686247105856
+    second: Digging_Buddy_Animation_8
+  - first:
+      213: 1580975068863747738
+    second: Digging_Buddy_Animation_9
+  - first:
+      213: 1359190485216978931
+    second: Digging_Buddy_Animation_10
+  - first:
+      213: 7528513906054120712
+    second: Digging_Buddy_Animation_11
+  - first:
+      213: 4225541750893184787
+    second: Digging_Buddy_Animation_12
+  - first:
+      213: -8236379757618699855
+    second: Digging_Buddy_Animation_13
+  - first:
+      213: -2612440504137986618
+    second: Digging_Buddy_Animation_14
+  - first:
+      213: 2626956345226709051
+    second: Digging_Buddy_Animation_15
+  - first:
+      213: -8629087364307690669
+    second: Digging_Buddy_Animation_16
+  - first:
+      213: -2562630308279050697
+    second: Digging_Buddy_Animation_17
+  - first:
+      213: 8801520692125290309
+    second: Digging_Buddy_Animation_18
+  - first:
+      213: -6159234348059301333
+    second: Digging_Buddy_Animation_19
+  - first:
+      213: -6993057080398536194
+    second: Digging_Buddy_Animation_20
+  - first:
+      213: 7287845430791372729
+    second: Digging_Buddy_Animation_21
+  - first:
+      213: -4877491757189362141
+    second: Digging_Buddy_Animation_22
+  - first:
+      213: -8052462539371643003
+    second: Digging_Buddy_Animation_23
+  - first:
+      213: -8069067398417243513
+    second: Digging_Buddy_Animation_24
+  - first:
+      213: -6491262721727258952
+    second: Digging_Buddy_Animation_25
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Digging_Buddy_Animation_0
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 138
+        width: 19
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 548fd8b7536d77f50800000000000000
+      internalID: 6879202481026234437
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Digging_Buddy_Animation_1
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 138
+        width: 19
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 024808d48e95f3a90800000000000000
+      internalID: -7332042814068325344
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Digging_Buddy_Animation_2
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 138
+        width: 18
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a4cbebf849bda3c60800000000000000
+      internalID: 7798787135858719818
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Digging_Buddy_Animation_3
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 138
+        width: 18
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4d1577b95fb573bf0800000000000000
+      internalID: -344705736037150252
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Digging_Buddy_Animation_4
+      rect:
+        serializedVersion: 2
+        x: 89
+        y: 138
+        width: 21
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eac16fdb4ddfc75c0800000000000000
+      internalID: -4216216060963709778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Digging_Buddy_Animation_5
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 137
+        width: 21
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ddc70876045a104c0800000000000000
+      internalID: -4322992471266001699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Digging_Buddy_Animation_6
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 137
+        width: 18
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 918a139d692afded0800000000000000
+      internalID: -2387010508710369255
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Digging_Buddy_Animation_7
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 137
+        width: 18
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: df192e5d194d482e0800000000000000
+      internalID: -2124339401388289539
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Digging_Buddy_Animation_8
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 93
+        width: 18
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 04523c9a0cdc71b00800000000000000
+      internalID: 799333686247105856
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Digging_Buddy_Animation_9
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 92
+        width: 19
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a965f52e270c0f510800000000000000
+      internalID: 1580975068863747738
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Digging_Buddy_Animation_10
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 92
+        width: 17
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3f7e2758b80dcd210800000000000000
+      internalID: 1359190485216978931
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Digging_Buddy_Animation_11
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 92
+        width: 17
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 805c1f08287aa7860800000000000000
+      internalID: 7528513906054120712
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Digging_Buddy_Animation_12
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 93
+        width: 21
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3170295a5d324aa30800000000000000
+      internalID: 4225541750893184787
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Digging_Buddy_Animation_13
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 93
+        width: 21
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1b16be7af3082bd80800000000000000
+      internalID: -8236379757618699855
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Digging_Buddy_Animation_14
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 93
+        width: 17
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6cd430ae33fbebbd0800000000000000
+      internalID: -2612440504137986618
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Digging_Buddy_Animation_15
+      rect:
+        serializedVersion: 2
+        x: 157
+        y: 93
+        width: 17
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b3842b5b0e2d47420800000000000000
+      internalID: 2626956345226709051
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Digging_Buddy_Animation_16
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 48
+        width: 18
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 35bd0a2d2c25f3880800000000000000
+      internalID: -8629087364307690669
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Digging_Buddy_Animation_17
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 48
+        width: 18
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 73e9060ef45bf6cd0800000000000000
+      internalID: -2562630308279050697
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Digging_Buddy_Animation_18
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 48
+        width: 18
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 54fc061ef68452a70800000000000000
+      internalID: 8801520692125290309
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Digging_Buddy_Animation_19
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 48
+        width: 18
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b2a6a835ef0068aa0800000000000000
+      internalID: -6159234348059301333
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Digging_Buddy_Animation_20
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 48
+        width: 18
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ef1a0dcd2aba3fe90800000000000000
+      internalID: -6993057080398536194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Digging_Buddy_Animation_21
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 3
+        width: 19
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9bff5408ec0a32560800000000000000
+      internalID: 7287845430791372729
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Digging_Buddy_Animation_22
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 3
+        width: 19
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 32e05d1c61baf4cb0800000000000000
+      internalID: -4877491757189362141
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Digging_Buddy_Animation_23
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 3
+        width: 19
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 58ffc95fbf7ef3090800000000000000
+      internalID: -8052462539371643003
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Digging_Buddy_Animation_24
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 3
+        width: 19
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 782a7a0f3f9e40090800000000000000
+      internalID: -8069067398417243513
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Digging_Buddy_Animation_25
+      rect:
+        serializedVersion: 2
+        x: 89
+        y: 3
+        width: 19
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8be16bf52f66ae5a0800000000000000
+      internalID: -6491262721727258952
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Digging_Buddy_Animation_0: 6879202481026234437
+      Digging_Buddy_Animation_1: -7332042814068325344
+      Digging_Buddy_Animation_10: 1359190485216978931
+      Digging_Buddy_Animation_11: 7528513906054120712
+      Digging_Buddy_Animation_12: 4225541750893184787
+      Digging_Buddy_Animation_13: -8236379757618699855
+      Digging_Buddy_Animation_14: -2612440504137986618
+      Digging_Buddy_Animation_15: 2626956345226709051
+      Digging_Buddy_Animation_16: -8629087364307690669
+      Digging_Buddy_Animation_17: -2562630308279050697
+      Digging_Buddy_Animation_18: 8801520692125290309
+      Digging_Buddy_Animation_19: -6159234348059301333
+      Digging_Buddy_Animation_2: 7798787135858719818
+      Digging_Buddy_Animation_20: -6993057080398536194
+      Digging_Buddy_Animation_21: 7287845430791372729
+      Digging_Buddy_Animation_22: -4877491757189362141
+      Digging_Buddy_Animation_23: -8052462539371643003
+      Digging_Buddy_Animation_24: -8069067398417243513
+      Digging_Buddy_Animation_25: -6491262721727258952
+      Digging_Buddy_Animation_3: -344705736037150252
+      Digging_Buddy_Animation_4: -4216216060963709778
+      Digging_Buddy_Animation_5: -4322992471266001699
+      Digging_Buddy_Animation_6: -2387010508710369255
+      Digging_Buddy_Animation_7: -2124339401388289539
+      Digging_Buddy_Animation_8: 799333686247105856
+      Digging_Buddy_Animation_9: 1580975068863747738
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

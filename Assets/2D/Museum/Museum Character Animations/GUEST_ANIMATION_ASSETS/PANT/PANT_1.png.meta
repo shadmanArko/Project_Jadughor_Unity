@@ -1,0 +1,5421 @@
+fileFormatVersion: 2
+guid: 10b7f31c8766cd14c8785bf37e5a6c93
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 4497664162634604599
+    second: PANT_1_0
+  - first:
+      213: 1215622806016631234
+    second: PANT_1_1
+  - first:
+      213: 296201871530755030
+    second: PANT_1_2
+  - first:
+      213: -3893503300557514551
+    second: PANT_1_3
+  - first:
+      213: 6422667572469833496
+    second: PANT_1_4
+  - first:
+      213: 341510832461629968
+    second: PANT_1_5
+  - first:
+      213: -5543645773257370195
+    second: PANT_1_6
+  - first:
+      213: -9070974979691524428
+    second: PANT_1_7
+  - first:
+      213: -1042944564482048589
+    second: PANT_1_8
+  - first:
+      213: 7040540998948840048
+    second: PANT_1_9
+  - first:
+      213: -973288793618044979
+    second: PANT_1_10
+  - first:
+      213: -43145391593823893
+    second: PANT_1_11
+  - first:
+      213: 6584340331340742003
+    second: PANT_1_12
+  - first:
+      213: -631330842235734394
+    second: PANT_1_13
+  - first:
+      213: -2689293424785204916
+    second: PANT_1_14
+  - first:
+      213: -8822375303988680256
+    second: PANT_1_15
+  - first:
+      213: -6977694493160099115
+    second: PANT_1_16
+  - first:
+      213: -4772880989580625607
+    second: PANT_1_17
+  - first:
+      213: 4627459410324034616
+    second: PANT_1_18
+  - first:
+      213: -3725138844333142621
+    second: PANT_1_19
+  - first:
+      213: 7171396796093424705
+    second: PANT_1_20
+  - first:
+      213: 1221983395929868521
+    second: PANT_1_21
+  - first:
+      213: -6497581735784166152
+    second: PANT_1_22
+  - first:
+      213: -4959851886107218743
+    second: PANT_1_23
+  - first:
+      213: -5110933690113986230
+    second: PANT_1_24
+  - first:
+      213: -7540372778844509908
+    second: PANT_1_25
+  - first:
+      213: 7961294257006959413
+    second: PANT_1_26
+  - first:
+      213: -836703269689322813
+    second: PANT_1_27
+  - first:
+      213: -1912064013085076093
+    second: PANT_1_28
+  - first:
+      213: 6950397613190944387
+    second: PANT_1_29
+  - first:
+      213: -8445482253042815059
+    second: PANT_1_30
+  - first:
+      213: -5177189339560865310
+    second: PANT_1_31
+  - first:
+      213: -3018826030097641240
+    second: PANT_1_32
+  - first:
+      213: 8122769231639254666
+    second: PANT_1_33
+  - first:
+      213: -3475766411189744816
+    second: PANT_1_34
+  - first:
+      213: -8768997621473108081
+    second: PANT_1_35
+  - first:
+      213: 8590435028967104983
+    second: PANT_1_36
+  - first:
+      213: -5026293498701149240
+    second: PANT_1_37
+  - first:
+      213: 3893414420303571142
+    second: PANT_1_38
+  - first:
+      213: 6420425373782844023
+    second: PANT_1_39
+  - first:
+      213: 3217713075268002704
+    second: PANT_1_40
+  - first:
+      213: -1273253232139562912
+    second: PANT_1_41
+  - first:
+      213: -5399708762310599746
+    second: PANT_1_42
+  - first:
+      213: -2669093662421646236
+    second: PANT_1_43
+  - first:
+      213: 1164028153281899406
+    second: PANT_1_44
+  - first:
+      213: 7075984130332369551
+    second: PANT_1_45
+  - first:
+      213: 4415153558369727131
+    second: PANT_1_46
+  - first:
+      213: 5391546793725480071
+    second: PANT_1_47
+  - first:
+      213: 501373405421831298
+    second: PANT_1_48
+  - first:
+      213: -1612065976364967847
+    second: PANT_1_49
+  - first:
+      213: -5023313301210739433
+    second: PANT_1_50
+  - first:
+      213: 1216542692766769794
+    second: PANT_1_51
+  - first:
+      213: 6366706635526491428
+    second: PANT_1_52
+  - first:
+      213: -109563006788065540
+    second: PANT_1_53
+  - first:
+      213: -171783486970402832
+    second: PANT_1_54
+  - first:
+      213: -6996716018138909637
+    second: PANT_1_55
+  - first:
+      213: -9151071086816757701
+    second: PANT_1_56
+  - first:
+      213: 4487113735074510191
+    second: PANT_1_57
+  - first:
+      213: -5475985820520196186
+    second: PANT_1_58
+  - first:
+      213: -4201435255797254054
+    second: PANT_1_59
+  - first:
+      213: 6245330218484746187
+    second: PANT_1_60
+  - first:
+      213: -5165234327158567301
+    second: PANT_1_61
+  - first:
+      213: 5419501946953497399
+    second: PANT_1_62
+  - first:
+      213: 9039252436114557048
+    second: PANT_1_63
+  - first:
+      213: -713874760702880447
+    second: PANT_1_64
+  - first:
+      213: -7671620897122319811
+    second: PANT_1_65
+  - first:
+      213: -6966953909269324267
+    second: PANT_1_66
+  - first:
+      213: 1836571836879500545
+    second: PANT_1_67
+  - first:
+      213: 1399857793374186121
+    second: PANT_1_68
+  - first:
+      213: -7569440903246082408
+    second: PANT_1_69
+  - first:
+      213: -8833605509028457891
+    second: PANT_1_70
+  - first:
+      213: -3694998286912677715
+    second: PANT_1_71
+  - first:
+      213: 8080334429455027646
+    second: PANT_1_72
+  - first:
+      213: -2643402012533437175
+    second: PANT_1_73
+  - first:
+      213: -5613192111517812382
+    second: PANT_1_74
+  - first:
+      213: -5071501056017510624
+    second: PANT_1_75
+  - first:
+      213: -450143154070405478
+    second: PANT_1_76
+  - first:
+      213: 4644387696654181323
+    second: PANT_1_77
+  - first:
+      213: -8933763371702086567
+    second: PANT_1_78
+  - first:
+      213: 6875660266887330463
+    second: PANT_1_79
+  - first:
+      213: 6929176406694833308
+    second: PANT_1_80
+  - first:
+      213: 1311170712294129193
+    second: PANT_1_81
+  - first:
+      213: 3577534857748064049
+    second: PANT_1_82
+  - first:
+      213: -5377240871063355141
+    second: PANT_1_83
+  - first:
+      213: 4649686569883324823
+    second: PANT_1_84
+  - first:
+      213: -8333698844976337829
+    second: PANT_1_85
+  - first:
+      213: -5447610793873879825
+    second: PANT_1_86
+  - first:
+      213: -1886263136513981726
+    second: PANT_1_87
+  - first:
+      213: -8689735309335176191
+    second: PANT_1_88
+  - first:
+      213: 1976917715381204567
+    second: PANT_1_89
+  - first:
+      213: -796681903742074556
+    second: PANT_1_90
+  - first:
+      213: -481056947737586804
+    second: PANT_1_91
+  - first:
+      213: 2928929710621976752
+    second: PANT_1_92
+  - first:
+      213: -2708440204844052077
+    second: PANT_1_93
+  - first:
+      213: -7782493636815436890
+    second: PANT_1_94
+  - first:
+      213: -3894525461373298151
+    second: PANT_1_95
+  - first:
+      213: 8383316559450783119
+    second: PANT_1_96
+  - first:
+      213: -3824725801381289329
+    second: PANT_1_97
+  - first:
+      213: 3787335165154373530
+    second: PANT_1_98
+  - first:
+      213: -2293261456040212735
+    second: PANT_1_99
+  - first:
+      213: -5785564040064665926
+    second: PANT_1_100
+  - first:
+      213: 3101452694321077363
+    second: PANT_1_101
+  - first:
+      213: -1404648892220245493
+    second: PANT_1_102
+  - first:
+      213: 3606009236725703883
+    second: PANT_1_103
+  - first:
+      213: -6775930711289691184
+    second: PANT_1_104
+  - first:
+      213: -1209477605849797861
+    second: PANT_1_105
+  - first:
+      213: 3049379696265260551
+    second: PANT_1_106
+  - first:
+      213: 3570298296692149707
+    second: PANT_1_107
+  - first:
+      213: -880554514451555822
+    second: PANT_1_108
+  - first:
+      213: -8847385202268432204
+    second: PANT_1_109
+  - first:
+      213: 3495083812680227260
+    second: PANT_1_110
+  - first:
+      213: 8241908478164170207
+    second: PANT_1_111
+  - first:
+      213: 773158770037478343
+    second: PANT_1_112
+  - first:
+      213: -8127633639817896105
+    second: PANT_1_113
+  - first:
+      213: -7047498170054484024
+    second: PANT_1_114
+  - first:
+      213: -3303356362271813605
+    second: PANT_1_115
+  - first:
+      213: -2908723797961584665
+    second: PANT_1_116
+  - first:
+      213: 5653722651957345574
+    second: PANT_1_117
+  - first:
+      213: 3261312497157971143
+    second: PANT_1_118
+  - first:
+      213: -8039806830066980581
+    second: PANT_1_119
+  - first:
+      213: 1488633768742178200
+    second: PANT_1_120
+  - first:
+      213: -3711998652833485312
+    second: PANT_1_121
+  - first:
+      213: 191015075502748431
+    second: PANT_1_122
+  - first:
+      213: -666323885391552813
+    second: PANT_1_123
+  - first:
+      213: -6997787682537045376
+    second: PANT_1_124
+  - first:
+      213: 4458965708405158556
+    second: PANT_1_125
+  - first:
+      213: 2748510154659765276
+    second: PANT_1_126
+  - first:
+      213: 225088095695452309
+    second: PANT_1_127
+  - first:
+      213: 5582900581879334177
+    second: PANT_1_128
+  - first:
+      213: -7686515331766051511
+    second: PANT_1_129
+  - first:
+      213: 8276245862744665614
+    second: PANT_1_130
+  - first:
+      213: -8045444741829992518
+    second: PANT_1_131
+  - first:
+      213: -13777293726758354
+    second: PANT_1_132
+  - first:
+      213: 6321903048768770134
+    second: PANT_1_133
+  - first:
+      213: 244702445946210778
+    second: PANT_1_134
+  - first:
+      213: 8329772392888963598
+    second: PANT_1_135
+  - first:
+      213: 5845155097558687911
+    second: PANT_1_136
+  - first:
+      213: 2178138504687038454
+    second: PANT_1_137
+  - first:
+      213: -1155910382156232470
+    second: PANT_1_138
+  - first:
+      213: -8602685284030430413
+    second: PANT_1_139
+  - first:
+      213: -2471947714073327220
+    second: PANT_1_140
+  - first:
+      213: 8991942969881064433
+    second: PANT_1_141
+  - first:
+      213: 6589872829033221652
+    second: PANT_1_142
+  - first:
+      213: -7282717939496305772
+    second: PANT_1_143
+  - first:
+      213: -5990112006193668339
+    second: PANT_1_144
+  - first:
+      213: -8905536568996498853
+    second: PANT_1_145
+  - first:
+      213: -6172217897028385636
+    second: PANT_1_146
+  - first:
+      213: 5573034626739377684
+    second: PANT_1_147
+  - first:
+      213: 3714396333151415567
+    second: PANT_1_148
+  - first:
+      213: 6782478126450603686
+    second: PANT_1_149
+  - first:
+      213: -5482713123695457928
+    second: PANT_1_150
+  - first:
+      213: 246064808356164110
+    second: PANT_1_151
+  - first:
+      213: 8195473999302591799
+    second: PANT_1_152
+  - first:
+      213: 4431350923147617226
+    second: PANT_1_153
+  - first:
+      213: 5742673440508263192
+    second: PANT_1_154
+  - first:
+      213: -1023201151205260468
+    second: PANT_1_155
+  - first:
+      213: 4089062881867827445
+    second: PANT_1_156
+  - first:
+      213: 4546471522836902678
+    second: PANT_1_157
+  - first:
+      213: 3608341862558863229
+    second: PANT_1_158
+  - first:
+      213: 7250820188872282848
+    second: PANT_1_159
+  - first:
+      213: -2198154764809862486
+    second: PANT_1_160
+  - first:
+      213: -6233457305166851704
+    second: PANT_1_161
+  - first:
+      213: -5662497833004080547
+    second: PANT_1_162
+  - first:
+      213: 2984552881167283662
+    second: PANT_1_163
+  - first:
+      213: 2747191591854305531
+    second: PANT_1_164
+  - first:
+      213: 6507768187995812534
+    second: PANT_1_165
+  - first:
+      213: 1763672740381419267
+    second: PANT_1_166
+  - first:
+      213: 4689712367170748353
+    second: PANT_1_167
+  - first:
+      213: -4338105713391288142
+    second: PANT_1_168
+  - first:
+      213: -9116818352607426813
+    second: PANT_1_169
+  - first:
+      213: 742714870694798260
+    second: PANT_1_170
+  - first:
+      213: 2871829380400763069
+    second: PANT_1_171
+  - first:
+      213: 5107206493841513108
+    second: PANT_1_172
+  - first:
+      213: -4871117617638995218
+    second: PANT_1_173
+  - first:
+      213: -550968701609019644
+    second: PANT_1_174
+  - first:
+      213: -246748233019965327
+    second: PANT_1_175
+  - first:
+      213: -923677129322158364
+    second: PANT_1_176
+  - first:
+      213: -2120579486191697528
+    second: PANT_1_177
+  - first:
+      213: -1379791748934486618
+    second: PANT_1_178
+  - first:
+      213: 3560619201852509037
+    second: PANT_1_179
+  - first:
+      213: -4919804456643952620
+    second: PANT_1_180
+  - first:
+      213: 384451401279276898
+    second: PANT_1_181
+  - first:
+      213: 8585081687252844074
+    second: PANT_1_182
+  - first:
+      213: -5203214257198579835
+    second: PANT_1_183
+  - first:
+      213: 8733290671672895480
+    second: PANT_1_184
+  - first:
+      213: -4711578306614333900
+    second: PANT_1_185
+  - first:
+      213: 6648432193467337044
+    second: PANT_1_186
+  - first:
+      213: 568192709684694722
+    second: PANT_1_187
+  - first:
+      213: 2666583668705883190
+    second: PANT_1_188
+  - first:
+      213: 1458632949638945435
+    second: PANT_1_189
+  - first:
+      213: 7811433385467323998
+    second: PANT_1_190
+  - first:
+      213: 9177822907051198911
+    second: PANT_1_191
+  - first:
+      213: 3664782033898476032
+    second: PANT_1_192
+  - first:
+      213: -4794731961210811680
+    second: PANT_1_193
+  - first:
+      213: -6252213746363799455
+    second: PANT_1_194
+  - first:
+      213: 4578369307061684601
+    second: PANT_1_195
+  - first:
+      213: 8384716747282894368
+    second: PANT_1_196
+  - first:
+      213: 7074941034425984736
+    second: PANT_1_197
+  - first:
+      213: 8786574413102636038
+    second: PANT_1_198
+  - first:
+      213: 6676345322034138773
+    second: PANT_1_199
+  - first:
+      213: 6526122117785226928
+    second: PANT_1_200
+  - first:
+      213: 7198104325552788876
+    second: PANT_1_201
+  - first:
+      213: 5692587337090424686
+    second: PANT_1_202
+  - first:
+      213: 5485955964742097044
+    second: PANT_1_203
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: PANT_1_0
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 998
+        width: 7
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 73027dce9b9ea6e30800000000000000
+      internalID: 4497664162634604599
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_1
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 1000
+        width: 8
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c12c7d5082ced010800000000000000
+      internalID: 1215622806016631234
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_2
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 999
+        width: 8
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6d3856668025c1400800000000000000
+      internalID: 296201871530755030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_3
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 998
+        width: 7
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9c85576706f77f9c0800000000000000
+      internalID: -3893503300557514551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_4
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 998
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 81f1c7fd026e12950800000000000000
+      internalID: 6422667572469833496
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_5
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 999
+        width: 9
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 01ac2dfea4a4db400800000000000000
+      internalID: 341510832461629968
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_6
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 997
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: da5166c6a830113b0800000000000000
+      internalID: -5543645773257370195
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_7
+      rect:
+        serializedVersion: 2
+        x: 122
+        y: 994
+        width: 10
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4bec709e05c6d1280800000000000000
+      internalID: -9070974979691524428
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_8
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 996
+        width: 10
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3bd7f91c177b681f0800000000000000
+      internalID: -1042944564482048589
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_9
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 997
+        width: 12
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0726be47cb605b160800000000000000
+      internalID: 7040540998948840048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_10
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 954
+        width: 14
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc72788bffe2e72f0800000000000000
+      internalID: -973288793618044979
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_11
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 952
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b61ea54be77b66ff0800000000000000
+      internalID: -43145391593823893
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_12
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 955
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 37db7d165a6406b50800000000000000
+      internalID: 6584340331340742003
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_13
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 951
+        width: 10
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6867ac4a1ff0d37f0800000000000000
+      internalID: -631330842235734394
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_14
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 951
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c4952eee0e5bdaad0800000000000000
+      internalID: -2689293424785204916
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_15
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 953
+        width: 10
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c9639a6760a09580800000000000000
+      internalID: -8822375303988680256
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_16
+      rect:
+        serializedVersion: 2
+        x: 122
+        y: 954
+        width: 10
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5d23effe3df3a2f90800000000000000
+      internalID: -6977694493160099115
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_17
+      rect:
+        serializedVersion: 2
+        x: 146
+        y: 953
+        width: 9
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 939f4dc170253cdb0800000000000000
+      internalID: -4772880989580625607
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_18
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 953
+        width: 11
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 83417ecf0d9083040800000000000000
+      internalID: 4627459410324034616
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_19
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 907
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ad838c25f5ad4cc0800000000000000
+      internalID: -3725138844333142621
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_20
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 907
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 144e58ee36be58360800000000000000
+      internalID: 7171396796093424705
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_21
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 907
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9e843db9c6b55f010800000000000000
+      internalID: 1221983395929868521
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_22
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 907
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8fcc48346d3f3d5a0800000000000000
+      internalID: -6497581735784166152
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_23
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 907
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9cc270eecf01b2bb0800000000000000
+      internalID: -4959851886107218743
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_24
+      rect:
+        serializedVersion: 2
+        x: 122
+        y: 907
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a41fd2243e05219b0800000000000000
+      internalID: -5110933690113986230
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_25
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 862
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c29a2f288e63b5790800000000000000
+      internalID: -7540372778844509908
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_26
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 862
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 53bd14d22f23c7e60800000000000000
+      internalID: 7961294257006959413
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_27
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 862
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c292cb2fce6364f0800000000000000
+      internalID: -836703269689322813
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_28
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 862
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 385914029ebf675e0800000000000000
+      internalID: -1912064013085076093
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_29
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 862
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 38618fdedc5c47060800000000000000
+      internalID: 6950397613190944387
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_30
+      rect:
+        serializedVersion: 2
+        x: 122
+        y: 862
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: daf648e03ae9bca80800000000000000
+      internalID: -8445482253042815059
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_31
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 817
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2e11980c9bde628b0800000000000000
+      internalID: -5177189339560865310
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_32
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 817
+        width: 10
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8e0d35558b9fa16d0800000000000000
+      internalID: -3018826030097641240
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_33
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 817
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a869454749fd9b070800000000000000
+      internalID: 8122769231639254666
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_34
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 772
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 05b0dca4dd893cfc0800000000000000
+      internalID: -3475766411189744816
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_35
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 772
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f8f99d79f134e4680800000000000000
+      internalID: -8768997621473108081
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_36
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 772
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7d128af052b573770800000000000000
+      internalID: 8590435028967104983
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_37
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 727
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8cb001181b40f3ab0800000000000000
+      internalID: -5026293498701149240
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_38
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 727
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c8e39d79cf280630800000000000000
+      internalID: 3893414420303571142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_39
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 727
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7722b3f4cdee91950800000000000000
+      internalID: 6420425373782844023
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_40
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 682
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 093aa786efc97ac20800000000000000
+      internalID: 3217713075268002704
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_41
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 682
+        width: 6
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 060143d6eee745ee0800000000000000
+      internalID: -1273253232139562912
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_42
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 684
+        width: 8
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ebb99e35d716015b0800000000000000
+      internalID: -5399708762310599746
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_43
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 682
+        width: 7
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4648c1b947975fad0800000000000000
+      internalID: -2669093662421646236
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_44
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 684
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e8bebe82075772010800000000000000
+      internalID: 1164028153281899406
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_45
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 682
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f8223cc8312f23260800000000000000
+      internalID: 7075984130332369551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_46
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 682
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b92fd63d4c6c54d30800000000000000
+      internalID: 4415153558369727131
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_47
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 637
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 78c47e54e3f92da40800000000000000
+      internalID: 5391546793725480071
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_48
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 637
+        width: 11
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2840ff1b47c35f600800000000000000
+      internalID: 501373405421831298
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_49
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 637
+        width: 12
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 958d54c198ac0a9e0800000000000000
+      internalID: -1612065976364967847
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_50
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 637
+        width: 13
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 71dc6ddca2b994ab0800000000000000
+      internalID: -5023313301210739433
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_51
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 637
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 282e570322702e010800000000000000
+      internalID: 1216542692766769794
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_52
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 592
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 42dcda7e3f51b5850800000000000000
+      internalID: 6366706635526491428
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_53
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 593
+        width: 14
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cf6afdb9601ca7ef0800000000000000
+      internalID: -109563006788065540
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_54
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 592
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f7e9d824d3bd9df0800000000000000
+      internalID: -171783486970402832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_55
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 592
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b347b880adba6ee90800000000000000
+      internalID: -6996716018138909637
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_56
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 592
+        width: 10
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b3870fbb45dd00180800000000000000
+      internalID: -9151071086816757701
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_57
+      rect:
+        serializedVersion: 2
+        x: 122
+        y: 592
+        width: 10
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f6574e51b2e654e30800000000000000
+      internalID: 4487113735074510191
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_58
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 592
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a751d4c8e36104b0800000000000000
+      internalID: -5475985820520196186
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_59
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 547
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a58f66f15e081b5c0800000000000000
+      internalID: -4201435255797254054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_60
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 548
+        width: 14
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bc7cbc99ebedba650800000000000000
+      internalID: 6245330218484746187
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_61
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 547
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b7e4f0cfeb66158b0800000000000000
+      internalID: -5165234327158567301
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_62
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 547
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 73b73b79e40f53b40800000000000000
+      internalID: 5419501946953497399
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_63
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 547
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 87841b9d230e17d70800000000000000
+      internalID: 9039252436114557048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_64
+      rect:
+        serializedVersion: 2
+        x: 122
+        y: 547
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 145103affaec716f0800000000000000
+      internalID: -713874760702880447
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_65
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 547
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d328f87a07de88590800000000000000
+      internalID: -7671620897122319811
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_66
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 502
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 51e9b7ff458605f90800000000000000
+      internalID: -6966953909269324267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_67
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 502
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 10570b5ea50dc7910800000000000000
+      internalID: 1836571836879500545
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_68
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 502
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 98a612e0f3b4d6310800000000000000
+      internalID: 1399857793374186121
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_69
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 502
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 89e84b56a91f3f690800000000000000
+      internalID: -7569440903246082408
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_70
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 502
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d52dc6c879ab86580800000000000000
+      internalID: -8833605509028457891
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_71
+      rect:
+        serializedVersion: 2
+        x: 122
+        y: 502
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: da894ee82aab8bcc0800000000000000
+      internalID: -3694998286912677715
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_72
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 457
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ebd86062a5d132070800000000000000
+      internalID: 8080334429455027646
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_73
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 457
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 90d446cffdfb05bd0800000000000000
+      internalID: -2643402012533437175
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_74
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 457
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 269b4f8b38fe912b0800000000000000
+      internalID: -5613192111517812382
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_75
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 457
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 02fce06d8a86e99b0800000000000000
+      internalID: -5071501056017510624
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_76
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 457
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a9e3f83bf25c0c9f0800000000000000
+      internalID: -450143154070405478
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_77
+      rect:
+        serializedVersion: 2
+        x: 122
+        y: 457
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bc3644ac00e247040800000000000000
+      internalID: 4644387696654181323
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_78
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 412
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9541d4aeb85e40480800000000000000
+      internalID: -8933763371702086567
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_79
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 412
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f9a361c75904b6f50800000000000000
+      internalID: 6875660266887330463
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_80
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 412
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c9c2013ca31692060800000000000000
+      internalID: 6929176406694833308
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_81
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 412
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 92eff22e0d6323210800000000000000
+      internalID: 1311170712294129193
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_82
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 412
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 137a6af9ff4f5a130800000000000000
+      internalID: 3577534857748064049
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_83
+      rect:
+        serializedVersion: 2
+        x: 122
+        y: 412
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf08e88eae33065b0800000000000000
+      internalID: -5377240871063355141
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_84
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 412
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 791dccadc41078040800000000000000
+      internalID: 4649686569883324823
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_85
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 412
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b5c2a18ed01c85c80800000000000000
+      internalID: -8333698844976337829
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_86
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 367
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fec409c78d23664b0800000000000000
+      internalID: -5447610793873879825
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_87
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 367
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2e28b23dba5a2d5e0800000000000000
+      internalID: -1886263136513981726
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_88
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 367
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 10c58eeb6cbd76780800000000000000
+      internalID: -8689735309335176191
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_89
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 367
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 756397f103c6f6b10800000000000000
+      internalID: 1976917715381204567
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_90
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 367
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 441c870970e91f4f0800000000000000
+      internalID: -796681903742074556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_91
+      rect:
+        serializedVersion: 2
+        x: 122
+        y: 367
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c831e593141f259f0800000000000000
+      internalID: -481056947737586804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_92
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 367
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b8e5bdbd06a5a820800000000000000
+      internalID: 2928929710621976752
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_93
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 367
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 39152eecbffa96ad0800000000000000
+      internalID: -2708440204844052077
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_94
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 322
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a3c0ee45470ff390800000000000000
+      internalID: -7782493636815436890
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_95
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 322
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 91a512a1abdd3f9c0800000000000000
+      internalID: -3894525461373298151
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_96
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 322
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f8db6bd7ef5875470800000000000000
+      internalID: 8383316559450783119
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_97
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 322
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f82a56dd528dbeac0800000000000000
+      internalID: -3824725801381289329
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_98
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 322
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a9f2f5c34415f8430800000000000000
+      internalID: 3787335165154373530
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_99
+      rect:
+        serializedVersion: 2
+        x: 122
+        y: 322
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 107c0af1bd2bc20e0800000000000000
+      internalID: -2293261456040212735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_100
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 322
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ab6fba6a82c85bfa0800000000000000
+      internalID: -5785564040064665926
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_101
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 322
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 37c9fa41bc29a0b20800000000000000
+      internalID: 3101452694321077363
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_102
+      rect:
+        serializedVersion: 2
+        x: 191
+        y: 322
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b0af011564fa18ce0800000000000000
+      internalID: -1404648892220245493
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_103
+      rect:
+        serializedVersion: 2
+        x: 214
+        y: 322
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bc420db9b4e1b0230800000000000000
+      internalID: 3606009236725703883
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_104
+      rect:
+        serializedVersion: 2
+        x: 237
+        y: 322
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d30be22bee07f1a0800000000000000
+      internalID: -6775930711289691184
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_105
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 322
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b1b688b8682173fe0800000000000000
+      internalID: -1209477605849797861
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_106
+      rect:
+        serializedVersion: 2
+        x: 283
+        y: 322
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 70eed2d6da2915a20800000000000000
+      internalID: 3049379696265260551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_107
+      rect:
+        serializedVersion: 2
+        x: 306
+        y: 322
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bcd8484726f3c8130800000000000000
+      internalID: 3570298296692149707
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_108
+      rect:
+        serializedVersion: 2
+        x: 329
+        y: 322
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 21a9fb0a554a7c3f0800000000000000
+      internalID: -880554514451555822
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_109
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 277
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4b81eb3b806c73580800000000000000
+      internalID: -8847385202268432204
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_110
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 277
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cb9d50bb538018030800000000000000
+      internalID: 3495083812680227260
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_111
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 277
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fd57148e714216270800000000000000
+      internalID: 8241908478164170207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_112
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 277
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c3df031ecfcaba00800000000000000
+      internalID: 773158770037478343
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_113
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 277
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 75f93224448d43f80800000000000000
+      internalID: -8127633639817896105
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_114
+      rect:
+        serializedVersion: 2
+        x: 122
+        y: 277
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8cfdfaae0c1423e90800000000000000
+      internalID: -7047498170054484024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_115
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 277
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b101344f3ee1822d0800000000000000
+      internalID: -3303356362271813605
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_116
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 277
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7ef46c8ed1322a7d0800000000000000
+      internalID: -2908723797961584665
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_117
+      rect:
+        serializedVersion: 2
+        x: 191
+        y: 277
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 62d3f781cce067e40800000000000000
+      internalID: 5653722651957345574
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_118
+      rect:
+        serializedVersion: 2
+        x: 214
+        y: 277
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7cc94aedf62824d20800000000000000
+      internalID: 3261312497157971143
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_119
+      rect:
+        serializedVersion: 2
+        x: 237
+        y: 277
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b192917e84edc6090800000000000000
+      internalID: -8039806830066980581
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_120
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 277
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 89d478a8680b8a410800000000000000
+      internalID: 1488633768742178200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_121
+      rect:
+        serializedVersion: 2
+        x: 283
+        y: 277
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 00ea12b64e45c7cc0800000000000000
+      internalID: -3711998652833485312
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_122
+      rect:
+        serializedVersion: 2
+        x: 306
+        y: 277
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f03f51af23f96a200800000000000000
+      internalID: 191015075502748431
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_123
+      rect:
+        serializedVersion: 2
+        x: 329
+        y: 277
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ded0e1e4fdb0c6f0800000000000000
+      internalID: -666323885391552813
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_124
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 232
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 08286c8bd2dd2ee90800000000000000
+      internalID: -6997787682537045376
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_125
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 232
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c92332befad61ed30800000000000000
+      internalID: 4458965708405158556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_126
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 232
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c1c9c066c6ba42620800000000000000
+      internalID: 2748510154659765276
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_127
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 232
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 598b8133e6caf1300800000000000000
+      internalID: 225088095695452309
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_128
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 232
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1254d3fef727a7d40800000000000000
+      internalID: 5582900581879334177
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_129
+      rect:
+        serializedVersion: 2
+        x: 122
+        y: 232
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 94d9d79d703045590800000000000000
+      internalID: -7686515331766051511
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_130
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 232
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e0e21b243c12bd270800000000000000
+      internalID: 8276245862744665614
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_131
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 232
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: abf503742a6d85090800000000000000
+      internalID: -8045444741829992518
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_132
+      rect:
+        serializedVersion: 2
+        x: 191
+        y: 232
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e2a4375df9d0fcff0800000000000000
+      internalID: -13777293726758354
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_133
+      rect:
+        serializedVersion: 2
+        x: 214
+        y: 232
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6505256f359ebb750800000000000000
+      internalID: 6321903048768770134
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_134
+      rect:
+        serializedVersion: 2
+        x: 237
+        y: 232
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ad90b4ef39b556300800000000000000
+      internalID: 244702445946210778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_135
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 232
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e02900abbdb499370800000000000000
+      internalID: 8329772392888963598
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_136
+      rect:
+        serializedVersion: 2
+        x: 283
+        y: 232
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7a0ac0f97992e1150800000000000000
+      internalID: 5845155097558687911
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_137
+      rect:
+        serializedVersion: 2
+        x: 306
+        y: 232
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ffa8730e6d4a3e10800000000000000
+      internalID: 2178138504687038454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_138
+      rect:
+        serializedVersion: 2
+        x: 329
+        y: 232
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae84467b1a165ffe0800000000000000
+      internalID: -1155910382156232470
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_139
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 232
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 333c2ea205f1d9880800000000000000
+      internalID: -8602685284030430413
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_140
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 187
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c890257a6a0e1bdd0800000000000000
+      internalID: -2471947714073327220
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_141
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 187
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1f3f4506d7cc9cc70800000000000000
+      internalID: 8991942969881064433
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_142
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 187
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 41e06816c6ee37b50800000000000000
+      internalID: 6589872829033221652
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_143
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 187
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 49b35f89e969eea90800000000000000
+      internalID: -7282717939496305772
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_144
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 187
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d0f160a0ed8dedca0800000000000000
+      internalID: -5990112006193668339
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_145
+      rect:
+        serializedVersion: 2
+        x: 122
+        y: 187
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b5276be8cad296480800000000000000
+      internalID: -8905536568996498853
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_146
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 187
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c9480534680e75aa0800000000000000
+      internalID: -6172217897028385636
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_147
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 187
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 41690cf3775675d40800000000000000
+      internalID: 5573034626739377684
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_148
+      rect:
+        serializedVersion: 2
+        x: 191
+        y: 187
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f0de08809cf2c8330800000000000000
+      internalID: 3714396333151415567
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_149
+      rect:
+        serializedVersion: 2
+        x: 214
+        y: 187
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a6f1ffbbe3302e50800000000000000
+      internalID: 6782478126450603686
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_150
+      rect:
+        serializedVersion: 2
+        x: 237
+        y: 187
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 87982c0767d79e3b0800000000000000
+      internalID: -5482713123695457928
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_151
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 187
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e023bc5b3a23a6300800000000000000
+      internalID: 246064808356164110
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_152
+      rect:
+        serializedVersion: 2
+        x: 283
+        y: 187
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 735816e4e2c2cb170800000000000000
+      internalID: 8195473999302591799
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_153
+      rect:
+        serializedVersion: 2
+        x: 306
+        y: 187
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ac32051bf225f7d30800000000000000
+      internalID: 4431350923147617226
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_154
+      rect:
+        serializedVersion: 2
+        x: 329
+        y: 187
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 81bb092711312bf40800000000000000
+      internalID: 5742673440508263192
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_155
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 187
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c43c3a069fbdcc1f0800000000000000
+      internalID: -1023201151205260468
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_156
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 142
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f887f9b6054fb830800000000000000
+      internalID: 4089062881867827445
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_157
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 142
+        width: 10
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6137f1403cf481f30800000000000000
+      internalID: 4546471522836902678
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_158
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 142
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d7f0ef16ec7631230800000000000000
+      internalID: 3608341862558863229
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_159
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 142
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0e296f79b8610a460800000000000000
+      internalID: 7250820188872282848
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_160
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 142
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aa20d2243e59e71e0800000000000000
+      internalID: -2198154764809862486
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_161
+      rect:
+        serializedVersion: 2
+        x: 122
+        y: 142
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 88157f27b9f4e79a0800000000000000
+      internalID: -6233457305166851704
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_162
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 142
+        width: 10
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d526f5ad834ca61b0800000000000000
+      internalID: -5662497833004080547
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_163
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 142
+        width: 10
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec5385758034b6920800000000000000
+      internalID: 2984552881167283662
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_164
+      rect:
+        serializedVersion: 2
+        x: 191
+        y: 142
+        width: 10
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf07a62923cff1620800000000000000
+      internalID: 2747191591854305531
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_165
+      rect:
+        serializedVersion: 2
+        x: 214
+        y: 142
+        width: 10
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6b2f316ffac305a50800000000000000
+      internalID: 6507768187995812534
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_166
+      rect:
+        serializedVersion: 2
+        x: 237
+        y: 142
+        width: 10
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 30769765303d97810800000000000000
+      internalID: 1763672740381419267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_167
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 142
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1cff7fffc84351140800000000000000
+      internalID: 4689712367170748353
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_168
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 97
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b0483386d3fbc3c0800000000000000
+      internalID: -4338105713391288142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_169
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 97
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3078213e20e8a7180800000000000000
+      internalID: -9116818352607426813
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_170
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 97
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4b3e9256d37ae4a00800000000000000
+      internalID: 742714870694798260
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_171
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 97
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: db0515a1b99cad720800000000000000
+      internalID: 2871829380400763069
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_172
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 97
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 49addfb3f3170e640800000000000000
+      internalID: 5107206493841513108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_173
+      rect:
+        serializedVersion: 2
+        x: 122
+        y: 97
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eea0b75c550566cb0800000000000000
+      internalID: -4871117617638995218
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_174
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 97
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4077c3292e09a58f0800000000000000
+      internalID: -550968701609019644
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_175
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 97
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 170c3e51acf539cf0800000000000000
+      internalID: -246748233019965327
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_176
+      rect:
+        serializedVersion: 2
+        x: 191
+        y: 97
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e6a9937b807e23f0800000000000000
+      internalID: -923677129322158364
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_177
+      rect:
+        serializedVersion: 2
+        x: 214
+        y: 97
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 881409f41303292e0800000000000000
+      internalID: -2120579486191697528
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_178
+      rect:
+        serializedVersion: 2
+        x: 237
+        y: 97
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a5bebcf6bef9dce0800000000000000
+      internalID: -1379791748934486618
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_179
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 97
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d6b8ad29c4cd96130800000000000000
+      internalID: 3560619201852509037
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_180
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 52
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4108a55b9e759bbb0800000000000000
+      internalID: -4919804456643952620
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_181
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 52
+        width: 12
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 26707a63388d55500800000000000000
+      internalID: 384451401279276898
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_182
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 54
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a2eba601f46542770800000000000000
+      internalID: 8585081687252844074
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_183
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 55
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 58f3e6d63387ac7b0800000000000000
+      internalID: -5203214257198579835
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_184
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 55
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f7ab4d4891e23970800000000000000
+      internalID: 8733290671672895480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_185
+      rect:
+        serializedVersion: 2
+        x: 121
+        y: 52
+        width: 12
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 43ee0de3e7c1d9eb0800000000000000
+      internalID: -4711578306614333900
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_186
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 52
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 45944e4ead9f34c50800000000000000
+      internalID: 6648432193467337044
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_187
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 52
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ce09b05240a2e700800000000000000
+      internalID: 568192709684694722
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_188
+      rect:
+        serializedVersion: 2
+        x: 191
+        y: 52
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6347211f7bb910520800000000000000
+      internalID: 2666583668705883190
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_189
+      rect:
+        serializedVersion: 2
+        x: 214
+        y: 52
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b9ad8e480fa1e3410800000000000000
+      internalID: 1458632949638945435
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_190
+      rect:
+        serializedVersion: 2
+        x: 237
+        y: 52
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e56286ff649c76c60800000000000000
+      internalID: 7811433385467323998
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_191
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 52
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fb9ca3ace4d2e5f70800000000000000
+      internalID: 9177822907051198911
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_192
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 7
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 00290cdc7dbebd230800000000000000
+      internalID: 3664782033898476032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_193
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 7
+        width: 12
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ea41d25fa0b57db0800000000000000
+      internalID: -4794731961210811680
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_194
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 9
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 168eb2c29bcab39a0800000000000000
+      internalID: -6252213746363799455
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_195
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 10
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 97986f5a0a2a98f30800000000000000
+      internalID: 4578369307061684601
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_196
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 10
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 02ec010257f7c5470800000000000000
+      internalID: 8384716747282894368
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_197
+      rect:
+        serializedVersion: 2
+        x: 121
+        y: 7
+        width: 12
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0e6abcbd26d3f2260800000000000000
+      internalID: 7074941034425984736
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_198
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 7
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 60cd48d10ee20f970800000000000000
+      internalID: 8786574413102636038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_199
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 7
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 59e8fa592b427ac50800000000000000
+      internalID: 6676345322034138773
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_200
+      rect:
+        serializedVersion: 2
+        x: 191
+        y: 7
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0be886f3d71719a50800000000000000
+      internalID: 6526122117785226928
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_201
+      rect:
+        serializedVersion: 2
+        x: 214
+        y: 7
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c85d6c43fbdc4e360800000000000000
+      internalID: 7198104325552788876
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_202
+      rect:
+        serializedVersion: 2
+        x: 237
+        y: 7
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e6f5920c502200f40800000000000000
+      internalID: 5692587337090424686
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PANT_1_203
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 7
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 49853e352e7022c40800000000000000
+      internalID: 5485955964742097044
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      PANT_1_0: 4497664162634604599
+      PANT_1_1: 1215622806016631234
+      PANT_1_10: -973288793618044979
+      PANT_1_100: -5785564040064665926
+      PANT_1_101: 3101452694321077363
+      PANT_1_102: -1404648892220245493
+      PANT_1_103: 3606009236725703883
+      PANT_1_104: -6775930711289691184
+      PANT_1_105: -1209477605849797861
+      PANT_1_106: 3049379696265260551
+      PANT_1_107: 3570298296692149707
+      PANT_1_108: -880554514451555822
+      PANT_1_109: -8847385202268432204
+      PANT_1_11: -43145391593823893
+      PANT_1_110: 3495083812680227260
+      PANT_1_111: 8241908478164170207
+      PANT_1_112: 773158770037478343
+      PANT_1_113: -8127633639817896105
+      PANT_1_114: -7047498170054484024
+      PANT_1_115: -3303356362271813605
+      PANT_1_116: -2908723797961584665
+      PANT_1_117: 5653722651957345574
+      PANT_1_118: 3261312497157971143
+      PANT_1_119: -8039806830066980581
+      PANT_1_12: 6584340331340742003
+      PANT_1_120: 1488633768742178200
+      PANT_1_121: -3711998652833485312
+      PANT_1_122: 191015075502748431
+      PANT_1_123: -666323885391552813
+      PANT_1_124: -6997787682537045376
+      PANT_1_125: 4458965708405158556
+      PANT_1_126: 2748510154659765276
+      PANT_1_127: 225088095695452309
+      PANT_1_128: 5582900581879334177
+      PANT_1_129: -7686515331766051511
+      PANT_1_13: -631330842235734394
+      PANT_1_130: 8276245862744665614
+      PANT_1_131: -8045444741829992518
+      PANT_1_132: -13777293726758354
+      PANT_1_133: 6321903048768770134
+      PANT_1_134: 244702445946210778
+      PANT_1_135: 8329772392888963598
+      PANT_1_136: 5845155097558687911
+      PANT_1_137: 2178138504687038454
+      PANT_1_138: -1155910382156232470
+      PANT_1_139: -8602685284030430413
+      PANT_1_14: -2689293424785204916
+      PANT_1_140: -2471947714073327220
+      PANT_1_141: 8991942969881064433
+      PANT_1_142: 6589872829033221652
+      PANT_1_143: -7282717939496305772
+      PANT_1_144: -5990112006193668339
+      PANT_1_145: -8905536568996498853
+      PANT_1_146: -6172217897028385636
+      PANT_1_147: 5573034626739377684
+      PANT_1_148: 3714396333151415567
+      PANT_1_149: 6782478126450603686
+      PANT_1_15: -8822375303988680256
+      PANT_1_150: -5482713123695457928
+      PANT_1_151: 246064808356164110
+      PANT_1_152: 8195473999302591799
+      PANT_1_153: 4431350923147617226
+      PANT_1_154: 5742673440508263192
+      PANT_1_155: -1023201151205260468
+      PANT_1_156: 4089062881867827445
+      PANT_1_157: 4546471522836902678
+      PANT_1_158: 3608341862558863229
+      PANT_1_159: 7250820188872282848
+      PANT_1_16: -6977694493160099115
+      PANT_1_160: -2198154764809862486
+      PANT_1_161: -6233457305166851704
+      PANT_1_162: -5662497833004080547
+      PANT_1_163: 2984552881167283662
+      PANT_1_164: 2747191591854305531
+      PANT_1_165: 6507768187995812534
+      PANT_1_166: 1763672740381419267
+      PANT_1_167: 4689712367170748353
+      PANT_1_168: -4338105713391288142
+      PANT_1_169: -9116818352607426813
+      PANT_1_17: -4772880989580625607
+      PANT_1_170: 742714870694798260
+      PANT_1_171: 2871829380400763069
+      PANT_1_172: 5107206493841513108
+      PANT_1_173: -4871117617638995218
+      PANT_1_174: -550968701609019644
+      PANT_1_175: -246748233019965327
+      PANT_1_176: -923677129322158364
+      PANT_1_177: -2120579486191697528
+      PANT_1_178: -1379791748934486618
+      PANT_1_179: 3560619201852509037
+      PANT_1_18: 4627459410324034616
+      PANT_1_180: -4919804456643952620
+      PANT_1_181: 384451401279276898
+      PANT_1_182: 8585081687252844074
+      PANT_1_183: -5203214257198579835
+      PANT_1_184: 8733290671672895480
+      PANT_1_185: -4711578306614333900
+      PANT_1_186: 6648432193467337044
+      PANT_1_187: 568192709684694722
+      PANT_1_188: 2666583668705883190
+      PANT_1_189: 1458632949638945435
+      PANT_1_19: -3725138844333142621
+      PANT_1_190: 7811433385467323998
+      PANT_1_191: 9177822907051198911
+      PANT_1_192: 3664782033898476032
+      PANT_1_193: -4794731961210811680
+      PANT_1_194: -6252213746363799455
+      PANT_1_195: 4578369307061684601
+      PANT_1_196: 8384716747282894368
+      PANT_1_197: 7074941034425984736
+      PANT_1_198: 8786574413102636038
+      PANT_1_199: 6676345322034138773
+      PANT_1_2: 296201871530755030
+      PANT_1_20: 7171396796093424705
+      PANT_1_200: 6526122117785226928
+      PANT_1_201: 7198104325552788876
+      PANT_1_202: 5692587337090424686
+      PANT_1_203: 5485955964742097044
+      PANT_1_21: 1221983395929868521
+      PANT_1_22: -6497581735784166152
+      PANT_1_23: -4959851886107218743
+      PANT_1_24: -5110933690113986230
+      PANT_1_25: -7540372778844509908
+      PANT_1_26: 7961294257006959413
+      PANT_1_27: -836703269689322813
+      PANT_1_28: -1912064013085076093
+      PANT_1_29: 6950397613190944387
+      PANT_1_3: -3893503300557514551
+      PANT_1_30: -8445482253042815059
+      PANT_1_31: -5177189339560865310
+      PANT_1_32: -3018826030097641240
+      PANT_1_33: 8122769231639254666
+      PANT_1_34: -3475766411189744816
+      PANT_1_35: -8768997621473108081
+      PANT_1_36: 8590435028967104983
+      PANT_1_37: -5026293498701149240
+      PANT_1_38: 3893414420303571142
+      PANT_1_39: 6420425373782844023
+      PANT_1_4: 6422667572469833496
+      PANT_1_40: 3217713075268002704
+      PANT_1_41: -1273253232139562912
+      PANT_1_42: -5399708762310599746
+      PANT_1_43: -2669093662421646236
+      PANT_1_44: 1164028153281899406
+      PANT_1_45: 7075984130332369551
+      PANT_1_46: 4415153558369727131
+      PANT_1_47: 5391546793725480071
+      PANT_1_48: 501373405421831298
+      PANT_1_49: -1612065976364967847
+      PANT_1_5: 341510832461629968
+      PANT_1_50: -5023313301210739433
+      PANT_1_51: 1216542692766769794
+      PANT_1_52: 6366706635526491428
+      PANT_1_53: -109563006788065540
+      PANT_1_54: -171783486970402832
+      PANT_1_55: -6996716018138909637
+      PANT_1_56: -9151071086816757701
+      PANT_1_57: 4487113735074510191
+      PANT_1_58: -5475985820520196186
+      PANT_1_59: -4201435255797254054
+      PANT_1_6: -5543645773257370195
+      PANT_1_60: 6245330218484746187
+      PANT_1_61: -5165234327158567301
+      PANT_1_62: 5419501946953497399
+      PANT_1_63: 9039252436114557048
+      PANT_1_64: -713874760702880447
+      PANT_1_65: -7671620897122319811
+      PANT_1_66: -6966953909269324267
+      PANT_1_67: 1836571836879500545
+      PANT_1_68: 1399857793374186121
+      PANT_1_69: -7569440903246082408
+      PANT_1_7: -9070974979691524428
+      PANT_1_70: -8833605509028457891
+      PANT_1_71: -3694998286912677715
+      PANT_1_72: 8080334429455027646
+      PANT_1_73: -2643402012533437175
+      PANT_1_74: -5613192111517812382
+      PANT_1_75: -5071501056017510624
+      PANT_1_76: -450143154070405478
+      PANT_1_77: 4644387696654181323
+      PANT_1_78: -8933763371702086567
+      PANT_1_79: 6875660266887330463
+      PANT_1_8: -1042944564482048589
+      PANT_1_80: 6929176406694833308
+      PANT_1_81: 1311170712294129193
+      PANT_1_82: 3577534857748064049
+      PANT_1_83: -5377240871063355141
+      PANT_1_84: 4649686569883324823
+      PANT_1_85: -8333698844976337829
+      PANT_1_86: -5447610793873879825
+      PANT_1_87: -1886263136513981726
+      PANT_1_88: -8689735309335176191
+      PANT_1_89: 1976917715381204567
+      PANT_1_9: 7040540998948840048
+      PANT_1_90: -796681903742074556
+      PANT_1_91: -481056947737586804
+      PANT_1_92: 2928929710621976752
+      PANT_1_93: -2708440204844052077
+      PANT_1_94: -7782493636815436890
+      PANT_1_95: -3894525461373298151
+      PANT_1_96: 8383316559450783119
+      PANT_1_97: -3824725801381289329
+      PANT_1_98: 3787335165154373530
+      PANT_1_99: -2293261456040212735
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

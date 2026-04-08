@@ -1,0 +1,6383 @@
+fileFormatVersion: 2
+guid: 5c2dc2bfd9f379a4baf327e514f4bc64
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 702914229369733228
+    second: OVER_CLOTH_1_0
+  - first:
+      213: 2473569696609775351
+    second: OVER_CLOTH_1_1
+  - first:
+      213: 4786895492688045734
+    second: OVER_CLOTH_1_2
+  - first:
+      213: 8226582827575909275
+    second: OVER_CLOTH_1_3
+  - first:
+      213: -8520260922720271949
+    second: OVER_CLOTH_1_4
+  - first:
+      213: -4437927867076647523
+    second: OVER_CLOTH_1_5
+  - first:
+      213: -1129975488625196107
+    second: OVER_CLOTH_1_6
+  - first:
+      213: -7833847867580165572
+    second: OVER_CLOTH_1_7
+  - first:
+      213: -8880183189128982365
+    second: OVER_CLOTH_1_8
+  - first:
+      213: 459502110201607357
+    second: OVER_CLOTH_1_9
+  - first:
+      213: 3139657721462704521
+    second: OVER_CLOTH_1_10
+  - first:
+      213: 8344711748355695864
+    second: OVER_CLOTH_1_11
+  - first:
+      213: 7873475946511830571
+    second: OVER_CLOTH_1_12
+  - first:
+      213: 7383683718750039880
+    second: OVER_CLOTH_1_13
+  - first:
+      213: 1516840165274805815
+    second: OVER_CLOTH_1_14
+  - first:
+      213: 746902018679916423
+    second: OVER_CLOTH_1_15
+  - first:
+      213: -2448200662685833069
+    second: OVER_CLOTH_1_16
+  - first:
+      213: 5495288181436273946
+    second: OVER_CLOTH_1_17
+  - first:
+      213: -4775690728130045152
+    second: OVER_CLOTH_1_18
+  - first:
+      213: -2826441225317985825
+    second: OVER_CLOTH_1_19
+  - first:
+      213: 1595590314854823580
+    second: OVER_CLOTH_1_20
+  - first:
+      213: -4712820938507225740
+    second: OVER_CLOTH_1_21
+  - first:
+      213: 356317002378483883
+    second: OVER_CLOTH_1_22
+  - first:
+      213: -374491419502389264
+    second: OVER_CLOTH_1_23
+  - first:
+      213: -4289321465081027051
+    second: OVER_CLOTH_1_24
+  - first:
+      213: 5331256440325307711
+    second: OVER_CLOTH_1_25
+  - first:
+      213: -6710434124827817927
+    second: OVER_CLOTH_1_26
+  - first:
+      213: -8401277233522072445
+    second: OVER_CLOTH_1_27
+  - first:
+      213: 1276475920714567439
+    second: OVER_CLOTH_1_28
+  - first:
+      213: 1968732349267326976
+    second: OVER_CLOTH_1_29
+  - first:
+      213: 7769149286986733291
+    second: OVER_CLOTH_1_30
+  - first:
+      213: 2277980615155568939
+    second: OVER_CLOTH_1_31
+  - first:
+      213: 1278075635136328719
+    second: OVER_CLOTH_1_32
+  - first:
+      213: -3591548342795817203
+    second: OVER_CLOTH_1_33
+  - first:
+      213: 3672085074608464510
+    second: OVER_CLOTH_1_34
+  - first:
+      213: -6373475178483730562
+    second: OVER_CLOTH_1_35
+  - first:
+      213: 470564337689956679
+    second: OVER_CLOTH_1_36
+  - first:
+      213: -8351249418165423256
+    second: OVER_CLOTH_1_37
+  - first:
+      213: -2410399260784175424
+    second: OVER_CLOTH_1_38
+  - first:
+      213: 3708015863725728137
+    second: OVER_CLOTH_1_39
+  - first:
+      213: 5106483392966433481
+    second: OVER_CLOTH_1_40
+  - first:
+      213: 1015209793205268963
+    second: OVER_CLOTH_1_41
+  - first:
+      213: -6268854830933021170
+    second: OVER_CLOTH_1_42
+  - first:
+      213: -4468445402913165624
+    second: OVER_CLOTH_1_43
+  - first:
+      213: -4991939845857038241
+    second: OVER_CLOTH_1_44
+  - first:
+      213: -559274097182509079
+    second: OVER_CLOTH_1_45
+  - first:
+      213: -8291927102412970677
+    second: OVER_CLOTH_1_46
+  - first:
+      213: -79438192605896238
+    second: OVER_CLOTH_1_47
+  - first:
+      213: -8221603146558613760
+    second: OVER_CLOTH_1_48
+  - first:
+      213: 509729218928886091
+    second: OVER_CLOTH_1_49
+  - first:
+      213: -7326791372927504169
+    second: OVER_CLOTH_1_50
+  - first:
+      213: -5497689191899167822
+    second: OVER_CLOTH_1_51
+  - first:
+      213: 7592219547184522742
+    second: OVER_CLOTH_1_52
+  - first:
+      213: 6032398256306169272
+    second: OVER_CLOTH_1_53
+  - first:
+      213: 8521427456605470593
+    second: OVER_CLOTH_1_54
+  - first:
+      213: 3559014615578279764
+    second: OVER_CLOTH_1_55
+  - first:
+      213: 4976065789427228319
+    second: OVER_CLOTH_1_56
+  - first:
+      213: 2545354990394045315
+    second: OVER_CLOTH_1_57
+  - first:
+      213: -3184789578250647494
+    second: OVER_CLOTH_1_58
+  - first:
+      213: 480016992765205767
+    second: OVER_CLOTH_1_59
+  - first:
+      213: -461065629786704725
+    second: OVER_CLOTH_1_60
+  - first:
+      213: -2530943677013677196
+    second: OVER_CLOTH_1_61
+  - first:
+      213: 7561479821946968141
+    second: OVER_CLOTH_1_62
+  - first:
+      213: -4461407726358528156
+    second: OVER_CLOTH_1_63
+  - first:
+      213: 7191154728688169509
+    second: OVER_CLOTH_1_64
+  - first:
+      213: 7726839618895293024
+    second: OVER_CLOTH_1_65
+  - first:
+      213: 188407590206682132
+    second: OVER_CLOTH_1_66
+  - first:
+      213: -5911303148228430900
+    second: OVER_CLOTH_1_67
+  - first:
+      213: 8767674507268760936
+    second: OVER_CLOTH_1_68
+  - first:
+      213: 1257054451128894726
+    second: OVER_CLOTH_1_69
+  - first:
+      213: -7474354687941518370
+    second: OVER_CLOTH_1_70
+  - first:
+      213: -8613355340143841598
+    second: OVER_CLOTH_1_71
+  - first:
+      213: 8169826568683895680
+    second: OVER_CLOTH_1_72
+  - first:
+      213: 915163256557048382
+    second: OVER_CLOTH_1_73
+  - first:
+      213: -7145666037035471002
+    second: OVER_CLOTH_1_74
+  - first:
+      213: -629372309345302180
+    second: OVER_CLOTH_1_75
+  - first:
+      213: -3693236405226784740
+    second: OVER_CLOTH_1_76
+  - first:
+      213: -3660584234404113008
+    second: OVER_CLOTH_1_77
+  - first:
+      213: 2081793106367126017
+    second: OVER_CLOTH_1_78
+  - first:
+      213: 6808369001577537456
+    second: OVER_CLOTH_1_79
+  - first:
+      213: -8608326459183260858
+    second: OVER_CLOTH_1_80
+  - first:
+      213: 2862983946303121835
+    second: OVER_CLOTH_1_81
+  - first:
+      213: 7692686249326604905
+    second: OVER_CLOTH_1_82
+  - first:
+      213: -140111013839207391
+    second: OVER_CLOTH_1_83
+  - first:
+      213: 5951958024759195875
+    second: OVER_CLOTH_1_84
+  - first:
+      213: 6446669257214519604
+    second: OVER_CLOTH_1_85
+  - first:
+      213: -4658735494369317619
+    second: OVER_CLOTH_1_86
+  - first:
+      213: -4059241442238024681
+    second: OVER_CLOTH_1_87
+  - first:
+      213: -1060155729618173561
+    second: OVER_CLOTH_1_88
+  - first:
+      213: -2061948963269990159
+    second: OVER_CLOTH_1_89
+  - first:
+      213: -4569814489041155343
+    second: OVER_CLOTH_1_90
+  - first:
+      213: -4574656149775915232
+    second: OVER_CLOTH_1_91
+  - first:
+      213: 4528341461264100657
+    second: OVER_CLOTH_1_92
+  - first:
+      213: 2502904199203647317
+    second: OVER_CLOTH_1_93
+  - first:
+      213: -2964891433472028242
+    second: OVER_CLOTH_1_94
+  - first:
+      213: 644600483967157202
+    second: OVER_CLOTH_1_95
+  - first:
+      213: 2319602270503666808
+    second: OVER_CLOTH_1_96
+  - first:
+      213: 3343170206456291781
+    second: OVER_CLOTH_1_97
+  - first:
+      213: 21812916747226368
+    second: OVER_CLOTH_1_98
+  - first:
+      213: 6964353577908617914
+    second: OVER_CLOTH_1_99
+  - first:
+      213: 655500784378551519
+    second: OVER_CLOTH_1_100
+  - first:
+      213: 2429582048627628524
+    second: OVER_CLOTH_1_101
+  - first:
+      213: -7083623041150536732
+    second: OVER_CLOTH_1_102
+  - first:
+      213: -2617139398223357758
+    second: OVER_CLOTH_1_103
+  - first:
+      213: 6312463875436178608
+    second: OVER_CLOTH_1_104
+  - first:
+      213: -7665279436658935828
+    second: OVER_CLOTH_1_105
+  - first:
+      213: 3699488216648560194
+    second: OVER_CLOTH_1_106
+  - first:
+      213: -4945452094388199149
+    second: OVER_CLOTH_1_107
+  - first:
+      213: 2799046298473364585
+    second: OVER_CLOTH_1_108
+  - first:
+      213: 9165043129602597011
+    second: OVER_CLOTH_1_109
+  - first:
+      213: 3523401983328985555
+    second: OVER_CLOTH_1_110
+  - first:
+      213: -374151266193606929
+    second: OVER_CLOTH_1_111
+  - first:
+      213: 2205112542961381869
+    second: OVER_CLOTH_1_112
+  - first:
+      213: 324476989014469926
+    second: OVER_CLOTH_1_113
+  - first:
+      213: 6416467001312927664
+    second: OVER_CLOTH_1_114
+  - first:
+      213: -8084867351539929832
+    second: OVER_CLOTH_1_115
+  - first:
+      213: -102339032059379963
+    second: OVER_CLOTH_1_116
+  - first:
+      213: -3505423640949230878
+    second: OVER_CLOTH_1_117
+  - first:
+      213: 6847481969302999369
+    second: OVER_CLOTH_1_118
+  - first:
+      213: 76347411808754411
+    second: OVER_CLOTH_1_119
+  - first:
+      213: 8933030933975945840
+    second: OVER_CLOTH_1_120
+  - first:
+      213: -1104541523784241618
+    second: OVER_CLOTH_1_121
+  - first:
+      213: -6727115038959853337
+    second: OVER_CLOTH_1_122
+  - first:
+      213: -8015726347911841597
+    second: OVER_CLOTH_1_123
+  - first:
+      213: -1754983677647262674
+    second: OVER_CLOTH_1_124
+  - first:
+      213: 6689881053497675212
+    second: OVER_CLOTH_1_125
+  - first:
+      213: -6030401095660352819
+    second: OVER_CLOTH_1_126
+  - first:
+      213: 7053949041950387253
+    second: OVER_CLOTH_1_127
+  - first:
+      213: -156137206768542643
+    second: OVER_CLOTH_1_128
+  - first:
+      213: -7516404129285886342
+    second: OVER_CLOTH_1_129
+  - first:
+      213: -4220511087783624527
+    second: OVER_CLOTH_1_130
+  - first:
+      213: 2226565960423592723
+    second: OVER_CLOTH_1_131
+  - first:
+      213: 7416084483360063037
+    second: OVER_CLOTH_1_132
+  - first:
+      213: 944418328188291543
+    second: OVER_CLOTH_1_133
+  - first:
+      213: 7516576262641368443
+    second: OVER_CLOTH_1_134
+  - first:
+      213: 2533979480748780471
+    second: OVER_CLOTH_1_135
+  - first:
+      213: -4829551605664790433
+    second: OVER_CLOTH_1_136
+  - first:
+      213: -381785095783268794
+    second: OVER_CLOTH_1_137
+  - first:
+      213: 2925261722078222475
+    second: OVER_CLOTH_1_138
+  - first:
+      213: 5686411165411333101
+    second: OVER_CLOTH_1_139
+  - first:
+      213: -7868540823842470570
+    second: OVER_CLOTH_1_140
+  - first:
+      213: 3992052271509490013
+    second: OVER_CLOTH_1_141
+  - first:
+      213: -4201444577509325992
+    second: OVER_CLOTH_1_142
+  - first:
+      213: -1646478655571847156
+    second: OVER_CLOTH_1_143
+  - first:
+      213: -9123337413275927691
+    second: OVER_CLOTH_1_144
+  - first:
+      213: 2690966193922706392
+    second: OVER_CLOTH_1_145
+  - first:
+      213: 1966646168313375725
+    second: OVER_CLOTH_1_146
+  - first:
+      213: 4635789286136922984
+    second: OVER_CLOTH_1_147
+  - first:
+      213: 7793716416426833578
+    second: OVER_CLOTH_1_148
+  - first:
+      213: 3378634386093802364
+    second: OVER_CLOTH_1_149
+  - first:
+      213: 6766848572502963248
+    second: OVER_CLOTH_1_150
+  - first:
+      213: 362310496381436343
+    second: OVER_CLOTH_1_151
+  - first:
+      213: -2129605693700498677
+    second: OVER_CLOTH_1_152
+  - first:
+      213: 5023982450842381551
+    second: OVER_CLOTH_1_153
+  - first:
+      213: 784251974166340882
+    second: OVER_CLOTH_1_154
+  - first:
+      213: 9116137079478659889
+    second: OVER_CLOTH_1_155
+  - first:
+      213: 6732728101195793010
+    second: OVER_CLOTH_1_156
+  - first:
+      213: 2832066069289496355
+    second: OVER_CLOTH_1_157
+  - first:
+      213: 994243539121268994
+    second: OVER_CLOTH_1_158
+  - first:
+      213: 510332985853004202
+    second: OVER_CLOTH_1_159
+  - first:
+      213: -402747054239732163
+    second: OVER_CLOTH_1_160
+  - first:
+      213: 6374400421029040612
+    second: OVER_CLOTH_1_161
+  - first:
+      213: -5111533385877919778
+    second: OVER_CLOTH_1_162
+  - first:
+      213: 5770671800126825900
+    second: OVER_CLOTH_1_163
+  - first:
+      213: 3440796479981125198
+    second: OVER_CLOTH_1_164
+  - first:
+      213: 4994219935129572103
+    second: OVER_CLOTH_1_165
+  - first:
+      213: -8746641017783398490
+    second: OVER_CLOTH_1_166
+  - first:
+      213: 4000315221991325714
+    second: OVER_CLOTH_1_167
+  - first:
+      213: 6146827381918755749
+    second: OVER_CLOTH_1_168
+  - first:
+      213: -6369793246573547681
+    second: OVER_CLOTH_1_169
+  - first:
+      213: -1049041068396774978
+    second: OVER_CLOTH_1_170
+  - first:
+      213: -8798684666759268270
+    second: OVER_CLOTH_1_171
+  - first:
+      213: 3636354080408623445
+    second: OVER_CLOTH_1_172
+  - first:
+      213: -8453412988899688490
+    second: OVER_CLOTH_1_173
+  - first:
+      213: 3272676352840666860
+    second: OVER_CLOTH_1_174
+  - first:
+      213: 3860951354587491034
+    second: OVER_CLOTH_1_175
+  - first:
+      213: -1190103805822160100
+    second: OVER_CLOTH_1_176
+  - first:
+      213: -8147929443263670871
+    second: OVER_CLOTH_1_177
+  - first:
+      213: -391138075896819047
+    second: OVER_CLOTH_1_178
+  - first:
+      213: -7277096987262379300
+    second: OVER_CLOTH_1_179
+  - first:
+      213: -8791284252438504274
+    second: OVER_CLOTH_1_180
+  - first:
+      213: -3098650405801946075
+    second: OVER_CLOTH_1_181
+  - first:
+      213: -3833850793900874001
+    second: OVER_CLOTH_1_182
+  - first:
+      213: 2277062181989229580
+    second: OVER_CLOTH_1_183
+  - first:
+      213: 1842128616509935316
+    second: OVER_CLOTH_1_184
+  - first:
+      213: 7488603093191660437
+    second: OVER_CLOTH_1_185
+  - first:
+      213: 3112969564958516630
+    second: OVER_CLOTH_1_186
+  - first:
+      213: 2061544947644728594
+    second: OVER_CLOTH_1_187
+  - first:
+      213: -5486370673550773957
+    second: OVER_CLOTH_1_188
+  - first:
+      213: -5289740178602856821
+    second: OVER_CLOTH_1_189
+  - first:
+      213: -2803969519829333244
+    second: OVER_CLOTH_1_190
+  - first:
+      213: 4053305227181373584
+    second: OVER_CLOTH_1_191
+  - first:
+      213: 6654913958596285093
+    second: OVER_CLOTH_1_192
+  - first:
+      213: 4963466862258540174
+    second: OVER_CLOTH_1_193
+  - first:
+      213: 6364626700362880516
+    second: OVER_CLOTH_1_194
+  - first:
+      213: 6261852785536419015
+    second: OVER_CLOTH_1_195
+  - first:
+      213: 1608442897624477730
+    second: OVER_CLOTH_1_196
+  - first:
+      213: -4756035804830460002
+    second: OVER_CLOTH_1_197
+  - first:
+      213: 3405833514817606467
+    second: OVER_CLOTH_1_198
+  - first:
+      213: 5952439667928806009
+    second: OVER_CLOTH_1_199
+  - first:
+      213: -28088089964752444
+    second: OVER_CLOTH_1_200
+  - first:
+      213: -7414181091595195384
+    second: OVER_CLOTH_1_201
+  - first:
+      213: 8652128223330836915
+    second: OVER_CLOTH_1_202
+  - first:
+      213: -7886558641254256278
+    second: OVER_CLOTH_1_203
+  - first:
+      213: -7928882132425855180
+    second: OVER_CLOTH_1_204
+  - first:
+      213: -5933578164666178440
+    second: OVER_CLOTH_1_205
+  - first:
+      213: 3589059714386157385
+    second: OVER_CLOTH_1_206
+  - first:
+      213: 5729839985424091743
+    second: OVER_CLOTH_1_207
+  - first:
+      213: 8453817773112808780
+    second: OVER_CLOTH_1_208
+  - first:
+      213: -903879539033189802
+    second: OVER_CLOTH_1_209
+  - first:
+      213: -1613512791637065704
+    second: OVER_CLOTH_1_210
+  - first:
+      213: 4449237875376471564
+    second: OVER_CLOTH_1_211
+  - first:
+      213: 3654448177305886066
+    second: OVER_CLOTH_1_212
+  - first:
+      213: -6621278355708803445
+    second: OVER_CLOTH_1_213
+  - first:
+      213: -5890939136498519603
+    second: OVER_CLOTH_1_214
+  - first:
+      213: 3751262685561874611
+    second: OVER_CLOTH_1_215
+  - first:
+      213: -6102762659137790666
+    second: OVER_CLOTH_1_216
+  - first:
+      213: 6138308825074451082
+    second: OVER_CLOTH_1_217
+  - first:
+      213: -3819385529384244246
+    second: OVER_CLOTH_1_218
+  - first:
+      213: -1561774934077449013
+    second: OVER_CLOTH_1_219
+  - first:
+      213: -517712938546101961
+    second: OVER_CLOTH_1_220
+  - first:
+      213: 2987941431025374015
+    second: OVER_CLOTH_1_221
+  - first:
+      213: -3101465023203856128
+    second: OVER_CLOTH_1_222
+  - first:
+      213: -9204242468160507734
+    second: OVER_CLOTH_1_223
+  - first:
+      213: -8338353515029387394
+    second: OVER_CLOTH_1_224
+  - first:
+      213: 5414809124354600639
+    second: OVER_CLOTH_1_225
+  - first:
+      213: -9077489981407603164
+    second: OVER_CLOTH_1_226
+  - first:
+      213: 7567862456968180308
+    second: OVER_CLOTH_1_227
+  - first:
+      213: -334134067569435401
+    second: OVER_CLOTH_1_228
+  - first:
+      213: -1859915645159276448
+    second: OVER_CLOTH_1_229
+  - first:
+      213: -8839228502604794169
+    second: OVER_CLOTH_1_230
+  - first:
+      213: -5529952588928940935
+    second: OVER_CLOTH_1_231
+  - first:
+      213: -5483657566354871556
+    second: OVER_CLOTH_1_232
+  - first:
+      213: 6252813217046066501
+    second: OVER_CLOTH_1_233
+  - first:
+      213: -4825742012772116167
+    second: OVER_CLOTH_1_234
+  - first:
+      213: -7670545200706395120
+    second: OVER_CLOTH_1_235
+  - first:
+      213: 7584868041003937122
+    second: OVER_CLOTH_1_236
+  - first:
+      213: -6708679219720180723
+    second: OVER_CLOTH_1_237
+  - first:
+      213: -1168007982671199711
+    second: OVER_CLOTH_1_238
+  - first:
+      213: -3327065456028635301
+    second: OVER_CLOTH_1_239
+  - first:
+      213: 3923569507972508276
+    second: OVER_CLOTH_1_240
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_0
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 1009
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c60862574c041c900800000000000000
+      internalID: 702914229369733228
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_1
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 1008
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7fea8959882e35220800000000000000
+      internalID: 2473569696609775351
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_2
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 1007
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a6e69aa6187e6240800000000000000
+      internalID: 4786895492688045734
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_3
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 1008
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b9b9df0de71ba2270800000000000000
+      internalID: 8226582827575909275
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_4
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 1009
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3b1cd9345d3f1c980800000000000000
+      internalID: -8520260922720271949
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_5
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 1008
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d95e6183e105962c0800000000000000
+      internalID: -4437927867076647523
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_6
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 1007
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5b3c89ba7458150f0800000000000000
+      internalID: -1129975488625196107
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_7
+      rect:
+        serializedVersion: 2
+        x: 166
+        y: 1008
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c32de64bed4984390800000000000000
+      internalID: -7833847867580165572
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_8
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 964
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3a0529f407043c480800000000000000
+      internalID: -8880183189128982365
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_9
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 963
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: db4fb141cba706600800000000000000
+      internalID: 459502110201607357
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_10
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 962
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 989c814201e429b20800000000000000
+      internalID: 3139657721462704521
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_11
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 963
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f425c97f1f5ec370800000000000000
+      internalID: 8344711748355695864
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_12
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 964
+        width: 14
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b2e8b6b68a4344d60800000000000000
+      internalID: 7873475946511830571
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_13
+      rect:
+        serializedVersion: 2
+        x: 118
+        y: 963
+        width: 14
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 84f6ee5c83d187660800000000000000
+      internalID: 7383683718750039880
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_14
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 962
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 736ef300816ec0510800000000000000
+      internalID: 1516840165274805815
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_15
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 963
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7874071cd678d5a00800000000000000
+      internalID: 746902018679916423
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_16
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 918
+        width: 14
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3982cb9e77e360ed0800000000000000
+      internalID: -2448200662685833069
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_17
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 917
+        width: 14
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a1559e85c7f234c40800000000000000
+      internalID: 5495288181436273946
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_18
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 917
+        width: 14
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 02b9ea0e59659bdb0800000000000000
+      internalID: -4775690728130045152
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_19
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 917
+        width: 14
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fd1d6624ea676c8d0800000000000000
+      internalID: -2826441225317985825
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_20
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 918
+        width: 14
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c96b9f300fca42610800000000000000
+      internalID: 1595590314854823580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_21
+      rect:
+        serializedVersion: 2
+        x: 119
+        y: 918
+        width: 14
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 475f0467352b89eb0800000000000000
+      internalID: -4712820938507225740
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_22
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 873
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ba893320d64e1f400800000000000000
+      internalID: 356317002378483883
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_23
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 873
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f7d021c90a8dcaf0800000000000000
+      internalID: -374491419502389264
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_24
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 873
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 51623627ad44974c0800000000000000
+      internalID: -4289321465081027051
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_25
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 873
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f3d7a1c7c7d6cf940800000000000000
+      internalID: 5331256440325307711
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_26
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 873
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9388af487bfbfd2a0800000000000000
+      internalID: -6710434124827817927
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_27
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 873
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 38427543edaa86b80800000000000000
+      internalID: -8401277233522072445
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_28
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 828
+        width: 14
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f0f088a3614f6b110800000000000000
+      internalID: 1276475920714567439
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_29
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 828
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 00836ef04a7525b10800000000000000
+      internalID: 1968732349267326976
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_30
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 828
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: be6d2d12d1091db60800000000000000
+      internalID: 7769149286986733291
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_31
+      rect:
+        serializedVersion: 2
+        x: 59
+        y: 833
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b21d29bdc430d9f10800000000000000
+      internalID: 2277980615155568939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_32
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 783
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f04f164c403acb110800000000000000
+      internalID: 1278075635136328719
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_33
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 783
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d0f2302afc1482ec0800000000000000
+      internalID: -3591548342795817203
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_34
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 783
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e722d097bedd5f230800000000000000
+      internalID: 3672085074608464510
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_35
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 738
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e7735b1e71edc87a0800000000000000
+      internalID: -6373475178483730562
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_36
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 743
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7411aff95c7c78600800000000000000
+      internalID: 470564337689956679
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_37
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 738
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 863ff87a6e66a1c80800000000000000
+      internalID: -8351249418165423256
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_38
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 743
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c65816a4aa8c8ed0800000000000000
+      internalID: -2410399260784175424
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_39
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 738
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 981a2ea38c4857330800000000000000
+      internalID: 3708015863725728137
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_40
+      rect:
+        serializedVersion: 2
+        x: 59
+        y: 743
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9ca1231379fddd640800000000000000
+      internalID: 5106483392966433481
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_41
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 693
+        width: 14
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3e17f789defb61e00800000000000000
+      internalID: 1015209793205268963
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_42
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 693
+        width: 9
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e0eeebdbebd8009a0800000000000000
+      internalID: -6268854830933021170
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_43
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 693
+        width: 7
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8ce2225b494ecf1c0800000000000000
+      internalID: -4468445402913165624
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_44
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 692
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f50b29b982119bab0800000000000000
+      internalID: -4991939845857038241
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_45
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 692
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9e7fb59fb2f0d38f0800000000000000
+      internalID: -559274097182509079
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_46
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 691
+        width: 13
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b45ad3d9b382dec80800000000000000
+      internalID: -8291927102412970677
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_47
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 691
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2d1602c7267c5eef0800000000000000
+      internalID: -79438192605896238
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_48
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 648
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 007d3258f7ff6ed80800000000000000
+      internalID: -8221603146558613760
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_49
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 648
+        width: 14
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b41c4e1260ce21700800000000000000
+      internalID: 509729218928886091
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_50
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 646
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7d07249b012025a90800000000000000
+      internalID: -7326791372927504169
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_51
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 645
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b38857dec844b3b0800000000000000
+      internalID: -5497689191899167822
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_52
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 645
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f5e5bee37bfc5960800000000000000
+      internalID: 7592219547184522742
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_53
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 601
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8b5a0dac04267b350800000000000000
+      internalID: 6032398256306169272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_54
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 601
+        width: 14
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 18fba329f11324670800000000000000
+      internalID: 8521427456605470593
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_55
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 601
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 45f77f7bfe8246130800000000000000
+      internalID: 3559014615578279764
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_56
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 601
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f9e98cd98798e0540800000000000000
+      internalID: 4976065789427228319
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_57
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 601
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 38374bdb0eae25320800000000000000
+      internalID: 2545354990394045315
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_58
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 601
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a38010890ca5dc3d0800000000000000
+      internalID: -3184789578250647494
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_59
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 604
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 70ddbe369ec59a600800000000000000
+      internalID: 480016992765205767
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_60
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 604
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ba4fb66a047f999f0800000000000000
+      internalID: -461065629786704725
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_61
+      rect:
+        serializedVersion: 2
+        x: 119
+        y: 605
+        width: 14
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 47b2411a22840ecd0800000000000000
+      internalID: -2530943677013677196
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_62
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 603
+        width: 14
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d48de6be5d5cfe860800000000000000
+      internalID: 7561479821946968141
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_63
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 555
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 46f77387f45e512c0800000000000000
+      internalID: -4461407726358528156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_64
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 556
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5223458102d1cc360800000000000000
+      internalID: 7191154728688169509
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_65
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 555
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 06a2ba0e1bf3b3b60800000000000000
+      internalID: 7726839618895293024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_66
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 555
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 414b14f74bb5d9200800000000000000
+      internalID: 188407590206682132
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_67
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 558
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cc3323a2b15d6fda0800000000000000
+      internalID: -5911303148228430900
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_68
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 558
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 865a000e2890da970800000000000000
+      internalID: 8767674507268760936
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_69
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 558
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6058cd6fc54f17110800000000000000
+      internalID: 1257054451128894726
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_70
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 513
+        width: 14
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: edb58fb1302c54890800000000000000
+      internalID: -7474354687941518370
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_71
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 514
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ce238224f6377880800000000000000
+      internalID: -8613355340143841598
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_72
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 514
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 08bb3f68afd016170800000000000000
+      internalID: 8169826568683895680
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_73
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 514
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e329292122053bc00800000000000000
+      internalID: 915163256557048382
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_74
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 514
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 66f6de2499e75dc90800000000000000
+      internalID: -7145666037035471002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_75
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 514
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c59810e18350447f0800000000000000
+      internalID: -629372309345302180
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_76
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 468
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c18baea9e0dfebcc0800000000000000
+      internalID: -3693236405226784740
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_77
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 468
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 09592fd880ef23dc0800000000000000
+      internalID: -3660584234404113008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_78
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 468
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 10a9ed8ecc304ec10800000000000000
+      internalID: 2081793106367126017
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_79
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 468
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0bf5fced88f2c7e50800000000000000
+      internalID: 6808369001577537456
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_80
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 468
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 64b19c9b1b4198880800000000000000
+      internalID: -8608326459183260858
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_81
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 468
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ba92b0dfabc5bb720800000000000000
+      internalID: 2862983946303121835
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_82
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 423
+        width: 14
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 962f4abd269e1ca60800000000000000
+      internalID: 7692686249326604905
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_83
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 423
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1248ef676c93e0ef0800000000000000
+      internalID: -140111013839207391
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_84
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 423
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3e8bec7e94a999250800000000000000
+      internalID: 5951958024759195875
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_85
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 423
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 439e3b4988b277950800000000000000
+      internalID: 6446669257214519604
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_86
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 423
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d0dec9b30c8d85fb0800000000000000
+      internalID: -4658735494369317619
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_87
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 423
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 714bbd14a6daaa7c0800000000000000
+      internalID: -4059241442238024681
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_88
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 423
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 78183891bf19941f0800000000000000
+      internalID: -1060155729618173561
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_89
+      rect:
+        serializedVersion: 2
+        x: 166
+        y: 423
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1f8ae43b75c7263e0800000000000000
+      internalID: -2061948963269990159
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_90
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 378
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1fac4432fe1c490c0800000000000000
+      internalID: -4569814489041155343
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_91
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 378
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 027ec07287e8380c0800000000000000
+      internalID: -4574656149775915232
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_92
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 378
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 13de15c1196e7de30800000000000000
+      internalID: 4528341461264100657
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_93
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 378
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 55fed54bb1a1cb220800000000000000
+      internalID: 2502904199203647317
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_94
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 378
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ea11d4e23f69ad6d0800000000000000
+      internalID: -2964891433472028242
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_95
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 378
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2d348e499b412f800800000000000000
+      internalID: 644600483967157202
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_96
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 378
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8748f89a9f1e03020800000000000000
+      internalID: 2319602270503666808
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_97
+      rect:
+        serializedVersion: 2
+        x: 166
+        y: 378
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5c12f730793556e20800000000000000
+      internalID: 3343170206456291781
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_98
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 333
+        width: 14
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 00dcb327bbe7d4000800000000000000
+      internalID: 21812916747226368
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_99
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 334
+        width: 14
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ab2c67d2eaa56a060800000000000000
+      internalID: 6964353577908617914
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_100
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 334
+        width: 14
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fdc9fda8d7ec81900800000000000000
+      internalID: 655500784378551519
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_101
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 334
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ce99d11300c97b120800000000000000
+      internalID: 2429582048627628524
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_102
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 334
+        width: 14
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e3337def5ae1bd90800000000000000
+      internalID: -7083623041150536732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_103
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 334
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c89731659d0eabd0800000000000000
+      internalID: -2617139398223357758
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_104
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 334
+        width: 14
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0bcebd823706a9750800000000000000
+      internalID: 6312463875436178608
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_105
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 334
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ce776d9f6f47f9590800000000000000
+      internalID: -7665279436658935828
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_106
+      rect:
+        serializedVersion: 2
+        x: 119
+        y: 334
+        width: 15
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 24ea41caee8375330800000000000000
+      internalID: 3699488216648560194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_107
+      rect:
+        serializedVersion: 2
+        x: 122
+        y: 334
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 311a744b5893e5bb0800000000000000
+      internalID: -4945452094388199149
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_108
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 334
+        width: 15
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 96c706a47c538d620800000000000000
+      internalID: 2799046298473364585
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_109
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 334
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 390e81bfa26c03f70800000000000000
+      internalID: 9165043129602597011
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_110
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 334
+        width: 15
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d12b31af63a5e030800000000000000
+      internalID: 3523401983328985555
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_111
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 334
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fe6744ed76fbecaf0800000000000000
+      internalID: -374151266193606929
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_112
+      rect:
+        serializedVersion: 2
+        x: 188
+        y: 334
+        width: 14
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: de1b8f4bc222a9e10800000000000000
+      internalID: 2205112542961381869
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_113
+      rect:
+        serializedVersion: 2
+        x: 191
+        y: 334
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 62deef33a16c08400800000000000000
+      internalID: 324476989014469926
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_114
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 334
+        width: 14
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0bfd546edbedb0950800000000000000
+      internalID: 6416467001312927664
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_115
+      rect:
+        serializedVersion: 2
+        x: 214
+        y: 334
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 81d2f4faaf7cccf80800000000000000
+      internalID: -8084867351539929832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_116
+      rect:
+        serializedVersion: 2
+        x: 234
+        y: 334
+        width: 14
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 50f717b413b649ef0800000000000000
+      internalID: -102339032059379963
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_117
+      rect:
+        serializedVersion: 2
+        x: 237
+        y: 334
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2e2f6f565cb3a5fc0800000000000000
+      internalID: -3505423640949230878
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_118
+      rect:
+        serializedVersion: 2
+        x: 257
+        y: 334
+        width: 14
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 94192325294270f50800000000000000
+      internalID: 6847481969302999369
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_119
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 334
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bea9168019d3f0100800000000000000
+      internalID: 76347411808754411
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_120
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 334
+        width: 15
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 07256332e4088fb70800000000000000
+      internalID: 8933030933975945840
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_121
+      rect:
+        serializedVersion: 2
+        x: 283
+        y: 334
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e2eeb231651eba0f0800000000000000
+      internalID: -1104541523784241618
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_122
+      rect:
+        serializedVersion: 2
+        x: 303
+        y: 334
+        width: 15
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7e02c9b838c74a2a0800000000000000
+      internalID: -6727115038959853337
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_123
+      rect:
+        serializedVersion: 2
+        x: 306
+        y: 334
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c8b9ff0b5b62c090800000000000000
+      internalID: -8015726347911841597
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_124
+      rect:
+        serializedVersion: 2
+        x: 326
+        y: 334
+        width: 15
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e2ce93bb4ab05a7e0800000000000000
+      internalID: -1754983677647262674
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_125
+      rect:
+        serializedVersion: 2
+        x: 329
+        y: 334
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ccd4857af5b37dc50800000000000000
+      internalID: 6689881053497675212
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_126
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 288
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dcac9086726bf4ca0800000000000000
+      internalID: -6030401095660352819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_127
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 288
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 53ce82db749a4e160800000000000000
+      internalID: 7053949041950387253
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_128
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 288
+        width: 14
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d4cd656a90a45ddf0800000000000000
+      internalID: -156137206768542643
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_129
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 288
+        width: 14
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a7ea2ad944e50b790800000000000000
+      internalID: -7516404129285886342
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_130
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 288
+        width: 14
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1b04f02e68bbd65c0800000000000000
+      internalID: -4220511087783624527
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_131
+      rect:
+        serializedVersion: 2
+        x: 119
+        y: 288
+        width: 14
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3135604b1f956ee10800000000000000
+      internalID: 2226565960423592723
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_132
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 288
+        width: 14
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d3e76f6ab893be660800000000000000
+      internalID: 7416084483360063037
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_133
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 288
+        width: 14
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7d9080b377f3b1d00800000000000000
+      internalID: 944418328188291543
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_134
+      rect:
+        serializedVersion: 2
+        x: 188
+        y: 288
+        width: 14
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b7d3fdd494e305860800000000000000
+      internalID: 7516576262641368443
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_135
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 288
+        width: 14
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7bbe82289e08a2320800000000000000
+      internalID: 2533979480748780471
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_136
+      rect:
+        serializedVersion: 2
+        x: 234
+        y: 288
+        width: 14
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f58cee7176cf9fcb0800000000000000
+      internalID: -4829551605664790433
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_137
+      rect:
+        serializedVersion: 2
+        x: 257
+        y: 288
+        width: 14
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 64ebc496a70a3baf0800000000000000
+      internalID: -381785095783268794
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_138
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 288
+        width: 14
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b88158b990e989820800000000000000
+      internalID: 2925261722078222475
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_139
+      rect:
+        serializedVersion: 2
+        x: 303
+        y: 288
+        width: 14
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: de35829b3d03aee40800000000000000
+      internalID: 5686411165411333101
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_140
+      rect:
+        serializedVersion: 2
+        x: 326
+        y: 288
+        width: 14
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 655c53e5fc35dc290800000000000000
+      internalID: -7868540823842470570
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_141
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 243
+        width: 14
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d594d10e36e966730800000000000000
+      internalID: 3992052271509490013
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_142
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 244
+        width: 14
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 853c01eba6871b5c0800000000000000
+      internalID: -4201444577509325992
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_143
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 244
+        width: 15
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c08906cd2688629e0800000000000000
+      internalID: -1646478655571847156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_144
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 243
+        width: 8
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 57b38abc5f4636180800000000000000
+      internalID: -9123337413275927691
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_145
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 243
+        width: 6
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8db095bfe7b385520800000000000000
+      internalID: 2690966193922706392
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_146
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 242
+        width: 8
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: deba335354eea4b10800000000000000
+      internalID: 1966646168313375725
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_147
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 242
+        width: 6
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 863c0c55bc1a55040800000000000000
+      internalID: 4635789286136922984
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_148
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 242
+        width: 8
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aa67041b9c7d82c60800000000000000
+      internalID: 7793716416426833578
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_149
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 242
+        width: 6
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c738a09c21253ee20800000000000000
+      internalID: 3378634386093802364
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_150
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 242
+        width: 8
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 034f5e4aceca8ed50800000000000000
+      internalID: 6766848572502963248
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_151
+      rect:
+        serializedVersion: 2
+        x: 151
+        y: 242
+        width: 6
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b106331a7f270500800000000000000
+      internalID: 362310496381436343
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_152
+      rect:
+        serializedVersion: 2
+        x: 166
+        y: 242
+        width: 8
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b0b155b97ee1272e0800000000000000
+      internalID: -2129605693700498677
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_153
+      rect:
+        serializedVersion: 2
+        x: 174
+        y: 242
+        width: 6
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: feca14cbb65c8b540800000000000000
+      internalID: 5023982450842381551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_154
+      rect:
+        serializedVersion: 2
+        x: 189
+        y: 242
+        width: 8
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 215659ee30932ea00800000000000000
+      internalID: 784251974166340882
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_155
+      rect:
+        serializedVersion: 2
+        x: 197
+        y: 242
+        width: 6
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 13ba71adf56038e70800000000000000
+      internalID: 9116137079478659889
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_156
+      rect:
+        serializedVersion: 2
+        x: 212
+        y: 242
+        width: 8
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 272c01959847f6d50800000000000000
+      internalID: 6732728101195793010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_157
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 242
+        width: 6
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 32fef68c5158d4720800000000000000
+      internalID: 2832066069289496355
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_158
+      rect:
+        serializedVersion: 2
+        x: 235
+        y: 242
+        width: 8
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 209ec892b334ccd00800000000000000
+      internalID: 994243539121268994
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_159
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 242
+        width: 6
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aa9cee29521151700800000000000000
+      internalID: 510332985853004202
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_160
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 242
+        width: 8
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d3ea4b120b7296af0800000000000000
+      internalID: -402747054239732163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_161
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 242
+        width: 6
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e1598fe86b667850800000000000000
+      internalID: 6374400421029040612
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_162
+      rect:
+        serializedVersion: 2
+        x: 281
+        y: 242
+        width: 8
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ed76235b77f2019b0800000000000000
+      internalID: -5111533385877919778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_163
+      rect:
+        serializedVersion: 2
+        x: 289
+        y: 242
+        width: 6
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca56ce98d6b851050800000000000000
+      internalID: 5770671800126825900
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_164
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 242
+        width: 8
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e4e70bd1b2a20cf20800000000000000
+      internalID: 3440796479981125198
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_165
+      rect:
+        serializedVersion: 2
+        x: 312
+        y: 242
+        width: 6
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 703929b02980f4540800000000000000
+      internalID: 4994219935129572103
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_166
+      rect:
+        serializedVersion: 2
+        x: 327
+        y: 242
+        width: 8
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6afc8250650bd9680800000000000000
+      internalID: -8746641017783398490
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_167
+      rect:
+        serializedVersion: 2
+        x: 335
+        y: 242
+        width: 6
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2108164ff79f38730800000000000000
+      internalID: 4000315221991325714
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_168
+      rect:
+        serializedVersion: 2
+        x: 350
+        y: 242
+        width: 8
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ab69e2cfeaed4550800000000000000
+      internalID: 6146827381918755749
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_169
+      rect:
+        serializedVersion: 2
+        x: 358
+        y: 242
+        width: 6
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f5f2d457ac2f997a0800000000000000
+      internalID: -6369793246573547681
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_170
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 198
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eb9f963d4be0171f0800000000000000
+      internalID: -1049041068396774978
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_171
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 199
+        width: 14
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 258332bb9eac4e580800000000000000
+      internalID: -8798684666759268270
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_172
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 199
+        width: 15
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5595c4815cce67230800000000000000
+      internalID: 3636354080408623445
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_173
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 198
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6dff5f8bca17faa80800000000000000
+      internalID: -8453412988899688490
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_174
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 197
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cee83e3bdc1ea6d20800000000000000
+      internalID: 3272676352840666860
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_175
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 197
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ada20410dcad49530800000000000000
+      internalID: 3860951354587491034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_176
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 197
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c133120e4e6eb7fe0800000000000000
+      internalID: -1190103805822160100
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_177
+      rect:
+        serializedVersion: 2
+        x: 166
+        y: 197
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9a59257475dbcee80800000000000000
+      internalID: -8147929443263670871
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_178
+      rect:
+        serializedVersion: 2
+        x: 189
+        y: 197
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9925a080ef5629af0800000000000000
+      internalID: -391138075896819047
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_179
+      rect:
+        serializedVersion: 2
+        x: 212
+        y: 197
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cda192688de820b90800000000000000
+      internalID: -7277096987262379300
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_180
+      rect:
+        serializedVersion: 2
+        x: 235
+        y: 197
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eacdae5fc851ff580800000000000000
+      internalID: -8791284252438504274
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_181
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 197
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5241e0f8fd16ff4d0800000000000000
+      internalID: -3098650405801946075
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_182
+      rect:
+        serializedVersion: 2
+        x: 281
+        y: 197
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fe660bbf30d6bcac0800000000000000
+      internalID: -3833850793900874001
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_183
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 197
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c04a1f87dffb99f10800000000000000
+      internalID: 2277062181989229580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_184
+      rect:
+        serializedVersion: 2
+        x: 327
+        y: 197
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4de08a9773e809910800000000000000
+      internalID: 1842128616509935316
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_185
+      rect:
+        serializedVersion: 2
+        x: 350
+        y: 197
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 593949146dcdce760800000000000000
+      internalID: 7488603093191660437
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_186
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 154
+        width: 14
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 69564fb735d733b20800000000000000
+      internalID: 3112969564958516630
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_187
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 154
+        width: 14
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2158dd415341c9c10800000000000000
+      internalID: 2061544947644728594
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_188
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 154
+        width: 15
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b31b2e0c0fe7cd3b0800000000000000
+      internalID: -5486370673550773957
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_189
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 154
+        width: 15
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b8ee34475511796b0800000000000000
+      internalID: -5289740178602856821
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_190
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 154
+        width: 15
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 40bcc89e39c4619d0800000000000000
+      internalID: -2803969519829333244
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_191
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 154
+        width: 15
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0983168f0ab304830800000000000000
+      internalID: 4053305227181373584
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_192
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 154
+        width: 15
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a29be07cf00b5c50800000000000000
+      internalID: 6654913958596285093
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_193
+      rect:
+        serializedVersion: 2
+        x: 166
+        y: 154
+        width: 15
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e8ec75b40d6c1e440800000000000000
+      internalID: 4963466862258540174
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_194
+      rect:
+        serializedVersion: 2
+        x: 189
+        y: 154
+        width: 15
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 40698134342b35850800000000000000
+      internalID: 6364626700362880516
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_195
+      rect:
+        serializedVersion: 2
+        x: 212
+        y: 154
+        width: 15
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c440b58ee196e650800000000000000
+      internalID: 6261852785536419015
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_196
+      rect:
+        serializedVersion: 2
+        x: 235
+        y: 154
+        width: 15
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 22038622b46525610800000000000000
+      internalID: 1608442897624477730
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_197
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 154
+        width: 15
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e979a0252aa2ffdb0800000000000000
+      internalID: -4756035804830460002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_198
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 108
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 343d2de6983f34f20800000000000000
+      internalID: 3405833514817606467
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_199
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 108
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 97237d137505b9250800000000000000
+      internalID: 5952439667928806009
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_200
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 108
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4c15b3fe7063c9ff0800000000000000
+      internalID: -28088089964752444
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_201
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 108
+        width: 14
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 80cec0744998b1990800000000000000
+      internalID: -7414181091595195384
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_202
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 108
+        width: 14
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3b124c637c8821870800000000000000
+      internalID: 8652128223330836915
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_203
+      rect:
+        serializedVersion: 2
+        x: 118
+        y: 108
+        width: 14
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a61b0c753b05d8290800000000000000
+      internalID: -7886558641254256278
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_204
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 109
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 43fa0d6a5b3f6f190800000000000000
+      internalID: -7928882132425855180
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_205
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 109
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 874ee00c812b7ada0800000000000000
+      internalID: -5933578164666178440
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_206
+      rect:
+        serializedVersion: 2
+        x: 188
+        y: 109
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 94fd6a96bc6eec130800000000000000
+      internalID: 3589059714386157385
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_207
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 109
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f5a4807db1b748f40800000000000000
+      internalID: 5729839985424091743
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_208
+      rect:
+        serializedVersion: 2
+        x: 234
+        y: 109
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c45d542797ef15570800000000000000
+      internalID: 8453817773112808780
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_209
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 108
+        width: 14
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 652de242956c473f0800000000000000
+      internalID: -903879539033189802
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_210
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 64
+        width: 14
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8108ced2aa6ab99e0800000000000000
+      internalID: -1613512791637065704
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_211
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 63
+        width: 10
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c0e370b464edebd30800000000000000
+      internalID: 4449237875376471564
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_212
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 63
+        width: 8
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 27d1462514537b230800000000000000
+      internalID: 3654448177305886066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_213
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 66
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b868ef0aa6e7c14a0800000000000000
+      internalID: -6621278355708803445
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_214
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 66
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc13f8f111e2f3ea0800000000000000
+      internalID: -5890939136498519603
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_215
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 67
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3b8e71899892f0430800000000000000
+      internalID: 3751262685561874611
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_216
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 67
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 63dd29102b1ae4ba0800000000000000
+      internalID: -6102762659137790666
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_217
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 67
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a824530ba57af2550800000000000000
+      internalID: 6138308825074451082
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_218
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 67
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aebe8c4d811defac0800000000000000
+      internalID: -3819385529384244246
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_219
+      rect:
+        serializedVersion: 2
+        x: 119
+        y: 63
+        width: 14
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bcc543bd8f5735ae0800000000000000
+      internalID: -1561774934077449013
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_220
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 64
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 731065a43d6b0d8f0800000000000000
+      internalID: -517712938546101961
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_221
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 64
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f3390f596ec477920800000000000000
+      internalID: 2987941431025374015
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_222
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 64
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 001b2a06ef165f4d0800000000000000
+      internalID: -3101465023203856128
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_223
+      rect:
+        serializedVersion: 2
+        x: 190
+        y: 64
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aa07abacd36f34080800000000000000
+      internalID: -9204242468160507734
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_224
+      rect:
+        serializedVersion: 2
+        x: 191
+        y: 64
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e772b0518a7384c80800000000000000
+      internalID: -8338353515029387394
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_225
+      rect:
+        serializedVersion: 2
+        x: 213
+        y: 64
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fbe23bfa534452b40800000000000000
+      internalID: 5414809124354600639
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_226
+      rect:
+        serializedVersion: 2
+        x: 236
+        y: 64
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 426580ed4f6460280800000000000000
+      internalID: -9077489981407603164
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_227
+      rect:
+        serializedVersion: 2
+        x: 237
+        y: 64
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4527a90fec2760960800000000000000
+      internalID: 7567862456968180308
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_228
+      rect:
+        serializedVersion: 2
+        x: 259
+        y: 64
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7fcda2bf5daec5bf0800000000000000
+      internalID: -334134067569435401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_229
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 18
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 060071233904036e0800000000000000
+      internalID: -1859915645159276448
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_230
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 18
+        width: 14
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c6bbb55280c45580800000000000000
+      internalID: -8839228502604794169
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_231
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 20
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 97483285b69a143b0800000000000000
+      internalID: -5529952588928940935
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_232
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 21
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cfae88f3f7226e3b0800000000000000
+      internalID: -5483657566354871556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_233
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 21
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 545f5e8fd7476c650800000000000000
+      internalID: 6252813217046066501
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_234
+      rect:
+        serializedVersion: 2
+        x: 119
+        y: 18
+        width: 14
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9391a0f0535870db0800000000000000
+      internalID: -4825742012772116167
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_235
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 18
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 014615eb7cfbc8590800000000000000
+      internalID: -7670545200706395120
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_236
+      rect:
+        serializedVersion: 2
+        x: 166
+        y: 18
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 26da0440c4dd24960800000000000000
+      internalID: 7584868041003937122
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_237
+      rect:
+        serializedVersion: 2
+        x: 189
+        y: 18
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d0ca8843bcbf5e2a0800000000000000
+      internalID: -6708679219720180723
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_238
+      rect:
+        serializedVersion: 2
+        x: 212
+        y: 18
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 122001a9de66acfe0800000000000000
+      internalID: -1168007982671199711
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_239
+      rect:
+        serializedVersion: 2
+        x: 235
+        y: 18
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b5fa0f46893e3d1d0800000000000000
+      internalID: -3327065456028635301
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVER_CLOTH_1_240
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 18
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 47a6146fda1537630800000000000000
+      internalID: 3923569507972508276
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      OVER_CLOTH_1_0: 702914229369733228
+      OVER_CLOTH_1_1: 2473569696609775351
+      OVER_CLOTH_1_10: 3139657721462704521
+      OVER_CLOTH_1_100: 655500784378551519
+      OVER_CLOTH_1_101: 2429582048627628524
+      OVER_CLOTH_1_102: -7083623041150536732
+      OVER_CLOTH_1_103: -2617139398223357758
+      OVER_CLOTH_1_104: 6312463875436178608
+      OVER_CLOTH_1_105: -7665279436658935828
+      OVER_CLOTH_1_106: 3699488216648560194
+      OVER_CLOTH_1_107: -4945452094388199149
+      OVER_CLOTH_1_108: 2799046298473364585
+      OVER_CLOTH_1_109: 9165043129602597011
+      OVER_CLOTH_1_11: 8344711748355695864
+      OVER_CLOTH_1_110: 3523401983328985555
+      OVER_CLOTH_1_111: -374151266193606929
+      OVER_CLOTH_1_112: 2205112542961381869
+      OVER_CLOTH_1_113: 324476989014469926
+      OVER_CLOTH_1_114: 6416467001312927664
+      OVER_CLOTH_1_115: -8084867351539929832
+      OVER_CLOTH_1_116: -102339032059379963
+      OVER_CLOTH_1_117: -3505423640949230878
+      OVER_CLOTH_1_118: 6847481969302999369
+      OVER_CLOTH_1_119: 76347411808754411
+      OVER_CLOTH_1_12: 7873475946511830571
+      OVER_CLOTH_1_120: 8933030933975945840
+      OVER_CLOTH_1_121: -1104541523784241618
+      OVER_CLOTH_1_122: -6727115038959853337
+      OVER_CLOTH_1_123: -8015726347911841597
+      OVER_CLOTH_1_124: -1754983677647262674
+      OVER_CLOTH_1_125: 6689881053497675212
+      OVER_CLOTH_1_126: -6030401095660352819
+      OVER_CLOTH_1_127: 7053949041950387253
+      OVER_CLOTH_1_128: -156137206768542643
+      OVER_CLOTH_1_129: -7516404129285886342
+      OVER_CLOTH_1_13: 7383683718750039880
+      OVER_CLOTH_1_130: -4220511087783624527
+      OVER_CLOTH_1_131: 2226565960423592723
+      OVER_CLOTH_1_132: 7416084483360063037
+      OVER_CLOTH_1_133: 944418328188291543
+      OVER_CLOTH_1_134: 7516576262641368443
+      OVER_CLOTH_1_135: 2533979480748780471
+      OVER_CLOTH_1_136: -4829551605664790433
+      OVER_CLOTH_1_137: -381785095783268794
+      OVER_CLOTH_1_138: 2925261722078222475
+      OVER_CLOTH_1_139: 5686411165411333101
+      OVER_CLOTH_1_14: 1516840165274805815
+      OVER_CLOTH_1_140: -7868540823842470570
+      OVER_CLOTH_1_141: 3992052271509490013
+      OVER_CLOTH_1_142: -4201444577509325992
+      OVER_CLOTH_1_143: -1646478655571847156
+      OVER_CLOTH_1_144: -9123337413275927691
+      OVER_CLOTH_1_145: 2690966193922706392
+      OVER_CLOTH_1_146: 1966646168313375725
+      OVER_CLOTH_1_147: 4635789286136922984
+      OVER_CLOTH_1_148: 7793716416426833578
+      OVER_CLOTH_1_149: 3378634386093802364
+      OVER_CLOTH_1_15: 746902018679916423
+      OVER_CLOTH_1_150: 6766848572502963248
+      OVER_CLOTH_1_151: 362310496381436343
+      OVER_CLOTH_1_152: -2129605693700498677
+      OVER_CLOTH_1_153: 5023982450842381551
+      OVER_CLOTH_1_154: 784251974166340882
+      OVER_CLOTH_1_155: 9116137079478659889
+      OVER_CLOTH_1_156: 6732728101195793010
+      OVER_CLOTH_1_157: 2832066069289496355
+      OVER_CLOTH_1_158: 994243539121268994
+      OVER_CLOTH_1_159: 510332985853004202
+      OVER_CLOTH_1_16: -2448200662685833069
+      OVER_CLOTH_1_160: -402747054239732163
+      OVER_CLOTH_1_161: 6374400421029040612
+      OVER_CLOTH_1_162: -5111533385877919778
+      OVER_CLOTH_1_163: 5770671800126825900
+      OVER_CLOTH_1_164: 3440796479981125198
+      OVER_CLOTH_1_165: 4994219935129572103
+      OVER_CLOTH_1_166: -8746641017783398490
+      OVER_CLOTH_1_167: 4000315221991325714
+      OVER_CLOTH_1_168: 6146827381918755749
+      OVER_CLOTH_1_169: -6369793246573547681
+      OVER_CLOTH_1_17: 5495288181436273946
+      OVER_CLOTH_1_170: -1049041068396774978
+      OVER_CLOTH_1_171: -8798684666759268270
+      OVER_CLOTH_1_172: 3636354080408623445
+      OVER_CLOTH_1_173: -8453412988899688490
+      OVER_CLOTH_1_174: 3272676352840666860
+      OVER_CLOTH_1_175: 3860951354587491034
+      OVER_CLOTH_1_176: -1190103805822160100
+      OVER_CLOTH_1_177: -8147929443263670871
+      OVER_CLOTH_1_178: -391138075896819047
+      OVER_CLOTH_1_179: -7277096987262379300
+      OVER_CLOTH_1_18: -4775690728130045152
+      OVER_CLOTH_1_180: -8791284252438504274
+      OVER_CLOTH_1_181: -3098650405801946075
+      OVER_CLOTH_1_182: -3833850793900874001
+      OVER_CLOTH_1_183: 2277062181989229580
+      OVER_CLOTH_1_184: 1842128616509935316
+      OVER_CLOTH_1_185: 7488603093191660437
+      OVER_CLOTH_1_186: 3112969564958516630
+      OVER_CLOTH_1_187: 2061544947644728594
+      OVER_CLOTH_1_188: -5486370673550773957
+      OVER_CLOTH_1_189: -5289740178602856821
+      OVER_CLOTH_1_19: -2826441225317985825
+      OVER_CLOTH_1_190: -2803969519829333244
+      OVER_CLOTH_1_191: 4053305227181373584
+      OVER_CLOTH_1_192: 6654913958596285093
+      OVER_CLOTH_1_193: 4963466862258540174
+      OVER_CLOTH_1_194: 6364626700362880516
+      OVER_CLOTH_1_195: 6261852785536419015
+      OVER_CLOTH_1_196: 1608442897624477730
+      OVER_CLOTH_1_197: -4756035804830460002
+      OVER_CLOTH_1_198: 3405833514817606467
+      OVER_CLOTH_1_199: 5952439667928806009
+      OVER_CLOTH_1_2: 4786895492688045734
+      OVER_CLOTH_1_20: 1595590314854823580
+      OVER_CLOTH_1_200: -28088089964752444
+      OVER_CLOTH_1_201: -7414181091595195384
+      OVER_CLOTH_1_202: 8652128223330836915
+      OVER_CLOTH_1_203: -7886558641254256278
+      OVER_CLOTH_1_204: -7928882132425855180
+      OVER_CLOTH_1_205: -5933578164666178440
+      OVER_CLOTH_1_206: 3589059714386157385
+      OVER_CLOTH_1_207: 5729839985424091743
+      OVER_CLOTH_1_208: 8453817773112808780
+      OVER_CLOTH_1_209: -903879539033189802
+      OVER_CLOTH_1_21: -4712820938507225740
+      OVER_CLOTH_1_210: -1613512791637065704
+      OVER_CLOTH_1_211: 4449237875376471564
+      OVER_CLOTH_1_212: 3654448177305886066
+      OVER_CLOTH_1_213: -6621278355708803445
+      OVER_CLOTH_1_214: -5890939136498519603
+      OVER_CLOTH_1_215: 3751262685561874611
+      OVER_CLOTH_1_216: -6102762659137790666
+      OVER_CLOTH_1_217: 6138308825074451082
+      OVER_CLOTH_1_218: -3819385529384244246
+      OVER_CLOTH_1_219: -1561774934077449013
+      OVER_CLOTH_1_22: 356317002378483883
+      OVER_CLOTH_1_220: -517712938546101961
+      OVER_CLOTH_1_221: 2987941431025374015
+      OVER_CLOTH_1_222: -3101465023203856128
+      OVER_CLOTH_1_223: -9204242468160507734
+      OVER_CLOTH_1_224: -8338353515029387394
+      OVER_CLOTH_1_225: 5414809124354600639
+      OVER_CLOTH_1_226: -9077489981407603164
+      OVER_CLOTH_1_227: 7567862456968180308
+      OVER_CLOTH_1_228: -334134067569435401
+      OVER_CLOTH_1_229: -1859915645159276448
+      OVER_CLOTH_1_23: -374491419502389264
+      OVER_CLOTH_1_230: -8839228502604794169
+      OVER_CLOTH_1_231: -5529952588928940935
+      OVER_CLOTH_1_232: -5483657566354871556
+      OVER_CLOTH_1_233: 6252813217046066501
+      OVER_CLOTH_1_234: -4825742012772116167
+      OVER_CLOTH_1_235: -7670545200706395120
+      OVER_CLOTH_1_236: 7584868041003937122
+      OVER_CLOTH_1_237: -6708679219720180723
+      OVER_CLOTH_1_238: -1168007982671199711
+      OVER_CLOTH_1_239: -3327065456028635301
+      OVER_CLOTH_1_24: -4289321465081027051
+      OVER_CLOTH_1_240: 3923569507972508276
+      OVER_CLOTH_1_25: 5331256440325307711
+      OVER_CLOTH_1_26: -6710434124827817927
+      OVER_CLOTH_1_27: -8401277233522072445
+      OVER_CLOTH_1_28: 1276475920714567439
+      OVER_CLOTH_1_29: 1968732349267326976
+      OVER_CLOTH_1_3: 8226582827575909275
+      OVER_CLOTH_1_30: 7769149286986733291
+      OVER_CLOTH_1_31: 2277980615155568939
+      OVER_CLOTH_1_32: 1278075635136328719
+      OVER_CLOTH_1_33: -3591548342795817203
+      OVER_CLOTH_1_34: 3672085074608464510
+      OVER_CLOTH_1_35: -6373475178483730562
+      OVER_CLOTH_1_36: 470564337689956679
+      OVER_CLOTH_1_37: -8351249418165423256
+      OVER_CLOTH_1_38: -2410399260784175424
+      OVER_CLOTH_1_39: 3708015863725728137
+      OVER_CLOTH_1_4: -8520260922720271949
+      OVER_CLOTH_1_40: 5106483392966433481
+      OVER_CLOTH_1_41: 1015209793205268963
+      OVER_CLOTH_1_42: -6268854830933021170
+      OVER_CLOTH_1_43: -4468445402913165624
+      OVER_CLOTH_1_44: -4991939845857038241
+      OVER_CLOTH_1_45: -559274097182509079
+      OVER_CLOTH_1_46: -8291927102412970677
+      OVER_CLOTH_1_47: -79438192605896238
+      OVER_CLOTH_1_48: -8221603146558613760
+      OVER_CLOTH_1_49: 509729218928886091
+      OVER_CLOTH_1_5: -4437927867076647523
+      OVER_CLOTH_1_50: -7326791372927504169
+      OVER_CLOTH_1_51: -5497689191899167822
+      OVER_CLOTH_1_52: 7592219547184522742
+      OVER_CLOTH_1_53: 6032398256306169272
+      OVER_CLOTH_1_54: 8521427456605470593
+      OVER_CLOTH_1_55: 3559014615578279764
+      OVER_CLOTH_1_56: 4976065789427228319
+      OVER_CLOTH_1_57: 2545354990394045315
+      OVER_CLOTH_1_58: -3184789578250647494
+      OVER_CLOTH_1_59: 480016992765205767
+      OVER_CLOTH_1_6: -1129975488625196107
+      OVER_CLOTH_1_60: -461065629786704725
+      OVER_CLOTH_1_61: -2530943677013677196
+      OVER_CLOTH_1_62: 7561479821946968141
+      OVER_CLOTH_1_63: -4461407726358528156
+      OVER_CLOTH_1_64: 7191154728688169509
+      OVER_CLOTH_1_65: 7726839618895293024
+      OVER_CLOTH_1_66: 188407590206682132
+      OVER_CLOTH_1_67: -5911303148228430900
+      OVER_CLOTH_1_68: 8767674507268760936
+      OVER_CLOTH_1_69: 1257054451128894726
+      OVER_CLOTH_1_7: -7833847867580165572
+      OVER_CLOTH_1_70: -7474354687941518370
+      OVER_CLOTH_1_71: -8613355340143841598
+      OVER_CLOTH_1_72: 8169826568683895680
+      OVER_CLOTH_1_73: 915163256557048382
+      OVER_CLOTH_1_74: -7145666037035471002
+      OVER_CLOTH_1_75: -629372309345302180
+      OVER_CLOTH_1_76: -3693236405226784740
+      OVER_CLOTH_1_77: -3660584234404113008
+      OVER_CLOTH_1_78: 2081793106367126017
+      OVER_CLOTH_1_79: 6808369001577537456
+      OVER_CLOTH_1_8: -8880183189128982365
+      OVER_CLOTH_1_80: -8608326459183260858
+      OVER_CLOTH_1_81: 2862983946303121835
+      OVER_CLOTH_1_82: 7692686249326604905
+      OVER_CLOTH_1_83: -140111013839207391
+      OVER_CLOTH_1_84: 5951958024759195875
+      OVER_CLOTH_1_85: 6446669257214519604
+      OVER_CLOTH_1_86: -4658735494369317619
+      OVER_CLOTH_1_87: -4059241442238024681
+      OVER_CLOTH_1_88: -1060155729618173561
+      OVER_CLOTH_1_89: -2061948963269990159
+      OVER_CLOTH_1_9: 459502110201607357
+      OVER_CLOTH_1_90: -4569814489041155343
+      OVER_CLOTH_1_91: -4574656149775915232
+      OVER_CLOTH_1_92: 4528341461264100657
+      OVER_CLOTH_1_93: 2502904199203647317
+      OVER_CLOTH_1_94: -2964891433472028242
+      OVER_CLOTH_1_95: 644600483967157202
+      OVER_CLOTH_1_96: 2319602270503666808
+      OVER_CLOTH_1_97: 3343170206456291781
+      OVER_CLOTH_1_98: 21812916747226368
+      OVER_CLOTH_1_99: 6964353577908617914
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,845 @@
+fileFormatVersion: 2
+guid: fe27e2ff77dc3974494c38224ed6e6f0
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -4718532500118810446
+    second: Guest_2_0
+  - first:
+      213: -6258290594246811451
+    second: Guest_2_1
+  - first:
+      213: -3828320498310929477
+    second: Guest_2_2
+  - first:
+      213: 7760859262017600383
+    second: Guest_2_3
+  - first:
+      213: -2370878937762018230
+    second: Guest_2_4
+  - first:
+      213: -2084743754619865251
+    second: Guest_2_5
+  - first:
+      213: 8114954472188220207
+    second: Guest_2_6
+  - first:
+      213: -8885476639480887351
+    second: Guest_2_7
+  - first:
+      213: 6190234027940459494
+    second: Guest_2_8
+  - first:
+      213: -8158689332124999451
+    second: Guest_2_9
+  - first:
+      213: 54365122222173763
+    second: Guest_2_10
+  - first:
+      213: -3617562578838506384
+    second: Guest_2_11
+  - first:
+      213: 5845272919046633271
+    second: Guest_2_12
+  - first:
+      213: -3783731056366813450
+    second: Guest_2_13
+  - first:
+      213: -3045854936801067093
+    second: Guest_2_14
+  - first:
+      213: -7648101686314878340
+    second: Guest_2_15
+  - first:
+      213: -6317121217026380599
+    second: Guest_2_16
+  - first:
+      213: 2673835931668093187
+    second: Guest_2_17
+  - first:
+      213: -4487873688287726936
+    second: Guest_2_18
+  - first:
+      213: 3204719296884231170
+    second: Guest_2_19
+  - first:
+      213: 4954999263074685938
+    second: Guest_2_20
+  - first:
+      213: 899475793731766251
+    second: Guest_2_21
+  - first:
+      213: 3239914895306729804
+    second: Guest_2_22
+  - first:
+      213: 2255195382908592084
+    second: Guest_2_23
+  - first:
+      213: -2173580185951719625
+    second: Guest_2_24
+  - first:
+      213: -2718238078316470503
+    second: Guest_2_25
+  - first:
+      213: 4888080741442821923
+    second: Guest_2_26
+  - first:
+      213: -7011844110796356919
+    second: Guest_2_27
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Guest_2_0
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 138
+        width: 17
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b05845e0b7648eb0800000000000000
+      internalID: -4718532500118810446
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Guest_2_1
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 138
+        width: 18
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5c020c4ccd51629a0800000000000000
+      internalID: -6258290594246811451
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Guest_2_2
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 138
+        width: 16
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bb3a4d34ac21fdac0800000000000000
+      internalID: -3828320498310929477
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Guest_2_3
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 138
+        width: 16
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f7bfb58416c14bb60800000000000000
+      internalID: 7760859262017600383
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Guest_2_4
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 138
+        width: 17
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a4c4d35ea22f81fd0800000000000000
+      internalID: -2370878937762018230
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Guest_2_5
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 137
+        width: 17
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d573b22c9908113e0800000000000000
+      internalID: -2084743754619865251
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Guest_2_6
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 137
+        width: 16
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f231f3bf81c1e9070800000000000000
+      internalID: 8114954472188220207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Guest_2_7
+      rect:
+        serializedVersion: 2
+        x: 158
+        y: 137
+        width: 16
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9c7c5bbd21270b480800000000000000
+      internalID: -8885476639480887351
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Guest_2_8
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 93
+        width: 17
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6e33de71d0128e550800000000000000
+      internalID: 6190234027940459494
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Guest_2_9
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 92
+        width: 18
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e0abed674386ce80800000000000000
+      internalID: -8158689332124999451
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Guest_2_10
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 92
+        width: 16
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 34e29366ac421c000800000000000000
+      internalID: 54365122222173763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Guest_2_11
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 92
+        width: 16
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 074b59f4006dbcdc0800000000000000
+      internalID: -3617562578838506384
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Guest_2_12
+      rect:
+        serializedVersion: 2
+        x: 89
+        y: 93
+        width: 19
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7373cf210c49e1150800000000000000
+      internalID: 5845272919046633271
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Guest_2_13
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 93
+        width: 19
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6fe74abb6ac7d7bc0800000000000000
+      internalID: -3783731056366813450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Guest_2_14
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 93
+        width: 16
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: baf3a969213fab5d0800000000000000
+      internalID: -3045854936801067093
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Guest_2_15
+      rect:
+        serializedVersion: 2
+        x: 158
+        y: 93
+        width: 16
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c7ab225a90c7cd590800000000000000
+      internalID: -7648101686314878340
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Guest_2_16
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 48
+        width: 15
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9cc2f0009b31558a0800000000000000
+      internalID: -6317121217026380599
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Guest_2_17
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 48
+        width: 15
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 30990cefc9f5b1520800000000000000
+      internalID: 2673835931668093187
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Guest_2_18
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 48
+        width: 15
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a2b9c488aed7b1c0800000000000000
+      internalID: -4487873688287726936
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Guest_2_19
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 48
+        width: 15
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 20ccf9f9833797c20800000000000000
+      internalID: 3204719296884231170
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Guest_2_20
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 48
+        width: 15
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2f393e9b391b3c440800000000000000
+      internalID: 4954999263074685938
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Guest_2_21
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 48
+        width: 15
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: be7c17108749b7c00800000000000000
+      internalID: 899475793731766251
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Guest_2_22
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 3
+        width: 16
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c4921457e6d76fc20800000000000000
+      internalID: 3239914895306729804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Guest_2_23
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 3
+        width: 16
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4df1e5190401c4f10800000000000000
+      internalID: 2255195382908592084
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Guest_2_24
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 3
+        width: 16
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 73f25854654e5d1e0800000000000000
+      internalID: -2173580185951719625
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Guest_2_25
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 3
+        width: 16
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 91f910f9ed0e64ad0800000000000000
+      internalID: -2718238078316470503
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Guest_2_26
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 3
+        width: 16
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 32f90234983f5d340800000000000000
+      internalID: 4888080741442821923
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Guest_2_27
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 3
+        width: 16
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9c2819b7eece0be90800000000000000
+      internalID: -7011844110796356919
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Guest_2_0: -4718532500118810446
+      Guest_2_1: -6258290594246811451
+      Guest_2_10: 54365122222173763
+      Guest_2_11: -3617562578838506384
+      Guest_2_12: 5845272919046633271
+      Guest_2_13: -3783731056366813450
+      Guest_2_14: -3045854936801067093
+      Guest_2_15: -7648101686314878340
+      Guest_2_16: -6317121217026380599
+      Guest_2_17: 2673835931668093187
+      Guest_2_18: -4487873688287726936
+      Guest_2_19: 3204719296884231170
+      Guest_2_2: -3828320498310929477
+      Guest_2_20: 4954999263074685938
+      Guest_2_21: 899475793731766251
+      Guest_2_22: 3239914895306729804
+      Guest_2_23: 2255195382908592084
+      Guest_2_24: -2173580185951719625
+      Guest_2_25: -2718238078316470503
+      Guest_2_26: 4888080741442821923
+      Guest_2_27: -7011844110796356919
+      Guest_2_3: 7760859262017600383
+      Guest_2_4: -2370878937762018230
+      Guest_2_5: -2084743754619865251
+      Guest_2_6: 8114954472188220207
+      Guest_2_7: -8885476639480887351
+      Guest_2_8: 6190234027940459494
+      Guest_2_9: -8158689332124999451
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

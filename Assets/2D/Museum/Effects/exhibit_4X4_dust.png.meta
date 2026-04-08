@@ -1,0 +1,819 @@
+fileFormatVersion: 2
+guid: 896e2131cb938f44494fecab0f45061e
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -4552267648300280054
+    second: exhibit_4X4_dust_0
+  - first:
+      213: -6245243942804269502
+    second: exhibit_4X4_dust_1
+  - first:
+      213: 1816881407926230060
+    second: exhibit_4X4_dust_2
+  - first:
+      213: 3673353426463674513
+    second: exhibit_4X4_dust_3
+  - first:
+      213: 960401447625197658
+    second: exhibit_4X4_dust_4
+  - first:
+      213: 3029914260639688984
+    second: exhibit_4X4_dust_5
+  - first:
+      213: 4612420365598344928
+    second: exhibit_4X4_dust_6
+  - first:
+      213: 8599503710769537787
+    second: exhibit_4X4_dust_7
+  - first:
+      213: 5394870554036397703
+    second: exhibit_4X4_dust_8
+  - first:
+      213: 5282625512846998079
+    second: exhibit_4X4_dust_9
+  - first:
+      213: 502628585633130204
+    second: exhibit_4X4_dust_10
+  - first:
+      213: 8391240700238264939
+    second: exhibit_4X4_dust_11
+  - first:
+      213: 2433886240467415835
+    second: exhibit_4X4_dust_12
+  - first:
+      213: -726641536382915900
+    second: exhibit_4X4_dust_13
+  - first:
+      213: -5191680186642297285
+    second: exhibit_4X4_dust_14
+  - first:
+      213: 7555397584326797977
+    second: exhibit_4X4_dust_15
+  - first:
+      213: 3655158772558687934
+    second: exhibit_4X4_dust_16
+  - first:
+      213: 8000521373836171
+    second: exhibit_4X4_dust_17
+  - first:
+      213: 454668537906828295
+    second: exhibit_4X4_dust_18
+  - first:
+      213: 6375320756948166861
+    second: exhibit_4X4_dust_19
+  - first:
+      213: -8180892532377409121
+    second: exhibit_4X4_dust_20
+  - first:
+      213: -7336143012517902308
+    second: exhibit_4X4_dust_21
+  - first:
+      213: 2369414925975814392
+    second: exhibit_4X4_dust_22
+  - first:
+      213: 1321551561731132055
+    second: exhibit_4X4_dust_23
+  - first:
+      213: -4743827923001176607
+    second: exhibit_4X4_dust_24
+  - first:
+      213: 2688967656187422017
+    second: exhibit_4X4_dust_25
+  - first:
+      213: -6753788910992899126
+    second: exhibit_4X4_dust_26
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: exhibit_4X4_dust_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 21
+        width: 18
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a071f8c51b813d0c0800000000000000
+      internalID: -4552267648300280054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: exhibit_4X4_dust_1
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 12
+        width: 20
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 246dd7509bf6459a0800000000000000
+      internalID: -6245243942804269502
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: exhibit_4X4_dust_2
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 4
+        width: 18
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c2c5476a30cd63910800000000000000
+      internalID: 1816881407926230060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: exhibit_4X4_dust_3
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 19
+        width: 20
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 190d4d6aa7f5af230800000000000000
+      internalID: 3673353426463674513
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: exhibit_4X4_dust_4
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 21
+        width: 14
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a5888773708045d00800000000000000
+      internalID: 960401447625197658
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: exhibit_4X4_dust_5
+      rect:
+        serializedVersion: 2
+        x: 169
+        y: 20
+        width: 15
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 819a15587fa6c0a20800000000000000
+      internalID: 3029914260639688984
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: exhibit_4X4_dust_6
+      rect:
+        serializedVersion: 2
+        x: 186
+        y: 21
+        width: 11
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0e6444682eb920040800000000000000
+      internalID: 4612420365598344928
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: exhibit_4X4_dust_7
+      rect:
+        serializedVersion: 2
+        x: 190
+        y: 13
+        width: 12
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf262151013975770800000000000000
+      internalID: 8599503710769537787
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: exhibit_4X4_dust_8
+      rect:
+        serializedVersion: 2
+        x: 267
+        y: 1
+        width: 52
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 786ed868f2e6eda40800000000000000
+      internalID: 5394870554036397703
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: exhibit_4X4_dust_9
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 0
+        width: 198
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f3a39a65ae7af4940800000000000000
+      internalID: 5282625512846998079
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: exhibit_4X4_dust_10
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 8
+        width: 16
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cd6ae9c1902b9f600800000000000000
+      internalID: 502628585633130204
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: exhibit_4X4_dust_11
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 0
+        width: 14
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b6a708a45fca37470800000000000000
+      internalID: 8391240700238264939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: exhibit_4X4_dust_12
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 3
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b1375c2f3a6e6c120800000000000000
+      internalID: 2433886240467415835
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: exhibit_4X4_dust_13
+      rect:
+        serializedVersion: 2
+        x: 59
+        y: 8
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ca2ad06f537ae5f0800000000000000
+      internalID: -726641536382915900
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: exhibit_4X4_dust_14
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 11
+        width: 17
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b3e80cf706273f7b0800000000000000
+      internalID: -5191680186642297285
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: exhibit_4X4_dust_15
+      rect:
+        serializedVersion: 2
+        x: 109
+        y: 6
+        width: 15
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 99aa4ae921a2ad860800000000000000
+      internalID: 7555397584326797977
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: exhibit_4X4_dust_16
+      rect:
+        serializedVersion: 2
+        x: 153
+        y: 7
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ebe630ca98bb9b230800000000000000
+      internalID: 3655158772558687934
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: exhibit_4X4_dust_17
+      rect:
+        serializedVersion: 2
+        x: 163
+        y: 10
+        width: 11
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b83618a8e6c6c1000800000000000000
+      internalID: 8000521373836171
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: exhibit_4X4_dust_18
+      rect:
+        serializedVersion: 2
+        x: 201
+        y: 7
+        width: 12
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7049b7450ae4f4600800000000000000
+      internalID: 454668537906828295
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: exhibit_4X4_dust_19
+      rect:
+        serializedVersion: 2
+        x: 251
+        y: 4
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc8e1175370b97850800000000000000
+      internalID: 6375320756948166861
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: exhibit_4X4_dust_20
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 12
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f99aff50691a77e80800000000000000
+      internalID: -8180892532377409121
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: exhibit_4X4_dust_21
+      rect:
+        serializedVersion: 2
+        x: 347
+        y: 4
+        width: 8
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c1808657cc8c03a90800000000000000
+      internalID: -7336143012517902308
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: exhibit_4X4_dust_22
+      rect:
+        serializedVersion: 2
+        x: 125
+        y: 0
+        width: 11
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f00c4c425ad1e020800000000000000
+      internalID: 2369414925975814392
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: exhibit_4X4_dust_23
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 2
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 79ac85db428175210800000000000000
+      internalID: 1321551561731132055
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: exhibit_4X4_dust_24
+      rect:
+        serializedVersion: 2
+        x: 215
+        y: 0
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1ed8fed43a98a2eb0800000000000000
+      internalID: -4743827923001176607
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: exhibit_4X4_dust_25
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 2
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 145e09726d1215520800000000000000
+      internalID: 2688967656187422017
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: exhibit_4X4_dust_26
+      rect:
+        serializedVersion: 2
+        x: 334
+        y: 0
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ac3cb40c4c8b542a0800000000000000
+      internalID: -6753788910992899126
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      exhibit_4X4_dust_0: -4552267648300280054
+      exhibit_4X4_dust_1: -6245243942804269502
+      exhibit_4X4_dust_10: 502628585633130204
+      exhibit_4X4_dust_11: 8391240700238264939
+      exhibit_4X4_dust_12: 2433886240467415835
+      exhibit_4X4_dust_13: -726641536382915900
+      exhibit_4X4_dust_14: -5191680186642297285
+      exhibit_4X4_dust_15: 7555397584326797977
+      exhibit_4X4_dust_16: 3655158772558687934
+      exhibit_4X4_dust_17: 8000521373836171
+      exhibit_4X4_dust_18: 454668537906828295
+      exhibit_4X4_dust_19: 6375320756948166861
+      exhibit_4X4_dust_2: 1816881407926230060
+      exhibit_4X4_dust_20: -8180892532377409121
+      exhibit_4X4_dust_21: -7336143012517902308
+      exhibit_4X4_dust_22: 2369414925975814392
+      exhibit_4X4_dust_23: 1321551561731132055
+      exhibit_4X4_dust_24: -4743827923001176607
+      exhibit_4X4_dust_25: 2688967656187422017
+      exhibit_4X4_dust_26: -6753788910992899126
+      exhibit_4X4_dust_3: 3673353426463674513
+      exhibit_4X4_dust_4: 960401447625197658
+      exhibit_4X4_dust_5: 3029914260639688984
+      exhibit_4X4_dust_6: 4612420365598344928
+      exhibit_4X4_dust_7: 8599503710769537787
+      exhibit_4X4_dust_8: 5394870554036397703
+      exhibit_4X4_dust_9: 5282625512846998079
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
