@@ -1,0 +1,1339 @@
+fileFormatVersion: 2
+guid: c3eda5571f30eda45831a9bce3967fb6
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3705497863109167844
+    second: dynamiteExplotion_0
+  - first:
+      213: 792973764009231484
+    second: dynamiteExplotion_1
+  - first:
+      213: 74794868909448251
+    second: dynamiteExplotion_2
+  - first:
+      213: -7976691925371482731
+    second: dynamiteExplotion_3
+  - first:
+      213: 8283170231339852573
+    second: dynamiteExplotion_4
+  - first:
+      213: 8942072915193276283
+    second: dynamiteExplotion_5
+  - first:
+      213: 5851438559950829132
+    second: dynamiteExplotion_6
+  - first:
+      213: 6081341784692317887
+    second: dynamiteExplotion_7
+  - first:
+      213: -1604201078185890588
+    second: dynamiteExplotion_8
+  - first:
+      213: -673085168047138753
+    second: dynamiteExplotion_9
+  - first:
+      213: 1503910225681927389
+    second: dynamiteExplotion_10
+  - first:
+      213: -6254324389238759713
+    second: dynamiteExplotion_11
+  - first:
+      213: -6580393461172335183
+    second: dynamiteExplotion_12
+  - first:
+      213: 7207211494598716653
+    second: dynamiteExplotion_13
+  - first:
+      213: -8703868018133260789
+    second: dynamiteExplotion_14
+  - first:
+      213: 1496302925673040767
+    second: dynamiteExplotion_15
+  - first:
+      213: 573951039538024658
+    second: dynamiteExplotion_16
+  - first:
+      213: 4610657312954886418
+    second: dynamiteExplotion_17
+  - first:
+      213: 8428004256084729698
+    second: dynamiteExplotion_18
+  - first:
+      213: 4857153235356893578
+    second: dynamiteExplotion_19
+  - first:
+      213: 3075781188279394044
+    second: dynamiteExplotion_20
+  - first:
+      213: -3775667600108108263
+    second: dynamiteExplotion_21
+  - first:
+      213: -2782198178071507482
+    second: dynamiteExplotion_22
+  - first:
+      213: 6512836149128801520
+    second: dynamiteExplotion_23
+  - first:
+      213: 5680174107767748999
+    second: dynamiteExplotion_24
+  - first:
+      213: -8323591853773056351
+    second: dynamiteExplotion_25
+  - first:
+      213: 2649063684193421977
+    second: dynamiteExplotion_26
+  - first:
+      213: -1355746044178905456
+    second: dynamiteExplotion_27
+  - first:
+      213: 6962007344997023180
+    second: dynamiteExplotion_28
+  - first:
+      213: 4676616329743005256
+    second: dynamiteExplotion_29
+  - first:
+      213: -7699379330992810604
+    second: dynamiteExplotion_30
+  - first:
+      213: -784194982235317508
+    second: dynamiteExplotion_31
+  - first:
+      213: 2674527794063679837
+    second: dynamiteExplotion_32
+  - first:
+      213: -4528408227018837599
+    second: dynamiteExplotion_33
+  - first:
+      213: -6825834483520686994
+    second: dynamiteExplotion_34
+  - first:
+      213: -186120364266038566
+    second: dynamiteExplotion_35
+  - first:
+      213: -1557600895201745217
+    second: dynamiteExplotion_36
+  - first:
+      213: -2047299395182264804
+    second: dynamiteExplotion_37
+  - first:
+      213: -6272950299545299751
+    second: dynamiteExplotion_38
+  - first:
+      213: -5070072717013624660
+    second: dynamiteExplotion_39
+  - first:
+      213: 5804246348818619477
+    second: dynamiteExplotion_40
+  - first:
+      213: 5729527466403523850
+    second: dynamiteExplotion_41
+  - first:
+      213: -1760098241412622518
+    second: dynamiteExplotion_42
+  - first:
+      213: -346244630855017515
+    second: dynamiteExplotion_43
+  - first:
+      213: 1675851393356267229
+    second: dynamiteExplotion_44
+  - first:
+      213: -4238937980875777077
+    second: dynamiteExplotion_45
+  - first:
+      213: -2693892906638205156
+    second: dynamiteExplotion_46
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: dynamiteExplotion_0
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 8
+        width: 65
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ea47968ca29c6330800000000000000
+      internalID: 3705497863109167844
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dynamiteExplotion_1
+      rect:
+        serializedVersion: 2
+        x: 347
+        y: 47
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c7489ffdf65310b00800000000000000
+      internalID: 792973764009231484
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dynamiteExplotion_2
+      rect:
+        serializedVersion: 2
+        x: 404
+        y: 20
+        width: 59
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b3c9e587989b90100800000000000000
+      internalID: 74794868909448251
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dynamiteExplotion_3
+      rect:
+        serializedVersion: 2
+        x: 461
+        y: 29
+        width: 43
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 59d8189c4f81d4190800000000000000
+      internalID: -7976691925371482731
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dynamiteExplotion_4
+      rect:
+        serializedVersion: 2
+        x: 531
+        y: 35
+        width: 26
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d132a15707bb3f270800000000000000
+      internalID: 8283170231339852573
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dynamiteExplotion_5
+      rect:
+        serializedVersion: 2
+        x: 595
+        y: 54
+        width: 14
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b77acb170ff981c70800000000000000
+      internalID: 8942072915193276283
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dynamiteExplotion_6
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 48
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c4674e63e5c743150800000000000000
+      internalID: 5851438559950829132
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dynamiteExplotion_7
+      rect:
+        serializedVersion: 2
+        x: 606
+        y: 43
+        width: 18
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fbe53520224456450800000000000000
+      internalID: 6081341784692317887
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dynamiteExplotion_8
+      rect:
+        serializedVersion: 2
+        x: 626
+        y: 21
+        width: 45
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ec6e6a6e9bbcb9e0800000000000000
+      internalID: -1604201078185890588
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dynamiteExplotion_9
+      rect:
+        serializedVersion: 2
+        x: 659
+        y: 52
+        width: 15
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f3857f61b98b8a6f0800000000000000
+      internalID: -673085168047138753
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dynamiteExplotion_10
+      rect:
+        serializedVersion: 2
+        x: 671
+        y: 1
+        width: 138
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ddc49d7d166fed410800000000000000
+      internalID: 1503910225681927389
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dynamiteExplotion_11
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 28
+        width: 72
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fde9c55da1d2439a0800000000000000
+      internalID: -6254324389238759713
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dynamiteExplotion_12
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 21
+        width: 48
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1bd0580f20fbda4a0800000000000000
+      internalID: -6580393461172335183
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dynamiteExplotion_13
+      rect:
+        serializedVersion: 2
+        x: 199
+        y: 28
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dec2bac3ba8250460800000000000000
+      internalID: 7207211494598716653
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dynamiteExplotion_14
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 20
+        width: 25
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b06a84f0726a53780800000000000000
+      internalID: -8703868018133260789
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dynamiteExplotion_15
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 28
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f7b8e19459fe3c410800000000000000
+      internalID: 1496302925673040767
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dynamiteExplotion_16
+      rect:
+        serializedVersion: 2
+        x: 319
+        y: 20
+        width: 36
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2d05126fd6517f700800000000000000
+      internalID: 573951039538024658
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dynamiteExplotion_17
+      rect:
+        serializedVersion: 2
+        x: 351
+        y: 20
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 219abb7d5685cff30800000000000000
+      internalID: 4610657312954886418
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dynamiteExplotion_18
+      rect:
+        serializedVersion: 2
+        x: 353
+        y: 20
+        width: 59
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 26f1969a73946f470800000000000000
+      internalID: 8428004256084729698
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dynamiteExplotion_19
+      rect:
+        serializedVersion: 2
+        x: 404
+        y: 0
+        width: 24
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a81461d1223186340800000000000000
+      internalID: 4857153235356893578
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dynamiteExplotion_20
+      rect:
+        serializedVersion: 2
+        x: 459
+        y: 20
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cfed83ec1be5faa20800000000000000
+      internalID: 3075781188279394044
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dynamiteExplotion_21
+      rect:
+        serializedVersion: 2
+        x: 467
+        y: 0
+        width: 25
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 916ca9172522a9bc0800000000000000
+      internalID: -3775667600108108263
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dynamiteExplotion_22
+      rect:
+        serializedVersion: 2
+        x: 488
+        y: 21
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ed0f4d6f75a369d0800000000000000
+      internalID: -2782198178071507482
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dynamiteExplotion_23
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 20
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0fc252d98fd326a50800000000000000
+      internalID: 6512836149128801520
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dynamiteExplotion_24
+      rect:
+        serializedVersion: 2
+        x: 502
+        y: 29
+        width: 14
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7893ed3914804de40800000000000000
+      internalID: 5680174107767748999
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dynamiteExplotion_25
+      rect:
+        serializedVersion: 2
+        x: 511
+        y: 20
+        width: 12
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a6958c2f49ac7c80800000000000000
+      internalID: -8323591853773056351
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dynamiteExplotion_26
+      rect:
+        serializedVersion: 2
+        x: 513
+        y: 37
+        width: 12
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 99a8cbba26d53c420800000000000000
+      internalID: 2649063684193421977
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dynamiteExplotion_27
+      rect:
+        serializedVersion: 2
+        x: 523
+        y: 30
+        width: 13
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0964317e72c6f2de0800000000000000
+      internalID: -1355746044178905456
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dynamiteExplotion_28
+      rect:
+        serializedVersion: 2
+        x: 524
+        y: 21
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ccd35324bc40e9060800000000000000
+      internalID: 6962007344997023180
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dynamiteExplotion_29
+      rect:
+        serializedVersion: 2
+        x: 531
+        y: 0
+        width: 25
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8467f1d26cda6e040800000000000000
+      internalID: 4676616329743005256
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dynamiteExplotion_30
+      rect:
+        serializedVersion: 2
+        x: 549
+        y: 20
+        width: 15
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4955031aa4f462590800000000000000
+      internalID: -7699379330992810604
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dynamiteExplotion_31
+      rect:
+        serializedVersion: 2
+        x: 556
+        y: 37
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cfa583981dafd15f0800000000000000
+      internalID: -784194982235317508
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dynamiteExplotion_32
+      rect:
+        serializedVersion: 2
+        x: 564
+        y: 23
+        width: 24
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d512313cbd4dd1520800000000000000
+      internalID: 2674527794063679837
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dynamiteExplotion_33
+      rect:
+        serializedVersion: 2
+        x: 565
+        y: 21
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a1f596c5bcd721c0800000000000000
+      internalID: -4528408227018837599
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dynamiteExplotion_34
+      rect:
+        serializedVersion: 2
+        x: 590
+        y: 33
+        width: 17
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e64332ab3b3c541a0800000000000000
+      internalID: -6825834483520686994
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dynamiteExplotion_35
+      rect:
+        serializedVersion: 2
+        x: 591
+        y: 14
+        width: 18
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: adad47ac384ca6df0800000000000000
+      internalID: -186120364266038566
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dynamiteExplotion_36
+      rect:
+        serializedVersion: 2
+        x: 607
+        y: 23
+        width: 20
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fb66ba30d3a426ae0800000000000000
+      internalID: -1557600895201745217
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dynamiteExplotion_37
+      rect:
+        serializedVersion: 2
+        x: 659
+        y: 14
+        width: 14
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c1ef9411c088693e0800000000000000
+      internalID: -2047299395182264804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dynamiteExplotion_38
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 24
+        width: 30
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9d41ce520f002f8a0800000000000000
+      internalID: -6272950299545299751
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dynamiteExplotion_39
+      rect:
+        serializedVersion: 2
+        x: 347
+        y: 7
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca8d00de9bb73a9b0800000000000000
+      internalID: -5070072717013624660
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dynamiteExplotion_40
+      rect:
+        serializedVersion: 2
+        x: 606
+        y: 8
+        width: 14
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 55c11325d43dc8050800000000000000
+      internalID: 5804246348818619477
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dynamiteExplotion_41
+      rect:
+        serializedVersion: 2
+        x: 674
+        y: 15
+        width: 9
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a0d63d5dfde538f40800000000000000
+      internalID: 5729527466403523850
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dynamiteExplotion_42
+      rect:
+        serializedVersion: 2
+        x: 595
+        y: 0
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a479fce89ffd297e0800000000000000
+      internalID: -1760098241412622518
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dynamiteExplotion_43
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 8
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5db108cb754e13bf0800000000000000
+      internalID: -346244630855017515
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dynamiteExplotion_44
+      rect:
+        serializedVersion: 2
+        x: 607
+        y: 0
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ddef75596f1d14710800000000000000
+      internalID: 1675851393356267229
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dynamiteExplotion_45
+      rect:
+        serializedVersion: 2
+        x: 659
+        y: 0
+        width: 12
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bcbdcf08d544c25c0800000000000000
+      internalID: -4238937980875777077
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dynamiteExplotion_46
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 0
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c1f92ec9cae5d9ad0800000000000000
+      internalID: -2693892906638205156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      dynamiteExplotion_0: 3705497863109167844
+      dynamiteExplotion_1: 792973764009231484
+      dynamiteExplotion_10: 1503910225681927389
+      dynamiteExplotion_11: -6254324389238759713
+      dynamiteExplotion_12: -6580393461172335183
+      dynamiteExplotion_13: 7207211494598716653
+      dynamiteExplotion_14: -8703868018133260789
+      dynamiteExplotion_15: 1496302925673040767
+      dynamiteExplotion_16: 573951039538024658
+      dynamiteExplotion_17: 4610657312954886418
+      dynamiteExplotion_18: 8428004256084729698
+      dynamiteExplotion_19: 4857153235356893578
+      dynamiteExplotion_2: 74794868909448251
+      dynamiteExplotion_20: 3075781188279394044
+      dynamiteExplotion_21: -3775667600108108263
+      dynamiteExplotion_22: -2782198178071507482
+      dynamiteExplotion_23: 6512836149128801520
+      dynamiteExplotion_24: 5680174107767748999
+      dynamiteExplotion_25: -8323591853773056351
+      dynamiteExplotion_26: 2649063684193421977
+      dynamiteExplotion_27: -1355746044178905456
+      dynamiteExplotion_28: 6962007344997023180
+      dynamiteExplotion_29: 4676616329743005256
+      dynamiteExplotion_3: -7976691925371482731
+      dynamiteExplotion_30: -7699379330992810604
+      dynamiteExplotion_31: -784194982235317508
+      dynamiteExplotion_32: 2674527794063679837
+      dynamiteExplotion_33: -4528408227018837599
+      dynamiteExplotion_34: -6825834483520686994
+      dynamiteExplotion_35: -186120364266038566
+      dynamiteExplotion_36: -1557600895201745217
+      dynamiteExplotion_37: -2047299395182264804
+      dynamiteExplotion_38: -6272950299545299751
+      dynamiteExplotion_39: -5070072717013624660
+      dynamiteExplotion_4: 8283170231339852573
+      dynamiteExplotion_40: 5804246348818619477
+      dynamiteExplotion_41: 5729527466403523850
+      dynamiteExplotion_42: -1760098241412622518
+      dynamiteExplotion_43: -346244630855017515
+      dynamiteExplotion_44: 1675851393356267229
+      dynamiteExplotion_45: -4238937980875777077
+      dynamiteExplotion_46: -2693892906638205156
+      dynamiteExplotion_5: 8942072915193276283
+      dynamiteExplotion_6: 5851438559950829132
+      dynamiteExplotion_7: 6081341784692317887
+      dynamiteExplotion_8: -1604201078185890588
+      dynamiteExplotion_9: -673085168047138753
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

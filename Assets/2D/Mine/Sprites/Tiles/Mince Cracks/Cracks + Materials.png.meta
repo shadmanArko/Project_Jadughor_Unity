@@ -1,0 +1,1053 @@
+fileFormatVersion: 2
+guid: e3e8044c7208f3e4ea403d092c1ff1c8
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -3712403699549254009
+    second: Cracks + Materials_0
+  - first:
+      213: 1336252981090314998
+    second: Cracks + Materials_1
+  - first:
+      213: -3729182964849552250
+    second: Cracks + Materials_2
+  - first:
+      213: 6353091988160464530
+    second: Cracks + Materials_3
+  - first:
+      213: 6144029350849256665
+    second: Cracks + Materials_4
+  - first:
+      213: -6300645323203369986
+    second: Cracks + Materials_5
+  - first:
+      213: 7797327287615505306
+    second: Cracks + Materials_6
+  - first:
+      213: 7388330150479737603
+    second: Cracks + Materials_7
+  - first:
+      213: 5829374328206483416
+    second: Cracks + Materials_8
+  - first:
+      213: 6792020365081417530
+    second: Cracks + Materials_9
+  - first:
+      213: -3800311089850184631
+    second: Cracks + Materials_10
+  - first:
+      213: -638448635530391545
+    second: Cracks + Materials_11
+  - first:
+      213: 4196158093246472053
+    second: Cracks + Materials_12
+  - first:
+      213: -1903243104869568455
+    second: Cracks + Materials_13
+  - first:
+      213: -6659452925405408371
+    second: Cracks + Materials_14
+  - first:
+      213: 8680189332929102047
+    second: Cracks + Materials_15
+  - first:
+      213: 1443928665479638768
+    second: Cracks + Materials_16
+  - first:
+      213: 5558555228703830759
+    second: Cracks + Materials_17
+  - first:
+      213: 8423944521150503200
+    second: Cracks + Materials_18
+  - first:
+      213: 6548659472890491796
+    second: Cracks + Materials_19
+  - first:
+      213: -3505166824539732638
+    second: Cracks + Materials_20
+  - first:
+      213: -5008399029152929824
+    second: Cracks + Materials_21
+  - first:
+      213: -2931842816669978098
+    second: Cracks + Materials_22
+  - first:
+      213: 2639475925578755781
+    second: Cracks + Materials_23
+  - first:
+      213: -3991155660162621975
+    second: Cracks + Materials_24
+  - first:
+      213: -5830457115741522552
+    second: Cracks + Materials_25
+  - first:
+      213: 8418818994781570167
+    second: Cracks + Materials_26
+  - first:
+      213: 4744253654117273238
+    second: Cracks + Materials_27
+  - first:
+      213: -4659069617210900800
+    second: Cracks + Materials_28
+  - first:
+      213: 9190002085401572792
+    second: Cracks + Materials_29
+  - first:
+      213: -2287275155729524720
+    second: Cracks + Materials_30
+  - first:
+      213: -6132617368200144669
+    second: Cracks + Materials_31
+  - first:
+      213: 1501083262648210260
+    second: Cracks + Materials_32
+  - first:
+      213: -7790758196625189995
+    second: Cracks + Materials_33
+  - first:
+      213: 3885884575621157105
+    second: Cracks + Materials_34
+  - first:
+      213: 5439092243374305399
+    second: Cracks + Materials_35
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Cracks + Materials_0
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 113
+        width: 12
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 78e45812184ea7cc0800000000000000
+      internalID: -3712403699549254009
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cracks + Materials_1
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 118
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6fae1fba1035b8210800000000000000
+      internalID: 1336252981090314998
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cracks + Materials_2
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 113
+        width: 16
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 68454bdf9d74f3cc0800000000000000
+      internalID: -3729182964849552250
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cracks + Materials_3
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 104
+        width: 22
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2964fabc087ba2850800000000000000
+      internalID: 6353091988160464530
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cracks + Materials_4
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 106
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9dc91f2642af34550800000000000000
+      internalID: 6144029350849256665
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cracks + Materials_5
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 104
+        width: 15
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ef3acb6f57c9f88a0800000000000000
+      internalID: -6300645323203369986
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cracks + Materials_6
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 92
+        width: 13
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a9348c72bdba53c60800000000000000
+      internalID: 7797327287615505306
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cracks + Materials_7
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 97
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 30337a6702f988660800000000000000
+      internalID: 7388330150479737603
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cracks + Materials_8
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 90
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8df578fe01916e050800000000000000
+      internalID: 5829374328206483416
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cracks + Materials_9
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 83
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a3795ef498a124e50800000000000000
+      internalID: 6792020365081417530
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cracks + Materials_10
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 85
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 94c808dd235924bc0800000000000000
+      internalID: -3800311089850184631
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cracks + Materials_11
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 83
+        width: 14
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 700d0ef3956c327f0800000000000000
+      internalID: -638448635530391545
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cracks + Materials_12
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 71
+        width: 13
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 57f1659bd8fbb3a30800000000000000
+      internalID: 4196158093246472053
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cracks + Materials_13
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 76
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 930b90dda725695e0800000000000000
+      internalID: -1903243104869568455
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cracks + Materials_14
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 69
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d8356cef8ded493a0800000000000000
+      internalID: -6659452925405408371
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cracks + Materials_15
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 62
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fd0cf5c653a367870800000000000000
+      internalID: 8680189332929102047
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cracks + Materials_16
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 64
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0feeae2987dd90410800000000000000
+      internalID: 1443928665479638768
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cracks + Materials_17
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 62
+        width: 14
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7e2384fa784f32d40800000000000000
+      internalID: 5558555228703830759
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cracks + Materials_18
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 50
+        width: 13
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 02916c6f8ecd7e470800000000000000
+      internalID: 8423944521150503200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cracks + Materials_19
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 55
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 49372a4281381ea50800000000000000
+      internalID: 6548659472890491796
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cracks + Materials_20
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 48
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 26543d028552b5fc0800000000000000
+      internalID: -3505166824539732638
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cracks + Materials_21
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 41
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0e7aded5e979e7ab0800000000000000
+      internalID: -5008399029152929824
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cracks + Materials_22
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 43
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e02fa17ed700057d0800000000000000
+      internalID: -2931842816669978098
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cracks + Materials_23
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 41
+        width: 14
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ce2159ae5d41a420800000000000000
+      internalID: 2639475925578755781
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cracks + Materials_24
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 29
+        width: 13
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9ed97b8b2119c98c0800000000000000
+      internalID: -3991155660162621975
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cracks + Materials_25
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 34
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 885f312f42e061fa0800000000000000
+      internalID: -5830457115741522552
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cracks + Materials_26
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 27
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 774444c5547a5d470800000000000000
+      internalID: 8418818994781570167
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cracks + Materials_27
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 20
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 69e4202ff89f6d140800000000000000
+      internalID: 4744253654117273238
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cracks + Materials_28
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 22
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ce34523ed8a75fb0800000000000000
+      internalID: -4659069617210900800
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cracks + Materials_29
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 20
+        width: 14
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8b5b579b432798f70800000000000000
+      internalID: 9190002085401572792
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cracks + Materials_30
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 8
+        width: 13
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0185a274d57f140e0800000000000000
+      internalID: -2287275155729524720
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cracks + Materials_31
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 13
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3e81a01eef094eaa0800000000000000
+      internalID: -6132617368200144669
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cracks + Materials_32
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 6
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4535e68364be4d410800000000000000
+      internalID: 1501083262648210260
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cracks + Materials_33
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 0
+        width: 22
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 593513782baa1e390800000000000000
+      internalID: -7790758196625189995
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cracks + Materials_34
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 1
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1f09118ee6f6de530800000000000000
+      internalID: 3885884575621157105
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cracks + Materials_35
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 0
+        width: 14
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 77078eae3998b7b40800000000000000
+      internalID: 5439092243374305399
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Cracks + Materials_0: -3712403699549254009
+      Cracks + Materials_1: 1336252981090314998
+      Cracks + Materials_10: -3800311089850184631
+      Cracks + Materials_11: -638448635530391545
+      Cracks + Materials_12: 4196158093246472053
+      Cracks + Materials_13: -1903243104869568455
+      Cracks + Materials_14: -6659452925405408371
+      Cracks + Materials_15: 8680189332929102047
+      Cracks + Materials_16: 1443928665479638768
+      Cracks + Materials_17: 5558555228703830759
+      Cracks + Materials_18: 8423944521150503200
+      Cracks + Materials_19: 6548659472890491796
+      Cracks + Materials_2: -3729182964849552250
+      Cracks + Materials_20: -3505166824539732638
+      Cracks + Materials_21: -5008399029152929824
+      Cracks + Materials_22: -2931842816669978098
+      Cracks + Materials_23: 2639475925578755781
+      Cracks + Materials_24: -3991155660162621975
+      Cracks + Materials_25: -5830457115741522552
+      Cracks + Materials_26: 8418818994781570167
+      Cracks + Materials_27: 4744253654117273238
+      Cracks + Materials_28: -4659069617210900800
+      Cracks + Materials_29: 9190002085401572792
+      Cracks + Materials_3: 6353091988160464530
+      Cracks + Materials_30: -2287275155729524720
+      Cracks + Materials_31: -6132617368200144669
+      Cracks + Materials_32: 1501083262648210260
+      Cracks + Materials_33: -7790758196625189995
+      Cracks + Materials_34: 3885884575621157105
+      Cracks + Materials_35: 5439092243374305399
+      Cracks + Materials_4: 6144029350849256665
+      Cracks + Materials_5: -6300645323203369986
+      Cracks + Materials_6: 7797327287615505306
+      Cracks + Materials_7: 7388330150479737603
+      Cracks + Materials_8: 5829374328206483416
+      Cracks + Materials_9: 6792020365081417530
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,5447 @@
+fileFormatVersion: 2
+guid: c07fffd4b0d25d54ea9badd9fef6a4cc
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 8165108554083170750
+    second: mining cells with breakage_0
+  - first:
+      213: 2599296968137580742
+    second: mining cells with breakage_1
+  - first:
+      213: -179946984314910145
+    second: mining cells with breakage_2
+  - first:
+      213: 6983606489464041364
+    second: mining cells with breakage_3
+  - first:
+      213: -3055565335379487346
+    second: mining cells with breakage_4
+  - first:
+      213: 7856814077062979834
+    second: mining cells with breakage_5
+  - first:
+      213: 6618048745541395700
+    second: mining cells with breakage_6
+  - first:
+      213: -3036252288378846771
+    second: mining cells with breakage_7
+  - first:
+      213: -5408426610170123745
+    second: mining cells with breakage_8
+  - first:
+      213: -1514111068756049916
+    second: mining cells with breakage_9
+  - first:
+      213: -752699988720526485
+    second: mining cells with breakage_10
+  - first:
+      213: 2131187956198325852
+    second: mining cells with breakage_11
+  - first:
+      213: -1942053806512829996
+    second: mining cells with breakage_12
+  - first:
+      213: 8151417029659352706
+    second: mining cells with breakage_13
+  - first:
+      213: -7404337730443076702
+    second: mining cells with breakage_14
+  - first:
+      213: 8404802744777451070
+    second: mining cells with breakage_15
+  - first:
+      213: -6866372912777080294
+    second: mining cells with breakage_16
+  - first:
+      213: 2064020400802896201
+    second: mining cells with breakage_17
+  - first:
+      213: -6457100921556947298
+    second: mining cells with breakage_18
+  - first:
+      213: -7215650125054278825
+    second: mining cells with breakage_19
+  - first:
+      213: -7418097859419436112
+    second: mining cells with breakage_20
+  - first:
+      213: 5547532553451067985
+    second: mining cells with breakage_21
+  - first:
+      213: -341521552499280948
+    second: mining cells with breakage_22
+  - first:
+      213: -7374640910059955726
+    second: mining cells with breakage_23
+  - first:
+      213: 8097528307571927944
+    second: mining cells with breakage_24
+  - first:
+      213: -6993322385942496579
+    second: mining cells with breakage_25
+  - first:
+      213: 375010791972832907
+    second: mining cells with breakage_26
+  - first:
+      213: 3051469537256361436
+    second: mining cells with breakage_27
+  - first:
+      213: 8553095790741299043
+    second: mining cells with breakage_28
+  - first:
+      213: 656577929730521442
+    second: mining cells with breakage_29
+  - first:
+      213: 8886084887928222759
+    second: mining cells with breakage_30
+  - first:
+      213: -6043547901105737690
+    second: mining cells with breakage_31
+  - first:
+      213: 3033300469605500280
+    second: mining cells with breakage_32
+  - first:
+      213: -6012726108273777391
+    second: mining cells with breakage_33
+  - first:
+      213: -2901376108509446837
+    second: mining cells with breakage_34
+  - first:
+      213: 1411997161470072541
+    second: mining cells with breakage_35
+  - first:
+      213: -1560074134688085835
+    second: mining cells with breakage_36
+  - first:
+      213: -1630271884747718448
+    second: mining cells with breakage_37
+  - first:
+      213: -2740877889524437725
+    second: mining cells with breakage_38
+  - first:
+      213: -854704101413513872
+    second: mining cells with breakage_39
+  - first:
+      213: 7296502253410649900
+    second: mining cells with breakage_40
+  - first:
+      213: -6816346661433247245
+    second: mining cells with breakage_41
+  - first:
+      213: -2996123520422850609
+    second: mining cells with breakage_42
+  - first:
+      213: -3365776542949604884
+    second: mining cells with breakage_43
+  - first:
+      213: 3741643400654956410
+    second: mining cells with breakage_44
+  - first:
+      213: -3437553196709940942
+    second: mining cells with breakage_45
+  - first:
+      213: -6218304998997858767
+    second: mining cells with breakage_46
+  - first:
+      213: 8485137788803451325
+    second: mining cells with breakage_47
+  - first:
+      213: -6576937203254278034
+    second: mining cells with breakage_48
+  - first:
+      213: -6028129187004577924
+    second: mining cells with breakage_49
+  - first:
+      213: 5958862872578960236
+    second: mining cells with breakage_50
+  - first:
+      213: 5393760579737173834
+    second: mining cells with breakage_51
+  - first:
+      213: 420316004593822605
+    second: mining cells with breakage_52
+  - first:
+      213: 7133405184010452737
+    second: mining cells with breakage_53
+  - first:
+      213: 2905635034073120496
+    second: mining cells with breakage_54
+  - first:
+      213: -2926208680675147043
+    second: mining cells with breakage_55
+  - first:
+      213: 5414901477294830094
+    second: mining cells with breakage_56
+  - first:
+      213: -4156776286345544898
+    second: mining cells with breakage_57
+  - first:
+      213: -2579269401054937549
+    second: mining cells with breakage_58
+  - first:
+      213: -9033594586982900125
+    second: mining cells with breakage_59
+  - first:
+      213: 5197109916430063915
+    second: mining cells with breakage_60
+  - first:
+      213: 4088353240827376076
+    second: mining cells with breakage_61
+  - first:
+      213: -2189908839986231309
+    second: mining cells with breakage_62
+  - first:
+      213: -8281731496178013374
+    second: mining cells with breakage_63
+  - first:
+      213: 6839957503895675183
+    second: mining cells with breakage_64
+  - first:
+      213: 6116544470736417751
+    second: mining cells with breakage_65
+  - first:
+      213: 1772039126521877599
+    second: mining cells with breakage_66
+  - first:
+      213: 1793209766513683121
+    second: mining cells with breakage_67
+  - first:
+      213: 2954887674000978162
+    second: mining cells with breakage_68
+  - first:
+      213: 6408952153381409618
+    second: mining cells with breakage_69
+  - first:
+      213: -8617342834439379456
+    second: mining cells with breakage_70
+  - first:
+      213: -139796728400892981
+    second: mining cells with breakage_71
+  - first:
+      213: -7011899447374957921
+    second: mining cells with breakage_72
+  - first:
+      213: 3703221228412839993
+    second: mining cells with breakage_73
+  - first:
+      213: -4690297825034949317
+    second: mining cells with breakage_74
+  - first:
+      213: 5627508239471444038
+    second: mining cells with breakage_75
+  - first:
+      213: 8947778911781058203
+    second: mining cells with breakage_76
+  - first:
+      213: 6520978248043105037
+    second: mining cells with breakage_77
+  - first:
+      213: -5032482082875453835
+    second: mining cells with breakage_78
+  - first:
+      213: 2111320261899959861
+    second: mining cells with breakage_79
+  - first:
+      213: -1565750562995490067
+    second: mining cells with breakage_80
+  - first:
+      213: -690984391587618868
+    second: mining cells with breakage_81
+  - first:
+      213: -6665950636522266512
+    second: mining cells with breakage_82
+  - first:
+      213: -8650554755951540785
+    second: mining cells with breakage_83
+  - first:
+      213: 5929115061679432591
+    second: mining cells with breakage_84
+  - first:
+      213: -3319892481594257008
+    second: mining cells with breakage_85
+  - first:
+      213: 4826851094233384064
+    second: mining cells with breakage_86
+  - first:
+      213: -6672554310912629915
+    second: mining cells with breakage_87
+  - first:
+      213: 5372731467661810079
+    second: mining cells with breakage_88
+  - first:
+      213: -8439881574719016714
+    second: mining cells with breakage_89
+  - first:
+      213: -4403973140226833388
+    second: mining cells with breakage_90
+  - first:
+      213: -2649049012574996348
+    second: mining cells with breakage_91
+  - first:
+      213: -6558761900429373981
+    second: mining cells with breakage_92
+  - first:
+      213: 6541453905292629207
+    second: mining cells with breakage_93
+  - first:
+      213: 7451634430519699161
+    second: mining cells with breakage_94
+  - first:
+      213: 7286001225042012488
+    second: mining cells with breakage_95
+  - first:
+      213: 11760697939685172
+    second: mining cells with breakage_96
+  - first:
+      213: 4274985407353829356
+    second: mining cells with breakage_97
+  - first:
+      213: 6789789396216453634
+    second: mining cells with breakage_98
+  - first:
+      213: 8183242191007320022
+    second: mining cells with breakage_99
+  - first:
+      213: 575894551114799444
+    second: mining cells with breakage_100
+  - first:
+      213: 6713837126445333115
+    second: mining cells with breakage_101
+  - first:
+      213: -6105418974740565645
+    second: mining cells with breakage_102
+  - first:
+      213: 5852202793732496330
+    second: mining cells with breakage_103
+  - first:
+      213: -2228285586288656306
+    second: mining cells with breakage_104
+  - first:
+      213: 217660631442192443
+    second: mining cells with breakage_105
+  - first:
+      213: -7877656415254556471
+    second: mining cells with breakage_106
+  - first:
+      213: 8618474629234588900
+    second: mining cells with breakage_107
+  - first:
+      213: -1385821817035888108
+    second: mining cells with breakage_108
+  - first:
+      213: -1356882912231177118
+    second: mining cells with breakage_109
+  - first:
+      213: -8870815112746738602
+    second: mining cells with breakage_110
+  - first:
+      213: 9167228854119523847
+    second: mining cells with breakage_111
+  - first:
+      213: -8588069310837921513
+    second: mining cells with breakage_112
+  - first:
+      213: -93476056716680667
+    second: mining cells with breakage_113
+  - first:
+      213: -6664315557707810756
+    second: mining cells with breakage_114
+  - first:
+      213: 3318963283918141821
+    second: mining cells with breakage_115
+  - first:
+      213: -5657211167912913262
+    second: mining cells with breakage_116
+  - first:
+      213: 3075363867629721487
+    second: mining cells with breakage_117
+  - first:
+      213: 7007154992372173857
+    second: mining cells with breakage_118
+  - first:
+      213: 4204730473092974849
+    second: mining cells with breakage_119
+  - first:
+      213: 1201827159074660701
+    second: mining cells with breakage_120
+  - first:
+      213: -8277598837630266603
+    second: mining cells with breakage_121
+  - first:
+      213: 7642715417938542831
+    second: mining cells with breakage_122
+  - first:
+      213: 8583183480087380918
+    second: mining cells with breakage_123
+  - first:
+      213: -9082261732305421543
+    second: mining cells with breakage_124
+  - first:
+      213: 7073946215892978086
+    second: mining cells with breakage_125
+  - first:
+      213: 1568621804907637103
+    second: mining cells with breakage_126
+  - first:
+      213: 7744408735645506586
+    second: mining cells with breakage_127
+  - first:
+      213: 8853684162386710649
+    second: mining cells with breakage_128
+  - first:
+      213: -1295771428685254083
+    second: mining cells with breakage_129
+  - first:
+      213: -6537834293120569370
+    second: mining cells with breakage_130
+  - first:
+      213: -2487610301068256239
+    second: mining cells with breakage_131
+  - first:
+      213: -4574809340545261777
+    second: mining cells with breakage_132
+  - first:
+      213: -6629260126626730992
+    second: mining cells with breakage_133
+  - first:
+      213: -1915675394232917333
+    second: mining cells with breakage_134
+  - first:
+      213: 7065113503682524883
+    second: mining cells with breakage_135
+  - first:
+      213: 6829365111606826100
+    second: mining cells with breakage_136
+  - first:
+      213: -8590612788512854294
+    second: mining cells with breakage_137
+  - first:
+      213: -1843126964946033202
+    second: mining cells with breakage_138
+  - first:
+      213: -2492080573943806337
+    second: mining cells with breakage_139
+  - first:
+      213: 7349121445387041436
+    second: mining cells with breakage_140
+  - first:
+      213: -2986183448224544564
+    second: mining cells with breakage_141
+  - first:
+      213: -7564035344759489966
+    second: mining cells with breakage_142
+  - first:
+      213: -116796450863809384
+    second: mining cells with breakage_143
+  - first:
+      213: 4145791267339329978
+    second: mining cells with breakage_144
+  - first:
+      213: 2556780557610115471
+    second: mining cells with breakage_145
+  - first:
+      213: -4622220669606013558
+    second: mining cells with breakage_146
+  - first:
+      213: -540445983218473820
+    second: mining cells with breakage_147
+  - first:
+      213: 2767954816225691855
+    second: mining cells with breakage_148
+  - first:
+      213: 6397540306898339047
+    second: mining cells with breakage_149
+  - first:
+      213: 8997523794170934572
+    second: mining cells with breakage_150
+  - first:
+      213: -958677540374348139
+    second: mining cells with breakage_151
+  - first:
+      213: -2958653971869054025
+    second: mining cells with breakage_152
+  - first:
+      213: -8871488312859065744
+    second: mining cells with breakage_153
+  - first:
+      213: 7718043843546566238
+    second: mining cells with breakage_154
+  - first:
+      213: 6785938439090345441
+    second: mining cells with breakage_155
+  - first:
+      213: 3352443480717757185
+    second: mining cells with breakage_156
+  - first:
+      213: -7172859191926169279
+    second: mining cells with breakage_157
+  - first:
+      213: -2692688661666058714
+    second: mining cells with breakage_158
+  - first:
+      213: 181759701991027502
+    second: mining cells with breakage_159
+  - first:
+      213: -5833756937620623453
+    second: mining cells with breakage_160
+  - first:
+      213: -4254086432331983968
+    second: mining cells with breakage_161
+  - first:
+      213: -5179660672412019917
+    second: mining cells with breakage_162
+  - first:
+      213: -8072446021192426813
+    second: mining cells with breakage_163
+  - first:
+      213: -2558307714855503143
+    second: mining cells with breakage_164
+  - first:
+      213: -6737703572351455992
+    second: mining cells with breakage_165
+  - first:
+      213: -7290833692182049979
+    second: mining cells with breakage_166
+  - first:
+      213: 2358472927708899000
+    second: mining cells with breakage_167
+  - first:
+      213: -2741213729367910964
+    second: mining cells with breakage_168
+  - first:
+      213: -2752889551146319482
+    second: mining cells with breakage_169
+  - first:
+      213: -9115496389715240394
+    second: mining cells with breakage_170
+  - first:
+      213: -123098188325039559
+    second: mining cells with breakage_171
+  - first:
+      213: -4751216274768241287
+    second: mining cells with breakage_172
+  - first:
+      213: 4564498082032469244
+    second: mining cells with breakage_173
+  - first:
+      213: -6398093374333347629
+    second: mining cells with breakage_174
+  - first:
+      213: -2617798483459523553
+    second: mining cells with breakage_175
+  - first:
+      213: -1388729173548586122
+    second: mining cells with breakage_176
+  - first:
+      213: 3254875011473086541
+    second: mining cells with breakage_177
+  - first:
+      213: 4075990291320213260
+    second: mining cells with breakage_178
+  - first:
+      213: 4714464093606092233
+    second: mining cells with breakage_179
+  - first:
+      213: 7397768280556460381
+    second: mining cells with breakage_180
+  - first:
+      213: -5149710346511797427
+    second: mining cells with breakage_181
+  - first:
+      213: 7137637176230927105
+    second: mining cells with breakage_182
+  - first:
+      213: -1207052149882436848
+    second: mining cells with breakage_183
+  - first:
+      213: -4758110828994033728
+    second: mining cells with breakage_184
+  - first:
+      213: -2229388827579106503
+    second: mining cells with breakage_185
+  - first:
+      213: 5455694641868257767
+    second: mining cells with breakage_186
+  - first:
+      213: -3485657931792143268
+    second: mining cells with breakage_187
+  - first:
+      213: -8277110791654004148
+    second: mining cells with breakage_188
+  - first:
+      213: -53747581802477920
+    second: mining cells with breakage_189
+  - first:
+      213: 6673921998173579434
+    second: mining cells with breakage_190
+  - first:
+      213: -175025709942072393
+    second: mining cells with breakage_191
+  - first:
+      213: -9219730131084509263
+    second: mining cells with breakage_192
+  - first:
+      213: 2617105466888943742
+    second: mining cells with breakage_193
+  - first:
+      213: 3793084570850813688
+    second: mining cells with breakage_194
+  - first:
+      213: -7371151533453100710
+    second: mining cells with breakage_195
+  - first:
+      213: 6870398791969550959
+    second: mining cells with breakage_196
+  - first:
+      213: 5101386660224896465
+    second: mining cells with breakage_197
+  - first:
+      213: 9084608106441365219
+    second: mining cells with breakage_198
+  - first:
+      213: 910593768757318304
+    second: mining cells with breakage_199
+  - first:
+      213: 5249839759790527147
+    second: mining cells with breakage_200
+  - first:
+      213: 5506649191591741454
+    second: mining cells with breakage_201
+  - first:
+      213: 5147218087175530882
+    second: mining cells with breakage_202
+  - first:
+      213: -3521356766943326197
+    second: mining cells with breakage_203
+  - first:
+      213: 5833171713334035506
+    second: mining cells with breakage_204
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: mining cells with breakage_0
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 1175
+        width: 29
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eb971a628fa405170800000000000000
+      internalID: 8165108554083170750
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_1
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 1154
+        width: 29
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c0279322de821420800000000000000
+      internalID: 2599296968137580742
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_2
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 1175
+        width: 22
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f3ac181db23b08df0800000000000000
+      internalID: -179946984314910145
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_3
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 1154
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 49fed97f911cae060800000000000000
+      internalID: 6983606489464041364
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_4
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 1175
+        width: 22
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e8555bc34837895d0800000000000000
+      internalID: -3055565335379487346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_5
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 1154
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: af0a0a1a6c2090d60800000000000000
+      internalID: 7856814077062979834
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_6
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 1175
+        width: 21
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4f4e638254808db50800000000000000
+      internalID: 6618048745541395700
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_7
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 1154
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc146b661a01dd5d0800000000000000
+      internalID: -3036252288378846771
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_8
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 1133
+        width: 29
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f1a2a0337a861f4b0800000000000000
+      internalID: -5408426610170123745
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_9
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 1112
+        width: 28
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4000f4c410cccfae0800000000000000
+      internalID: -1514111068756049916
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_10
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 1133
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b6b5fd5295fdd85f0800000000000000
+      internalID: -752699988720526485
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_11
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 1112
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c5ebac69720839d10800000000000000
+      internalID: 2131187956198325852
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_12
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 1133
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4d98b183a507c05e0800000000000000
+      internalID: -1942053806512829996
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_13
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 1112
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 28e5ae4b996af1170800000000000000
+      internalID: 8151417029659352706
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_14
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 1133
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ab1be360128e3990800000000000000
+      internalID: -7404337730443076702
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_15
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 1112
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e3620b9d09bd3a470800000000000000
+      internalID: 8404802744777451070
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_16
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 1091
+        width: 28
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a12de86273eb5b0a0800000000000000
+      internalID: -6866372912777080294
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_17
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 1070
+        width: 28
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 949140f6e9fd4ac10800000000000000
+      internalID: 2064020400802896201
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_18
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 1091
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e9e20cb4ce4c366a0800000000000000
+      internalID: -6457100921556947298
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_19
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 1070
+        width: 22
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 75303a0017cdcdb90800000000000000
+      internalID: -7215650125054278825
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_20
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 1091
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0bb0834bc4f9d0990800000000000000
+      internalID: -7418097859419436112
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_21
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 1070
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 15add5c177bccfc40800000000000000
+      internalID: 5547532553451067985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_22
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 1091
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cc3f32c15fba24bf0800000000000000
+      internalID: -341521552499280948
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_23
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 1070
+        width: 20
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2f910d13a2308a990800000000000000
+      internalID: -7374640910059955726
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_24
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 1049
+        width: 28
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 88bae7bd713306070800000000000000
+      internalID: 8097528307571927944
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_25
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 1028
+        width: 28
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dba3c1a975ab2fe90800000000000000
+      internalID: -6993322385942496579
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_26
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 1049
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b868a72145e443500800000000000000
+      internalID: 375010791972832907
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_27
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 1028
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cdd4713706ff85a20800000000000000
+      internalID: 3051469537256361436
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_28
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 1049
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 36f16013e43b2b670800000000000000
+      internalID: 8553095790741299043
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_29
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 1028
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 269f2fcf522ac1900800000000000000
+      internalID: 656577929730521442
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_30
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 1049
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 724bde40027b15b70800000000000000
+      internalID: 8886084887928222759
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_31
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 1028
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 620f88b3431012ca0800000000000000
+      internalID: -6043547901105737690
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_32
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 1007
+        width: 28
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8758cdbb4b2781a20800000000000000
+      internalID: 3033300469605500280
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_33
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 986
+        width: 28
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 115ef9816718e8ca0800000000000000
+      internalID: -6012726108273777391
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_34
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 986
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b4d3d7c2dcd3cb7d0800000000000000
+      internalID: -2901376108509446837
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_35
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 965
+        width: 28
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dd69841ffeb689310800000000000000
+      internalID: 1411997161470072541
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_36
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 944
+        width: 28
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5b844a217d0895ae0800000000000000
+      internalID: -1560074134688085835
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_37
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 965
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d04e4ebb5c1069e0800000000000000
+      internalID: -1630271884747718448
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_38
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 944
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 32d6c2ec41276f9d0800000000000000
+      internalID: -2740877889524437725
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_39
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 965
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0759d2fe52b7324f0800000000000000
+      internalID: -854704101413513872
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_40
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 944
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c2701651422624560800000000000000
+      internalID: 7296502253410649900
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_41
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 965
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3f9f95373d87761a0800000000000000
+      internalID: -6816346661433247245
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_42
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 944
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fcfc0064881ab66d0800000000000000
+      internalID: -2996123520422850609
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_43
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 902
+        width: 29
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ce1852c111c5a41d0800000000000000
+      internalID: -3365776542949604884
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_44
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 923
+        width: 28
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a77293c49dcfce330800000000000000
+      internalID: 3741643400654956410
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_45
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 923
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 231789d949b5b40d0800000000000000
+      internalID: -3437553196709940942
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_46
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 902
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 13662b5ac8424b9a0800000000000000
+      internalID: -6218304998997858767
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_47
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 923
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: db98fdbdcd341c570800000000000000
+      internalID: 8485137788803451325
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_48
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 923
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e684af1b5760ab4a0800000000000000
+      internalID: -6576937203254278034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_49
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 881
+        width: 29
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c778d6c5178c75ca0800000000000000
+      internalID: -6028129187004577924
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_50
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 860
+        width: 29
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c6b2551163222b250800000000000000
+      internalID: 5958862872578960236
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_51
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 860
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a4f3dbe7bac7ada40800000000000000
+      internalID: 5393760579737173834
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_52
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 839
+        width: 29
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d8be933ed2345d500800000000000000
+      internalID: 420316004593822605
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_53
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 818
+        width: 28
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 10f7fdf6832fef260800000000000000
+      internalID: 7133405184010452737
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_54
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 839
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0febbd43ba3e25820800000000000000
+      internalID: 2905635034073120496
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_55
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 818
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dd281b965b40467d0800000000000000
+      internalID: -2926208680675147043
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_56
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 839
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e0275e74438952b40800000000000000
+      internalID: 5414901477294830094
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_57
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 818
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e3b3b99bdf92056c0800000000000000
+      internalID: -4156776286345544898
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_58
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 839
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 33ef5123528943cd0800000000000000
+      internalID: -2579269401054937549
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_59
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 818
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 36e1efdc59932a280800000000000000
+      internalID: -9033594586982900125
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_60
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 797
+        width: 29
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b29597bfee7df1840800000000000000
+      internalID: 5197109916430063915
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_61
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 776
+        width: 29
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cc135db8c9fbcb830800000000000000
+      internalID: 4088353240827376076
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_62
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 797
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3f7022e3381eb91e0800000000000000
+      internalID: -2189908839986231309
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_63
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 776
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 24b252d2511611d80800000000000000
+      internalID: -8281731496178013374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_64
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 776
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f2128723c196cee50800000000000000
+      internalID: 6839957503895675183
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_65
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 776
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7d3bf1f0ac452e450800000000000000
+      internalID: 6116544470736417751
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_66
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 755
+        width: 29
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f541e68623c879810800000000000000
+      internalID: 1772039126521877599
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_67
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 734
+        width: 29
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1ba2fc428c2c2e810800000000000000
+      internalID: 1793209766513683121
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_68
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 734
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2f032001faed10920800000000000000
+      internalID: 2954887674000978162
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_69
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 734
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 25316c4070c21f850800000000000000
+      internalID: 6408952153381409618
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_70
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 734
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 006ab75495c096880800000000000000
+      internalID: -8617342834439379456
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_71
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 692
+        width: 29
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bcb27eebd975f0ef0800000000000000
+      internalID: -139796728400892981
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_72
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 713
+        width: 28
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f92357e6a9ab0be90800000000000000
+      internalID: -7011899447374957921
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_73
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 713
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 938ab34361c746330800000000000000
+      internalID: 3703221228412839993
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_74
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 692
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b3d21087af6b8eeb0800000000000000
+      internalID: -4690297825034949317
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_75
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 713
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 64087409dece81e40800000000000000
+      internalID: 5627508239471444038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_76
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 692
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b96f07d4385ec2c70800000000000000
+      internalID: 8947778911781058203
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_77
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 713
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d0b88aeba2b2f7a50800000000000000
+      internalID: 6520978248043105037
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_78
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 692
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 57ec0b77538092ab0800000000000000
+      internalID: -5032482082875453835
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_79
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 671
+        width: 29
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 53eb1a9879aec4d10800000000000000
+      internalID: 2111320261899959861
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_80
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 650
+        width: 29
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: de239cd9826554ae0800000000000000
+      internalID: -1565750562995490067
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_81
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 671
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ccf941a5b512966f0800000000000000
+      internalID: -690984391587618868
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_82
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 650
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0702dcbb639cd73a0800000000000000
+      internalID: -6665950636522266512
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_83
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 671
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fc54175384e03f780800000000000000
+      internalID: -8650554755951540785
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_84
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 650
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f8322db1cb2784250800000000000000
+      internalID: 5929115061679432591
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_85
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 671
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0919516a06f5de1d0800000000000000
+      internalID: -3319892481594257008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_86
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 650
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0848c771f7b6cf240800000000000000
+      internalID: 4826851094233384064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_87
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 629
+        width: 29
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5632d89f4335663a0800000000000000
+      internalID: -6672554310912629915
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_88
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 608
+        width: 29
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f999b8bcdc6cf8a40800000000000000
+      internalID: 5372731467661810079
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_89
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 629
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f032889c648fda80800000000000000
+      internalID: -8439881574719016714
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_90
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 608
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4140b6023c1f1e2c0800000000000000
+      internalID: -4403973140226833388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_91
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 629
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4883ed455ffac3bd0800000000000000
+      internalID: -2649049012574996348
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_92
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 608
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ed8a862dc89af4a0800000000000000
+      internalID: -6558761900429373981
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_93
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 629
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7d41f833ba9e7ca50800000000000000
+      internalID: 6541453905292629207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_94
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 608
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9d6623bb806896760800000000000000
+      internalID: 7451634430519699161
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_95
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 587
+        width: 29
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 849a0b3e2831d1560800000000000000
+      internalID: 7286001225042012488
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_96
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 566
+        width: 29
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 43f610fda48c92000800000000000000
+      internalID: 11760697939685172
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_97
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 587
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ce7bd41049cc35b30800000000000000
+      internalID: 4274985407353829356
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_98
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 566
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 20a12356b7d2a3e50800000000000000
+      internalID: 6789789396216453634
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_99
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 587
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6d70bf18a67b09170800000000000000
+      internalID: 8183242191007320022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_100
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 566
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 459d7430b0dfdf700800000000000000
+      internalID: 575894551114799444
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_101
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 587
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b7a7a998b475c2d50800000000000000
+      internalID: 6713837126445333115
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_102
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 566
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 371b8a55ac1354ba0800000000000000
+      internalID: -6105418974740565645
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_103
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 545
+        width: 29
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: acb59f14f63373150800000000000000
+      internalID: 5852202793732496330
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_104
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 524
+        width: 28
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e404423b01a8311e0800000000000000
+      internalID: -2228285586288656306
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_105
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 545
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b38f2bae039450300800000000000000
+      internalID: 217660631442192443
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_106
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 524
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9c0dc2a5a31fca290800000000000000
+      internalID: -7877656415254556471
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_107
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 545
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ec7e3d3309fa9770800000000000000
+      internalID: 8618474629234588900
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_108
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 524
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 41ae699566294cce0800000000000000
+      internalID: -1385821817035888108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_109
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 545
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 264c9ae2e226b2de0800000000000000
+      internalID: -1356882912231177118
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_110
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 524
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 65c509097a884e480800000000000000
+      internalID: -8870815112746738602
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_111
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 503
+        width: 29
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7066180a21a883f70800000000000000
+      internalID: 9167228854119523847
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_112
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 482
+        width: 29
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 719621d967c01d880800000000000000
+      internalID: -8588069310837921513
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_113
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 503
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 522e56c8508e3bef0800000000000000
+      internalID: -93476056716680667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_114
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 482
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c3877bf2f489383a0800000000000000
+      internalID: -6664315557707810756
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_115
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 503
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d793188a5835f0e20800000000000000
+      internalID: 3318963283918141821
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_116
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 503
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2969d2d7a6c8d71b0800000000000000
+      internalID: -5657211167912913262
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_117
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 461
+        width: 29
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f871425c423edaa20800000000000000
+      internalID: 3075363867629721487
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_118
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 440
+        width: 29
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 12cc27e075a6e3160800000000000000
+      internalID: 7007154992372173857
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_119
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 461
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 10987f076143a5a30800000000000000
+      internalID: 4204730473092974849
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_120
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 440
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d51ef020f6fbda010800000000000000
+      internalID: 1201827159074660701
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_121
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 440
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5139cd9b6bf002d80800000000000000
+      internalID: -8277598837630266603
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_122
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 440
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fe0c0a50e21601a60800000000000000
+      internalID: 7642715417938542831
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_123
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 419
+        width: 29
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6b30c9446e79d1770800000000000000
+      internalID: 8583183480087380918
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_124
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 398
+        width: 29
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 91bbfc8031355f180800000000000000
+      internalID: -9082261732305421543
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_125
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 419
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a9058e9a94bb2260800000000000000
+      internalID: 7073946215892978086
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_126
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 398
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f69a37c783dd4c510800000000000000
+      internalID: 1568621804907637103
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_127
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 419
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a1c1593a6baa97b60800000000000000
+      internalID: 7744408735645506586
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_128
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 398
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 970df8c36da9eda70800000000000000
+      internalID: 8853684162386710649
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_129
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 419
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d327d1b30ce740ee0800000000000000
+      internalID: -1295771428685254083
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_130
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 398
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ef6e2e6952f445a0800000000000000
+      internalID: -6537834293120569370
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_131
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 377
+        width: 29
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 11c59317c9b3a7dd0800000000000000
+      internalID: -2487610301068256239
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_132
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 356
+        width: 29
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f2f19a5a4230380c0800000000000000
+      internalID: -4574809340545261777
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_133
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 377
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 01ca0c4c9032004a0800000000000000
+      internalID: -6629260126626730992
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_134
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 356
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ba26acde0672a65e0800000000000000
+      internalID: -1915675394232917333
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_135
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 377
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d6ffcc8c435c0260800000000000000
+      internalID: 7065113503682524883
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_136
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 356
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 47455cea267c6ce50800000000000000
+      internalID: 6829365111606826100
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_137
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 377
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aee63c11f2308c880800000000000000
+      internalID: -8590612788512854294
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_138
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 356
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec5a27a6ac5eb66e0800000000000000
+      internalID: -1843126964946033202
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_139
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 335
+        width: 29
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f768d6eebe95a6dd0800000000000000
+      internalID: -2492080573943806337
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_140
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 314
+        width: 28
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c9aff7b64035df560800000000000000
+      internalID: 7349121445387041436
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_141
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 335
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cc8cc6ea9f1fe86d0800000000000000
+      internalID: -2986183448224544564
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_142
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 314
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 25a7c1f0ee5270790800000000000000
+      internalID: -7564035344759489966
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_143
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 314
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 89c7c3b2f3e016ef0800000000000000
+      internalID: -116796450863809384
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_144
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 314
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ab16daa313fc88930800000000000000
+      internalID: 4145791267339329978
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_145
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 293
+        width: 29
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f81e9f8ee528b7320800000000000000
+      internalID: 2556780557610115471
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_146
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 272
+        width: 28
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a855aa26ac29adfb0800000000000000
+      internalID: -4622220669606013558
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_147
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 293
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4a4e9fddd33ff78f0800000000000000
+      internalID: -540445983218473820
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_148
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 272
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fc8c6777d30c96620800000000000000
+      internalID: 2767954816225691855
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_149
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 293
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7e44be47301a8c850800000000000000
+      internalID: 6397540306898339047
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_150
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 272
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c25fea94830addc70800000000000000
+      internalID: 8997523794170934572
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_151
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 293
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 59e77d73bd712b2f0800000000000000
+      internalID: -958677540374348139
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_152
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 272
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7bb427163efb0f6d0800000000000000
+      internalID: -2958653971869054025
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_153
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 251
+        width: 29
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0728103f16422e480800000000000000
+      internalID: -8871488312859065744
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_154
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 230
+        width: 29
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e5ecb77dbfffb1b60800000000000000
+      internalID: 7718043843546566238
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_155
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 251
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e516a19e0f7c2e50800000000000000
+      internalID: 6785938439090345441
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_156
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 230
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 10b81cd6595468e20800000000000000
+      internalID: 3352443480717757185
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_157
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 251
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 14168518192e47c90800000000000000
+      internalID: -7172859191926169279
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_158
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 230
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 62e2caebde5a1aad0800000000000000
+      internalID: -2692688661666058714
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_159
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 251
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e23f7a76c7db58200800000000000000
+      internalID: 181759701991027502
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_160
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 230
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3afe62b49f45a0fa0800000000000000
+      internalID: -5833756937620623453
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_161
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 209
+        width: 29
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0a31b0dcde276f4c0800000000000000
+      internalID: -4254086432331983968
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_162
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 188
+        width: 27
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 33312dbbf062e18b0800000000000000
+      internalID: -5179660672412019917
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_163
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 209
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ca5f460d19e8ff80800000000000000
+      internalID: -8072446021192426813
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_164
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 188
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9da75e510b01f7cd0800000000000000
+      internalID: -2558307714855503143
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_165
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 209
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 80d6c108c4ede72a0800000000000000
+      internalID: -6737703572351455992
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_166
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 188
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 54b0a0da261c1da90800000000000000
+      internalID: -7290833692182049979
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_167
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 209
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8b6e67cc1aafab020800000000000000
+      internalID: 2358472927708899000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_168
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 188
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cc51a9ff2a045f9d0800000000000000
+      internalID: -2741213729367910964
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_169
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 167
+        width: 27
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6810a06e985cbc9d0800000000000000
+      internalID: -2752889551146319482
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_170
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 146
+        width: 27
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 63adaab54504f7180800000000000000
+      internalID: -9115496389715240394
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_171
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 167
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 932546499daaa4ef0800000000000000
+      internalID: -123098188325039559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_172
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 146
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 97d526b98f9401eb0800000000000000
+      internalID: -4751216274768241287
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_173
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 167
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cf44f7562da585f30800000000000000
+      internalID: 4564498082032469244
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_174
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 146
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d8941f79f76537a0800000000000000
+      internalID: -6398093374333347629
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_175
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 167
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f1cb6d32626bbabd0800000000000000
+      internalID: -2617798483459523553
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_176
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 146
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 67b2a69ac2e3abce0800000000000000
+      internalID: -1388729173548586122
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_177
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 125
+        width: 29
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d48162fe393ab2d20800000000000000
+      internalID: 3254875011473086541
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_178
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 104
+        width: 28
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c0f051e0393d09830800000000000000
+      internalID: 4075990291320213260
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_179
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 125
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9cd99b56d142d6140800000000000000
+      internalID: 4714464093606092233
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_180
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 104
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d59583d5e072aa660800000000000000
+      internalID: 7397768280556460381
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_181
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 125
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d43b20469bd8888b0800000000000000
+      internalID: -5149710346511797427
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_182
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 104
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 10bddd8e13bfd0360800000000000000
+      internalID: 7137637176230927105
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_183
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 125
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 013c2e40770bf3fe0800000000000000
+      internalID: -1207052149882436848
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_184
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 104
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c70fdb196bc7fdb0800000000000000
+      internalID: -4758110828994033728
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_185
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 83
+        width: 28
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 93b3ce15cae9f01e0800000000000000
+      internalID: -2229388827579106503
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_186
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 62
+        width: 28
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7e93f8b0f5586bb40800000000000000
+      internalID: 5455694641868257767
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_187
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 83
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c5ca10f249470afc0800000000000000
+      internalID: -3485657931792143268
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_188
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 62
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c4a29e8c69bc12d80800000000000000
+      internalID: -8277110791654004148
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_189
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 83
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0a6802febdc014ff0800000000000000
+      internalID: -53747581802477920
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_190
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 62
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aa82dc782b88e9c50800000000000000
+      internalID: 6673921998173579434
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_191
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 83
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7bb975c4b0f229df0800000000000000
+      internalID: -175025709942072393
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_192
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 62
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1bffdb34b40fc0080800000000000000
+      internalID: -9219730131084509263
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_193
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 41
+        width: 28
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e78f5ad5e83d15420800000000000000
+      internalID: 2617105466888943742
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_194
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 20
+        width: 28
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f6e390125eb3a430800000000000000
+      internalID: 3793084570850813688
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_195
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 41
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a59b3fefbb864b990800000000000000
+      internalID: -7371151533453100710
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_196
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 20
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f623e94ec4f885f50800000000000000
+      internalID: 6870398791969550959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_197
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 41
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1dd0f90a324cbc640800000000000000
+      internalID: 5101386660224896465
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_198
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 20
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3e65214c0f2031e70800000000000000
+      internalID: 9084608106441365219
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_199
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 41
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0a2d679453413ac00800000000000000
+      internalID: 910593768757318304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_200
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 20
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ba2590a527d2bd840800000000000000
+      internalID: 5249839759790527147
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_201
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 0
+        width: 28
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e088487a34c8b6c40800000000000000
+      internalID: 5506649191591741454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_202
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 0
+        width: 22
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 289209344979e6740800000000000000
+      internalID: 5147218087175530882
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_203
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 0
+        width: 22
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b00dcea6da0a12fc0800000000000000
+      internalID: -3521356766943326197
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mining cells with breakage_204
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 0
+        width: 21
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 234c12f84c693f050800000000000000
+      internalID: 5833171713334035506
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      mining cells with breakage_0: 8165108554083170750
+      mining cells with breakage_1: 2599296968137580742
+      mining cells with breakage_10: -752699988720526485
+      mining cells with breakage_100: 575894551114799444
+      mining cells with breakage_101: 6713837126445333115
+      mining cells with breakage_102: -6105418974740565645
+      mining cells with breakage_103: 5852202793732496330
+      mining cells with breakage_104: -2228285586288656306
+      mining cells with breakage_105: 217660631442192443
+      mining cells with breakage_106: -7877656415254556471
+      mining cells with breakage_107: 8618474629234588900
+      mining cells with breakage_108: -1385821817035888108
+      mining cells with breakage_109: -1356882912231177118
+      mining cells with breakage_11: 2131187956198325852
+      mining cells with breakage_110: -8870815112746738602
+      mining cells with breakage_111: 9167228854119523847
+      mining cells with breakage_112: -8588069310837921513
+      mining cells with breakage_113: -93476056716680667
+      mining cells with breakage_114: -6664315557707810756
+      mining cells with breakage_115: 3318963283918141821
+      mining cells with breakage_116: -5657211167912913262
+      mining cells with breakage_117: 3075363867629721487
+      mining cells with breakage_118: 7007154992372173857
+      mining cells with breakage_119: 4204730473092974849
+      mining cells with breakage_12: -1942053806512829996
+      mining cells with breakage_120: 1201827159074660701
+      mining cells with breakage_121: -8277598837630266603
+      mining cells with breakage_122: 7642715417938542831
+      mining cells with breakage_123: 8583183480087380918
+      mining cells with breakage_124: -9082261732305421543
+      mining cells with breakage_125: 7073946215892978086
+      mining cells with breakage_126: 1568621804907637103
+      mining cells with breakage_127: 7744408735645506586
+      mining cells with breakage_128: 8853684162386710649
+      mining cells with breakage_129: -1295771428685254083
+      mining cells with breakage_13: 8151417029659352706
+      mining cells with breakage_130: -6537834293120569370
+      mining cells with breakage_131: -2487610301068256239
+      mining cells with breakage_132: -4574809340545261777
+      mining cells with breakage_133: -6629260126626730992
+      mining cells with breakage_134: -1915675394232917333
+      mining cells with breakage_135: 7065113503682524883
+      mining cells with breakage_136: 6829365111606826100
+      mining cells with breakage_137: -8590612788512854294
+      mining cells with breakage_138: -1843126964946033202
+      mining cells with breakage_139: -2492080573943806337
+      mining cells with breakage_14: -7404337730443076702
+      mining cells with breakage_140: 7349121445387041436
+      mining cells with breakage_141: -2986183448224544564
+      mining cells with breakage_142: -7564035344759489966
+      mining cells with breakage_143: -116796450863809384
+      mining cells with breakage_144: 4145791267339329978
+      mining cells with breakage_145: 2556780557610115471
+      mining cells with breakage_146: -4622220669606013558
+      mining cells with breakage_147: -540445983218473820
+      mining cells with breakage_148: 2767954816225691855
+      mining cells with breakage_149: 6397540306898339047
+      mining cells with breakage_15: 8404802744777451070
+      mining cells with breakage_150: 8997523794170934572
+      mining cells with breakage_151: -958677540374348139
+      mining cells with breakage_152: -2958653971869054025
+      mining cells with breakage_153: -8871488312859065744
+      mining cells with breakage_154: 7718043843546566238
+      mining cells with breakage_155: 6785938439090345441
+      mining cells with breakage_156: 3352443480717757185
+      mining cells with breakage_157: -7172859191926169279
+      mining cells with breakage_158: -2692688661666058714
+      mining cells with breakage_159: 181759701991027502
+      mining cells with breakage_16: -6866372912777080294
+      mining cells with breakage_160: -5833756937620623453
+      mining cells with breakage_161: -4254086432331983968
+      mining cells with breakage_162: -5179660672412019917
+      mining cells with breakage_163: -8072446021192426813
+      mining cells with breakage_164: -2558307714855503143
+      mining cells with breakage_165: -6737703572351455992
+      mining cells with breakage_166: -7290833692182049979
+      mining cells with breakage_167: 2358472927708899000
+      mining cells with breakage_168: -2741213729367910964
+      mining cells with breakage_169: -2752889551146319482
+      mining cells with breakage_17: 2064020400802896201
+      mining cells with breakage_170: -9115496389715240394
+      mining cells with breakage_171: -123098188325039559
+      mining cells with breakage_172: -4751216274768241287
+      mining cells with breakage_173: 4564498082032469244
+      mining cells with breakage_174: -6398093374333347629
+      mining cells with breakage_175: -2617798483459523553
+      mining cells with breakage_176: -1388729173548586122
+      mining cells with breakage_177: 3254875011473086541
+      mining cells with breakage_178: 4075990291320213260
+      mining cells with breakage_179: 4714464093606092233
+      mining cells with breakage_18: -6457100921556947298
+      mining cells with breakage_180: 7397768280556460381
+      mining cells with breakage_181: -5149710346511797427
+      mining cells with breakage_182: 7137637176230927105
+      mining cells with breakage_183: -1207052149882436848
+      mining cells with breakage_184: -4758110828994033728
+      mining cells with breakage_185: -2229388827579106503
+      mining cells with breakage_186: 5455694641868257767
+      mining cells with breakage_187: -3485657931792143268
+      mining cells with breakage_188: -8277110791654004148
+      mining cells with breakage_189: -53747581802477920
+      mining cells with breakage_19: -7215650125054278825
+      mining cells with breakage_190: 6673921998173579434
+      mining cells with breakage_191: -175025709942072393
+      mining cells with breakage_192: -9219730131084509263
+      mining cells with breakage_193: 2617105466888943742
+      mining cells with breakage_194: 3793084570850813688
+      mining cells with breakage_195: -7371151533453100710
+      mining cells with breakage_196: 6870398791969550959
+      mining cells with breakage_197: 5101386660224896465
+      mining cells with breakage_198: 9084608106441365219
+      mining cells with breakage_199: 910593768757318304
+      mining cells with breakage_2: -179946984314910145
+      mining cells with breakage_20: -7418097859419436112
+      mining cells with breakage_200: 5249839759790527147
+      mining cells with breakage_201: 5506649191591741454
+      mining cells with breakage_202: 5147218087175530882
+      mining cells with breakage_203: -3521356766943326197
+      mining cells with breakage_204: 5833171713334035506
+      mining cells with breakage_21: 5547532553451067985
+      mining cells with breakage_22: -341521552499280948
+      mining cells with breakage_23: -7374640910059955726
+      mining cells with breakage_24: 8097528307571927944
+      mining cells with breakage_25: -6993322385942496579
+      mining cells with breakage_26: 375010791972832907
+      mining cells with breakage_27: 3051469537256361436
+      mining cells with breakage_28: 8553095790741299043
+      mining cells with breakage_29: 656577929730521442
+      mining cells with breakage_3: 6983606489464041364
+      mining cells with breakage_30: 8886084887928222759
+      mining cells with breakage_31: -6043547901105737690
+      mining cells with breakage_32: 3033300469605500280
+      mining cells with breakage_33: -6012726108273777391
+      mining cells with breakage_34: -2901376108509446837
+      mining cells with breakage_35: 1411997161470072541
+      mining cells with breakage_36: -1560074134688085835
+      mining cells with breakage_37: -1630271884747718448
+      mining cells with breakage_38: -2740877889524437725
+      mining cells with breakage_39: -854704101413513872
+      mining cells with breakage_4: -3055565335379487346
+      mining cells with breakage_40: 7296502253410649900
+      mining cells with breakage_41: -6816346661433247245
+      mining cells with breakage_42: -2996123520422850609
+      mining cells with breakage_43: -3365776542949604884
+      mining cells with breakage_44: 3741643400654956410
+      mining cells with breakage_45: -3437553196709940942
+      mining cells with breakage_46: -6218304998997858767
+      mining cells with breakage_47: 8485137788803451325
+      mining cells with breakage_48: -6576937203254278034
+      mining cells with breakage_49: -6028129187004577924
+      mining cells with breakage_5: 7856814077062979834
+      mining cells with breakage_50: 5958862872578960236
+      mining cells with breakage_51: 5393760579737173834
+      mining cells with breakage_52: 420316004593822605
+      mining cells with breakage_53: 7133405184010452737
+      mining cells with breakage_54: 2905635034073120496
+      mining cells with breakage_55: -2926208680675147043
+      mining cells with breakage_56: 5414901477294830094
+      mining cells with breakage_57: -4156776286345544898
+      mining cells with breakage_58: -2579269401054937549
+      mining cells with breakage_59: -9033594586982900125
+      mining cells with breakage_6: 6618048745541395700
+      mining cells with breakage_60: 5197109916430063915
+      mining cells with breakage_61: 4088353240827376076
+      mining cells with breakage_62: -2189908839986231309
+      mining cells with breakage_63: -8281731496178013374
+      mining cells with breakage_64: 6839957503895675183
+      mining cells with breakage_65: 6116544470736417751
+      mining cells with breakage_66: 1772039126521877599
+      mining cells with breakage_67: 1793209766513683121
+      mining cells with breakage_68: 2954887674000978162
+      mining cells with breakage_69: 6408952153381409618
+      mining cells with breakage_7: -3036252288378846771
+      mining cells with breakage_70: -8617342834439379456
+      mining cells with breakage_71: -139796728400892981
+      mining cells with breakage_72: -7011899447374957921
+      mining cells with breakage_73: 3703221228412839993
+      mining cells with breakage_74: -4690297825034949317
+      mining cells with breakage_75: 5627508239471444038
+      mining cells with breakage_76: 8947778911781058203
+      mining cells with breakage_77: 6520978248043105037
+      mining cells with breakage_78: -5032482082875453835
+      mining cells with breakage_79: 2111320261899959861
+      mining cells with breakage_8: -5408426610170123745
+      mining cells with breakage_80: -1565750562995490067
+      mining cells with breakage_81: -690984391587618868
+      mining cells with breakage_82: -6665950636522266512
+      mining cells with breakage_83: -8650554755951540785
+      mining cells with breakage_84: 5929115061679432591
+      mining cells with breakage_85: -3319892481594257008
+      mining cells with breakage_86: 4826851094233384064
+      mining cells with breakage_87: -6672554310912629915
+      mining cells with breakage_88: 5372731467661810079
+      mining cells with breakage_89: -8439881574719016714
+      mining cells with breakage_9: -1514111068756049916
+      mining cells with breakage_90: -4403973140226833388
+      mining cells with breakage_91: -2649049012574996348
+      mining cells with breakage_92: -6558761900429373981
+      mining cells with breakage_93: 6541453905292629207
+      mining cells with breakage_94: 7451634430519699161
+      mining cells with breakage_95: 7286001225042012488
+      mining cells with breakage_96: 11760697939685172
+      mining cells with breakage_97: 4274985407353829356
+      mining cells with breakage_98: 6789789396216453634
+      mining cells with breakage_99: 8183242191007320022
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
