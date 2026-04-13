@@ -935,6 +935,7 @@ GameObject:
   - component: {fileID: 6855657767268473862}
   - component: {fileID: 1386286108373064327}
   - component: {fileID: 1800104330822508844}
+  - component: {fileID: 1943411016597228617}
   m_Layer: 5
   m_Name: MainMenuCanvas
   m_TagString: Untagged
@@ -1025,6 +1026,23 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &1943411016597228617
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4098937051782192180}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 828d57151ca0418c907e6dda2238b9fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Systems.MainMenuSystem.Views.MainMenuView
+  newGameButton: {fileID: 570822305575254307}
+  continueButton: {fileID: 2806671239779098560}
+  creditsButton: {fileID: 0}
+  quitButton: {fileID: 0}
+  noSaveLabel: {fileID: 0}
 --- !u!1 &4875396157933296295
 GameObject:
   m_ObjectHideFlags: 0
