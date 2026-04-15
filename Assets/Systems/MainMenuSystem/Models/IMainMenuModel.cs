@@ -7,14 +7,9 @@ namespace Systems.MainMenuSystem.Models
     {
         IReadOnlyReactiveProperty<bool> HasSaveData { get; }
 
-        IObservable<Unit> OnNewGameExecuted  { get; }
-        IObservable<Unit> OnContinueExecuted { get; }
-        IObservable<Unit> OnCreditsExecuted  { get; }
-        IObservable<Unit> OnQuitExecuted     { get; }
-
-        void ExecuteNewGame();
-        void ExecuteContinue();
-        void ExecuteCredits();
-        void ExecuteQuit();
+        public void ExecuteNewGame();
+        public void ExecuteContinue();
+        public void ExecuteOptions();
+        public void ExecuteQuit();
     }
 }

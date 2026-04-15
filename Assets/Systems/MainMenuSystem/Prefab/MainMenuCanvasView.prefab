@@ -937,7 +937,7 @@ GameObject:
   - component: {fileID: 1800104330822508844}
   - component: {fileID: 1943411016597228617}
   m_Layer: 5
-  m_Name: MainMenuCanvas
+  m_Name: MainMenuCanvasView
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -975,13 +975,13 @@ Canvas:
   m_RenderMode: 0
   m_Camera: {fileID: 0}
   m_PlaneDistance: 100
-  m_PixelPerfect: 0
+  m_PixelPerfect: 1
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 1
-  m_AdditionalShaderChannelsFlag: 1
+  m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
@@ -1040,8 +1040,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Systems.MainMenuSystem.Views.MainMenuView
   newGameButton: {fileID: 570822305575254307}
   continueButton: {fileID: 2806671239779098560}
-  creditsButton: {fileID: 0}
-  quitButton: {fileID: 0}
+  optionsButton: {fileID: 25798582080305634}
+  exitButton: {fileID: 5692836060873150656}
   noSaveLabel: {fileID: 0}
 --- !u!1 &4875396157933296295
 GameObject:
