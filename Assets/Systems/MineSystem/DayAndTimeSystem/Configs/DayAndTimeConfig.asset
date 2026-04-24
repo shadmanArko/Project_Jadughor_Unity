@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec9b9a9c55814b8688adb7703c8e58f1, type: 3}
   m_Name: DayAndTimeConfig
   m_EditorClassIdentifier: Assembly-CSharp::Systems.MineSystem.DayAndTimeSystem.Configs.DayAndTimeConfig
-  tickIntervalSeconds: 5
+  tickIntervalSeconds: 2
   minuteStep: 10
   maxMinute: 50
   dayStartHour: 8
