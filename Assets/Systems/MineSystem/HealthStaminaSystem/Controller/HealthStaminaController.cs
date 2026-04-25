@@ -45,7 +45,7 @@ namespace Systems.MineSystem.HealthStaminaSystem.Controller
             _model.Health
                 .Subscribe(value =>
                 {
-                      _view.healthSlider.value = value;
+                    _view.healthSlider.value = value;
                 }).AddTo(_disposables);
 
             _model.Stamina

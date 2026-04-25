@@ -7,7 +7,9 @@ namespace Systems.MineSystem.MinePlayerSystem.Config
     {
         [Header("Basic Properties")] 
         public float health;
-
+        public float maxHealth;
+        
         public float stamina;
+        public float maxStamina;
     }
 }

@@ -3608,6 +3608,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Zenject::Zenject.SceneContext
   _scriptableObjectInstallers:
   - {fileID: 11400000, guid: 931f2685ded96e64dbfcb8dacc7784c3, type: 2}
+  - {fileID: 11400000, guid: f07352eab9abd2449a85aefc95f6e5bd, type: 2}
+  - {fileID: 11400000, guid: b74cefc2cb891e94c8cc860f3c5ba677, type: 2}
   _monoInstallers: []
   _installerPrefabs: []
   _findSiblingMonoInstallers: 0
