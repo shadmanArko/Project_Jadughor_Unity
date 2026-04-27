@@ -18,9 +18,9 @@ namespace Systems.MineSystem.MineGenerationSystem.Controller
             _disposable = new CompositeDisposable();
         }
 
-        public async UniTask<MineData> GenerateMine()
+        public async UniTask<MineData> GenerateMineData()
         {
-            var mine = await _model.GenerateProceduralMine();
+            var mine = await _model.GenerateProceduralMineData();
             return mine;
         }
 

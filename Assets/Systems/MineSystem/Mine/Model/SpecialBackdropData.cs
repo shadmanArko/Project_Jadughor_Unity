@@ -2,7 +2,7 @@ namespace Systems.MineSystem.Mine.Model
 {
     public class SpecialBackdropData
     {
-        public string SourceId { get; set; }
+        public string Id { get; set; }
 
         public int SizeX { get; set; }
         public int SizeY { get; set; }

@@ -2,6 +2,7 @@ using System;
 using Cysharp.Threading.Tasks;
 using Systems.MineSystem.Mine.Config;
 using Systems.MineSystem.Mine.Model;
+using Systems.MineSystem.Mine.Scriptable;
 using Systems.MineSystem.Mine.Service;
 using UniRx;
 using Zenject;
@@ -22,6 +23,8 @@ namespace Systems.MineSystem.MineGenerationSystem.Model
         private readonly SpecialBackdropGenerationService _specialBackdropGenerationService;
         private readonly VineGenerationService _vineGenerationService;
 
+        private readonly SpecialBackdropSpriteScriptable _specialBackdropSpriteScriptable;
+
         public MineGenerationModel(
             MineGenerationConfig config, 
             MineGenerationService mineGenerationService, 
@@ -29,7 +32,8 @@ namespace Systems.MineSystem.MineGenerationSystem.Model
             CaveGenerationService caveGenerationService, 
             ResourceGenerationService resourceGenerationService, 
             SpecialBackdropGenerationService specialBackdropGenerationService, 
-            VineGenerationService vineGenerationService)
+            VineGenerationService vineGenerationService, 
+            SpecialBackdropSpriteScriptable specialBackdropSpriteScriptable)
         {
             _config = config;
             _mineGenerationService = mineGenerationService;
@@ -38,6 +42,7 @@ namespace Systems.MineSystem.MineGenerationSystem.Model
             _resourceGenerationService = resourceGenerationService;
             _specialBackdropGenerationService = specialBackdropGenerationService;
             _vineGenerationService = vineGenerationService;
+            _specialBackdropSpriteScriptable = specialBackdropSpriteScriptable;
         }
 
         public void Initialize()
@@ -45,19 +50,20 @@ namespace Systems.MineSystem.MineGenerationSystem.Model
             _disposable = new CompositeDisposable();
         }
 
-        public async UniTask<MineData> GenerateProceduralMine()
+        public async UniTask<MineData> GenerateProceduralMineData()
         {
             var mineData = await _mineGenerationService.GenerateMineCellData(_config);
-            //TODO: complete mine generation
+            await _caveGenerationService.GenerateBossCave(_config, mineData);
+            
+            await _caveGenerationService.GenerateCave(_config, mineData);
+
+            // var specialBackdrops = _specialBackdropSpriteScriptable.GetAllIds();
+            // await _specialBackdropGenerationService.GenerateSpecialBackdrops(
+            //     _config, mineData,specialBackdrops);
+            
+            
             return mineData;
         }
-
-        private async UniTask GenerateMineCells()
-        {
-            
-        }
-        
-        
 
         public void Dispose()
         {

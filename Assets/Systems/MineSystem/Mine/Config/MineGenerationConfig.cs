@@ -27,10 +27,12 @@ namespace Systems.MineSystem.Mine.Config
         public int caveMaxSizeY;
         public int minDistanceBetweenCaves;
 
-        [Header("Stalagmite Stalactite Data")] public int stalagmiteCount;
+        [Header("Stalagmite Stalactite Data")] 
+        public int stalagmiteCount;
         public int stalactiteCount;
 
-        [Header("Location")] public Region region;
+        [Header("Location")] 
+        public Region region;
         public Site site;
         
         [Header("Artifact Data")]
