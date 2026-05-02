@@ -112,7 +112,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -123,7 +123,7 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
@@ -147,10 +147,10 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 8192
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -175,573 +175,573 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: new new tiles_0
+      name: indianTiles_0
       rect:
         serializedVersion: 2
-        x: 4
-        y: 67
-        width: 22
-        height: 22
+        x: 5
+        y: 68
+        width: 20
+        height: 20
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: b091d6994c6200940800000000000000
-      internalID: 5260246990598248715
+      spriteID: af24b95346a776445a47da01ce568328
+      internalID: 948055379
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: new new tiles_1
+      name: indianTiles_1
       rect:
         serializedVersion: 2
-        x: 4
-        y: 46
-        width: 22
-        height: 22
+        x: 26
+        y: 68
+        width: 20
+        height: 20
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 03c0f5aaf070691e0800000000000000
-      internalID: -2191556404804907984
+      spriteID: 553f5569a0e442744b484902edb6c87b
+      internalID: -1953688975
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: new new tiles_2
+      name: indianTiles_2
       rect:
         serializedVersion: 2
-        x: 25
-        y: 67
-        width: 22
-        height: 22
+        x: 47
+        y: 68
+        width: 20
+        height: 20
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 70c909f52bf2c9180800000000000000
-      internalID: -9107351903295988729
+      spriteID: a882667070f8d484e9286949f49c4a23
+      internalID: -2082256868
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: new new tiles_3
+      name: indianTiles_3
       rect:
         serializedVersion: 2
-        x: 25
-        y: 46
-        width: 22
-        height: 22
+        x: 68
+        y: 68
+        width: 20
+        height: 20
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: ec6a0a325aa5a7380800000000000000
-      internalID: -8972759642268457266
+      spriteID: fb80a76156a7ef849810431129d6dcb8
+      internalID: -394914055
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: new new tiles_4
+      name: indianTiles_4
       rect:
         serializedVersion: 2
-        x: 46
-        y: 67
-        width: 22
-        height: 22
+        x: 89
+        y: 68
+        width: 20
+        height: 20
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 16adb655b5cca8c70800000000000000
-      internalID: 8974209900136356449
+      spriteID: 0cf3a8099d8c2734c93ff39d0107e361
+      internalID: 1079344917
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: new new tiles_5
+      name: indianTiles_5
       rect:
         serializedVersion: 2
-        x: 46
-        y: 46
-        width: 22
-        height: 22
+        x: 110
+        y: 68
+        width: 20
+        height: 20
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: abe36fbadf3dca850800000000000000
-      internalID: 6389715057797119674
+      spriteID: 0c144665634badb4bafd090b1ce8d097
+      internalID: -2000798576
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: new new tiles_6
+      name: indianTiles_6
       rect:
         serializedVersion: 2
-        x: 67
-        y: 67
-        width: 22
-        height: 22
+        x: 131
+        y: 68
+        width: 20
+        height: 20
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 856ae93314d1d1c30800000000000000
-      internalID: 4331650582476400216
+      spriteID: 0ac62544b46186048a41d798471430db
+      internalID: 190954607
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: new new tiles_7
+      name: indianTiles_7
       rect:
         serializedVersion: 2
-        x: 67
-        y: 46
-        width: 22
-        height: 22
+        x: 5
+        y: 47
+        width: 20
+        height: 20
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 7f730de86519ff510800000000000000
-      internalID: 1585145394806929399
+      spriteID: 750263217366da34a8680382d2589403
+      internalID: 1647246659
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: new new tiles_8
+      name: indianTiles_8
       rect:
         serializedVersion: 2
-        x: 88
-        y: 67
-        width: 22
-        height: 22
+        x: 26
+        y: 47
+        width: 20
+        height: 20
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 65c818842f34e88c0800000000000000
-      internalID: -3995181111553455018
+      spriteID: 15f4f6d59819d134f9b650e485448539
+      internalID: 2069716743
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: new new tiles_9
+      name: indianTiles_9
       rect:
         serializedVersion: 2
-        x: 88
-        y: 46
-        width: 22
-        height: 22
+        x: 47
+        y: 47
+        width: 20
+        height: 20
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 8aa264d77cc2c6cd0800000000000000
-      internalID: -2563624852568790360
+      spriteID: aa395d0ecd02efe49b69219e96367253
+      internalID: 1271828410
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: new new tiles_10
+      name: indianTiles_10
       rect:
         serializedVersion: 2
-        x: 109
-        y: 67
-        width: 22
-        height: 22
+        x: 68
+        y: 47
+        width: 20
+        height: 20
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: e6218c01489646960800000000000000
-      internalID: 7594310887591645806
+      spriteID: a4e4a6f06f8e6d741be5a7467e48b657
+      internalID: -2105093514
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: new new tiles_11
+      name: indianTiles_11
       rect:
         serializedVersion: 2
-        x: 109
-        y: 46
-        width: 22
-        height: 22
+        x: 89
+        y: 47
+        width: 20
+        height: 20
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: b4d4db5e4307f08c0800000000000000
-      internalID: -4030879768978305717
+      spriteID: 56e3f8403d3fd87428c0f2be40b16e1c
+      internalID: 2026178476
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: new new tiles_12
+      name: indianTiles_12
       rect:
         serializedVersion: 2
-        x: 130
-        y: 67
-        width: 22
-        height: 22
+        x: 110
+        y: 47
+        width: 20
+        height: 20
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 0e3faca5f54c37770800000000000000
-      internalID: 8607439226659337184
+      spriteID: 39ad0c3400aed6a4cab357980fb76565
+      internalID: -185439221
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: new new tiles_13
+      name: indianTiles_13
       rect:
         serializedVersion: 2
-        x: 130
-        y: 46
-        width: 22
-        height: 22
+        x: 131
+        y: 47
+        width: 20
+        height: 20
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 903136a0450ef8ac0800000000000000
-      internalID: -3850612504822344951
+      spriteID: ab7d1983049bbbb4ab2f38df46387445
+      internalID: -805820396
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: new new tiles_14
+      name: indianTiles_14
       rect:
         serializedVersion: 2
-        x: 4
-        y: 25
-        width: 22
-        height: 22
+        x: 5
+        y: 26
+        width: 20
+        height: 20
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: ceb12fb145b085b20800000000000000
-      internalID: 3123258797455449068
+      spriteID: e3d32f525dff0734aa48d29c991dab23
+      internalID: 921750080
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: new new tiles_15
+      name: indianTiles_15
       rect:
         serializedVersion: 2
-        x: 25
-        y: 25
-        width: 22
-        height: 22
+        x: 26
+        y: 26
+        width: 20
+        height: 20
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 7f0aa23c891ca91b0800000000000000
-      internalID: -5648989920729325321
+      spriteID: 5ecc7ce41c0c5ea44a6ab46b069f8886
+      internalID: 988024468
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: new new tiles_16
+      name: indianTiles_16
       rect:
         serializedVersion: 2
-        x: 46
-        y: 25
-        width: 22
-        height: 22
+        x: 47
+        y: 26
+        width: 20
+        height: 20
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: e22a493dcdd6ad370800000000000000
-      internalID: 8348105654494601774
+      spriteID: 3061cc8aa40d8de4a9b0e41bd633beed
+      internalID: 1752634394
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: new new tiles_17
+      name: indianTiles_17
       rect:
         serializedVersion: 2
-        x: 46
-        y: 4
-        width: 22
-        height: 22
+        x: 68
+        y: 26
+        width: 20
+        height: 20
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: e8e787ad71c3ace70800000000000000
-      internalID: 9136180867221716622
+      spriteID: 6d138ff52ede4db4db2ae3c4e14c1553
+      internalID: -502777245
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: new new tiles_18
+      name: indianTiles_18
       rect:
         serializedVersion: 2
-        x: 67
-        y: 25
-        width: 22
-        height: 22
+        x: 89
+        y: 26
+        width: 20
+        height: 20
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: b3386f547e671e5c0800000000000000
-      internalID: -4187935442794544325
+      spriteID: afc1db4475c878b4183adf1faebf73b4
+      internalID: -1982802230
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: new new tiles_19
+      name: indianTiles_19
       rect:
         serializedVersion: 2
-        x: 67
-        y: 4
-        width: 22
-        height: 22
+        x: 110
+        y: 26
+        width: 20
+        height: 20
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 94ca9f52296fdb870800000000000000
-      internalID: 8700381162712443977
+      spriteID: a4aca79a296e61540b6870b95373d375
+      internalID: -2051494123
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: new new tiles_20
+      name: indianTiles_20
       rect:
         serializedVersion: 2
-        x: 88
-        y: 25
-        width: 22
-        height: 22
+        x: 131
+        y: 26
+        width: 20
+        height: 20
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 557680227f4180260800000000000000
-      internalID: 7063919067191076693
+      spriteID: 417e0573a9407704a9e43439bc042bbc
+      internalID: -23420377
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: new new tiles_21
+      name: indianTiles_21
       rect:
         serializedVersion: 2
-        x: 88
-        y: 4
-        width: 22
-        height: 22
+        x: 47
+        y: 5
+        width: 20
+        height: 20
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 6a7a71b839cfabfe0800000000000000
-      internalID: -1172347042352617562
+      spriteID: 25a1aa232be48634c9f9687103c5cb8d
+      internalID: 1117026532
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: new new tiles_22
+      name: indianTiles_22
       rect:
         serializedVersion: 2
-        x: 109
-        y: 25
-        width: 22
-        height: 22
+        x: 68
+        y: 5
+        width: 20
+        height: 20
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: c4275006344bd0320800000000000000
-      internalID: 2525873167491494476
+      spriteID: b5568600690a1bb41a338523c15d85c9
+      internalID: 983988440
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: new new tiles_23
+      name: indianTiles_23
       rect:
         serializedVersion: 2
-        x: 109
-        y: 4
-        width: 22
-        height: 22
+        x: 89
+        y: 5
+        width: 20
+        height: 20
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 387f78209357eb3d0800000000000000
-      internalID: -3188982598415681661
+      spriteID: 6aec8ef8498611a4b8f9c498aafe64f3
+      internalID: -423189809
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: new new tiles_24
+      name: indianTiles_24
       rect:
         serializedVersion: 2
-        x: 130
-        y: 25
-        width: 22
-        height: 22
+        x: 110
+        y: 5
+        width: 20
+        height: 20
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 8189fe597f27064c0800000000000000
-      internalID: -4296307636813457384
+      spriteID: 1e9d6b10089359a4f8f3f16e44dfa3c9
+      internalID: -1264506742
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: new new tiles_25
+      name: indianTiles_25
       rect:
         serializedVersion: 2
-        x: 130
-        y: 4
-        width: 22
-        height: 22
+        x: 131
+        y: 5
+        width: 20
+        height: 20
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 4365679e91d90b890800000000000000
-      internalID: -7444277449426840012
+      spriteID: e919cfaf947c8ec4a833fd774fee20d5
+      internalID: -357758207
       vertices: []
       indices: 
       edges: []
@@ -750,7 +750,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: ebc7cd48b49aef94288844eb9b834566
     internalID: 0
     vertices: []
     indices: 
@@ -758,34 +758,36 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":7.0,"y":4.0},"gridSpriteSize":{"x":20.0,"y":20.0},"gridSpriteOffset":{"x":5.0,"y":5.0},"gridSpritePadding":{"x":1.0,"y":1.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      new new tiles_0: 5260246990598248715
-      new new tiles_1: -2191556404804907984
-      new new tiles_10: 7594310887591645806
-      new new tiles_11: -4030879768978305717
-      new new tiles_12: 8607439226659337184
-      new new tiles_13: -3850612504822344951
-      new new tiles_14: 3123258797455449068
-      new new tiles_15: -5648989920729325321
-      new new tiles_16: 8348105654494601774
-      new new tiles_17: 9136180867221716622
-      new new tiles_18: -4187935442794544325
-      new new tiles_19: 8700381162712443977
-      new new tiles_2: -9107351903295988729
-      new new tiles_20: 7063919067191076693
-      new new tiles_21: -1172347042352617562
-      new new tiles_22: 2525873167491494476
-      new new tiles_23: -3188982598415681661
-      new new tiles_24: -4296307636813457384
-      new new tiles_25: -7444277449426840012
-      new new tiles_3: -8972759642268457266
-      new new tiles_4: 8974209900136356449
-      new new tiles_5: 6389715057797119674
-      new new tiles_6: 4331650582476400216
-      new new tiles_7: 1585145394806929399
-      new new tiles_8: -3995181111553455018
-      new new tiles_9: -2563624852568790360
+      indianTiles_0: 948055379
+      indianTiles_1: -1953688975
+      indianTiles_10: -2105093514
+      indianTiles_11: 2026178476
+      indianTiles_12: -185439221
+      indianTiles_13: -805820396
+      indianTiles_14: 921750080
+      indianTiles_15: 988024468
+      indianTiles_16: 1752634394
+      indianTiles_17: -502777245
+      indianTiles_18: -1982802230
+      indianTiles_19: -2051494123
+      indianTiles_2: -2082256868
+      indianTiles_20: -23420377
+      indianTiles_21: 1117026532
+      indianTiles_22: 983988440
+      indianTiles_23: -423189809
+      indianTiles_24: -1264506742
+      indianTiles_25: -357758207
+      indianTiles_3: -394914055
+      indianTiles_4: 1079344917
+      indianTiles_5: -2000798576
+      indianTiles_6: 190954607
+      indianTiles_7: 1647246659
+      indianTiles_8: 2069716743
+      indianTiles_9: 1271828410
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

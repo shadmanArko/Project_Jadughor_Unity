@@ -9,6 +9,7 @@ using Zenject;
 
 namespace Systems.MineSystem.Mine.Controller
 {
+    [Serializable]
     public class MineController : IInitializable, IDisposable
     {
         private CompositeDisposable _disposable;
@@ -34,12 +35,15 @@ namespace Systems.MineSystem.Mine.Controller
         public void Initialize()
         {
             _disposable = new CompositeDisposable();
+            
+            GenerateMine().Forget();
         }
 
         public async UniTask GenerateMine()
         {
             var mineData = await _mineGenerationController.GenerateMineData();
             _model.SetMineData(mineData);
+            _mineVisualizerService.GenerateMineFromData(_model.MineData.Value);
         }
 
         public void Dispose()

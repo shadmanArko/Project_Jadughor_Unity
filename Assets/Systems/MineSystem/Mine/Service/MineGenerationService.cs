@@ -43,8 +43,8 @@ namespace Systems.MineSystem.Mine.Service
                     }
                     else
                     {
-                        var hardCellPossibility = Random.value < 0.3f;
-                        var hitPoint = hardCellPossibility ? config.hardCellHitPoint : config.regularCellHitPoint;
+                        // var hardCellPossibility = Random.value < 0.3f;
+                        var hitPoint = 40;//hardCellPossibility ? config.hardCellHitPoint : config.regularCellHitPoint;
                         CreateBreakableCell(cell, hitPoint);
                         cells.Add(cell);
                         if (y == 1 && x == mineWidth / 2)

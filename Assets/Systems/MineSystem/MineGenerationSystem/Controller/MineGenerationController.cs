@@ -7,12 +7,19 @@ using Zenject;
 
 namespace Systems.MineSystem.MineGenerationSystem.Controller
 {
+    [Serializable]
     public class MineGenerationController : IInitializable, IDisposable
     {
         private CompositeDisposable _disposable;
 
         private MineGenerationModel _model;
-        
+
+        public MineGenerationController(
+            MineGenerationModel model)
+        {
+            _model = model;
+        }
+
         public void Initialize()
         {
             _disposable = new CompositeDisposable();

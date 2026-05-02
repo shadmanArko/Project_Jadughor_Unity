@@ -7,7 +7,7 @@ namespace Systems.MineSystem.MineGenerationSystem.Model
     [Serializable]
     public class MineTile
     {
-        public BrokenEdges brokenEdge;
+        public GeneralMineTile mineTile;
         public Sprite tileSprite;
     }
 }

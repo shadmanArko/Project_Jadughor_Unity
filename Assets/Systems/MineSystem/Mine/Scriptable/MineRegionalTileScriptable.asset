@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbaaf12b7c8a4d98b28155e44b0d7379, type: 3}
+  m_Name: MineRegionalTileScriptable
+  m_EditorClassIdentifier: Assembly-CSharp::Systems.MineSystem.Mine.Scriptable.MineRegionalTileScriptable
+  regionTiles:
+  - region: 0
+    brokenEdgeTiles: []
+    mineTiles:
+    - mineTile: 0
+      tileSprite: {fileID: -2051494123, guid: 5eb17a867940f904c8f7123591b9db6f, type: 3}
