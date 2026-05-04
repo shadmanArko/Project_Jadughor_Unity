@@ -293,7 +293,7 @@ namespace Systems.MineSystem.Mine.Service
         //  Utility
         // ─────────────────────────────────────────────────────────────────────
         private static Cell GetCell(MineData mineData, int x, int y)
-            => mineData.Cells.FirstOrDefault(c => c.Position.X == x && c.Position.Y == y);
+            => mineData.Cells.FirstOrDefault(c => c.Position.X == (x - mineData.GridWidth / 2) && c.Position.Y == -y);
 
         private (int W, int H) PickPreset()
             => CavePresets[_rand.Next(CavePresets.Length)];

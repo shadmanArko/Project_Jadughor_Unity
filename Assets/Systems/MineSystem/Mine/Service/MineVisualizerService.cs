@@ -57,7 +57,7 @@ namespace Systems.MineSystem.Mine.Service
             {
                 for (var j = 0; j < mineData.GridHeight; j++)
                 {
-                    var cellPos = new Vector3Int(i, j);
+                    var cellPos = new Vector3Int(i - mineData.GridWidth / 2, -j);
                     var backgroundTile = _generalMineTiles[GeneralMineTile.Background];
                     backgroundTileMap.SetTile(cellPos, backgroundTile);
                 }

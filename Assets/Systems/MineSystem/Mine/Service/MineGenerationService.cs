@@ -25,11 +25,11 @@ namespace Systems.MineSystem.Mine.Service
                     var cell = new Cell
                     {
                         Id = Guid.NewGuid().ToString(),
-                        Position = new GridPosition(x, y)
+                        Position = new GridPosition(x - mineWidth / 2, -y)
                     };
 
-                    if (y == 0 || y == mineWidth - 1 || 
-                        x == 0 || x == mineHeight - 1)
+                    if (y == 0 || y == mineHeight - 1 || 
+                        x == 0 || x == mineWidth - 1)
                     {
                         if (y == 0 && x == mineWidth / 2)
                         {
@@ -54,6 +54,9 @@ namespace Systems.MineSystem.Mine.Service
             }
 
             mineData.Cells = cells;
+            mineData.GridWidth = mineWidth;
+            mineData.GridHeight = mineHeight;
+            mineData.CellSize = config.cellSize;
             mineData.Caves = new List<Cave>();
             mineData.SpecialBackdropDatas = new List<SpecialBackdropData>();
             mineData.CellPlaceables = new List<CellPlaceable>();

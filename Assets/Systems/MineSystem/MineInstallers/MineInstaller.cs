@@ -27,7 +27,7 @@ namespace Systems.MineSystem.MineInstallers
         public override void InstallBindings()
         {
             Container.Bind<Camera>().FromComponentInNewPrefab(camera).AsSingle().NonLazy();
-            Container.Bind<CinemachineCamera>().FromNewComponentOnNewPrefab(cinemachineCamera).AsSingle().NonLazy();
+            Container.Bind<CinemachineCamera>().FromComponentInNewPrefab(cinemachineCamera).AsSingle().NonLazy();
             
             // Config
             Container.Bind<MineGenerationConfig>().FromScriptableObject(mineGenerationConfig).AsSingle();

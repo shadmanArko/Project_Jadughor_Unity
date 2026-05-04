@@ -5,6 +5,7 @@ using Systems.MineSystem.Mine.Service;
 using Systems.MineSystem.Mine.View;
 using Systems.MineSystem.MineGenerationSystem.Controller;
 using UniRx;
+using UnityEngine;
 using Zenject;
 
 namespace Systems.MineSystem.Mine.Controller
@@ -35,15 +36,18 @@ namespace Systems.MineSystem.Mine.Controller
         public void Initialize()
         {
             _disposable = new CompositeDisposable();
-            
-            GenerateMine().Forget();
+            Debug.LogWarning($"Generating mine!");
+            GenerateMine().Forget(ex => Debug.LogException(ex));
         }
 
         public async UniTask GenerateMine()
         {
             var mineData = await _mineGenerationController.GenerateMineData();
+            Debug.LogWarning($"Mine Data Generated!");
             _model.SetMineData(mineData);
+            Debug.LogWarning($"mine data set to model");
             _mineVisualizerService.GenerateMineFromData(_model.MineData.Value);
+            Debug.LogWarning($"visualize mine data");
         }
 
         public void Dispose()

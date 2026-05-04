@@ -26,7 +26,7 @@ namespace Systems.MineSystem.MineGenerationSystem.Model
         private readonly SpecialBackdropSpriteScriptable _specialBackdropSpriteScriptable;
 
         public MineGenerationModel(
-            MineGenerationConfig config, 
+            MineGenerationConfig config,
             MineGenerationService mineGenerationService, 
             ArtifactGenerationService artifactGenerationService, 
             CaveGenerationService caveGenerationService, 
@@ -53,8 +53,9 @@ namespace Systems.MineSystem.MineGenerationSystem.Model
         public async UniTask<MineData> GenerateProceduralMineData()
         {
             var mineData = await _mineGenerationService.GenerateMineCellData(_config);
-            await _caveGenerationService.GenerateBossCave(_config, mineData);
             
+            if (_config.hasBossCave)
+                await _caveGenerationService.GenerateBossCave(_config, mineData);
             await _caveGenerationService.GenerateCave(_config, mineData);
 
             // var specialBackdrops = _specialBackdropSpriteScriptable.GetAllIds();
