@@ -53,13 +53,22 @@ namespace Systems.MineSystem.Mine.Service
                 return;
             }
             
+            var brokenTileMap = _view.tilemaps.FirstOrDefault(tilemap => tilemap.name == "Wall");
+            if (brokenTileMap == null)
+            {
+                Debug.LogError($"Broken tile map not found");
+                return;
+            }
+            
             for (var i = 0; i < mineData.GridWidth; i++)
             {
                 for (var j = 0; j < mineData.GridHeight; j++)
                 {
                     var cellPos = new Vector3Int(i - mineData.GridWidth / 2, -j);
-                    var backgroundTile = _generalMineTiles[GeneralMineTile.Background];
-                    backgroundTileMap.SetTile(cellPos, backgroundTile);
+                    SetBackgroundTile(cellPos, backgroundTileMap);
+                    
+                    var cell = mineData.GetCell(cellPos);
+                    SetBrokenTile(cell, brokenTileMap);
                 }
             }
         }
@@ -86,9 +95,17 @@ namespace Systems.MineSystem.Mine.Service
             }
         }
 
-        private void SetBackgroundTile(GridPosition gridPosition)
+        private void SetBackgroundTile(Vector3Int cellPos, Tilemap tilemap)
         {
-            
+            var backgroundTileInstance = _generalMineTiles[GeneralMineTile.Background];
+            tilemap.SetTile(cellPos, backgroundTileInstance);
+        }
+
+        private void SetBrokenTile(Cell cell, Tilemap tilemap)
+        {
+            var cellPos = cell.GetPosition();
+            var brokenEdgeTileInstance = _brokenEdgeTiles[cell.BrokenSides];
+            tilemap.SetTile(cellPos, brokenEdgeTileInstance);
         }
     }
 }

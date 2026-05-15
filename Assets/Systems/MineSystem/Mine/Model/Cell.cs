@@ -1,5 +1,6 @@
 using System;
 using Systems.MineSystem.Mine.Enum;
+using UnityEngine;
 
 namespace Systems.MineSystem.Mine.Model
 {
@@ -16,6 +17,7 @@ namespace Systems.MineSystem.Mine.Model
         public bool IsBroken { get; set; }
         public bool IsRevealed { get; set; }
         public bool IsInstantiated { get; set; }
+        public Vector3Int GetPosition() => new Vector3Int(Position.X, Position.Y, 0);
 
         /// <summary>
         /// Bitmask of which edges and corners of this cell are broken.

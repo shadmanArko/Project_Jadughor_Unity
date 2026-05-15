@@ -1,5 +1,7 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using UnityEngine;
 
 namespace Systems.MineSystem.Mine.Model
 {
@@ -23,5 +25,8 @@ namespace Systems.MineSystem.Mine.Model
         public List<CellPlaceable> CellPlaceables { get; set; }
         public List<VineData> VineDatas { get; set; }
         public List<SpecialBackdropData> SpecialBackdropDatas { get; set; }
+
+        public Cell GetCell(GridPosition position) => Cells.FirstOrDefault(cell => cell.Position == position);
+        public Cell GetCell(Vector3Int position) => Cells.FirstOrDefault(cell => cell.Position == position);
     }
 }

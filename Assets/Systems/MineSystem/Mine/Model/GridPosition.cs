@@ -1,4 +1,5 @@
 using System;
+using UnityEngine;
 
 namespace Systems.MineSystem.Mine.Model
 {
@@ -21,5 +22,7 @@ namespace Systems.MineSystem.Mine.Model
 
         public static bool operator ==(GridPosition a, GridPosition b) => a.Equals(b);
         public static bool operator !=(GridPosition a, GridPosition b) => !a.Equals(b);
+        public static bool operator ==(GridPosition a, Vector3Int b) => a.X == b.x && a.Y == b.y;
+        public static bool operator !=(GridPosition a, Vector3Int b) => !(a == b);
     }
 }
