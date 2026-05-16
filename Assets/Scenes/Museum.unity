@@ -41830,6 +41830,65 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1272827312}
   m_CullTransparentMesh: 1
+--- !u!1 &1342568289
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1342568291}
+  - component: {fileID: 1342568290}
+  m_Layer: 0
+  m_Name: MuseumTilePlacementManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1342568290
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1342568289}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50cecb2812d25144b9c35894b19b5594, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MuseumTilePlacementManager
+  placementTilemap: {fileID: 1210753204}
+  grid: {fileID: 1779382418}
+  availableTiles:
+  - {fileID: 11400000, guid: 9adc8997d1d62de479015435c6423353, type: 2}
+  - {fileID: 11400000, guid: 9bcb7908f519b20418734755848eb2a4, type: 2}
+  - {fileID: 11400000, guid: dd2472ce5e7f4a4409bd6089544c9c7a, type: 2}
+  - {fileID: 11400000, guid: fa4947ab06e647946a8bc5063344d50a, type: 2}
+  - {fileID: 11400000, guid: b96bd019f982d4742a90b786eb783912, type: 2}
+  - {fileID: 11400000, guid: a8afcacaabb3c334c983c6f7d76199b9, type: 2}
+  - {fileID: 11400000, guid: 6962a535638f59945a636139425bf8d1, type: 2}
+  - {fileID: 11400000, guid: 0ba42dabe1957e3479604f99e52c339c, type: 2}
+  - {fileID: 11400000, guid: 7c7fe15dfeb9aa84cb3cb05a879a1fd7, type: 2}
+  - {fileID: 11400000, guid: a0abac85b12e6ff4cad0c3b7bb2633ef, type: 2}
+  showPreview: 1
+  previewColor: {r: 1, g: 1, b: 1, a: 0.5}
+--- !u!4 &1342568291
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1342568289}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1354508862
 GameObject:
   m_ObjectHideFlags: 0
@@ -43145,3 +43204,4 @@ SceneRoots:
   - {fileID: 1475030411}
   - {fileID: 1895879596}
   - {fileID: 1779382419}
+  - {fileID: 1342568291}
