@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb6d4170917224622904778a8ea46b25, type: 3}
+  m_Name: InputSystemConfig
+  m_EditorClassIdentifier: Assembly-CSharp::InputSystem.Config.InputSystemConfig
+  ActionAsset: {fileID: -944628639613478452, guid: 30d3f7d4434b348318f77eb058a3c1cd, type: 3}
+  DefaultMobileInputMode: 0
+  HapticDecayRate: 1.5
+  DefaultLowFrequency: 0.4
+  DefaultHighFrequency: 0.6
+  DeviceChangeCooldown: 0.2
