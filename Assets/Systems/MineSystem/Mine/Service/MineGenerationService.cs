@@ -2,8 +2,9 @@ using System;
 using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
 using Systems.MineSystem.Mine.Config;
+using Systems.MineSystem.Mine.Enum;
 using Systems.MineSystem.Mine.Model;
-using Random = UnityEngine.Random;
+// using Random = UnityEngine.Random;
 
 namespace Systems.MineSystem.Mine.Service
 {
@@ -35,6 +36,17 @@ namespace Systems.MineSystem.Mine.Service
                         {
                             CreateBlankCell(cell);
                             cells.Add(cell);
+                            continue;
+                        }
+
+                        if (y == 1 && x == mineWidth / 2)
+                        {
+                            CreateBrokenCell(cell);
+                            cells.Add(cell);
+                            cell.IsRevealed = true;
+                            cell.IsBreakable = true;
+                            cell.IsBroken = true;
+                            cell.BrokenSides = BrokenEdges.None;
                             continue;
                         }
 
@@ -94,6 +106,38 @@ namespace Systems.MineSystem.Mine.Service
 
             cell.MaxHitPoint = hitPoint;
             cell.HitPoint = hitPoint;
+            GetRandomBrokenEdges(cell);
+        }
+
+        private void CreateBrokenCell(Cell cell)
+        {
+            cell.IsBreakable = true;
+            cell.IsBroken = true;
+            cell.IsInstantiated = true;
+            cell.IsRevealed = true;
+        }
+        
+        private static readonly Random _random = new();
+        public static void GetRandomBrokenEdges(Cell cell, double probability = 0.5)
+        {
+            BrokenEdges result = BrokenEdges.None;
+
+            // Get all individual values defined in the enum
+            BrokenEdges[] allEdges = (BrokenEdges[])System.Enum.GetValues(typeof(BrokenEdges));
+
+            foreach (var edge in allEdges)
+            {
+                // Skip the 'None' value
+                if (edge == BrokenEdges.None) continue;
+
+                // Roll the dice! If it passes the probability, add the flag
+                if (_random.NextDouble() < probability)
+                {
+                    result |= edge; // Bitwise OR adds the flag
+                }
+
+                cell.BrokenSides = result;
+            }
         }
     }
 }
