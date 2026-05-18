@@ -9,11 +9,12 @@ using Systems.MineSystem.MineGenerationSystem.Model;
 using Systems.MineSystem.MinePlayerSystem.Scriptable;
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using Zenject;
 
 namespace Systems.MineSystem.Mine.Service
 {
     [Serializable]
-    public class MineVisualizerService
+    public class MineVisualizerService : IInitializable
     {
         private MineView _view;
         private MineRegionalTileScriptable _tileScriptable;
@@ -25,8 +26,8 @@ namespace Systems.MineSystem.Mine.Service
         private Dictionary<BrokenEdges, Tile> _brokenEdgeTiles;
 
         public MineVisualizerService(
-            MineView view, 
-            MineRegionalTileScriptable scriptable, 
+            MineView view,
+            MineRegionalTileScriptable scriptable,
             MinePlayerScriptable playerScriptable)
         {
             _view = view;
@@ -34,70 +35,21 @@ namespace Systems.MineSystem.Mine.Service
             _playerScriptable = playerScriptable;
         }
 
-        public void GenerateMineFromData(MineData mineData)
+        #region Initializers
+        
+        public void Initialize()
+        {
+            InitializeVariables();
+            CreateTileInstances();
+        }
+
+        private void InitializeVariables()
         {
             var region = _playerScriptable.region;
             _currentRegionalTiles = _tileScriptable.regionTiles.FirstOrDefault(tiles => tiles.region == region);
+
             if (_currentRegionalTiles == null)
-            {
                 Debug.LogError($"Fatal Error: Cannot find regional tiles for region {region}");
-                return;
-            }
-            
-            CreateTileInstances();
-
-            var backgroundTileMap = _view.tilemaps.FirstOrDefault(tilemap => tilemap.name == "Background");
-            var unrevealedTileMap = _view.tilemaps.FirstOrDefault(tilemap => tilemap.name == "Unrevealed");
-            if (backgroundTileMap == null)
-            {
-                Debug.LogError($"Background tile map not found");
-                return;
-            }
-            
-            var brokenTileMap = _view.tilemaps.FirstOrDefault(tilemap => tilemap.name == "Wall");
-            if (brokenTileMap == null)
-            {
-                Debug.LogError($"Broken tile map not found");
-                return;
-            }
-            
-            for (var i = 0; i < mineData.GridWidth; i++)
-            {
-                for (var j = 0; j < mineData.GridHeight; j++)
-                {
-                    var cellPos = new Vector3Int(i - mineData.GridWidth / 2, -j);
-                    // SetBackgroundTile(cellPos, backgroundTileMap);
-                    
-                    var cell  = mineData.GetCell(cellPos);
-                    
-                    if(!cell.IsInstantiated)
-                        SetBackgroundTile(cellPos, backgroundTileMap);
-                    else
-                    {
-                        if (cell.IsRevealed)
-                        {
-                            if (cell.IsBreakable)
-                            {
-                                if (cell.IsBroken)
-                                {
-                                    SetBackgroundTile(cellPos, backgroundTileMap);
-                                    SetBrokenTile(cell, brokenTileMap);
-                                }
-                            }
-                            else
-                            {
-                                
-                            }
-                        }
-                        else
-                        {
-                            SetUnrevealedTile(cell, unrevealedTileMap);
-                        }
-                    }
-
-                    SetBrokenTile(cell, brokenTileMap);
-                }
-            }
         }
 
         private void CreateTileInstances()
@@ -107,7 +59,7 @@ namespace Systems.MineSystem.Mine.Service
 
             foreach (var generalTile in _currentRegionalTiles.mineTiles)
             {
-                if(_generalMineTiles.ContainsKey(generalTile.mineTile)) continue;
+                if (_generalMineTiles.ContainsKey(generalTile.mineTile)) continue;
                 var tile = ScriptableObject.CreateInstance<Tile>();
                 tile.sprite = generalTile.tileSprite;
                 _generalMineTiles.Add(generalTile.mineTile, tile);
@@ -115,41 +67,135 @@ namespace Systems.MineSystem.Mine.Service
 
             foreach (var brokenEdgeTile in _currentRegionalTiles.brokenEdgeTiles)
             {
-                if(_brokenEdgeTiles.ContainsKey(brokenEdgeTile.brokenEdge)) continue;
+                if (_brokenEdgeTiles.ContainsKey(brokenEdgeTile.brokenEdge)) continue;
                 var tile = ScriptableObject.CreateInstance<Tile>();
                 tile.sprite = brokenEdgeTile.tileSprite;
                 _brokenEdgeTiles.Add(brokenEdgeTile.brokenEdge, tile);
             }
         }
 
-        private void SetBackgroundTile(Vector3Int cellPos, Tilemap tilemap)
+        #endregion
+
+        public void GenerateMineFromData(MineData mineData)
         {
-            var backgroundTileInstance = _generalMineTiles[GeneralMineTile.Background];
-            tilemap.SetTile(cellPos, backgroundTileInstance);
+            for (var i = 0; i < mineData.GridWidth; i++)
+            {
+                for (var j = 0; j < mineData.GridHeight; j++)
+                {
+                    var cellPos = new Vector3Int(i - mineData.GridWidth / 2, -j);
+                    SetBackgroundTile(cellPos);
+
+                    var cell = mineData.GetCell(cellPos);
+
+                    if (cell.IsBlank)
+                    {
+                        SetBlankTile(cell);
+                    }
+                    else
+                    {
+                        if (cell.IsRevealed)
+                        {
+                            if (cell.IsBreakable)
+                            {
+                                if (cell.IsBroken)
+                                {
+                                    SetBackgroundTile(cellPos);
+                                    SetBlankTile(cell);
+                                }
+                                else
+                                {
+                                    SetWallTile(cell);
+                                }
+                            }
+                            else
+                            {
+                                cell.BrokenSides = BrokenEdges.Intact;
+                                SetWallTile(cell);
+                            }
+                        }
+                        else
+                        {
+                            SetUnrevealedTile(cell);
+                        }
+                    }
+                }
+            }
         }
 
-        private void SetBrokenTile(Cell cell, Tilemap tilemap)
+        #region Tile Setters
+
+        private void SetBackgroundTile(Vector3Int cellPos)
+        {
+            var backgroundTileInstance = _generalMineTiles[GeneralMineTile.Background];
+            _view.backgroundTileMap.SetTile(cellPos, backgroundTileInstance);
+        }
+
+        private void SetWallTile(Cell cell)
         {
             var cellPos = cell.GetPosition();
-            
+
             //to be removed
-            if (!_brokenEdgeTiles.ContainsKey(cell.BrokenSides))
+            if (!_brokenEdgeTiles.TryGetValue(cell.BrokenSides, out var brokenEdgeTileInstance))
             {
                 var unrevealedInstance = _generalMineTiles[GeneralMineTile.Unrevealed];
-                tilemap.SetTile(cellPos, unrevealedInstance);
+                _view.wallTileMap.SetTile(cellPos, unrevealedInstance);
                 return;
             }
             ////
-            
-            var brokenEdgeTileInstance = _brokenEdgeTiles[cell.BrokenSides];
-            tilemap.SetTile(cellPos, brokenEdgeTileInstance);
+
+            _view.wallTileMap.SetTile(cellPos, brokenEdgeTileInstance);
         }
 
-        private void SetUnrevealedTile(Cell cell, Tilemap tilemap)
+        private void SetBlankTile(Cell cell)
+        {
+            var cellPos = cell.GetPosition();
+            _view.wallTileMap.SetTile(cellPos, null);
+        }
+
+        private void SetUnrevealedTile(Cell cell)
         {
             var cellPos = cell.GetPosition();
             var unrevealedTileInstance = _generalMineTiles[GeneralMineTile.Unrevealed];
-            tilemap.SetTile(cellPos, unrevealedTileInstance);
+            _view.unrevealedTileMap.SetTile(cellPos, unrevealedTileInstance);
+        }
+
+        #endregion
+
+        private List<Vector3Int> _adjacentTiles = new()
+        {
+            Vector3Int.up,
+            Vector3Int.down,
+            Vector3Int.left,
+            Vector3Int.right,
+            new Vector3Int(1, 1, 0),
+            new Vector3Int(1, -1, 0),
+            new Vector3Int(-1, 1, 0),
+            new Vector3Int(-1, -1, 0)
+        };
+
+        public void BreakWallTile(Vector3Int cellPos)
+        {
+            _view.wallTileMap.SetTile(cellPos, null);
+            _view.artifactTileMap.SetTile(cellPos, null);
+            _view.resourceTileMap.SetTile(cellPos, null);
+            _view.unrevealedTileMap.SetTile(cellPos, null);
+        }
+
+        public void RevealAdjacentTiles(Cell cell)
+        {
+            foreach (var adjacentTilePos in _adjacentTiles)
+            {
+                var newCellPos = cell.GetPosition() + adjacentTilePos;
+                RevealTile(cell);
+                //TODO: finish it
+                //Remove old input system
+            }
+        }
+
+        public void RevealTile(Cell cell)
+        {
+            var cellPos = cell.GetPosition();
+            _view.unrevealedTileMap.SetTile(cellPos, null);
         }
     }
 }

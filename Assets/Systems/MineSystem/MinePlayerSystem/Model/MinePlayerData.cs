@@ -11,5 +11,7 @@ namespace Systems.MineSystem.MinePlayerSystem.Model
         
         public ReactiveProperty<float> stamina;
         public ReactiveProperty<float> maxStamina;
+
+        public ReactiveProperty<int> pickAxeStrength = new ReactiveProperty<int>(20);
     }
 }

@@ -5,8 +5,7 @@ namespace Systems.MineSystem.Mine.Enum
     [Flags]
     public enum BrokenEdges
     {
-        Intact,
-        None               = 0,
+        Intact               = 0,
         Top                = 1 << 0,
         Right              = 1 << 1,
         Bottom             = 1 << 2,
@@ -14,6 +13,6 @@ namespace Systems.MineSystem.Mine.Enum
         TopLeftCorner      = 1 << 4,
         BottomLeftCorner   = 1 << 5,
         TopRightCorner     = 1 << 6,
-        BottomRightCorner  = 1 << 7,
+        BottomRightCorner  = 1 << 7
     }
 }

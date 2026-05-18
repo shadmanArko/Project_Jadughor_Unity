@@ -29,27 +29,25 @@ namespace Systems.MineSystem.Mine.Service
                         Position = new GridPosition(x - mineWidth / 2, -y)
                     };
 
+                    if (y == 0 && x == mineWidth / 2)
+                    {
+                        CreateBlankCell(cell);
+                        cells.Add(cell);
+                        continue;
+                    }
+
+                    if (y == 1 && x == mineWidth / 2)
+                    {
+                        CreateBreakableCell(cell, 40, false);
+                        cell.IsRevealed = true;
+                        cell.BrokenSides = BrokenEdges.Top;
+                        cells.Add(cell);
+                        continue;
+                    }
+
                     if (y == 0 || y == mineHeight - 1 || 
                         x == 0 || x == mineWidth - 1)
                     {
-                        if (y == 0 && x == mineWidth / 2)
-                        {
-                            CreateBlankCell(cell);
-                            cells.Add(cell);
-                            continue;
-                        }
-
-                        if (y == 1 && x == mineWidth / 2)
-                        {
-                            CreateBrokenCell(cell);
-                            cells.Add(cell);
-                            cell.IsRevealed = true;
-                            cell.IsBreakable = true;
-                            cell.IsBroken = true;
-                            cell.BrokenSides = BrokenEdges.None;
-                            continue;
-                        }
-
                         CreateUnbreakableCell(cell);
                         cells.Add(cell);
                     }
@@ -59,8 +57,6 @@ namespace Systems.MineSystem.Mine.Service
                         var hitPoint = 40;//hardCellPossibility ? config.hardCellHitPoint : config.regularCellHitPoint;
                         CreateBreakableCell(cell, hitPoint);
                         cells.Add(cell);
-                        if (y == 1 && x == mineWidth / 2)
-                            cell.IsRevealed = true;
                     }
                 }
             }
@@ -83,7 +79,9 @@ namespace Systems.MineSystem.Mine.Service
         {
             cell.IsBreakable = false;
             cell.IsBroken = false;
-            cell.IsInstantiated = false;
+            cell.IsBlank = true;
+            cell.IsRevealed = true;
+            
             cell.MaxHitPoint = 999999999;
             cell.HitPoint = 999999999;
         }
@@ -92,35 +90,30 @@ namespace Systems.MineSystem.Mine.Service
         {
             cell.IsBreakable = false;
             cell.IsBroken = false;
-            cell.IsInstantiated = true;
+            cell.IsBlank = false;
+            cell.IsRevealed = true;
+            
             cell.MaxHitPoint = 999999999;
             cell.HitPoint = 999999999;
         }
 
-        private void CreateBreakableCell(Cell cell, int hitPoint)
+        private void CreateBreakableCell(Cell cell, int hitPoint, bool shouldAddEdges = true)
         {
             cell.IsBreakable = true;
             cell.IsBroken = false;
-            cell.IsInstantiated = true;
+            cell.IsBlank = false;
             cell.IsRevealed = false;
 
             cell.MaxHitPoint = hitPoint;
             cell.HitPoint = hitPoint;
-            GetRandomBrokenEdges(cell);
-        }
-
-        private void CreateBrokenCell(Cell cell)
-        {
-            cell.IsBreakable = true;
-            cell.IsBroken = true;
-            cell.IsInstantiated = true;
-            cell.IsRevealed = true;
+            
+            if(shouldAddEdges) GetRandomBrokenEdges(cell);
         }
         
         private static readonly Random _random = new();
         public static void GetRandomBrokenEdges(Cell cell, double probability = 0.5)
         {
-            BrokenEdges result = BrokenEdges.None;
+            BrokenEdges result = BrokenEdges.Intact;
 
             // Get all individual values defined in the enum
             BrokenEdges[] allEdges = (BrokenEdges[])System.Enum.GetValues(typeof(BrokenEdges));
@@ -128,7 +121,7 @@ namespace Systems.MineSystem.Mine.Service
             foreach (var edge in allEdges)
             {
                 // Skip the 'None' value
-                if (edge == BrokenEdges.None) continue;
+                if (edge == BrokenEdges.Intact) continue;
 
                 // Roll the dice! If it passes the probability, add the flag
                 if (_random.NextDouble() < probability)

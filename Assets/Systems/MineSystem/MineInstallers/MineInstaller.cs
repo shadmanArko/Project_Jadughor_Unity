@@ -6,6 +6,7 @@ using Systems.MineSystem.Mine.Service;
 using Systems.MineSystem.Mine.View;
 using Systems.MineSystem.MineGenerationSystem.Controller;
 using Systems.MineSystem.MineGenerationSystem.Model;
+using Systems.Utilities.Injector;
 using Unity.Cinemachine;
 using UnityEngine;
 using Zenject;
@@ -26,6 +27,8 @@ namespace Systems.MineSystem.MineInstallers
         
         public override void InstallBindings()
         {
+            Container.Bind<ManualInjector>().AsSingle().NonLazy();
+            
             Container.Bind<Camera>().FromComponentInNewPrefab(camera).AsSingle().NonLazy();
             Container.Bind<CinemachineCamera>().FromComponentInNewPrefab(cinemachineCamera).AsSingle().NonLazy();
             

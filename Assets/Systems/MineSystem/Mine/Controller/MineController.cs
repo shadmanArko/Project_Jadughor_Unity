@@ -50,6 +50,25 @@ namespace Systems.MineSystem.Mine.Controller
             Debug.LogWarning($"visualize mine data");
         }
 
+        #region Hit Wall
+
+        private Action<Vector3Int> _onWallBreak;
+        public void HitWall(Vector3 position)
+        {
+            var cellPos = Vector3Int.RoundToInt(position);
+            _onWallBreak = OnWallBreak;
+            _model.HitWall(cellPos, _onWallBreak);
+        }
+
+        private void OnWallBreak(Vector3Int cellPos)
+        {
+            var cell = _model.MineData.Value.GetCell(cellPos);
+            _mineVisualizerService.BreakWallTile(cellPos);
+            _mineVisualizerService.RevealAdjacentTiles(cell);
+        }
+
+        #endregion
+
         public void Dispose()
         {
             _disposable?.Dispose();
