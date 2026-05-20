@@ -7,15 +7,18 @@ using Systems.MineSystem.Mine.Scriptable;
 using Systems.MineSystem.Mine.View;
 using Systems.MineSystem.MineGenerationSystem.Model;
 using Systems.MineSystem.MinePlayerSystem.Scriptable;
+using UniRx;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using Zenject;
 
-namespace Systems.MineSystem.Mine.Service
+namespace Systems.MineSystem.Mine.Service.VisualizerService
 {
     [Serializable]
-    public class MineVisualizerService : IInitializable
+    public class MineWallVisualizerService : IInitializable, IDisposable
     {
+        private CompositeDisposable _disposable;
+        
         private MineView _view;
         private MineRegionalTileScriptable _tileScriptable;
         private MinePlayerScriptable _playerScriptable;
@@ -25,7 +28,7 @@ namespace Systems.MineSystem.Mine.Service
         private Dictionary<GeneralMineTile, Tile> _generalMineTiles;
         private Dictionary<BrokenEdges, Tile> _brokenEdgeTiles;
 
-        public MineVisualizerService(
+        public MineWallVisualizerService(
             MineView view,
             MineRegionalTileScriptable scriptable,
             MinePlayerScriptable playerScriptable)
@@ -39,6 +42,8 @@ namespace Systems.MineSystem.Mine.Service
         
         public void Initialize()
         {
+            _disposable = new CompositeDisposable();
+            
             InitializeVariables();
             CreateTileInstances();
         }
@@ -109,7 +114,8 @@ namespace Systems.MineSystem.Mine.Service
                             }
                             else
                             {
-                                cell.BrokenSides = BrokenEdges.Intact;
+                                // Even unbreakable walls (like borders) might need edge logic, 
+                                // but if you want them strictly intact, you can skip CalculateBrokenEdges.
                                 SetWallTile(cell);
                             }
                         }
@@ -160,42 +166,19 @@ namespace Systems.MineSystem.Mine.Service
         }
 
         #endregion
-
-        private List<Vector3Int> _adjacentTiles = new()
-        {
-            Vector3Int.up,
-            Vector3Int.down,
-            Vector3Int.left,
-            Vector3Int.right,
-            new Vector3Int(1, 1, 0),
-            new Vector3Int(1, -1, 0),
-            new Vector3Int(-1, 1, 0),
-            new Vector3Int(-1, -1, 0)
-        };
-
-        public void BreakWallTile(Vector3Int cellPos)
-        {
-            _view.wallTileMap.SetTile(cellPos, null);
-            _view.artifactTileMap.SetTile(cellPos, null);
-            _view.resourceTileMap.SetTile(cellPos, null);
-            _view.unrevealedTileMap.SetTile(cellPos, null);
-        }
-
-        public void RevealAdjacentTiles(Cell cell)
-        {
-            foreach (var adjacentTilePos in _adjacentTiles)
-            {
-                var newCellPos = cell.GetPosition() + adjacentTilePos;
-                RevealTile(cell);
-                //TODO: finish it
-                //Remove old input system
-            }
-        }
-
-        public void RevealTile(Cell cell)
+        
+        public void UpdateCellWall(Cell cell)
         {
             var cellPos = cell.GetPosition();
             _view.unrevealedTileMap.SetTile(cellPos, null);
+            var tile = _brokenEdgeTiles.ContainsKey(cell.BrokenSides) 
+                ? _brokenEdgeTiles[cell.BrokenSides] : _brokenEdgeTiles[BrokenEdges.Intact];
+            _view.wallTileMap.SetTile(cellPos, cell.IsBroken ? null : tile);
+        }
+        
+        public void Dispose()
+        {
+            _disposable?.Dispose();
         }
     }
 }

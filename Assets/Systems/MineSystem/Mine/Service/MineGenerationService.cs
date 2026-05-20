@@ -107,7 +107,7 @@ namespace Systems.MineSystem.Mine.Service
             cell.MaxHitPoint = hitPoint;
             cell.HitPoint = hitPoint;
             
-            if(shouldAddEdges) GetRandomBrokenEdges(cell);
+            // if(shouldAddEdges) GetRandomBrokenEdges(cell);
         }
         
         private static readonly Random _random = new();

@@ -2,6 +2,7 @@ using System;
 using Cysharp.Threading.Tasks;
 using Systems.MineSystem.Mine.Model;
 using Systems.MineSystem.Mine.Service;
+using Systems.MineSystem.Mine.Service.VisualizerService;
 using Systems.MineSystem.Mine.View;
 using Systems.MineSystem.MineGenerationSystem.Controller;
 using UniRx;
@@ -19,18 +20,18 @@ namespace Systems.MineSystem.Mine.Controller
         private MineView _view;
 
         private readonly MineGenerationController _mineGenerationController;
-        private readonly MineVisualizerService _mineVisualizerService;
+        private readonly MineWallVisualizerService _mineWallVisualizerService;
 
         public MineController(
             MineModel model, 
             MineView view, 
             MineGenerationController mineGenerationController, 
-            MineVisualizerService mineVisualizerService)
+            MineWallVisualizerService mineWallVisualizerService)
         {
             _model = model;
             _view = view;
             _mineGenerationController = mineGenerationController;
-            _mineVisualizerService = mineVisualizerService;
+            _mineWallVisualizerService = mineWallVisualizerService;
         }
 
         public void Initialize()
@@ -46,25 +47,16 @@ namespace Systems.MineSystem.Mine.Controller
             Debug.LogWarning($"Mine Data Generated!");
             _model.SetMineData(mineData);
             Debug.LogWarning($"mine data set to model");
-            _mineVisualizerService.GenerateMineFromData(_model.MineData.Value);
+            _model.GenerateMineFromData();
             Debug.LogWarning($"visualize mine data");
         }
 
         #region Hit Wall
-
-        private Action<Vector3Int> _onWallBreak;
+        
         public void HitWall(Vector3 position)
         {
             var cellPos = Vector3Int.RoundToInt(position);
-            _onWallBreak = OnWallBreak;
-            _model.HitWall(cellPos, _onWallBreak);
-        }
-
-        private void OnWallBreak(Vector3Int cellPos)
-        {
-            var cell = _model.MineData.Value.GetCell(cellPos);
-            _mineVisualizerService.BreakWallTile(cellPos);
-            _mineVisualizerService.RevealAdjacentTiles(cell);
+            _model.HitCell(cellPos);
         }
 
         #endregion

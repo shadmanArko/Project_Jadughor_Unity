@@ -3,6 +3,7 @@ using Systems.MineSystem.Mine.Controller;
 using Systems.MineSystem.Mine.Model;
 using Systems.MineSystem.Mine.Scriptable;
 using Systems.MineSystem.Mine.Service;
+using Systems.MineSystem.Mine.Service.VisualizerService;
 using Systems.MineSystem.Mine.View;
 using Systems.MineSystem.MineGenerationSystem.Controller;
 using Systems.MineSystem.MineGenerationSystem.Model;
@@ -50,10 +51,11 @@ namespace Systems.MineSystem.MineInstallers
             Container.BindInterfacesAndSelfTo<MineGenerationModel>().AsSingle();
             Container.BindInterfacesAndSelfTo<MineGenerationController>().AsSingle();
 
+            Container.BindInterfacesAndSelfTo<MineCellCrackVisualizerService>().AsSingle();
+            Container.BindInterfacesAndSelfTo<MineWallVisualizerService>().AsSingle();
             
             Container.Bind<MineView>().FromComponentInNewPrefab(mineView).AsSingle();
             Container.BindInterfacesAndSelfTo<MineModel>().AsSingle();
-            Container.BindInterfacesAndSelfTo<MineVisualizerService>().AsSingle();
             Container.BindInterfacesAndSelfTo<MineController>().AsSingle().NonLazy();
         }
     }

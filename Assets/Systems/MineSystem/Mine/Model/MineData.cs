@@ -26,7 +26,30 @@ namespace Systems.MineSystem.Mine.Model
         public List<VineData> VineDatas { get; set; }
         public List<SpecialBackdropData> SpecialBackdropDatas { get; set; }
 
-        public Cell GetCell(GridPosition position) => Cells.FirstOrDefault(cell => cell.Position == position);
-        public Cell GetCell(Vector3Int position) => Cells.FirstOrDefault(cell => cell.Position == position);
+        [NonSerialized]
+        private Dictionary<Vector3Int, Cell> _cellLookup;
+
+        public void InitializeLookupCache()
+        {
+            if (Cells == null) return;
+            
+            _cellLookup = new Dictionary<Vector3Int, Cell>(Cells.Count);
+            foreach (var cell in Cells)
+            {
+                _cellLookup[new Vector3Int(cell.Position.X, cell.Position.Y, 0)] = cell;
+            }
+        }
+
+        public Cell GetCell(GridPosition position) => GetCell(new Vector3Int(position.X, position.Y, 0));
+
+        public Cell GetCell(Vector3Int position)
+        {
+            if (_cellLookup != null && _cellLookup.TryGetValue(position, out var cell))
+            {
+                return cell;
+            }
+            // Fallback in case cache isn't initialized yet
+            return Cells?.FirstOrDefault(c => c.Position == position);
+        }
     }
 }
