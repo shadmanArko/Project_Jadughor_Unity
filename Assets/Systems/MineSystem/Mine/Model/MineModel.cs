@@ -112,6 +112,12 @@ namespace Systems.MineSystem.Mine.Model
             if (!b && !r && IsEmpty(pos + new Vector3Int(1, -1, 0))) edges |= BrokenEdges.BottomRightCorner;
             if (!b && !l && IsEmpty(pos + new Vector3Int(-1, -1, 0))) edges |= BrokenEdges.BottomLeftCorner;
 
+            bool hasSide = (edges & (BrokenEdges.Top | BrokenEdges.Right | BrokenEdges.Bottom | BrokenEdges.Left)) != 0;
+            if (hasSide)
+            {
+                edges &= ~(BrokenEdges.TopLeftCorner | BrokenEdges.TopRightCorner | BrokenEdges.BottomRightCorner | BrokenEdges.BottomLeftCorner);
+            }
+
             return edges;
         }
 
