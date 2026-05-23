@@ -151,13 +151,16 @@ namespace Systems.MineSystem.Mine.Model
 
             if (cell.IsBroken)
             {
+                if(!string.IsNullOrEmpty(cell.CaveId))
+                    HandleCaveCell(cell);
+                
                 foreach (var offset in _adjacentBrokenEdges.Keys)
                 {
                     var adjacentCellPos = cellPos + offset;
                     var adjacentCell = _mineData.Value.GetCell(adjacentCellPos);
                     
-                    if (adjacentCell == null || adjacentCell.IsBroken || adjacentCell.IsBlank || !adjacentCell.IsBreakable) 
-                        continue;
+                    if (adjacentCell == null || adjacentCell.IsBroken || 
+                        adjacentCell.IsBlank || !adjacentCell.IsBreakable) continue;
                     
                     adjacentCell.BrokenSides = CalculateBrokenEdges(adjacentCellPos);
                     _onCellModified.OnNext(adjacentCell);
@@ -165,6 +168,26 @@ namespace Systems.MineSystem.Mine.Model
             }
             
             //TODO: make resource, artifact null after spawning those as items
+        }
+
+        private void HandleCaveCell(Cell cell)
+        {
+            var cave = MineData.Value.Caves.FirstOrDefault(cave => cave.Id == cell.CaveId);
+            if (cave == null)
+            {
+                Debug.LogError($"Fatal Error: Cave ID mismatch: {cell.CaveId}");
+                return;
+            }
+            
+            if(cave.IsRevealed) return;
+            foreach (var position in cave.CellPositions)
+            {
+                var caveCell = MineData.Value.GetCell(position);
+                if (caveCell == null) continue;
+                caveCell.IsRevealed = true;
+                CalculateBrokenEdges(caveCell.Position.ToVector3Int());
+                _onCellModified.OnNext(caveCell);
+            }
         }
 
         public void Dispose()

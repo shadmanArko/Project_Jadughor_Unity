@@ -17,19 +17,17 @@ MonoBehaviour:
   cellSize: 20
   hardCellHitPoint: 80
   regularCellHitPoint: 40
-  hasBossCave: 0
+  hasBossCave: 1
   bossCaveSizeX: 0
   bossCaveSizeY: 0
-  numberOfMaxCaves: 0
-  caveMinSizeX: 0
-  caveMinSizeY: 0
-  caveMaxSizeX: 0
-  caveMaxSizeY: 0
-  minDistanceBetweenCaves: 0
-  stalagmiteCount: 0
-  stalactiteCount: 0
-  region: 0
-  site: 0
+  numberOfMaxCaves: 7
+  caveMinSizeX: 5
+  caveMinSizeY: 4
+  caveMaxSizeX: 10
+  caveMaxSizeY: 6
+  minDistanceBetweenCaves: 8
+  stalagmiteCount: 7
+  stalactiteCount: 1
   artifactCount: 0
   resourceCount: 0
   resourceVariants: 

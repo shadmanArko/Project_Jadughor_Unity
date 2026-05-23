@@ -8,6 +8,7 @@ namespace Systems.MineSystem.Mine.Model
     public class Cell
     {
         public string Id { get; set; }
+        public string CaveId { get; set; }
         public GridPosition Position { get; set; }
 
         public int MaxHitPoint { get; set; }

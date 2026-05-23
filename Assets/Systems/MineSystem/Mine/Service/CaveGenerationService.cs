@@ -158,8 +158,9 @@ namespace Systems.MineSystem.Mine.Service
                 LeftBound = xMin,
                 RightBound = xMax,
                 TopBound = yMin,
+                IsRevealed = false,
                 BottomBound = yMax,
-                CellIds = new List<string>(),
+                CellPositions = new List<GridPosition>(),
                 StalagmiteCellIds = new List<string>(),
                 StalactiteCellIds = new List<string>(),
             };
@@ -168,25 +169,27 @@ namespace Systems.MineSystem.Mine.Service
             var height = yMax - yMin;
 
             // ── 1. Build a boolean mask (true = hollow) with deformation ───────
-            var mask = BuildDeformedMask(width, height);
+            // var mask = BuildDeformedMask(width, height);
 
             // ── 2. Apply additional corrosion ──────────────────────────────────
-            ApplyCorrosion(mask, width, height);
+            // ApplyCorrosion(mask, width, height);
 
             // ── 3. Carve cells from MineData according to mask ─────────────────
             for (var x = xMin; x < xMax; x++)
             {
                 for (var y = yMin; y < yMax; y++)
                 {
-                    if (!mask[x - xMin, y - yMin]) continue;
-
+                    // if (!mask[x - xMin, y - yMin]) continue;
+            
                     var cell = GetCell(mineData, x, y);
                     if (cell == null) continue;
-
+            
                     cell.IsBroken = true;
-                    cell.IsRevealed = true;
-                    cell.IsBreakable = false;
-                    cave.CellIds.Add(cell.Id);
+                    cell.IsRevealed = false;
+                    cell.IsBreakable = true;
+                    cell.CaveId = cave.Id;
+                    cave.CellPositions.Add(cell.Position);
+                    Debug.Log($"Cave {x}, {y}, {cell.Id}");
                 }
             }
 
@@ -276,7 +279,7 @@ namespace Systems.MineSystem.Mine.Service
 
             for (var i = 0; i < count; i++)
             {
-                var cell = GetCell(mineData, candidates[i], targetY);
+                var cell = mineData.GetCell(new Vector3Int(candidates[i], targetY,0));//GetCell(mineData, candidates[i], targetY);
                 if (cell == null) continue;
 
                 // Re-solidify the formation cell

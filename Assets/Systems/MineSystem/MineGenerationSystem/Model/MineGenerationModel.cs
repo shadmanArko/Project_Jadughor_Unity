@@ -64,7 +64,7 @@ namespace Systems.MineSystem.MineGenerationSystem.Model
 
             var specialBackdrops = _specialBackdropSpriteScriptable.GetAllIds(_playerScriptable.region, _playerScriptable.site);
             await _specialBackdropGenerationService.GenerateSpecialBackdrops(
-                _config, mineData, specialBackdrops, 7);
+                _config, mineData, specialBackdrops, 8);
             
             return mineData;
         }
