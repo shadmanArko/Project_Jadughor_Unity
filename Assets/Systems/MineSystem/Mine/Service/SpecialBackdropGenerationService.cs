@@ -12,7 +12,7 @@ namespace Systems.MineSystem.Mine.Service
     public class SpecialBackdropGenerationService
     {
         // ── Slot grid layout ──────────────────────────────────────────────────
-        private const int SlotsX = 3;
+        private const int SlotsX = 2;
         private const int SlotsY = 4;
 
         private readonly Random _rand = new();
@@ -45,17 +45,23 @@ namespace Systems.MineSystem.Mine.Service
             // ── 1. Build candidate slot-centre positions ───────────────────────
             var slotUnitX = mineW / SlotsX;
             var slotUnitY = mineH / SlotsY;
-            var offsetX = slotUnitX / 2;
-            var offsetY = slotUnitY / 2;
 
             var candidatePositions = new List<GridPosition>(SlotsX * SlotsY);
             for (var i = 0; i < SlotsX; i++)
             {
                 for (var j = 0; j < SlotsY; j++)
                 {
-                    var x = i * slotUnitX + offsetX;
-                    var y = j * slotUnitY + offsetY;
-                    var pos = new GridPosition(x, y);
+                    // Calculate min and max grid indices for the chunk, keeping a padding
+                    // of a few tiles to avoid spawning too close to the borders of the chunk or mine
+                    var minX = i * slotUnitX + 3;
+                    var maxX = (i + 1) * slotUnitX - 4;
+                    var minY = j * slotUnitY + 3;
+                    var maxY = (j + 1) * slotUnitY - 4;
+
+                    var x = _rand.Next(minX, maxX + 1);
+                    var y = _rand.Next(minY, maxY + 1);
+                    
+                    var pos = new GridPosition(x - mineW / 2, -y);
                     if (!candidatePositions.Contains(pos))
                         candidatePositions.Add(pos);
                 }
@@ -69,15 +75,22 @@ namespace Systems.MineSystem.Mine.Service
             Shuffle(sourcePool);
 
             // ── 3. Place backdrops ─────────────────────────────────────────────
-            noOfBackdrops = Math.Min(noOfBackdrops,
-                Math.Min(candidatePositions.Count, sourcePool.Count));
+            if (sourcePool.Count == 0)
+            {
+                await UniTask.SwitchToMainThread();
+                return;
+            }
+
+            // We force the number of backdrops to match the number of chunks (8), 
+            // ensuring every chunk gets exactly one backdrop.
+            noOfBackdrops = candidatePositions.Count;
 
             var placed = new List<SpecialBackdropData>(noOfBackdrops);
 
             for (var i = 0; i < noOfBackdrops; i++)
             {
-                // Take from the front of each shuffled list (no duplicates possible)
-                var sourceId = sourcePool[i];
+                // Wrap around so we can place more backdrops than we have unique sprites for
+                var sourceId = sourcePool[i % sourcePool.Count];
                 var position = candidatePositions[i];
 
                 var backdrop = new SpecialBackdropData

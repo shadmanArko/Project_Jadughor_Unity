@@ -31,9 +31,9 @@ namespace Systems.MineSystem.Mine.Config
         public int stalagmiteCount;
         public int stalactiteCount;
 
-        [Header("Location")] 
-        public Region region;
-        public Site site;
+        // [Header("Location")] 
+        // public Region region;
+        // public Site site;
         
         [Header("Artifact Data")]
         public int artifactCount;

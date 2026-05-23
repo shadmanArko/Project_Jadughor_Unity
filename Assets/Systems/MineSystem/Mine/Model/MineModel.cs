@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Systems.MineSystem.Mine.Enum;
 using Systems.MineSystem.Mine.Service.VisualizerService;
 using Systems.MineSystem.MinePlayerSystem.Scriptable;
@@ -16,6 +17,7 @@ namespace Systems.MineSystem.Mine.Model
         private MinePlayerScriptable _playerScriptable;
         
         private MineWallVisualizerService _wallVisualizerService;
+        private SpecialBackdropVisualizerService _specialBackdropVisualizerService;
         private MineCellCrackVisualizerService _cellCrackVisualizerService;
         
         private ReactiveProperty<MineData> _mineData = new();
@@ -29,11 +31,13 @@ namespace Systems.MineSystem.Mine.Model
         public MineModel(
             MinePlayerScriptable playerScriptable, 
             MineWallVisualizerService wallVisualizerService, 
-            MineCellCrackVisualizerService cellCrackVisualizerService)
+            MineCellCrackVisualizerService cellCrackVisualizerService, 
+            SpecialBackdropVisualizerService specialBackdropVisualizerService)
         {
             _playerScriptable = playerScriptable;
             _wallVisualizerService = wallVisualizerService;
             _cellCrackVisualizerService = cellCrackVisualizerService;
+            _specialBackdropVisualizerService = specialBackdropVisualizerService;
         }
         
         public void Initialize()
@@ -125,7 +129,9 @@ namespace Systems.MineSystem.Mine.Model
         
         public void GenerateMineFromData()
         {
-            _wallVisualizerService.GenerateMineFromData(MineData.Value);
+            var mineData = MineData.Value;
+            _wallVisualizerService.GenerateMineFromData(mineData);
+            _specialBackdropVisualizerService.SetSpecialBackdrops(mineData.SpecialBackdropDatas, _playerScriptable.region, _playerScriptable.site);
         }
 
         public void HitCell(Vector3Int cellPos)

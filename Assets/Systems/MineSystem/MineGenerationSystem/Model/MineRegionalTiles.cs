@@ -9,6 +9,6 @@ namespace Systems.MineSystem.MineGenerationSystem.Model
     {
         public Region region;
         public List<BrokenEdgeTile> brokenEdgeTiles;
-        public List<MineTile> mineTiles;
+        public List<MineTile> generalTiles;
     }
 }

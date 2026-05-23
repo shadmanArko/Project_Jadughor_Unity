@@ -62,7 +62,7 @@ namespace Systems.MineSystem.Mine.Service.VisualizerService
             _generalMineTiles = new Dictionary<GeneralMineTile, Tile>();
             _brokenEdgeTiles = new Dictionary<BrokenEdges, Tile>();
 
-            foreach (var generalTile in _currentRegionalTiles.mineTiles)
+            foreach (var generalTile in _currentRegionalTiles.generalTiles)
             {
                 if (_generalMineTiles.ContainsKey(generalTile.mineTile)) continue;
                 var tile = ScriptableObject.CreateInstance<Tile>();

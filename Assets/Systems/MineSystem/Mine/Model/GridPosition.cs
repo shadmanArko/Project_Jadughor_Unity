@@ -19,6 +19,7 @@ namespace Systems.MineSystem.Mine.Model
         public override bool Equals(object obj) => obj is GridPosition other && Equals(other);
         public override int GetHashCode() => HashCode.Combine(X, Y);
         public override string ToString() => $"{X},{Y}";
+        public Vector3Int ToVector3Int() => new(X, Y, 0);
 
         public static bool operator ==(GridPosition a, GridPosition b) => a.Equals(b);
         public static bool operator !=(GridPosition a, GridPosition b) => !a.Equals(b);

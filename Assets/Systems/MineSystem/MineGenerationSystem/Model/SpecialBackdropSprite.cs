@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace Systems.MineSystem.Mine.Scriptable
+namespace Systems.MineSystem.MineGenerationSystem.Model
 {
     [Serializable]
     public class SpecialBackdropSprite

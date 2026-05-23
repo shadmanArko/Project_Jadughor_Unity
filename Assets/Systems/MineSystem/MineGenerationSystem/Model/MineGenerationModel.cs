@@ -4,6 +4,7 @@ using Systems.MineSystem.Mine.Config;
 using Systems.MineSystem.Mine.Model;
 using Systems.MineSystem.Mine.Scriptable;
 using Systems.MineSystem.Mine.Service;
+using Systems.MineSystem.MinePlayerSystem.Scriptable;
 using UniRx;
 using Zenject;
 
@@ -15,6 +16,7 @@ namespace Systems.MineSystem.MineGenerationSystem.Model
         private CompositeDisposable _disposable;
 
         private readonly MineGenerationConfig _config;
+        private readonly MinePlayerScriptable _playerScriptable;
 
         private readonly MineGenerationService _mineGenerationService;
         private readonly ArtifactGenerationService _artifactGenerationService;
@@ -33,7 +35,8 @@ namespace Systems.MineSystem.MineGenerationSystem.Model
             ResourceGenerationService resourceGenerationService, 
             SpecialBackdropGenerationService specialBackdropGenerationService, 
             VineGenerationService vineGenerationService, 
-            SpecialBackdropSpriteScriptable specialBackdropSpriteScriptable)
+            SpecialBackdropSpriteScriptable specialBackdropSpriteScriptable, 
+            MinePlayerScriptable playerScriptable)
         {
             _config = config;
             _mineGenerationService = mineGenerationService;
@@ -43,6 +46,7 @@ namespace Systems.MineSystem.MineGenerationSystem.Model
             _specialBackdropGenerationService = specialBackdropGenerationService;
             _vineGenerationService = vineGenerationService;
             _specialBackdropSpriteScriptable = specialBackdropSpriteScriptable;
+            _playerScriptable = playerScriptable;
         }
 
         public void Initialize()
@@ -58,10 +62,9 @@ namespace Systems.MineSystem.MineGenerationSystem.Model
                 await _caveGenerationService.GenerateBossCave(_config, mineData);
             await _caveGenerationService.GenerateCave(_config, mineData);
 
-            // var specialBackdrops = _specialBackdropSpriteScriptable.GetAllIds();
-            // await _specialBackdropGenerationService.GenerateSpecialBackdrops(
-            //     _config, mineData,specialBackdrops);
-            
+            var specialBackdrops = _specialBackdropSpriteScriptable.GetAllIds(_playerScriptable.region, _playerScriptable.site);
+            await _specialBackdropGenerationService.GenerateSpecialBackdrops(
+                _config, mineData, specialBackdrops, 7);
             
             return mineData;
         }

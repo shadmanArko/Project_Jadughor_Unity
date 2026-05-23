@@ -53,6 +53,7 @@ namespace Systems.MineSystem.MineInstallers
 
             Container.BindInterfacesAndSelfTo<MineCellCrackVisualizerService>().AsSingle();
             Container.BindInterfacesAndSelfTo<MineWallVisualizerService>().AsSingle();
+            Container.BindInterfacesAndSelfTo<SpecialBackdropVisualizerService>().AsSingle();
             
             Container.Bind<MineView>().FromComponentInNewPrefab(mineView).AsSingle();
             Container.BindInterfacesAndSelfTo<MineModel>().AsSingle();
