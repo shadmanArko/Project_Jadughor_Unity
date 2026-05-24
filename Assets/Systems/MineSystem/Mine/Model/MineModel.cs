@@ -151,43 +151,104 @@ namespace Systems.MineSystem.Mine.Model
 
             if (cell.IsBroken)
             {
-                if(!string.IsNullOrEmpty(cell.CaveId))
-                    HandleCaveCell(cell);
+                HashSet<Cell> revealedCells = new HashSet<Cell>();
                 
-                foreach (var offset in _adjacentBrokenEdges.Keys)
+                cell.IsRevealed = true;
+                revealedCells.Add(cell);
+
+                RevealAdjacentCells(cellPos, revealedCells);
+
+                if (!string.IsNullOrEmpty(cell.CaveId))
+                    HandleCaveCell(cell, revealedCells);
+
+                foreach (var c in revealedCells)
                 {
-                    var adjacentCellPos = cellPos + offset;
-                    var adjacentCell = _mineData.Value.GetCell(adjacentCellPos);
-                    
-                    if (adjacentCell == null || adjacentCell.IsBroken || 
-                        adjacentCell.IsBlank || !adjacentCell.IsBreakable) continue;
-                    
-                    adjacentCell.BrokenSides = CalculateBrokenEdges(adjacentCellPos);
-                    _onCellModified.OnNext(adjacentCell);
+                    if(!c.IsBreakable) continue;
+                    c.BrokenSides = CalculateBrokenEdges(c.GetPosition());
+                    _onCellModified.OnNext(c);
                 }
             }
             
             //TODO: make resource, artifact null after spawning those as items
         }
 
-        private void HandleCaveCell(Cell cell)
+        private void RevealAdjacentCells(Vector3Int cellPos, HashSet<Cell> revealedCells)
         {
-            var cave = MineData.Value.Caves.FirstOrDefault(cave => cave.Id == cell.CaveId);
+            foreach (var adjacentCell in _adjacentBrokenEdges.Keys.Select(offset => 
+                         cellPos + offset).Select(adjacentCellPos => 
+                         _mineData.Value.GetCell(adjacentCellPos)).Where(adjacentCell => 
+                         adjacentCell != null))
+            {
+                if (!adjacentCell.IsRevealed)
+                {
+                    adjacentCell.IsRevealed = true;
+                    revealedCells.Add(adjacentCell);
+                    
+                    if (!string.IsNullOrEmpty(adjacentCell.CaveId))
+                        HandleCaveCell(adjacentCell, revealedCells);
+                }
+                else
+                    revealedCells.Add(adjacentCell);
+            }
+        }
+
+        private void HandleCaveCell(Cell cell, HashSet<Cell> revealedCells)
+        {
+            var cave = MineData.Value.Caves.FirstOrDefault(c => c.Id == cell.CaveId);
             if (cave == null)
             {
                 Debug.LogError($"Fatal Error: Cave ID mismatch: {cell.CaveId}");
                 return;
             }
             
-            if(cave.IsRevealed) return;
+            if (cave.IsRevealed) return;
+            
+            // First pass: mark all cave cells as revealed and broken
+            foreach (var position in cave.CellPositions)
+            {
+                var caveCell = MineData.Value.GetCell(position);
+                if (caveCell == null)
+                {
+                    Debug.LogError($"Could not find cave position: {position}");
+                    continue;
+                }
+                
+                caveCell.IsRevealed = true;
+                caveCell.IsBroken = true;
+                revealedCells.Add(caveCell);
+            }
+
+            // Second pass: reveal adjacent cells of the cave boundaries
             foreach (var position in cave.CellPositions)
             {
                 var caveCell = MineData.Value.GetCell(position);
                 if (caveCell == null) continue;
-                caveCell.IsRevealed = true;
-                CalculateBrokenEdges(caveCell.Position.ToVector3Int());
-                _onCellModified.OnNext(caveCell);
+
+                foreach (var offset in _adjacentBrokenEdges.Keys)
+                {
+                    var adjPos = caveCell.GetPosition() + offset;
+                    var adjCell = _mineData.Value.GetCell(adjPos);
+                    
+                    if (adjCell == null) continue;
+                    
+                    if (!adjCell.IsRevealed)
+                    {
+                        adjCell.IsRevealed = true;
+                        revealedCells.Add(adjCell);
+                        
+                        if (!string.IsNullOrEmpty(adjCell.CaveId) && adjCell.CaveId != cave.Id)
+                        {
+                            HandleCaveCell(adjCell, revealedCells);
+                        }
+                    }
+                    else
+                    {
+                        revealedCells.Add(adjCell);
+                    }
+                }
             }
+            
+            cave.IsRevealed = true;
         }
 
         public void Dispose()

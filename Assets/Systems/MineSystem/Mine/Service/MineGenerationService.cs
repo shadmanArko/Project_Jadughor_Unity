@@ -78,7 +78,7 @@ namespace Systems.MineSystem.Mine.Service
         private static void CreateBlankCell(Cell cell)
         {
             cell.IsBreakable = false;
-            cell.IsBroken = false;
+            cell.IsBroken = true;
             cell.IsBlank = true;
             cell.IsRevealed = true;
             
