@@ -37,7 +37,8 @@ namespace Systems.MineSystem.Mine.Service
         {
             await UniTask.SwitchToThreadPool();
 
-            var (w, h) = PickPreset(); // random preset
+            var w = 20;
+            var h = 5;
             var mineW = config.mineSizeX;
             var mineH = config.mineSizeY;
 
