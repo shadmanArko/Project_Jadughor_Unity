@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Systems.MineSystem.Mine.Config
 {
-    [CreateAssetMenu(fileName = "MineGenerationConfig", menuName = "Configs/MineGenerationConfig")]
+    [CreateAssetMenu(fileName = "MineGenerationConfig", menuName = "Config/MineGenerationConfig")]
     public class MineGenerationConfig : ScriptableObject
     {
         [Header("Mine Data")] public int mineSizeX;

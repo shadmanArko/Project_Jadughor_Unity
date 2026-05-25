@@ -66,7 +66,7 @@ namespace Systems.MineSystem.Mine.Model
 
         public void SetMineData(MineData mineData)
         {
-            mineData?.InitializeLookupCache();
+            // mineData?.InitializeLookupCache();
             _mineData.Value = mineData;
             UpdateAllCellsBrokenEdges();
         }

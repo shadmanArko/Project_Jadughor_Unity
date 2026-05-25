@@ -1,6 +1,7 @@
 using System;
 using Cysharp.Threading.Tasks;
 using Systems.MineSystem.Mine.Config;
+using Systems.MineSystem.Mine.Config.ResourceConfig;
 using Systems.MineSystem.Mine.Model;
 using Systems.MineSystem.Mine.Scriptable;
 using Systems.MineSystem.Mine.Service;
@@ -15,7 +16,9 @@ namespace Systems.MineSystem.MineGenerationSystem.Model
     {
         private CompositeDisposable _disposable;
 
-        private readonly MineGenerationConfig _config;
+        private readonly MineGenerationConfig _mineGenerationConfig;
+        private readonly ResourceGenerationConfig _resourceGenerationConfig;
+        
         private readonly MinePlayerScriptable _playerScriptable;
 
         private readonly MineGenerationService _mineGenerationService;
@@ -28,7 +31,7 @@ namespace Systems.MineSystem.MineGenerationSystem.Model
         private readonly SpecialBackdropSpriteScriptable _specialBackdropSpriteScriptable;
 
         public MineGenerationModel(
-            MineGenerationConfig config,
+            MineGenerationConfig mineGenerationConfig,
             MineGenerationService mineGenerationService, 
             ArtifactGenerationService artifactGenerationService, 
             CaveGenerationService caveGenerationService, 
@@ -36,9 +39,10 @@ namespace Systems.MineSystem.MineGenerationSystem.Model
             SpecialBackdropGenerationService specialBackdropGenerationService, 
             VineGenerationService vineGenerationService, 
             SpecialBackdropSpriteScriptable specialBackdropSpriteScriptable, 
-            MinePlayerScriptable playerScriptable)
+            MinePlayerScriptable playerScriptable, 
+            ResourceGenerationConfig resourceGenerationConfig)
         {
-            _config = config;
+            _mineGenerationConfig = mineGenerationConfig;
             _mineGenerationService = mineGenerationService;
             _artifactGenerationService = artifactGenerationService;
             _caveGenerationService = caveGenerationService;
@@ -47,6 +51,7 @@ namespace Systems.MineSystem.MineGenerationSystem.Model
             _vineGenerationService = vineGenerationService;
             _specialBackdropSpriteScriptable = specialBackdropSpriteScriptable;
             _playerScriptable = playerScriptable;
+            _resourceGenerationConfig = resourceGenerationConfig;
         }
 
         public void Initialize()
@@ -56,15 +61,17 @@ namespace Systems.MineSystem.MineGenerationSystem.Model
 
         public async UniTask<MineData> GenerateProceduralMineData()
         {
-            var mineData = await _mineGenerationService.GenerateMineCellData(_config);
+            var mineData = await _mineGenerationService.GenerateMineCellData(_mineGenerationConfig);
+            mineData.InitializeLookupCache();
             
-            if (_config.hasBossCave)
-                await _caveGenerationService.GenerateBossCave(_config, mineData);
-            await _caveGenerationService.GenerateCave(_config, mineData);
+            if (_mineGenerationConfig.hasBossCave)
+                await _caveGenerationService.GenerateBossCave(_mineGenerationConfig, mineData);
+            await _caveGenerationService.GenerateCave(_mineGenerationConfig, mineData);
 
             var specialBackdrops = _specialBackdropSpriteScriptable.GetAllIds(_playerScriptable.region, _playerScriptable.site);
             await _specialBackdropGenerationService.GenerateSpecialBackdrops(
-                _config, mineData, specialBackdrops, 8);
+                _mineGenerationConfig, mineData, specialBackdrops, 8);
+            await _resourceGenerationService.GenerateResources(mineData, _resourceGenerationConfig);
             
             return mineData;
         }

@@ -1,4 +1,5 @@
 using Systems.MineSystem.Mine.Config;
+using Systems.MineSystem.Mine.Config.ResourceConfig;
 using Systems.MineSystem.Mine.Controller;
 using Systems.MineSystem.Mine.Model;
 using Systems.MineSystem.Mine.Scriptable;
@@ -22,6 +23,7 @@ namespace Systems.MineSystem.MineInstallers
         
         [SerializeField] private MineView mineView;
         [SerializeField] private MineGenerationConfig mineGenerationConfig;
+        [SerializeField] private ResourceGenerationConfig resourceGenerationConfig;
 
         [SerializeField] private MineRegionalTileScriptable regionalTileScriptable;
         [SerializeField] private SpecialBackdropSpriteScriptable specialBackdropSpriteScriptable;
@@ -35,6 +37,7 @@ namespace Systems.MineSystem.MineInstallers
             
             // Config
             Container.Bind<MineGenerationConfig>().FromScriptableObject(mineGenerationConfig).AsSingle();
+            Container.Bind<ResourceGenerationConfig>().FromScriptableObject(resourceGenerationConfig).AsSingle();
             
             // Scriptable
             Container.Bind<MineRegionalTileScriptable>().FromScriptableObject(regionalTileScriptable).AsSingle();

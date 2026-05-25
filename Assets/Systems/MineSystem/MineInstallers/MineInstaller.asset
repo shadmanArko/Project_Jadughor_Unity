@@ -16,5 +16,6 @@ MonoBehaviour:
   cinemachineCamera: {fileID: 8671611523288170894, guid: 83c9511326317aa47a2cbb40ff645b65, type: 3}
   mineView: {fileID: 7888929175440719365, guid: 6510e644d941fc746bf0606e66249a36, type: 3}
   mineGenerationConfig: {fileID: 11400000, guid: 9c3d88efdc794da4fad7a16c86d037c5, type: 2}
+  resourceGenerationConfig: {fileID: 11400000, guid: ef7bb89d6d3f4e6468dd7ddd462ce242, type: 2}
   regionalTileScriptable: {fileID: 11400000, guid: 44b457c343620964b8231b67cc0a51c2, type: 2}
   specialBackdropSpriteScriptable: {fileID: 11400000, guid: 31443cc082826bd4990b0af9205f2a01, type: 2}
