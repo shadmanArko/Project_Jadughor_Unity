@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c40a062b56324c0096b8372888ff0959, type: 3}
   m_Name: ResourceGenerationConfig
   m_EditorClassIdentifier: Assembly-CSharp::Systems.MineSystem.Mine.Config.ResourceConfig.ResourceGenerationConfig
+  minRootNodes: 40
+  maxRootNodes: 80
   resourceGenDatas:
   - id: Iron
     minRange: 3

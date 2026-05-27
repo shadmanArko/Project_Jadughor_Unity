@@ -1,4 +1,4 @@
-namespace Systems.MineSystem.Mine.Enum
+namespace Systems.MineSystem.ResourceSystem.Enum
 {
     public enum ResourceVariant
     {

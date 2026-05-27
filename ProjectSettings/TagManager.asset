@@ -47,14 +47,14 @@ TagManager:
   - name: SpecialBackdrop
     uniqueID: 3950958223
     locked: 0
+  - name: Wall
+    uniqueID: 2089630699
+    locked: 0
   - name: Artifact
     uniqueID: 170277371
     locked: 0
   - name: Resource
     uniqueID: 1354806321
-    locked: 0
-  - name: Wall
-    uniqueID: 2089630699
     locked: 0
   - name: Unrevealed
     uniqueID: 2822122113

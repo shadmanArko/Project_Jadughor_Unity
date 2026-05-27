@@ -1,5 +1,4 @@
 using Systems.MineSystem.Mine.Config;
-using Systems.MineSystem.Mine.Config.ResourceConfig;
 using Systems.MineSystem.Mine.Controller;
 using Systems.MineSystem.Mine.Model;
 using Systems.MineSystem.Mine.Scriptable;
@@ -8,6 +7,9 @@ using Systems.MineSystem.Mine.Service.VisualizerService;
 using Systems.MineSystem.Mine.View;
 using Systems.MineSystem.MineGenerationSystem.Controller;
 using Systems.MineSystem.MineGenerationSystem.Model;
+using Systems.MineSystem.ResourceSystem.Config;
+using Systems.MineSystem.ResourceSystem.Service;
+using Systems.MineSystem.ResourceSystem.Scriptable;
 using Systems.Utilities.Injector;
 using Unity.Cinemachine;
 using UnityEngine;
@@ -24,6 +26,7 @@ namespace Systems.MineSystem.MineInstallers
         [SerializeField] private MineView mineView;
         [SerializeField] private MineGenerationConfig mineGenerationConfig;
         [SerializeField] private ResourceGenerationConfig resourceGenerationConfig;
+        [SerializeField] private ResourceSpriteScriptable resourceSpriteScriptable;
 
         [SerializeField] private MineRegionalTileScriptable regionalTileScriptable;
         [SerializeField] private SpecialBackdropSpriteScriptable specialBackdropSpriteScriptable;
@@ -48,13 +51,15 @@ namespace Systems.MineSystem.MineInstallers
             Container.BindInterfacesAndSelfTo<CaveGenerationService>().AsSingle();
             Container.BindInterfacesAndSelfTo<ResourceGenerationService>().AsSingle();
             Container.BindInterfacesAndSelfTo<SpecialBackdropGenerationService>().AsSingle();
+            Container.Bind<ResourceSpriteScriptable>().FromScriptableObject(resourceSpriteScriptable).AsSingle();
+            Container.BindInterfacesAndSelfTo<ResourceVisualizerService>().AsSingle();
             Container.BindInterfacesAndSelfTo<VineGenerationService>().AsSingle();
 
             
             Container.BindInterfacesAndSelfTo<MineGenerationModel>().AsSingle();
             Container.BindInterfacesAndSelfTo<MineGenerationController>().AsSingle();
 
-            Container.BindInterfacesAndSelfTo<MineCellCrackVisualizerService>().AsSingle();
+            Container.BindInterfacesAndSelfTo<CellCrackVisualizerService>().AsSingle();
             Container.BindInterfacesAndSelfTo<MineWallVisualizerService>().AsSingle();
             Container.BindInterfacesAndSelfTo<SpecialBackdropVisualizerService>().AsSingle();
             

@@ -6,7 +6,7 @@ using Zenject;
 namespace Systems.MineSystem.Mine.Service.VisualizerService
 {
     [Serializable]
-    public class MineCellCrackVisualizerService : IInitializable, IDisposable
+    public class CellCrackVisualizerService : IInitializable, IDisposable
     {
         private CompositeDisposable _disposable;
         

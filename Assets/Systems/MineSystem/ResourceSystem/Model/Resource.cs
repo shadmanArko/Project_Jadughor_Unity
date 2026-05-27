@@ -1,6 +1,7 @@
 using System;
+using Systems.MineSystem.Mine.Model;
 
-namespace Systems.MineSystem.Mine.Model
+namespace Systems.MineSystem.ResourceSystem.Model
 {
     [Serializable]
     public class Resource

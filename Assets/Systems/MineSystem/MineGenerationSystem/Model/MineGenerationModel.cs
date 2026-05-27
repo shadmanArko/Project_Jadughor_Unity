@@ -1,11 +1,12 @@
 using System;
 using Cysharp.Threading.Tasks;
 using Systems.MineSystem.Mine.Config;
-using Systems.MineSystem.Mine.Config.ResourceConfig;
 using Systems.MineSystem.Mine.Model;
 using Systems.MineSystem.Mine.Scriptable;
 using Systems.MineSystem.Mine.Service;
 using Systems.MineSystem.MinePlayerSystem.Scriptable;
+using Systems.MineSystem.ResourceSystem.Config;
+using Systems.MineSystem.ResourceSystem.Service;
 using UniRx;
 using Zenject;
 

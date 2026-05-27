@@ -45,7 +45,8 @@ namespace Systems.MineSystem
                 {
                     Debug.Log($"Clicked tile at {cellPos}");
                     var cell = _mineModel.MineData.Value.GetCell(cellPos);
-                    Debug.Log($"Cell Position: {cell.Position}, IsBroken: {cell.IsBroken}, IsRevealed: {cell.IsRevealed}, IsBreakable: {cell.IsBreakable}, CaveId: {cell.CaveId}");
+                    // Debug.Log($"Cell Position: {cell.Position}, IsBroken: {cell.IsBroken}, IsRevealed: {cell.IsRevealed}, IsBreakable: {cell.IsBreakable}, CaveId: {cell.CaveId}");
+                    Debug.Log($"Cell Position: {cell.Position}, hasResource: {cell.HasResource}, resourceId: {cell.ItemId}");
                 }
                 else
                 {

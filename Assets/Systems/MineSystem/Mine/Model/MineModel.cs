@@ -4,6 +4,7 @@ using System.Linq;
 using Systems.MineSystem.Mine.Enum;
 using Systems.MineSystem.Mine.Service.VisualizerService;
 using Systems.MineSystem.MinePlayerSystem.Scriptable;
+using Systems.MineSystem.ResourceSystem.Service;
 using UniRx;
 using UnityEngine;
 using Zenject;
@@ -18,7 +19,8 @@ namespace Systems.MineSystem.Mine.Model
         
         private MineWallVisualizerService _wallVisualizerService;
         private SpecialBackdropVisualizerService _specialBackdropVisualizerService;
-        private MineCellCrackVisualizerService _cellCrackVisualizerService;
+        private CellCrackVisualizerService _cellCrackVisualizerService;
+        private ResourceVisualizerService _resourceVisualizerService;
         
         private ReactiveProperty<MineData> _mineData = new();
         public IReadOnlyReactiveProperty<MineData> MineData => _mineData;
@@ -31,13 +33,15 @@ namespace Systems.MineSystem.Mine.Model
         public MineModel(
             MinePlayerScriptable playerScriptable, 
             MineWallVisualizerService wallVisualizerService, 
-            MineCellCrackVisualizerService cellCrackVisualizerService, 
-            SpecialBackdropVisualizerService specialBackdropVisualizerService)
+            CellCrackVisualizerService cellCrackVisualizerService, 
+            SpecialBackdropVisualizerService specialBackdropVisualizerService, 
+            ResourceVisualizerService resourceVisualizerService)
         {
             _playerScriptable = playerScriptable;
             _wallVisualizerService = wallVisualizerService;
             _cellCrackVisualizerService = cellCrackVisualizerService;
             _specialBackdropVisualizerService = specialBackdropVisualizerService;
+            _resourceVisualizerService = resourceVisualizerService;
         }
         
         public void Initialize()
@@ -62,6 +66,7 @@ namespace Systems.MineSystem.Mine.Model
         {
             OnCellModified.Subscribe(_cellCrackVisualizerService.UpdateCellWallCrack).AddTo(_disposable);
             OnCellModified.Subscribe(_wallVisualizerService.UpdateCellWall).AddTo(_disposable);
+            OnCellModified.Subscribe(_resourceVisualizerService.UpdateResourceTile).AddTo(_disposable);
         }
 
         public void SetMineData(MineData mineData)
@@ -151,7 +156,7 @@ namespace Systems.MineSystem.Mine.Model
 
             if (cell.IsBroken)
             {
-                HashSet<Cell> revealedCells = new HashSet<Cell>();
+                var revealedCells = new HashSet<Cell>();
                 
                 cell.IsRevealed = true;
                 revealedCells.Add(cell);

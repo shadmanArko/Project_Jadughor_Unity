@@ -1,6 +1,6 @@
 using System;
 
-namespace Systems.MineSystem.Mine.Config.ResourceConfig
+namespace Systems.MineSystem.ResourceSystem.Model
 {
     [Serializable]
     public class ResourceGenData

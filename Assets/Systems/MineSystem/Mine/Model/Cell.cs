@@ -9,6 +9,7 @@ namespace Systems.MineSystem.Mine.Model
     {
         public string Id { get; set; }
         public string CaveId { get; set; }
+        public string ItemId { get; set; }
         public GridPosition Position { get; set; }
 
         public int MaxHitPoint { get; set; }
@@ -18,7 +19,11 @@ namespace Systems.MineSystem.Mine.Model
         public bool IsBroken { get; set; }
         public bool IsRevealed { get; set; }
         public bool IsBlank { get; set; }
-        public Vector3Int GetPosition() => new Vector3Int(Position.X, Position.Y, 0);
+        public Vector3Int GetPosition() => new(Position.X, Position.Y, 0);
+
+        public bool HasResource { get; set; }
+        public bool HasArtifact { get; set; }
+        public bool HasWallPlaceable { get; set; }
 
         /// <summary>
         /// Bitmask of which edges and corners of this cell are broken.
@@ -28,23 +33,3 @@ namespace Systems.MineSystem.Mine.Model
         public BrokenEdges BrokenSides { get; set; }
     }
 }
-
-/*
- * // Set them one by one
-cell.BrokenSides |= BrokenEdges.Top;
-cell.BrokenSides |= BrokenEdges.Bottom;
-cell.BrokenSides |= BrokenEdges.Left;
-cell.BrokenSides |= BrokenEdges.Right;
-
-// Or set them all at once for cleaner code
-cell.BrokenSides |= BrokenEdges.Top | BrokenEdges.Bottom | BrokenEdges.Left | BrokenEdges.Right;
-
-// To Remove
-cell.BrokenSides &= ~BrokenEdges.Top;
-
-// To check if side broken
-if (cell.BrokenSides.HasFlag(BrokenEdges.Top))
-{
-    // The top side is broken
-}
-*/

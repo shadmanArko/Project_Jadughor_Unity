@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Systems.MineSystem.ResourceSystem.Model;
 using UnityEngine;
 
 namespace Systems.MineSystem.Mine.Model
@@ -29,6 +30,15 @@ namespace Systems.MineSystem.Mine.Model
         [NonSerialized]
         private Dictionary<Vector3Int, Cell> _cellLookup;
 
+        [NonSerialized]
+        private Dictionary<string, Resource> _resourceByCellId;
+
+        [NonSerialized]
+        private Dictionary<string, Artifact> _artifactByCellId;
+
+        [NonSerialized]
+        private Dictionary<string, WallPlaceable> _wallPlaceableByCellId;
+
         public void InitializeLookupCache()
         {
             if (Cells == null) return;
@@ -37,6 +47,39 @@ namespace Systems.MineSystem.Mine.Model
             foreach (var cell in Cells)
             {
                 _cellLookup[new Vector3Int(cell.Position.X, cell.Position.Y, 0)] = cell;
+            }
+
+            _resourceByCellId = new Dictionary<string, Resource>();
+            if (Resources != null)
+            {
+                foreach (var r in Resources)
+                {
+                    if (!string.IsNullOrEmpty(r.CellId)) _resourceByCellId[r.CellId] = r;
+                }
+            }
+
+            _artifactByCellId = new Dictionary<string, Artifact>();
+            if (Artifacts != null)
+            {
+                foreach (var a in Artifacts)
+                {
+                    if (!string.IsNullOrEmpty(a.CellId)) _artifactByCellId[a.CellId] = a;
+                }
+            }
+
+            _wallPlaceableByCellId = new Dictionary<string, WallPlaceable>();
+            if (WallPlaceables != null)
+            {
+                foreach (var wp in WallPlaceables)
+                {
+                    if (wp.OccupiedCellIds != null)
+                    {
+                        foreach (var id in wp.OccupiedCellIds)
+                        {
+                            _wallPlaceableByCellId[id] = wp;
+                        }
+                    }
+                }
             }
         }
 
@@ -51,5 +94,9 @@ namespace Systems.MineSystem.Mine.Model
             // Fallback in case cache isn't initialized yet
             return Cells?.FirstOrDefault(c => c.Position == position);
         }
+
+        public Resource GetResource(string cellId) => _resourceByCellId != null && _resourceByCellId.TryGetValue(cellId, out var r) ? r : null;
+        public Artifact GetArtifact(string cellId) => _artifactByCellId != null && _artifactByCellId.TryGetValue(cellId, out var a) ? a : null;
+        public WallPlaceable GetWallPlaceable(string cellId) => _wallPlaceableByCellId != null && _wallPlaceableByCellId.TryGetValue(cellId, out var wp) ? wp : null;
     }
 }

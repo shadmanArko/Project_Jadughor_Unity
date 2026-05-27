@@ -4,7 +4,7 @@ using UnityEngine;
 namespace Systems.MineSystem.MineGenerationSystem.Model
 {
     [Serializable]
-    public class SpecialBackdropSprite
+    public class SpriteData
     {
         public string id;
         public Sprite sprite;

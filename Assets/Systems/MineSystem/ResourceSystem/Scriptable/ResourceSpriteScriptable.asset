@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc2b5fe7784a4a02a9bbb5b048d1a060, type: 3}
+  m_Name: ResourceSpriteScriptable
+  m_EditorClassIdentifier: Assembly-CSharp::Systems.MineSystem.ResourceSystem.Scriptable.ResourceSpriteScriptable
+  resourceSpriteDatas:
+  - region: 0
+    site: 0
+    spriteDatas:
+    - id: Coal
+      sprite: {fileID: 21300000, guid: 04af0dda3842fb74f88566955b823deb, type: 3}
+    - id: Iron
+      sprite: {fileID: 21300000, guid: 0d7cacf1bcfa35b48a3deed50f1c854e, type: 3}
+    - id: MilkyQuartz
+      sprite: {fileID: 21300000, guid: ca0ea225d3f55d04bbc27014a776c321, type: 3}
+    - id: PinkQuartz
+      sprite: {fileID: 21300000, guid: 7d393c948853f3a429093e829fb44dcc, type: 3}
+    - id: SmokyQuartz
+      sprite: {fileID: 21300000, guid: f3aac46179db2c3489d78425078479ac, type: 3}

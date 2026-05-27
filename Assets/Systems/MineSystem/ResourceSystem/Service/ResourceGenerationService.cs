@@ -1,11 +1,12 @@
 using System;
 using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
-using Systems.MineSystem.Mine.Config.ResourceConfig;
 using Systems.MineSystem.Mine.Model;
+using Systems.MineSystem.ResourceSystem.Config;
+using Systems.MineSystem.ResourceSystem.Model;
 using UnityEngine;
 
-namespace Systems.MineSystem.Mine.Service
+namespace Systems.MineSystem.ResourceSystem.Service
 {
     [Serializable]
     public class ResourceGenerationService : IDisposable
@@ -60,13 +61,11 @@ namespace Systems.MineSystem.Mine.Service
             {
                 Cell rootCell = null;
                 
-                // Lazily pick a root cell that isn't occupied, allowing O(1) cleanup of our validCells list
                 while (validCells.Count > 0)
                 {
                     var cellIndex = Rand.Next(validCells.Count);
                     var candidate = validCells[cellIndex];
                     
-                    // O(1) removal from list by swapping with the last element
                     validCells[cellIndex] = validCells[^1];
                     validCells.RemoveAt(validCells.Count - 1);
 
@@ -100,6 +99,7 @@ namespace Systems.MineSystem.Mine.Service
                     
                     resourceCells.Add(tempAdjCell);
                     occupiedCellIds.Add(tempAdjCell.Id);
+                    Debug.LogWarning($"resource: {tempAdjCell.Id}, pos: {tempAdjCell.Position}");
                     
                     currentBranchCell = tempAdjCell;
                 }
@@ -117,6 +117,8 @@ namespace Systems.MineSystem.Mine.Service
                         Category = "Resource"
                     };
                     mineData.Resources.Add(resource);
+                    resourceCell.HasResource = true;
+                    resourceCell.ItemId = resource.Variant;
                 }
             }
             
