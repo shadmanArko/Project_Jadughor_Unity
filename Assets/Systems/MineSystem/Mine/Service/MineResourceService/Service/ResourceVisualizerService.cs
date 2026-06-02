@@ -1,17 +1,16 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Systems.MineSystem.Mine.Enum;
 using Systems.MineSystem.Mine.Model;
+using Systems.MineSystem.Mine.Service.MineResourceService.Model;
+using Systems.MineSystem.Mine.Service.MineResourceService.Scriptable;
 using Systems.MineSystem.Mine.View;
-using Systems.MineSystem.ResourceSystem.Model;
-using Systems.MineSystem.ResourceSystem.Scriptable;
 using UniRx;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using Zenject;
 
-namespace Systems.MineSystem.ResourceSystem.Service
+namespace Systems.MineSystem.Mine.Service.MineResourceService.Service
 {
     [Serializable]
     public class ResourceVisualizerService : IInitializable, IDisposable

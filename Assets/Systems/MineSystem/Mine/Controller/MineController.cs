@@ -37,18 +37,14 @@ namespace Systems.MineSystem.Mine.Controller
         public void Initialize()
         {
             _disposable = new CompositeDisposable();
-            Debug.LogWarning($"Generating mine!");
             GenerateMine().Forget(ex => Debug.LogException(ex));
         }
 
         public async UniTask GenerateMine()
         {
             var mineData = await _mineGenerationController.GenerateMineData();
-            Debug.LogWarning($"Mine Data Generated!");
             _model.SetMineData(mineData);
-            Debug.LogWarning($"mine data set to model");
             _model.GenerateMineFromData();
-            Debug.LogWarning($"visualize mine data");
         }
 
         #region Hit Wall

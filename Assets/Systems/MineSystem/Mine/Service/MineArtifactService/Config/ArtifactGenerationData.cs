@@ -1,9 +1,9 @@
 using System;
 
-namespace Systems.MineSystem.ResourceSystem.Model
+namespace Systems.MineSystem.Mine.Service.MineArtifactService.Config
 {
     [Serializable]
-    public class ResourceGenData
+    public class ArtifactGenerationData
     {
         public string id;
         public int minRange;

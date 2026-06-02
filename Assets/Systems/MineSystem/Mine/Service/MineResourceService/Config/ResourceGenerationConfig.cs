@@ -1,8 +1,8 @@
 using System.Collections.Generic;
-using Systems.MineSystem.ResourceSystem.Model;
+using Systems.MineSystem.Mine.Service.MineResourceService.Model;
 using UnityEngine;
 
-namespace Systems.MineSystem.ResourceSystem.Config
+namespace Systems.MineSystem.Mine.Service.MineResourceService.Config
 {
     [CreateAssetMenu(fileName = "ResourceGenerationConfig", menuName = "Config/ResourceConfig")]
     public class ResourceGenerationConfig : ScriptableObject

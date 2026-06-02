@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using Systems.MineSystem.Mine.Enum;
-using Systems.MineSystem.ResourceSystem.Enum;
+using Systems.MineSystem.Mine.Service.MineResourceService.Enum;
 using UnityEngine;
 
 namespace Systems.MineSystem.Mine.Config

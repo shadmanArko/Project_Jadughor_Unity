@@ -2,11 +2,11 @@ using System;
 using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
 using Systems.MineSystem.Mine.Model;
-using Systems.MineSystem.ResourceSystem.Config;
-using Systems.MineSystem.ResourceSystem.Model;
+using Systems.MineSystem.Mine.Service.MineResourceService.Config;
+using Systems.MineSystem.Mine.Service.MineResourceService.Model;
 using UnityEngine;
 
-namespace Systems.MineSystem.ResourceSystem.Service
+namespace Systems.MineSystem.Mine.Service.MineResourceService.Service
 {
     [Serializable]
     public class ResourceGenerationService : IDisposable
@@ -19,8 +19,6 @@ namespace Systems.MineSystem.ResourceSystem.Service
             await UniTask.SwitchToThreadPool();
 
             // Guarantee O(1) lookups when retrieving adjacent cells
-            // mineData.InitializeLookupCache();
-
             var occupiedCellIds = new HashSet<string>();
 
             // Mark cells that are already occupied by artifacts or placeables
@@ -110,12 +108,13 @@ namespace Systems.MineSystem.ResourceSystem.Service
                     {
                         Id = Guid.NewGuid().ToString(),
                         Variant = rootNodeVariant,
-                        Position = resourceCell.Position,
-                        CellId = resourceCell.Id,
                         Name = rootNodeVariant,
                         Type = "Mineral",
-                        Category = "Resource"
+                        Category = "Resource",
+                        Position = resourceCell.Position,
+                        CellId = resourceCell.Id
                     };
+                    
                     mineData.Resources.Add(resource);
                     resourceCell.HasResource = true;
                     resourceCell.ItemId = resource.Variant;

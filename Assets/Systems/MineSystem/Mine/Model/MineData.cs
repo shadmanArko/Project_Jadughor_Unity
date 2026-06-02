@@ -1,7 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Systems.MineSystem.ResourceSystem.Model;
+using Systems.MineSystem.InventorySystem.Model;
+using Systems.MineSystem.Mine.Service.MineResourceService.Model;
 using UnityEngine;
 
 namespace Systems.MineSystem.Mine.Model
