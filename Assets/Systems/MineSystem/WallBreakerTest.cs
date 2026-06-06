@@ -1,8 +1,11 @@
 using System;
 using Systems.MineSystem.Mine.Controller;
 using Systems.MineSystem.Mine.Model;
+using Systems.MineSystem.Mine.Service.MineArtifactService.Test;
 using Systems.MineSystem.Mine.View;
+using Systems.MineSystem.MinePlayerSystem.Scriptable;
 using Systems.Utilities.Injector;
+using UniRx;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using Zenject;
@@ -15,13 +18,31 @@ namespace Systems.MineSystem
         [Inject] private MineModel _mineModel;
         [Inject] private Camera _cam;
         [Inject] private MineView _view;
+        [Inject] private ArtifactSpriteScriptable _artifactSprites;
+        [Inject] private MinePlayerScriptable _player;
         private Tilemap _targetTilemap;
+        private readonly CompositeDisposable _disposables = new();
 
         private InputSystem_Actions _inputMaster;
 
         private void Start()
         {
             ManualInjector.InjectDependencies(this);
+
+            _mineModel.MineData
+                .Where(mineData => mineData != null)
+                .Subscribe(mineData =>
+                    Debug.Log(
+                        $"Mine generated with {mineData.Artifacts?.Count ?? 0} artifacts " +
+                        $"and {mineData.ArtifactPlacements?.Count ?? 0} placements."))
+                .AddTo(_disposables);
+
+            _mineModel.OnArtifactDiscovered
+                .Subscribe(artifact =>
+                    Debug.Log(
+                        $"Artifact discovered: {artifact.Name} " +
+                        $"[{artifact.DefinitionId}], {artifact.Rarity}, {artifact.Condition}."))
+                .AddTo(_disposables);
         }
         
         private void Update()
@@ -45,14 +66,34 @@ namespace Systems.MineSystem
                 {
                     Debug.Log($"Clicked tile at {cellPos}");
                     var cell = _mineModel.MineData.Value.GetCell(cellPos);
-                    // Debug.Log($"Cell Position: {cell.Position}, IsBroken: {cell.IsBroken}, IsRevealed: {cell.IsRevealed}, IsBreakable: {cell.IsBreakable}, CaveId: {cell.CaveId}");
-                    Debug.Log($"Cell Position: {cell.Position}, hasResource: {cell.HasResource}, resourceId: {cell.ItemId}");
+                    if (cell == null)
+                        return;
+
+                    var artifact = _mineModel.MineData.Value.GetArtifact(cell.Id);
+                    var hasArtifactSprite = artifact != null &&
+                                            _artifactSprites.GetWorldSprite(
+                                                artifact.DefinitionId,
+                                                _player.region,
+                                                _player.site) != null;
+
+                    Debug.Log(
+                        $"Cell Position: {cell.Position}, " +
+                        $"hasResource: {cell.HasResource}, " +
+                        $"hasArtifact: {cell.HasArtifact}, " +
+                        $"itemId: {cell.ItemId}, " +
+                        $"artifactDefinition: {artifact?.DefinitionId ?? "none"}, " +
+                        $"artifactSpriteReady: {hasArtifactSprite}");
                 }
                 else
                 {
                     Debug.Log("No tile found");
                 }
             }
+        }
+
+        private void OnDestroy()
+        {
+            _disposables.Dispose();
         }
 
         private bool TryGetTileAtMouse_NoPhysics(Tilemap tilemap, out Vector3Int cellPos)

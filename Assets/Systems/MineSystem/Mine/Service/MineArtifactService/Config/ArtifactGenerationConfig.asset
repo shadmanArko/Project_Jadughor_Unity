@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3ac387940f7428cad3d2055cda0e68e, type: 3}
   m_Name: ArtifactGenerationConfig
   m_EditorClassIdentifier: Assembly-CSharp::Systems.MineSystem.Mine.Service.MineArtifactService.Config.ArtifactGenerationConfig
-  region: 0
+  region: 1
   site: 0
   minNumberOfArtifacts: 5
   maxNumberOfArtifacts: 20

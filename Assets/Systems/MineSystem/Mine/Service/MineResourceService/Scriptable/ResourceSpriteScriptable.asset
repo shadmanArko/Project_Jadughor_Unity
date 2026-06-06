@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ResourceSpriteScriptable
   m_EditorClassIdentifier: Assembly-CSharp::Systems.MineSystem.ResourceSystem.Scriptable.ResourceSpriteScriptable
   resourceSpriteDatas:
-  - region: 0
+  - region: 1
     site: 0
     spriteDatas:
     - id: Coal

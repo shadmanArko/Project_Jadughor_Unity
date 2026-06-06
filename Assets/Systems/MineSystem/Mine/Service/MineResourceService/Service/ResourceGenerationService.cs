@@ -22,12 +22,12 @@ namespace Systems.MineSystem.Mine.Service.MineResourceService.Service
             var occupiedCellIds = new HashSet<string>();
 
             // Mark cells that are already occupied by artifacts or placeables
-            if (mineData.Artifacts != null)
+            if (mineData.ArtifactPlacements != null)
             {
-                foreach (var artifact in mineData.Artifacts)
+                foreach (var placement in mineData.ArtifactPlacements)
                 {
-                    if (!string.IsNullOrEmpty(artifact.CellId))
-                        occupiedCellIds.Add(artifact.CellId);
+                    if (!string.IsNullOrEmpty(placement.CellId))
+                        occupiedCellIds.Add(placement.CellId);
                 }
             }
             if (mineData.CellPlaceables != null)

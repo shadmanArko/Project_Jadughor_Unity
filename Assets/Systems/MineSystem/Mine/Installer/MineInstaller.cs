@@ -5,6 +5,7 @@ using Systems.MineSystem.Mine.Scriptable;
 using Systems.MineSystem.Mine.Service;
 using Systems.MineSystem.Mine.Service.MineArtifactService.Config;
 using Systems.MineSystem.Mine.Service.MineArtifactService.Service;
+using Systems.MineSystem.Mine.Service.MineArtifactService.Test;
 using Systems.MineSystem.Mine.Service.MineResourceService.Config;
 using Systems.MineSystem.Mine.Service.MineResourceService.Scriptable;
 using Systems.MineSystem.Mine.Service.MineResourceService.Service;
@@ -17,7 +18,7 @@ using Unity.Cinemachine;
 using UnityEngine;
 using Zenject;
 
-namespace Systems.MineSystem.MineInstallers
+namespace Systems.MineSystem.Mine.Installer
 {
     [CreateAssetMenu(fileName = "MineInstaller", menuName = "Installers/MineInstaller")]
     public class MineInstaller : ScriptableObjectInstaller<MineInstaller>
@@ -28,6 +29,8 @@ namespace Systems.MineSystem.MineInstallers
         [SerializeField] private MineView mineView;
         [SerializeField] private MineGenerationConfig mineGenerationConfig;
         [SerializeField] private ArtifactGenerationConfig artifactGenerationConfig;
+        [SerializeField] private ArtifactCatalogConfig artifactCatalogConfig;
+        [SerializeField] private ArtifactSpriteScriptable artifactSpriteScriptable;
         [SerializeField] private ResourceGenerationConfig resourceGenerationConfig;
         [SerializeField] private ResourceSpriteScriptable resourceSpriteScriptable;
 
@@ -44,14 +47,26 @@ namespace Systems.MineSystem.MineInstallers
             // Config
             Container.Bind<MineGenerationConfig>().FromScriptableObject(mineGenerationConfig).AsSingle();
             Container.Bind<ArtifactGenerationConfig>().FromScriptableObject(artifactGenerationConfig).AsSingle();
+            var runtimeArtifactCatalogConfig = artifactCatalogConfig != null
+                ? artifactCatalogConfig
+                : CreateInstance<ArtifactCatalogConfig>();
+            Container.Bind<ArtifactCatalogConfig>().FromInstance(runtimeArtifactCatalogConfig).AsSingle();
             Container.Bind<ResourceGenerationConfig>().FromScriptableObject(resourceGenerationConfig).AsSingle();
             
             // Scriptable
             Container.Bind<MineRegionalTileScriptable>().FromScriptableObject(regionalTileScriptable).AsSingle();
             Container.Bind<SpecialBackdropSpriteScriptable>().FromScriptableObject(specialBackdropSpriteScriptable).AsSingle();
+            var runtimeArtifactSpriteScriptable = artifactSpriteScriptable != null
+                ? artifactSpriteScriptable
+                : CreateInstance<ArtifactSpriteScriptable>();
+            Container.Bind<ArtifactSpriteScriptable>().FromInstance(runtimeArtifactSpriteScriptable).AsSingle();
             
             Container.BindInterfacesAndSelfTo<MineGenerationService>().AsSingle();
+            Container.BindInterfacesTo<ArtifactCatalog>().AsSingle();
             Container.BindInterfacesAndSelfTo<ArtifactGenerationService>().AsSingle();
+            Container.BindInterfacesAndSelfTo<ArtifactVisualizerService>().AsSingle();
+            Container.BindInterfacesAndSelfTo<ArtifactInventoryModel>().AsSingle();
+            Container.BindInterfacesAndSelfTo<ArtifactCollectionService>().AsSingle();
             Container.BindInterfacesAndSelfTo<CaveGenerationService>().AsSingle();
             Container.BindInterfacesAndSelfTo<ResourceGenerationService>().AsSingle();
             Container.BindInterfacesAndSelfTo<SpecialBackdropGenerationService>().AsSingle();

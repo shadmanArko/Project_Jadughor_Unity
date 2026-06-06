@@ -5,6 +5,7 @@ using Systems.MineSystem.InventorySystem.Model;
 using Systems.MineSystem.Mine.Model;
 using Systems.MineSystem.Mine.Service.MineArtifactService.Config;
 using Systems.MineSystem.Mine.Service.MineArtifactService.Enum;
+using Systems.MineSystem.Mine.Service.MineArtifactService.Test;
 using UnityEngine;
 
 namespace Systems.MineSystem.Mine.Service.MineArtifactService.Service
@@ -13,15 +14,21 @@ namespace Systems.MineSystem.Mine.Service.MineArtifactService.Service
     public class ArtifactGenerationService : IDisposable
     {
         private static readonly System.Random Rand = new();
+        private readonly IArtifactCatalog _catalog;
+
+        public ArtifactGenerationService(IArtifactCatalog catalog)
+        {
+            _catalog = catalog;
+        }
 
         public async UniTask GenerateArtifacts(MineData mineData, ArtifactGenerationConfig config)
         {
             await UniTask.SwitchToThreadPool();
 
-            if (config.artifactGenerationDatas == null || config.artifactGenerationDatas.Count == 0)
+            if (_catalog.Definitions.Count == 0)
             {
                 await UniTask.SwitchToMainThread();
-                Debug.LogWarning("ArtifactGenerationConfig has no artifacts defined!");
+                Debug.LogWarning("Artifact catalog contains no functional definitions.");
                 return;
             }
 
@@ -48,6 +55,9 @@ namespace Systems.MineSystem.Mine.Service.MineArtifactService.Service
             var validCells = new List<Cell>();
             foreach (var cell in mineData.Cells)
             {
+                if (cell.HasArtifact)
+                    cell.ItemId = null;
+
                 cell.HasArtifact = false;
 
                 if (!string.IsNullOrEmpty(cell.CaveId) ||
@@ -59,6 +69,8 @@ namespace Systems.MineSystem.Mine.Service.MineArtifactService.Service
 
             mineData.Artifacts ??= new List<Artifact>();
             mineData.Artifacts.Clear();
+            mineData.ArtifactPlacements ??= new List<ArtifactWorldPlacement>();
+            mineData.ArtifactPlacements.Clear();
 
             var totalArtifactCount = GetRandomInRange(config.minNumberOfArtifacts, config.maxNumberOfArtifacts);
             totalArtifactCount = Math.Min(totalArtifactCount, validCells.Count);
@@ -81,35 +93,58 @@ namespace Systems.MineSystem.Mine.Service.MineArtifactService.Service
                 validCells.RemoveAt(validCells.Count - 1);
 
                 var artifactVariant = artifactVariants[i];
+                var definition = _catalog.GetDefinition(artifactVariant);
+                _catalog.TryGetDescription(artifactVariant, out var description);
 
                 var artifact = new Artifact
                 {
                     Id = Guid.NewGuid().ToString(),
-                    Variant = artifactVariant,
-                    Name = artifactVariant,
+                    DefinitionId = definition.Id,
+                    Variant = definition.Object,
+                    Name = description?.ArtifactName ?? definition.Object,
                     Type = "Artifact",
-                    Category = "Artifact",
+                    Category = definition.ObjectClass,
+                    Material = GetRandomMaterial(definition),
                     Condition = GetRandomCondition(),
-                    Rarity = GetRarity(i, rareCount, legendaryCount),
+                    Rarity = GetRarity(i, rareCount, legendaryCount)
+                };
+
+                var placement = new ArtifactWorldPlacement
+                {
+                    ArtifactInstanceId = artifact.Id,
                     Position = cell.Position,
                     CellId = cell.Id
                 };
 
                 mineData.Artifacts.Add(artifact);
+                mineData.ArtifactPlacements.Add(placement);
                 cell.HasArtifact = true;
-                cell.ItemId = artifact.Variant;
+                cell.ItemId = artifact.Id;
+
+                Debug.LogWarning(
+                    $"Generated artifact '{artifact.DefinitionId}' " +
+                    $"(instance: {artifact.Id}) at cell '{cell.Id}', " +
+                    $"position: {cell.Position}.");
             }
 
             await UniTask.SwitchToMainThread();
         }
 
-        private static List<string> GetArtifactVariants(ArtifactGenerationConfig config, int totalArtifactCount)
+        private List<string> GetArtifactVariants(ArtifactGenerationConfig config, int totalArtifactCount)
         {
             var artifactVariants = new List<string>(totalArtifactCount);
 
-            while (artifactVariants.Count < totalArtifactCount)
+            var configuredArtifacts = config.artifactGenerationDatas?
+                .FindAll(data =>
+                    data != null &&
+                    !string.IsNullOrWhiteSpace(data.id) &&
+                    _catalog.TryGetDefinition(data.id, out _));
+
+            while (configuredArtifacts != null &&
+                   configuredArtifacts.Count > 0 &&
+                   artifactVariants.Count < totalArtifactCount)
             {
-                var artifactData = config.artifactGenerationDatas[Rand.Next(config.artifactGenerationDatas.Count)];
+                var artifactData = configuredArtifacts[Rand.Next(configuredArtifacts.Count)];
                 var artifactCount = GetRandomInRange(artifactData.minRange, artifactData.maxRange);
                 artifactCount = Math.Max(1, artifactCount);
 
@@ -119,7 +154,21 @@ namespace Systems.MineSystem.Mine.Service.MineArtifactService.Service
                 }
             }
 
+            while (artifactVariants.Count < totalArtifactCount)
+            {
+                var definition = _catalog.Definitions[Rand.Next(_catalog.Definitions.Count)];
+                artifactVariants.Add(definition.Id);
+            }
+
             return artifactVariants;
+        }
+
+        private static string GetRandomMaterial(ArtifactDefinition definition)
+        {
+            if (definition.Materials == null || definition.Materials.Length == 0)
+                return string.Empty;
+
+            return definition.Materials[Rand.Next(definition.Materials.Length)];
         }
 
         private static int GetRandomInRange(int min, int max)

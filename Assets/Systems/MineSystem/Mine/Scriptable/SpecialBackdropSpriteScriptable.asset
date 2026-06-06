@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SpecialBackdropSpriteScriptable
   m_EditorClassIdentifier: Assembly-CSharp::Systems.MineSystem.Mine.Scriptable.SpecialBackdropSpriteScriptable
   specialBackdropSpriteDatas:
-  - region: 0
+  - region: 1
     site: 0
     specialBackdropSprites:
     - id: sbd_dragonfly

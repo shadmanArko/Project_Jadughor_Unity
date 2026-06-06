@@ -21,3 +21,5 @@ MonoBehaviour:
       value: 0
     maxStamina:
       value: 0
+  region: 1
+  site: 0

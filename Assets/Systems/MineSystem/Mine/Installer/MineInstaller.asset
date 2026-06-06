@@ -11,12 +11,14 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: aa8d5e8137aa4bb0ab08943e1c29af44, type: 3}
   m_Name: MineInstaller
-  m_EditorClassIdentifier: Assembly-CSharp::Systems.MineSystem.MineInstallers.MineInstaller
+  m_EditorClassIdentifier: Assembly-CSharp::Systems.MineSystem.Mine.Installer.MineInstaller
   camera: {fileID: 8836504516715300793, guid: be42a8d74cdcbd549b8a44f4fee96daa, type: 3}
   cinemachineCamera: {fileID: 8671611523288170894, guid: 83c9511326317aa47a2cbb40ff645b65, type: 3}
   mineView: {fileID: 7888929175440719365, guid: 6510e644d941fc746bf0606e66249a36, type: 3}
   mineGenerationConfig: {fileID: 11400000, guid: 9c3d88efdc794da4fad7a16c86d037c5, type: 2}
   artifactGenerationConfig: {fileID: 11400000, guid: f7c5c17e388149a45b133edafd9c57e6, type: 2}
+  artifactCatalogConfig: {fileID: 11400000, guid: 231eb2b4aea08c348b7a3430d435bb8e, type: 2}
+  artifactSpriteScriptable: {fileID: 11400000, guid: d9d20f662a1f44b19cb5a917c2ca623d, type: 2}
   resourceGenerationConfig: {fileID: 11400000, guid: ef7bb89d6d3f4e6468dd7ddd462ce242, type: 2}
   resourceSpriteScriptable: {fileID: 11400000, guid: 697bebb215ccf204bb7a29459659fe6e, type: 2}
   regionalTileScriptable: {fileID: 11400000, guid: 44b457c343620964b8231b67cc0a51c2, type: 2}

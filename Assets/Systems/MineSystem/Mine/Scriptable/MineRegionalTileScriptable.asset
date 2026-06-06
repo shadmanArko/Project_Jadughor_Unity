@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: MineRegionalTileScriptable
   m_EditorClassIdentifier: Assembly-CSharp::Systems.MineSystem.Mine.Scriptable.MineRegionalTileScriptable
   regionTiles:
-  - region: 0
+  - region: 1
     brokenEdgeTiles:
     - brokenEdge: 0
       tileSprite: {fileID: 2069716743, guid: 5eb17a867940f904c8f7123591b9db6f, type: 3}

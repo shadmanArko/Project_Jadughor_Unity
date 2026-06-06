@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Systems.MineSystem.InventorySystem.Model;
+using Systems.MineSystem.Mine.Service.MineArtifactService.Test;
 using Systems.MineSystem.Mine.Service.MineResourceService.Model;
 using UnityEngine;
 
@@ -13,7 +14,7 @@ namespace Systems.MineSystem.Mine.Model
         /// <summary>
         /// Increment this when the schema changes to support save-file migration.
         /// </summary>
-        public int Version { get; set; } = 1;
+        public int Version { get; set; } = 2;
 
         public int CellSize { get; set; }
         public int GridWidth { get; set; }
@@ -22,6 +23,7 @@ namespace Systems.MineSystem.Mine.Model
         public List<Cell> Cells { get; set; }
         public List<Resource> Resources { get; set; }
         public List<Artifact> Artifacts { get; set; }
+        public List<ArtifactWorldPlacement> ArtifactPlacements { get; set; }
         public List<Cave> Caves { get; set; }
         public List<WallPlaceable> WallPlaceables { get; set; }
         public List<CellPlaceable> CellPlaceables { get; set; }
@@ -36,6 +38,9 @@ namespace Systems.MineSystem.Mine.Model
 
         [NonSerialized]
         private Dictionary<string, Artifact> _artifactByCellId;
+
+        [NonSerialized]
+        private Dictionary<string, ArtifactWorldPlacement> _artifactPlacementByCellId;
 
         [NonSerialized]
         private Dictionary<string, WallPlaceable> _wallPlaceableByCellId;
@@ -60,11 +65,21 @@ namespace Systems.MineSystem.Mine.Model
             }
 
             _artifactByCellId = new Dictionary<string, Artifact>();
-            if (Artifacts != null)
+            _artifactPlacementByCellId = new Dictionary<string, ArtifactWorldPlacement>();
+            if (Artifacts != null && ArtifactPlacements != null)
             {
-                foreach (var a in Artifacts)
+                var artifactById = Artifacts
+                    .Where(artifact => !string.IsNullOrEmpty(artifact.Id))
+                    .ToDictionary(artifact => artifact.Id);
+
+                foreach (var placement in ArtifactPlacements)
                 {
-                    if (!string.IsNullOrEmpty(a.CellId)) _artifactByCellId[a.CellId] = a;
+                    if (string.IsNullOrEmpty(placement.CellId))
+                        continue;
+
+                    _artifactPlacementByCellId[placement.CellId] = placement;
+                    if (artifactById.TryGetValue(placement.ArtifactInstanceId, out var artifact))
+                        _artifactByCellId[placement.CellId] = artifact;
                 }
             }
 
@@ -98,6 +113,11 @@ namespace Systems.MineSystem.Mine.Model
 
         public Resource GetResource(string cellId) => _resourceByCellId != null && _resourceByCellId.TryGetValue(cellId, out var r) ? r : null;
         public Artifact GetArtifact(string cellId) => _artifactByCellId != null && _artifactByCellId.TryGetValue(cellId, out var a) ? a : null;
+        public ArtifactWorldPlacement GetArtifactPlacement(string cellId) =>
+            _artifactPlacementByCellId != null &&
+            _artifactPlacementByCellId.TryGetValue(cellId, out var placement)
+                ? placement
+                : null;
         public WallPlaceable GetWallPlaceable(string cellId) => _wallPlaceableByCellId != null && _wallPlaceableByCellId.TryGetValue(cellId, out var wp) ? wp : null;
     }
 }

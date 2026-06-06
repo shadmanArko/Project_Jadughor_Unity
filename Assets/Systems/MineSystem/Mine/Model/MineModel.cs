@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Systems.MineSystem.InventorySystem.Model;
 using Systems.MineSystem.Mine.Enum;
+using Systems.MineSystem.Mine.Service.MineArtifactService.Test;
 using Systems.MineSystem.Mine.Service.MineResourceService.Service;
 using Systems.MineSystem.Mine.Service.VisualizerService;
 using Systems.MineSystem.MinePlayerSystem.Scriptable;
@@ -21,12 +23,16 @@ namespace Systems.MineSystem.Mine.Model
         private SpecialBackdropVisualizerService _specialBackdropVisualizerService;
         private CellCrackVisualizerService _cellCrackVisualizerService;
         private ResourceVisualizerService _resourceVisualizerService;
+        private ArtifactVisualizerService _artifactVisualizerService;
         
         private ReactiveProperty<MineData> _mineData = new();
         public IReadOnlyReactiveProperty<MineData> MineData => _mineData;
 
         private Subject<Cell> _onCellModified = new();
         public IObservable<Cell> OnCellModified => _onCellModified;
+
+        private Subject<Artifact> _onArtifactDiscovered = new();
+        public IObservable<Artifact> OnArtifactDiscovered => _onArtifactDiscovered;
         
         private Dictionary<Vector3Int, BrokenEdges> _adjacentBrokenEdges;
 
@@ -35,13 +41,15 @@ namespace Systems.MineSystem.Mine.Model
             MineWallVisualizerService wallVisualizerService, 
             CellCrackVisualizerService cellCrackVisualizerService, 
             SpecialBackdropVisualizerService specialBackdropVisualizerService, 
-            ResourceVisualizerService resourceVisualizerService)
+            ResourceVisualizerService resourceVisualizerService,
+            ArtifactVisualizerService artifactVisualizerService)
         {
             _playerScriptable = playerScriptable;
             _wallVisualizerService = wallVisualizerService;
             _cellCrackVisualizerService = cellCrackVisualizerService;
             _specialBackdropVisualizerService = specialBackdropVisualizerService;
             _resourceVisualizerService = resourceVisualizerService;
+            _artifactVisualizerService = artifactVisualizerService;
         }
         
         public void Initialize()
@@ -67,12 +75,14 @@ namespace Systems.MineSystem.Mine.Model
             OnCellModified.Subscribe(_cellCrackVisualizerService.UpdateCellWallCrack).AddTo(_disposable);
             OnCellModified.Subscribe(_wallVisualizerService.UpdateCellWall).AddTo(_disposable);
             OnCellModified.Subscribe(_resourceVisualizerService.UpdateResourceTile).AddTo(_disposable);
+            OnCellModified.Subscribe(_artifactVisualizerService.UpdateArtifactTile).AddTo(_disposable);
         }
 
         public void SetMineData(MineData mineData)
         {
             // mineData?.InitializeLookupCache();
             _mineData.Value = mineData;
+            _artifactVisualizerService.SetMineData(mineData);
             UpdateAllCellsBrokenEdges();
         }
 
@@ -149,6 +159,7 @@ namespace Systems.MineSystem.Mine.Model
                 return;
             }
 
+            var wasBroken = cell.IsBroken;
             cell.HitPoint -= _playerScriptable.playerData.pickAxeStrength.Value;
             
             cell.IsBroken = cell.HitPoint <= 0;
@@ -156,6 +167,13 @@ namespace Systems.MineSystem.Mine.Model
 
             if (cell.IsBroken)
             {
+                if (!wasBroken && cell.HasArtifact)
+                {
+                    var artifact = _mineData.Value.GetArtifact(cell.Id);
+                    if (artifact != null)
+                        _onArtifactDiscovered.OnNext(artifact);
+                }
+
                 var revealedCells = new HashSet<Cell>();
                 
                 cell.IsRevealed = true;
@@ -260,6 +278,7 @@ namespace Systems.MineSystem.Mine.Model
         {
             _mineData.Dispose();
             _onCellModified?.Dispose();
+            _onArtifactDiscovered?.Dispose();
             _disposable?.Dispose();
         }
     }
