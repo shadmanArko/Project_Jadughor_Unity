@@ -8,11 +8,11 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Collectable
   - Water
   - UI
-  - 
-  - 
+  - Player
+  - Wall
   - 
   - 
   - 
@@ -55,6 +55,9 @@ TagManager:
     locked: 0
   - name: Resource
     uniqueID: 1354806321
+    locked: 0
+  - name: Collectable
+    uniqueID: 3696210385
     locked: 0
   - name: Unrevealed
     uniqueID: 2822122113

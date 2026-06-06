@@ -21,5 +21,7 @@ MonoBehaviour:
       value: 0
     maxStamina:
       value: 0
+    collectablePullRadius:
+      value: 2.5
   region: 1
   site: 0

@@ -14,7 +14,7 @@ namespace Systems.MineSystem.Mine.Model
         /// <summary>
         /// Increment this when the schema changes to support save-file migration.
         /// </summary>
-        public int Version { get; set; } = 2;
+        public int Version { get; set; } = 3;
 
         public int CellSize { get; set; }
         public int GridWidth { get; set; }
@@ -44,6 +44,9 @@ namespace Systems.MineSystem.Mine.Model
 
         [NonSerialized]
         private Dictionary<string, WallPlaceable> _wallPlaceableByCellId;
+
+        [NonSerialized]
+        private Dictionary<string, CellPlaceable> _cellPlaceableByCellId;
 
         public void InitializeLookupCache()
         {
@@ -97,6 +100,16 @@ namespace Systems.MineSystem.Mine.Model
                     }
                 }
             }
+
+            _cellPlaceableByCellId = new Dictionary<string, CellPlaceable>();
+            if (CellPlaceables != null)
+            {
+                foreach (var placeable in CellPlaceables)
+                {
+                    if (!string.IsNullOrEmpty(placeable.OccupiedCellId))
+                        _cellPlaceableByCellId[placeable.OccupiedCellId] = placeable;
+                }
+            }
         }
 
         public Cell GetCell(GridPosition position) => GetCell(new Vector3Int(position.X, position.Y, 0));
@@ -119,5 +132,10 @@ namespace Systems.MineSystem.Mine.Model
                 ? placement
                 : null;
         public WallPlaceable GetWallPlaceable(string cellId) => _wallPlaceableByCellId != null && _wallPlaceableByCellId.TryGetValue(cellId, out var wp) ? wp : null;
+        public CellPlaceable GetCellPlaceable(string cellId) =>
+            _cellPlaceableByCellId != null &&
+            _cellPlaceableByCellId.TryGetValue(cellId, out var placeable)
+                ? placeable
+                : null;
     }
 }

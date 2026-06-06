@@ -4,6 +4,8 @@ namespace Systems.MineSystem.Mine.Model
 {
     public class WallPlaceable : Placeable
     {
+        public string AnchorCellId { get; set; }
+
         /// <summary>
         /// IDs of all cells this placeable occupies (can span multiple cells).
         /// </summary>

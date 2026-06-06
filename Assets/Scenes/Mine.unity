@@ -1427,7 +1427,7 @@ MonoBehaviour:
   m_Intensity: 2
   m_LightVolumeIntensity: 1
   m_LightVolumeEnabled: 0
-  m_ApplyToSortingLayers: e3c05aec8fd67eebeb3b8d7c
+  m_ApplyToSortingLayers: e3c05aec8fd67eebeb3b8d7cd1b14fdc
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -2311,7 +2311,7 @@ MonoBehaviour:
   m_Intensity: 1
   m_LightVolumeIntensity: 1
   m_LightVolumeEnabled: 0
-  m_ApplyToSortingLayers: 00000000e3c05aec8fd67eebfb39260a31b4c050eb3b8d7c812a36a8
+  m_ApplyToSortingLayers: 00000000e3c05aec8fd67eebfb39260a31b4c050eb3b8d7c812a36a8d1b14fdc
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -3628,6 +3628,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 931f2685ded96e64dbfcb8dacc7784c3, type: 2}
   - {fileID: 11400000, guid: f07352eab9abd2449a85aefc95f6e5bd, type: 2}
   - {fileID: 11400000, guid: b74cefc2cb891e94c8cc860f3c5ba677, type: 2}
+  - {fileID: 11400000, guid: 97bf36721cd34237b77292e719d4e063, type: 2}
   _monoInstallers: []
   _installerPrefabs: []
   _findSiblingMonoInstallers: 0

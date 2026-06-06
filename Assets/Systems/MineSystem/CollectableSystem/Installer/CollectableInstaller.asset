@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34d17c78cc1c4f919af5107f0156c4e0, type: 3}
+  m_Name: CollectableInstaller
+  m_EditorClassIdentifier: Assembly-CSharp::Systems.MineSystem.CollectableSystem.Installer.CollectableInstaller
+  config: {fileID: 11400000, guid: 82dc05c1f91c448189c0548bfe464154, type: 2}
+  cellPlaceableSprites: {fileID: 11400000, guid: 68cbfcb4a5d044ffab4d1a63f1816a43, type: 2}
+  wallPlaceableSprites: {fileID: 11400000, guid: 7966cb40f0414a2eb9638cba83d87510, type: 2}

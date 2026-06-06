@@ -33,6 +33,9 @@ namespace Systems.MineSystem.Mine.Model
 
         private Subject<Artifact> _onArtifactDiscovered = new();
         public IObservable<Artifact> OnArtifactDiscovered => _onArtifactDiscovered;
+
+        private Subject<Cell> _onCellBroken = new();
+        public IObservable<Cell> OnCellBroken => _onCellBroken;
         
         private Dictionary<Vector3Int, BrokenEdges> _adjacentBrokenEdges;
 
@@ -167,6 +170,9 @@ namespace Systems.MineSystem.Mine.Model
 
             if (cell.IsBroken)
             {
+                if (!wasBroken)
+                    _onCellBroken.OnNext(cell);
+
                 if (!wasBroken && cell.HasArtifact)
                 {
                     var artifact = _mineData.Value.GetArtifact(cell.Id);
@@ -193,6 +199,12 @@ namespace Systems.MineSystem.Mine.Model
             }
             
             //TODO: make resource, artifact null after spawning those as items
+        }
+
+        public void NotifyCellModified(Cell cell)
+        {
+            if (cell != null)
+                _onCellModified.OnNext(cell);
         }
 
         private void RevealAdjacentCells(Vector3Int cellPos, HashSet<Cell> revealedCells)
@@ -279,6 +291,7 @@ namespace Systems.MineSystem.Mine.Model
             _mineData.Dispose();
             _onCellModified?.Dispose();
             _onArtifactDiscovered?.Dispose();
+            _onCellBroken?.Dispose();
             _disposable?.Dispose();
         }
     }

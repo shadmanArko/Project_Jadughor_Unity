@@ -23,6 +23,7 @@ namespace Systems.MineSystem.Mine.Model
 
         public bool HasResource { get; set; }
         public bool HasArtifact { get; set; }
+        public bool HasCellPlaceable { get; set; }
         public bool HasWallPlaceable { get; set; }
 
         /// <summary>

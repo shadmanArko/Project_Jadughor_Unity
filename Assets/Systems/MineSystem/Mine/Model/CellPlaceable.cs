@@ -2,8 +2,6 @@ namespace Systems.MineSystem.Mine.Model
 {
     public class CellPlaceable : Placeable
     {
-        public string Name { get; set; }
-
         /// <summary>
         /// The single cell this placeable is anchored to.
         /// </summary>

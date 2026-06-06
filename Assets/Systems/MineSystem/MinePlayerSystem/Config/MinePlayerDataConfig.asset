@@ -16,3 +16,4 @@ MonoBehaviour:
   maxHealth: 100
   stamina: 100
   maxStamina: 100
+  collectablePullRadius: 2.5

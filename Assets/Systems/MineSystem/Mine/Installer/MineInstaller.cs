@@ -65,8 +65,6 @@ namespace Systems.MineSystem.Mine.Installer
             Container.BindInterfacesTo<ArtifactCatalog>().AsSingle();
             Container.BindInterfacesAndSelfTo<ArtifactGenerationService>().AsSingle();
             Container.BindInterfacesAndSelfTo<ArtifactVisualizerService>().AsSingle();
-            Container.BindInterfacesAndSelfTo<ArtifactInventoryModel>().AsSingle();
-            Container.BindInterfacesAndSelfTo<ArtifactCollectionService>().AsSingle();
             Container.BindInterfacesAndSelfTo<CaveGenerationService>().AsSingle();
             Container.BindInterfacesAndSelfTo<ResourceGenerationService>().AsSingle();
             Container.BindInterfacesAndSelfTo<SpecialBackdropGenerationService>().AsSingle();

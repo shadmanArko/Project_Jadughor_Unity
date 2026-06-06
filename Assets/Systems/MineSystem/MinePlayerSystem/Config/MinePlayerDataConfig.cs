@@ -11,5 +11,8 @@ namespace Systems.MineSystem.MinePlayerSystem.Config
         
         public float stamina;
         public float maxStamina;
+
+        [Header("Collectable Properties")]
+        [Min(0f)] public float collectablePullRadius = 2.5f;
     }
 }
