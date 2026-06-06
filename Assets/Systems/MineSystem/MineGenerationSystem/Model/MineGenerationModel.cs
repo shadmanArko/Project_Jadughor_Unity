@@ -4,6 +4,8 @@ using Systems.MineSystem.Mine.Config;
 using Systems.MineSystem.Mine.Model;
 using Systems.MineSystem.Mine.Scriptable;
 using Systems.MineSystem.Mine.Service;
+using Systems.MineSystem.Mine.Service.MineArtifactService.Config;
+using Systems.MineSystem.Mine.Service.MineArtifactService.Service;
 using Systems.MineSystem.Mine.Service.MineResourceService.Config;
 using Systems.MineSystem.Mine.Service.MineResourceService.Service;
 using Systems.MineSystem.MinePlayerSystem.Scriptable;
@@ -18,6 +20,7 @@ namespace Systems.MineSystem.MineGenerationSystem.Model
         private CompositeDisposable _disposable;
 
         private readonly MineGenerationConfig _mineGenerationConfig;
+        private readonly ArtifactGenerationConfig _artifactGenerationConfig;
         private readonly ResourceGenerationConfig _resourceGenerationConfig;
         
         private readonly MinePlayerScriptable _playerScriptable;
@@ -41,6 +44,7 @@ namespace Systems.MineSystem.MineGenerationSystem.Model
             VineGenerationService vineGenerationService, 
             SpecialBackdropSpriteScriptable specialBackdropSpriteScriptable, 
             MinePlayerScriptable playerScriptable, 
+            ArtifactGenerationConfig artifactGenerationConfig,
             ResourceGenerationConfig resourceGenerationConfig)
         {
             _mineGenerationConfig = mineGenerationConfig;
@@ -52,6 +56,7 @@ namespace Systems.MineSystem.MineGenerationSystem.Model
             _vineGenerationService = vineGenerationService;
             _specialBackdropSpriteScriptable = specialBackdropSpriteScriptable;
             _playerScriptable = playerScriptable;
+            _artifactGenerationConfig = artifactGenerationConfig;
             _resourceGenerationConfig = resourceGenerationConfig;
         }
 
@@ -72,7 +77,9 @@ namespace Systems.MineSystem.MineGenerationSystem.Model
             var specialBackdrops = _specialBackdropSpriteScriptable.GetAllIds(_playerScriptable.region, _playerScriptable.site);
             await _specialBackdropGenerationService.GenerateSpecialBackdrops(
                 _mineGenerationConfig, mineData, specialBackdrops, 8);
+            await _artifactGenerationService.GenerateArtifacts(mineData, _artifactGenerationConfig);
             await _resourceGenerationService.GenerateResources(mineData, _resourceGenerationConfig);
+            mineData.InitializeLookupCache();
             
             return mineData;
         }

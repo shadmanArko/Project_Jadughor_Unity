@@ -20,4 +20,7 @@ MonoBehaviour:
   maxNumberOfRareArtifacts: 10
   minNumberOfLegendaryArtifacts: 0
   maxNumberOfLegendaryArtifacts: 1
-  artifactGenerationDatas: []
+  artifactGenerationDatas:
+  - id: 
+    minRange: 0
+    maxRange: 0
