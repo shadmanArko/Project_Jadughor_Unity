@@ -13,9 +13,11 @@ MonoBehaviour:
   m_Name: InventorySystemConfig
   m_EditorClassIdentifier: Assembly-CSharp::Systems.MineSystem.InventorySystem.Scriptable.InventorySystemConfig
   defaultStackLimit: 99
+  slotsPerRow: 12
   navigationDeadZone: 0.5
   navigationInitialRepeatDelay: 0.4
   navigationRepeatInterval: 0.15
-  rightClickTransferInterval: 0.25
-  selectedSlotFrame: {fileID: 4593852008173475914, guid: a7e68c9183d81544799b8e7682d99c06, type: 3}
+  rightClickHoldThreshold: 0.25
+  rightClickTransferInterval: 0.15
+  selectedSlotFrame: {fileID: 21300000, guid: a7e68c9183d81544799b8e7682d99c06, type: 3}
   inventoryCanvasPrefab: {fileID: 991100000000000002, guid: e2dffc835afbe2e41b360e04605d7137, type: 3}

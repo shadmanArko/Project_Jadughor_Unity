@@ -151,15 +151,14 @@ namespace Systems.MineSystem.InventorySystem.Service
             }
 
             if (!CanStack(held.Representative, slot.Stack.Representative) ||
-                slot.Stack.Count >= GetStackLimit(slot.Stack.Representative))
+                held.Count >= GetStackLimit(held.Representative))
                 return;
 
-            slot.Stack.Add(held.RemoveOne());
-            if (held.IsEmpty)
-                _model.HeldStack = null;
-            else
-                _model.NotifyHeldStackChanged();
+            held.Add(slot.Stack.RemoveOne());
+            if (slot.Stack.IsEmpty)
+                slot.Stack = null;
 
+            _model.NotifyHeldStackChanged();
             _model.NotifySlotChanged(slotIndex);
         }
 

@@ -3,6 +3,7 @@ using UniRx;
 
 namespace Systems.MineSystem.InventorySystem.Model
 {
+    [Serializable]
     public sealed class InventoryModel : IDisposable
     {
         public const int MaximumSlots = 36;

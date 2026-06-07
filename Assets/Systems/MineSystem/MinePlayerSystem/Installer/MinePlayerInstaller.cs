@@ -18,6 +18,10 @@ namespace Systems.MineSystem.MinePlayerSystem.Installer
             
             Container.Bind<MinePlayerScriptable>()
                 .FromScriptableObject(playerScriptable).AsSingle();
+
+            Container.Bind<InputSystem_Actions>()
+                .AsSingle()
+                .NonLazy();
         }
     }
 }

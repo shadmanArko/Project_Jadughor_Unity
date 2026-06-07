@@ -28,7 +28,7 @@ namespace Systems.MineSystem.CollectableSystem.Controller
         private readonly IInventoryService _inventory;
         private readonly InventoryModel _inventoryModel;
 
-        private InputSystem_Actions _input;
+        private readonly InputSystem_Actions _input;
 
         public Transform CollectionPoint => _view.CollectionPoint;
         public Collider2D CollectorCollider => _view.CollectorCollider;
@@ -43,7 +43,8 @@ namespace Systems.MineSystem.CollectableSystem.Controller
             MinePlayerDataConfig playerConfig,
             IInventoryService inventory,
             InventoryModel inventoryModel,
-            CinemachineCamera cinemachineCamera)
+            CinemachineCamera cinemachineCamera,
+            InputSystem_Actions input)
         {
             _view = view;
             _registry = registry;
@@ -52,6 +53,7 @@ namespace Systems.MineSystem.CollectableSystem.Controller
             _playerConfig = playerConfig;
             _inventory = inventory;
             _inventoryModel = inventoryModel;
+            _input = input;
 
             cinemachineCamera.Follow = _view.transform;
             cinemachineCamera.Lens.OrthographicSize = 2f;
@@ -61,7 +63,6 @@ namespace Systems.MineSystem.CollectableSystem.Controller
         {
             _player.playerData.collectablePullRadius.Value =
                 _playerConfig.collectablePullRadius;
-            _input = new InputSystem_Actions();
             _input.Player.Enable();
             _registry.Register(this);
         }
@@ -88,7 +89,6 @@ namespace Systems.MineSystem.CollectableSystem.Controller
         {
             _registry.Unregister(this);
             _input?.Player.Disable();
-            _input?.Dispose();
         }
     }
 }

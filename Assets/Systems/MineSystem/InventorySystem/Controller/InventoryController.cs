@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Systems.MineSystem.CollectableSystem.Service;
 using Systems.MineSystem.InventorySystem.Interface;
 using Systems.MineSystem.InventorySystem.Model;
@@ -16,30 +17,37 @@ using Zenject;
 
 namespace Systems.MineSystem.InventorySystem.Controller
 {
-    public sealed class InventoryController :
-        IInitializable,
-        ITickable,
-        IDisposable
+    [Serializable]
+    public sealed class InventoryController : IInitializable, ITickable, IDisposable
     {
-        private const int SlotsPerRow = 12;
-
         private readonly InventoryModel _model;
-        private readonly IInventoryService _inventory;
         private readonly InventoryCanvasView _view;
-        private readonly CollectableSpriteResolver _sprites;
-        private readonly InventoryItemDescriptionService _descriptions;
-        private readonly ArtifactSpriteScriptable _artifactSprites;
+
+        private readonly CollectableSpriteResolver _spriteResolver;
+
+        private readonly IInventoryService _inventoryService;
+        private readonly InventoryItemDescriptionService _itemDescriptionService;
+
         private readonly InventorySystemConfig _config;
-        private readonly MinePlayerScriptable _player;
         private readonly MinePlayerDataConfig _playerConfig;
+
+        private readonly ArtifactSpriteScriptable _artifactSpriteScriptable;
+        private readonly MinePlayerScriptable _playerScriptable;
+        private readonly InputSystem_Actions _input;
+
         private readonly CompositeDisposable _disposables = new();
 
-        private InputAction _toggleAction;
+        private readonly List<InputActionMap> _previouslyEnabledMaps = new();
+
+        private InputAction _openAction;
+        private InputActionMap _inventoryUiMap;
         private InputAction _navigateAction;
+        private InputAction _toggleAction;
         private InputAction _primaryAction;
         private InputAction _secondaryAction;
         private InputAction _trashAction;
         private InputAction _cancelAction;
+
         private int _selectedIndex;
         private int _highestUnlocked;
         private int _heldNavigationDelta;
@@ -49,38 +57,39 @@ namespace Systems.MineSystem.InventorySystem.Controller
 
         public InventoryController(
             InventoryModel model,
-            IInventoryService inventory,
+            IInventoryService inventoryService,
             InventoryCanvasView view,
-            CollectableSpriteResolver sprites,
-            InventoryItemDescriptionService descriptions,
-            ArtifactSpriteScriptable artifactSprites,
+            CollectableSpriteResolver spriteResolver,
+            InventoryItemDescriptionService itemDescriptionService,
+            ArtifactSpriteScriptable artifactSpriteScriptable,
             InventorySystemConfig config,
-            MinePlayerScriptable player,
-            MinePlayerDataConfig playerConfig)
+            MinePlayerScriptable playerScriptable,
+            MinePlayerDataConfig playerConfig,
+            InputSystem_Actions input)
         {
             _model = model;
-            _inventory = inventory;
+            _inventoryService = inventoryService;
             _view = view;
-            _sprites = sprites;
-            _descriptions = descriptions;
-            _artifactSprites = artifactSprites;
+            _spriteResolver = spriteResolver;
+            _itemDescriptionService = itemDescriptionService;
+            _artifactSpriteScriptable = artifactSpriteScriptable;
             _config = config;
-            _player = player;
+            _playerScriptable = playerScriptable;
             _playerConfig = playerConfig;
+            _input = input;
         }
 
         public void Initialize()
         {
             _highestUnlocked = Mathf.Clamp(
                 Mathf.Max(
-                    _player.playerData.unlockedInventorySlots.Value,
+                    _playerScriptable.playerData.unlockedInventorySlots.Value,
                     _playerConfig.unlockedInventorySlots),
                 0,
                 InventoryModel.MaximumSlots);
-            _player.playerData.unlockedInventorySlots.Value = _highestUnlocked;
+            _playerScriptable.playerData.unlockedInventorySlots.Value = _highestUnlocked;
 
-            BindView();
-            BindModel();
+            SubscribeToProperties();
             CreateInputActions();
             ApplyUnlockedSlots(_highestUnlocked);
             _model.SetOpen(false);
@@ -89,15 +98,15 @@ namespace Systems.MineSystem.InventorySystem.Controller
             RefreshHeldStack(null);
         }
 
-        private void BindView()
+        private void SubscribeToProperties()
         {
             var slots = _view.AllSlots;
-            for (var i = 0; i < slots.Count; i++)
+            foreach (var slot in slots)
             {
-                var slot = slots[i];
                 slot.ConfigureSelectionSprite(_config.selectedSlotFrame);
+                var slot1 = slot;
                 slot.Clicked
-                    .Subscribe(button => OnSlotClicked(slot.Index, button))
+                    .Subscribe(button => OnSlotClicked(slot1.Index, button))
                     .AddTo(_disposables);
                 slot.PointerDown
                     .Subscribe(button => OnSlotPointerDown(slot.Index, button))
@@ -114,59 +123,50 @@ namespace Systems.MineSystem.InventorySystem.Controller
             }
 
             _view.TrashClicked
-                .Subscribe(_ => _inventory.TrashHeldStack())
+                .Subscribe(_ => _inventoryService.TrashHeldStack())
                 .AddTo(_disposables);
-        }
 
-        private void BindModel()
-        {
             _model.SlotChanged
                 .Subscribe(RefreshSlot)
                 .AddTo(_disposables);
             _model.HeldStackChanged
                 .Subscribe(RefreshHeldStack)
                 .AddTo(_disposables);
-            _player.playerData.unlockedInventorySlots
+            _playerScriptable.playerData.unlockedInventorySlots
                 .Subscribe(ApplyUnlockedSlots)
                 .AddTo(_disposables);
         }
 
+
         private void CreateInputActions()
         {
-            _toggleAction = new InputAction("Toggle Inventory", binding: "<Keyboard>/i");
-            _toggleAction.AddBinding("<Gamepad>/start");
+            var playerMap = _input.Player.Get();
+            _inventoryUiMap =
+                _input.asset.FindActionMap("InventoryUi", throwIfNotFound: true);
 
-            _navigateAction = new InputAction(
-                "Navigate Inventory",
-                InputActionType.PassThrough);
-            _navigateAction.AddBinding("<Gamepad>/dpad");
-            _navigateAction.AddBinding("<Gamepad>/leftStick");
+            _openAction =
+                playerMap.FindAction("ToggleInventory", throwIfNotFound: true);
+            _navigateAction =
+                _inventoryUiMap.FindAction("Navigate", throwIfNotFound: true);
+            _toggleAction =
+                _inventoryUiMap.FindAction("ToggleInventory", throwIfNotFound: true);
+            _primaryAction =
+                _inventoryUiMap.FindAction("Primary", throwIfNotFound: true);
+            _secondaryAction =
+                _inventoryUiMap.FindAction("Secondary", throwIfNotFound: true);
+            _trashAction =
+                _inventoryUiMap.FindAction("TrashHeldStack", throwIfNotFound: true);
+            _cancelAction =
+                _inventoryUiMap.FindAction("Close", throwIfNotFound: true);
 
-            _primaryAction = new InputAction(
-                "Inventory Primary",
-                binding: "<Gamepad>/buttonSouth");
-            _secondaryAction = new InputAction(
-                "Inventory Secondary",
-                binding: "<Gamepad>/buttonWest");
-            _trashAction = new InputAction(
-                "Trash Held Stack",
-                binding: "<Gamepad>/buttonNorth");
-            _cancelAction = new InputAction(
-                "Close Inventory",
-                binding: "<Gamepad>/buttonEast");
-
+            _openAction.performed += TogglePerformed;
             _toggleAction.performed += TogglePerformed;
             _primaryAction.performed += PrimaryPerformed;
             _secondaryAction.performed += SecondaryPerformed;
             _trashAction.performed += TrashPerformed;
             _cancelAction.performed += CancelPerformed;
 
-            _toggleAction.Enable();
-            _navigateAction.Enable();
-            _primaryAction.Enable();
-            _secondaryAction.Enable();
-            _trashAction.Enable();
-            _cancelAction.Enable();
+            _inventoryUiMap.Disable();
         }
 
         private void TogglePerformed(InputAction.CallbackContext context)
@@ -221,9 +221,9 @@ namespace Systems.MineSystem.InventorySystem.Controller
                 return 0;
 
             var horizontal = Mathf.Abs(direction.x) >= Mathf.Abs(direction.y);
-            return horizontal
-                ? (direction.x > 0f ? 1 : -1)
-                : (direction.y > 0f ? -SlotsPerRow : SlotsPerRow);
+            return horizontal ?
+                direction.x > 0f ? 1 : -1 :
+                direction.y > 0f ? -_config.slotsPerRow : _config.slotsPerRow;
         }
 
         private void TickRightClickTransfer()
@@ -247,7 +247,7 @@ namespace Systems.MineSystem.InventorySystem.Controller
             if (now < _nextRightTransferTime)
                 return;
 
-            _inventory.RightClick(_rightHeldSlot);
+            _inventoryService.RightClick(_rightHeldSlot);
             _nextRightTransferTime =
                 now + _config.rightClickTransferInterval;
         }
@@ -255,19 +255,19 @@ namespace Systems.MineSystem.InventorySystem.Controller
         private void PrimaryPerformed(InputAction.CallbackContext context)
         {
             if (_model.IsOpen.Value)
-                _inventory.LeftClick(_selectedIndex);
+                _inventoryService.LeftClick(_selectedIndex);
         }
 
         private void SecondaryPerformed(InputAction.CallbackContext context)
         {
             if (_model.IsOpen.Value)
-                _inventory.RightClick(_selectedIndex);
+                _inventoryService.RightClick(_selectedIndex);
         }
 
         private void TrashPerformed(InputAction.CallbackContext context)
         {
             if (_model.IsOpen.Value)
-                _inventory.TrashHeldStack();
+                _inventoryService.TrashHeldStack();
         }
 
         private void CancelPerformed(InputAction.CallbackContext context)
@@ -282,7 +282,7 @@ namespace Systems.MineSystem.InventorySystem.Controller
         {
             SelectSlot(index);
             if (button == PointerEventData.InputButton.Left)
-                _inventory.LeftClick(index);
+                _inventoryService.LeftClick(index);
         }
 
         private void OnSlotPointerDown(
@@ -294,12 +294,12 @@ namespace Systems.MineSystem.InventorySystem.Controller
 
             SelectSlot(index);
             var canRepeat = CanTakeFromSlot(index);
-            _inventory.RightClick(index);
+            _inventoryService.RightClick(index);
             if (canRepeat)
             {
                 _rightHeldSlot = index;
                 _nextRightTransferTime =
-                    Time.unscaledTime + _config.rightClickTransferInterval;
+                    Time.unscaledTime + _config.rightClickHoldThreshold;
             }
             else
             {
@@ -358,6 +358,7 @@ namespace Systems.MineSystem.InventorySystem.Controller
 
             _model.SetOpen(open);
             _view.SetVisible(open);
+            SetInventoryInputOpen(open);
             if (!open)
             {
                 _heldNavigationDelta = 0;
@@ -365,6 +366,30 @@ namespace Systems.MineSystem.InventorySystem.Controller
             }
             if (open)
                 SelectSlot(_selectedIndex);
+        }
+
+        private void SetInventoryInputOpen(bool open)
+        {
+            if (open)
+            {
+                _previouslyEnabledMaps.Clear();
+                foreach (var map in _input.asset.actionMaps)
+                {
+                    if (map == _inventoryUiMap || !map.enabled)
+                        continue;
+
+                    _previouslyEnabledMaps.Add(map);
+                    map.Disable();
+                }
+
+                _inventoryUiMap.Enable();
+                return;
+            }
+
+            _inventoryUiMap.Disable();
+            foreach (var map in _previouslyEnabledMaps)
+                map.Enable();
+            _previouslyEnabledMaps.Clear();
         }
 
         private void ApplyUnlockedSlots(int requested)
@@ -375,7 +400,7 @@ namespace Systems.MineSystem.InventorySystem.Controller
                 InventoryModel.MaximumSlots);
             if (clamped != requested)
             {
-                _player.playerData.unlockedInventorySlots.Value = clamped;
+                _playerScriptable.playerData.unlockedInventorySlots.Value = clamped;
                 return;
             }
 
@@ -387,7 +412,7 @@ namespace Systems.MineSystem.InventorySystem.Controller
 
         private void SelectSlot(int requestedIndex)
         {
-            var unlocked = _player.playerData.unlockedInventorySlots.Value;
+            var unlocked = _playerScriptable.playerData.unlockedInventorySlots.Value;
             if (unlocked <= 0)
                 return;
 
@@ -432,17 +457,17 @@ namespace Systems.MineSystem.InventorySystem.Controller
             var item = _model.Slots[index].Stack?.Representative;
             _view.PresentHovered(
                 ResolveDetailSprite(item),
-                _descriptions.Build(item));
+                _itemDescriptionService.Build(item));
         }
 
         private Sprite ResolveDetailSprite(Item item)
         {
             if (item is Artifact artifact)
             {
-                return _artifactSprites.GetDetailSprite(
+                return _artifactSpriteScriptable.GetDetailSprite(
                     artifact.DefinitionId,
-                    _player.region,
-                    _player.site);
+                    _playerScriptable.region,
+                    _playerScriptable.site);
             }
 
             return ResolveSprite(item);
@@ -452,23 +477,20 @@ namespace Systems.MineSystem.InventorySystem.Controller
         {
             return item == null
                 ? null
-                : _sprites.Resolve(item, _player.region, _player.site);
+                : _spriteResolver.Resolve(item, _playerScriptable.region, _playerScriptable.site);
         }
 
         public void Dispose()
         {
+            _openAction.performed -= TogglePerformed;
             _toggleAction.performed -= TogglePerformed;
             _primaryAction.performed -= PrimaryPerformed;
             _secondaryAction.performed -= SecondaryPerformed;
             _trashAction.performed -= TrashPerformed;
             _cancelAction.performed -= CancelPerformed;
 
-            _toggleAction.Dispose();
-            _navigateAction.Dispose();
-            _primaryAction.Dispose();
-            _secondaryAction.Dispose();
-            _trashAction.Dispose();
-            _cancelAction.Dispose();
+            if (_model.IsOpen.Value)
+                SetInventoryInputOpen(false);
             _disposables.Dispose();
         }
     }
