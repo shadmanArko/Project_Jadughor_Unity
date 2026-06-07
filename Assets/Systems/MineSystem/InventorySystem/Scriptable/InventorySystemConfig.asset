@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 348be8bc3ef094548bf9b4aa7c0a126b, type: 3}
+  m_Name: InventorySystemConfig
+  m_EditorClassIdentifier: Assembly-CSharp::Systems.MineSystem.InventorySystem.Scriptable.InventorySystemConfig
+  defaultStackLimit: 99
+  navigationDeadZone: 0.5
+  navigationInitialRepeatDelay: 0.4
+  navigationRepeatInterval: 0.15
+  rightClickTransferInterval: 0.25
+  selectedSlotFrame: {fileID: 4593852008173475914, guid: a7e68c9183d81544799b8e7682d99c06, type: 3}
+  inventoryCanvasPrefab: {fileID: 991100000000000002, guid: e2dffc835afbe2e41b360e04605d7137, type: 3}

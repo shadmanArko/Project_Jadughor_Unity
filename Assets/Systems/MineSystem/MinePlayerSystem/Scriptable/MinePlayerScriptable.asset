@@ -23,5 +23,7 @@ MonoBehaviour:
       value: 0
     collectablePullRadius:
       value: 2.5
+    unlockedInventorySlots:
+      value: 12
   region: 1
   site: 0

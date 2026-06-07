@@ -14,5 +14,8 @@ namespace Systems.MineSystem.MinePlayerSystem.Config
 
         [Header("Collectable Properties")]
         [Min(0f)] public float collectablePullRadius = 2.5f;
+
+        [Header("Inventory Properties")]
+        [Range(0, 36)] public int unlockedInventorySlots = 12;
     }
 }

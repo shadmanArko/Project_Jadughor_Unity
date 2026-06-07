@@ -17,3 +17,4 @@ MonoBehaviour:
   stamina: 100
   maxStamina: 100
   collectablePullRadius: 2.5
+  unlockedInventorySlots: 12

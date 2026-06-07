@@ -35,6 +35,6 @@ namespace Systems.MineSystem.CollectableSystem.Scriptable
 
         [Header("Wall Placeable Pool")]
         [Min(0)] public int wallPlaceableInitialSize = 4;
-        [Min(1)] public int wallPlaceableMaxSize = 30;
+        [Min(0)] public int wallPlaceableMaxSize = 30;
     }
 }
