@@ -1,0 +1,446 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e5e580e827b6e742b98dde221008798, type: 3}
+  m_Name: PlayerAnimationLibraryScriptable
+  m_EditorClassIdentifier: Assembly-CSharp::Systems.MineSystem.MinePlayerSystem.SubSystem.PlayerAnimationSubSystem.Scriptable.PlayerAnimationLibraryScriptable
+  animationProfiles:
+  - id: DefaultPlayer
+    name: Default Player
+    animatorController: {fileID: 9100000, guid: 1f55edff53944174b837449d0f7fe6c3, type: 2}
+    visualScale: {x: 1, y: 1}
+    visualOffset: {x: 0, y: 0}
+    defaultFacing: 0
+    animationDatabase:
+    - category: 0
+      animationData:
+      - id: locomotion.idle
+        animationName: Idle
+        stateName: Idle
+        triggerName: 
+        folderPath: 
+        animationSprites:
+        - {fileID: -1665219619865335194, guid: 2f8d26d839b24c948a35f0f8ece3c665, type: 3}
+        - {fileID: -2423754757253830049, guid: 2f8d26d839b24c948a35f0f8ece3c665, type: 3}
+        - {fileID: -531220011801599222, guid: 2f8d26d839b24c948a35f0f8ece3c665, type: 3}
+        - {fileID: -526987079599839996, guid: 2f8d26d839b24c948a35f0f8ece3c665, type: 3}
+        - {fileID: -2032356011940602047, guid: 2f8d26d839b24c948a35f0f8ece3c665, type: 3}
+        speed: 1
+        frameRate: 5
+        playOnlyOnce: 0
+        flipX: 1
+        flipY: 0
+        isReversed: 0
+        interruptible: 1
+        allowFacingFlip: 0
+        restrictions: 0
+    - category: 1
+      animationData:
+      - id: locomotion.move
+        animationName: Move
+        stateName: Move
+        triggerName: 
+        folderPath: 
+        animationSprites:
+        - {fileID: -711884143155707428, guid: 2f8d26d839b24c948a35f0f8ece3c665, type: 3}
+        - {fileID: -4419665065517005695, guid: 2f8d26d839b24c948a35f0f8ece3c665, type: 3}
+        - {fileID: -6404302436311735268, guid: 2f8d26d839b24c948a35f0f8ece3c665, type: 3}
+        - {fileID: 4231384887485531715, guid: 2f8d26d839b24c948a35f0f8ece3c665, type: 3}
+        speed: 1
+        frameRate: 4
+        playOnlyOnce: 0
+        flipX: 1
+        flipY: 0
+        isReversed: 0
+        interruptible: 1
+        allowFacingFlip: 1
+        restrictions: 0
+    - category: 2
+      animationData:
+      - id: climb.vertical
+        animationName: Climb Vertical
+        stateName: Climb
+        triggerName: 
+        folderPath: 
+        animationSprites:
+        - {fileID: 8566003432957444354, guid: 2f8d26d839b24c948a35f0f8ece3c665, type: 3}
+        - {fileID: 4250599441366911281, guid: 2f8d26d839b24c948a35f0f8ece3c665, type: 3}
+        speed: 1
+        frameRate: 2
+        playOnlyOnce: 0
+        flipX: 0
+        flipY: 0
+        isReversed: 0
+        interruptible: 1
+        allowFacingFlip: 1
+        restrictions: 0
+      - id: climb.horizontal
+        animationName: Climb Horizontal
+        stateName: Climb
+        triggerName: 
+        folderPath: 
+        animationSprites:
+        - {fileID: 3128557173937202198, guid: 2f8d26d839b24c948a35f0f8ece3c665, type: 3}
+        - {fileID: -702249548955033312, guid: 2f8d26d839b24c948a35f0f8ece3c665, type: 3}
+        speed: 1
+        frameRate: 2
+        playOnlyOnce: 0
+        flipX: 0
+        flipY: 0
+        isReversed: 0
+        interruptible: 1
+        allowFacingFlip: 1
+        restrictions: 0
+    - category: 3
+      animationData:
+      - id: locomotion.fall
+        animationName: Fall
+        stateName: Fall
+        triggerName: 
+        folderPath: 
+        animationSprites:
+        - {fileID: 679844584, guid: 2f8d26d839b24c948a35f0f8ece3c665, type: 3}
+        - {fileID: 979913806, guid: 2f8d26d839b24c948a35f0f8ece3c665, type: 3}
+        speed: 1
+        frameRate: 2
+        playOnlyOnce: 0
+        flipX: 0
+        flipY: 0
+        isReversed: 0
+        interruptible: 1
+        allowFacingFlip: 1
+        restrictions: 0
+    - category: 4
+      animationData:
+      - id: equippable.pickaxe.ordinaryPickaxe.climb.up
+        animationName: Ordinary Pickaxe Climb Up
+        stateName: Action
+        triggerName: 
+        folderPath: 
+        animationSprites:
+        - {fileID: 419447258, guid: 2f8d26d839b24c948a35f0f8ece3c665, type: 3}
+        - {fileID: -1604666342, guid: 2f8d26d839b24c948a35f0f8ece3c665, type: 3}
+        - {fileID: 874009807, guid: 2f8d26d839b24c948a35f0f8ece3c665, type: 3}
+        - {fileID: 1530423977, guid: 2f8d26d839b24c948a35f0f8ece3c665, type: 3}
+        - {fileID: -2094321129, guid: 2f8d26d839b24c948a35f0f8ece3c665, type: 3}
+        speed: 1
+        frameRate: 5
+        playOnlyOnce: 1
+        flipX: 0
+        flipY: 0
+        isReversed: 0
+        interruptible: 0
+        allowFacingFlip: 0
+        restrictions: 1
+      - id: equippable.pickaxe.ordinaryPickaxe.climb.left
+        animationName: Ordinary Pickaxe Climb Left
+        stateName: Action
+        triggerName: 
+        folderPath: 
+        animationSprites:
+        - {fileID: 203228213, guid: 2f8d26d839b24c948a35f0f8ece3c665, type: 3}
+        - {fileID: 1098109275, guid: 2f8d26d839b24c948a35f0f8ece3c665, type: 3}
+        - {fileID: 656942737, guid: 2f8d26d839b24c948a35f0f8ece3c665, type: 3}
+        - {fileID: -1138338747, guid: 2f8d26d839b24c948a35f0f8ece3c665, type: 3}
+        - {fileID: 415581396, guid: 2f8d26d839b24c948a35f0f8ece3c665, type: 3}
+        speed: 1
+        frameRate: 5
+        playOnlyOnce: 1
+        flipX: 0
+        flipY: 0
+        isReversed: 0
+        interruptible: 1
+        allowFacingFlip: 0
+        restrictions: 1
+      - id: equippable.pickaxe.ordinaryPickaxe.climb.right
+        animationName: Ordinary Pickaxe Climb Right
+        stateName: Action
+        triggerName: 
+        folderPath: 
+        animationSprites:
+        - {fileID: 203228213, guid: 2f8d26d839b24c948a35f0f8ece3c665, type: 3}
+        - {fileID: 1098109275, guid: 2f8d26d839b24c948a35f0f8ece3c665, type: 3}
+        - {fileID: 656942737, guid: 2f8d26d839b24c948a35f0f8ece3c665, type: 3}
+        - {fileID: -1138338747, guid: 2f8d26d839b24c948a35f0f8ece3c665, type: 3}
+        - {fileID: 415581396, guid: 2f8d26d839b24c948a35f0f8ece3c665, type: 3}
+        speed: 1
+        frameRate: 5
+        playOnlyOnce: 1
+        flipX: 0
+        flipY: 0
+        isReversed: 1
+        interruptible: 1
+        allowFacingFlip: 0
+        restrictions: 1
+      - id: equippable.sword.ordinarySword.climb.up
+        animationName: Ordinary Sword Climb Up
+        stateName: Action
+        triggerName: 
+        folderPath: 
+        animationSprites:
+        - {fileID: 1961597995, guid: 2f8d26d839b24c948a35f0f8ece3c665, type: 3}
+        - {fileID: 246548137, guid: 2f8d26d839b24c948a35f0f8ece3c665, type: 3}
+        - {fileID: 2058849372, guid: 2f8d26d839b24c948a35f0f8ece3c665, type: 3}
+        - {fileID: 170017152, guid: 2f8d26d839b24c948a35f0f8ece3c665, type: 3}
+        - {fileID: 1400815239, guid: 2f8d26d839b24c948a35f0f8ece3c665, type: 3}
+        speed: 1
+        frameRate: 5
+        playOnlyOnce: 1
+        flipX: 0
+        flipY: 0
+        isReversed: 0
+        interruptible: 1
+        allowFacingFlip: 0
+        restrictions: 1
+      - id: equippable.sword.ordinarySword.climb.down
+        animationName: Ordinary Sword Climb Down
+        stateName: Action
+        triggerName: 
+        folderPath: 
+        animationSprites:
+        - {fileID: -1701437082, guid: 2f8d26d839b24c948a35f0f8ece3c665, type: 3}
+        - {fileID: -1112888129, guid: 2f8d26d839b24c948a35f0f8ece3c665, type: 3}
+        - {fileID: 1307276666, guid: 2f8d26d839b24c948a35f0f8ece3c665, type: 3}
+        - {fileID: 991246489, guid: 2f8d26d839b24c948a35f0f8ece3c665, type: 3}
+        - {fileID: -2022841351, guid: 2f8d26d839b24c948a35f0f8ece3c665, type: 3}
+        speed: 1
+        frameRate: 5
+        playOnlyOnce: 1
+        flipX: 0
+        flipY: 0
+        isReversed: 0
+        interruptible: 0
+        allowFacingFlip: 0
+        restrictions: 1
+      - id: equippable.sword.ordinarySword.climb.left
+        animationName: Ordinary Sword Climb Left
+        stateName: Action
+        triggerName: 
+        folderPath: 
+        animationSprites:
+        - {fileID: -1824470849, guid: 2f8d26d839b24c948a35f0f8ece3c665, type: 3}
+        - {fileID: 1142060672, guid: 2f8d26d839b24c948a35f0f8ece3c665, type: 3}
+        - {fileID: -1534558239, guid: 2f8d26d839b24c948a35f0f8ece3c665, type: 3}
+        - {fileID: 584280727, guid: 2f8d26d839b24c948a35f0f8ece3c665, type: 3}
+        - {fileID: 1008996462, guid: 2f8d26d839b24c948a35f0f8ece3c665, type: 3}
+        speed: 1
+        frameRate: 5
+        playOnlyOnce: 1
+        flipX: 0
+        flipY: 0
+        isReversed: 0
+        interruptible: 0
+        allowFacingFlip: 0
+        restrictions: 1
+      - id: equippable.sword.ordinarySword.climb.right
+        animationName: Ordinary Sword Climb Right
+        stateName: Action
+        triggerName: 
+        folderPath: 
+        animationSprites:
+        - {fileID: -1824470849, guid: 2f8d26d839b24c948a35f0f8ece3c665, type: 3}
+        - {fileID: 1142060672, guid: 2f8d26d839b24c948a35f0f8ece3c665, type: 3}
+        - {fileID: -1534558239, guid: 2f8d26d839b24c948a35f0f8ece3c665, type: 3}
+        - {fileID: 584280727, guid: 2f8d26d839b24c948a35f0f8ece3c665, type: 3}
+        - {fileID: 1008996462, guid: 2f8d26d839b24c948a35f0f8ece3c665, type: 3}
+        speed: 1
+        frameRate: 5
+        playOnlyOnce: 1
+        flipX: 0
+        flipY: 0
+        isReversed: 1
+        interruptible: 0
+        allowFacingFlip: 0
+        restrictions: 1
+      - id: equippable.sword.ordinarySword.ground.left
+        animationName: Ordinary Sword Ground Left
+        stateName: Action
+        triggerName: 
+        folderPath: 
+        animationSprites:
+        - {fileID: 263268394, guid: 2f8d26d839b24c948a35f0f8ece3c665, type: 3}
+        - {fileID: -2092784155, guid: 2f8d26d839b24c948a35f0f8ece3c665, type: 3}
+        - {fileID: 2033082419, guid: 2f8d26d839b24c948a35f0f8ece3c665, type: 3}
+        - {fileID: 735459818, guid: 2f8d26d839b24c948a35f0f8ece3c665, type: 3}
+        - {fileID: -1360671882, guid: 2f8d26d839b24c948a35f0f8ece3c665, type: 3}
+        speed: 1
+        frameRate: 5
+        playOnlyOnce: 1
+        flipX: 0
+        flipY: 0
+        isReversed: 0
+        interruptible: 0
+        allowFacingFlip: 0
+        restrictions: 1
+      - id: equippable.sword.ordinarySword.ground.right
+        animationName: Ordinary Sword Ground Right
+        stateName: Action
+        triggerName: 
+        folderPath: 
+        animationSprites:
+        - {fileID: 263268394, guid: 2f8d26d839b24c948a35f0f8ece3c665, type: 3}
+        - {fileID: -2092784155, guid: 2f8d26d839b24c948a35f0f8ece3c665, type: 3}
+        - {fileID: 2033082419, guid: 2f8d26d839b24c948a35f0f8ece3c665, type: 3}
+        - {fileID: 735459818, guid: 2f8d26d839b24c948a35f0f8ece3c665, type: 3}
+        - {fileID: -1360671882, guid: 2f8d26d839b24c948a35f0f8ece3c665, type: 3}
+        speed: 1
+        frameRate: 5
+        playOnlyOnce: 1
+        flipX: 0
+        flipY: 0
+        isReversed: 1
+        interruptible: 0
+        allowFacingFlip: 0
+        restrictions: 1
+      - id: equippable.pickaxe.ordinaryPickaxe.ground.up
+        animationName: Ordinary Pickaxe Climb Up
+        stateName: Action
+        triggerName: 
+        folderPath: 
+        animationSprites:
+        - {fileID: -5212389230570916524, guid: 2f8d26d839b24c948a35f0f8ece3c665, type: 3}
+        - {fileID: 3155913558959063302, guid: 2f8d26d839b24c948a35f0f8ece3c665, type: 3}
+        - {fileID: 8891744076564122997, guid: 2f8d26d839b24c948a35f0f8ece3c665, type: 3}
+        - {fileID: 2650287742796868224, guid: 2f8d26d839b24c948a35f0f8ece3c665, type: 3}
+        - {fileID: -7137684511175011476, guid: 2f8d26d839b24c948a35f0f8ece3c665, type: 3}
+        speed: 1
+        frameRate: 5
+        playOnlyOnce: 1
+        flipX: 0
+        flipY: 0
+        isReversed: 0
+        interruptible: 0
+        allowFacingFlip: 0
+        restrictions: 1
+      - id: equippable.pickaxe.ordinaryPickaxe.ground.left
+        animationName: Ordinary Pickaxe Ground Left
+        stateName: Action
+        triggerName: 
+        folderPath: 
+        animationSprites:
+        - {fileID: -2203502676726428946, guid: 2f8d26d839b24c948a35f0f8ece3c665, type: 3}
+        - {fileID: 6826290473757307018, guid: 2f8d26d839b24c948a35f0f8ece3c665, type: 3}
+        - {fileID: 98712662748890243, guid: 2f8d26d839b24c948a35f0f8ece3c665, type: 3}
+        - {fileID: -427750082499159521, guid: 2f8d26d839b24c948a35f0f8ece3c665, type: 3}
+        - {fileID: -5397605810990890760, guid: 2f8d26d839b24c948a35f0f8ece3c665, type: 3}
+        speed: 1
+        frameRate: 5
+        playOnlyOnce: 1
+        flipX: 0
+        flipY: 0
+        isReversed: 0
+        interruptible: 1
+        allowFacingFlip: 0
+        restrictions: 1
+      - id: equippable.pickaxe.ordinaryPickaxe.ground.right
+        animationName: Ordinary Pickaxe Ground Right
+        stateName: Action
+        triggerName: 
+        folderPath: 
+        animationSprites:
+        - {fileID: -2203502676726428946, guid: 2f8d26d839b24c948a35f0f8ece3c665, type: 3}
+        - {fileID: 6826290473757307018, guid: 2f8d26d839b24c948a35f0f8ece3c665, type: 3}
+        - {fileID: 98712662748890243, guid: 2f8d26d839b24c948a35f0f8ece3c665, type: 3}
+        - {fileID: -427750082499159521, guid: 2f8d26d839b24c948a35f0f8ece3c665, type: 3}
+        - {fileID: -5397605810990890760, guid: 2f8d26d839b24c948a35f0f8ece3c665, type: 3}
+        speed: 1
+        frameRate: 5
+        playOnlyOnce: 1
+        flipX: 0
+        flipY: 0
+        isReversed: 1
+        interruptible: 1
+        allowFacingFlip: 0
+        restrictions: 1
+      - id: equippable.pickaxe.ordinaryPickaxe.ground.down
+        animationName: Ordinary Pickaxe Ground Right
+        stateName: Action
+        triggerName: 
+        folderPath: 
+        animationSprites:
+        - {fileID: -4979604302035444355, guid: 2f8d26d839b24c948a35f0f8ece3c665, type: 3}
+        - {fileID: 1702799513563971553, guid: 2f8d26d839b24c948a35f0f8ece3c665, type: 3}
+        - {fileID: 4597160231747949180, guid: 2f8d26d839b24c948a35f0f8ece3c665, type: 3}
+        - {fileID: 6831491344437762293, guid: 2f8d26d839b24c948a35f0f8ece3c665, type: 3}
+        - {fileID: 5141848947891981360, guid: 2f8d26d839b24c948a35f0f8ece3c665, type: 3}
+        speed: 1
+        frameRate: 5
+        playOnlyOnce: 1
+        flipX: 0
+        flipY: 0
+        isReversed: 1
+        interruptible: 1
+        allowFacingFlip: 0
+        restrictions: 1
+    - category: 5
+      animationData:
+      - id: interaction.default
+        animationName: Interact
+        stateName: Interact
+        triggerName: 
+        folderPath: 
+        animationSprites: []
+        speed: 1
+        frameRate: 12
+        playOnlyOnce: 1
+        flipX: 0
+        flipY: 0
+        isReversed: 0
+        interruptible: 0
+        allowFacingFlip: 1
+        restrictions: 3
+    - category: 6
+      animationData:
+      - id: life.death
+        animationName: Death
+        stateName: Death
+        triggerName: 
+        folderPath: 
+        animationSprites:
+        - {fileID: -1114174952, guid: 2f8d26d839b24c948a35f0f8ece3c665, type: 3}
+        - {fileID: -1919956887, guid: 2f8d26d839b24c948a35f0f8ece3c665, type: 3}
+        - {fileID: -784290529, guid: 2f8d26d839b24c948a35f0f8ece3c665, type: 3}
+        - {fileID: -2100750417, guid: 2f8d26d839b24c948a35f0f8ece3c665, type: 3}
+        speed: 1
+        frameRate: 4
+        playOnlyOnce: 1
+        flipX: 0
+        flipY: 0
+        isReversed: 0
+        interruptible: 0
+        allowFacingFlip: 0
+        restrictions: 7
+    - category: 5
+      animationData:
+      - id: hurt.damage
+        animationName: Hurt
+        stateName: Hurt
+        triggerName: 
+        folderPath: 
+        animationSprites:
+        - {fileID: 8544816392744756499, guid: 2f8d26d839b24c948a35f0f8ece3c665, type: 3}
+        - {fileID: -1225684980242837124, guid: 2f8d26d839b24c948a35f0f8ece3c665, type: 3}
+        - {fileID: -8890857808588147652, guid: 2f8d26d839b24c948a35f0f8ece3c665, type: 3}
+        - {fileID: -1892345335509370921, guid: 2f8d26d839b24c948a35f0f8ece3c665, type: 3}
+        - {fileID: -2586200868109542097, guid: 2f8d26d839b24c948a35f0f8ece3c665, type: 3}
+        - {fileID: -9039811633449501602, guid: 2f8d26d839b24c948a35f0f8ece3c665, type: 3}
+        - {fileID: 7909121424575371519, guid: 2f8d26d839b24c948a35f0f8ece3c665, type: 3}
+        - {fileID: -6134074815225377969, guid: 2f8d26d839b24c948a35f0f8ece3c665, type: 3}
+        - {fileID: 5850739310388971575, guid: 2f8d26d839b24c948a35f0f8ece3c665, type: 3}
+        speed: 1
+        frameRate: 4
+        playOnlyOnce: 1
+        flipX: 0
+        flipY: 0
+        isReversed: 0
+        interruptible: 0
+        allowFacingFlip: 0
+        restrictions: 7

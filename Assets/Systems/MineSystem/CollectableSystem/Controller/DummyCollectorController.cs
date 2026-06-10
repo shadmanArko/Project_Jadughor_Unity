@@ -55,8 +55,8 @@ namespace Systems.MineSystem.CollectableSystem.Controller
             _inventoryModel = inventoryModel;
             _input = input;
 
-            cinemachineCamera.Follow = _view.transform;
-            cinemachineCamera.Lens.OrthographicSize = 2f;
+            // cinemachineCamera.Follow = _view.transform;
+            // cinemachineCamera.Lens.OrthographicSize = 2f;
         }
 
         public void Initialize()

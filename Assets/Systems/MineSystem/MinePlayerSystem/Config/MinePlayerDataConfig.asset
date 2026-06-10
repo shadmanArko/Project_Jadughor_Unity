@@ -16,8 +16,27 @@ MonoBehaviour:
   maxHealth: 100
   stamina: 100
   maxStamina: 100
-  moveSpeed: 4
-  climbSpeed: 3
+  moveSpeed: 0.25
+  climbSpeed: 0.1
+  normalGravityScale: 0.5
+  wallLayerMask:
+    serializedVersion: 2
+    m_Bits: 128
+  groundProbeThickness: 0.04
+  groundProbeDistance: 0.06
+  groundProbeWidthInset: 0.04
+  minimumGroundNormalY: 0.5
+  climbableLayerMask:
+    serializedVersion: 2
+    m_Bits: 0
+  safeFallDistance: 2
+  fallDamageThresholds:
+  - minimumDistance: 3
+    damage: 10
+  - minimumDistance: 5
+    damage: 25
+  - minimumDistance: 8
+    damage: 100
   miningSpeed: 1
   attackSpeed: 1
   collectablePullRadius: 2.5

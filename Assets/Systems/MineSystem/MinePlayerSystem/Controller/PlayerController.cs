@@ -3,14 +3,17 @@ using Systems.MineSystem.MinePlayerSystem.Model;
 using Systems.MineSystem.MinePlayerSystem.Config;
 using Systems.MineSystem.MinePlayerSystem.Scriptable;
 using Systems.MineSystem.MinePlayerSystem.Signal.InputSignal;
+using Systems.MineSystem.MinePlayerSystem.SubSystem.PlayerAnimationSubSystem.Model;
 using Systems.MineSystem.MinePlayerSystem.View;
 using Systems.Utilities.EventBus;
 using UniRx;
+using Unity.Cinemachine;
 using UnityEngine;
 using Zenject;
 
 namespace Systems.MineSystem.MinePlayerSystem.Controller
 {
+    [Serializable]
     public sealed class PlayerController : IInitializable, IDisposable
     {
         private readonly PlayerModel _model;
@@ -25,20 +28,30 @@ namespace Systems.MineSystem.MinePlayerSystem.Controller
             PlayerView view,
             MinePlayerDataConfig config,
             MinePlayerScriptable playerData,
-            RuntimeDataScriptable runtimeData)
+            RuntimeDataScriptable runtimeData,
+            CinemachineCamera cinemachineCamera)
         {
             _model = model;
             _view = view;
             _config = config;
             _playerData = playerData;
             _runtimeData = runtimeData;
+            
+            cinemachineCamera.Follow = _view.transform;
+            cinemachineCamera.Lens.OrthographicSize = 2f;
         }
         
         public void Initialize()
         {
+            if (!_view.ValidateReferences())
+                throw new InvalidOperationException(
+                    "PlayerView references are not configured.");
+
             InitializePlayerData();
             InitializeRuntimeData();
+            _view.Configure(_config.climbableLayerMask);
             SubscribeToInputSignals();
+            SubscribeToAnimationEvents();
         }
 
         private void InitializePlayerData()
@@ -64,12 +77,44 @@ namespace Systems.MineSystem.MinePlayerSystem.Controller
             _runtimeData.canPerformAction.Value = true;
             _runtimeData.canUsePickaxe.Value = true;
             _runtimeData.canUseWeapon.Value = true;
+            _runtimeData.locomotionState.Value =
+                PlayerLocomotionState.Idle;
+            _runtimeData.actionState.Value = PlayerActionState.None;
+            _runtimeData.lifeState.Value = PlayerLifeState.Alive;
+            _runtimeData.restrictions.Value =
+                PlayerRestrictionFlags.None;
+            _runtimeData.movementInput.Value = Vector2.zero;
+            _runtimeData.velocity.Value = Vector2.zero;
+            _runtimeData.isGrounded.Value = false;
+            _runtimeData.isClimbing.Value = false;
+            _runtimeData.activeAnimation.Value =
+                PlayerAnimationId.None;
+            _view.SetGravityScale(_config.normalGravityScale);
         }
 
         private void SubscribeToInputSignals()
         {
             GlobalEventBus.OnSignal<MovementInputSignal>()
                 .Subscribe(signal => _model.SetMovementInput(signal.Direction))
+                .AddTo(_disposables);
+            GlobalEventBus.OnSignal<ActionInputSignal>()
+                .Subscribe(_ => _model.RequestAction())
+                .AddTo(_disposables);
+            GlobalEventBus.OnSignal<InteractInputSignal>()
+                .Subscribe(_ => _model.RequestInteraction())
+                .AddTo(_disposables);
+            GlobalEventBus.OnSignal<ClimbInputSignal>()
+                .Subscribe(_ => _model.ToggleClimb())
+                .AddTo(_disposables);
+        }
+
+        private void SubscribeToAnimationEvents()
+        {
+            _view.AnimationMarkers
+                .Subscribe(_model.HandleAnimationMarker)
+                .AddTo(_disposables);
+            _view.AnimationCompleted
+                .Subscribe(_model.HandleAnimationCompleted)
                 .AddTo(_disposables);
         }
         

@@ -14,13 +14,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Systems.MineSystem.MinePlayerSystem.Scriptable.MinePlayerScriptable
   playerData:
     health:
-      value: 0
+      value: 90
     maxHealth:
-      value: 0
+      value: 100
     stamina:
-      value: 0
+      value: 100
     maxStamina:
-      value: 0
+      value: 100
+    moveSpeed:
+      value: 0.25
+    climbSpeed:
+      value: 3
+    miningSpeed:
+      value: 1
+    attackSpeed:
+      value: 1
+    pickAxeStrength:
+      value: 20
     collectablePullRadius:
       value: 2.5
     unlockedInventorySlots:

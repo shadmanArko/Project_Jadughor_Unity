@@ -1,19 +1,15 @@
-using System;
+using Systems.MineSystem.MinePlayerSystem.Model;
 using Systems.MineSystem.MinePlayerSystem.Scriptable;
 using Systems.MineSystem.MinePlayerSystem.View;
 using UnityEngine;
 
 namespace Systems.MineSystem.MinePlayerSystem.Service
 {
-    public sealed class PlayerMovementService :
-        IPlayerFixedTickService,
-        IDisposable
+    public sealed class PlayerMovementService : IPlayerFixedTickService
     {
         private readonly PlayerView _view;
         private readonly MinePlayerScriptable _playerData;
         private readonly RuntimeDataScriptable _runtimeData;
-
-        private Vector2 _input;
 
         public PlayerMovementService(
             PlayerView view,
@@ -25,28 +21,43 @@ namespace Systems.MineSystem.MinePlayerSystem.Service
             _runtimeData = runtimeData;
         }
 
-        public void SetInput(Vector2 direction)
-        {
-            _input = Vector2.ClampMagnitude(direction, 1f);
-        }
-
         public void OnFixedTick()
         {
-            if (!_runtimeData.canMove.Value)
+            var velocity = _view.Body.linearVelocity;
+            if (_runtimeData.lifeState.Value == PlayerLifeState.Dead ||
+                _runtimeData.isClimbing.Value ||
+                !_runtimeData.canMove.Value ||
+                _runtimeData.HasRestriction(PlayerRestrictionFlags.Movement))
             {
-                _view.Stop();
+                velocity.x = 0f;
+                _view.SetVelocity(velocity);
+                _runtimeData.velocity.Value = velocity;
                 return;
             }
 
-            var distance =
-                _playerData.playerData.moveSpeed.Value * Time.fixedDeltaTime;
-            _view.MoveTo(_view.Body.position + _input * distance);
-        }
+            var horizontalInput = Mathf.Clamp(
+                _runtimeData.movementInput.Value.x,
+                -1f,
+                1f);
+            velocity.x =
+                horizontalInput * _playerData.playerData.moveSpeed.Value;
+            _view.SetVelocity(velocity);
+            _runtimeData.velocity.Value = velocity;
 
-        public void Dispose()
-        {
-            _input = Vector2.zero;
-            _view.Stop();
+            if (Mathf.Abs(horizontalInput) > 0.01f)
+            {
+                _runtimeData.facingDirection.Value = horizontalInput < 0f
+                    ? PlayerFacingDirection.Left
+                    : PlayerFacingDirection.Right;
+            }
+
+            if (_runtimeData.isGrounded.Value)
+            {
+                _runtimeData.locomotionState.Value =
+                    Mathf.Abs(horizontalInput) > 0.01f
+                        ? PlayerLocomotionState.Moving
+                        : PlayerLocomotionState.Idle;
+            }
         }
     }
 }

@@ -3,6 +3,9 @@ using Systems.MineSystem.MinePlayerSystem.Controller;
 using Systems.MineSystem.MinePlayerSystem.Model;
 using Systems.MineSystem.MinePlayerSystem.Scriptable;
 using Systems.MineSystem.MinePlayerSystem.Service;
+using Systems.MineSystem.MinePlayerSystem.SubSystem.PlayerAnimationSubSystem.Model;
+using Systems.MineSystem.MinePlayerSystem.SubSystem.PlayerAnimationSubSystem.Scriptable;
+using Systems.MineSystem.MinePlayerSystem.SubSystem.PlayerAnimationSubSystem.Service;
 using Systems.MineSystem.MinePlayerSystem.View;
 using UnityEngine;
 using Zenject;
@@ -15,6 +18,9 @@ namespace Systems.MineSystem.MinePlayerSystem.Installer
         [SerializeField] private MinePlayerDataConfig playerDataConfig;
         [SerializeField] private MinePlayerScriptable playerScriptable;
         [SerializeField] private PlayerView playerPrefab;
+        [SerializeField]
+        private PlayerAnimationLibraryScriptable playerAnimationLibrary;
+        [SerializeField] private string animationProfileId;
         
         public override void InstallBindings()
         {
@@ -36,15 +42,34 @@ namespace Systems.MineSystem.MinePlayerSystem.Installer
                 .AsSingle()
                 .NonLazy();
 
-            if (playerPrefab == null)
+            // Input can exist before a playable character prefab is configured.
+            if (playerPrefab == null ||
+                playerAnimationLibrary == null ||
+                !playerAnimationLibrary.TryGetProfile(
+                    animationProfileId,
+                    out var animationProfile))
                 return;
 
+            Container.Bind<PlayerAnimationLibraryScriptable>()
+                .FromScriptableObject(playerAnimationLibrary)
+                .AsSingle();
+            Container.Bind<AnimationProfile>()
+                .FromInstance(animationProfile)
+                .AsSingle();
             Container.Bind<PlayerView>()
                 .FromComponentInNewPrefab(playerPrefab)
                 .AsSingle()
                 .NonLazy();
-            Container.BindInterfacesAndSelfTo<PlayerMovementService>()
-                .AsSingle();
+
+            Container.Bind<PlayerGroundingService>().AsSingle();
+            Container.Bind<PlayerFallService>().AsSingle();
+            Container.Bind<PlayerDeathService>().AsSingle();
+            Container.Bind<PlayerClimbService>().AsSingle();
+            Container.BindInterfacesAndSelfTo<PlayerActionService>().AsSingle();
+            Container.Bind<PlayerMovementService>().AsSingle();
+            Container.BindInterfacesAndSelfTo<PlayerAnimationService>()
+                .AsSingle()
+                .NonLazy();
             Container.BindInterfacesAndSelfTo<PlayerModel>().AsSingle();
             Container.BindInterfacesAndSelfTo<PlayerController>()
                 .AsSingle()

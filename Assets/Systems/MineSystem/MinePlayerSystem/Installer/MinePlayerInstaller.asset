@@ -14,3 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Systems.MineSystem.MinePlayerSystem.Installer.MinePlayerInstaller
   playerDataConfig: {fileID: 11400000, guid: d18f3f3aac5b2744b8633d2b6788e8e4, type: 2}
   playerScriptable: {fileID: 11400000, guid: b66288939f6a8bd48b625e0610f5a296, type: 2}
+  playerPrefab: {fileID: 79341551250305892, guid: d7495df4e477988458bb28f2e105985d, type: 3}
+  playerAnimationLibrary: {fileID: 11400000, guid: 4c2eacca621260e4cba32eead4b42c6e, type: 2}
+  animationProfileId: DefaultPlayer
