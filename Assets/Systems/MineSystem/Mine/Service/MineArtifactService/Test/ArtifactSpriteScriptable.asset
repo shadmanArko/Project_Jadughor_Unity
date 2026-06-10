@@ -17,134 +17,134 @@ MonoBehaviour:
     site: 0
     artifacts:
     - definitionId: AncientNativeAmericanClub
-      worldSprite: {fileID: 21300000, guid: 6a503f44fbc79704b97eadf0a239b010, type: 3}
+      worldSprite: {fileID: 21300000, guid: 363a194a8264c894692d1e39b6145b55, type: 3}
       inventorySprite: {fileID: 21300000, guid: 6a503f44fbc79704b97eadf0a239b010, type: 3}
       detailSprite: {fileID: 21300000, guid: eeb42330c58869040915f8658ab70cb8, type: 3}
     - definitionId: ClassicalNativeAmericanTomahawk
-      worldSprite: {fileID: 21300000, guid: 6a503f44fbc79704b97eadf0a239b010, type: 3}
+      worldSprite: {fileID: 21300000, guid: 363a194a8264c894692d1e39b6145b55, type: 3}
       inventorySprite: {fileID: 21300000, guid: 6a503f44fbc79704b97eadf0a239b010, type: 3}
       detailSprite: {fileID: 21300000, guid: be6cdc82c6ca1054eab05d47d1171239, type: 3}
     - definitionId: MedievalNativeAmericanTomahawk
-      worldSprite: {fileID: 21300000, guid: 6a503f44fbc79704b97eadf0a239b010, type: 3}
+      worldSprite: {fileID: 21300000, guid: 363a194a8264c894692d1e39b6145b55, type: 3}
       inventorySprite: {fileID: 21300000, guid: 6a503f44fbc79704b97eadf0a239b010, type: 3}
       detailSprite: {fileID: 21300000, guid: 48e48717778a9374f98f1775280ea2c8, type: 3}
     - definitionId: RenaissanceNativeAmericanTomahawk
-      worldSprite: {fileID: 21300000, guid: 6a503f44fbc79704b97eadf0a239b010, type: 3}
+      worldSprite: {fileID: 21300000, guid: 363a194a8264c894692d1e39b6145b55, type: 3}
       inventorySprite: {fileID: 21300000, guid: 6a503f44fbc79704b97eadf0a239b010, type: 3}
       detailSprite: {fileID: 21300000, guid: 8a4d3a7cf46ef90459bd1d0ab9292c85, type: 3}
     - definitionId: RenaissanceAmericanCutlass
-      worldSprite: {fileID: 21300000, guid: 6a503f44fbc79704b97eadf0a239b010, type: 3}
+      worldSprite: {fileID: 21300000, guid: 363a194a8264c894692d1e39b6145b55, type: 3}
       inventorySprite: {fileID: 21300000, guid: 6a503f44fbc79704b97eadf0a239b010, type: 3}
       detailSprite: {fileID: 21300000, guid: fe955ffa261481348b92e22179461445, type: 3}
     - definitionId: IndustrialAmericanMusket
-      worldSprite: {fileID: 21300000, guid: 6a503f44fbc79704b97eadf0a239b010, type: 3}
+      worldSprite: {fileID: 21300000, guid: 363a194a8264c894692d1e39b6145b55, type: 3}
       inventorySprite: {fileID: 21300000, guid: 6a503f44fbc79704b97eadf0a239b010, type: 3}
       detailSprite: {fileID: 21300000, guid: d76df94864406f64188b46377a75da94, type: 3}
     - definitionId: ModernAmericanRifle
-      worldSprite: {fileID: 21300000, guid: 6a503f44fbc79704b97eadf0a239b010, type: 3}
+      worldSprite: {fileID: 21300000, guid: 363a194a8264c894692d1e39b6145b55, type: 3}
       inventorySprite: {fileID: 21300000, guid: 6a503f44fbc79704b97eadf0a239b010, type: 3}
       detailSprite: {fileID: 21300000, guid: 51bbcc50530c916418141225848a3ef6, type: 3}
     - definitionId: ClassicalNativeAmericanWarShield
-      worldSprite: {fileID: 21300000, guid: 6a503f44fbc79704b97eadf0a239b010, type: 3}
+      worldSprite: {fileID: 21300000, guid: 363a194a8264c894692d1e39b6145b55, type: 3}
       inventorySprite: {fileID: 21300000, guid: 6a503f44fbc79704b97eadf0a239b010, type: 3}
       detailSprite: {fileID: 21300000, guid: 4706765206bc1e843a3dc648e1ffb9fc, type: 3}
     - definitionId: MedievalNativeAmericanWarShield
-      worldSprite: {fileID: 21300000, guid: 6a503f44fbc79704b97eadf0a239b010, type: 3}
+      worldSprite: {fileID: 21300000, guid: 363a194a8264c894692d1e39b6145b55, type: 3}
       inventorySprite: {fileID: 21300000, guid: 6a503f44fbc79704b97eadf0a239b010, type: 3}
       detailSprite: {fileID: 21300000, guid: 8a41ad374db8bc44eacd50a2a2c2abc8, type: 3}
     - definitionId: AncientNativeAmericanBowl
-      worldSprite: {fileID: 21300000, guid: 6a503f44fbc79704b97eadf0a239b010, type: 3}
+      worldSprite: {fileID: 21300000, guid: 363a194a8264c894692d1e39b6145b55, type: 3}
       inventorySprite: {fileID: 21300000, guid: 6a503f44fbc79704b97eadf0a239b010, type: 3}
       detailSprite: {fileID: 21300000, guid: 19767177d9286d2438894c98b79470d5, type: 3}
     - definitionId: ClassicalNativeAmericanBowl
-      worldSprite: {fileID: 21300000, guid: 6a503f44fbc79704b97eadf0a239b010, type: 3}
+      worldSprite: {fileID: 21300000, guid: 363a194a8264c894692d1e39b6145b55, type: 3}
       inventorySprite: {fileID: 21300000, guid: 6a503f44fbc79704b97eadf0a239b010, type: 3}
       detailSprite: {fileID: 21300000, guid: 43d3f070f47ac0c45bd1cdfafa9ba172, type: 3}
     - definitionId: MedievalNativeAmericanBowl
-      worldSprite: {fileID: 21300000, guid: 6a503f44fbc79704b97eadf0a239b010, type: 3}
+      worldSprite: {fileID: 21300000, guid: 363a194a8264c894692d1e39b6145b55, type: 3}
       inventorySprite: {fileID: 21300000, guid: 6a503f44fbc79704b97eadf0a239b010, type: 3}
       detailSprite: {fileID: 21300000, guid: 60b1fa52c2d18444d9afa49ce77608fb, type: 3}
     - definitionId: RenaissanceAmericanBowl
-      worldSprite: {fileID: 21300000, guid: 6a503f44fbc79704b97eadf0a239b010, type: 3}
+      worldSprite: {fileID: 21300000, guid: 363a194a8264c894692d1e39b6145b55, type: 3}
       inventorySprite: {fileID: 21300000, guid: 6a503f44fbc79704b97eadf0a239b010, type: 3}
       detailSprite: {fileID: 21300000, guid: 3d63a1e1009ac4947a7fbc31c9566271, type: 3}
     - definitionId: MedievalNativeAmericanLeatherChestplate
-      worldSprite: {fileID: 21300000, guid: 6a503f44fbc79704b97eadf0a239b010, type: 3}
+      worldSprite: {fileID: 21300000, guid: 363a194a8264c894692d1e39b6145b55, type: 3}
       inventorySprite: {fileID: 21300000, guid: 6a503f44fbc79704b97eadf0a239b010, type: 3}
       detailSprite: {fileID: 21300000, guid: 4d2bb2c6033c4324da94a6241f5be8b0, type: 3}
     - definitionId: RenaissanceAmericanIronChestplate
-      worldSprite: {fileID: 21300000, guid: 6a503f44fbc79704b97eadf0a239b010, type: 3}
+      worldSprite: {fileID: 21300000, guid: 363a194a8264c894692d1e39b6145b55, type: 3}
       inventorySprite: {fileID: 21300000, guid: 6a503f44fbc79704b97eadf0a239b010, type: 3}
       detailSprite: {fileID: 21300000, guid: 39126b61f2a903f4c95c655eddef6986, type: 3}
     - definitionId: IndustrialAmericanInfantryGear
-      worldSprite: {fileID: 21300000, guid: 6a503f44fbc79704b97eadf0a239b010, type: 3}
+      worldSprite: {fileID: 21300000, guid: 363a194a8264c894692d1e39b6145b55, type: 3}
       inventorySprite: {fileID: 21300000, guid: 6a503f44fbc79704b97eadf0a239b010, type: 3}
       detailSprite: {fileID: 21300000, guid: bee2c5bc30624764ba3eee46365a81c3, type: 3}
     - definitionId: AncientNativeAmericanWampumBeadCurrency
-      worldSprite: {fileID: 21300000, guid: 6a503f44fbc79704b97eadf0a239b010, type: 3}
+      worldSprite: {fileID: 21300000, guid: 363a194a8264c894692d1e39b6145b55, type: 3}
       inventorySprite: {fileID: 21300000, guid: 6a503f44fbc79704b97eadf0a239b010, type: 3}
       detailSprite: {fileID: 21300000, guid: a14f901e9c4f91d4f8864053c2cc7ac2, type: 3}
     - definitionId: ClassicalNativeAmericanShellCurrency
-      worldSprite: {fileID: 21300000, guid: 6a503f44fbc79704b97eadf0a239b010, type: 3}
+      worldSprite: {fileID: 21300000, guid: 363a194a8264c894692d1e39b6145b55, type: 3}
       inventorySprite: {fileID: 21300000, guid: 6a503f44fbc79704b97eadf0a239b010, type: 3}
       detailSprite: {fileID: 21300000, guid: 8e19decec9854504b84829fe6beddbbe, type: 3}
     - definitionId: MedievalNativeAmericanWampumBeadCurrency
-      worldSprite: {fileID: 21300000, guid: 6a503f44fbc79704b97eadf0a239b010, type: 3}
+      worldSprite: {fileID: 21300000, guid: 363a194a8264c894692d1e39b6145b55, type: 3}
       inventorySprite: {fileID: 21300000, guid: 6a503f44fbc79704b97eadf0a239b010, type: 3}
       detailSprite: {fileID: 21300000, guid: 0446cc8882ceba340a061aac649236df, type: 3}
     - definitionId: AncientNativeAmericanVase
-      worldSprite: {fileID: 21300000, guid: 6a503f44fbc79704b97eadf0a239b010, type: 3}
+      worldSprite: {fileID: 21300000, guid: 363a194a8264c894692d1e39b6145b55, type: 3}
       inventorySprite: {fileID: 21300000, guid: 6a503f44fbc79704b97eadf0a239b010, type: 3}
       detailSprite: {fileID: 21300000, guid: ecd176689ffd36144a521aff71124983, type: 3}
     - definitionId: MedievalNativeAmericanVase
-      worldSprite: {fileID: 21300000, guid: 6a503f44fbc79704b97eadf0a239b010, type: 3}
+      worldSprite: {fileID: 21300000, guid: 363a194a8264c894692d1e39b6145b55, type: 3}
       inventorySprite: {fileID: 21300000, guid: 6a503f44fbc79704b97eadf0a239b010, type: 3}
       detailSprite: {fileID: 21300000, guid: d7b86a17745c5d341ab13f563a69668c, type: 3}
     - definitionId: RenaissanceAmericanPorcelainVase
-      worldSprite: {fileID: 21300000, guid: 6a503f44fbc79704b97eadf0a239b010, type: 3}
+      worldSprite: {fileID: 21300000, guid: 363a194a8264c894692d1e39b6145b55, type: 3}
       inventorySprite: {fileID: 21300000, guid: 6a503f44fbc79704b97eadf0a239b010, type: 3}
       detailSprite: {fileID: 21300000, guid: 6f9b19e9500a10c40898ab777da0ead0, type: 3}
     - definitionId: IndustrialAmericanPorcelainVase
-      worldSprite: {fileID: 21300000, guid: 6a503f44fbc79704b97eadf0a239b010, type: 3}
+      worldSprite: {fileID: 21300000, guid: 363a194a8264c894692d1e39b6145b55, type: 3}
       inventorySprite: {fileID: 21300000, guid: 6a503f44fbc79704b97eadf0a239b010, type: 3}
       detailSprite: {fileID: 21300000, guid: 69a4af835c768f042b4864c878d6910c, type: 3}
     - definitionId: AncientNativeAmericanClayHumanFigurine
-      worldSprite: {fileID: 21300000, guid: 6a503f44fbc79704b97eadf0a239b010, type: 3}
+      worldSprite: {fileID: 21300000, guid: 363a194a8264c894692d1e39b6145b55, type: 3}
       inventorySprite: {fileID: 21300000, guid: 6a503f44fbc79704b97eadf0a239b010, type: 3}
       detailSprite: {fileID: 21300000, guid: 718f1306268e03f4b8f99f44af53215d, type: 3}
     - definitionId: ClassicalNativeAmericanBeadNecklace
-      worldSprite: {fileID: 21300000, guid: 6a503f44fbc79704b97eadf0a239b010, type: 3}
+      worldSprite: {fileID: 21300000, guid: 363a194a8264c894692d1e39b6145b55, type: 3}
       inventorySprite: {fileID: 21300000, guid: 6a503f44fbc79704b97eadf0a239b010, type: 3}
       detailSprite: {fileID: 21300000, guid: 9adfa3410acd3114f81db527dc054c6f, type: 3}
     - definitionId: ClassicalNativeAmericanShellNecklace
-      worldSprite: {fileID: 21300000, guid: 6a503f44fbc79704b97eadf0a239b010, type: 3}
+      worldSprite: {fileID: 21300000, guid: 363a194a8264c894692d1e39b6145b55, type: 3}
       inventorySprite: {fileID: 21300000, guid: 6a503f44fbc79704b97eadf0a239b010, type: 3}
       detailSprite: {fileID: 21300000, guid: 6fbeb58ebcd5f684b97f8320b864dfa5, type: 3}
     - definitionId: IndustrialAmericanFurBoots
-      worldSprite: {fileID: 21300000, guid: 6a503f44fbc79704b97eadf0a239b010, type: 3}
+      worldSprite: {fileID: 21300000, guid: 363a194a8264c894692d1e39b6145b55, type: 3}
       inventorySprite: {fileID: 21300000, guid: 6a503f44fbc79704b97eadf0a239b010, type: 3}
       detailSprite: {fileID: 21300000, guid: defc0987cf0670c4fa17caefec6668a2, type: 3}
     - definitionId: MedievalNativeAmericanClayPrisonerFigurine
-      worldSprite: {fileID: 21300000, guid: 6a503f44fbc79704b97eadf0a239b010, type: 3}
+      worldSprite: {fileID: 21300000, guid: 363a194a8264c894692d1e39b6145b55, type: 3}
       inventorySprite: {fileID: 21300000, guid: 6a503f44fbc79704b97eadf0a239b010, type: 3}
       detailSprite: {fileID: 21300000, guid: ae4862bc86ba10b418796a72483475c5, type: 3}
     - definitionId: MedievalNativeAmericanGemNecklace
-      worldSprite: {fileID: 21300000, guid: 6a503f44fbc79704b97eadf0a239b010, type: 3}
+      worldSprite: {fileID: 21300000, guid: 363a194a8264c894692d1e39b6145b55, type: 3}
       inventorySprite: {fileID: 21300000, guid: 6a503f44fbc79704b97eadf0a239b010, type: 3}
       detailSprite: {fileID: 21300000, guid: b59ada98ce7e92640a33e93bdf02cf83, type: 3}
     - definitionId: MedievalNativeAmericanLeatherBoots
-      worldSprite: {fileID: 21300000, guid: 6a503f44fbc79704b97eadf0a239b010, type: 3}
+      worldSprite: {fileID: 21300000, guid: 363a194a8264c894692d1e39b6145b55, type: 3}
       inventorySprite: {fileID: 21300000, guid: 6a503f44fbc79704b97eadf0a239b010, type: 3}
       detailSprite: {fileID: 21300000, guid: 933b81cc9175a2c4ebc9b1e77fd46e11, type: 3}
     - definitionId: ModernAmericanRubberBoots
-      worldSprite: {fileID: 21300000, guid: 6a503f44fbc79704b97eadf0a239b010, type: 3}
+      worldSprite: {fileID: 21300000, guid: 363a194a8264c894692d1e39b6145b55, type: 3}
       inventorySprite: {fileID: 21300000, guid: 6a503f44fbc79704b97eadf0a239b010, type: 3}
       detailSprite: {fileID: 21300000, guid: 685a2eae8a6f48a419bde0a8ed3241d2, type: 3}
     - definitionId: RenaissanceAmericanSilverCoin
-      worldSprite: {fileID: 21300000, guid: 6a503f44fbc79704b97eadf0a239b010, type: 3}
+      worldSprite: {fileID: 21300000, guid: 363a194a8264c894692d1e39b6145b55, type: 3}
       inventorySprite: {fileID: 21300000, guid: 6a503f44fbc79704b97eadf0a239b010, type: 3}
       detailSprite: {fileID: 21300000, guid: f8247c684795dc4449b895baf1265396, type: 3}
     - definitionId: ClassicalNativeAmericanWoodenSword
-      worldSprite: {fileID: 21300000, guid: 6a503f44fbc79704b97eadf0a239b010, type: 3}
+      worldSprite: {fileID: 21300000, guid: 363a194a8264c894692d1e39b6145b55, type: 3}
       inventorySprite: {fileID: 21300000, guid: 6a503f44fbc79704b97eadf0a239b010, type: 3}
       detailSprite: {fileID: 21300000, guid: 8e2aec6ed17a3a8458ac5acb2b13252b, type: 3}

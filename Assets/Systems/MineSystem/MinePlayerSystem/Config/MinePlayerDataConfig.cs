@@ -12,6 +12,14 @@ namespace Systems.MineSystem.MinePlayerSystem.Config
         public float stamina;
         public float maxStamina;
 
+        [Header("Default Movement Properties")]
+        [Min(0f)] public float moveSpeed = 4f;
+        [Min(0f)] public float climbSpeed = 3f;
+
+        [Header("Default Action Properties")]
+        [Min(0f)] public float miningSpeed = 1f;
+        [Min(0f)] public float attackSpeed = 1f;
+
         [Header("Default Collectable Properties")]
         [Min(0f)] public float collectablePullRadius = 0.5f;
 
