@@ -10,6 +10,8 @@ namespace Systems.MineSystem.MinePlayerSystem.View
 {
     public sealed class PlayerView : MonoBehaviour
     {
+        private static PhysicsMaterial2D _frictionlessMaterial;
+
         [SerializeField] private Rigidbody2D body;
         [SerializeField] private Collider2D playerCollider;
         [SerializeField] private PlayerAnimationController animationController;
@@ -30,6 +32,8 @@ namespace Systems.MineSystem.MinePlayerSystem.View
         public void Configure(LayerMask climbableLayerMask)
         {
             _climbableLayerMask = climbableLayerMask;
+            playerCollider.sharedMaterial = GetFrictionlessMaterial();
+
             var playerLayer = LayerMask.NameToLayer("Player");
             if (playerLayer >= 0)
                 gameObject.layer = playerLayer;
@@ -84,6 +88,21 @@ namespace Systems.MineSystem.MinePlayerSystem.View
         private static bool IsInLayerMask(int layer, LayerMask layerMask)
         {
             return (layerMask.value & (1 << layer)) != 0;
+        }
+
+        private static PhysicsMaterial2D GetFrictionlessMaterial()
+        {
+            if (_frictionlessMaterial != null)
+                return _frictionlessMaterial;
+
+            _frictionlessMaterial = new PhysicsMaterial2D(
+                "Player Frictionless")
+            {
+                friction = 0f,
+                bounciness = 0f,
+                hideFlags = HideFlags.HideAndDontSave
+            };
+            return _frictionlessMaterial;
         }
     }
 }

@@ -22,9 +22,9 @@ MonoBehaviour:
     maxStamina:
       value: 100
     moveSpeed:
-      value: 0.25
+      value: 0.5
     climbSpeed:
-      value: 3
+      value: 0.1
     miningSpeed:
       value: 1
     attackSpeed:

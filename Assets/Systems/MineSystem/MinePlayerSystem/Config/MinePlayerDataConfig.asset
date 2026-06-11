@@ -16,16 +16,16 @@ MonoBehaviour:
   maxHealth: 100
   stamina: 100
   maxStamina: 100
-  moveSpeed: 0.25
+  moveSpeed: 0.5
   climbSpeed: 0.1
   normalGravityScale: 0.5
   wallLayerMask:
     serializedVersion: 2
     m_Bits: 128
-  groundProbeThickness: 0.04
-  groundProbeDistance: 0.06
-  groundProbeWidthInset: 0.04
-  minimumGroundNormalY: 0.5
+  groundProbeThickness: 0.001
+  groundProbeDistance: 0.001
+  groundProbeWidthInset: 0
+  minimumGroundNormalY: 0
   climbableLayerMask:
     serializedVersion: 2
     m_Bits: 0

@@ -28,13 +28,18 @@ MonoBehaviour:
         triggerName: 
         folderPath: 
         animationSprites:
+        - {fileID: 8920526695142154973, guid: 2f8d26d839b24c948a35f0f8ece3c665, type: 3}
+        - {fileID: 241196702675980024, guid: 2f8d26d839b24c948a35f0f8ece3c665, type: 3}
+        - {fileID: 5298001271715712057, guid: 2f8d26d839b24c948a35f0f8ece3c665, type: 3}
+        - {fileID: 880893085980887561, guid: 2f8d26d839b24c948a35f0f8ece3c665, type: 3}
+        - {fileID: -574405933558185530, guid: 2f8d26d839b24c948a35f0f8ece3c665, type: 3}
         - {fileID: -1665219619865335194, guid: 2f8d26d839b24c948a35f0f8ece3c665, type: 3}
         - {fileID: -2423754757253830049, guid: 2f8d26d839b24c948a35f0f8ece3c665, type: 3}
         - {fileID: -531220011801599222, guid: 2f8d26d839b24c948a35f0f8ece3c665, type: 3}
         - {fileID: -526987079599839996, guid: 2f8d26d839b24c948a35f0f8ece3c665, type: 3}
         - {fileID: -2032356011940602047, guid: 2f8d26d839b24c948a35f0f8ece3c665, type: 3}
-        speed: 1
-        frameRate: 5
+        speed: 0.75
+        frameRate: 10
         playOnlyOnce: 0
         flipX: 1
         flipY: 0
