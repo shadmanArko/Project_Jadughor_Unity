@@ -1,4 +1,5 @@
 using System;
+using Systems.MineSystem.Mine.View;
 using Systems.MineSystem.MinePlayerSystem.Config;
 using Systems.MineSystem.MinePlayerSystem.Model;
 using Systems.MineSystem.MinePlayerSystem.Scriptable;
@@ -11,21 +12,25 @@ namespace Systems.MineSystem.MinePlayerSystem.Service
     public sealed class PlayerClimbService : IPlayerFixedTickService
     {
         private readonly PlayerView _view;
+        private readonly MineView _mineView;
         private readonly RuntimeDataScriptable _runtime;
         private readonly MinePlayerScriptable _playerData;
         private readonly MinePlayerDataConfig _config;
         private readonly PlayerFallService _fallService;
 
         private bool _toggleRequested;
+        private bool _wasGrounded;
 
         public PlayerClimbService(
             PlayerView view,
+            MineView mineView,
             RuntimeDataScriptable runtime,
             MinePlayerScriptable playerData,
             MinePlayerDataConfig config,
             PlayerFallService fallService)
         {
             _view = view;
+            _mineView = mineView;
             _runtime = runtime;
             _playerData = playerData;
             _config = config;
@@ -39,13 +44,16 @@ namespace Systems.MineSystem.MinePlayerSystem.Service
 
         public void OnFixedTick()
         {
-            _runtime.isInsideClimbable.Value = _view.IsInsideClimbable;
+            var isInsideClimbable = IsInsideClimbableCell();
+            var isGrounded = _runtime.isGrounded.Value;
+            _runtime.isInsideClimbable.Value = isInsideClimbable;
 
             if (_runtime.lifeState.Value == PlayerLifeState.Dead)
             {
                 if (_runtime.isClimbing.Value)
                     EndClimb();
                 _toggleRequested = false;
+                _wasGrounded = isGrounded;
                 return;
             }
 
@@ -59,9 +67,16 @@ namespace Systems.MineSystem.MinePlayerSystem.Service
             }
 
             if (!_runtime.isClimbing.Value)
+            {
+                _wasGrounded = isGrounded;
                 return;
+            }
 
-            if (!_view.IsInsideClimbable ||
+            var landed = !_wasGrounded && isGrounded;
+            _wasGrounded = isGrounded;
+
+            if (landed ||
+                !isInsideClimbable ||
                 _runtime.HasRestriction(PlayerRestrictionFlags.Climbing))
             {
                 EndClimb();
@@ -87,14 +102,27 @@ namespace Systems.MineSystem.MinePlayerSystem.Service
 
         private bool CanStartClimb()
         {
-            return _view.IsInsideClimbable &&
+            return _runtime.isInsideClimbable.Value &&
                    _runtime.canClimb.Value &&
                    !_runtime.HasRestriction(PlayerRestrictionFlags.Climbing);
+        }
+
+        private bool IsInsideClimbableCell()
+        {
+            var wallTileMap = _mineView.wallTileMap;
+            if (wallTileMap == null)
+                return false;
+
+            var cellPosition = wallTileMap.WorldToCell(
+                _view.PlayerCollider.bounds.center);
+            return cellPosition != Vector3Int.zero &&
+                   !wallTileMap.HasTile(cellPosition);
         }
 
         private void BeginClimb()
         {
             _runtime.isClimbing.Value = true;
+            _wasGrounded = _runtime.isGrounded.Value;
             _runtime.locomotionState.Value =
                 PlayerLocomotionState.Climbing;
             _view.SetGravityScale(0f);

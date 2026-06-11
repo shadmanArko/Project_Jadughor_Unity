@@ -24,14 +24,14 @@ namespace Systems.MineSystem.MinePlayerSystem.Service
 
         public void OnFixedTick()
         {
-            var bounds = _view.PlayerCollider.bounds;
+            var bounds = _view.GroundCollider.bounds;
             var width = Mathf.Max(
-                0.01f,
+                0.001f,
                 bounds.size.x - _config.groundProbeWidthInset * 2f);
-            var origin = new Vector2(
-                bounds.center.x,
-                bounds.min.y + _config.groundProbeThickness * 0.5f);
-            var size = new Vector2(width, _config.groundProbeThickness);
+            var origin = new Vector2(bounds.center.x, bounds.min.y);
+            var size = new Vector2(
+                width,
+                _config.groundProbeThickness);
             var filter = new ContactFilter2D
             {
                 useLayerMask = true,

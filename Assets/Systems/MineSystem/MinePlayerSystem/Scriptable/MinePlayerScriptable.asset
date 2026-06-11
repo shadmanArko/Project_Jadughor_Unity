@@ -24,7 +24,7 @@ MonoBehaviour:
     moveSpeed:
       value: 0.5
     climbSpeed:
-      value: 0.1
+      value: 1
     miningSpeed:
       value: 1
     attackSpeed:

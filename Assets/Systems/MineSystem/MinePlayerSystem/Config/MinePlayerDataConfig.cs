@@ -25,9 +25,6 @@ namespace Systems.MineSystem.MinePlayerSystem.Config
         [Min(0f)] public float groundProbeWidthInset = 0.04f;
         [Range(0f, 1f)] public float minimumGroundNormalY = 0.5f;
 
-        [Header("Climbing")]
-        public LayerMask climbableLayerMask;
-
         [Header("Fall Damage")]
         [Min(0f)] public float safeFallDistance = 2f;
         public List<PlayerFallDamageThreshold> fallDamageThresholds = new();

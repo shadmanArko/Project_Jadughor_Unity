@@ -25,8 +25,8 @@ MonoBehaviour:
       - id: locomotion.idle
         animationName: Idle
         stateName: Idle
-        triggerName: 
-        folderPath: 
+        triggerName:
+        folderPath:
         animationSprites:
         - {fileID: 8920526695142154973, guid: 2f8d26d839b24c948a35f0f8ece3c665, type: 3}
         - {fileID: 241196702675980024, guid: 2f8d26d839b24c948a35f0f8ece3c665, type: 3}
@@ -70,6 +70,20 @@ MonoBehaviour:
         restrictions: 0
     - category: 2
       animationData:
+      - id: climb.idle
+        animationName: Climb Idle
+        stateName: Climb
+        animationSprites:
+        - {fileID: 8566003432957444354, guid: 2f8d26d839b24c948a35f0f8ece3c665, type: 3}
+        speed: 1
+        frameRate: 2
+        playOnlyOnce: 0
+        flipX: 0
+        flipY: 0
+        isReversed: 0
+        interruptible: 1
+        allowFacingFlip: 1
+        restrictions: 0
       - id: climb.vertical
         animationName: Climb Vertical
         stateName: Climb

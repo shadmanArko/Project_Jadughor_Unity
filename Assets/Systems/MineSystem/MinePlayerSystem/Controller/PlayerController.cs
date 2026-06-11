@@ -63,7 +63,7 @@ namespace Systems.MineSystem.MinePlayerSystem.Controller
 
             InitializePlayerData();
             InitializeRuntimeData();
-            _view.Configure(_config.climbableLayerMask);
+            _view.Configure();
             SubscribeToInputSignals();
             SubscribeToAnimationEvents();
             _collectorRegistry.Register(this);

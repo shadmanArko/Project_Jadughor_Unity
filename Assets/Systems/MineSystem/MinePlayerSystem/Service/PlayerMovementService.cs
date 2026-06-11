@@ -24,8 +24,10 @@ namespace Systems.MineSystem.MinePlayerSystem.Service
         public void OnFixedTick()
         {
             var velocity = _view.Body.linearVelocity;
+            if (_runtimeData.isClimbing.Value)
+                return;
+
             if (_runtimeData.lifeState.Value == PlayerLifeState.Dead ||
-                _runtimeData.isClimbing.Value ||
                 !_runtimeData.canMove.Value ||
                 _runtimeData.HasRestriction(PlayerRestrictionFlags.Movement))
             {

@@ -17,18 +17,15 @@ MonoBehaviour:
   stamina: 100
   maxStamina: 100
   moveSpeed: 0.5
-  climbSpeed: 0.1
+  climbSpeed: 1
   normalGravityScale: 0.5
   wallLayerMask:
     serializedVersion: 2
     m_Bits: 128
-  groundProbeThickness: 0.001
-  groundProbeDistance: 0.001
-  groundProbeWidthInset: 0
-  minimumGroundNormalY: 0
-  climbableLayerMask:
-    serializedVersion: 2
-    m_Bits: 0
+  groundProbeThickness: 0.005
+  groundProbeDistance: 0.01
+  groundProbeWidthInset: 0.005
+  minimumGroundNormalY: 0.5
   safeFallDistance: 2
   fallDamageThresholds:
   - minimumDistance: 3

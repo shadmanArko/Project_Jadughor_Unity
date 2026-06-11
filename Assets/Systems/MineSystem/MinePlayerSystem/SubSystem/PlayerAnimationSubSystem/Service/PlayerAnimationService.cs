@@ -93,10 +93,14 @@ namespace Systems.MineSystem.MinePlayerSystem.SubSystem.PlayerAnimationSubSystem
 
             if (_runtime.isClimbing.Value)
             {
-                var input = _runtime.movementInput.Value;
-                return Mathf.Abs(input.x) > Mathf.Abs(input.y)
-                    ? PlayerAnimationId.ClimbHorizontal
-                    : PlayerAnimationId.ClimbVertical;
+                var velocity = _runtime.velocity.Value;
+                if (velocity.sqrMagnitude <= 0.0001f)
+                    return PlayerAnimationId.ClimbIdle;
+
+                if (Mathf.Abs(velocity.y) > 0.01f)
+                    return PlayerAnimationId.ClimbVertical;
+
+                return PlayerAnimationId.ClimbHorizontal;
             }
 
             return _runtime.locomotionState.Value switch

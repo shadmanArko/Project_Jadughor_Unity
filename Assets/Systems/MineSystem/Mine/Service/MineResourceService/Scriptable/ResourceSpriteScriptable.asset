@@ -17,12 +17,12 @@ MonoBehaviour:
     site: 0
     spriteDatas:
     - id: Coal
-      sprite: {fileID: 21300000, guid: 04af0dda3842fb74f88566955b823deb, type: 3}
+      sprite: {fileID: -9184849575763380954, guid: 0e5d88be3fd712c4ca7c3767a78cab3c, type: 3}
     - id: Iron
-      sprite: {fileID: 21300000, guid: 0d7cacf1bcfa35b48a3deed50f1c854e, type: 3}
+      sprite: {fileID: -7248506988745690217, guid: 0e5d88be3fd712c4ca7c3767a78cab3c, type: 3}
     - id: MilkyQuartz
-      sprite: {fileID: 21300000, guid: ca0ea225d3f55d04bbc27014a776c321, type: 3}
+      sprite: {fileID: 4648121433337308090, guid: 0e5d88be3fd712c4ca7c3767a78cab3c, type: 3}
     - id: PinkQuartz
-      sprite: {fileID: 21300000, guid: 7d393c948853f3a429093e829fb44dcc, type: 3}
+      sprite: {fileID: -2326459205579473762, guid: 0e5d88be3fd712c4ca7c3767a78cab3c, type: 3}
     - id: SmokyQuartz
-      sprite: {fileID: 21300000, guid: f3aac46179db2c3489d78425078479ac, type: 3}
+      sprite: {fileID: 3857046670083785811, guid: 0e5d88be3fd712c4ca7c3767a78cab3c, type: 3}
