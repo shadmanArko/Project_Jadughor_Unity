@@ -12,14 +12,12 @@ namespace Systems.MineSystem.CollectableSystem.Scriptable
         [Min(0f)] public float pullSpeed = 4f;
         [Min(0.02f)] public float collectorScanInterval = 0.15f;
         [Min(0.01f)] public float droppedItemGravityScale = 1f;
-        [Min(0f)] public float dummyPlayerMoveSpeed = 4f;
 
         [Header("Prefabs")]
         public CollectableView resourceCollectablePrefab;
         public CollectableView artifactCollectablePrefab;
         public CollectableView cellPlaceableCollectablePrefab;
         public CollectableView wallPlaceableCollectablePrefab;
-        public DummyCollectorView dummyCollectorPrefab;
 
         [Header("Resource Pool")]
         [Min(0)] public int resourceInitialSize = 12;

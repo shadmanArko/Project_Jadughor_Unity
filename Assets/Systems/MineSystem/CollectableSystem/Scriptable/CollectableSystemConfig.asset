@@ -15,12 +15,10 @@ MonoBehaviour:
   pullSpeed: 4
   collectorScanInterval: 0.15
   droppedItemGravityScale: 1
-  dummyPlayerMoveSpeed: 4
   resourceCollectablePrefab: {fileID: 7102770382158754302, guid: 1048a5fd38c545ef86345d09c51cf0b1, type: 3}
   artifactCollectablePrefab: {fileID: 7102770382158754302, guid: 20f4bfe44538429387f48112d955d765, type: 3}
   cellPlaceableCollectablePrefab: {fileID: 7102770382158754302, guid: 3dc513b78b4b485daef4fc6833ce75d4, type: 3}
   wallPlaceableCollectablePrefab: {fileID: 7102770382158754302, guid: 4a106fab1d7e4597baf854a19b90537e, type: 3}
-  dummyCollectorPrefab: {fileID: 6600000000000000006, guid: 59fd2f29539c4a289cb09b072175d2cc, type: 3}
   resourceInitialSize: 12
   resourceMaxSize: 100
   artifactInitialSize: 6

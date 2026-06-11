@@ -1,4 +1,7 @@
 using System;
+using Systems.MineSystem.CollectableSystem.Interface;
+using Systems.MineSystem.CollectableSystem.Service;
+using Systems.MineSystem.InventorySystem.Model;
 using Systems.MineSystem.MinePlayerSystem.Model;
 using Systems.MineSystem.MinePlayerSystem.Config;
 using Systems.MineSystem.MinePlayerSystem.Scriptable;
@@ -14,18 +17,28 @@ using Zenject;
 namespace Systems.MineSystem.MinePlayerSystem.Controller
 {
     [Serializable]
-    public sealed class PlayerController : IInitializable, IDisposable
+    public sealed class PlayerController :
+        ICollector,
+        IInitializable,
+        IDisposable
     {
         private readonly PlayerModel _model;
         private readonly PlayerView _view;
+        private readonly CollectorRegistry _collectorRegistry;
         private readonly MinePlayerDataConfig _config;
         private readonly MinePlayerScriptable _playerData;
         private readonly RuntimeDataScriptable _runtimeData;
         private readonly CompositeDisposable _disposables = new();
 
+        public Transform CollectionPoint => _view.CollectionPoint;
+        public Collider2D CollectorCollider => _view.PlayerCollider;
+        public IReadOnlyReactiveProperty<float> PullRadius =>
+            _playerData.playerData.collectablePullRadius;
+
         public PlayerController(
             PlayerModel model,
             PlayerView view,
+            CollectorRegistry collectorRegistry,
             MinePlayerDataConfig config,
             MinePlayerScriptable playerData,
             RuntimeDataScriptable runtimeData,
@@ -33,6 +46,7 @@ namespace Systems.MineSystem.MinePlayerSystem.Controller
         {
             _model = model;
             _view = view;
+            _collectorRegistry = collectorRegistry;
             _config = config;
             _playerData = playerData;
             _runtimeData = runtimeData;
@@ -52,6 +66,7 @@ namespace Systems.MineSystem.MinePlayerSystem.Controller
             _view.Configure(_config.climbableLayerMask);
             SubscribeToInputSignals();
             SubscribeToAnimationEvents();
+            _collectorRegistry.Register(this);
         }
 
         private void InitializePlayerData()
@@ -117,10 +132,23 @@ namespace Systems.MineSystem.MinePlayerSystem.Controller
                 .Subscribe(_model.HandleAnimationCompleted)
                 .AddTo(_disposables);
         }
+
+        public bool CanCollect(Item item)
+        {
+            return _model.CanCollect(item);
+        }
+
+        public bool TryCollect(Item item)
+        {
+            return _model.TryCollect(item);
+        }
         
         public void Dispose()
         {
-            _view.Stop();
+            _collectorRegistry.Unregister(this);
+            if (_view != null)
+                _view.Stop();
+
             _disposables.Dispose();
         }
     }

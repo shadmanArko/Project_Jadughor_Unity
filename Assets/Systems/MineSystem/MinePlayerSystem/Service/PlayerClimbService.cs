@@ -1,3 +1,4 @@
+using System;
 using Systems.MineSystem.MinePlayerSystem.Config;
 using Systems.MineSystem.MinePlayerSystem.Model;
 using Systems.MineSystem.MinePlayerSystem.Scriptable;
@@ -6,6 +7,7 @@ using UnityEngine;
 
 namespace Systems.MineSystem.MinePlayerSystem.Service
 {
+    [Serializable]
     public sealed class PlayerClimbService : IPlayerFixedTickService
     {
         private readonly PlayerView _view;

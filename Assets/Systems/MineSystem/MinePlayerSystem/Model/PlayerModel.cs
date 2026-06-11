@@ -1,3 +1,5 @@
+using Systems.MineSystem.InventorySystem.Interface;
+using Systems.MineSystem.InventorySystem.Model;
 using Systems.MineSystem.MinePlayerSystem.Service;
 using Systems.MineSystem.MinePlayerSystem.Scriptable;
 using Systems.MineSystem.MinePlayerSystem.SubSystem.PlayerAnimationSubSystem.Model;
@@ -15,6 +17,7 @@ namespace Systems.MineSystem.MinePlayerSystem.Model
         private readonly PlayerClimbService _climbService;
         private readonly PlayerActionService _actionService;
         private readonly PlayerMovementService _movementService;
+        private readonly IInventoryService _inventory;
 
         public PlayerModel(
             RuntimeDataScriptable runtime,
@@ -23,7 +26,8 @@ namespace Systems.MineSystem.MinePlayerSystem.Model
             PlayerDeathService deathService,
             PlayerClimbService climbService,
             PlayerActionService actionService,
-            PlayerMovementService movementService)
+            PlayerMovementService movementService,
+            IInventoryService inventory)
         {
             _runtime = runtime;
             _groundingService = groundingService;
@@ -32,6 +36,17 @@ namespace Systems.MineSystem.MinePlayerSystem.Model
             _climbService = climbService;
             _actionService = actionService;
             _movementService = movementService;
+            _inventory = inventory;
+        }
+
+        public bool CanCollect(Item item)
+        {
+            return _inventory.CanAdd(item);
+        }
+
+        public bool TryCollect(Item item)
+        {
+            return _inventory.TryAdd(item);
         }
 
         public void SetMovementInput(Vector2 direction)

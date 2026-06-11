@@ -55,14 +55,6 @@ namespace Systems.MineSystem.CollectableSystem.Installer
                 .AsSingle();
             Container.BindInterfacesAndSelfTo<MineItemReleaseService>()
                 .AsSingle();
-
-            Container.Bind<DummyCollectorView>()
-                .FromComponentInNewPrefab(config.dummyCollectorPrefab)
-                .AsSingle()
-                .NonLazy();
-            Container.BindInterfacesAndSelfTo<DummyCollectorController>()
-                .AsSingle()
-                .NonLazy();
         }
 
         private void BindPools()

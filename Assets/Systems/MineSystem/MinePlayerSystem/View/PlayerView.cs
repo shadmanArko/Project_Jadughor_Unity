@@ -14,6 +14,7 @@ namespace Systems.MineSystem.MinePlayerSystem.View
 
         [SerializeField] private Rigidbody2D body;
         [SerializeField] private Collider2D playerCollider;
+        [SerializeField] private Transform collectionPoint;
         [SerializeField] private PlayerAnimationController animationController;
 
         private readonly HashSet<Collider2D> _climbableOverlaps = new();
@@ -21,6 +22,8 @@ namespace Systems.MineSystem.MinePlayerSystem.View
 
         public Rigidbody2D Body => body;
         public Collider2D PlayerCollider => playerCollider;
+        public Transform CollectionPoint =>
+            collectionPoint != null ? collectionPoint : transform;
         public PlayerAnimationController AnimationController =>
             animationController;
         public IObservable<PlayerAnimationMarkerEvent> AnimationMarkers =>
