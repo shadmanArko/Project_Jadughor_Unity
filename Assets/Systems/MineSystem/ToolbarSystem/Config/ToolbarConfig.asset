@@ -17,4 +17,4 @@ MonoBehaviour:
   selectedSlotSprite: {fileID: 21300000, guid: a7e68c9183d81544799b8e7682d99c06, type: 3}
   toolbarSlotCount: 12
   mouseWheelUpSelectsNext: 0
-  mouseWheelThreshold: 0.1
+  mouseWheelThreshold: 0.05
