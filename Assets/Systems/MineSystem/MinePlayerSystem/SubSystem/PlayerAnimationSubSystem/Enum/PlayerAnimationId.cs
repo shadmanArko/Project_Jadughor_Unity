@@ -1,4 +1,4 @@
-namespace Systems.MineSystem.MinePlayerSystem.SubSystem.PlayerAnimationSubSystem.Model
+namespace Systems.MineSystem.MinePlayerSystem.SubSystem.PlayerAnimationSubSystem.Enum
 {
     public static class PlayerAnimationId
     {

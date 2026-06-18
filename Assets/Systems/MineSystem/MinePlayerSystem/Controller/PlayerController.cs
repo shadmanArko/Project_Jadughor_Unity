@@ -6,7 +6,7 @@ using Systems.MineSystem.MinePlayerSystem.Model;
 using Systems.MineSystem.MinePlayerSystem.Config;
 using Systems.MineSystem.MinePlayerSystem.Scriptable;
 using Systems.MineSystem.MinePlayerSystem.Signal.InputSignal;
-using Systems.MineSystem.MinePlayerSystem.SubSystem.PlayerAnimationSubSystem.Model;
+using Systems.MineSystem.MinePlayerSystem.SubSystem.PlayerAnimationSubSystem.Enum;
 using Systems.MineSystem.MinePlayerSystem.View;
 using Systems.Utilities.EventBus;
 using UniRx;
@@ -26,21 +26,21 @@ namespace Systems.MineSystem.MinePlayerSystem.Controller
         private readonly PlayerView _view;
         private readonly CollectorRegistry _collectorRegistry;
         private readonly MinePlayerDataConfig _config;
-        private readonly MinePlayerScriptable _playerData;
+        private readonly MinePlayerScriptable _playerScriptable;
         private readonly RuntimeDataScriptable _runtimeData;
         private readonly CompositeDisposable _disposables = new();
 
         public Transform CollectionPoint => _view.CollectionPoint;
         public Collider2D CollectorCollider => _view.PlayerCollider;
         public IReadOnlyReactiveProperty<float> PullRadius =>
-            _playerData.playerData.collectablePullRadius;
+            _playerScriptable.playerData.collectablePullRadius;
 
         public PlayerController(
             PlayerModel model,
             PlayerView view,
             CollectorRegistry collectorRegistry,
             MinePlayerDataConfig config,
-            MinePlayerScriptable playerData,
+            MinePlayerScriptable playerScriptable,
             RuntimeDataScriptable runtimeData,
             CinemachineCamera cinemachineCamera)
         {
@@ -48,7 +48,7 @@ namespace Systems.MineSystem.MinePlayerSystem.Controller
             _view = view;
             _collectorRegistry = collectorRegistry;
             _config = config;
-            _playerData = playerData;
+            _playerScriptable = playerScriptable;
             _runtimeData = runtimeData;
             
             cinemachineCamera.Follow = _view.transform;
@@ -71,7 +71,7 @@ namespace Systems.MineSystem.MinePlayerSystem.Controller
 
         private void InitializePlayerData()
         {
-            var data = _playerData.playerData;
+            var data = _playerScriptable.playerData;
 
             data.maxHealth.Value = _config.maxHealth;
             data.health.Value = Mathf.Clamp(_config.health, 0f, data.maxHealth.Value);

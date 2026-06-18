@@ -284,4 +284,4 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dea851b1c74b18543a6ba00271b5be91, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ToolbarSlotView
+  m_EditorClassIdentifier: Assembly-CSharp::Systems.MineSystem.ToolbarSystem.View.ToolbarSlotView

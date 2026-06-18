@@ -1,4 +1,5 @@
 using Systems.MineSystem.MinePlayerSystem.Model;
+using Systems.MineSystem.MinePlayerSystem.SubSystem.PlayerAnimationSubSystem.Enum;
 using Systems.MineSystem.MinePlayerSystem.SubSystem.PlayerAnimationSubSystem.Model;
 using UniRx;
 using UnityEngine;
