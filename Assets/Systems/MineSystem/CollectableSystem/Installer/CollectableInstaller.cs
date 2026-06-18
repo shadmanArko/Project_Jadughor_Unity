@@ -2,6 +2,7 @@ using Systems.MineSystem.CollectableSystem.Controller;
 using Systems.MineSystem.CollectableSystem.Interface;
 using Systems.MineSystem.CollectableSystem.Scriptable;
 using Systems.MineSystem.CollectableSystem.Service;
+using Systems.MineSystem.CollectableSystem.Service.CollectableSpriteProviders;
 using Systems.MineSystem.CollectableSystem.View;
 using UnityEngine;
 using Zenject;

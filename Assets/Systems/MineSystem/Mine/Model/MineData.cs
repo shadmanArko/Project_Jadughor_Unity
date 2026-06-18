@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Systems.MineSystem.InventorySystem.Model;
+using Systems.MineSystem.Mine.Service.MineArtifactService.Model;
 using Systems.MineSystem.Mine.Service.MineArtifactService.Test;
 using Systems.MineSystem.Mine.Service.MineResourceService.Model;
 using UnityEngine;
@@ -23,7 +24,7 @@ namespace Systems.MineSystem.Mine.Model
         public List<Cell> Cells { get; set; }
         public List<Resource> Resources { get; set; }
         public List<Artifact> Artifacts { get; set; }
-        public List<ArtifactWorldPlacement> ArtifactPlacements { get; set; }
+        public List<ArtifactWorldPlacementData> ArtifactPlacements { get; set; }
         public List<Cave> Caves { get; set; }
         public List<WallPlaceable> WallPlaceables { get; set; }
         public List<CellPlaceable> CellPlaceables { get; set; }
@@ -40,7 +41,7 @@ namespace Systems.MineSystem.Mine.Model
         private Dictionary<string, Artifact> _artifactByCellId;
 
         [NonSerialized]
-        private Dictionary<string, ArtifactWorldPlacement> _artifactPlacementByCellId;
+        private Dictionary<string, ArtifactWorldPlacementData> _artifactPlacementByCellId;
 
         [NonSerialized]
         private Dictionary<string, WallPlaceable> _wallPlaceableByCellId;
@@ -68,7 +69,7 @@ namespace Systems.MineSystem.Mine.Model
             }
 
             _artifactByCellId = new Dictionary<string, Artifact>();
-            _artifactPlacementByCellId = new Dictionary<string, ArtifactWorldPlacement>();
+            _artifactPlacementByCellId = new Dictionary<string, ArtifactWorldPlacementData>();
             if (Artifacts != null && ArtifactPlacements != null)
             {
                 var artifactById = Artifacts
@@ -126,7 +127,7 @@ namespace Systems.MineSystem.Mine.Model
 
         public Resource GetResource(string cellId) => _resourceByCellId != null && _resourceByCellId.TryGetValue(cellId, out var r) ? r : null;
         public Artifact GetArtifact(string cellId) => _artifactByCellId != null && _artifactByCellId.TryGetValue(cellId, out var a) ? a : null;
-        public ArtifactWorldPlacement GetArtifactPlacement(string cellId) =>
+        public ArtifactWorldPlacementData GetArtifactPlacement(string cellId) =>
             _artifactPlacementByCellId != null &&
             _artifactPlacementByCellId.TryGetValue(cellId, out var placement)
                 ? placement

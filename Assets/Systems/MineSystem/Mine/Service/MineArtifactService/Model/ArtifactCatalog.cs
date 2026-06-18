@@ -5,24 +5,25 @@ using Zenject;
 
 namespace Systems.MineSystem.Mine.Service.MineArtifactService.Test
 {
+    [Serializable]
     public sealed class ArtifactCatalog : IArtifactCatalog, IInitializable
     {
         private const string DefaultFunctionalPath =
-            "ArtifactCatalog/RawArtifactFunctionalData";
+            "ArtifactCatalogue/RawArtifactFunctionalData";
 
         private const string DefaultDescriptivePath =
-            "ArtifactCatalog/RawArtifactDescriptiveDataEnglish";
+            "ArtifactCatalogue/RawArtifactDescriptiveDataEnglish";
 
         [Serializable]
         private sealed class DefinitionArray
         {
-            public ArtifactDefinition[] Items;
+            public ArtifactDefinition[] items;
         }
 
         [Serializable]
         private sealed class DescriptionArray
         {
-            public ArtifactDescription[] Items;
+            public ArtifactDescription[] items;
         }
 
         private readonly ArtifactCatalogConfig _config;
@@ -75,10 +76,10 @@ namespace Systems.MineSystem.Mine.Service.MineArtifactService.Test
             var asset = _config.FunctionalData ??
                         Resources.Load<TextAsset>(DefaultFunctionalPath);
             var wrapper = ParseDefinitions(asset);
-            if (wrapper?.Items == null)
+            if (wrapper?.items == null)
                 return;
 
-            foreach (var definition in wrapper.Items)
+            foreach (var definition in wrapper.items)
             {
                 if (definition == null || string.IsNullOrWhiteSpace(definition.Id))
                 {
@@ -86,13 +87,12 @@ namespace Systems.MineSystem.Mine.Service.MineArtifactService.Test
                     continue;
                 }
 
-                if (_definitions.ContainsKey(definition.Id))
+                if (!_definitions.TryAdd(definition.Id, definition))
                 {
                     Debug.LogError($"Artifact catalog contains duplicate functional Id '{definition.Id}'.");
                     continue;
                 }
 
-                _definitions.Add(definition.Id, definition);
                 _definitionList.Add(definition);
             }
         }
@@ -102,10 +102,10 @@ namespace Systems.MineSystem.Mine.Service.MineArtifactService.Test
             var asset = _config.DescriptiveData ??
                         Resources.Load<TextAsset>(DefaultDescriptivePath);
             var wrapper = ParseDescriptions(asset);
-            if (wrapper?.Items == null)
+            if (wrapper?.items == null)
                 return;
 
-            foreach (var description in wrapper.Items)
+            foreach (var description in wrapper.items)
             {
                 if (description == null || string.IsNullOrWhiteSpace(description.Id))
                 {
@@ -156,7 +156,7 @@ namespace Systems.MineSystem.Mine.Service.MineArtifactService.Test
 
         private static string WrapArray(string json)
         {
-            return "{\"Items\":" + json + "}";
+            return "{\"items\":" + json + "}";
         }
     }
 }

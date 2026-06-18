@@ -5,6 +5,7 @@ using Systems.MineSystem.InventorySystem.Model;
 using Systems.MineSystem.Mine.Model;
 using Systems.MineSystem.Mine.Service.MineArtifactService.Config;
 using Systems.MineSystem.Mine.Service.MineArtifactService.Enum;
+using Systems.MineSystem.Mine.Service.MineArtifactService.Model;
 using Systems.MineSystem.Mine.Service.MineArtifactService.Test;
 using UnityEngine;
 
@@ -69,7 +70,7 @@ namespace Systems.MineSystem.Mine.Service.MineArtifactService.Service
 
             mineData.Artifacts ??= new List<Artifact>();
             mineData.Artifacts.Clear();
-            mineData.ArtifactPlacements ??= new List<ArtifactWorldPlacement>();
+            mineData.ArtifactPlacements ??= new List<ArtifactWorldPlacementData>();
             mineData.ArtifactPlacements.Clear();
 
             var totalArtifactCount = GetRandomInRange(config.minNumberOfArtifacts, config.maxNumberOfArtifacts);
@@ -109,7 +110,7 @@ namespace Systems.MineSystem.Mine.Service.MineArtifactService.Service
                     Rarity = GetRarity(i, rareCount, legendaryCount)
                 };
 
-                var placement = new ArtifactWorldPlacement
+                var placement = new ArtifactWorldPlacementData
                 {
                     ArtifactInstanceId = artifact.Id,
                     Position = cell.Position,
