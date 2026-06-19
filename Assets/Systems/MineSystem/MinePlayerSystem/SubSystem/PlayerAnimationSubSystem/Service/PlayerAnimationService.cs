@@ -109,7 +109,10 @@ namespace Systems.MineSystem.MinePlayerSystem.SubSystem.PlayerAnimationSubSystem
             {
                 PlayerLocomotionState.Falling => PlayerAnimationId.Fall,
                 PlayerLocomotionState.Moving => PlayerAnimationId.Move,
-                _ => PlayerAnimationId.Idle
+                _ => _runtime.facingDirection.Value ==
+                     PlayerFacingDirection.Left
+                    ? PlayerAnimationId.IdleLeft
+                    : PlayerAnimationId.IdleRight
             };
         }
     }

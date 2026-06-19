@@ -43,7 +43,21 @@ namespace Systems.MineSystem.ToolbarSystem.Handler
                 _runtime.isClimbing.Value,
                 target.Direction);
             marker = _catalog.EquippableImpactMarker;
-            return !string.IsNullOrWhiteSpace(animationId);
+            if (string.IsNullOrWhiteSpace(animationId))
+                return false;
+
+            PersistHorizontalFacing(target.Direction);
+            return true;
+        }
+
+        private void PersistHorizontalFacing(CardinalDirection direction)
+        {
+            if (direction == CardinalDirection.Left)
+                _runtime.facingDirection.Value =
+                    MinePlayerSystem.Model.PlayerFacingDirection.Left;
+            else if (direction == CardinalDirection.Right)
+                _runtime.facingDirection.Value =
+                    MinePlayerSystem.Model.PlayerFacingDirection.Right;
         }
 
         protected override void ApplyImpact(

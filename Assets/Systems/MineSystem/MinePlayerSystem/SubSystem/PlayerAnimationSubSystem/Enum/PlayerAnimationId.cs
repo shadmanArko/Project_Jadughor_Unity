@@ -3,7 +3,8 @@ namespace Systems.MineSystem.MinePlayerSystem.SubSystem.PlayerAnimationSubSystem
     public static class PlayerAnimationId
     {
         public const string None = "";
-        public const string Idle = "locomotion.idle";
+        public const string IdleLeft = "locomotion.idle.left";
+        public const string IdleRight = "locomotion.idle.right";
         public const string Move = "locomotion.move";
         public const string ClimbIdle = "climb.idle";
         public const string ClimbVertical = "climb.vertical";

@@ -1,6 +1,8 @@
 using System;
 using Systems.MineSystem.InventorySystem.Interface;
 using Systems.MineSystem.InventorySystem.Model;
+using Systems.MineSystem.MinePlayerSystem.Model;
+using Systems.MineSystem.MinePlayerSystem.Scriptable;
 using Systems.MineSystem.ToolbarSystem.Enum;
 using Systems.MineSystem.ToolbarSystem.Interface;
 using Systems.MineSystem.ToolbarSystem.Model;
@@ -19,6 +21,7 @@ namespace Systems.MineSystem.ToolbarSystem.Handler
         private readonly IPlaceableFactory _factory;
         private readonly IInventoryService _inventory;
         private readonly IToolbarInventorySource _toolbarInventory;
+        private readonly RuntimeDataScriptable _runtime;
         private readonly CompositeDisposable _disposables = new();
 
         private Item _item;
@@ -36,13 +39,15 @@ namespace Systems.MineSystem.ToolbarSystem.Handler
             IPlaceableValidator validator,
             IPlaceableFactory factory,
             IInventoryService inventory,
-            IToolbarInventorySource toolbarInventory)
+            IToolbarInventorySource toolbarInventory,
+            RuntimeDataScriptable runtime)
         {
             _targets = targets;
             _validator = validator;
             _factory = factory;
             _inventory = inventory;
             _toolbarInventory = toolbarInventory;
+            _runtime = runtime;
 
             _targets.PointerTargetChanged
                 .Subscribe(UpdatePreview)
@@ -80,6 +85,7 @@ namespace Systems.MineSystem.ToolbarSystem.Handler
                 !_validator.CanPlace(_target.CellPosition, _profile))
                 return false;
 
+            PersistHorizontalFacing(_target.Direction);
             var instanceId = Guid.NewGuid().ToString("N");
             if (!_validator.TryReserve(
                     _target.CellPosition,
@@ -112,6 +118,14 @@ namespace Systems.MineSystem.ToolbarSystem.Handler
 
             UpdatePreview(_targets.ResolveDirectionalTarget(1));
             return true;
+        }
+
+        private void PersistHorizontalFacing(CardinalDirection direction)
+        {
+            if (direction == CardinalDirection.Left)
+                _runtime.facingDirection.Value = PlayerFacingDirection.Left;
+            else if (direction == CardinalDirection.Right)
+                _runtime.facingDirection.Value = PlayerFacingDirection.Right;
         }
 
         private void UpdatePreview(ItemActionTarget target)

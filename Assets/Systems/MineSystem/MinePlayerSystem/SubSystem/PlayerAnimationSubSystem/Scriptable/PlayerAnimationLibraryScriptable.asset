@@ -22,8 +22,33 @@ MonoBehaviour:
     animationDatabase:
     - category: 0
       animationData:
-      - id: locomotion.idle
-        animationName: Idle
+      - id: locomotion.idle.left
+        animationName: Idle Left
+        stateName: Idle
+        triggerName:
+        folderPath:
+        animationSprites:
+        - {fileID: 8920526695142154973, guid: 2f8d26d839b24c948a35f0f8ece3c665, type: 3}
+        - {fileID: 241196702675980024, guid: 2f8d26d839b24c948a35f0f8ece3c665, type: 3}
+        - {fileID: 5298001271715712057, guid: 2f8d26d839b24c948a35f0f8ece3c665, type: 3}
+        - {fileID: 880893085980887561, guid: 2f8d26d839b24c948a35f0f8ece3c665, type: 3}
+        - {fileID: -574405933558185530, guid: 2f8d26d839b24c948a35f0f8ece3c665, type: 3}
+        - {fileID: -1665219619865335194, guid: 2f8d26d839b24c948a35f0f8ece3c665, type: 3}
+        - {fileID: -2423754757253830049, guid: 2f8d26d839b24c948a35f0f8ece3c665, type: 3}
+        - {fileID: -531220011801599222, guid: 2f8d26d839b24c948a35f0f8ece3c665, type: 3}
+        - {fileID: -526987079599839996, guid: 2f8d26d839b24c948a35f0f8ece3c665, type: 3}
+        - {fileID: -2032356011940602047, guid: 2f8d26d839b24c948a35f0f8ece3c665, type: 3}
+        speed: 0.75
+        frameRate: 10
+        playOnlyOnce: 0
+        flipX: 0
+        flipY: 0
+        isReversed: 0
+        interruptible: 1
+        allowFacingFlip: 0
+        restrictions: 0
+      - id: locomotion.idle.right
+        animationName: Idle Right
         stateName: Idle
         triggerName: 
         folderPath: 
@@ -40,12 +65,12 @@ MonoBehaviour:
         - {fileID: -2032356011940602047, guid: 2f8d26d839b24c948a35f0f8ece3c665, type: 3}
         speed: 0.75
         frameRate: 10
-        playOnlyOnce: 1
+        playOnlyOnce: 0
         flipX: 1
         flipY: 0
         isReversed: 0
         interruptible: 1
-        allowFacingFlip: 1
+        allowFacingFlip: 0
         restrictions: 0
     - category: 1
       animationData:
