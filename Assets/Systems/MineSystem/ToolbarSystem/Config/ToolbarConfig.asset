@@ -18,3 +18,16 @@ MonoBehaviour:
   toolbarSlotCount: 12
   mouseWheelUpSelectsNext: 0
   mouseWheelThreshold: 0.05
+  defaultItems:
+  - id: pickaxe
+    itemName: Iron Pickaxe
+    type: Equippable
+    category: Tool
+    variant: IronPickaxe
+    quantity: 1
+  - id: torch
+    itemName: Torch
+    type: Placeable
+    category: Light
+    variant: Torch
+    quantity: 5

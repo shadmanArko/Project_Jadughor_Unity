@@ -1,5 +1,6 @@
 using System;
 using Systems.MineSystem.CollectableSystem.Service;
+using Systems.MineSystem.InventorySystem.Interface;
 using Systems.MineSystem.InventorySystem.Model;
 using Systems.MineSystem.MinePlayerSystem.Scriptable;
 using Systems.MineSystem.ToolbarSystem.Interface;
@@ -25,6 +26,7 @@ namespace Systems.MineSystem.ToolbarSystem.Controller
         private readonly ToolbarConfig _config;
         private readonly CollectableSpriteResolver _spriteResolver;
         private readonly MinePlayerScriptable _player;
+        private readonly IInventoryService _inventoryService;
         private readonly ReactiveProperty<Item> _highlightedItem = new();
         private readonly ReactiveProperty<int> _highlightedSlot = new(0);
         private readonly CompositeDisposable _disposables = new();
@@ -41,7 +43,8 @@ namespace Systems.MineSystem.ToolbarSystem.Controller
             IToolbarView view,
             ToolbarConfig config,
             CollectableSpriteResolver spriteResolver,
-            MinePlayerScriptable player)
+            MinePlayerScriptable player,
+            IInventoryService inventoryService)
         {
             _model = model;
             _inventory = inventory;
@@ -50,6 +53,7 @@ namespace Systems.MineSystem.ToolbarSystem.Controller
             _config = config;
             _spriteResolver = spriteResolver;
             _player = player;
+            _inventoryService = inventoryService;
         }
 
         public void Initialize()
@@ -76,6 +80,28 @@ namespace Systems.MineSystem.ToolbarSystem.Controller
             _input.NavigationRequested
                 .Subscribe(TryNavigate)
                 .AddTo(_disposables);
+
+            AddDefaultItems();
+        }
+
+        private void AddDefaultItems()
+        {
+            var defaults = _config.DefaultItems;
+            for (var entryIndex = 0; entryIndex < defaults.Count; entryIndex++)
+            {
+                var entry = defaults[entryIndex];
+                if (entry == null)
+                    continue;
+
+                for (var itemIndex = 0;
+                     itemIndex < entry.Quantity;
+                     itemIndex++)
+                {
+                    if (!_inventoryService.TryAdd(
+                            entry.CreateItem(entryIndex, itemIndex)))
+                        break;
+                }
+            }
         }
 
         private void TryNavigate(int direction)

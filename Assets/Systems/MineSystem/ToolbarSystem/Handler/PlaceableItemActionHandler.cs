@@ -12,6 +12,7 @@ using UnityEngine;
 
 namespace Systems.MineSystem.ToolbarSystem.Handler
 {
+    [Serializable]
     public sealed class PlaceableItemActionHandler :
         IItemActionHandler,
         IDisposable

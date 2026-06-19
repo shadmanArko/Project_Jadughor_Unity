@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Systems.MineSystem.ToolbarSystem.View;
 using UnityEngine;
 
@@ -20,11 +21,15 @@ namespace Systems.MineSystem.ToolbarSystem.Scriptable
         [Min(0.01f)]
         [SerializeField] private float mouseWheelThreshold = 0.1f;
 
+        [Header("Starting Items")]
+        [SerializeField] private List<DefaultToolbarItem> defaultItems = new();
+
         public ToolbarCanvasView ToolbarCanvasPrefab => toolbarCanvasPrefab;
         public ToolbarSlotView ToolbarSlotPrefab => toolbarSlotPrefab;
         public Sprite SelectedSlotSprite => selectedSlotSprite;
         public int ClampedSlotCount => Mathf.Clamp(toolbarSlotCount, 1, 12);
         public bool MouseWheelUpSelectsNext => mouseWheelUpSelectsNext;
         public float MouseWheelThreshold => Mathf.Max(0.01f, mouseWheelThreshold);
+        public IReadOnlyList<DefaultToolbarItem> DefaultItems => defaultItems;
     }
 }
