@@ -21,6 +21,7 @@ namespace Systems.MineSystem.MinePlayerSystem.SubSystem.PlayerAnimationSubSystem
         private readonly PlayerDeathService _deathService;
 
         private string _currentAnimation = PlayerAnimationId.None;
+        private int _currentActionSequence = -1;
         private readonly HashSet<string> _missingAnimations =
             new(StringComparer.Ordinal);
 
@@ -50,7 +51,13 @@ namespace Systems.MineSystem.MinePlayerSystem.SubSystem.PlayerAnimationSubSystem
                 _runtime.facingDirection.Value);
 
             var animationId = ResolveAnimation();
-            if (animationId == _currentAnimation)
+            var isActionAnimation =
+                _runtime.actionState.Value == PlayerActionState.PrimaryAction;
+            var restartAction =
+                isActionAnimation &&
+                _actionService.ActionSequence != _currentActionSequence;
+
+            if (animationId == _currentAnimation && !restartAction)
                 return;
 
             if (!_profile.TryGet(animationId, out var animationData))
@@ -66,11 +73,16 @@ namespace Systems.MineSystem.MinePlayerSystem.SubSystem.PlayerAnimationSubSystem
 
             _currentAnimation = animationId;
             _runtime.activeAnimation.Value = animationId;
-            var generation = _view.AnimationController.Play(animationData);
+            var generation = _view.AnimationController.Play(
+                animationData,
+                restartAction);
+
+            if (isActionAnimation)
+                _currentActionSequence = _actionService.ActionSequence;
 
             if (animationId == PlayerAnimationId.PrimaryAction ||
                 animationId == PlayerAnimationId.Interact ||
-                _runtime.actionState.Value == PlayerActionState.PrimaryAction)
+                isActionAnimation)
             {
                 _actionService.RegisterAnimationGeneration(generation);
             }

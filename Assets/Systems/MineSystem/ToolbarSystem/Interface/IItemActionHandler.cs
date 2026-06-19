@@ -9,6 +9,7 @@ namespace Systems.MineSystem.ToolbarSystem.Interface
         ItemActionKind ActionKind { get; }
         void Activate(Item item, int slotIndex, ItemActionProfile profile);
         void Deactivate();
+        void SetActionHeld(bool isHeld);
         bool TryExecute();
     }
 }

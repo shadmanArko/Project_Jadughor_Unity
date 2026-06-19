@@ -26,6 +26,7 @@ namespace Systems.MineSystem.MinePlayerSystem.Service
         private string _activeAnimationId;
         private PlayerRestrictionFlags _appliedRestrictions;
         private int _animationGeneration;
+        private int _actionSequence;
         private readonly HashSet<string> _invalidItemAnimations = new();
 
         public IObservable<PlayerAnimationMarkerEvent> MarkerReached =>
@@ -35,6 +36,7 @@ namespace Systems.MineSystem.MinePlayerSystem.Service
         public IObservable<string> ActionFailed => _actionFailed;
         public string ActiveAnimationId =>
             _activeAnimationId ?? PlayerAnimationId.None;
+        public int ActionSequence => _actionSequence;
 
         public PlayerActionService(
             RuntimeDataScriptable runtime,
@@ -143,8 +145,8 @@ namespace Systems.MineSystem.MinePlayerSystem.Service
                 animationEvent.AnimationId != ActiveAnimationId)
                 return;
 
-            _actionCompleted.OnNext(animationEvent);
             CancelAction();
+            _actionCompleted.OnNext(animationEvent);
         }
 
         private void BeginAction(
@@ -167,6 +169,7 @@ namespace Systems.MineSystem.MinePlayerSystem.Service
 
             _activeAnimationId = animationId;
             _requestedAnimationId = null;
+            _actionSequence++;
             _runtime.actionState.Value = actionState;
             var requestedRestrictions =
                 PlayerRestrictionFlags.Action | animationData.restrictions;

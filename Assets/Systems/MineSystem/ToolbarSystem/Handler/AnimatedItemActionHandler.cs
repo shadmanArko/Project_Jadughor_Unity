@@ -31,9 +31,12 @@ namespace Systems.MineSystem.ToolbarSystem.Handler
         private string _pendingAnimationId;
         private int _pendingMarker;
         private bool _impactApplied;
+        private bool _actionHeld;
         private readonly HashSet<string> _invalidActions = new();
 
         public abstract ItemActionKind ActionKind { get; }
+        protected virtual bool ApplyImpactOnCompletion => false;
+        protected virtual bool RepeatWhileActionHeld => false;
 
         protected AnimatedItemActionHandler(
             IPlayerItemAnimationService animation,
@@ -65,9 +68,15 @@ namespace Systems.MineSystem.ToolbarSystem.Handler
 
         public virtual void Deactivate()
         {
+            _actionHeld = false;
             ActiveItem = null;
             ActiveProfile = null;
             ActiveSlot = -1;
+        }
+
+        public void SetActionHeld(bool isHeld)
+        {
+            _actionHeld = isHeld;
         }
 
         public bool TryExecute()
@@ -129,6 +138,7 @@ namespace Systems.MineSystem.ToolbarSystem.Handler
             MinePlayerSystem.SubSystem.PlayerAnimationSubSystem.Model.PlayerAnimationMarkerEvent animationEvent)
         {
             if (_pendingItem == null ||
+                ApplyImpactOnCompletion ||
                 _impactApplied ||
                 animationEvent.AnimationId != _pendingAnimationId ||
                 animationEvent.Marker != _pendingMarker)
@@ -149,7 +159,27 @@ namespace Systems.MineSystem.ToolbarSystem.Handler
                 animationEvent.AnimationId != _pendingAnimationId)
                 return;
 
+            if (ApplyImpactOnCompletion && !_impactApplied)
+            {
+                _impactApplied = true;
+                ApplyImpact(
+                    _pendingItem,
+                    _pendingSlot,
+                    _pendingProfile,
+                    _pendingTarget);
+            }
+
+            var repeat =
+                RepeatWhileActionHeld &&
+                _actionHeld &&
+                ActiveItem != null &&
+                ReferenceEquals(ActiveItem, _pendingItem) &&
+                ReferenceEquals(ActiveProfile, _pendingProfile);
+
             ClearPendingAction();
+
+            if (repeat)
+                TryExecute();
         }
 
         private void OnActionFailed(string animationId)

@@ -18,6 +18,8 @@ namespace Systems.MineSystem.ToolbarSystem.Handler
         private readonly ItemActionProfileCatalog _catalog;
 
         public override ItemActionKind ActionKind => ItemActionKind.Tool;
+        protected override bool ApplyImpactOnCompletion => true;
+        protected override bool RepeatWhileActionHeld => true;
 
         public ToolItemActionHandler(
             MineModel mine,

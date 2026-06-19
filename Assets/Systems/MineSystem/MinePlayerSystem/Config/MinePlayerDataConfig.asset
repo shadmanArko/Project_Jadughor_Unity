@@ -16,8 +16,8 @@ MonoBehaviour:
   maxHealth: 100
   stamina: 100
   maxStamina: 100
-  moveSpeed: 0.5
-  climbSpeed: 1
+  moveSpeed: 0.75
+  climbSpeed: 0.5
   normalGravityScale: 0.5
   wallLayerMask:
     serializedVersion: 2

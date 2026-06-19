@@ -26,6 +26,7 @@ namespace Systems.MineSystem.MinePlayerSystem.Service
         {
             var playerActions = _inputSystem.Player;
             playerActions.Action.performed += OnActionInput;
+            playerActions.Action.canceled += OnActionInputReleased;
             playerActions.Interact.performed += OnInteractInput;
             playerActions.Climb.performed += OnClimbInput;
 
@@ -37,6 +38,7 @@ namespace Systems.MineSystem.MinePlayerSystem.Service
             var playerActions = _inputSystem.Player;
 
             playerActions.Action.performed -= OnActionInput;
+            playerActions.Action.canceled -= OnActionInputReleased;
             playerActions.Interact.performed -= OnInteractInput;
             playerActions.Climb.performed -= OnClimbInput;
 
@@ -58,7 +60,19 @@ namespace Systems.MineSystem.MinePlayerSystem.Service
 
         private static void OnActionInput(InputAction.CallbackContext context)
         {
-            GlobalEventBus.Fire<ActionInputSignal>();
+            GlobalEventBus.Fire(new ActionInputSignal
+            {
+                IsPressed = true
+            });
+        }
+
+        private static void OnActionInputReleased(
+            InputAction.CallbackContext context)
+        {
+            GlobalEventBus.Fire(new ActionInputSignal
+            {
+                IsPressed = false
+            });
         }
 
         private static void OnInteractInput(InputAction.CallbackContext context)

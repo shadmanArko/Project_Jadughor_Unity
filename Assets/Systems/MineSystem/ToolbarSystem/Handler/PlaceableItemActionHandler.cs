@@ -79,6 +79,10 @@ namespace Systems.MineSystem.ToolbarSystem.Handler
                 _preview.SetActive(false);
         }
 
+        public void SetActionHeld(bool isHeld)
+        {
+        }
+
         public bool TryExecute()
         {
             if (_item == null ||

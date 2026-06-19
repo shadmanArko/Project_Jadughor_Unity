@@ -42,7 +42,9 @@ namespace Systems.MineSystem.MinePlayerSystem.SubSystem.PlayerAnimationSubSystem
             SetFacing(profile.defaultFacing);
         }
 
-        public int Play(AnimationData animationData)
+        public int Play(
+            AnimationData animationData,
+            bool restartCurrent = false)
         {
             if (animationData == null ||
                 animationData.animationSprites == null ||
@@ -56,7 +58,7 @@ namespace Systems.MineSystem.MinePlayerSystem.SubSystem.PlayerAnimationSubSystem
                 return _generation;
             }
 
-            if (_currentAnimation == animationData)
+            if (_currentAnimation == animationData && !restartCurrent)
                 return _generation;
 
             _currentAnimation = animationData;

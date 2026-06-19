@@ -40,8 +40,15 @@ namespace Systems.MineSystem.ToolbarSystem.Controller
                 .AddTo(_disposables);
 
             GlobalEventBus.OnSignal<ActionInputSignal>()
-                .Subscribe(_ => _activeHandler?.TryExecute())
+                .Subscribe(HandleActionInput)
                 .AddTo(_disposables);
+        }
+
+        private void HandleActionInput(ActionInputSignal signal)
+        {
+            _activeHandler?.SetActionHeld(signal.IsPressed);
+            if (signal.IsPressed)
+                _activeHandler?.TryExecute();
         }
 
         private void ActivateFor(Item item, int slot)
