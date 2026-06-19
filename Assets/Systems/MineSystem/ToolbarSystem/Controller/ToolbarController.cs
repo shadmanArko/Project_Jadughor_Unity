@@ -12,7 +12,11 @@ using Zenject;
 
 namespace Systems.MineSystem.ToolbarSystem.Controller
 {
-    public sealed class ToolbarController : IInitializable, IDisposable
+    public sealed class ToolbarController :
+        IToolbarSelectionSource,
+        IToolbarNavigationLock,
+        IInitializable,
+        IDisposable
     {
         private readonly ToolbarModel _model;
         private readonly IToolbarInventorySource _inventory;
@@ -24,6 +28,8 @@ namespace Systems.MineSystem.ToolbarSystem.Controller
         private readonly ReactiveProperty<Item> _highlightedItem = new();
         private readonly ReactiveProperty<int> _highlightedSlot = new(0);
         private readonly CompositeDisposable _disposables = new();
+        private bool _inventoryOpen;
+        private bool _navigationLocked;
 
         public IReadOnlyReactiveProperty<Item> HighlightedItem => _highlightedItem;
         public IReadOnlyReactiveProperty<int> HighlightedSlot => _highlightedSlot;
@@ -128,8 +134,20 @@ namespace Systems.MineSystem.ToolbarSystem.Controller
 
         private void OnInventoryVisibilityChanged(bool inventoryOpen)
         {
+            _inventoryOpen = inventoryOpen;
             _view.SetVisible(!inventoryOpen);
-            _input.SetEnabled(!inventoryOpen);
+            RefreshInputEnabled();
+        }
+
+        public void SetNavigationLocked(bool locked)
+        {
+            _navigationLocked = locked;
+            RefreshInputEnabled();
+        }
+
+        private void RefreshInputEnabled()
+        {
+            _input.SetEnabled(!_inventoryOpen && !_navigationLocked);
         }
 
         public void Dispose()

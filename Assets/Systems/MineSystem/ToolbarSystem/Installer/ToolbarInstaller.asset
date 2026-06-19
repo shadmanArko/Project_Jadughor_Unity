@@ -13,3 +13,5 @@ MonoBehaviour:
   m_Name: ToolbarInstaller
   m_EditorClassIdentifier: Assembly-CSharp::Systems.MineSystem.ToolbarSystem.Installer.ToolbarInstaller
   config: {fileID: 11400000, guid: e001e001e0014e01ae01e001e001e001, type: 2}
+  itemActionProfiles: {fileID: 11400000, guid: 22222222222242228222222222222223, type: 2}
+  placeableFactories: {fileID: 11400000, guid: 22222222222242228222222222222224, type: 2}

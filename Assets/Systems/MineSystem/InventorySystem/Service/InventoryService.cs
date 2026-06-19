@@ -167,6 +167,26 @@ namespace Systems.MineSystem.InventorySystem.Service
             _model.HeldStack = null;
         }
 
+        public bool TryRemoveOne(int slotIndex, Item expectedItem)
+        {
+            if (!IsUnlocked(slotIndex) || expectedItem == null)
+                return false;
+
+            var slot = _model.Slots[slotIndex];
+            var stack = slot.Stack;
+            if (stack == null ||
+                stack.IsEmpty ||
+                !ReferenceEquals(stack.Representative, expectedItem))
+                return false;
+
+            stack.RemoveOne();
+            if (stack.IsEmpty)
+                slot.Stack = null;
+
+            _model.NotifySlotChanged(slotIndex);
+            return true;
+        }
+
         private int GetUnlockedSlotCount()
         {
             return Math.Clamp(

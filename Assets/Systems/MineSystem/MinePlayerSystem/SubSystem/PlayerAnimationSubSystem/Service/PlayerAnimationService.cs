@@ -69,7 +69,8 @@ namespace Systems.MineSystem.MinePlayerSystem.SubSystem.PlayerAnimationSubSystem
             var generation = _view.AnimationController.Play(animationData);
 
             if (animationId == PlayerAnimationId.PrimaryAction ||
-                animationId == PlayerAnimationId.Interact)
+                animationId == PlayerAnimationId.Interact ||
+                _runtime.actionState.Value == PlayerActionState.PrimaryAction)
             {
                 _actionService.RegisterAnimationGeneration(generation);
             }
@@ -87,7 +88,7 @@ namespace Systems.MineSystem.MinePlayerSystem.SubSystem.PlayerAnimationSubSystem
             switch (_runtime.actionState.Value)
             {
                 case PlayerActionState.PrimaryAction:
-                    return PlayerAnimationId.PrimaryAction;
+                    return _actionService.ActiveAnimationId;
                 case PlayerActionState.Interacting:
                     return PlayerAnimationId.Interact;
             }

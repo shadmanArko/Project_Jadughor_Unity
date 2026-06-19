@@ -154,16 +154,25 @@ namespace Systems.MineSystem.Mine.Model
 
         public void HitCell(Vector3Int cellPos)
         {
+            TryHitCell(
+                cellPos,
+                _playerScriptable.playerData.pickAxeStrength.Value);
+        }
+
+        public bool TryHitCell(Vector3Int cellPos, int damage)
+        {
+            if (_mineData.Value == null || damage <= 0)
+                return false;
+
             var cell = _mineData.Value.GetCell(cellPos);
             
-            if (cell == null)
+            if (cell == null || !cell.IsBreakable || cell.IsBroken)
             {
-                Debug.LogWarning($"Cell not available: {cellPos}");
-                return;
+                return false;
             }
 
             var wasBroken = cell.IsBroken;
-            cell.HitPoint -= _playerScriptable.playerData.pickAxeStrength.Value;
+            cell.HitPoint -= damage;
             
             cell.IsBroken = cell.HitPoint <= 0;
             _onCellModified.OnNext(cell);
@@ -199,6 +208,7 @@ namespace Systems.MineSystem.Mine.Model
             }
             
             //TODO: make resource, artifact null after spawning those as items
+            return true;
         }
 
         public void NotifyCellModified(Cell cell)

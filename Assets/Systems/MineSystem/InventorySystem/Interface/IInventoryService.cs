@@ -9,5 +9,6 @@ namespace Systems.MineSystem.InventorySystem.Interface
         void LeftClick(int slotIndex);
         void RightClick(int slotIndex);
         void TrashHeldStack();
+        bool TryRemoveOne(int slotIndex, Item expectedItem);
     }
 }

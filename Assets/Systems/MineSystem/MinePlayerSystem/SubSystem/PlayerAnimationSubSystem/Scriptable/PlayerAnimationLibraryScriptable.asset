@@ -25,8 +25,8 @@ MonoBehaviour:
       - id: locomotion.idle
         animationName: Idle
         stateName: Idle
-        triggerName:
-        folderPath:
+        triggerName: 
+        folderPath: 
         animationSprites:
         - {fileID: 8920526695142154973, guid: 2f8d26d839b24c948a35f0f8ece3c665, type: 3}
         - {fileID: 241196702675980024, guid: 2f8d26d839b24c948a35f0f8ece3c665, type: 3}
@@ -40,12 +40,12 @@ MonoBehaviour:
         - {fileID: -2032356011940602047, guid: 2f8d26d839b24c948a35f0f8ece3c665, type: 3}
         speed: 0.75
         frameRate: 10
-        playOnlyOnce: 0
+        playOnlyOnce: 1
         flipX: 1
         flipY: 0
         isReversed: 0
         interruptible: 1
-        allowFacingFlip: 0
+        allowFacingFlip: 1
         restrictions: 0
     - category: 1
       animationData:
@@ -73,6 +73,8 @@ MonoBehaviour:
       - id: climb.idle
         animationName: Climb Idle
         stateName: Climb
+        triggerName: 
+        folderPath: 
         animationSprites:
         - {fileID: 8566003432957444354, guid: 2f8d26d839b24c948a35f0f8ece3c665, type: 3}
         speed: 1
@@ -156,7 +158,7 @@ MonoBehaviour:
         flipX: 0
         flipY: 0
         isReversed: 0
-        interruptible: 0
+        interruptible: 1
         allowFacingFlip: 0
         restrictions: 1
       - id: equippable.pickaxe.ordinaryPickaxe.climb.left
@@ -193,9 +195,9 @@ MonoBehaviour:
         speed: 1
         frameRate: 5
         playOnlyOnce: 1
-        flipX: 0
+        flipX: 1
         flipY: 0
-        isReversed: 1
+        isReversed: 0
         interruptible: 1
         allowFacingFlip: 0
         restrictions: 1
@@ -273,9 +275,9 @@ MonoBehaviour:
         speed: 1
         frameRate: 5
         playOnlyOnce: 1
-        flipX: 0
+        flipX: 1
         flipY: 0
-        isReversed: 1
+        isReversed: 0
         interruptible: 0
         allowFacingFlip: 0
         restrictions: 1
@@ -313,9 +315,9 @@ MonoBehaviour:
         speed: 1
         frameRate: 5
         playOnlyOnce: 1
-        flipX: 0
+        flipX: 1
         flipY: 0
-        isReversed: 1
+        isReversed: 0
         interruptible: 0
         allowFacingFlip: 0
         restrictions: 1
@@ -350,7 +352,7 @@ MonoBehaviour:
         - {fileID: 98712662748890243, guid: 2f8d26d839b24c948a35f0f8ece3c665, type: 3}
         - {fileID: -427750082499159521, guid: 2f8d26d839b24c948a35f0f8ece3c665, type: 3}
         - {fileID: -5397605810990890760, guid: 2f8d26d839b24c948a35f0f8ece3c665, type: 3}
-        speed: 1
+        speed: 1.5
         frameRate: 5
         playOnlyOnce: 1
         flipX: 0
@@ -370,12 +372,12 @@ MonoBehaviour:
         - {fileID: 98712662748890243, guid: 2f8d26d839b24c948a35f0f8ece3c665, type: 3}
         - {fileID: -427750082499159521, guid: 2f8d26d839b24c948a35f0f8ece3c665, type: 3}
         - {fileID: -5397605810990890760, guid: 2f8d26d839b24c948a35f0f8ece3c665, type: 3}
-        speed: 1
+        speed: 1.5
         frameRate: 5
         playOnlyOnce: 1
-        flipX: 0
+        flipX: 1
         flipY: 0
-        isReversed: 1
+        isReversed: 0
         interruptible: 1
         allowFacingFlip: 0
         restrictions: 1
@@ -395,7 +397,7 @@ MonoBehaviour:
         playOnlyOnce: 1
         flipX: 0
         flipY: 0
-        isReversed: 1
+        isReversed: 0
         interruptible: 1
         allowFacingFlip: 0
         restrictions: 1

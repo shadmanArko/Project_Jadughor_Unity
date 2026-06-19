@@ -138,5 +138,54 @@ namespace Systems.MineSystem.Mine.Model
             _cellPlaceableByCellId.TryGetValue(cellId, out var placeable)
                 ? placeable
                 : null;
+
+        public void RegisterCellPlaceable(
+            CellPlaceable placeable,
+            IEnumerable<string> occupiedCellIds)
+        {
+            CellPlaceables ??= new List<CellPlaceable>();
+            CellPlaceables.Add(placeable);
+            _cellPlaceableByCellId ??=
+                new Dictionary<string, CellPlaceable>();
+            foreach (var cellId in occupiedCellIds)
+                _cellPlaceableByCellId[cellId] = placeable;
+        }
+
+        public void RegisterWallPlaceable(WallPlaceable placeable)
+        {
+            WallPlaceables ??= new List<WallPlaceable>();
+            WallPlaceables.Add(placeable);
+            _wallPlaceableByCellId ??=
+                new Dictionary<string, WallPlaceable>();
+            foreach (var cellId in placeable.OccupiedCellIds)
+                _wallPlaceableByCellId[cellId] = placeable;
+        }
+
+        public void UnregisterCellPlaceable(string instanceId)
+        {
+            CellPlaceables?.RemoveAll(value => value.Id == instanceId);
+            RemoveLookupValues(_cellPlaceableByCellId, instanceId);
+        }
+
+        public void UnregisterWallPlaceable(string instanceId)
+        {
+            WallPlaceables?.RemoveAll(value => value.Id == instanceId);
+            RemoveLookupValues(_wallPlaceableByCellId, instanceId);
+        }
+
+        private static void RemoveLookupValues<T>(
+            Dictionary<string, T> lookup,
+            string instanceId) where T : Placeable
+        {
+            if (lookup == null)
+                return;
+
+            var keys = lookup
+                .Where(pair => pair.Value.Id == instanceId)
+                .Select(pair => pair.Key)
+                .ToArray();
+            foreach (var key in keys)
+                lookup.Remove(key);
+        }
     }
 }

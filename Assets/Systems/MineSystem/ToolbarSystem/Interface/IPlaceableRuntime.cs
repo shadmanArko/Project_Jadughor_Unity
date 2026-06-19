@@ -1,0 +1,12 @@
+using System;
+using Systems.MineSystem.ToolbarSystem.Model;
+
+namespace Systems.MineSystem.ToolbarSystem.Interface
+{
+    public interface IPlaceableRuntime
+    {
+        void Initialize(PlaceableSpawnContext context);
+        void SetReleaseAction(Action<IPlaceableRuntime> releaseAction);
+        void Release();
+    }
+}

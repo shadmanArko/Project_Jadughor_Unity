@@ -1,4 +1,6 @@
 using System;
+using Systems.MineSystem.InventorySystem.Interface;
+using Systems.MineSystem.InventorySystem.Model;
 using Systems.MineSystem.Mine.Controller;
 using Systems.MineSystem.Mine.Model;
 using Systems.MineSystem.Mine.Service.MineArtifactService.Test;
@@ -20,6 +22,7 @@ namespace Systems.MineSystem
         [Inject] private MineView _view;
         [Inject] private ArtifactSpriteScriptable _artifactSprites;
         [Inject] private MinePlayerScriptable _player;
+        [Inject] private IInventoryService _inventoryService;
         private Tilemap _targetTilemap;
         private readonly CompositeDisposable _disposables = new();
 
@@ -105,6 +108,24 @@ namespace Systems.MineSystem
             var tile = tilemap.GetTile(cellPos);
 
             return tile != null;
+        }
+
+        public string itemType;
+        public string itemCategory;
+        public string itemVariant;
+
+        [ContextMenu("Add Item")]
+        public void AddItem()
+        {
+            var item = new Item
+            {
+                Type = itemType,
+                Category = itemCategory,
+                Variant = itemVariant
+            };
+            
+            var hasAdded = _inventoryService.TryAdd(item);
+            Debug.LogError($"Item Added: {item} is {hasAdded}");
         }
     }
 }

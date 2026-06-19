@@ -62,6 +62,9 @@ TagManager:
   - name: Collectable
     uniqueID: 3696210385
     locked: 0
+  - name: PlaceablePreview
+    uniqueID: 2840252971
+    locked: 0
   - name: Unrevealed
     uniqueID: 2822122113
     locked: 0
