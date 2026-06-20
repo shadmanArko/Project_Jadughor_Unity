@@ -34,6 +34,7 @@ MonoBehaviour:
     damage: 25
   - minimumCells: 8
     damage: 100
+  damageInvincibilityDuration: 1
   miningSpeed: 1
   attackSpeed: 1
   collectablePullRadius: 2.5

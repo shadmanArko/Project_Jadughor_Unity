@@ -104,6 +104,7 @@ namespace Systems.MineSystem.MinePlayerSystem.Controller
             _runtimeData.isClimbing.Value = false;
             _runtimeData.isDamagingFall.Value = false;
             _runtimeData.isHurt.Value = false;
+            _runtimeData.isInvincible.Value = false;
             _runtimeData.activeAnimation.Value =
                 PlayerAnimationId.None;
             _view.SetGravityScale(_config.normalGravityScale);

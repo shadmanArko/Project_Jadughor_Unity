@@ -146,7 +146,9 @@ namespace Systems.MineSystem.MinePlayerSystem.Service
             if (damage <= 0f)
                 return;
 
-            _damageService.ApplyDamage(damage);
+            _damageService.ApplyDamage(
+                damage,
+                PlayerDamageKind.Fall);
         }
 
         private static float ResolveCellWorldHeight(

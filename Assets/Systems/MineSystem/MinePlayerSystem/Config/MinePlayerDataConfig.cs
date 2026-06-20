@@ -32,6 +32,10 @@ namespace Systems.MineSystem.MinePlayerSystem.Config
         [Min(0f)] public float safeFallCells = 2f;
         public List<PlayerFallDamageThreshold> fallDamageThresholds = new();
 
+        [Header("Damage")]
+        [Tooltip("Seconds after non-lethal damage during which standard damage is ignored. Fall damage bypasses this protection.")]
+        [Min(0f)] public float damageInvincibilityDuration = 1f;
+
         [Header("Default Action Properties")]
         [Min(0f)] public float miningSpeed = 1f;
         [Min(0f)] public float attackSpeed = 1f;
