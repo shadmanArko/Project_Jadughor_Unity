@@ -4,7 +4,7 @@ using UnityEngine;
 namespace Systems.MineSystem.ToolbarSystem.Profile
 {
     [CreateAssetMenu(fileName = "PlaceableActionProfile", menuName = "Toolbar Actions/Placeable Profile")]
-    public sealed class PlaceableActionProfile : ItemActionProfile
+    public class PlaceableActionProfile : ItemActionProfile
     {
         [Header("Factory")]
         [SerializeField] private string placeableId;

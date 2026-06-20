@@ -37,3 +37,9 @@ MonoBehaviour:
     category: Weapon
     variant: OrdinarySword
     quantity: 1
+  - id: pileDriver
+    itemName: PileDriver
+    type: Placeable
+    category: Drill
+    variant: PileDriver
+    quantity: 5

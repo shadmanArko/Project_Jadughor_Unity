@@ -6,6 +6,7 @@ using Systems.MineSystem.ToolbarSystem.Profile;
 using Systems.MineSystem.ToolbarSystem.Scriptable;
 using Systems.MineSystem.ToolbarSystem.Service;
 using Systems.MineSystem.ToolbarSystem.View;
+using Systems.MineSystem.ToolbarSystem.Items.Prefabs.Placeables.PileDriver.Script;
 using Systems.MineSystem.CollectableSystem.Interface;
 using UnityEngine;
 using Zenject;
@@ -57,6 +58,9 @@ namespace Systems.MineSystem.ToolbarSystem.Installer
                 .AsSingle();
             Container.Bind<IPlaceableValidator>()
                 .To<PlaceableValidator>()
+                .AsSingle();
+            Container.Bind<IPileDriverPlacementValidator>()
+                .To<PileDriverPlacementValidator>()
                 .AsSingle();
             Container.BindInterfacesAndSelfTo<PlaceableFactory>()
                 .AsSingle();

@@ -7,8 +7,11 @@ using Systems.MineSystem.ToolbarSystem.Enum;
 using Systems.MineSystem.ToolbarSystem.Interface;
 using Systems.MineSystem.ToolbarSystem.Model;
 using Systems.MineSystem.ToolbarSystem.Profile;
+using Systems.MineSystem.ToolbarSystem.Items.Prefabs.Placeables.PileDriver.Script;
 using UniRx;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using Zenject;
 
 namespace Systems.MineSystem.ToolbarSystem.Handler
 {
@@ -23,6 +26,8 @@ namespace Systems.MineSystem.ToolbarSystem.Handler
         private readonly IInventoryService _inventory;
         private readonly IToolbarInventorySource _toolbarInventory;
         private readonly RuntimeDataScriptable _runtime;
+        private readonly IPileDriverPlacementValidator
+            _pileDriverValidator;
         private readonly CompositeDisposable _disposables = new();
 
         private Item _item;
@@ -32,6 +37,9 @@ namespace Systems.MineSystem.ToolbarSystem.Handler
         private GameObject _preview;
         private SpriteRenderer _previewRenderer;
         private bool _inventoryOpen;
+        private PileDriverDirection _pileDriverDirection =
+            PileDriverDirection.Down;
+        private InputAction _rotateAction;
 
         public ItemActionKind ActionKind => ItemActionKind.Placeable;
 
@@ -41,7 +49,8 @@ namespace Systems.MineSystem.ToolbarSystem.Handler
             IPlaceableFactory factory,
             IInventoryService inventory,
             IToolbarInventorySource toolbarInventory,
-            RuntimeDataScriptable runtime)
+            RuntimeDataScriptable runtime,
+            IPileDriverPlacementValidator pileDriverValidator)
         {
             _targets = targets;
             _validator = validator;
@@ -49,6 +58,7 @@ namespace Systems.MineSystem.ToolbarSystem.Handler
             _inventory = inventory;
             _toolbarInventory = toolbarInventory;
             _runtime = runtime;
+            _pileDriverValidator = pileDriverValidator;
 
             _targets.PointerTargetChanged
                 .Subscribe(UpdatePreview)
@@ -56,6 +66,13 @@ namespace Systems.MineSystem.ToolbarSystem.Handler
             _toolbarInventory.IsInventoryOpen
                 .Subscribe(OnInventoryOpenChanged)
                 .AddTo(_disposables);
+
+            _rotateAction = new InputAction(
+                "RotatePileDriver",
+                InputActionType.Button);
+            _rotateAction.AddBinding("<Keyboard>/r");
+            _rotateAction.AddBinding("<Gamepad>/buttonWest");
+            _rotateAction.performed += OnRotate;
         }
 
         public void Activate(
@@ -66,6 +83,8 @@ namespace Systems.MineSystem.ToolbarSystem.Handler
             _item = item;
             _slotIndex = slotIndex;
             _profile = profile as PlaceableActionProfile;
+            _pileDriverDirection = PileDriverDirection.Down;
+            RefreshRotateInput();
             EnsurePreview();
             UpdatePreview(_targets.ResolveDirectionalTarget(1));
         }
@@ -75,6 +94,7 @@ namespace Systems.MineSystem.ToolbarSystem.Handler
             _item = null;
             _profile = null;
             _slotIndex = -1;
+            RefreshRotateInput();
             if (_preview != null)
                 _preview.SetActive(false);
         }
@@ -87,7 +107,7 @@ namespace Systems.MineSystem.ToolbarSystem.Handler
         {
             if (_item == null ||
                 _profile == null ||
-                !_validator.CanPlace(_target.CellPosition, _profile))
+                !CanPlace())
                 return false;
 
             PersistHorizontalFacing(_target.Direction);
@@ -105,7 +125,8 @@ namespace Systems.MineSystem.ToolbarSystem.Handler
                 _item,
                 _profile,
                 _target.CellPosition,
-                _target.WorldPosition);
+                _target.WorldPosition,
+                _pileDriverDirection);
             if (!_factory.TrySpawn(context, out var runtime))
             {
                 _validator.Release(
@@ -144,9 +165,14 @@ namespace Systems.MineSystem.ToolbarSystem.Handler
             _previewRenderer.sprite = _profile.PreviewSprite;
             _previewRenderer.color = _validator.CanPlace(
                 _target.CellPosition,
-                _profile)
+                _profile) && CanPlace()
                 ? _profile.ValidColor
                 : _profile.InvalidColor;
+            _preview.transform.rotation =
+                Quaternion.Euler(
+                    0f,
+                    0f,
+                    GetRotationDegrees(_pileDriverDirection));
             _preview.SetActive(
                 !_inventoryOpen &&
                 _profile.PreviewSprite != null);
@@ -167,6 +193,7 @@ namespace Systems.MineSystem.ToolbarSystem.Handler
         private void OnInventoryOpenChanged(bool open)
         {
             _inventoryOpen = open;
+            RefreshRotateInput();
             if (_preview == null)
                 return;
 
@@ -178,9 +205,68 @@ namespace Systems.MineSystem.ToolbarSystem.Handler
 
         public void Dispose()
         {
+            if (_rotateAction != null)
+            {
+                _rotateAction.performed -= OnRotate;
+                _rotateAction.Disable();
+                _rotateAction.Dispose();
+            }
             _disposables.Dispose();
             if (_preview != null)
                 UnityEngine.Object.Destroy(_preview);
+        }
+
+        private bool CanPlace()
+        {
+            if (_profile is PileDriverActionProfile)
+            {
+                return _pileDriverValidator.CanPlace(
+                    _target.CellPosition,
+                    _pileDriverDirection);
+            }
+
+            return _validator.CanPlace(
+                _target.CellPosition,
+                _profile);
+        }
+
+        private void OnRotate(InputAction.CallbackContext context)
+        {
+            if (_profile is not PileDriverActionProfile ||
+                _inventoryOpen)
+                return;
+
+            _pileDriverDirection = _pileDriverDirection switch
+            {
+                PileDriverDirection.Left => PileDriverDirection.Down,
+                PileDriverDirection.Down => PileDriverDirection.Right,
+                PileDriverDirection.Right => PileDriverDirection.Up,
+                _ => PileDriverDirection.Left
+            };
+            UpdatePreview(_targets.ResolveDirectionalTarget(1));
+        }
+
+        private void RefreshRotateInput()
+        {
+            if (_rotateAction == null)
+                return;
+
+            if (_profile is PileDriverActionProfile && !_inventoryOpen)
+                _rotateAction.Enable();
+            else
+                _rotateAction.Disable();
+        }
+
+        private static float GetRotationDegrees(
+            PileDriverDirection direction)
+        {
+            return direction switch
+            {
+                PileDriverDirection.Left => -90f,
+                PileDriverDirection.Right => 90f,
+                PileDriverDirection.Up => 180f,
+                _ => 0f
+            };
         }
     }
 }

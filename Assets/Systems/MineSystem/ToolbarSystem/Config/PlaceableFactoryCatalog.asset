@@ -17,3 +17,7 @@ MonoBehaviour:
     prefab: {fileID: 587733085330896082, guid: 17d4cdd2f574aac4688da6b579a0815c, type: 3}
     initialSize: 3
     maximumSize: 20
+  - id: PileDriver
+    prefab: {fileID: 3002731065426305254, guid: dc092b68f3bbb6b4a8e1fd076fbc118e, type: 3}
+    initialSize: 2
+    maximumSize: 10

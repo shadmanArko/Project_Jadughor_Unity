@@ -25,6 +25,7 @@ namespace Systems.MineSystem.ToolbarSystem.Service
 
         private readonly PlaceableFactoryCatalog _catalog;
         private readonly IPlaceableValidator _validator;
+        private readonly DiContainer _container;
         private readonly Dictionary<string, Pool> _pools =
             new(StringComparer.OrdinalIgnoreCase);
         private readonly Dictionary<IPlaceableRuntime, (Pool Pool, PlaceableSpawnContext Context)> _active = new();
@@ -32,10 +33,12 @@ namespace Systems.MineSystem.ToolbarSystem.Service
 
         public PlaceableFactory(
             PlaceableFactoryCatalog catalog,
-            IPlaceableValidator validator)
+            IPlaceableValidator validator,
+            DiContainer container)
         {
             _catalog = catalog;
             _validator = validator;
+            _container = container;
         }
 
         public void Initialize()
@@ -113,7 +116,9 @@ namespace Systems.MineSystem.ToolbarSystem.Service
 
         private GameObject Create(Pool pool)
         {
-            var instance = Object.Instantiate(pool.Entry.prefab, _root);
+            var instance = _container.InstantiatePrefab(
+                pool.Entry.prefab,
+                _root);
             instance.SetActive(false);
             pool.Created++;
             return instance;

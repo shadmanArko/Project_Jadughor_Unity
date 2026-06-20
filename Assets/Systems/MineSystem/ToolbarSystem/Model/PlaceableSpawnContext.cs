@@ -1,5 +1,6 @@
 using Systems.MineSystem.InventorySystem.Model;
 using Systems.MineSystem.ToolbarSystem.Profile;
+using Systems.MineSystem.ToolbarSystem.Items.Prefabs.Placeables.PileDriver.Script;
 using UnityEngine;
 
 namespace Systems.MineSystem.ToolbarSystem.Model
@@ -12,6 +13,7 @@ namespace Systems.MineSystem.ToolbarSystem.Model
         public readonly PlaceableActionProfile Profile;
         public readonly Vector3Int CellPosition;
         public readonly Vector3 WorldPosition;
+        public readonly PileDriverDirection PileDriverDirection;
 
         public PlaceableSpawnContext(
             string placeableId,
@@ -19,7 +21,9 @@ namespace Systems.MineSystem.ToolbarSystem.Model
             Item item,
             PlaceableActionProfile profile,
             Vector3Int cellPosition,
-            Vector3 worldPosition)
+            Vector3 worldPosition,
+            PileDriverDirection pileDriverDirection =
+                PileDriverDirection.Down)
         {
             PlaceableId = placeableId;
             InstanceId = instanceId;
@@ -27,6 +31,7 @@ namespace Systems.MineSystem.ToolbarSystem.Model
             Profile = profile;
             CellPosition = cellPosition;
             WorldPosition = worldPosition;
+            PileDriverDirection = pileDriverDirection;
         }
     }
 }

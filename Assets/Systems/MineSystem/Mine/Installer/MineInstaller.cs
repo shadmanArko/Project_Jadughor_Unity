@@ -15,6 +15,7 @@ using Systems.MineSystem.Mine.View;
 using Systems.MineSystem.MineGenerationSystem.Controller;
 using Systems.MineSystem.MineGenerationSystem.Model;
 using Systems.Utilities.Injector;
+using Systems.Utilities.ScreenShake;
 using Unity.Cinemachine;
 using UnityEngine;
 using Zenject;
@@ -46,6 +47,9 @@ namespace Systems.MineSystem.Mine.Installer
             
             Container.Bind<Camera>().FromComponentInNewPrefab(camera).AsSingle().NonLazy();
             Container.Bind<CinemachineCamera>().FromComponentInNewPrefab(cinemachineCamera).AsSingle().NonLazy();
+            Container.BindInterfacesAndSelfTo<ScreenShakeController>()
+                .AsSingle()
+                .NonLazy();
             
             // Config
             Container.Bind<MineGenerationConfig>().FromScriptableObject(mineGenerationConfig).AsSingle();
