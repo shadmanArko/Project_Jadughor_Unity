@@ -1,3 +1,5 @@
+using Systems.MineSystem.Mine.Config;
+using Systems.MineSystem.Mine.View;
 using Systems.MineSystem.MinePlayerSystem.Config;
 using Systems.MineSystem.MinePlayerSystem.Model;
 using Systems.MineSystem.MinePlayerSystem.Scriptable;
@@ -10,8 +12,10 @@ namespace Systems.MineSystem.MinePlayerSystem.Service
     {
         private readonly PlayerView _view;
         private readonly RuntimeDataScriptable _runtime;
-        private readonly MinePlayerScriptable _playerData;
         private readonly MinePlayerDataConfig _config;
+        private readonly PlayerActionService _actionService;
+        private readonly IPlayerDamageService _damageService;
+        private readonly float _cellWorldHeight;
 
         private bool _trackingFall;
         private bool _wasGrounded;
@@ -19,13 +23,20 @@ namespace Systems.MineSystem.MinePlayerSystem.Service
         public PlayerFallService(
             PlayerView view,
             RuntimeDataScriptable runtime,
-            MinePlayerScriptable playerData,
-            MinePlayerDataConfig config)
+            MinePlayerDataConfig config,
+            PlayerActionService actionService,
+            IPlayerDamageService damageService,
+            MineView mineView,
+            MineGenerationConfig mineGenerationConfig)
         {
             _view = view;
             _runtime = runtime;
-            _playerData = playerData;
             _config = config;
+            _actionService = actionService;
+            _damageService = damageService;
+            _cellWorldHeight = ResolveCellWorldHeight(
+                mineView,
+                mineGenerationConfig);
         }
 
         public void OnFixedTick()
@@ -61,15 +72,33 @@ namespace Systems.MineSystem.MinePlayerSystem.Service
 
                 _runtime.currentFallDistance =
                     Mathf.Max(0f, _runtime.highestAirborneY - currentY);
+                _runtime.currentFallCells =
+                    _runtime.currentFallDistance / _cellWorldHeight;
 
-                if (_view.Body.linearVelocity.y < -0.01f)
+                if (!_runtime.isDamagingFall.Value &&
+                    _view.Body.linearVelocity.y < -0.01f &&
+                    _runtime.currentFallCells >
+                    _config.safeFallCells)
+                {
+                    _runtime.isDamagingFall.Value = true;
+                    _actionService.InterruptForFall();
+                }
+
+                if (_runtime.isDamagingFall.Value)
                     _runtime.locomotionState.Value =
                         PlayerLocomotionState.Falling;
             }
             else if (_trackingFall && !_wasGrounded)
             {
-                ApplyLandingDamage(
-                    Mathf.Max(0f, _runtime.highestAirborneY - currentY));
+                if (_runtime.isDamagingFall.Value)
+                {
+                    ApplyLandingDamage(
+                        Mathf.Max(
+                            0f,
+                            _runtime.highestAirborneY - currentY) /
+                        _cellWorldHeight);
+                }
+
                 ResetVerticalState();
             }
 
@@ -82,12 +111,16 @@ namespace Systems.MineSystem.MinePlayerSystem.Service
             _wasGrounded = false;
             _runtime.highestAirborneY = _view.Body.position.y;
             _runtime.currentFallDistance = 0f;
+            _runtime.currentFallCells = 0f;
+            _runtime.isDamagingFall.Value = false;
         }
 
         public void CancelFall()
         {
             _trackingFall = false;
             _runtime.currentFallDistance = 0f;
+            _runtime.currentFallCells = 0f;
+            _runtime.isDamagingFall.Value = false;
             _runtime.highestAirborneY = _view.Body.position.y;
         }
 
@@ -97,24 +130,46 @@ namespace Systems.MineSystem.MinePlayerSystem.Service
             _wasGrounded = _runtime.isGrounded.Value;
         }
 
-        private void ApplyLandingDamage(float fallDistance)
+        private void ApplyLandingDamage(float fallenCells)
         {
-            if (fallDistance <= _config.safeFallDistance)
+            if (fallenCells <= _config.safeFallCells)
                 return;
 
             var damage = 0f;
             for (var i = 0; i < _config.fallDamageThresholds.Count; i++)
             {
                 var threshold = _config.fallDamageThresholds[i];
-                if (fallDistance >= threshold.minimumDistance)
+                if (fallenCells >= threshold.minimumCells)
                     damage = Mathf.Max(damage, threshold.damage);
             }
 
             if (damage <= 0f)
                 return;
 
-            var health = _playerData.playerData.health;
-            health.Value = Mathf.Max(0f, health.Value - damage);
+            _damageService.ApplyDamage(damage);
+        }
+
+        private static float ResolveCellWorldHeight(
+            MineView mineView,
+            MineGenerationConfig mineGenerationConfig)
+        {
+            if (mineView != null && mineView.grid != null)
+            {
+                var origin = mineView.grid.CellToWorld(Vector3Int.zero);
+                var oneCellUp =
+                    mineView.grid.CellToWorld(Vector3Int.up);
+                var gridHeight = Mathf.Abs(oneCellUp.y - origin.y);
+                if (gridHeight > Mathf.Epsilon)
+                    return gridHeight;
+            }
+
+            const float defaultPixelsPerUnit = 100f;
+            var configuredPixels = mineGenerationConfig != null
+                ? mineGenerationConfig.cellSize
+                : 0;
+            return configuredPixels > 0
+                ? configuredPixels / defaultPixelsPerUnit
+                : 1f;
         }
     }
 }

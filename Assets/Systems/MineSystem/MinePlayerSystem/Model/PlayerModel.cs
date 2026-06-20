@@ -14,6 +14,7 @@ namespace Systems.MineSystem.MinePlayerSystem.Model
         private readonly PlayerGroundingService _groundingService;
         private readonly PlayerFallService _fallService;
         private readonly PlayerDeathService _deathService;
+        private readonly PlayerDamageService _damageService;
         private readonly PlayerClimbService _climbService;
         private readonly PlayerActionService _actionService;
         private readonly PlayerMovementService _movementService;
@@ -24,6 +25,7 @@ namespace Systems.MineSystem.MinePlayerSystem.Model
             PlayerGroundingService groundingService,
             PlayerFallService fallService,
             PlayerDeathService deathService,
+            PlayerDamageService damageService,
             PlayerClimbService climbService,
             PlayerActionService actionService,
             PlayerMovementService movementService,
@@ -33,6 +35,7 @@ namespace Systems.MineSystem.MinePlayerSystem.Model
             _groundingService = groundingService;
             _fallService = fallService;
             _deathService = deathService;
+            _damageService = damageService;
             _climbService = climbService;
             _actionService = actionService;
             _movementService = movementService;
@@ -80,6 +83,7 @@ namespace Systems.MineSystem.MinePlayerSystem.Model
             PlayerAnimationCompletedEvent animationEvent)
         {
             _actionService.HandleAnimationCompleted(animationEvent);
+            _damageService.HandleAnimationCompleted(animationEvent);
             _deathService.HandleAnimationCompleted(animationEvent);
         }
 

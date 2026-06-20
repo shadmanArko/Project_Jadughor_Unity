@@ -1,4 +1,5 @@
 using System;
+using Systems.MineSystem.MinePlayerSystem.Service;
 using Systems.MineSystem.MinePlayerSystem.Scriptable;
 using UniRx;
 using UnityEngine;
@@ -11,15 +12,19 @@ namespace Systems.MineSystem.HealthStaminaSystem.Model
         private CompositeDisposable _disposables;
 
         private MinePlayerScriptable _minePlayerScriptable;
+        private readonly IPlayerDamageService _damageService;
         public IReadOnlyReactiveProperty<float> Health => _minePlayerScriptable?.playerData.health;
         public IReadOnlyReactiveProperty<float> MaxHealth => _minePlayerScriptable?.playerData.maxHealth;
         public IReadOnlyReactiveProperty<float> Stamina => _minePlayerScriptable?.playerData.stamina;
         public IReadOnlyReactiveProperty<float> MaxStamina => _minePlayerScriptable?.playerData.maxStamina;
 
-        public HealthStaminaModel(MinePlayerScriptable minePlayerScriptable)
+        public HealthStaminaModel(
+            MinePlayerScriptable minePlayerScriptable,
+            IPlayerDamageService damageService)
         {
             _disposables = new CompositeDisposable();
             _minePlayerScriptable = minePlayerScriptable;
+            _damageService = damageService;
 
             minePlayerScriptable.playerData.maxHealth.Value = 100;
             minePlayerScriptable.playerData.maxStamina.Value = 100;
@@ -41,12 +46,7 @@ namespace Systems.MineSystem.HealthStaminaSystem.Model
 
         public void ReduceHealth(float value)
         {
-            var health = _minePlayerScriptable.playerData.health.Value;
-            var maxHealth = _minePlayerScriptable.playerData.maxHealth.Value;
-            
-            var modifiedHealth = health - value;
-            modifiedHealth = Mathf.Clamp(0, modifiedHealth, maxHealth);
-            _minePlayerScriptable.playerData.health.Value = modifiedHealth;
+            _damageService.ApplyDamage(value);
         }
 
         #endregion

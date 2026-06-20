@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Systems.MineSystem.MinePlayerSystem.Config
 {
@@ -26,7 +27,9 @@ namespace Systems.MineSystem.MinePlayerSystem.Config
         [Range(0f, 1f)] public float minimumGroundNormalY = 0.5f;
 
         [Header("Fall Damage")]
-        [Min(0f)] public float safeFallDistance = 2f;
+        [Tooltip("Number of mine cells the player may descend safely. The fall animation and damage eligibility begin only after crossing this count.")]
+        [FormerlySerializedAs("safeFallDistance")]
+        [Min(0f)] public float safeFallCells = 2f;
         public List<PlayerFallDamageThreshold> fallDamageThresholds = new();
 
         [Header("Default Action Properties")]
@@ -42,7 +45,7 @@ namespace Systems.MineSystem.MinePlayerSystem.Config
         private void OnValidate()
         {
             fallDamageThresholds.Sort((left, right) =>
-                left.minimumDistance.CompareTo(right.minimumDistance));
+                left.minimumCells.CompareTo(right.minimumCells));
         }
     }
 }

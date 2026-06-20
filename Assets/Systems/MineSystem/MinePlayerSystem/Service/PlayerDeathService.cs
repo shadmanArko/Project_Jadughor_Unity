@@ -27,7 +27,16 @@ namespace Systems.MineSystem.MinePlayerSystem.Service
         public void OnFixedTick()
         {
             if (_runtime.lifeState.Value == PlayerLifeState.Dead ||
+                _runtime.isHurt.Value ||
                 _playerData.playerData.health.Value > 0f)
+                return;
+
+            BeginDeath();
+        }
+
+        public void BeginDeath()
+        {
+            if (_runtime.lifeState.Value == PlayerLifeState.Dead)
                 return;
 
             _runtime.lifeState.Value = PlayerLifeState.Dead;

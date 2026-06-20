@@ -33,9 +33,12 @@ namespace Systems.MineSystem.MinePlayerSystem.Scriptable
         public ReactiveProperty<bool> isGrounded = new(false);
         public ReactiveProperty<bool> isInsideClimbable = new(false);
         public ReactiveProperty<bool> isClimbing = new(false);
+        public ReactiveProperty<bool> isDamagingFall = new(false);
+        public ReactiveProperty<bool> isHurt = new(false);
 
         public float highestAirborneY;
         public float currentFallDistance;
+        public float currentFallCells;
         public Collider2D groundCollider;
         public Vector2 groundNormal;
 

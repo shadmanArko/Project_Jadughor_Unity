@@ -19,9 +19,11 @@ namespace Systems.MineSystem.MinePlayerSystem.SubSystem.PlayerAnimationSubSystem
         private readonly AnimationProfile _profile;
         private readonly PlayerActionService _actionService;
         private readonly PlayerDeathService _deathService;
+        private readonly PlayerDamageService _damageService;
 
         private string _currentAnimation = PlayerAnimationId.None;
         private int _currentActionSequence = -1;
+        private int _currentDamageSequence = -1;
         private readonly HashSet<string> _missingAnimations =
             new(StringComparer.Ordinal);
 
@@ -30,13 +32,15 @@ namespace Systems.MineSystem.MinePlayerSystem.SubSystem.PlayerAnimationSubSystem
             RuntimeDataScriptable runtime,
             AnimationProfile profile,
             PlayerActionService actionService,
-            PlayerDeathService deathService)
+            PlayerDeathService deathService,
+            PlayerDamageService damageService)
         {
             _view = view;
             _runtime = runtime;
             _profile = profile;
             _actionService = actionService;
             _deathService = deathService;
+            _damageService = damageService;
         }
 
         public void Initialize()
@@ -56,8 +60,15 @@ namespace Systems.MineSystem.MinePlayerSystem.SubSystem.PlayerAnimationSubSystem
             var restartAction =
                 isActionAnimation &&
                 _actionService.ActionSequence != _currentActionSequence;
+            var isHurtAnimation =
+                animationId == PlayerAnimationId.Hurt;
+            var restartHurt =
+                isHurtAnimation &&
+                _damageService.DamageSequence != _currentDamageSequence;
 
-            if (animationId == _currentAnimation && !restartAction)
+            if (animationId == _currentAnimation &&
+                !restartAction &&
+                !restartHurt)
                 return;
 
             if (!_profile.TryGet(animationId, out var animationData))
@@ -75,10 +86,12 @@ namespace Systems.MineSystem.MinePlayerSystem.SubSystem.PlayerAnimationSubSystem
             _runtime.activeAnimation.Value = animationId;
             var generation = _view.AnimationController.Play(
                 animationData,
-                restartAction);
+                restartAction || restartHurt);
 
             if (isActionAnimation)
                 _currentActionSequence = _actionService.ActionSequence;
+            if (isHurtAnimation)
+                _currentDamageSequence = _damageService.DamageSequence;
 
             if (animationId == PlayerAnimationId.PrimaryAction ||
                 animationId == PlayerAnimationId.Interact ||
@@ -90,12 +103,22 @@ namespace Systems.MineSystem.MinePlayerSystem.SubSystem.PlayerAnimationSubSystem
             {
                 _deathService.RegisterAnimationGeneration(generation);
             }
+            else if (isHurtAnimation)
+            {
+                _damageService.RegisterAnimationGeneration(generation);
+            }
         }
 
         private string ResolveAnimation()
         {
             if (_runtime.lifeState.Value == PlayerLifeState.Dead)
                 return PlayerAnimationId.Death;
+
+            if (_runtime.isHurt.Value)
+                return PlayerAnimationId.Hurt;
+
+            if (_runtime.isDamagingFall.Value)
+                return PlayerAnimationId.Fall;
 
             switch (_runtime.actionState.Value)
             {
@@ -119,7 +142,6 @@ namespace Systems.MineSystem.MinePlayerSystem.SubSystem.PlayerAnimationSubSystem
 
             return _runtime.locomotionState.Value switch
             {
-                PlayerLocomotionState.Falling => PlayerAnimationId.Fall,
                 PlayerLocomotionState.Moving => PlayerAnimationId.Move,
                 _ => _runtime.facingDirection.Value ==
                      PlayerFacingDirection.Left

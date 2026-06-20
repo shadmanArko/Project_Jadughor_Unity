@@ -31,3 +31,9 @@ MonoBehaviour:
     category: Light
     variant: Torch
     quantity: 5
+  - id: ordinarySword
+    itemName: Ordinary Sword
+    type: Equippable
+    category: Weapon
+    variant: OrdinarySword
+    quantity: 1

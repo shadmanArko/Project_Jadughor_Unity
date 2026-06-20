@@ -12,6 +12,7 @@ namespace Systems.MineSystem.MinePlayerSystem.SubSystem.PlayerAnimationSubSystem
         public const string Fall = "locomotion.fall";
         public const string PrimaryAction = "action.primary";
         public const string Interact = "interaction.default";
+        public const string Hurt = "hurt.damage";
         public const string Death = "life.death";
     }
 }

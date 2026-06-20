@@ -426,7 +426,7 @@ MonoBehaviour:
         interruptible: 1
         allowFacingFlip: 0
         restrictions: 1
-    - category: 5
+    - category: 6
       animationData:
       - id: interaction.default
         animationName: Interact
@@ -443,7 +443,7 @@ MonoBehaviour:
         interruptible: 0
         allowFacingFlip: 1
         restrictions: 3
-    - category: 6
+    - category: 7
       animationData:
       - id: life.death
         animationName: Death
@@ -462,7 +462,7 @@ MonoBehaviour:
         flipY: 0
         isReversed: 0
         interruptible: 0
-        allowFacingFlip: 0
+        allowFacingFlip: 1
         restrictions: 7
     - category: 5
       animationData:
@@ -488,5 +488,5 @@ MonoBehaviour:
         flipY: 0
         isReversed: 0
         interruptible: 0
-        allowFacingFlip: 0
+        allowFacingFlip: 1
         restrictions: 7

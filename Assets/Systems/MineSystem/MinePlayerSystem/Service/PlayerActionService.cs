@@ -78,6 +78,7 @@ namespace Systems.MineSystem.MinePlayerSystem.Service
 
             if (
                 _runtime.lifeState.Value == PlayerLifeState.Dead ||
+                _runtime.isDamagingFall.Value ||
                 !_runtime.canPerformAction.Value ||
                 _runtime.actionState.Value != PlayerActionState.None ||
                 _runtime.HasRestriction(PlayerRestrictionFlags.Action) ||
@@ -87,6 +88,28 @@ namespace Systems.MineSystem.MinePlayerSystem.Service
             _requestedAction = PlayerActionState.PrimaryAction;
             _requestedAnimationId = animationId;
             return true;
+        }
+
+        public void InterruptForFall()
+        {
+            InterruptCurrentAction();
+        }
+
+        public void InterruptForHurt()
+        {
+            InterruptCurrentAction();
+        }
+
+        private void InterruptCurrentAction()
+        {
+            var interruptedAnimation =
+                _activeAnimationId ?? _requestedAnimationId;
+
+            if (string.IsNullOrWhiteSpace(interruptedAnimation))
+                return;
+
+            CancelAction();
+            _actionFailed.OnNext(interruptedAnimation);
         }
 
         public void OnFixedTick()
@@ -103,6 +126,12 @@ namespace Systems.MineSystem.MinePlayerSystem.Service
                 _activeAnimationId = null;
                 _runtime.actionState.Value = PlayerActionState.None;
                 _appliedRestrictions = PlayerRestrictionFlags.None;
+                return;
+            }
+
+            if (_runtime.isDamagingFall.Value)
+            {
+                InterruptForFall();
                 return;
             }
 

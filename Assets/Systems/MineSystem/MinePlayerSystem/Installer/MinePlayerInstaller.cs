@@ -64,6 +64,7 @@ namespace Systems.MineSystem.MinePlayerSystem.Installer
             Container.Bind<PlayerGroundingService>().AsSingle();
             Container.Bind<PlayerFallService>().AsSingle();
             Container.Bind<PlayerDeathService>().AsSingle();
+            Container.BindInterfacesAndSelfTo<PlayerDamageService>().AsSingle();
             Container.Bind<PlayerClimbService>().AsSingle();
             Container.BindInterfacesAndSelfTo<PlayerActionService>().AsSingle();
             Container.Bind<PlayerMovementService>().AsSingle();
