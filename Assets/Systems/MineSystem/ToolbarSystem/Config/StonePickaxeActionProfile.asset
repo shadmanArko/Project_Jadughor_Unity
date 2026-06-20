@@ -27,4 +27,4 @@ MonoBehaviour:
     down: 
     left: equippable.pickaxe.ordinaryPickaxe.climb.left
     right: equippable.pickaxe.ordinaryPickaxe.climb.right
-  wallDamage: 40
+  wallDamage: 10
