@@ -3,6 +3,7 @@ using Systems.MineSystem.InventorySystem.Model;
 using Systems.MineSystem.MinePlayerSystem.Service;
 using Systems.MineSystem.MinePlayerSystem.Scriptable;
 using Systems.MineSystem.MinePlayerSystem.SubSystem.PlayerAnimationSubSystem.Model;
+using Systems.MineSystem.MinePlayerSystem.View;
 using UnityEngine;
 using Zenject;
 
@@ -19,6 +20,7 @@ namespace Systems.MineSystem.MinePlayerSystem.Model
         private readonly PlayerActionService _actionService;
         private readonly PlayerMovementService _movementService;
         private readonly IInventoryService _inventory;
+        private readonly PlayerView _view;
 
         public PlayerModel(
             RuntimeDataScriptable runtime,
@@ -29,7 +31,8 @@ namespace Systems.MineSystem.MinePlayerSystem.Model
             PlayerClimbService climbService,
             PlayerActionService actionService,
             PlayerMovementService movementService,
-            IInventoryService inventory)
+            IInventoryService inventory,
+            PlayerView view)
         {
             _runtime = runtime;
             _groundingService = groundingService;
@@ -40,6 +43,7 @@ namespace Systems.MineSystem.MinePlayerSystem.Model
             _actionService = actionService;
             _movementService = movementService;
             _inventory = inventory;
+            _view = view;
         }
 
         public bool CanCollect(Item item)
@@ -100,6 +104,8 @@ namespace Systems.MineSystem.MinePlayerSystem.Model
             _climbService.OnFixedTick();
             _actionService.OnFixedTick();
             _movementService.OnFixedTick();
+            _runtime.worldPosition.Value =
+                _view.PlayerCollider.bounds.center;
         }
     }
 }

@@ -3,6 +3,7 @@ using Systems.MineSystem.Mine.Controller;
 using Systems.MineSystem.Mine.Model;
 using Systems.MineSystem.Mine.Scriptable;
 using Systems.MineSystem.Mine.Service;
+using Systems.MineSystem.Mine.Service.CoordinateService;
 using Systems.MineSystem.Mine.Service.MineArtifactService.Config;
 using Systems.MineSystem.Mine.Service.MineArtifactService.Service;
 using Systems.MineSystem.Mine.Service.MineArtifactService.Test;
@@ -27,6 +28,8 @@ namespace Systems.MineSystem.Mine.Installer
         [SerializeField] private CinemachineCamera cinemachineCamera;
         
         [SerializeField] private MineView mineView;
+        [SerializeField]
+        private MineCoordinateCanvasView coordinateCanvasView;
         [SerializeField] private MineGenerationConfig mineGenerationConfig;
         [SerializeField] private ArtifactGenerationConfig artifactGenerationConfig;
         [SerializeField] private ArtifactCatalogConfig artifactCatalogConfig;
@@ -83,6 +86,13 @@ namespace Systems.MineSystem.Mine.Installer
             Container.Bind<MineView>().FromComponentInNewPrefab(mineView).AsSingle();
             Container.BindInterfacesAndSelfTo<MineModel>().AsSingle();
             Container.BindInterfacesAndSelfTo<MineController>().AsSingle().NonLazy();
+            Container.Bind<MineCoordinateCanvasView>()
+                .FromComponentInNewPrefab(coordinateCanvasView)
+                .AsSingle()
+                .NonLazy();
+            Container.BindInterfacesAndSelfTo<MineCoordinateService>()
+                .AsSingle()
+                .NonLazy();
         }
     }
 }

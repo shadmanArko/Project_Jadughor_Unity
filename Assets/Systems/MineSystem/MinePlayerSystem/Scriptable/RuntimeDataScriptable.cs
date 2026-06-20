@@ -30,6 +30,7 @@ namespace Systems.MineSystem.MinePlayerSystem.Scriptable
 
         public ReactiveProperty<Vector2> movementInput = new(Vector2.zero);
         public ReactiveProperty<Vector2> velocity = new(Vector2.zero);
+        public ReactiveProperty<Vector2> worldPosition = new(Vector2.zero);
         public ReactiveProperty<bool> isGrounded = new(false);
         public ReactiveProperty<bool> isInsideClimbable = new(false);
         public ReactiveProperty<bool> isClimbing = new(false);

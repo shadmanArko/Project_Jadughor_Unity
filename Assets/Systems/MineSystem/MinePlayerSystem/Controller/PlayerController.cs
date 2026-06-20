@@ -100,6 +100,8 @@ namespace Systems.MineSystem.MinePlayerSystem.Controller
                 PlayerRestrictionFlags.None;
             _runtimeData.movementInput.Value = Vector2.zero;
             _runtimeData.velocity.Value = Vector2.zero;
+            _runtimeData.worldPosition.Value =
+                _view.PlayerCollider.bounds.center;
             _runtimeData.isGrounded.Value = false;
             _runtimeData.isClimbing.Value = false;
             _runtimeData.isDamagingFall.Value = false;
