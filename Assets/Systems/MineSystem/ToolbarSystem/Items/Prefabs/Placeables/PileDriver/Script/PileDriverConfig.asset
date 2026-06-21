@@ -17,6 +17,7 @@ MonoBehaviour:
   damagePerStomp: 10
   secondsPerCell: 3
   hardStompSecondsPerCell: 0.2
+  stompTravelCells: 0.5
   delayAfterStomp: 2
   turnOnState: TurnOn
   activeState: Active

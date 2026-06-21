@@ -146,9 +146,13 @@ namespace Systems.MineSystem.ToolbarSystem.Items.Prefabs.Placeables.PileDriver.S
             var rootScale = Mathf.Max(
                 0.0001f,
                 Mathf.Abs(_view.transform.lossyScale.y));
-            var travel = GetCellWorldSize() / rootScale;
+            var travel = GetCellWorldSize() *
+                         _config.StompTravelCells /
+                         rootScale;
             var impact = start + Vector3.down * travel;
-            var impactDuration = _config.HardStompSecondsPerCell;
+            var impactDuration =
+                _config.HardStompSecondsPerCell *
+                _config.StompTravelCells;
 
             var sequence = DOTween.Sequence();
             sequence.Append(_view.Head.transform.DOLocalMove(

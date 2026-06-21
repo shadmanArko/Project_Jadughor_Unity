@@ -104,7 +104,8 @@ namespace Systems.Utilities.ScreenShake
         {
             StopActiveShake();
 
-            _activeShake = DOTween.Shake(
+            Tween shake = null;
+            shake = DOTween.Shake(
                     () => _follow.FollowOffset,
                     value => _follow.FollowOffset = value,
                     duration,
@@ -115,8 +116,9 @@ namespace Systems.Utilities.ScreenShake
                     randomnessMode)
                 .SetUpdate(true)
                 .SetTarget(this)
-                .OnKill(RestoreOffset)
-                .OnComplete(RestoreOffset);
+                .OnKill(() => FinishShake(shake))
+                .OnComplete(() => FinishShake(shake));
+            _activeShake = shake;
         }
 
         private void StopActiveShake()
@@ -134,6 +136,15 @@ namespace Systems.Utilities.ScreenShake
                 _follow.FollowOffset = _baseFollowOffset;
         }
 
+        private void FinishShake(Tween shake)
+        {
+            if (!ReferenceEquals(_activeShake, shake))
+                return;
+
+            _activeShake = null;
+            RestoreOffset();
+        }
+
         private static void GetVerticalSettings(
             ScreenShakeLevel level,
             out float duration,
@@ -143,29 +154,29 @@ namespace Systems.Utilities.ScreenShake
             switch (level)
             {
                 case ScreenShakeLevel.Light:
-                    duration = 0.02f;
-                    strength = 0.01f;
-                    vibrato = 1;
-                    break;
-                case ScreenShakeLevel.Medium:
-                    duration = 0.02f;
+                    duration = 0.04f;
                     strength = 0.02f;
-                    vibrato = 2;
-                    break;
-                case ScreenShakeLevel.Heavy:
-                    duration = 0.02f;
-                    strength = 0.03f;
                     vibrato = 3;
                     break;
-                case ScreenShakeLevel.Extreme:
-                    duration = 0.02f;
+                case ScreenShakeLevel.Medium:
+                    duration = 0.1f;
                     strength = 0.04f;
                     vibrato = 4;
                     break;
+                case ScreenShakeLevel.Heavy:
+                    duration = 0.14f;
+                    strength = 0.07f;
+                    vibrato = 5;
+                    break;
+                case ScreenShakeLevel.Extreme:
+                    duration = 0.18f;
+                    strength = 0.11f;
+                    vibrato = 7;
+                    break;
                 default:
-                    duration = 0.02f;
-                    strength = 0.01f;
-                    vibrato = 1;
+                    duration = 0.12f;
+                    strength = 0.02f;
+                    vibrato = 3;
                     break;
             }
         }

@@ -37,5 +37,5 @@ MonoBehaviour:
   damageInvincibilityDuration: 1
   miningSpeed: 1
   attackSpeed: 1
-  collectablePullRadius: 2.5
+  collectablePullRadius: 1
   unlockedInventorySlots: 12

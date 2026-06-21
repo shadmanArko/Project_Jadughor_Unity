@@ -16,6 +16,8 @@ namespace Systems.MineSystem.ToolbarSystem.Items.Prefabs.Placeables.PileDriver.S
         [Min(0.01f)] [SerializeField] private float secondsPerCell = 2f;
         [Min(0.01f)]
         [SerializeField] private float hardStompSecondsPerCell = 0.15f;
+        [Min(0.01f)]
+        [SerializeField] private float stompTravelCells = 0.5f;
         [Min(0f)] [SerializeField] private float delayAfterStomp = 0.25f;
 
         [Header("Core Animation")]
@@ -40,6 +42,8 @@ namespace Systems.MineSystem.ToolbarSystem.Items.Prefabs.Placeables.PileDriver.S
         public float SecondsPerCell => Mathf.Max(0.01f, secondsPerCell);
         public float HardStompSecondsPerCell =>
             Mathf.Max(0.01f, hardStompSecondsPerCell);
+        public float StompTravelCells =>
+            Mathf.Max(0.01f, stompTravelCells);
         public float DelayAfterStomp => Mathf.Max(0f, delayAfterStomp);
         public string TurnOnState => turnOnState;
         public string ActiveState => activeState;
