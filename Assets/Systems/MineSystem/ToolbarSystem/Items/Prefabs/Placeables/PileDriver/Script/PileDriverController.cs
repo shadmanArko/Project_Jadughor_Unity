@@ -24,6 +24,7 @@ namespace Systems.MineSystem.ToolbarSystem.Items.Prefabs.Placeables.PileDriver.S
         private readonly Vector3 _baseHeadLocalPosition;
         private readonly Quaternion _baseRootRotation;
         private Tween _activeTween;
+        private PileDriverDirection _direction;
 
         public PileDriverController(
             PileDriverModel model,
@@ -47,6 +48,7 @@ namespace Systems.MineSystem.ToolbarSystem.Items.Prefabs.Placeables.PileDriver.S
 
         public void Start(PileDriverDirection direction)
         {
+            _direction = direction;
             ResetPresentation();
             _view.transform.localRotation =
                 _baseRootRotation * Quaternion.Euler(
@@ -164,7 +166,7 @@ namespace Systems.MineSystem.ToolbarSystem.Items.Prefabs.Placeables.PileDriver.S
                 _mine.TryHitCell(targetCell, damage);
                 if (capturedShake.HasValue)
                 {
-                    ScreenShakeController.VerticalShake(
+                    PlayDirectionalScreenShake(
                         capturedShake.Value);
                 }
             });
@@ -229,6 +231,26 @@ namespace Systems.MineSystem.ToolbarSystem.Items.Prefabs.Placeables.PileDriver.S
             if (cells <= _config.LightShakeDistance)
                 return ScreenShakeLevel.Light;
             return null;
+        }
+
+        private void PlayDirectionalScreenShake(
+            ScreenShakeLevel level)
+        {
+            switch (_direction)
+            {
+                case PileDriverDirection.Left:
+                    ScreenShakeController.LeftwardShake(level);
+                    break;
+                case PileDriverDirection.Right:
+                    ScreenShakeController.RightwardShake(level);
+                    break;
+                case PileDriverDirection.Up:
+                    ScreenShakeController.UpwardShake(level);
+                    break;
+                default:
+                    ScreenShakeController.DownwardShake(level);
+                    break;
+            }
         }
 
         private float GetCellWorldSize()

@@ -12,6 +12,18 @@ namespace Systems.Utilities.ScreenShake
         IDisposable
     {
         private static ScreenShakeController _instance;
+        private static bool canScreenShake = true;
+
+        public static bool CanScreenShake
+        {
+            get => canScreenShake;
+            set
+            {
+                canScreenShake = value;
+                if (!value)
+                    _instance?.StopActiveShake();
+            }
+        }
 
         private readonly CinemachineCamera _camera;
         private CinemachineFollow _follow;
@@ -40,13 +52,40 @@ namespace Systems.Utilities.ScreenShake
             _instance = this;
         }
 
-        public static void VerticalShake(
+        public static void DownwardShake(
             ScreenShakeLevel level = ScreenShakeLevel.Medium)
         {
             if (!TryGetInstance(out var controller))
                 return;
 
-            controller.PlayVerticalShake(level);
+            controller.PlayDirectionalShake(Vector2.down, level);
+        }
+
+        public static void UpwardShake(
+            ScreenShakeLevel level = ScreenShakeLevel.Medium)
+        {
+            if (!TryGetInstance(out var controller))
+                return;
+
+            controller.PlayDirectionalShake(Vector2.up, level);
+        }
+
+        public static void LeftwardShake(
+            ScreenShakeLevel level = ScreenShakeLevel.Medium)
+        {
+            if (!TryGetInstance(out var controller))
+                return;
+
+            controller.PlayDirectionalShake(Vector2.left, level);
+        }
+
+        public static void RightwardShake(
+            ScreenShakeLevel level = ScreenShakeLevel.Medium)
+        {
+            if (!TryGetInstance(out var controller))
+                return;
+
+            controller.PlayDirectionalShake(Vector2.right, level);
         }
 
         public static void RandomShake(
@@ -64,20 +103,23 @@ namespace Systems.Utilities.ScreenShake
             _instance?.StopActiveShake();
         }
 
-        private void PlayVerticalShake(ScreenShakeLevel level)
+        private void PlayDirectionalShake(
+            Vector2 direction,
+            ScreenShakeLevel level)
         {
-            GetVerticalSettings(
+            GetDirectionalSettings(
                 level,
                 out var duration,
                 out var strength,
                 out var vibrato);
 
-            StartShake(
+            StartDirectionalPunch(
                 duration,
-                new Vector3(0f, strength, 0f),
-                vibrato,
-                0f,
-                ShakeRandomnessMode.Harmonic);
+                new Vector3(
+                    direction.x * strength,
+                    direction.y * strength,
+                    0f),
+                vibrato);
         }
 
         private void PlayRandomShake(float duration, float strength)
@@ -121,6 +163,28 @@ namespace Systems.Utilities.ScreenShake
             _activeShake = shake;
         }
 
+        private void StartDirectionalPunch(
+            float duration,
+            Vector3 direction,
+            int vibrato)
+        {
+            StopActiveShake();
+
+            Tween shake = null;
+            shake = DOTween.Punch(
+                    () => _follow.FollowOffset,
+                    value => _follow.FollowOffset = value,
+                    direction,
+                    duration,
+                    vibrato,
+                    0.35f)
+                .SetUpdate(true)
+                .SetTarget(this)
+                .OnKill(() => FinishShake(shake))
+                .OnComplete(() => FinishShake(shake));
+            _activeShake = shake;
+        }
+
         private void StopActiveShake()
         {
             if (_activeShake != null && _activeShake.IsActive())
@@ -145,7 +209,7 @@ namespace Systems.Utilities.ScreenShake
             RestoreOffset();
         }
 
-        private static void GetVerticalSettings(
+        private static void GetDirectionalSettings(
             ScreenShakeLevel level,
             out float duration,
             out float strength,
@@ -185,6 +249,9 @@ namespace Systems.Utilities.ScreenShake
             out ScreenShakeController controller)
         {
             controller = _instance;
+            if (!canScreenShake)
+                return false;
+
             if (controller != null && controller._follow != null)
                 return true;
 

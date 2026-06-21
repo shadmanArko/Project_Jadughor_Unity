@@ -32,67 +32,67 @@ namespace Systems.MineSystem
         {
             ManualInjector.InjectDependencies(this);
 
-            _mineModel.MineData
-                .Where(mineData => mineData != null)
-                .Subscribe(mineData =>
-                    Debug.Log(
-                        $"Mine generated with {mineData.Artifacts?.Count ?? 0} artifacts " +
-                        $"and {mineData.ArtifactPlacements?.Count ?? 0} placements."))
-                .AddTo(_disposables);
-
-            _mineModel.OnArtifactDiscovered
-                .Subscribe(artifact =>
-                    Debug.Log(
-                        $"Artifact discovered: {artifact.Name} " +
-                        $"[{artifact.DefinitionId}], {artifact.Rarity}, {artifact.Condition}."))
-                .AddTo(_disposables);
+            // _mineModel.MineData
+            //     .Where(mineData => mineData != null)
+            //     .Subscribe(mineData =>
+            //         Debug.Log(
+            //             $"Mine generated with {mineData.Artifacts?.Count ?? 0} artifacts " +
+            //             $"and {mineData.ArtifactPlacements?.Count ?? 0} placements."))
+            //     .AddTo(_disposables);
+            //
+            // _mineModel.OnArtifactDiscovered
+            //     .Subscribe(artifact =>
+            //         Debug.Log(
+            //             $"Artifact discovered: {artifact.Name} " +
+            //             $"[{artifact.DefinitionId}], {artifact.Rarity}, {artifact.Condition}."))
+            //     .AddTo(_disposables);
         }
         
-        private void Update()
-        {
-            if (Input.GetMouseButtonDown(0)) // Left click
-            {
-                if (TryGetTileAtMouse_NoPhysics(_view.wallTileMap, out var cellPos))
-                {
-                    Debug.Log($"Clicked tile at {cellPos}");
-                    _mineController.HitWall(cellPos);
-                }
-                else
-                {
-                    Debug.Log("No tile found");
-                }
-            }
-            
-            if (Input.GetMouseButtonDown(1)) // Left click
-            {
-                if (TryGetTileAtMouse_NoPhysics(_view.unrevealedTileMap, out var cellPos))
-                {
-                    Debug.Log($"Clicked tile at {cellPos}");
-                    var cell = _mineModel.MineData.Value.GetCell(cellPos);
-                    if (cell == null)
-                        return;
-
-                    var artifact = _mineModel.MineData.Value.GetArtifact(cell.Id);
-                    var hasArtifactSprite = artifact != null &&
-                                            _artifactSprites.GetWorldSprite(
-                                                artifact.DefinitionId,
-                                                _player.region,
-                                                _player.site) != null;
-
-                    Debug.Log(
-                        $"Cell Position: {cell.Position}, " +
-                        $"hasResource: {cell.HasResource}, " +
-                        $"hasArtifact: {cell.HasArtifact}, " +
-                        $"itemId: {cell.ItemId}, " +
-                        $"artifactDefinition: {artifact?.DefinitionId ?? "none"}, " +
-                        $"artifactSpriteReady: {hasArtifactSprite}");
-                }
-                else
-                {
-                    Debug.Log("No tile found");
-                }
-            }
-        }
+        // private void Update()
+        // {
+        //     if (Input.GetMouseButtonDown(0)) // Left click
+        //     {
+        //         if (TryGetTileAtMouse_NoPhysics(_view.wallTileMap, out var cellPos))
+        //         {
+        //             Debug.Log($"Clicked tile at {cellPos}");
+        //             _mineController.HitWall(cellPos);
+        //         }
+        //         else
+        //         {
+        //             Debug.Log("No tile found");
+        //         }
+        //     }
+        //     
+        //     if (Input.GetMouseButtonDown(1)) // Left click
+        //     {
+        //         if (TryGetTileAtMouse_NoPhysics(_view.unrevealedTileMap, out var cellPos))
+        //         {
+        //             Debug.Log($"Clicked tile at {cellPos}");
+        //             var cell = _mineModel.MineData.Value.GetCell(cellPos);
+        //             if (cell == null)
+        //                 return;
+        //
+        //             var artifact = _mineModel.MineData.Value.GetArtifact(cell.Id);
+        //             var hasArtifactSprite = artifact != null &&
+        //                                     _artifactSprites.GetWorldSprite(
+        //                                         artifact.DefinitionId,
+        //                                         _player.region,
+        //                                         _player.site) != null;
+        //
+        //             Debug.Log(
+        //                 $"Cell Position: {cell.Position}, " +
+        //                 $"hasResource: {cell.HasResource}, " +
+        //                 $"hasArtifact: {cell.HasArtifact}, " +
+        //                 $"itemId: {cell.ItemId}, " +
+        //                 $"artifactDefinition: {artifact?.DefinitionId ?? "none"}, " +
+        //                 $"artifactSpriteReady: {hasArtifactSprite}");
+        //         }
+        //         else
+        //         {
+        //             Debug.Log("No tile found");
+        //         }
+        //     }
+        // }
 
         private void OnDestroy()
         {
