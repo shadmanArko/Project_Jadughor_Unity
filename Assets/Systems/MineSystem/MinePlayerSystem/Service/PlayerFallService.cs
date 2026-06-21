@@ -15,10 +15,12 @@ namespace Systems.MineSystem.MinePlayerSystem.Service
         private readonly MinePlayerDataConfig _config;
         private readonly PlayerActionService _actionService;
         private readonly IPlayerDamageService _damageService;
+        private readonly Grid _grid;
         private readonly float _cellWorldHeight;
 
         private bool _trackingFall;
         private bool _wasGrounded;
+        private int _highestAirborneCellY;
 
         public PlayerFallService(
             PlayerView view,
@@ -34,6 +36,7 @@ namespace Systems.MineSystem.MinePlayerSystem.Service
             _config = config;
             _actionService = actionService;
             _damageService = damageService;
+            _grid = mineView != null ? mineView.grid : null;
             _cellWorldHeight = ResolveCellWorldHeight(
                 mineView,
                 mineGenerationConfig);
@@ -56,6 +59,7 @@ namespace Systems.MineSystem.MinePlayerSystem.Service
 
             var grounded = _runtime.isGrounded.Value;
             var currentY = _view.Body.position.y;
+            var currentCellY = GetCurrentCellY(currentY);
 
             if (!grounded)
             {
@@ -63,17 +67,20 @@ namespace Systems.MineSystem.MinePlayerSystem.Service
                 {
                     _trackingFall = true;
                     _runtime.highestAirborneY = currentY;
+                    _highestAirborneCellY = currentCellY;
                 }
                 else
                 {
                     _runtime.highestAirborneY =
                         Mathf.Max(_runtime.highestAirborneY, currentY);
+                    _highestAirborneCellY =
+                        Mathf.Max(_highestAirborneCellY, currentCellY);
                 }
 
-                _runtime.currentFallDistance =
-                    Mathf.Max(0f, _runtime.highestAirborneY - currentY);
                 _runtime.currentFallCells =
-                    _runtime.currentFallDistance / _cellWorldHeight;
+                    Mathf.Max(0, _highestAirborneCellY - currentCellY);
+                _runtime.currentFallDistance =
+                    _runtime.currentFallCells * _cellWorldHeight;
 
                 if (!_runtime.isDamagingFall.Value &&
                     _view.Body.linearVelocity.y < -0.01f &&
@@ -94,9 +101,8 @@ namespace Systems.MineSystem.MinePlayerSystem.Service
                 {
                     ApplyLandingDamage(
                         Mathf.Max(
-                            0f,
-                            _runtime.highestAirborneY - currentY) /
-                        _cellWorldHeight);
+                            0,
+                            _highestAirborneCellY - currentCellY));
                 }
 
                 ResetVerticalState();
@@ -110,6 +116,8 @@ namespace Systems.MineSystem.MinePlayerSystem.Service
             _trackingFall = true;
             _wasGrounded = false;
             _runtime.highestAirborneY = _view.Body.position.y;
+            _highestAirborneCellY =
+                GetCurrentCellY(_runtime.highestAirborneY);
             _runtime.currentFallDistance = 0f;
             _runtime.currentFallCells = 0f;
             _runtime.isDamagingFall.Value = false;
@@ -122,6 +130,8 @@ namespace Systems.MineSystem.MinePlayerSystem.Service
             _runtime.currentFallCells = 0f;
             _runtime.isDamagingFall.Value = false;
             _runtime.highestAirborneY = _view.Body.position.y;
+            _highestAirborneCellY =
+                GetCurrentCellY(_runtime.highestAirborneY);
         }
 
         public void ResetVerticalState()
@@ -149,6 +159,20 @@ namespace Systems.MineSystem.MinePlayerSystem.Service
             _damageService.ApplyDamage(
                 damage,
                 PlayerDamageKind.Fall);
+        }
+
+        private int GetCurrentCellY(float fallbackWorldY)
+        {
+            if (_grid == null)
+            {
+                return Mathf.FloorToInt(
+                    fallbackWorldY / _cellWorldHeight);
+            }
+
+            Vector3 position = _view.PlayerCollider != null
+                ? _view.PlayerCollider.bounds.center
+                : (Vector3)_view.Body.position;
+            return _grid.WorldToCell(position).y;
         }
 
         private static float ResolveCellWorldHeight(

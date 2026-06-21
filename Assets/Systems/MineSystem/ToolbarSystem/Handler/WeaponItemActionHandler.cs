@@ -3,6 +3,7 @@ using Systems.MineSystem.InventorySystem.Model;
 using Systems.MineSystem.Damage;
 using Systems.MineSystem.MinePlayerSystem.Scriptable;
 using Systems.MineSystem.MinePlayerSystem.Service;
+using Systems.MineSystem.MinePlayerSystem.View;
 using Systems.MineSystem.ToolbarSystem.Enum;
 using Systems.MineSystem.ToolbarSystem.Interface;
 using Systems.MineSystem.ToolbarSystem.Model;
@@ -17,6 +18,7 @@ namespace Systems.MineSystem.ToolbarSystem.Handler
         private readonly IItemTargetResolver _targets;
         private readonly RuntimeDataScriptable _runtime;
         private readonly ItemActionProfileCatalog _catalog;
+        private readonly PlayerView _player;
 
         public override ItemActionKind ActionKind => ItemActionKind.Weapon;
 
@@ -24,6 +26,7 @@ namespace Systems.MineSystem.ToolbarSystem.Handler
             IItemTargetResolver targets,
             RuntimeDataScriptable runtime,
             ItemActionProfileCatalog catalog,
+            PlayerView player,
             IPlayerItemAnimationService animation,
             IToolbarNavigationLock navigationLock)
             : base(animation, navigationLock)
@@ -31,6 +34,7 @@ namespace Systems.MineSystem.ToolbarSystem.Handler
             _targets = targets;
             _runtime = runtime;
             _catalog = catalog;
+            _player = player;
         }
 
         protected override bool TryPrepareAction(
@@ -78,6 +82,7 @@ namespace Systems.MineSystem.ToolbarSystem.Handler
                 foreach (var behaviour in behaviours)
                 {
                     if (behaviour is IDamageable damageable &&
+                        !ReferenceEquals(damageable, _player) &&
                         damaged.Add(damageable))
                     {
                         damageable.ApplyDamage(profile.Damage);

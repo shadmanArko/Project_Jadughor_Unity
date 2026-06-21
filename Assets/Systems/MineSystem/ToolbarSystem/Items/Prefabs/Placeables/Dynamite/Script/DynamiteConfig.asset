@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Systems.MineSystem.ToolbarSystem.Items.Prefabs.Placeables.Dynamite.Script.DynamiteConfig
   countdownSeconds: 5
   tickInterval: 1
-  objectDamage: 25
+  objectDamage: 40
   wallDamage: 40
   overlapRadius: 0.1
   targetLayers:
@@ -24,7 +24,7 @@ MonoBehaviour:
   normalizedImpactTime: 0.5
   fallbackAnimationDuration: 1.0167
   delayBetweenStages: 0
-  shakeDuration: 0.25
+  shakeDuration: 0.04
   shakeStrength: 0.08
   timerOffset: {x: 0.15, y: 0.08, z: 0}
   timerFontSize: 2
