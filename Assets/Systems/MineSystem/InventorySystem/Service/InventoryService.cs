@@ -207,14 +207,38 @@ namespace Systems.MineSystem.InventorySystem.Service
 
         private static bool CanStack(Item first, Item second)
         {
-            return first != null &&
-                   second != null &&
-                   first is not Artifact &&
-                   second is not Artifact &&
-                   first.GetType() == second.GetType() &&
-                   string.Equals(first.Type, second.Type, StringComparison.Ordinal) &&
-                   string.Equals(first.Category, second.Category, StringComparison.Ordinal) &&
-                   string.Equals(first.Variant, second.Variant, StringComparison.Ordinal);
+            if (first == null ||
+                second == null ||
+                first is Artifact ||
+                second is Artifact)
+                return false;
+
+            var matchingTaxonomy =
+                string.Equals(
+                    first.Type,
+                    second.Type,
+                    StringComparison.Ordinal) &&
+                string.Equals(
+                    first.Category,
+                    second.Category,
+                    StringComparison.Ordinal) &&
+                string.Equals(
+                    first.Variant,
+                    second.Variant,
+                    StringComparison.Ordinal);
+            if (!matchingTaxonomy)
+                return false;
+
+            return first.GetType() == second.GetType() ||
+                   IsPlaceable(first) && IsPlaceable(second);
+        }
+
+        private static bool IsPlaceable(Item item)
+        {
+            return string.Equals(
+                item.Type,
+                "Placeable",
+                StringComparison.OrdinalIgnoreCase);
         }
     }
 }

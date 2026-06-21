@@ -1,9 +1,10 @@
 using System;
 using System.Threading;
 using Cysharp.Threading.Tasks;
-using Systems.MineSystem.Damage;
 using Systems.MineSystem.ToolbarSystem.Interface;
 using Systems.MineSystem.ToolbarSystem.Model;
+using Systems.MineSystem.ToolbarSystem.Service;
+using UniRx;
 using UnityEngine;
 using Zenject;
 
@@ -11,24 +12,29 @@ namespace Systems.MineSystem.ToolbarSystem.Items.Prefabs.Placeables.Dynamite.Scr
 {
     public sealed class DynamiteRuntime :
         MonoBehaviour,
-        IPlaceableRuntime,
-        IDamageable
+        IPlaceableRuntime
     {
         [SerializeField] private DynamiteView view;
 
         private DynamiteExplosionService _explosionService;
+        private PlaceableItemizationService _itemization;
         private Action<IPlaceableRuntime> _releaseAction;
         private CancellationTokenSource _countdown;
         private PlaceableSpawnContext _context;
         private DynamiteConfig _config;
         private bool _detonating;
         private CircleCollider2D _damageCollider;
+        private readonly CompositeDisposable _damageSubscriptions = new();
+
+        public IPlaceableDamageView DamageView => view;
 
         [Inject]
         public void Construct(
-            DynamiteExplosionService explosionService)
+            DynamiteExplosionService explosionService,
+            PlaceableItemizationService itemization)
         {
             _explosionService = explosionService;
+            _itemization = itemization;
         }
 
         public void Initialize(PlaceableSpawnContext context)
@@ -54,6 +60,15 @@ namespace Systems.MineSystem.ToolbarSystem.Items.Prefabs.Placeables.Dynamite.Scr
             EnsureCollider();
             _damageCollider.radius = _config.ColliderRadius;
             view.Configure(_config);
+            view.ConfigureItemization(() =>
+                _itemization.TryConvert(
+                    _context,
+                    transform.position));
+            view.DamageRequested
+                .Where(amount => amount > 0f)
+                .Take(1)
+                .Subscribe(_ => BeginDetonation())
+                .AddTo(_damageSubscriptions);
             gameObject.SetActive(true);
 
             _countdown = new CancellationTokenSource();
@@ -74,12 +89,6 @@ namespace Systems.MineSystem.ToolbarSystem.Items.Prefabs.Placeables.Dynamite.Scr
         public void Release()
         {
             _releaseAction?.Invoke(this);
-        }
-
-        public void ApplyDamage(float amount)
-        {
-            if (amount > 0f)
-                BeginDetonation();
         }
 
         private async UniTask RunCountdownAsync(
@@ -144,6 +153,8 @@ namespace Systems.MineSystem.ToolbarSystem.Items.Prefabs.Placeables.Dynamite.Scr
             }
 
             view?.ResetView();
+            view?.ClearItemization();
+            _damageSubscriptions.Clear();
             _context = default;
             _config = null;
             _detonating = false;

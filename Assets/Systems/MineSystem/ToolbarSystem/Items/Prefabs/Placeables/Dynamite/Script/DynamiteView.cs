@@ -1,9 +1,10 @@
 using TMPro;
+using Systems.MineSystem.ToolbarSystem.View;
 using UnityEngine;
 
 namespace Systems.MineSystem.ToolbarSystem.Items.Prefabs.Placeables.Dynamite.Script
 {
-    public sealed class DynamiteView : MonoBehaviour
+    public sealed class DynamiteView : PlaceableDamageView
     {
         [SerializeField] private SpriteRenderer dynamiteRenderer;
         [SerializeField] private TextMeshPro countdownText;

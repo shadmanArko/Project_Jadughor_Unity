@@ -10,6 +10,10 @@ namespace Systems.MineSystem.ToolbarSystem.Profile
         [SerializeField] private string placeableId;
         [SerializeField] private PlaceableTargetKind targetKind;
 
+        [Header("Durability")]
+        [Min(1)]
+        [SerializeField] private float maxHealth = 20f;
+
         [Header("Footprint")]
         [Min(1)]
         [SerializeField] private int width = 1;
@@ -24,6 +28,7 @@ namespace Systems.MineSystem.ToolbarSystem.Profile
         public override ItemActionKind ActionKind => ItemActionKind.Placeable;
         public string PlaceableId => placeableId;
         public PlaceableTargetKind TargetKind => targetKind;
+        public float MaxHealth => Mathf.Max(1f, maxHealth);
         public int Width => Mathf.Max(1, width);
         public int Height => Mathf.Max(1, height);
         public Sprite PreviewSprite => previewSprite;

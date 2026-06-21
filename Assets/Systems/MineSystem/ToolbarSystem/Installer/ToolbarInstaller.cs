@@ -74,6 +74,12 @@ namespace Systems.MineSystem.ToolbarSystem.Installer
             Container.Bind<IPileDriverPlacementValidator>()
                 .To<PileDriverPlacementValidator>()
                 .AsSingle();
+            Container.BindInterfacesAndSelfTo<PlaceableRuntimeRegistry>()
+                .AsSingle();
+            Container.Bind<PlaceableItemizationService>().AsSingle();
+            Container.Bind<ICellDamageService>()
+                .To<CellDamageService>()
+                .AsSingle();
             Container.BindInterfacesAndSelfTo<PlaceableFactory>()
                 .AsSingle();
 

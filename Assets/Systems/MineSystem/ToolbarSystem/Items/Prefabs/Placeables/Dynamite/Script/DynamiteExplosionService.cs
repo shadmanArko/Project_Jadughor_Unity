@@ -5,6 +5,7 @@ using Cysharp.Threading.Tasks;
 using Systems.MineSystem.Damage;
 using Systems.MineSystem.Mine.Model;
 using Systems.MineSystem.Mine.View;
+using Systems.MineSystem.ToolbarSystem.Interface;
 using Systems.MineSystem.ToolbarSystem.Model;
 using Systems.Utilities.ScreenShake;
 using UnityEngine;
@@ -16,17 +17,19 @@ namespace Systems.MineSystem.ToolbarSystem.Items.Prefabs.Placeables.Dynamite.Scr
         private readonly MineModel _mine;
         private readonly MineView _mineView;
         private readonly ExplosionSmokePool _smokePool;
+        private readonly ICellDamageService _cellDamage;
         private readonly CancellationTokenSource _lifetime = new();
-        private readonly List<Collider2D> _overlapResults = new(16);
 
         public DynamiteExplosionService(
             MineModel mine,
             MineView mineView,
-            ExplosionSmokePool smokePool)
+            ExplosionSmokePool smokePool,
+            ICellDamageService cellDamage)
         {
             _mine = mine;
             _mineView = mineView;
             _smokePool = smokePool;
+            _cellDamage = cellDamage;
         }
 
         public void Detonate(
@@ -203,48 +206,13 @@ namespace Systems.MineSystem.ToolbarSystem.Items.Prefabs.Placeables.Dynamite.Scr
             DynamiteConfig config,
             HashSet<IDamageable> damaged)
         {
-            var cell = _mine.MineData.Value?.GetCell(cellPosition);
-            if (cell != null &&
-                cell.IsBreakable &&
-                !cell.IsBroken)
-            {
-                _mine.TryHitCell(
-                    cellPosition,
-                    config.WallDamage);
-            }
-
-            var worldPosition =
-                _mineView.grid.GetCellCenterWorld(cellPosition);
-            var filter = new ContactFilter2D
-            {
-                useLayerMask = true,
-                layerMask = config.TargetLayers,
-                useTriggers = true
-            };
-
-            _overlapResults.Clear();
-            Physics2D.OverlapCircle(
-                worldPosition,
+            _cellDamage.ApplyCellImpact(
+                cellPosition,
+                config.WallDamage,
+                config.ObjectDamage,
                 config.OverlapRadius,
-                filter,
-                _overlapResults);
-
-            foreach (var collider in _overlapResults)
-            {
-                if (collider == null)
-                    continue;
-
-                var behaviours =
-                    collider.GetComponentsInParent<MonoBehaviour>();
-                foreach (var behaviour in behaviours)
-                {
-                    if (behaviour is not IDamageable damageable ||
-                        !damaged.Add(damageable))
-                        continue;
-
-                    damageable.ApplyDamage(config.ObjectDamage);
-                }
-            }
+                config.TargetLayers,
+                damaged);
         }
 
         public void Dispose()

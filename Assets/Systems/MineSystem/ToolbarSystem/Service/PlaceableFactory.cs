@@ -26,6 +26,7 @@ namespace Systems.MineSystem.ToolbarSystem.Service
         private readonly PlaceableFactoryCatalog _catalog;
         private readonly IPlaceableValidator _validator;
         private readonly DiContainer _container;
+        private readonly PlaceableRuntimeRegistry _registry;
         private readonly Dictionary<string, Pool> _pools =
             new(StringComparer.OrdinalIgnoreCase);
         private readonly Dictionary<IPlaceableRuntime, (Pool Pool, PlaceableSpawnContext Context)> _active = new();
@@ -34,11 +35,13 @@ namespace Systems.MineSystem.ToolbarSystem.Service
         public PlaceableFactory(
             PlaceableFactoryCatalog catalog,
             IPlaceableValidator validator,
-            DiContainer container)
+            DiContainer container,
+            PlaceableRuntimeRegistry registry)
         {
             _catalog = catalog;
             _validator = validator;
             _container = container;
+            _registry = registry;
         }
 
         public void Initialize()
@@ -98,6 +101,7 @@ namespace Systems.MineSystem.ToolbarSystem.Service
             runtime.SetReleaseAction(Despawn);
             runtime.Initialize(context);
             _active[runtime] = (pool, context);
+            _registry.Register(runtime, context);
             return true;
         }
 
@@ -110,6 +114,7 @@ namespace Systems.MineSystem.ToolbarSystem.Service
             if (behaviour == null)
                 return;
 
+            _registry.Unregister(runtime);
             behaviour.gameObject.SetActive(false);
             behaviour.transform.SetParent(_root, false);
             active.Pool.Available.Push(behaviour.gameObject);

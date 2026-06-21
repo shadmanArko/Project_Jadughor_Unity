@@ -1,5 +1,5 @@
-using UnityEngine;
+using Systems.MineSystem.ToolbarSystem.View;
 
-public class Torch : MonoBehaviour
+public class Torch : PlaceableDamageView
 {
 }

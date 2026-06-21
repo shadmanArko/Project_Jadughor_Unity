@@ -18,6 +18,7 @@ MonoBehaviour:
   iconSprite: {fileID: 21300000, guid: dd8bba4c7e69df2448ffb7576e1a9732, type: 3}
   placeableId: PileDriver
   targetKind: 0
+  maxHealth: 20
   width: 1
   height: 1
   previewSprite: {fileID: 21300000, guid: dd8bba4c7e69df2448ffb7576e1a9732, type: 3}

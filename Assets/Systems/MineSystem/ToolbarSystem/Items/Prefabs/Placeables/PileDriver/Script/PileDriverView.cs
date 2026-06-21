@@ -1,8 +1,9 @@
 using UnityEngine;
+using Systems.MineSystem.ToolbarSystem.View;
 
 namespace Systems.MineSystem.ToolbarSystem.Items.Prefabs.Placeables.PileDriver.Script
 {
-    public sealed class PileDriverView : MonoBehaviour
+    public sealed class PileDriverView : PlaceableDamageView
     {
         [SerializeField] private SpriteRenderer core;
         [SerializeField] private SpriteRenderer extension;
