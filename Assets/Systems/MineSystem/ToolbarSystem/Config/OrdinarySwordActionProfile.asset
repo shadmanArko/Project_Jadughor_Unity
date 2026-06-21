@@ -28,7 +28,7 @@ MonoBehaviour:
     left: equippable.sword.ordinarySword.climb.left
     right: equippable.sword.ordinarySword.climb.right
   damage: 10
-  hitRadius: 0.75
+  hitRadiusCells: 0.75
   targetLayers:
     serializedVersion: 2
     m_Bits: 4294967295
