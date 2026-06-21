@@ -56,6 +56,11 @@ namespace Systems.MineSystem.MinePlayerSystem.Model
             return _inventory.TryAdd(item);
         }
 
+        public void ApplyDamage(float amount)
+        {
+            _damageService.ApplyDamage(amount);
+        }
+
         public void SetMovementInput(Vector2 direction)
         {
             _runtime.movementInput.Value =

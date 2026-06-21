@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Systems.MineSystem.InventorySystem.Model;
+using Systems.MineSystem.Damage;
 using Systems.MineSystem.MinePlayerSystem.Scriptable;
 using Systems.MineSystem.MinePlayerSystem.Service;
 using Systems.MineSystem.ToolbarSystem.Enum;
@@ -79,7 +80,7 @@ namespace Systems.MineSystem.ToolbarSystem.Handler
                     if (behaviour is IDamageable damageable &&
                         damaged.Add(damageable))
                     {
-                        damageable.ApplyDamage(profile.Damage, item);
+                        damageable.ApplyDamage(profile.Damage);
                     }
                 }
             }

@@ -43,3 +43,9 @@ MonoBehaviour:
     category: Drill
     variant: PileDriver
     quantity: 5
+  - id: dynamite
+    itemName: Dynamite
+    type: Placeable
+    category: Explosive
+    variant: Dynamite
+    quantity: 5

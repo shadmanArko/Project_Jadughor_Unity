@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55555555555545558555555555555551, type: 3}
+  m_Name: DynamiteConfig
+  m_EditorClassIdentifier: Assembly-CSharp::Systems.MineSystem.ToolbarSystem.Items.Prefabs.Placeables.Dynamite.Script.DynamiteConfig
+  countdownSeconds: 5
+  tickInterval: 1
+  objectDamage: 25
+  wallDamage: 40
+  overlapRadius: 0.1
+  targetLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  explosionState: Explode
+  normalizedImpactTime: 0.5
+  fallbackAnimationDuration: 1.0167
+  delayBetweenStages: 0
+  shakeDuration: 0.25
+  shakeStrength: 0.08
+  timerOffset: {x: 0.15, y: 0.08, z: 0}
+  timerFontSize: 2
+  timerColor: {r: 1, g: 1, b: 1, a: 1}
+  explosionSmokePrefab: {fileID: 548771653077349111, guid: fedd824ee40345e4b989031dcd2a80a6, type: 3}
+  dynamitePrewarmSize: 10
+  smokePrewarmSize: 20
+  colliderRadius: 0.08

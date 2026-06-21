@@ -73,7 +73,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -84,7 +84,7 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
@@ -111,7 +111,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -132,6 +132,19 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -139,12 +152,12 @@ TextureImporter:
       name: dynamiteExplosion_0
       rect:
         serializedVersion: 2
-        x: 9
-        y: 7
-        width: 32
-        height: 9
+        x: 0
+        y: 0
+        width: 24
+        height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -161,12 +174,12 @@ TextureImporter:
       name: dynamiteExplosion_1
       rect:
         serializedVersion: 2
-        x: 49
+        x: 24
         y: 0
         width: 24
         height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -183,12 +196,12 @@ TextureImporter:
       name: dynamiteExplosion_2
       rect:
         serializedVersion: 2
-        x: 72
+        x: 48
         y: 0
-        width: 25
+        width: 24
         height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -205,12 +218,12 @@ TextureImporter:
       name: dynamiteExplosion_3
       rect:
         serializedVersion: 2
-        x: 96
+        x: 72
         y: 0
-        width: 25
+        width: 24
         height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -227,12 +240,12 @@ TextureImporter:
       name: dynamiteExplosion_4
       rect:
         serializedVersion: 2
-        x: 120
-        y: 14
-        width: 14
-        height: 10
+        x: 96
+        y: 0
+        width: 24
+        height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -249,12 +262,12 @@ TextureImporter:
       name: dynamiteExplosion_5
       rect:
         serializedVersion: 2
-        x: 125
-        y: 8
-        width: 6
-        height: 6
+        x: 120
+        y: 0
+        width: 24
+        height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -271,12 +284,12 @@ TextureImporter:
       name: dynamiteExplosion_6
       rect:
         serializedVersion: 2
-        x: 131
-        y: 8
-        width: 14
-        height: 15
+        x: 144
+        y: 0
+        width: 24
+        height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -293,12 +306,12 @@ TextureImporter:
       name: dynamiteExplosion_7
       rect:
         serializedVersion: 2
-        x: 144
-        y: 12
-        width: 15
-        height: 12
+        x: 168
+        y: 0
+        width: 24
+        height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -315,12 +328,12 @@ TextureImporter:
       name: dynamiteExplosion_8
       rect:
         serializedVersion: 2
-        x: 144
+        x: 192
         y: 0
-        width: 12
-        height: 13
+        width: 24
+        height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -337,86 +350,20 @@ TextureImporter:
       name: dynamiteExplosion_9
       rect:
         serializedVersion: 2
-        x: 157
-        y: 1
-        width: 57
-        height: 23
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 9f3728be9f3788150800000000000000
-      internalID: 5875073231140058105
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: dynamiteExplosion_10
-      rect:
-        serializedVersion: 2
-        x: 120
+        x: 216
         y: 0
-        width: 12
-        height: 11
+        width: 24
+        height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: dc393e44e769081a0800000000000000
-      internalID: -6809277167518379059
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: dynamiteExplosion_11
-      rect:
-        serializedVersion: 2
-        x: 132
-        y: 0
-        width: 10
-        height: 10
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: edb8daa2c2a290b80800000000000000
-      internalID: -8428158858464228386
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: dynamiteExplosion_12
-      rect:
-        serializedVersion: 2
-        x: 157
-        y: 0
-        width: 9
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: b21d04e5e9f7e7230800000000000000
-      internalID: 3638485867124805931
+      spriteID: cd7ebfa4eb7655b489defd4621f9476f
+      internalID: 587393112
       vertices: []
       indices: 
       edges: []
@@ -425,7 +372,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 96477f5ecdadb3c48afee513b200a592
     internalID: 0
     vertices: []
     indices: 
@@ -433,13 +380,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":10.0,"y":1.0},"gridSpriteSize":{"x":24.0,"y":24.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":true,"isAlternate":false}'
     nameFileIdTable:
       dynamiteExplosion_0: 8868471775782279685
       dynamiteExplosion_1: -2122549071627475763
-      dynamiteExplosion_10: -6809277167518379059
-      dynamiteExplosion_11: -8428158858464228386
-      dynamiteExplosion_12: 3638485867124805931
       dynamiteExplosion_2: 8219962690899752816
       dynamiteExplosion_3: 5092586794887477872
       dynamiteExplosion_4: -6765298594618716939
@@ -447,7 +393,7 @@ TextureImporter:
       dynamiteExplosion_6: 4333515848694199186
       dynamiteExplosion_7: 5785054056026351589
       dynamiteExplosion_8: -3209791804910848481
-      dynamiteExplosion_9: 5875073231140058105
+      dynamiteExplosion_9: 587393112
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

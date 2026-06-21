@@ -21,3 +21,7 @@ MonoBehaviour:
     prefab: {fileID: 3002731065426305254, guid: dc092b68f3bbb6b4a8e1fd076fbc118e, type: 3}
     initialSize: 2
     maximumSize: 10
+  - id: Dynamite
+    prefab: {fileID: 3236516981417558109, guid: fd32f20ed51b5b9459b1547c03ecf9d8, type: 3}
+    initialSize: 10
+    maximumSize: 10

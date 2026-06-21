@@ -4,7 +4,6 @@ namespace Systems.MineSystem.InventorySystem.Interface
 {
     public interface IItemizable
     {
-        Item ToInventoryItem();
-        Item ToCollectableItem();
+        
     }
 }

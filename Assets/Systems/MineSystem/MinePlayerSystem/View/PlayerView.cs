@@ -1,13 +1,18 @@
 using System;
+using Systems.MineSystem.Damage;
 using Systems.MineSystem.MinePlayerSystem.SubSystem.PlayerAnimationSubSystem.Controller;
 using Systems.MineSystem.MinePlayerSystem.SubSystem.PlayerAnimationSubSystem.Model;
+using UniRx;
 using UnityEngine;
 
 namespace Systems.MineSystem.MinePlayerSystem.View
 {
-    public sealed class PlayerView : MonoBehaviour
+    public sealed class PlayerView :
+        MonoBehaviour,
+        IDamageable
     {
         private static PhysicsMaterial2D _frictionlessMaterial;
+        private readonly Subject<float> _damageRequested = new();
 
         [SerializeField] private Rigidbody2D body;
         [SerializeField] private Collider2D playerCollider;
@@ -27,6 +32,12 @@ namespace Systems.MineSystem.MinePlayerSystem.View
             animationController.MarkerRaised;
         public IObservable<PlayerAnimationCompletedEvent> AnimationCompleted =>
             animationController.Completed;
+        public IObservable<float> DamageRequested => _damageRequested;
+
+        public void ApplyDamage(float amount)
+        {
+            _damageRequested.OnNext(amount);
+        }
 
         public void Configure()
         {
@@ -71,6 +82,12 @@ namespace Systems.MineSystem.MinePlayerSystem.View
         public void Stop()
         {
             body.linearVelocity = Vector2.zero;
+        }
+
+        private void OnDestroy()
+        {
+            _damageRequested.OnCompleted();
+            _damageRequested.Dispose();
         }
 
         private static PhysicsMaterial2D GetFrictionlessMaterial()

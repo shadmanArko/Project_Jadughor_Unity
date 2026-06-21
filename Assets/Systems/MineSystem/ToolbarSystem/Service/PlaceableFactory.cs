@@ -55,9 +55,13 @@ namespace Systems.MineSystem.ToolbarSystem.Service
 
                 var pool = new Pool(entry);
                 _pools[entry.id.Trim()] = pool;
-                var initialSize = Mathf.Min(
-                    Mathf.Max(0, entry.initialSize),
-                    Mathf.Max(1, entry.maximumSize));
+                var initialSize = Mathf.Max(0, entry.initialSize);
+                if (entry.maximumSize > 0)
+                {
+                    initialSize = Mathf.Min(
+                        initialSize,
+                        entry.maximumSize);
+                }
                 for (var index = 0; index < initialSize; index++)
                     pool.Available.Push(Create(pool));
             }
@@ -75,7 +79,8 @@ namespace Systems.MineSystem.ToolbarSystem.Service
             GameObject instance;
             if (pool.Available.Count > 0)
                 instance = pool.Available.Pop();
-            else if (pool.Created < Mathf.Max(1, pool.Entry.maximumSize))
+            else if (pool.Entry.maximumSize <= 0 ||
+                     pool.Created < pool.Entry.maximumSize)
                 instance = Create(pool);
             else
                 return false;

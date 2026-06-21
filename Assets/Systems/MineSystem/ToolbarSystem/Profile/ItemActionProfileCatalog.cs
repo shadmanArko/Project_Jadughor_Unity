@@ -76,5 +76,10 @@ namespace Systems.MineSystem.ToolbarSystem.Profile
         {
             _lookup = null;
         }
+
+        private void OnEnable()
+        {
+            _lookup = null;
+        }
     }
 }

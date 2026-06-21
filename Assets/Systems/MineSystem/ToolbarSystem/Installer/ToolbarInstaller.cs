@@ -7,6 +7,7 @@ using Systems.MineSystem.ToolbarSystem.Scriptable;
 using Systems.MineSystem.ToolbarSystem.Service;
 using Systems.MineSystem.ToolbarSystem.View;
 using Systems.MineSystem.ToolbarSystem.Items.Prefabs.Placeables.PileDriver.Script;
+using Systems.MineSystem.ToolbarSystem.Items.Prefabs.Placeables.Dynamite.Script;
 using Systems.MineSystem.CollectableSystem.Interface;
 using UnityEngine;
 using Zenject;
@@ -19,6 +20,7 @@ namespace Systems.MineSystem.ToolbarSystem.Installer
         [SerializeField] private ToolbarConfig config;
         [SerializeField] private ItemActionProfileCatalog itemActionProfiles;
         [SerializeField] private PlaceableFactoryCatalog placeableFactories;
+        [SerializeField] private DynamiteConfig dynamiteConfig;
 
         public override void InstallBindings()
         {
@@ -49,6 +51,16 @@ namespace Systems.MineSystem.ToolbarSystem.Installer
                 .AsSingle();
             Container.Bind<PlaceableFactoryCatalog>()
                 .FromScriptableObject(placeableFactories)
+                .AsSingle();
+            Container.Bind<DynamiteConfig>()
+                .FromScriptableObject(dynamiteConfig)
+                .AsSingle();
+            Container.BindMemoryPool<ExplosionSmokeView, ExplosionSmokePool>()
+                .WithInitialSize(dynamiteConfig.SmokePrewarmSize)
+                .ExpandByOneAtATime()
+                .FromComponentInNewPrefab(dynamiteConfig.ExplosionSmokePrefab)
+                .UnderTransformGroup("Explosion Smoke Pool");
+            Container.BindInterfacesAndSelfTo<DynamiteExplosionService>()
                 .AsSingle();
             Container.Bind<ICollectableSpriteProvider>()
                 .To<ProfileItemSpriteProvider>()

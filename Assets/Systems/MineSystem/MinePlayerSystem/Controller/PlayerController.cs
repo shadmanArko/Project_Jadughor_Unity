@@ -66,6 +66,7 @@ namespace Systems.MineSystem.MinePlayerSystem.Controller
             _view.Configure();
             SubscribeToInputSignals();
             SubscribeToAnimationEvents();
+            SubscribeToDamageRequests();
             _collectorRegistry.Register(this);
         }
 
@@ -132,6 +133,13 @@ namespace Systems.MineSystem.MinePlayerSystem.Controller
                 .AddTo(_disposables);
             _view.AnimationCompleted
                 .Subscribe(_model.HandleAnimationCompleted)
+                .AddTo(_disposables);
+        }
+
+        private void SubscribeToDamageRequests()
+        {
+            _view.DamageRequested
+                .Subscribe(_model.ApplyDamage)
                 .AddTo(_disposables);
         }
 

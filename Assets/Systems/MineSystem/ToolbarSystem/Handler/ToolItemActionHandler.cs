@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using Systems.MineSystem.Damage;
 using Systems.MineSystem.InventorySystem.Model;
 using Systems.MineSystem.Mine.Model;
 using Systems.MineSystem.MinePlayerSystem.Scriptable;
@@ -6,6 +8,7 @@ using Systems.MineSystem.ToolbarSystem.Enum;
 using Systems.MineSystem.ToolbarSystem.Interface;
 using Systems.MineSystem.ToolbarSystem.Model;
 using Systems.MineSystem.ToolbarSystem.Profile;
+using UnityEngine;
 
 namespace Systems.MineSystem.ToolbarSystem.Handler
 {
@@ -70,6 +73,29 @@ namespace Systems.MineSystem.ToolbarSystem.Handler
             ToolActionProfile profile,
             ItemActionTarget target)
         {
+            var cell = _mine.MineData.Value?.GetCell(
+                target.CellPosition);
+            if (cell != null && (cell.IsBroken || cell.IsBlank))
+            {
+                var colliders = Physics2D.OverlapPointAll(
+                    target.WorldPosition);
+                var damaged = new HashSet<IDamageable>();
+                foreach (var collider in colliders)
+                {
+                    var behaviours =
+                        collider.GetComponentsInParent<MonoBehaviour>();
+                    foreach (var behaviour in behaviours)
+                    {
+                        if (behaviour is not IDamageable damageable ||
+                            !damaged.Add(damageable))
+                            continue;
+
+                        damageable.ApplyDamage(profile.WallDamage);
+                        return;
+                    }
+                }
+            }
+
             _mine.TryHitCell(target.CellPosition, profile.WallDamage);
         }
     }

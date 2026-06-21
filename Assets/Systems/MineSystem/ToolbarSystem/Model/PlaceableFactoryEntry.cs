@@ -9,6 +9,7 @@ namespace Systems.MineSystem.ToolbarSystem.Model
         public string id;
         public GameObject prefab;
         [Min(0)] public int initialSize = 1;
-        [Min(1)] public int maximumSize = 10;
+        [Tooltip("Zero allows the pool to grow without a maximum.")]
+        [Min(0)] public int maximumSize = 10;
     }
 }
