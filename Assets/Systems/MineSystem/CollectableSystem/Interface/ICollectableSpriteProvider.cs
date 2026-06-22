@@ -6,6 +6,7 @@ namespace Systems.MineSystem.CollectableSystem.Interface
 {
     public interface ICollectableSpriteProvider
     {
+        int Priority { get; }
         bool CanResolve(Item item);
         Sprite Resolve(Item item, Region region, Site site);
     }

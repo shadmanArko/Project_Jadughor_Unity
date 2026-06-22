@@ -11,6 +11,7 @@ namespace Systems.MineSystem.CollectableSystem.Service.CollectableSpriteProvider
     public sealed class ArtifactCollectableSpriteProvider : ICollectableSpriteProvider
     {
         private readonly ArtifactSpriteScriptable _sprites;
+        public int Priority => 0;
 
         public ArtifactCollectableSpriteProvider(ArtifactSpriteScriptable sprites)
         {

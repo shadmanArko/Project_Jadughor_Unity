@@ -9,6 +9,7 @@ namespace Systems.MineSystem.ToolbarSystem.Service
     public sealed class ProfileItemSpriteProvider : ICollectableSpriteProvider
     {
         private readonly ItemActionProfileCatalog _profiles;
+        public int Priority => 100;
 
         public ProfileItemSpriteProvider(ItemActionProfileCatalog profiles)
         {

@@ -13,6 +13,7 @@ namespace Systems.MineSystem.CollectableSystem.Service.CollectableSpriteProvider
     {
         private readonly List<PlaceableCollectableSpriteData> _spriteDatas;
         private readonly Sprite _fallbackSprite;
+        public int Priority => -100;
 
         protected PlaceableCollectableSpriteProvider(
             List<PlaceableCollectableSpriteData> spriteDatas,

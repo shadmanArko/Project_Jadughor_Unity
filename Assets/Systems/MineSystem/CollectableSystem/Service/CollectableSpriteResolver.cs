@@ -17,16 +17,25 @@ namespace Systems.MineSystem.CollectableSystem.Service
 
         public Sprite Resolve(Item item, Region region, Site site)
         {
+            Sprite resolved = null;
+            var resolvedPriority = int.MinValue;
+
             for (var i = 0; i < _providers.Count; i++)
             {
                 var provider = _providers[i];
-                if (!provider.CanResolve(item))
+                if (!provider.CanResolve(item) ||
+                    provider.Priority < resolvedPriority)
                     continue;
 
-                return provider.Resolve(item, region, site);
+                var sprite = provider.Resolve(item, region, site);
+                if (sprite == null)
+                    continue;
+
+                resolved = sprite;
+                resolvedPriority = provider.Priority;
             }
 
-            return null;
+            return resolved;
         }
     }
 }

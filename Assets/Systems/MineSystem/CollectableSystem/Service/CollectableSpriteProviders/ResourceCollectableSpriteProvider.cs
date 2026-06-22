@@ -12,6 +12,7 @@ namespace Systems.MineSystem.CollectableSystem.Service.CollectableSpriteProvider
     public sealed class ResourceCollectableSpriteProvider : ICollectableSpriteProvider
     {
         private readonly ResourceSpriteScriptable _sprites;
+        public int Priority => 0;
 
         public ResourceCollectableSpriteProvider(ResourceSpriteScriptable sprites)
         {
