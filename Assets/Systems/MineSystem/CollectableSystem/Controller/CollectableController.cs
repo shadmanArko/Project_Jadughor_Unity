@@ -47,6 +47,9 @@ namespace Systems.MineSystem.CollectableSystem.Controller
             for (var i = _active.Count - 1; i >= 0; i--)
             {
                 var model = _active[i];
+                if (!model.IsAttractionAvailable.Value)
+                    continue;
+
                 if (!IsTargetValid(model))
                     model.Target = null;
 
@@ -84,9 +87,22 @@ namespace Systems.MineSystem.CollectableSystem.Controller
 
         private void Activate(CollectableModel model)
         {
-            model.NextCollectorScanTime = Time.time;
+            model.NextCollectorScanTime =
+                Time.time + Mathf.Max(0f, _config.attractionDelay);
             model.TriggerSubscription = model.View.TriggerEntered
                 .Subscribe(collider => TryCollect(model, collider));
+
+            if (_config.attractionDelay <= 0f)
+            {
+                model.EnableAttraction();
+            }
+            else
+            {
+                model.AttractionDelaySubscription = Observable
+                    .Timer(TimeSpan.FromSeconds(_config.attractionDelay))
+                    .Subscribe(_ => model.EnableAttraction());
+            }
+
             _active.Add(model);
         }
 
@@ -131,7 +147,8 @@ namespace Systems.MineSystem.CollectableSystem.Controller
 
         private void TryCollect(CollectableModel model, Collider2D collider)
         {
-            if (!_collectors.TryGetCollector(collider, out var collector) ||
+            if (!model.IsAttractionAvailable.Value ||
+                !_collectors.TryGetCollector(collider, out var collector) ||
                 !collector.CanCollect(model.Item) ||
                 !collector.TryCollect(model.Item))
                 return;

@@ -44,13 +44,7 @@ namespace Systems.MineSystem.CollectableSystem.Installer
             BindPools();
 
             Container.Bind<ICollectablePoolHandler>()
-                .To<ResourceCollectablePoolHandler>().AsSingle();
-            Container.Bind<ICollectablePoolHandler>()
-                .To<ArtifactCollectablePoolHandler>().AsSingle();
-            Container.Bind<ICollectablePoolHandler>()
-                .To<CellPlaceableCollectablePoolHandler>().AsSingle();
-            Container.Bind<ICollectablePoolHandler>()
-                .To<WallPlaceableCollectablePoolHandler>().AsSingle();
+                .To<CommonCollectablePoolHandler>().AsSingle();
 
             Container.BindInterfacesAndSelfTo<CollectableController>()
                 .AsSingle();
@@ -60,33 +54,24 @@ namespace Systems.MineSystem.CollectableSystem.Installer
 
         private void BindPools()
         {
-            Container.BindMemoryPool<CollectableView, ResourceCollectablePool>()
-                .WithInitialSize(config.resourceInitialSize)
-                .WithMaxSize(config.resourceMaxSize)
-                .ExpandByOneAtATime()
-                .FromComponentInNewPrefab(config.resourceCollectablePrefab)
-                .UnderTransformGroup("Resource Collectables");
+            if (config.maximumPoolSize > 0)
+            {
+                Container
+                    .BindMemoryPool<CollectableView, CommonCollectablePool>()
+                    .WithInitialSize(config.initialPoolSize)
+                    .WithMaxSize(config.maximumPoolSize)
+                    .ExpandByOneAtATime()
+                    .FromComponentInNewPrefab(config.commonCollectablePrefab)
+                    .UnderTransformGroup("Common Collectables");
+                return;
+            }
 
-            Container.BindMemoryPool<CollectableView, ArtifactCollectablePool>()
-                .WithInitialSize(config.artifactInitialSize)
-                .WithMaxSize(config.artifactMaxSize)
+            Container
+                .BindMemoryPool<CollectableView, CommonCollectablePool>()
+                .WithInitialSize(config.initialPoolSize)
                 .ExpandByOneAtATime()
-                .FromComponentInNewPrefab(config.artifactCollectablePrefab)
-                .UnderTransformGroup("Artifact Collectables");
-
-            Container.BindMemoryPool<CollectableView, CellPlaceableCollectablePool>()
-                .WithInitialSize(config.cellPlaceableInitialSize)
-                .WithMaxSize(config.cellPlaceableMaxSize)
-                .ExpandByOneAtATime()
-                .FromComponentInNewPrefab(config.cellPlaceableCollectablePrefab)
-                .UnderTransformGroup("Cell Placeable Collectables");
-
-            Container.BindMemoryPool<CollectableView, WallPlaceableCollectablePool>()
-                .WithInitialSize(config.wallPlaceableInitialSize)
-                .WithMaxSize(config.wallPlaceableMaxSize)
-                .ExpandByOneAtATime()
-                .FromComponentInNewPrefab(config.wallPlaceableCollectablePrefab)
-                .UnderTransformGroup("Wall Placeable Collectables");
+                .FromComponentInNewPrefab(config.commonCollectablePrefab)
+                .UnderTransformGroup("Common Collectables");
         }
     }
 }

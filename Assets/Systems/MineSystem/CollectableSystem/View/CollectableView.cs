@@ -32,9 +32,14 @@ namespace Systems.MineSystem.CollectableSystem.View
             body.gravityScale = gravityScale;
             body.linearVelocity = Vector2.zero;
             body.angularVelocity = 0f;
-            triggerCollider.enabled = true;
+            triggerCollider.enabled = false;
             if (solidCollider != null)
                 solidCollider.enabled = true;
+        }
+
+        public void SetCollectionEnabled(bool enabled)
+        {
+            triggerCollider.enabled = enabled;
         }
 
         public void BeginPull()

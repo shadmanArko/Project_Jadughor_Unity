@@ -4,30 +4,25 @@ using Systems.MineSystem.CollectableSystem.Model;
 using Systems.MineSystem.CollectableSystem.Scriptable;
 using Systems.MineSystem.CollectableSystem.View;
 using Systems.MineSystem.InventorySystem.Model;
-using Systems.MineSystem.Mine.Model;
-using Systems.MineSystem.Mine.Service.MineResourceService.Model;
 
 namespace Systems.MineSystem.CollectableSystem.Service
 {
-    public abstract class CollectablePoolHandler<TItem, TPool> :
-        ICollectablePoolHandler
-        where TItem : Item
-        where TPool : CollectablePool
+    public sealed class CommonCollectablePoolHandler : ICollectablePoolHandler
     {
-        private readonly TPool _pool;
+        private readonly CommonCollectablePool _pool;
         private readonly CollectableSystemConfig _config;
 
-        public Type ItemType => typeof(TItem);
+        public Type ItemType => typeof(Item);
 
-        protected CollectablePoolHandler(
-            TPool pool,
+        public CommonCollectablePoolHandler(
+            CommonCollectablePool pool,
             CollectableSystemConfig config)
         {
             _pool = pool;
             _config = config;
         }
 
-        public bool CanHandle(Item item) => item is TItem;
+        public bool CanHandle(Item item) => item != null;
 
         public CollectableView Spawn(CollectableSpawnData data)
         {
@@ -43,46 +38,6 @@ namespace Systems.MineSystem.CollectableSystem.Service
         public void Despawn(CollectableView view)
         {
             _pool.Despawn(view);
-        }
-    }
-
-    public sealed class ResourceCollectablePoolHandler :
-        CollectablePoolHandler<Resource, ResourceCollectablePool>
-    {
-        public ResourceCollectablePoolHandler(
-            ResourceCollectablePool pool,
-            CollectableSystemConfig config) : base(pool, config)
-        {
-        }
-    }
-
-    public sealed class ArtifactCollectablePoolHandler :
-        CollectablePoolHandler<Artifact, ArtifactCollectablePool>
-    {
-        public ArtifactCollectablePoolHandler(
-            ArtifactCollectablePool pool,
-            CollectableSystemConfig config) : base(pool, config)
-        {
-        }
-    }
-
-    public sealed class CellPlaceableCollectablePoolHandler :
-        CollectablePoolHandler<CellPlaceable, CellPlaceableCollectablePool>
-    {
-        public CellPlaceableCollectablePoolHandler(
-            CellPlaceableCollectablePool pool,
-            CollectableSystemConfig config) : base(pool, config)
-        {
-        }
-    }
-
-    public sealed class WallPlaceableCollectablePoolHandler :
-        CollectablePoolHandler<WallPlaceable, WallPlaceableCollectablePool>
-    {
-        public WallPlaceableCollectablePoolHandler(
-            WallPlaceableCollectablePool pool,
-            CollectableSystemConfig config) : base(pool, config)
-        {
         }
     }
 }

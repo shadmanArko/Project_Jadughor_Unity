@@ -12,19 +12,7 @@ namespace Systems.MineSystem.CollectableSystem.Service
         }
     }
 
-    public sealed class ResourceCollectablePool : CollectablePool
-    {
-    }
-
-    public sealed class ArtifactCollectablePool : CollectablePool
-    {
-    }
-
-    public sealed class CellPlaceableCollectablePool : CollectablePool
-    {
-    }
-
-    public sealed class WallPlaceableCollectablePool : CollectablePool
+    public sealed class CommonCollectablePool : CollectablePool
     {
     }
 }

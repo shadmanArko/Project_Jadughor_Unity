@@ -1,9 +1,6 @@
 using Systems.MineSystem.CollectableSystem.Service;
-using Systems.MineSystem.InventorySystem.Interface;
 using Systems.MineSystem.InventorySystem.Model;
 using Systems.MineSystem.Mine.Model;
-using Systems.MineSystem.MinePlayerSystem.Scriptable;
-using Systems.MineSystem.MinePlayerSystem.View;
 using Systems.MineSystem.ToolbarSystem.Model;
 using Systems.MineSystem.ToolbarSystem.Enum;
 using UnityEngine;
@@ -14,22 +11,13 @@ namespace Systems.MineSystem.ToolbarSystem.Service
     {
         private readonly MineModel _mine;
         private readonly CollectableFactory _collectables;
-        private readonly IInventoryService _inventory;
-        private readonly PlayerView _playerView;
-        private readonly MinePlayerScriptable _player;
 
         public PlaceableItemizationService(
             MineModel mine,
-            CollectableFactory collectables,
-            IInventoryService inventory,
-            PlayerView playerView,
-            MinePlayerScriptable player)
+            CollectableFactory collectables)
         {
             _mine = mine;
             _collectables = collectables;
-            _inventory = inventory;
-            _playerView = playerView;
-            _player = player;
         }
 
         public bool TryConvert(
@@ -48,13 +36,6 @@ namespace Systems.MineSystem.ToolbarSystem.Service
             if (item == null)
                 return false;
 
-            if (IsInsideCollectionRadius(worldPosition) &&
-                _inventory.TryAdd(item))
-            {
-                SanitizePlacement(item);
-                return true;
-            }
-
             if (!_collectables.CanSpawn(item) ||
                 !_collectables.TrySpawn(item, worldPosition))
             {
@@ -66,21 +47,6 @@ namespace Systems.MineSystem.ToolbarSystem.Service
 
             SanitizePlacement(item);
             return true;
-        }
-
-        private bool IsInsideCollectionRadius(Vector3 worldPosition)
-        {
-            if (_playerView == null ||
-                _playerView.CollectionPoint == null ||
-                _player?.playerData?.collectablePullRadius == null)
-                return false;
-
-            var offset =
-                _playerView.CollectionPoint.position - worldPosition;
-            var radius = Mathf.Max(
-                0f,
-                _player.playerData.collectablePullRadius.Value);
-            return offset.sqrMagnitude <= radius * radius;
         }
 
         private static Placeable FindRegisteredPlaceable(
