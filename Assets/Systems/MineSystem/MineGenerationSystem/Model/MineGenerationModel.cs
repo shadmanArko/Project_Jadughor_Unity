@@ -22,6 +22,7 @@ namespace Systems.MineSystem.MineGenerationSystem.Model
         private readonly MineGenerationConfig _mineGenerationConfig;
         private readonly ArtifactGenerationConfig _artifactGenerationConfig;
         private readonly ResourceGenerationConfig _resourceGenerationConfig;
+        private readonly VineConfig _vineConfig;
         
         private readonly MinePlayerScriptable _playerScriptable;
 
@@ -45,7 +46,8 @@ namespace Systems.MineSystem.MineGenerationSystem.Model
             SpecialBackdropSpriteScriptable specialBackdropSpriteScriptable, 
             MinePlayerScriptable playerScriptable, 
             ArtifactGenerationConfig artifactGenerationConfig,
-            ResourceGenerationConfig resourceGenerationConfig)
+            ResourceGenerationConfig resourceGenerationConfig,
+            VineConfig vineConfig)
         {
             _mineGenerationConfig = mineGenerationConfig;
             _mineGenerationService = mineGenerationService;
@@ -58,6 +60,7 @@ namespace Systems.MineSystem.MineGenerationSystem.Model
             _playerScriptable = playerScriptable;
             _artifactGenerationConfig = artifactGenerationConfig;
             _resourceGenerationConfig = resourceGenerationConfig;
+            _vineConfig = vineConfig;
         }
 
         public void Initialize()
@@ -73,6 +76,7 @@ namespace Systems.MineSystem.MineGenerationSystem.Model
             if (_mineGenerationConfig.hasBossCave)
                 await _caveGenerationService.GenerateBossCave(_mineGenerationConfig, mineData);
             await _caveGenerationService.GenerateCave(_mineGenerationConfig, mineData);
+            await _vineGenerationService.GenerateVines(mineData, _vineConfig);
 
             var specialBackdrops = _specialBackdropSpriteScriptable.GetAllIds(_playerScriptable.region, _playerScriptable.site);
             await _specialBackdropGenerationService.GenerateSpecialBackdrops(

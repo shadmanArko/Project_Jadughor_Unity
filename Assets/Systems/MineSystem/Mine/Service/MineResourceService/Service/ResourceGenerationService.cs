@@ -38,6 +38,20 @@ namespace Systems.MineSystem.Mine.Service.MineResourceService.Service
                         occupiedCellIds.Add(placeable.OccupiedCellId);
                 }
             }
+            if (mineData.VineDatas != null)
+            {
+                foreach (var vine in mineData.VineDatas)
+                {
+                    if (vine?.VineCellIds == null)
+                        continue;
+
+                    foreach (var cellId in vine.VineCellIds)
+                    {
+                        if (!string.IsNullOrEmpty(cellId))
+                            occupiedCellIds.Add(cellId);
+                    }
+                }
+            }
 
             // Gather all available valid cells for root node selection
             var validCells = new List<Cell>();
@@ -45,7 +59,7 @@ namespace Systems.MineSystem.Mine.Service.MineResourceService.Service
             {
                 if (!string.IsNullOrEmpty(cell.CaveId) || 
                     cell.IsBroken || !cell.IsBreakable || 
-                    cell.IsBlank || occupiedCellIds.Contains(cell.Id)) continue;
+                    cell.IsBlank || cell.HasVine || occupiedCellIds.Contains(cell.Id)) continue;
                 
                 validCells.Add(cell);
             }
@@ -146,6 +160,7 @@ namespace Systems.MineSystem.Mine.Service.MineResourceService.Service
                     !adjCell.IsBroken && 
                     adjCell.IsBreakable && 
                     !adjCell.IsBlank &&
+                    !adjCell.HasVine &&
                     !occupiedCellIds.Contains(adjCell.Id))
                 {
                     validAdjCells[validCount++] = adjCell;

@@ -47,6 +47,9 @@ TagManager:
   - name: SpecialBackdrop
     uniqueID: 3950958223
     locked: 0
+  - name: Vine
+    uniqueID: 4035512281
+    locked: 0
   - name: Wall
     uniqueID: 2089630699
     locked: 0

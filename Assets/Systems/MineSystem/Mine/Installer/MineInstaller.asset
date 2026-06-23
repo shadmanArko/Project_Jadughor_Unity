@@ -17,6 +17,7 @@ MonoBehaviour:
   mineView: {fileID: 7888929175440719365, guid: 6510e644d941fc746bf0606e66249a36, type: 3}
   coordinateCanvasView: {fileID: 1693974654758472246, guid: 210891bfab67f55418173d68ac7f4ead, type: 3}
   mineGenerationConfig: {fileID: 11400000, guid: 9c3d88efdc794da4fad7a16c86d037c5, type: 2}
+  vineConfig: {fileID: 11400000, guid: 4f5934b1893d4a73aa8d2b17e50f3102, type: 2}
   artifactGenerationConfig: {fileID: 11400000, guid: f7c5c17e388149a45b133edafd9c57e6, type: 2}
   artifactCatalogConfig: {fileID: 11400000, guid: 231eb2b4aea08c348b7a3430d435bb8e, type: 2}
   artifactSpriteScriptable: {fileID: 11400000, guid: d9d20f662a1f44b19cb5a917c2ca623d, type: 2}
@@ -24,3 +25,4 @@ MonoBehaviour:
   resourceSpriteScriptable: {fileID: 11400000, guid: 697bebb215ccf204bb7a29459659fe6e, type: 2}
   regionalTileScriptable: {fileID: 11400000, guid: 44b457c343620964b8231b67cc0a51c2, type: 2}
   specialBackdropSpriteScriptable: {fileID: 11400000, guid: 31443cc082826bd4990b0af9205f2a01, type: 2}
+  vineSpriteScriptable: {fileID: 11400000, guid: 4f5934b1893d4a73aa8d2b17e50f3105, type: 2}

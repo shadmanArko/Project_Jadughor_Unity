@@ -121,6 +121,7 @@ namespace Systems.MineSystem.ToolbarSystem.Service
                     if (cell == null ||
                         !cell.IsRevealed ||
                         !cell.IsBroken ||
+                        cell.HasVine ||
                         cell.HasCellPlaceable ||
                         cell.HasWallPlaceable)
                         return false;

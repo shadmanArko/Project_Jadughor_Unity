@@ -32,6 +32,7 @@ namespace Systems.MineSystem.Mine.Installer
         [SerializeField]
         private MineCoordinateCanvasView coordinateCanvasView;
         [SerializeField] private MineGenerationConfig mineGenerationConfig;
+        [SerializeField] private VineConfig vineConfig;
         [SerializeField] private ArtifactGenerationConfig artifactGenerationConfig;
         [SerializeField] private ArtifactCatalogConfig artifactCatalogConfig;
         [SerializeField] private ArtifactSpriteScriptable artifactSpriteScriptable;
@@ -40,6 +41,7 @@ namespace Systems.MineSystem.Mine.Installer
 
         [SerializeField] private MineRegionalTileScriptable regionalTileScriptable;
         [SerializeField] private SpecialBackdropSpriteScriptable specialBackdropSpriteScriptable;
+        [SerializeField] private VineSpriteScriptable vineSpriteScriptable;
         
         public override void InstallBindings()
         {
@@ -53,6 +55,7 @@ namespace Systems.MineSystem.Mine.Installer
             
             // Config
             Container.Bind<MineGenerationConfig>().FromScriptableObject(mineGenerationConfig).AsSingle();
+            Container.Bind<VineConfig>().FromScriptableObject(vineConfig).AsSingle();
             Container.Bind<ArtifactGenerationConfig>().FromScriptableObject(artifactGenerationConfig).AsSingle();
             var runtimeArtifactCatalogConfig = artifactCatalogConfig != null
                 ? artifactCatalogConfig
@@ -63,6 +66,7 @@ namespace Systems.MineSystem.Mine.Installer
             // Scriptable
             Container.Bind<MineRegionalTileScriptable>().FromScriptableObject(regionalTileScriptable).AsSingle();
             Container.Bind<SpecialBackdropSpriteScriptable>().FromScriptableObject(specialBackdropSpriteScriptable).AsSingle();
+            Container.Bind<VineSpriteScriptable>().FromScriptableObject(vineSpriteScriptable).AsSingle();
             var runtimeArtifactSpriteScriptable = artifactSpriteScriptable != null
                 ? artifactSpriteScriptable
                 : CreateInstance<ArtifactSpriteScriptable>();
@@ -85,6 +89,7 @@ namespace Systems.MineSystem.Mine.Installer
 
             Container.BindInterfacesAndSelfTo<CellCrackVisualizerService>().AsSingle();
             Container.BindInterfacesAndSelfTo<MineWallVisualizerService>().AsSingle();
+            Container.BindInterfacesAndSelfTo<VineVisualizerService>().AsSingle();
             Container.BindInterfacesAndSelfTo<SpecialBackdropVisualizerService>().AsSingle();
             
             Container.Bind<MineView>().FromComponentInNewPrefab(mineView).AsSingle();

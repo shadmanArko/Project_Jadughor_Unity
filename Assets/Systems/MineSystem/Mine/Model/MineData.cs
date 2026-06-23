@@ -15,7 +15,7 @@ namespace Systems.MineSystem.Mine.Model
         /// <summary>
         /// Increment this when the schema changes to support save-file migration.
         /// </summary>
-        public int Version { get; set; } = 3;
+        public int Version { get; set; } = 4;
 
         public int CellSize { get; set; }
         public int GridWidth { get; set; }
@@ -35,6 +35,9 @@ namespace Systems.MineSystem.Mine.Model
         private Dictionary<Vector3Int, Cell> _cellLookup;
 
         [NonSerialized]
+        private Dictionary<string, Cell> _cellById;
+
+        [NonSerialized]
         private Dictionary<string, Resource> _resourceByCellId;
 
         [NonSerialized]
@@ -49,14 +52,21 @@ namespace Systems.MineSystem.Mine.Model
         [NonSerialized]
         private Dictionary<string, CellPlaceable> _cellPlaceableByCellId;
 
+        [NonSerialized]
+        private Dictionary<string, VineData> _vineByCellId;
+
         public void InitializeLookupCache()
         {
             if (Cells == null) return;
             
             _cellLookup = new Dictionary<Vector3Int, Cell>(Cells.Count);
+            _cellById = new Dictionary<string, Cell>(Cells.Count);
             foreach (var cell in Cells)
             {
+                cell.HasVine = false;
                 _cellLookup[new Vector3Int(cell.Position.X, cell.Position.Y, 0)] = cell;
+                if (!string.IsNullOrEmpty(cell.Id))
+                    _cellById[cell.Id] = cell;
             }
 
             _resourceByCellId = new Dictionary<string, Resource>();
@@ -111,9 +121,35 @@ namespace Systems.MineSystem.Mine.Model
                         _cellPlaceableByCellId[placeable.OccupiedCellId] = placeable;
                 }
             }
+
+            _vineByCellId = new Dictionary<string, VineData>();
+            if (VineDatas != null)
+            {
+                foreach (var vine in VineDatas)
+                {
+                    if (vine?.VineCellIds == null)
+                        continue;
+
+                    foreach (var cellId in vine.VineCellIds)
+                    {
+                        if (string.IsNullOrEmpty(cellId))
+                            continue;
+
+                        _vineByCellId[cellId] = vine;
+                        if (_cellById.TryGetValue(cellId, out var cell))
+                            cell.HasVine = true;
+                    }
+                }
+            }
         }
 
         public Cell GetCell(GridPosition position) => GetCell(new Vector3Int(position.X, position.Y, 0));
+        public Cell GetCellById(string id) =>
+            !string.IsNullOrEmpty(id) &&
+            _cellById != null &&
+            _cellById.TryGetValue(id, out var cell)
+                ? cell
+                : Cells?.FirstOrDefault(candidate => candidate.Id == id);
 
         public Cell GetCell(Vector3Int position)
         {
@@ -138,6 +174,12 @@ namespace Systems.MineSystem.Mine.Model
             _cellPlaceableByCellId.TryGetValue(cellId, out var placeable)
                 ? placeable
                 : null;
+        public VineData GetVine(string cellId) =>
+            _vineByCellId != null &&
+            _vineByCellId.TryGetValue(cellId, out var vine)
+                ? vine
+                : null;
+        public bool HasVine(string cellId) => GetVine(cellId) != null;
 
         public void RegisterCellPlaceable(
             CellPlaceable placeable,

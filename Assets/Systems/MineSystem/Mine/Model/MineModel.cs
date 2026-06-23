@@ -21,6 +21,7 @@ namespace Systems.MineSystem.Mine.Model
         
         private MineWallVisualizerService _wallVisualizerService;
         private SpecialBackdropVisualizerService _specialBackdropVisualizerService;
+        private VineVisualizerService _vineVisualizerService;
         private CellCrackVisualizerService _cellCrackVisualizerService;
         private ResourceVisualizerService _resourceVisualizerService;
         private ArtifactVisualizerService _artifactVisualizerService;
@@ -44,6 +45,7 @@ namespace Systems.MineSystem.Mine.Model
             MineWallVisualizerService wallVisualizerService, 
             CellCrackVisualizerService cellCrackVisualizerService, 
             SpecialBackdropVisualizerService specialBackdropVisualizerService, 
+            VineVisualizerService vineVisualizerService,
             ResourceVisualizerService resourceVisualizerService,
             ArtifactVisualizerService artifactVisualizerService)
         {
@@ -51,6 +53,7 @@ namespace Systems.MineSystem.Mine.Model
             _wallVisualizerService = wallVisualizerService;
             _cellCrackVisualizerService = cellCrackVisualizerService;
             _specialBackdropVisualizerService = specialBackdropVisualizerService;
+            _vineVisualizerService = vineVisualizerService;
             _resourceVisualizerService = resourceVisualizerService;
             _artifactVisualizerService = artifactVisualizerService;
         }
@@ -149,6 +152,7 @@ namespace Systems.MineSystem.Mine.Model
         {
             var mineData = MineData.Value;
             _wallVisualizerService.GenerateMineFromData(mineData);
+            _vineVisualizerService.SetVines(mineData.VineDatas, mineData, _playerScriptable.region, _playerScriptable.site);
             _specialBackdropVisualizerService.SetSpecialBackdrops(mineData.SpecialBackdropDatas, _playerScriptable.region, _playerScriptable.site);
         }
 
