@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 55555555555545558555555555555551, type: 3}
-  m_Name: DynamiteConfig
+  m_Name: MediumDynamiteConfig
   m_EditorClassIdentifier: Assembly-CSharp::Systems.MineSystem.ToolbarSystem.Items.Prefabs.Placeables.Dynamite.Script.DynamiteConfig
   countdownSeconds: 5
   tickInterval: 1
@@ -24,7 +24,7 @@ MonoBehaviour:
   normalizedImpactTime: 0.5
   fallbackAnimationDuration: 1.0167
   delayBetweenStages: 0
-  blastPattern: 0
+  blastPattern: 1
   shakeDuration: 0.04
   shakeStrength: 0.08
   timerOffset: {x: 0.15, y: 0.08, z: 0}

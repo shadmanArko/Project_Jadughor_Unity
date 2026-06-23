@@ -62,6 +62,24 @@ namespace Systems.MineSystem.ToolbarSystem.Items.Prefabs.Placeables.Dynamite.Scr
                 cancellationToken);
             await WaitBetweenStagesAsync(config, cancellationToken);
 
+            if (config.BlastPattern == DynamiteBlastPattern.AdjacentEight)
+            {
+                await RunStageAsync(
+                    CollectParticipatingCells(
+                        center + new Vector3Int(-1, -1, 0),
+                        center + Vector3Int.down,
+                        center + new Vector3Int(1, -1, 0),
+                        center + Vector3Int.left,
+                        center + Vector3Int.right,
+                        center + new Vector3Int(-1, 1, 0),
+                        center + Vector3Int.up,
+                        center + new Vector3Int(1, 1, 0)),
+                    config,
+                    damaged,
+                    cancellationToken);
+                return;
+            }
+
             await RunStageAsync(
                 CollectParticipatingCells(
                     center + Vector3Int.left,
@@ -92,14 +110,14 @@ namespace Systems.MineSystem.ToolbarSystem.Items.Prefabs.Placeables.Dynamite.Scr
         }
 
         private Vector3Int[] CollectParticipatingCells(
-            Vector3Int first,
-            Vector3Int second)
+            params Vector3Int[] candidates)
         {
-            var positions = new List<Vector3Int>(2);
-            if (CanParticipate(first))
-                positions.Add(first);
-            if (CanParticipate(second))
-                positions.Add(second);
+            var positions = new List<Vector3Int>(candidates.Length);
+            foreach (var candidate in candidates)
+            {
+                if (CanParticipate(candidate))
+                    positions.Add(candidate);
+            }
             return positions.ToArray();
         }
 

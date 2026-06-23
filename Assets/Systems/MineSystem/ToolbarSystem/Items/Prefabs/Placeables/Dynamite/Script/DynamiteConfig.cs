@@ -2,6 +2,12 @@ using UnityEngine;
 
 namespace Systems.MineSystem.ToolbarSystem.Items.Prefabs.Placeables.Dynamite.Script
 {
+    public enum DynamiteBlastPattern
+    {
+        Cross,
+        AdjacentEight
+    }
+
     [CreateAssetMenu(
         fileName = "DynamiteConfig",
         menuName = "Toolbar Actions/Dynamite Config")]
@@ -25,6 +31,7 @@ namespace Systems.MineSystem.ToolbarSystem.Items.Prefabs.Placeables.Dynamite.Scr
         [SerializeField] private float fallbackAnimationDuration = 1.0167f;
         [Min(0f)]
         [SerializeField] private float delayBetweenStages;
+        [SerializeField] private DynamiteBlastPattern blastPattern;
 
         [Header("Screen Shake")]
         [Min(0.01f)] [SerializeField] private float shakeDuration = 0.25f;
@@ -57,6 +64,7 @@ namespace Systems.MineSystem.ToolbarSystem.Items.Prefabs.Placeables.Dynamite.Scr
             Mathf.Max(0.01f, fallbackAnimationDuration);
         public float DelayBetweenStages =>
             Mathf.Max(0f, delayBetweenStages);
+        public DynamiteBlastPattern BlastPattern => blastPattern;
         public float ShakeDuration => Mathf.Max(0.01f, shakeDuration);
         public float ShakeStrength => Mathf.Max(0f, shakeStrength);
         public Vector3 TimerOffset => timerOffset;
