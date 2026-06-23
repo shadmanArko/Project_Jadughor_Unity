@@ -55,3 +55,9 @@ MonoBehaviour:
     category: Explosive
     variant: MediumDynamite
     quantity: 5
+  - id: largeDynamite
+    itemName: Large Dynamite
+    type: Placeable
+    category: Explosive
+    variant: LargeDynamite
+    quantity: 5

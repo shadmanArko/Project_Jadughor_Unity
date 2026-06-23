@@ -29,3 +29,7 @@ MonoBehaviour:
     prefab: {fileID: 3236516981417558109, guid: 8d2f74a90c8544218f9859ea33a6f107, type: 3}
     initialSize: 10
     maximumSize: 10
+  - id: LargeDynamite
+    prefab: {fileID: 3236516981417558109, guid: 8d2f74a90c8544218f9859ea33a6f107, type: 3}
+    initialSize: 10
+    maximumSize: 10

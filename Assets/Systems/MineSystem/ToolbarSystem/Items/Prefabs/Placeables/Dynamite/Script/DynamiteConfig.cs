@@ -5,7 +5,8 @@ namespace Systems.MineSystem.ToolbarSystem.Items.Prefabs.Placeables.Dynamite.Scr
     public enum DynamiteBlastPattern
     {
         Cross,
-        AdjacentEight
+        AdjacentEight,
+        AreaFiveByFive
     }
 
     [CreateAssetMenu(

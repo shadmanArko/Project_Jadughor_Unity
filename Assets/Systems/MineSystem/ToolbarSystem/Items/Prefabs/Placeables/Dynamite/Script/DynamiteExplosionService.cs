@@ -80,6 +80,16 @@ namespace Systems.MineSystem.ToolbarSystem.Items.Prefabs.Placeables.Dynamite.Scr
                 return;
             }
 
+            if (config.BlastPattern == DynamiteBlastPattern.AreaFiveByFive)
+            {
+                await RunStageAsync(
+                    CollectSquareArea(center, 2),
+                    config,
+                    damaged,
+                    cancellationToken);
+                return;
+            }
+
             await RunStageAsync(
                 CollectParticipatingCells(
                     center + Vector3Int.left,
@@ -118,6 +128,30 @@ namespace Systems.MineSystem.ToolbarSystem.Items.Prefabs.Placeables.Dynamite.Scr
                 if (CanParticipate(candidate))
                     positions.Add(candidate);
             }
+            return positions.ToArray();
+        }
+
+        private Vector3Int[] CollectSquareArea(
+            Vector3Int center,
+            int radius)
+        {
+            var positions = new List<Vector3Int>(
+                (radius * 2 + 1) * (radius * 2 + 1) - 1);
+
+            for (var y = -radius; y <= radius; y++)
+            {
+                for (var x = -radius; x <= radius; x++)
+                {
+                    if (x == 0 && y == 0)
+                        continue;
+
+                    var position =
+                        center + new Vector3Int(x, y, 0);
+                    if (CanParticipate(position))
+                        positions.Add(position);
+                }
+            }
+
             return positions.ToArray();
         }
 
