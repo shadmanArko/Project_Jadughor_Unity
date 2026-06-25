@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8df0c5404ea94cf19b8d7dbba73a9fd1, type: 3}
+  m_Name: CaveFormationConfig
+  m_EditorClassIdentifier: Assembly-CSharp::Systems.MineSystem.Mine.Service.VisualizerService.CaveFormationConfig
+  stalactitePrefab: {fileID: 1345110964597194656, guid: 0640d7b67dedcaa43b85fa477aa0fa61, type: 3}
+  stalagmitePrefab: {fileID: 3578625177311529035, guid: d607ecfdd70e5554e86c2e8e7e26d935, type: 3}
+  stalactiteInitialPoolSize: 8
+  stalactiteMaxPoolSize: 64
+  stalagmiteInitialPoolSize: 8
+  stalagmiteMaxPoolSize: 64
+  minHealth: 5
+  maxHealth: 10
+  stalactiteFallSpeed: 8
+  stalactiteDamage: 15
+  stalactiteImpactRadius: 0.45
+  stalactiteMaxFallDistance: 40
+  stalactiteTargetLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  stalagmiteContactDamage: 10
+  intactState: Intact
+  collapseState: Collapse
+  fallState: Fall
+  shatterState: Shatter
+  collapseDuration: 0.95
+  shatterDuration: 0.85

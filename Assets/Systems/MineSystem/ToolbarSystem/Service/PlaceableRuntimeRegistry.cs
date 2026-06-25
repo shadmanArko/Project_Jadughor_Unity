@@ -34,6 +34,18 @@ namespace Systems.MineSystem.ToolbarSystem.Service
             _cellsByRuntime[runtime] = cells;
         }
 
+        public void RegisterCell(
+            IPlaceableRuntime runtime,
+            Vector3Int cellPosition)
+        {
+            Unregister(runtime);
+            _byCell[cellPosition] = runtime;
+            _cellsByRuntime[runtime] = new List<Vector3Int>
+            {
+                cellPosition
+            };
+        }
+
         public void Unregister(IPlaceableRuntime runtime)
         {
             if (runtime == null ||

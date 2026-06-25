@@ -54,15 +54,17 @@ namespace Systems.MineSystem.MinePlayerSystem.Service
             var health = _player.playerData.health;
             health.Value = Mathf.Max(0f, health.Value - amount);
 
+            var wasClimbing = _runtime.isClimbing.Value;
             _actionService.InterruptForHurt();
-            _runtime.isClimbing.Value = false;
             _runtime.isHurt.Value = true;
             DamageSequence++;
 
             var requestedRestrictions =
                 PlayerRestrictionFlags.Movement |
-                PlayerRestrictionFlags.Climbing |
                 PlayerRestrictionFlags.Action;
+            if (!wasClimbing)
+                requestedRestrictions |= PlayerRestrictionFlags.Climbing;
+
             _appliedRestrictions |=
                 requestedRestrictions & ~_runtime.restrictions.Value;
             _runtime.restrictions.Value |= requestedRestrictions;

@@ -38,6 +38,7 @@ namespace Systems.MineSystem.Mine.Installer
         [SerializeField] private ArtifactSpriteScriptable artifactSpriteScriptable;
         [SerializeField] private ResourceGenerationConfig resourceGenerationConfig;
         [SerializeField] private ResourceSpriteScriptable resourceSpriteScriptable;
+        [SerializeField] private CaveFormationConfig caveFormationConfig;
 
         [SerializeField] private MineRegionalTileScriptable regionalTileScriptable;
         [SerializeField] private SpecialBackdropSpriteScriptable specialBackdropSpriteScriptable;
@@ -62,6 +63,7 @@ namespace Systems.MineSystem.Mine.Installer
                 : CreateInstance<ArtifactCatalogConfig>();
             Container.Bind<ArtifactCatalogConfig>().FromInstance(runtimeArtifactCatalogConfig).AsSingle();
             Container.Bind<ResourceGenerationConfig>().FromScriptableObject(resourceGenerationConfig).AsSingle();
+            Container.Bind<CaveFormationConfig>().FromScriptableObject(caveFormationConfig).AsSingle();
             
             // Scriptable
             Container.Bind<MineRegionalTileScriptable>().FromScriptableObject(regionalTileScriptable).AsSingle();
@@ -91,6 +93,8 @@ namespace Systems.MineSystem.Mine.Installer
             Container.BindInterfacesAndSelfTo<MineWallVisualizerService>().AsSingle();
             Container.BindInterfacesAndSelfTo<VineVisualizerService>().AsSingle();
             Container.BindInterfacesAndSelfTo<SpecialBackdropVisualizerService>().AsSingle();
+            Container.BindInterfacesAndSelfTo<CaveFormationPool>().AsSingle();
+            Container.BindInterfacesAndSelfTo<CaveVisualizerService>().AsSingle();
             
             Container.Bind<MineView>().FromComponentInNewPrefab(mineView).AsSingle();
             Container.BindInterfacesAndSelfTo<MineModel>().AsSingle();

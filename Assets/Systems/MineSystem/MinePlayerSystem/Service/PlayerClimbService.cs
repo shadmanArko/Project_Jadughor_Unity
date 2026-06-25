@@ -91,6 +91,15 @@ namespace Systems.MineSystem.MinePlayerSystem.Service
                 return;
             }
 
+            if (_runtime.HasRestriction(PlayerRestrictionFlags.Movement))
+            {
+                _view.SetVelocity(Vector2.zero);
+                _runtime.velocity.Value = Vector2.zero;
+                _runtime.locomotionState.Value =
+                    PlayerLocomotionState.Climbing;
+                return;
+            }
+
             var input = Vector2.ClampMagnitude(
                 _runtime.movementInput.Value,
                 1f);

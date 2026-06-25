@@ -280,12 +280,12 @@ namespace Systems.MineSystem.Mine.Service
 
             for (var i = 0; i < count; i++)
             {
-                var cell = mineData.GetCell(new Vector3Int(candidates[i], targetY,0));//GetCell(mineData, candidates[i], targetY);
+                var cell = GetCell(mineData, candidates[i], targetY);
                 if (cell == null) continue;
 
                 // Re-solidify the formation cell
                 cell.IsBroken = false;
-                cell.IsRevealed = true;
+                cell.IsRevealed = false;
                 cell.IsBreakable = true;
 
                 if (isStalagmite) cave.StalagmiteCellIds.Add(cell.Id);

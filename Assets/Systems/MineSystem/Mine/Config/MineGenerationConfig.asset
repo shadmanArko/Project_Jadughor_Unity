@@ -26,8 +26,8 @@ MonoBehaviour:
   caveMaxSizeX: 10
   caveMaxSizeY: 6
   minDistanceBetweenCaves: 8
-  stalagmiteCount: 7
-  stalactiteCount: 1
+  stalagmiteCount: 50
+  stalactiteCount: 50
   artifactCount: 0
   resourceCount: 0
   resourceVariants: 

@@ -25,6 +25,7 @@ namespace Systems.MineSystem.Mine.Model
         private CellCrackVisualizerService _cellCrackVisualizerService;
         private ResourceVisualizerService _resourceVisualizerService;
         private ArtifactVisualizerService _artifactVisualizerService;
+        private CaveVisualizerService _caveVisualizerService;
         
         private ReactiveProperty<MineData> _mineData = new();
         public IReadOnlyReactiveProperty<MineData> MineData => _mineData;
@@ -47,7 +48,8 @@ namespace Systems.MineSystem.Mine.Model
             SpecialBackdropVisualizerService specialBackdropVisualizerService, 
             VineVisualizerService vineVisualizerService,
             ResourceVisualizerService resourceVisualizerService,
-            ArtifactVisualizerService artifactVisualizerService)
+            ArtifactVisualizerService artifactVisualizerService,
+            CaveVisualizerService caveVisualizerService)
         {
             _playerScriptable = playerScriptable;
             _wallVisualizerService = wallVisualizerService;
@@ -56,6 +58,7 @@ namespace Systems.MineSystem.Mine.Model
             _vineVisualizerService = vineVisualizerService;
             _resourceVisualizerService = resourceVisualizerService;
             _artifactVisualizerService = artifactVisualizerService;
+            _caveVisualizerService = caveVisualizerService;
         }
         
         public void Initialize()
@@ -151,6 +154,7 @@ namespace Systems.MineSystem.Mine.Model
         public void GenerateMineFromData()
         {
             var mineData = MineData.Value;
+            _caveVisualizerService.ResetFormations();
             _wallVisualizerService.GenerateMineFromData(mineData);
             _vineVisualizerService.SetVines(mineData.VineDatas, mineData, _playerScriptable.region, _playerScriptable.site);
             _specialBackdropVisualizerService.SetSpecialBackdrops(mineData.SpecialBackdropDatas, _playerScriptable.region, _playerScriptable.site);
@@ -184,7 +188,10 @@ namespace Systems.MineSystem.Mine.Model
             if (cell.IsBroken)
             {
                 if (!wasBroken)
+                {
                     _onCellBroken.OnNext(cell);
+                    _caveVisualizerService.HandleRootCellBroken(cell);
+                }
 
                 if (!wasBroken && cell.HasArtifact)
                 {
@@ -201,7 +208,11 @@ namespace Systems.MineSystem.Mine.Model
                 RevealAdjacentCells(cellPos, revealedCells);
 
                 if (!string.IsNullOrEmpty(cell.CaveId))
-                    HandleCaveCell(cell, revealedCells);
+                    _caveVisualizerService.TryRevealCave(
+                        cell,
+                        MineData.Value,
+                        revealedCells,
+                        _adjacentBrokenEdges.Keys);
 
                 foreach (var c in revealedCells)
                 {
@@ -234,70 +245,15 @@ namespace Systems.MineSystem.Mine.Model
                     revealedCells.Add(adjacentCell);
                     
                     if (!string.IsNullOrEmpty(adjacentCell.CaveId))
-                        HandleCaveCell(adjacentCell, revealedCells);
+                        _caveVisualizerService.TryRevealCave(
+                            adjacentCell,
+                            MineData.Value,
+                            revealedCells,
+                            _adjacentBrokenEdges.Keys);
                 }
                 else
                     revealedCells.Add(adjacentCell);
             }
-        }
-
-        private void HandleCaveCell(Cell cell, HashSet<Cell> revealedCells)
-        {
-            var cave = MineData.Value.Caves.FirstOrDefault(c => c.Id == cell.CaveId);
-            if (cave == null)
-            {
-                Debug.LogError($"Fatal Error: Cave ID mismatch: {cell.CaveId}");
-                return;
-            }
-            
-            if (cave.IsRevealed) return;
-            
-            // First pass: mark all cave cells as revealed and broken
-            foreach (var position in cave.CellPositions)
-            {
-                var caveCell = MineData.Value.GetCell(position);
-                if (caveCell == null)
-                {
-                    Debug.LogError($"Could not find cave position: {position}");
-                    continue;
-                }
-                
-                caveCell.IsRevealed = true;
-                caveCell.IsBroken = true;
-                revealedCells.Add(caveCell);
-            }
-
-            // Second pass: reveal adjacent cells of the cave boundaries
-            foreach (var position in cave.CellPositions)
-            {
-                var caveCell = MineData.Value.GetCell(position);
-                if (caveCell == null) continue;
-
-                foreach (var offset in _adjacentBrokenEdges.Keys)
-                {
-                    var adjPos = caveCell.GetPosition() + offset;
-                    var adjCell = _mineData.Value.GetCell(adjPos);
-                    
-                    if (adjCell == null) continue;
-                    
-                    if (!adjCell.IsRevealed)
-                    {
-                        adjCell.IsRevealed = true;
-                        revealedCells.Add(adjCell);
-                        
-                        if (!string.IsNullOrEmpty(adjCell.CaveId) && adjCell.CaveId != cave.Id)
-                        {
-                            HandleCaveCell(adjCell, revealedCells);
-                        }
-                    }
-                    else
-                    {
-                        revealedCells.Add(adjCell);
-                    }
-                }
-            }
-            
-            cave.IsRevealed = true;
         }
 
         public void Dispose()
