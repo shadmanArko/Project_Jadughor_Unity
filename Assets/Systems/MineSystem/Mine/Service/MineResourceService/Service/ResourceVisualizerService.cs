@@ -43,8 +43,11 @@ namespace Systems.MineSystem.Mine.Service.MineResourceService.Service
         {
             foreach (var spriteData in _resourceSpriteScriptable.resourceSpriteDatas[0].spriteDatas)
             {
+                if (spriteData.objectSprite == null)
+                    continue;
+
                 var tile = ScriptableObject.CreateInstance<Tile>();
-                tile.sprite = spriteData.sprite;
+                tile.sprite = spriteData.objectSprite;
                 _resourceTiles.Add(spriteData.id, tile);
             }
         }

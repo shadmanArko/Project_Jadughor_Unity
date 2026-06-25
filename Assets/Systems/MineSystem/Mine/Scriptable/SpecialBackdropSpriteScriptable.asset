@@ -17,16 +17,23 @@ MonoBehaviour:
     site: 0
     specialBackdropSprites:
     - id: sbd_dragonfly
-      sprite: {fileID: 21300000, guid: ac25502a965614d4fbb748b5b555b83e, type: 3}
+      objectSprite: {fileID: 21300000, guid: ac25502a965614d4fbb748b5b555b83e, type: 3}
+      iconSprite: {fileID: 0}
     - id: sbd_nativeAmericanTotemPole
-      sprite: {fileID: 21300000, guid: c0919fb295526e44ca12f5af8040659d, type: 3}
+      objectSprite: {fileID: 21300000, guid: c0919fb295526e44ca12f5af8040659d, type: 3}
+      iconSprite: {fileID: 0}
     - id: sbd_nativeAmericanTotemPole2
-      sprite: {fileID: 21300000, guid: 9a2a2f2779e851f4ca8dd9c24ff59111, type: 3}
+      objectSprite: {fileID: 21300000, guid: 9a2a2f2779e851f4ca8dd9c24ff59111, type: 3}
+      iconSprite: {fileID: 0}
     - id: sbd_pipelines
-      sprite: {fileID: 21300000, guid: e192e919f93a8d3498515b5c5e880668, type: 3}
+      objectSprite: {fileID: 21300000, guid: e192e919f93a8d3498515b5c5e880668, type: 3}
+      iconSprite: {fileID: 0}
     - id: sbd_pipelines2
-      sprite: {fileID: 21300000, guid: c6f1bf8250e70c249a69645302094295, type: 3}
+      objectSprite: {fileID: 21300000, guid: c6f1bf8250e70c249a69645302094295, type: 3}
+      iconSprite: {fileID: 0}
     - id: sbd_shell
-      sprite: {fileID: 21300000, guid: b2c837d7e207e3b4aa4fc89bd330ed87, type: 3}
+      objectSprite: {fileID: 21300000, guid: b2c837d7e207e3b4aa4fc89bd330ed87, type: 3}
+      iconSprite: {fileID: 0}
     - id: sbd_trex
-      sprite: {fileID: 21300000, guid: db80a1738e1a9054c987c3b4e566d599, type: 3}
+      objectSprite: {fileID: 21300000, guid: db80a1738e1a9054c987c3b4e566d599, type: 3}
+      iconSprite: {fileID: 0}

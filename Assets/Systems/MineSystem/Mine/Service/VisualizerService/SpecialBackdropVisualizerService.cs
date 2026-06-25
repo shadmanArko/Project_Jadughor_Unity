@@ -55,7 +55,7 @@ namespace Systems.MineSystem.Mine.Service.VisualizerService
                 }
                 
                 var tile = ScriptableObject.CreateInstance<Tile>();
-                tile.sprite = backdropSpriteData.sprite;
+                tile.sprite = backdropSpriteData.objectSprite;
                 _mineView.specialBackdropTileMap.SetTile(backdropData.TilePosition.ToVector3Int(), tile);
             }
         }
@@ -137,14 +137,14 @@ namespace Systems.MineSystem.Mine.Service.VisualizerService
                 return tile != null;
 
             var spriteData = sprites?.FirstOrDefault(sprite => sprite.id == sourceId);
-            if (spriteData?.sprite == null)
+            if (spriteData?.objectSprite == null)
             {
                 Debug.LogWarning($"VineSpriteScriptable does not contain a sprite for id '{sourceId}'.");
                 return false;
             }
 
             tile = ScriptableObject.CreateInstance<Tile>();
-            tile.sprite = spriteData.sprite;
+            tile.sprite = spriteData.objectSprite;
             _tiles[sourceId] = tile;
             return true;
         }

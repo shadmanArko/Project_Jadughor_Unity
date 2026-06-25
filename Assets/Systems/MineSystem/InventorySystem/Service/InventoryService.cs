@@ -59,6 +59,7 @@ namespace Systems.MineSystem.InventorySystem.Service
 
                 stack.Add(item);
                 _model.NotifySlotChanged(i);
+                _model.NotifyItemCollected(item);
                 return true;
             }
 
@@ -69,6 +70,7 @@ namespace Systems.MineSystem.InventorySystem.Service
 
                 _model.Slots[i].Stack = new InventoryStack(item);
                 _model.NotifySlotChanged(i);
+                _model.NotifyItemCollected(item);
                 return true;
             }
 

@@ -31,6 +31,14 @@ namespace Systems.MineSystem.InventorySystem.Installer
                 .FromComponentInNewPrefab(config.inventoryCanvasPrefab)
                 .AsSingle()
                 .NonLazy();
+            Container.Bind<ItemCollectionVisualizerCanvasView>()
+                .FromComponentInNewPrefab(
+                    config.itemCollectionVisualizerCanvasPrefab)
+                .AsSingle()
+                .NonLazy();
+            Container.BindInterfacesAndSelfTo<ItemCollectionVisualizerService>()
+                .AsSingle()
+                .NonLazy();
             Container.BindInterfacesAndSelfTo<InventoryController>()
                 .AsSingle()
                 .NonLazy();

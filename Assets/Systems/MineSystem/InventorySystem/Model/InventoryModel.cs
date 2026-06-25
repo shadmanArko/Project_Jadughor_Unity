@@ -9,6 +9,7 @@ namespace Systems.MineSystem.InventorySystem.Model
         public const int MaximumSlots = 36;
 
         private readonly Subject<int> _slotChanged = new();
+        private readonly Subject<Item> _itemCollected = new();
         private readonly ReactiveProperty<InventoryStack> _heldStack = new();
         private readonly ReactiveProperty<bool> _isOpen = new(false);
 
@@ -23,6 +24,7 @@ namespace Systems.MineSystem.InventorySystem.Model
             _heldStack;
         public IReadOnlyReactiveProperty<bool> IsOpen => _isOpen;
         public IObservable<int> SlotChanged => _slotChanged;
+        public IObservable<Item> ItemCollected => _itemCollected;
 
         public InventoryModel()
         {
@@ -46,9 +48,16 @@ namespace Systems.MineSystem.InventorySystem.Model
             _heldStack.SetValueAndForceNotify(_heldStack.Value);
         }
 
+        public void NotifyItemCollected(Item item)
+        {
+            if (item != null)
+                _itemCollected.OnNext(item);
+        }
+
         public void Dispose()
         {
             _slotChanged.Dispose();
+            _itemCollected.Dispose();
             _heldStack.Dispose();
             _isOpen.Dispose();
         }

@@ -17,12 +17,17 @@ MonoBehaviour:
     site: 0
     spriteDatas:
     - id: Coal
-      sprite: {fileID: -9184849575763380954, guid: 0e5d88be3fd712c4ca7c3767a78cab3c, type: 3}
+      objectSprite: {fileID: -9184849575763380954, guid: 0e5d88be3fd712c4ca7c3767a78cab3c, type: 3}
+      iconSprite: {fileID: 21300000, guid: 2518aaf392df9f84ebf8d2ed65d7c4bb, type: 3}
     - id: Iron
-      sprite: {fileID: -7248506988745690217, guid: 0e5d88be3fd712c4ca7c3767a78cab3c, type: 3}
+      objectSprite: {fileID: -7248506988745690217, guid: 0e5d88be3fd712c4ca7c3767a78cab3c, type: 3}
+      iconSprite: {fileID: 21300000, guid: 8f95b0040553de248a0d22fc8e156727, type: 3}
     - id: MilkyQuartz
-      sprite: {fileID: 4648121433337308090, guid: 0e5d88be3fd712c4ca7c3767a78cab3c, type: 3}
+      objectSprite: {fileID: 4648121433337308090, guid: 0e5d88be3fd712c4ca7c3767a78cab3c, type: 3}
+      iconSprite: {fileID: 4648121433337308090, guid: 0e5d88be3fd712c4ca7c3767a78cab3c, type: 3}
     - id: PinkQuartz
-      sprite: {fileID: -2326459205579473762, guid: 0e5d88be3fd712c4ca7c3767a78cab3c, type: 3}
+      objectSprite: {fileID: -2326459205579473762, guid: 0e5d88be3fd712c4ca7c3767a78cab3c, type: 3}
+      iconSprite: {fileID: -2326459205579473762, guid: 0e5d88be3fd712c4ca7c3767a78cab3c, type: 3}
     - id: SmokyQuartz
-      sprite: {fileID: 3857046670083785811, guid: 0e5d88be3fd712c4ca7c3767a78cab3c, type: 3}
+      objectSprite: {fileID: 3857046670083785811, guid: 0e5d88be3fd712c4ca7c3767a78cab3c, type: 3}
+      iconSprite: {fileID: 3857046670083785811, guid: 0e5d88be3fd712c4ca7c3767a78cab3c, type: 3}

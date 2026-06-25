@@ -22,5 +22,14 @@ namespace Systems.MineSystem.InventorySystem.Scriptable
         [Header("Presentation")]
         public Sprite selectedSlotFrame;
         public InventoryCanvasView inventoryCanvasPrefab;
+
+        [Header("Collection Visualizer")]
+        public ItemCollectionVisualizerCanvasView itemCollectionVisualizerCanvasPrefab;
+        public ItemCollectableView itemCollectableViewPrefab;
+        [Min(1)] public int itemCollectionVisibleCardCount = 8;
+        [Min(1)] public int itemCollectionPooledCardCount = 10;
+        [Min(0.05f)] public float itemCollectionDisplayDuration = 3f;
+        [Min(0.05f)] public float itemCollectionOverflowLowestDuration = 1f;
+        [Min(0f)] public float itemCollectionFadeOutDuration = 0.25f;
     }
 }

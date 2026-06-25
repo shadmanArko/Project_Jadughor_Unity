@@ -7,6 +7,7 @@ namespace Systems.MineSystem.MineGenerationSystem.Model
     public class SpriteData
     {
         public string id;
-        public Sprite sprite;
+        public Sprite objectSprite;
+        public Sprite iconSprite;
     }
 }

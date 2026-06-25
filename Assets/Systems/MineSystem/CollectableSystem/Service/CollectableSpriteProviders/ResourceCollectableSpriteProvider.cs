@@ -34,7 +34,9 @@ namespace Systems.MineSystem.CollectableSystem.Service.CollectableSpriteProvider
                 {
                     var spriteData = data.spriteDatas[j];
                     if (spriteData.id == resource.Variant)
-                        return spriteData.sprite;
+                        return spriteData.iconSprite != null
+                            ? spriteData.iconSprite
+                            : spriteData.objectSprite;
                 }
             }
 
