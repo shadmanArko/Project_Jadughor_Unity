@@ -1,22 +1,46 @@
-using System.Collections.Generic;
 using System.Threading;
 using Cysharp.Threading.Tasks;
-using Systems.MineSystem.Damage;
 using Systems.MineSystem.Mine.Service.VisualizerService;
+using Systems.MineSystem.ToolbarSystem.Model;
 using UnityEngine;
 
 namespace Systems.MineSystem.Mine.Service.Stalactite.Script
 {
     public sealed class StalactiteRuntime : CaveFormationRuntime
     {
-        private readonly List<Collider2D> _overlapResults = new(16);
-        private readonly HashSet<IDamageable> _damaged = new();
+        private Rigidbody2D _body;
+        private bool _isFalling;
+        private bool _hasImpacted;
+
+        public override void Initialize(PlaceableSpawnContext context)
+        {
+            base.Initialize(context);
+            ConfigureBody();
+            _isFalling = false;
+            _hasImpacted = false;
+        }
+
+        public override void HandleTriggerEnter(Collider2D other)
+        {
+            if (!_isFalling ||
+                _hasImpacted ||
+                other == null ||
+                other.transform.IsChildOf(transform))
+                return;
+
+            if (TryDamageTarget(other, Config.stalactiteDamage) ||
+                IsWallCollider(other))
+                _hasImpacted = true;
+        }
 
         protected override async UniTask BreakAsync(
             CancellationToken cancellationToken)
         {
             if (!TryBeginBreak())
                 return;
+
+            _isFalling = false;
+            _hasImpacted = false;
 
             await PlayStateAsync(
                 Config.collapseState,
@@ -36,77 +60,51 @@ namespace Systems.MineSystem.Mine.Service.Stalactite.Script
                 !string.IsNullOrWhiteSpace(Config.fallState))
                 Animator.Play(Config.fallState, 0, 0f);
 
-            var startY = transform.position.y;
-            var lastCell = CellPosition;
+            ConfigureBody();
+            _isFalling = true;
 
-            while (!cancellationToken.IsCancellationRequested &&
-                   startY - transform.position.y <
-                   Config.stalactiteMaxFallDistance)
+            var startY = _body.position.y;
+
+            try
             {
-                var next = transform.position;
-                next.y -= Config.stalactiteFallSpeed * Time.deltaTime;
-                transform.position = next;
-
-                var currentCell =
-                    MineView.grid.WorldToCell(transform.position);
-                if (currentCell != lastCell)
+                while (!cancellationToken.IsCancellationRequested &&
+                       !_hasImpacted &&
+                       startY - _body.position.y <
+                       Config.stalactiteMaxFallDistance)
                 {
-                    lastCell = currentCell;
-                    if (TryImpactCell(currentCell))
-                        return;
+                    var next = _body.position +
+                               Vector2.down *
+                               (Config.stalactiteFallSpeed *
+                                Time.fixedDeltaTime);
+                    _body.MovePosition(next);
+                    await UniTask.WaitForFixedUpdate(cancellationToken);
                 }
-
-                await UniTask.Yield(cancellationToken);
+            }
+            finally
+            {
+                _isFalling = false;
             }
         }
 
-        private bool TryImpactCell(Vector3Int cellPosition)
+        private void ConfigureBody()
         {
-            var didDamage = DamageAtCell(cellPosition);
-            if (didDamage)
-                return true;
+            if (_body == null)
+                _body = GetComponent<Rigidbody2D>();
+            if (_body == null)
+                _body = gameObject.AddComponent<Rigidbody2D>();
 
-            var cell = MineData.GetCell(cellPosition);
-            return cell == null ||
-                   (!cell.IsBroken && !cell.IsBlank);
+            _body.bodyType = RigidbodyType2D.Kinematic;
+            _body.gravityScale = 0f;
+            _body.constraints = RigidbodyConstraints2D.FreezeRotation;
+            _body.useFullKinematicContacts = true;
+            _body.simulated = true;
         }
 
-        private bool DamageAtCell(Vector3Int cellPosition)
+        private bool IsWallCollider(Collider2D other)
         {
-            var filter = new ContactFilter2D
-            {
-                useLayerMask = true,
-                layerMask = Config.stalactiteTargetLayers,
-                useTriggers = true
-            };
-
-            _overlapResults.Clear();
-            _damaged.Clear();
-            Physics2D.OverlapCircle(
-                MineView.grid.GetCellCenterWorld(cellPosition),
-                Config.stalactiteImpactRadius,
-                filter,
-                _overlapResults);
-
-            foreach (var collider in _overlapResults)
-            {
-                if (collider == null ||
-                    collider.transform.IsChildOf(transform))
-                    continue;
-
-                foreach (var behaviour in
-                         collider.GetComponentsInParent<MonoBehaviour>())
-                {
-                    if (behaviour is not IDamageable damageable ||
-                        ReferenceEquals(damageable, DamageView) ||
-                        !_damaged.Add(damageable))
-                        continue;
-
-                    damageable.ApplyDamage(Config.stalactiteDamage);
-                }
-            }
-
-            return _damaged.Count > 0;
+            return MineView != null &&
+                   MineView.wallTileMap != null &&
+                   other.transform == MineView.wallTileMap.transform;
         }
     }
 }
