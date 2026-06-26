@@ -20,7 +20,7 @@ MonoBehaviour:
   stalagmiteMaxPoolSize: 64
   minHealth: 5
   maxHealth: 10
-  stalactiteFallSpeed: 8
+  stalactiteFallSpeed: 2
   stalactiteDamage: 15
   stalactiteImpactRadius: 0.45
   stalactiteMaxFallDistance: 40

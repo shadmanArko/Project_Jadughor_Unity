@@ -25,8 +25,8 @@ Material:
     m_TexEnvs: []
     m_Ints: []
     m_Floats:
-    - _Softness: 0.35
+    - _Softness: 1
     m_Colors:
-    - _TintColor: {r: 0.06, g: 0.02, b: 0.13, a: 0.78}
+    - _TintColor: {r: 0.059999965, g: 0.02, b: 0.12999997, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1

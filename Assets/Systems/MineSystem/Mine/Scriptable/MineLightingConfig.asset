@@ -25,7 +25,7 @@ MonoBehaviour:
   topAlpha:
     value: 0
   bottomAlphaMultiplier:
-    value: 1
+    value: 3
   playerRadius:
     value: 0.39
   torchRadius:
