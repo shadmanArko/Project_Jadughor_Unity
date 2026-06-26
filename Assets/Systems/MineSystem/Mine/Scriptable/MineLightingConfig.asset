@@ -15,7 +15,7 @@ MonoBehaviour:
   maskMaterial:
     value: {fileID: 2100000, guid: 6b99d853f4a645d09487fce0edbd293b, type: 2}
   tintColor:
-    value: {r: 0.06, g: 0.02, b: 0.13, a: 0.78431374}
+    value: {r: 0.09019608, g: 0.02745098, b: 0.1764706, a: 0.78431374}
   softness:
     value: 1
   mineBoundsPadding:

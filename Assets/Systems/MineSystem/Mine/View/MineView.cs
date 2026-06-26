@@ -17,6 +17,7 @@ namespace Systems.MineSystem.Mine.View
         public Tilemap wallPlaceableTileMap;
         public Tilemap cellPlaceableTileMap;
         public Tilemap wallTileMap;
+        public Tilemap wallShadowTileMap;
         public Tilemap unrevealedTileMap;
     }
 }

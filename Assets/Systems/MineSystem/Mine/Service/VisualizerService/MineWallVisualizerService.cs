@@ -17,11 +17,17 @@ namespace Systems.MineSystem.Mine.Service.VisualizerService
     [Serializable]
     public class MineWallVisualizerService : IInitializable, IDisposable
     {
+        private static readonly Color WallShadowColor =
+            new(0.03f, 0f, 0.07f, 0.62f);
+        private static readonly Vector2 WallShadowOffsetInCells =
+            new(0.12f, -0.12f);
+
         private CompositeDisposable _disposable;
         
         private MineView _view;
         private MineRegionalTileScriptable _tileScriptable;
         private MinePlayerScriptable _playerScriptable;
+        private bool _hasWarnedMissingWallShadowTileMap;
 
         private MineRegionalTiles _currentRegionalTiles;
 
@@ -45,6 +51,7 @@ namespace Systems.MineSystem.Mine.Service.VisualizerService
             _disposable = new CompositeDisposable();
             
             InitializeVariables();
+            EnsureWallShadowTileMap();
             CreateTileInstances();
         }
 
@@ -83,6 +90,8 @@ namespace Systems.MineSystem.Mine.Service.VisualizerService
 
         public void GenerateMineFromData(MineData mineData)
         {
+            _view.wallShadowTileMap?.ClearAllTiles();
+
             for (var i = 0; i < mineData.GridWidth; i++)
             {
                 for (var j = 0; j < mineData.GridHeight; j++)
@@ -145,17 +154,20 @@ namespace Systems.MineSystem.Mine.Service.VisualizerService
             {
                 var unrevealedInstance = _generalMineTiles[GeneralMineTile.Unrevealed];
                 _view.wallTileMap.SetTile(cellPos, unrevealedInstance);
+                SetWallShadowTile(cellPos, unrevealedInstance);
                 return;
             }
             ////
 
             _view.wallTileMap.SetTile(cellPos, brokenEdgeTileInstance);
+            SetWallShadowTile(cellPos, brokenEdgeTileInstance);
         }
 
         private void SetBlankTile(Cell cell)
         {
             var cellPos = cell.GetPosition();
             _view.wallTileMap.SetTile(cellPos, null);
+            ClearWallShadowTile(cellPos);
         }
 
         private void SetUnrevealedTile(Cell cell)
@@ -163,6 +175,7 @@ namespace Systems.MineSystem.Mine.Service.VisualizerService
             var cellPos = cell.GetPosition();
             var unrevealedTileInstance = _generalMineTiles[GeneralMineTile.Unrevealed];
             _view.unrevealedTileMap.SetTile(cellPos, unrevealedTileInstance);
+            ClearWallShadowTile(cellPos);
         }
 
         #endregion
@@ -174,6 +187,75 @@ namespace Systems.MineSystem.Mine.Service.VisualizerService
             var tile = _brokenEdgeTiles.ContainsKey(cell.BrokenSides) 
                 ? _brokenEdgeTiles[cell.BrokenSides] : _brokenEdgeTiles[BrokenEdges.Intact];
             _view.wallTileMap.SetTile(cellPos, cell.IsBroken ? null : tile);
+            if (cell.IsBroken)
+                ClearWallShadowTile(cellPos);
+            else
+                SetWallShadowTile(cellPos, tile);
+        }
+
+        private void EnsureWallShadowTileMap()
+        {
+            var wallShadowTileMap = _view.wallShadowTileMap;
+            if (wallShadowTileMap == null)
+            {
+                if (!_hasWarnedMissingWallShadowTileMap)
+                {
+                    Debug.LogWarning(
+                        "MineView is missing a WallShadow tilemap reference. " +
+                        "Wall shadow rendering will be skipped.",
+                        _view);
+                    _hasWarnedMissingWallShadowTileMap = true;
+                }
+                return;
+            }
+
+            ConfigureWallShadowTileMap(wallShadowTileMap);
+        }
+
+        private void ConfigureWallShadowTileMap(Tilemap wallShadowTileMap)
+        {
+            var cellSize = _view.grid != null
+                ? _view.grid.cellSize
+                : Vector3.one;
+            wallShadowTileMap.transform.localPosition = new Vector3(
+                WallShadowOffsetInCells.x * cellSize.x,
+                WallShadowOffsetInCells.y * cellSize.y,
+                0f);
+            wallShadowTileMap.color = WallShadowColor;
+
+            var wallRenderer = _view.wallTileMap != null
+                ? _view.wallTileMap.GetComponent<TilemapRenderer>()
+                : null;
+            var shadowRenderer =
+                wallShadowTileMap.GetComponent<TilemapRenderer>();
+            if (shadowRenderer == null)
+                return;
+
+            if (wallRenderer != null)
+            {
+                shadowRenderer.sharedMaterials = wallRenderer.sharedMaterials;
+                shadowRenderer.sortingLayerID = wallRenderer.sortingLayerID;
+                shadowRenderer.sortingOrder = wallRenderer.sortingOrder - 1;
+            }
+
+            shadowRenderer.mode = TilemapRenderer.Mode.Chunk;
+            shadowRenderer.sortOrder = TilemapRenderer.SortOrder.BottomLeft;
+        }
+
+        private void SetWallShadowTile(Vector3Int cellPos, TileBase tile)
+        {
+            if (_view.wallShadowTileMap == null)
+                return;
+
+            _view.wallShadowTileMap.SetTile(cellPos, tile);
+        }
+
+        private void ClearWallShadowTile(Vector3Int cellPos)
+        {
+            if (_view.wallShadowTileMap == null)
+                return;
+
+            _view.wallShadowTileMap.SetTile(cellPos, null);
         }
         
         public void Dispose()

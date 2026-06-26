@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.Reflection;
 using Systems.MineSystem.Mine.Model;
 using Systems.MineSystem.Mine.Scriptable;
+using Systems.MineSystem.Mine.View;
 using Systems.MineSystem.MinePlayerSystem.View;
 using UniRx;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
+using UnityEngine.Tilemaps;
 using Zenject;
 
 namespace Systems.MineSystem.Mine.Service.Lighting
@@ -27,6 +29,7 @@ namespace Systems.MineSystem.Mine.Service.Lighting
         private readonly Camera _camera;
         private readonly MineLightingConfig _config;
         private readonly MineModel _mineModel;
+        private readonly MineView _mineView;
         private readonly PlayerView _playerView;
         private readonly CompositeDisposable _disposables = new();
         private readonly Vector4[] _lightData = new Vector4[32];
@@ -41,11 +44,13 @@ namespace Systems.MineSystem.Mine.Service.Lighting
             Camera camera,
             MineLightingConfig config,
             MineModel mineModel,
+            [InjectOptional] MineView mineView = null,
             [InjectOptional] PlayerView playerView = null)
         {
             _camera = camera;
             _config = config;
             _mineModel = mineModel;
+            _mineView = mineView;
             _playerView = playerView;
         }
 
@@ -132,6 +137,19 @@ namespace Systems.MineSystem.Mine.Service.Lighting
         {
             if (_meshRenderer == null)
                 return;
+
+            var unrevealedRenderer = _mineView != null &&
+                                     _mineView.unrevealedTileMap != null
+                ? _mineView.unrevealedTileMap.GetComponent<TilemapRenderer>()
+                : null;
+            if (unrevealedRenderer != null)
+            {
+                _meshRenderer.sortingLayerID =
+                    unrevealedRenderer.sortingLayerID;
+                _meshRenderer.sortingOrder =
+                    unrevealedRenderer.sortingOrder + 1;
+                return;
+            }
 
             if (!string.IsNullOrWhiteSpace(_config.OverlaySortingLayer))
                 _meshRenderer.sortingLayerName =
