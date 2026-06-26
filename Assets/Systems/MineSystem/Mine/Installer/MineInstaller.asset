@@ -24,6 +24,7 @@ MonoBehaviour:
   resourceGenerationConfig: {fileID: 11400000, guid: ef7bb89d6d3f4e6468dd7ddd462ce242, type: 2}
   resourceSpriteScriptable: {fileID: 11400000, guid: 697bebb215ccf204bb7a29459659fe6e, type: 2}
   caveFormationConfig: {fileID: 11400000, guid: 4cb7041d95a94540bbd96e9dd8e25c13, type: 2}
+  mineLightingConfig: {fileID: 11400000, guid: 0cf5eab2e07e41158d6c64018fe5f1b3, type: 2}
   regionalTileScriptable: {fileID: 11400000, guid: 44b457c343620964b8231b67cc0a51c2, type: 2}
   specialBackdropSpriteScriptable: {fileID: 11400000, guid: 31443cc082826bd4990b0af9205f2a01, type: 2}
   vineSpriteScriptable: {fileID: 11400000, guid: 4f5934b1893d4a73aa8d2b17e50f3105, type: 2}

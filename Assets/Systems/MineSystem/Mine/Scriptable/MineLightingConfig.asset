@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b93f3c0a2d9e4a7d9dd9a4f6dd833a21, type: 3}
+  m_Name: MineLightingConfig
+  m_EditorClassIdentifier: 
+  maskMaterial:
+    value: {fileID: 2100000, guid: 6b99d853f4a645d09487fce0edbd293b, type: 2}
+  tintColor:
+    value: {r: 0.06, g: 0.02, b: 0.13, a: 0.78431374}
+  softness:
+    value: 1
+  mineBoundsPadding:
+    value: 0
+  alphaFadeDepthCells:
+    value: 10
+  topAlpha:
+    value: 0
+  bottomAlphaMultiplier:
+    value: 1
+  playerRadius:
+    value: 0.39
+  torchRadius:
+    value: 0.75
+  fallbackLightRadius:
+    value: 0.01
+  lightIntensityScale:
+    value: 4.46
+  maxLights:
+    value: 32
+  overlaySortingLayer:
+    value: PlaceablePreview
+  overlaySortingOrder:
+    value: 500

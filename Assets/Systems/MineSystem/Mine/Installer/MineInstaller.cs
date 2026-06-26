@@ -4,6 +4,7 @@ using Systems.MineSystem.Mine.Model;
 using Systems.MineSystem.Mine.Scriptable;
 using Systems.MineSystem.Mine.Service;
 using Systems.MineSystem.Mine.Service.CoordinateService;
+using Systems.MineSystem.Mine.Service.Lighting;
 using Systems.MineSystem.Mine.Service.MineArtifactService.Config;
 using Systems.MineSystem.Mine.Service.MineArtifactService.Service;
 using Systems.MineSystem.Mine.Service.MineArtifactService.Test;
@@ -39,6 +40,7 @@ namespace Systems.MineSystem.Mine.Installer
         [SerializeField] private ResourceGenerationConfig resourceGenerationConfig;
         [SerializeField] private ResourceSpriteScriptable resourceSpriteScriptable;
         [SerializeField] private CaveFormationConfig caveFormationConfig;
+        [SerializeField] private MineLightingConfig mineLightingConfig;
 
         [SerializeField] private MineRegionalTileScriptable regionalTileScriptable;
         [SerializeField] private SpecialBackdropSpriteScriptable specialBackdropSpriteScriptable;
@@ -64,6 +66,7 @@ namespace Systems.MineSystem.Mine.Installer
             Container.Bind<ArtifactCatalogConfig>().FromInstance(runtimeArtifactCatalogConfig).AsSingle();
             Container.Bind<ResourceGenerationConfig>().FromScriptableObject(resourceGenerationConfig).AsSingle();
             Container.Bind<CaveFormationConfig>().FromScriptableObject(caveFormationConfig).AsSingle();
+            Container.Bind<MineLightingConfig>().FromScriptableObject(mineLightingConfig).AsSingle();
             
             // Scriptable
             Container.Bind<MineRegionalTileScriptable>().FromScriptableObject(regionalTileScriptable).AsSingle();
@@ -95,6 +98,7 @@ namespace Systems.MineSystem.Mine.Installer
             Container.BindInterfacesAndSelfTo<SpecialBackdropVisualizerService>().AsSingle();
             Container.BindInterfacesAndSelfTo<CaveFormationPool>().AsSingle();
             Container.BindInterfacesAndSelfTo<CaveVisualizerService>().AsSingle();
+            Container.BindInterfacesAndSelfTo<MineLightingService>().AsSingle().NonLazy();
             
             Container.Bind<MineView>().FromComponentInNewPrefab(mineView).AsSingle();
             Container.BindInterfacesAndSelfTo<MineModel>().AsSingle();
