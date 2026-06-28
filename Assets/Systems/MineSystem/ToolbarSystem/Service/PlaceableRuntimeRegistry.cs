@@ -8,7 +8,7 @@ namespace Systems.MineSystem.ToolbarSystem.Service
     public sealed class PlaceableRuntimeRegistry :
         IPlaceableRuntimeResolver
     {
-        private readonly Dictionary<Vector3Int, IPlaceableRuntime> _byCell =
+        private readonly Dictionary<Vector3Int, List<IPlaceableRuntime>> _byCell =
             new();
         private readonly Dictionary<IPlaceableRuntime, List<Vector3Int>>
             _cellsByRuntime = new();
@@ -26,7 +26,7 @@ namespace Systems.MineSystem.ToolbarSystem.Service
                 {
                     var cell = context.CellPosition +
                                new Vector3Int(x, y, 0);
-                    _byCell[cell] = runtime;
+                    RegisterAtCell(runtime, cell);
                     cells.Add(cell);
                 }
             }
@@ -39,7 +39,7 @@ namespace Systems.MineSystem.ToolbarSystem.Service
             Vector3Int cellPosition)
         {
             Unregister(runtime);
-            _byCell[cellPosition] = runtime;
+            RegisterAtCell(runtime, cellPosition);
             _cellsByRuntime[runtime] = new List<Vector3Int>
             {
                 cellPosition
@@ -54,8 +54,11 @@ namespace Systems.MineSystem.ToolbarSystem.Service
 
             foreach (var cell in cells)
             {
-                if (_byCell.TryGetValue(cell, out var registered) &&
-                    ReferenceEquals(registered, runtime))
+                if (!_byCell.TryGetValue(cell, out var runtimes))
+                    continue;
+
+                runtimes.RemoveAll(value => ReferenceEquals(value, runtime));
+                if (runtimes.Count == 0)
                     _byCell.Remove(cell);
             }
         }
@@ -64,7 +67,29 @@ namespace Systems.MineSystem.ToolbarSystem.Service
             Vector3Int cellPosition,
             out IPlaceableRuntime runtime)
         {
-            return _byCell.TryGetValue(cellPosition, out runtime);
+            if (_byCell.TryGetValue(cellPosition, out var runtimes) &&
+                runtimes.Count > 0)
+            {
+                runtime = runtimes[^1];
+                return true;
+            }
+
+            runtime = null;
+            return false;
+        }
+
+        private void RegisterAtCell(
+            IPlaceableRuntime runtime,
+            Vector3Int cell)
+        {
+            if (!_byCell.TryGetValue(cell, out var runtimes))
+            {
+                runtimes = new List<IPlaceableRuntime>();
+                _byCell[cell] = runtimes;
+            }
+
+            runtimes.RemoveAll(value => ReferenceEquals(value, runtime));
+            runtimes.Add(runtime);
         }
     }
 }

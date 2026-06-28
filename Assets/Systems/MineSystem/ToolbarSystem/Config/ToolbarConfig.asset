@@ -61,3 +61,15 @@ MonoBehaviour:
     category: Explosive
     variant: LargeDynamite
     quantity: 5
+  - id: elevatorShaft
+    itemName: Elevator Shaft
+    type: Placeable
+    category: Elevator
+    variant: ElevatorShaft
+    quantity: 10
+  - id: elevatorLift
+    itemName: Elevator Lift
+    type: Placeable
+    category: Elevator
+    variant: ElevatorLift
+    quantity: 2

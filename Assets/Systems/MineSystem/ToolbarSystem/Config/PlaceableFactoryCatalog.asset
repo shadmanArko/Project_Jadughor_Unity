@@ -33,3 +33,11 @@ MonoBehaviour:
     prefab: {fileID: 3236516981417558109, guid: 8d2f74a90c8544218f9859ea33a6f107, type: 3}
     initialSize: 10
     maximumSize: 10
+  - id: ElevatorShaft
+    prefab: {fileID: 3380655522769624588, guid: 8194ed97f8d6dfc43a7e8f63cbbe907f, type: 3}
+    initialSize: 10
+    maximumSize: 40
+  - id: ElevatorLift
+    prefab: {fileID: 4612439286937884749, guid: 58270c290b7258a4590875f154e3fae4, type: 3}
+    initialSize: 2
+    maximumSize: 10

@@ -8,6 +8,7 @@ using Systems.MineSystem.ToolbarSystem.Service;
 using Systems.MineSystem.ToolbarSystem.View;
 using Systems.MineSystem.ToolbarSystem.Items.Prefabs.Placeables.PileDriver.Script;
 using Systems.MineSystem.ToolbarSystem.Items.Prefabs.Placeables.Dynamite.Script;
+using Systems.MineSystem.ToolbarSystem.Items.Prefabs.Placeables.Elevator.Script;
 using Systems.MineSystem.CollectableSystem.Interface;
 using UnityEngine;
 using Zenject;
@@ -70,6 +71,12 @@ namespace Systems.MineSystem.ToolbarSystem.Installer
                 .AsSingle();
             Container.Bind<IPlaceableValidator>()
                 .To<PlaceableValidator>()
+                .AsSingle();
+            Container.BindInterfacesAndSelfTo<ElevatorInputService>()
+                .AsSingle();
+            Container.BindInterfacesAndSelfTo<ElevatorNetworkService>()
+                .AsSingle();
+            Container.Bind<ElevatorPlacementValidator>()
                 .AsSingle();
             Container.Bind<IPileDriverPlacementValidator>()
                 .To<PileDriverPlacementValidator>()

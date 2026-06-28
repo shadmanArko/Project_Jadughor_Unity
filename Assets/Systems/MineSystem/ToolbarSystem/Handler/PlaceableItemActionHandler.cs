@@ -7,6 +7,7 @@ using Systems.MineSystem.ToolbarSystem.Enum;
 using Systems.MineSystem.ToolbarSystem.Interface;
 using Systems.MineSystem.ToolbarSystem.Model;
 using Systems.MineSystem.ToolbarSystem.Profile;
+using Systems.MineSystem.ToolbarSystem.Items.Prefabs.Placeables.Elevator.Script;
 using Systems.MineSystem.ToolbarSystem.Items.Prefabs.Placeables.PileDriver.Script;
 using UniRx;
 using UnityEngine;
@@ -26,6 +27,7 @@ namespace Systems.MineSystem.ToolbarSystem.Handler
         private readonly IInventoryService _inventory;
         private readonly IToolbarInventorySource _toolbarInventory;
         private readonly RuntimeDataScriptable _runtime;
+        private readonly ElevatorPlacementValidator _elevatorValidator;
         private readonly IPileDriverPlacementValidator
             _pileDriverValidator;
         private readonly CompositeDisposable _disposables = new();
@@ -50,6 +52,7 @@ namespace Systems.MineSystem.ToolbarSystem.Handler
             IInventoryService inventory,
             IToolbarInventorySource toolbarInventory,
             RuntimeDataScriptable runtime,
+            ElevatorPlacementValidator elevatorValidator,
             IPileDriverPlacementValidator pileDriverValidator)
         {
             _targets = targets;
@@ -58,6 +61,7 @@ namespace Systems.MineSystem.ToolbarSystem.Handler
             _inventory = inventory;
             _toolbarInventory = toolbarInventory;
             _runtime = runtime;
+            _elevatorValidator = elevatorValidator;
             _pileDriverValidator = pileDriverValidator;
 
             _targets.PointerTargetChanged
@@ -112,11 +116,7 @@ namespace Systems.MineSystem.ToolbarSystem.Handler
 
             PersistHorizontalFacing(_target.Direction);
             var instanceId = Guid.NewGuid().ToString("N");
-            if (!_validator.TryReserve(
-                    _target.CellPosition,
-                    _profile,
-                    _item,
-                    instanceId))
+            if (!TryReserve(instanceId))
                 return false;
 
             var context = new PlaceableSpawnContext(
@@ -129,10 +129,7 @@ namespace Systems.MineSystem.ToolbarSystem.Handler
                 _pileDriverDirection);
             if (!_factory.TrySpawn(context, out var runtime))
             {
-                _validator.Release(
-                    _target.CellPosition,
-                    _profile,
-                    instanceId);
+                ReleaseReservation(instanceId);
                 return false;
             }
 
@@ -218,6 +215,13 @@ namespace Systems.MineSystem.ToolbarSystem.Handler
 
         private bool CanPlace()
         {
+            if (_profile is ElevatorActionProfile elevatorProfile)
+            {
+                return _elevatorValidator.CanPlace(
+                    _target.CellPosition,
+                    elevatorProfile);
+            }
+
             if (_profile is PileDriverActionProfile)
             {
                 return _pileDriverValidator.CanPlace(
@@ -228,6 +232,41 @@ namespace Systems.MineSystem.ToolbarSystem.Handler
             return _validator.CanPlace(
                 _target.CellPosition,
                 _profile);
+        }
+
+        private bool TryReserve(string instanceId)
+        {
+            if (_profile is ElevatorActionProfile elevatorProfile)
+            {
+                return _elevatorValidator.TryReserve(
+                    _target.CellPosition,
+                    elevatorProfile,
+                    _item,
+                    instanceId);
+            }
+
+            return _validator.TryReserve(
+                _target.CellPosition,
+                _profile,
+                _item,
+                instanceId);
+        }
+
+        private void ReleaseReservation(string instanceId)
+        {
+            if (_profile is ElevatorActionProfile elevatorProfile)
+            {
+                _elevatorValidator.Release(
+                    _target.CellPosition,
+                    elevatorProfile,
+                    instanceId);
+                return;
+            }
+
+            _validator.Release(
+                _target.CellPosition,
+                _profile,
+                instanceId);
         }
 
         private void OnRotate(InputAction.CallbackContext context)

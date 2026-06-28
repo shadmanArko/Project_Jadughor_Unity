@@ -1,11 +1,11 @@
 using System;
 using System.Collections.Generic;
 using Systems.MineSystem.ToolbarSystem.Interface;
+using Systems.MineSystem.ToolbarSystem.Items.Prefabs.Placeables.Elevator.Script;
 using Systems.MineSystem.ToolbarSystem.Model;
 using Systems.MineSystem.ToolbarSystem.Profile;
 using UnityEngine;
 using Zenject;
-using Object = UnityEngine.Object;
 
 namespace Systems.MineSystem.ToolbarSystem.Service
 {
@@ -25,6 +25,7 @@ namespace Systems.MineSystem.ToolbarSystem.Service
 
         private readonly PlaceableFactoryCatalog _catalog;
         private readonly IPlaceableValidator _validator;
+        private readonly ElevatorPlacementValidator _elevatorValidator;
         private readonly DiContainer _container;
         private readonly PlaceableRuntimeRegistry _registry;
         private readonly Dictionary<string, Pool> _pools =
@@ -35,11 +36,13 @@ namespace Systems.MineSystem.ToolbarSystem.Service
         public PlaceableFactory(
             PlaceableFactoryCatalog catalog,
             IPlaceableValidator validator,
+            ElevatorPlacementValidator elevatorValidator,
             DiContainer container,
             PlaceableRuntimeRegistry registry)
         {
             _catalog = catalog;
             _validator = validator;
+            _elevatorValidator = elevatorValidator;
             _container = container;
             _registry = registry;
         }
@@ -88,7 +91,7 @@ namespace Systems.MineSystem.ToolbarSystem.Service
             else
                 return false;
 
-            runtime = FindRuntime(instance);
+            runtime = FindRuntime(instance, context);
             if (runtime == null)
             {
                 instance.SetActive(false);
@@ -118,10 +121,7 @@ namespace Systems.MineSystem.ToolbarSystem.Service
             behaviour.gameObject.SetActive(false);
             behaviour.transform.SetParent(_root, false);
             active.Pool.Available.Push(behaviour.gameObject);
-            _validator.Release(
-                active.Context.CellPosition,
-                active.Context.Profile,
-                active.Context.InstanceId);
+            ReleaseReservation(active.Context);
         }
 
         private GameObject Create(Pool pool)
@@ -134,7 +134,9 @@ namespace Systems.MineSystem.ToolbarSystem.Service
             return instance;
         }
 
-        private static IPlaceableRuntime FindRuntime(GameObject instance)
+        private IPlaceableRuntime FindRuntime(
+            GameObject instance,
+            PlaceableSpawnContext context)
         {
             var behaviours = instance.GetComponentsInChildren<MonoBehaviour>(true);
             foreach (var behaviour in behaviours)
@@ -143,7 +145,33 @@ namespace Systems.MineSystem.ToolbarSystem.Service
                     return runtime;
             }
 
+            if (context.Profile is ElevatorActionProfile elevatorProfile)
+            {
+                var runtime = elevatorProfile.Kind == ElevatorPlaceableKind.Lift
+                    ? instance.AddComponent<ElevatorLiftRuntime>()
+                    : instance.AddComponent<ElevatorShaftRuntime>() as MonoBehaviour;
+                _container.Inject(runtime);
+                return (IPlaceableRuntime)runtime;
+            }
+
             return null;
+        }
+
+        private void ReleaseReservation(PlaceableSpawnContext context)
+        {
+            if (context.Profile is ElevatorActionProfile elevatorProfile)
+            {
+                _elevatorValidator.Release(
+                    context.CellPosition,
+                    elevatorProfile,
+                    context.InstanceId);
+                return;
+            }
+
+            _validator.Release(
+                context.CellPosition,
+                context.Profile,
+                context.InstanceId);
         }
     }
 }

@@ -50,6 +50,33 @@ namespace Systems.MineSystem.MinePlayerSystem.Service
             _toggleRequested = true;
         }
 
+        public bool TryBeginClimbImmediately()
+        {
+            var isInsideClimbable = IsInsideClimbableCell();
+            _runtime.isInsideClimbable.Value = isInsideClimbable;
+
+            if (_runtime.isClimbing.Value)
+                return true;
+
+            if (!isInsideClimbable || !CanStartClimb())
+                return false;
+
+            _toggleRequested = false;
+            BeginClimb();
+            return true;
+        }
+
+        public void PrepareForTransport()
+        {
+            _toggleRequested = false;
+            _runtime.isClimbing.Value = false;
+            _runtime.velocity.Value = Vector2.zero;
+            _runtime.locomotionState.Value = PlayerLocomotionState.Idle;
+            _view.SetGravityScale(_config.normalGravityScale);
+            _view.Stop();
+            _fallService.CancelFall();
+        }
+
         public void OnFixedTick()
         {
             var isInsideClimbable = IsInsideClimbableCell();
