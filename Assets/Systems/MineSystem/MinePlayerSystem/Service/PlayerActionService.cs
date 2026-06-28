@@ -52,10 +52,14 @@ namespace Systems.MineSystem.MinePlayerSystem.Service
             _requestedAnimationId = PlayerAnimationId.PrimaryAction;
         }
 
-        public void RequestInteraction()
+        public bool TryRequestInteraction()
         {
+            if (!CanRequestAnimation(PlayerAnimationId.Interact))
+                return false;
+
             _requestedAction = PlayerActionState.Interacting;
             _requestedAnimationId = PlayerAnimationId.Interact;
+            return true;
         }
 
         public bool TryRequestItemAction(string animationId)
@@ -186,7 +190,9 @@ namespace Systems.MineSystem.MinePlayerSystem.Service
                 ? GetDefaultAnimationId(actionState)
                 : requestedAnimationId;
             if (_profile == null ||
-                !_profile.TryGet(animationId, out var animationData))
+                !_profile.TryGet(animationId, out var animationData) ||
+                animationData.animationSprites == null ||
+                animationData.animationSprites.Count == 0)
             {
                 Debug.LogWarning(
                     $"Cannot start player action '{actionState}': animation " +
@@ -206,6 +212,21 @@ namespace Systems.MineSystem.MinePlayerSystem.Service
                 requestedRestrictions & ~_runtime.restrictions.Value;
 
             _runtime.restrictions.Value |= requestedRestrictions;
+        }
+
+        private bool CanRequestAnimation(string animationId)
+        {
+            return !string.IsNullOrWhiteSpace(animationId) &&
+                   _profile != null &&
+                   _profile.TryGet(animationId, out var animationData) &&
+                   animationData.animationSprites != null &&
+                   animationData.animationSprites.Count > 0 &&
+                   _runtime.lifeState.Value != PlayerLifeState.Dead &&
+                   !_runtime.isDamagingFall.Value &&
+                   _runtime.canPerformAction.Value &&
+                   _runtime.actionState.Value == PlayerActionState.None &&
+                   !_runtime.HasRestriction(PlayerRestrictionFlags.Action) &&
+                   _requestedAction == PlayerActionState.None;
         }
 
         private void CancelAction()

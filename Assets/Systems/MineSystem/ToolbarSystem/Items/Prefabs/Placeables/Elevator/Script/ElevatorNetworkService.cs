@@ -3,19 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using Systems.MineSystem.Mine.Model;
 using Systems.MineSystem.Mine.View;
+using Systems.MineSystem.MinePlayerSystem.Interface;
 using Systems.MineSystem.MinePlayerSystem.Scriptable;
 using Systems.MineSystem.MinePlayerSystem.Model;
 using Systems.MineSystem.MinePlayerSystem.Service;
-using Systems.MineSystem.MinePlayerSystem.Signal.InputSignal;
 using Systems.MineSystem.MinePlayerSystem.View;
-using Systems.Utilities.EventBus;
-using UniRx;
 using UnityEngine;
-using Zenject;
 
 namespace Systems.MineSystem.ToolbarSystem.Items.Prefabs.Placeables.Elevator.Script
 {
-    public sealed class ElevatorNetworkService : IInitializable, IDisposable
+    public sealed class ElevatorNetworkService :
+        IPlayerInteractionHandler,
+        IDisposable
     {
         private readonly MineModel _mine;
         private readonly MineView _mineView;
@@ -23,7 +22,6 @@ namespace Systems.MineSystem.ToolbarSystem.Items.Prefabs.Placeables.Elevator.Scr
         private readonly RuntimeDataScriptable _runtime;
         private readonly ElevatorInputService _input;
         private readonly PlayerClimbService _climbService;
-        private readonly CompositeDisposable _disposables = new();
         private readonly Dictionary<Vector3Int, ElevatorShaftRuntime> _shafts =
             new();
         private readonly Dictionary<Vector3Int, ElevatorLiftRuntime> _lifts =
@@ -49,11 +47,11 @@ namespace Systems.MineSystem.ToolbarSystem.Items.Prefabs.Placeables.Elevator.Scr
             _climbService = climbService;
         }
 
-        public void Initialize()
+        public int Priority => 100;
+
+        public bool TryInteract()
         {
-            GlobalEventBus.OnSignal<InteractInputSignal>()
-                .Subscribe(_ => TryMountFromPlayerPosition())
-                .AddTo(_disposables);
+            return TryUseElevatorFromPlayerPosition();
         }
 
         public bool HasShaft(Vector3Int cell) => _shafts.ContainsKey(cell);
@@ -209,54 +207,72 @@ namespace Systems.MineSystem.ToolbarSystem.Items.Prefabs.Placeables.Elevator.Scr
                 _activeController = null;
         }
 
-        private void TryMountFromPlayerPosition()
+        private bool TryUseElevatorFromPlayerPosition()
         {
             if (_activeController != null)
-                return;
+                return false;
 
             var playerCell = GetPlayerCell();
             var leftCell = playerCell + Vector3Int.left;
             var rightCell = playerCell + Vector3Int.right;
-            var hasLeftLift = CanMountLiftAt(leftCell);
-            var hasRightLift = CanMountLiftAt(rightCell);
+            var hasLeftElevator = TryGetControllerForShaft(
+                leftCell,
+                out var leftController);
+            var hasRightElevator = TryGetControllerForShaft(
+                rightCell,
+                out var rightController);
 
-            if (hasLeftLift && !hasRightLift)
-            {
-                TryMountLiftAt(leftCell);
-                return;
-            }
+            if (hasLeftElevator && !hasRightElevator)
+                return TryUseElevatorAt(leftCell, leftController);
 
-            if (hasRightLift && !hasLeftLift)
-            {
-                TryMountLiftAt(rightCell);
-                return;
-            }
+            if (hasRightElevator && !hasLeftElevator)
+                return TryUseElevatorAt(rightCell, rightController);
 
-            if (!hasLeftLift)
-                return;
-
-            var facingOffset = _runtime.facingDirection.Value ==
-                               PlayerFacingDirection.Left
-                ? Vector3Int.left
-                : Vector3Int.right;
-            TryMountLiftAt(playerCell + facingOffset);
-        }
-
-        private bool CanMountLiftAt(Vector3Int cell)
-        {
-            return _shafts.ContainsKey(cell) &&
-                   _lifts.TryGetValue(cell, out var lift) &&
-                   _controllers.ContainsKey(lift);
-        }
-
-        private bool TryMountLiftAt(Vector3Int cell)
-        {
-            if (!_shafts.ContainsKey(cell) ||
-                !_lifts.TryGetValue(cell, out var lift) ||
-                !_controllers.TryGetValue(lift, out var controller))
+            if (!hasLeftElevator)
                 return false;
 
-            return controller.TryMount();
+            return _runtime.facingDirection.Value ==
+                   PlayerFacingDirection.Left
+                ? TryUseElevatorAt(leftCell, leftController)
+                : TryUseElevatorAt(rightCell, rightController);
+        }
+
+        private bool TryGetControllerForShaft(
+            Vector3Int shaftCell,
+            out ElevatorController controller)
+        {
+            controller = null;
+            if (!_shafts.ContainsKey(shaftCell))
+                return false;
+
+            foreach (var candidate in _controllers.Values)
+            {
+                if (!candidate.ServesCell(shaftCell))
+                    continue;
+
+                controller = candidate;
+                return true;
+            }
+
+            return false;
+        }
+
+        private bool TryUseElevatorAt(
+            Vector3Int shaftCell,
+            ElevatorController controller)
+        {
+            if (controller == null)
+                return false;
+
+            if (controller.CurrentCell == shaftCell &&
+                _lifts.ContainsKey(shaftCell))
+            {
+                controller.TryMount();
+                return true;
+            }
+
+            controller.TryCallTo(shaftCell);
+            return true;
         }
 
         private Vector3Int GetPlayerCell()
@@ -296,7 +312,6 @@ namespace Systems.MineSystem.ToolbarSystem.Items.Prefabs.Placeables.Elevator.Scr
             _controllers.Clear();
             _lifts.Clear();
             _shafts.Clear();
-            _disposables.Dispose();
         }
     }
 }

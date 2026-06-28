@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ElevatorConfig
   m_EditorClassIdentifier: Assembly-CSharp::Systems.MineSystem.ToolbarSystem.Items.Prefabs.Placeables.Elevator.Script.ElevatorConfig
   moveDurationSeconds: 0.22
-  riderOffset: {x: 0, y: 0.05}
+  riderOffset: {x: 0, y: 0.01}
   exitOffset: {x: 0, y: 0.05}
   liftSortingOrder: 1
   shaftSortingOrder: 0

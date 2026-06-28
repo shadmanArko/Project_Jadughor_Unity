@@ -77,11 +77,6 @@ namespace Systems.MineSystem.MinePlayerSystem.Model
             _actionService.RequestAction();
         }
 
-        public void RequestInteraction()
-        {
-            _actionService.RequestInteraction();
-        }
-
         public void HandleAnimationMarker(
             PlayerAnimationMarkerEvent animationEvent)
         {

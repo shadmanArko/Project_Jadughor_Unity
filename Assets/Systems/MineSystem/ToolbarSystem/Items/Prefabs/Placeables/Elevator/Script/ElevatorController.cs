@@ -59,6 +59,32 @@ namespace Systems.MineSystem.ToolbarSystem.Items.Prefabs.Placeables.Elevator.Scr
         public bool HasRider => _model.HasRider;
         public Vector3Int CurrentCell => _model.CurrentLiftCell;
 
+        public bool ServesCell(Vector3Int cell)
+        {
+            for (var i = 0; i < _model.ShaftCells.Count; i++)
+            {
+                if (_model.ShaftCells[i] == cell)
+                    return true;
+            }
+
+            return false;
+        }
+
+        public bool TryCallTo(Vector3Int targetCell)
+        {
+            if (_disposed ||
+                _model.HasRider ||
+                _model.IsMoving ||
+                !ServesCell(targetCell) ||
+                targetCell == _model.CurrentLiftCell)
+                return false;
+
+            _model.BeginMove();
+            _motionLoopRunning = true;
+            MoveEmptyLiftAsync(targetCell).Forget();
+            return true;
+        }
+
         public void RefreshNetwork()
         {
             _model.ReplaceShaftCells(
@@ -143,23 +169,8 @@ namespace Systems.MineSystem.ToolbarSystem.Items.Prefabs.Placeables.Elevator.Scr
                     }
 
                     _model.BeginMove();
-                    var target = _network.CellToWorldCenter(targetCell);
-                    _lift.transform.position = Vector3.MoveTowards(
-                        _lift.transform.position,
-                        target,
-                        GetCellTravelSpeed() * Time.fixedDeltaTime);
-                    TeleportRiderToLift();
-
-                    if (Vector3.SqrMagnitude(
-                            _lift.transform.position - target) <= 0.00000001f)
+                    if (MoveLiftTowardsCell(targetCell, true))
                     {
-                        _lift.transform.position = target;
-                        if (targetCell != _model.CurrentLiftCell)
-                        {
-                            _model.SetLiftCell(targetCell);
-                            _lift.SetCurrentCell(targetCell);
-                        }
-
                         if (_heldDirection == 0)
                         {
                             _model.EndMove();
@@ -176,6 +187,96 @@ namespace Systems.MineSystem.ToolbarSystem.Items.Prefabs.Placeables.Elevator.Scr
                 if (_disposed || !_model.HasRider)
                     _model.EndMove();
             }
+        }
+
+        private async UniTaskVoid MoveEmptyLiftAsync(Vector3Int targetCell)
+        {
+            try
+            {
+                while (!_disposed && !_model.HasRider)
+                {
+                    RefreshNetwork();
+                    if (!ServesCell(targetCell))
+                    {
+                        await SettleAtCurrentCellAsync();
+                        break;
+                    }
+
+                    if (_model.CurrentLiftCell == targetCell)
+                        break;
+
+                    var direction = Math.Sign(
+                        targetCell.y - _model.CurrentLiftCell.y);
+                    if (!_model.TryGetAdjacentCell(
+                            direction,
+                            out var nextCell))
+                    {
+                        await SettleAtCurrentCellAsync();
+                        break;
+                    }
+
+                    while (!_disposed && !_model.HasRider)
+                    {
+                        if (!_network.HasShaft(nextCell))
+                        {
+                            await SettleAtCurrentCellAsync();
+                            return;
+                        }
+
+                        if (MoveLiftTowardsCell(nextCell, false))
+                            break;
+
+                        await UniTask.Yield(PlayerLoopTiming.FixedUpdate);
+                    }
+
+                    if (_model.CurrentLiftCell == targetCell)
+                        break;
+
+                    await UniTask.Yield(PlayerLoopTiming.FixedUpdate);
+                }
+            }
+            finally
+            {
+                _motionLoopRunning = false;
+                _model.EndMove();
+            }
+        }
+
+        private async UniTask SettleAtCurrentCellAsync()
+        {
+            var currentCell = _model.CurrentLiftCell;
+            while (!_disposed &&
+                   !MoveLiftTowardsCell(currentCell, false))
+            {
+                await UniTask.Yield(PlayerLoopTiming.FixedUpdate);
+            }
+        }
+
+        private bool MoveLiftTowardsCell(
+            Vector3Int targetCell,
+            bool moveRider)
+        {
+            var target = _network.CellToWorldCenter(targetCell);
+            _lift.transform.position = Vector3.MoveTowards(
+                _lift.transform.position,
+                target,
+                GetCellTravelSpeed() * Time.fixedDeltaTime);
+
+            if (moveRider)
+                TeleportRiderToLift();
+
+            if (Vector3.SqrMagnitude(
+                    _lift.transform.position - target) > 0.00000001f)
+                return false;
+
+            _lift.transform.position = target;
+            if (targetCell != _model.CurrentLiftCell)
+            {
+                _model.SetLiftCell(targetCell);
+                _lift.SetCurrentCell(targetCell);
+            }
+
+            return true;
         }
 
         private bool TryResolveMotionTarget(out Vector3Int targetCell)

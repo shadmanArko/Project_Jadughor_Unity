@@ -67,6 +67,9 @@ namespace Systems.MineSystem.MinePlayerSystem.Installer
             Container.BindInterfacesAndSelfTo<PlayerDamageService>().AsSingle();
             Container.Bind<PlayerClimbService>().AsSingle();
             Container.BindInterfacesAndSelfTo<PlayerActionService>().AsSingle();
+            Container.BindInterfacesAndSelfTo<PlayerInteractionService>()
+                .AsSingle()
+                .NonLazy();
             Container.Bind<PlayerMovementService>().AsSingle();
             Container.BindInterfacesAndSelfTo<PlayerAnimationService>()
                 .AsSingle()
