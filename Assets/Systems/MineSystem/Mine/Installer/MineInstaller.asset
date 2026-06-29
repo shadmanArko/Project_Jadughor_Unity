@@ -28,3 +28,4 @@ MonoBehaviour:
   regionalTileScriptable: {fileID: 11400000, guid: 44b457c343620964b8231b67cc0a51c2, type: 2}
   specialBackdropSpriteScriptable: {fileID: 11400000, guid: 31443cc082826bd4990b0af9205f2a01, type: 2}
   vineSpriteScriptable: {fileID: 11400000, guid: 4f5934b1893d4a73aa8d2b17e50f3105, type: 2}
+  cellCrackScriptable: {fileID: 11400000, guid: ea64aae2beb1a0b49b6cbd3f056dae74, type: 2}

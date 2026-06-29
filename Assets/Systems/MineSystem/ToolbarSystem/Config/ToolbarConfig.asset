@@ -20,10 +20,10 @@ MonoBehaviour:
   mouseWheelThreshold: 0.05
   defaultItems:
   - id: pickaxe
-    itemName: Iron Pickaxe
+    itemName: Stone Pickaxe
     type: Equippable
     category: Tool
-    variant: IronPickaxe
+    variant: StonePickaxe
     quantity: 1
   - id: torch
     itemName: Torch

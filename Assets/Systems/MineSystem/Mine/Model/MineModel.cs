@@ -92,6 +92,7 @@ namespace Systems.MineSystem.Mine.Model
             // mineData?.InitializeLookupCache();
             _mineData.Value = mineData;
             _artifactVisualizerService.SetMineData(mineData);
+            _cellCrackVisualizerService.RefreshCellCracks(mineData);
             UpdateAllCellsBrokenEdges();
         }
 
@@ -156,6 +157,7 @@ namespace Systems.MineSystem.Mine.Model
             var mineData = MineData.Value;
             _caveVisualizerService.ResetFormations();
             _wallVisualizerService.GenerateMineFromData(mineData);
+            _cellCrackVisualizerService.RefreshCellCracks(mineData);
             _vineVisualizerService.SetVines(mineData.VineDatas, mineData, _playerScriptable.region, _playerScriptable.site);
             _specialBackdropVisualizerService.SetSpecialBackdrops(mineData.SpecialBackdropDatas, _playerScriptable.region, _playerScriptable.site);
         }

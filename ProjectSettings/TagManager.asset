@@ -59,6 +59,9 @@ TagManager:
   - name: Resource
     uniqueID: 1354806321
     locked: 0
+  - name: Crack
+    uniqueID: 1273293183
+    locked: 0
   - name: Placeable
     uniqueID: 1615840499
     locked: 0

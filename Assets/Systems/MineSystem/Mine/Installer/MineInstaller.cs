@@ -45,6 +45,7 @@ namespace Systems.MineSystem.Mine.Installer
         [SerializeField] private MineRegionalTileScriptable regionalTileScriptable;
         [SerializeField] private SpecialBackdropSpriteScriptable specialBackdropSpriteScriptable;
         [SerializeField] private VineSpriteScriptable vineSpriteScriptable;
+        [SerializeField] private CellCrackScriptable cellCrackScriptable;
         
         public override void InstallBindings()
         {
@@ -72,6 +73,7 @@ namespace Systems.MineSystem.Mine.Installer
             Container.Bind<MineRegionalTileScriptable>().FromScriptableObject(regionalTileScriptable).AsSingle();
             Container.Bind<SpecialBackdropSpriteScriptable>().FromScriptableObject(specialBackdropSpriteScriptable).AsSingle();
             Container.Bind<VineSpriteScriptable>().FromScriptableObject(vineSpriteScriptable).AsSingle();
+            Container.Bind<CellCrackScriptable>().FromScriptableObject(cellCrackScriptable).AsSingle();
             var runtimeArtifactSpriteScriptable = artifactSpriteScriptable != null
                 ? artifactSpriteScriptable
                 : CreateInstance<ArtifactSpriteScriptable>();

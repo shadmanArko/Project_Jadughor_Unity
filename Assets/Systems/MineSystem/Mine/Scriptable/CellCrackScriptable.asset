@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f1d9296b01446f38757df6bc6608e6d, type: 3}
+  m_Name: CellCrackScriptable
+  m_EditorClassIdentifier: Assembly-CSharp::Systems.MineSystem.Mine.Scriptable.CellCrackScriptable
+  cellCrackSpriteDatas:
+  - region: 1
+    site: 0
+    cellCrackSpriteDataList:
+    - id: small
+      objectSprite: {fileID: -3712403699549254009, guid: e3e8044c7208f3e4ea403d092c1ff1c8, type: 3}
+      iconSprite: {fileID: 0}
+    - id: medium
+      objectSprite: {fileID: 1336252981090314998, guid: e3e8044c7208f3e4ea403d092c1ff1c8, type: 3}
+      iconSprite: {fileID: 0}
+    - id: large
+      objectSprite: {fileID: -3729182964849552250, guid: e3e8044c7208f3e4ea403d092c1ff1c8, type: 3}
+      iconSprite: {fileID: 0}
