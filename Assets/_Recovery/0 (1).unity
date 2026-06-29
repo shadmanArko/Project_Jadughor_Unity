@@ -149,7 +149,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 662202058368393596}
-  - {fileID: 1286378449}
   - {fileID: 309725566}
   - {fileID: 94387326}
   m_Father: {fileID: 0}
@@ -172,7 +171,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5220436126945401331, guid: 25669a8e79d1d254a922f4bed5a409a7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 10.959998
+      value: 10.969998
       objectReference: {fileID: 0}
     - target: {fileID: 5220436126945401331, guid: 25669a8e79d1d254a922f4bed5a409a7, type: 3}
       propertyPath: m_LocalPosition.z
@@ -208,7 +207,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5395907290851255375, guid: 25669a8e79d1d254a922f4bed5a409a7, type: 3}
       propertyPath: m_SortingOrder
-      value: -1096
+      value: -1097
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1742,11 +1741,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 868343594}
   m_CullTransparentMesh: 1
---- !u!1 &894195578 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2820606393223750952, guid: 93ad0f1c4dd10d74bb01ea9f2c00e747, type: 3}
-  m_PrefabInstance: {fileID: 2335199135532608343}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &938325601
 GameObject:
   m_ObjectHideFlags: 0
@@ -2075,11 +2069,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1123926326}
   m_CullTransparentMesh: 1
---- !u!1 &1127797509 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8487398911379768931, guid: 6a85636b6ac670b45949efd370698782, type: 3}
-  m_PrefabInstance: {fileID: 7089027310144632040}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1210753201
 GameObject:
   m_ObjectHideFlags: 0
@@ -5929,16 +5918,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1272827312}
   m_CullTransparentMesh: 1
---- !u!4 &1286378449 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5220436126945401331, guid: 25669a8e79d1d254a922f4bed5a409a7, type: 3}
-  m_PrefabInstance: {fileID: 1403013656}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1316230960 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2454788098664129428, guid: 4b3046c9173ac324b8f43763e0496280, type: 3}
-  m_PrefabInstance: {fileID: 9023450012855666799}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1342568289
 GameObject:
   m_ObjectHideFlags: 0
@@ -6218,71 +6197,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1401699525}
   m_CullTransparentMesh: 1
---- !u!1001 &1403013656
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 22690709}
-    m_Modifications:
-    - target: {fileID: -3558566397675049429, guid: 25669a8e79d1d254a922f4bed5a409a7, type: 3}
-      propertyPath: direction
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4977343837071860109, guid: 25669a8e79d1d254a922f4bed5a409a7, type: 3}
-      propertyPath: m_Name
-      value: Forest Chunk (3)
-      objectReference: {fileID: 0}
-    - target: {fileID: 5220436126945401331, guid: 25669a8e79d1d254a922f4bed5a409a7, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -17.71
-      objectReference: {fileID: 0}
-    - target: {fileID: 5220436126945401331, guid: 25669a8e79d1d254a922f4bed5a409a7, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 15.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 5220436126945401331, guid: 25669a8e79d1d254a922f4bed5a409a7, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5220436126945401331, guid: 25669a8e79d1d254a922f4bed5a409a7, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5220436126945401331, guid: 25669a8e79d1d254a922f4bed5a409a7, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5220436126945401331, guid: 25669a8e79d1d254a922f4bed5a409a7, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5220436126945401331, guid: 25669a8e79d1d254a922f4bed5a409a7, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5220436126945401331, guid: 25669a8e79d1d254a922f4bed5a409a7, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5220436126945401331, guid: 25669a8e79d1d254a922f4bed5a409a7, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5220436126945401331, guid: 25669a8e79d1d254a922f4bed5a409a7, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5395907290851255375, guid: 25669a8e79d1d254a922f4bed5a409a7, type: 3}
-      propertyPath: m_SortingOrder
-      value: -1505
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 25669a8e79d1d254a922f4bed5a409a7, type: 3}
 --- !u!1 &1475030407
 GameObject:
   m_ObjectHideFlags: 0
@@ -6831,11 +6745,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1739394096}
   m_CullTransparentMesh: 1
---- !u!1 &1749479549 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2308912143425071822, guid: 207b7e128171c68469b27e6ef9cbea24, type: 3}
-  m_PrefabInstance: {fileID: 3811439896889230266}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1771867532
 GameObject:
   m_ObjectHideFlags: 0
@@ -7313,19 +7222,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ExpansionManager
   grid: {fileID: 1779382418}
   floorTilemap: {fileID: 1210753204}
-  copyBaseFloorTile: 1
-  floorSampleCell: {x: 10, y: 9}
   floorTile: {fileID: 11400000, guid: a0abac85b12e6ff4cad0c3b7bb2633ef, type: 2}
   chunkSize: {x: 20, y: 18}
   baseWalls:
-  - {fileID: 1316230960}
-  - {fileID: 894195578}
-  - {fileID: 1127797509}
-  - {fileID: 1749479549}
-  backWallPrefab: {fileID: 556804126535510426, guid: 7973cc64520aedd4d8450bb6b5fa2f8c, type: 3}
-  frontWallPrefab: {fileID: 4346938156178188694, guid: fdfea45a0ff3ff840b489c869534d3a2, type: 3}
-  mirrorRightSideWalls: 1
-  wallOffset: {x: 0, y: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  cloneBaseWalls: 1
+  backWallNEPrefab: {fileID: 2454788098664129428, guid: 4b3046c9173ac324b8f43763e0496280, type: 3}
+  backWallNWPrefab: {fileID: 2820606393223750952, guid: 93ad0f1c4dd10d74bb01ea9f2c00e747, type: 3}
+  frontWallSWPrefab: {fileID: 8487398911379768931, guid: 6a85636b6ac670b45949efd370698782, type: 3}
+  frontWallSEPrefab: {fileID: 2308912143425071822, guid: 207b7e128171c68469b27e6ef9cbea24, type: 3}
   wallsParent: {fileID: 287848811}
   drawPreview: 1
   previewChunks:
