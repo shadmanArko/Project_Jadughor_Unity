@@ -17,6 +17,8 @@ MonoBehaviour:
     SceneNo: 1
     HasTutorial: 0
     TutorialNumber: 0
+    ContinuesStory: 1
+    NextStoryNumber: 0
     StorySceneEntries:
     - EntryNo: 1a
       IllustrationName: 01
@@ -31,6 +33,8 @@ MonoBehaviour:
     SceneNo: 2
     HasTutorial: 0
     TutorialNumber: 0
+    ContinuesStory: 1
+    NextStoryNumber: 0
     StorySceneEntries:
     - EntryNo: 2a
       IllustrationName: 02
@@ -92,6 +96,8 @@ MonoBehaviour:
     SceneNo: 3
     HasTutorial: 0
     TutorialNumber: 0
+    ContinuesStory: 1
+    NextStoryNumber: 0
     StorySceneEntries:
     - EntryNo: 3a
       IllustrationName: 03
@@ -119,6 +125,8 @@ MonoBehaviour:
     SceneNo: 4
     HasTutorial: 1
     TutorialNumber: 1
+    ContinuesStory: 0
+    NextStoryNumber: 0
     StorySceneEntries:
     - EntryNo: 4a
       IllustrationName: 04
@@ -154,6 +162,8 @@ MonoBehaviour:
     SceneNo: 5
     HasTutorial: 1
     TutorialNumber: 2
+    ContinuesStory: 0
+    NextStoryNumber: 0
     StorySceneEntries:
     - EntryNo: 5a
       IllustrationName: 05
@@ -184,6 +194,8 @@ MonoBehaviour:
     SceneNo: 6
     HasTutorial: 1
     TutorialNumber: 3
+    ContinuesStory: 0
+    NextStoryNumber: 0
     StorySceneEntries:
     - EntryNo: 6a
       IllustrationName: 06
@@ -229,6 +241,8 @@ MonoBehaviour:
     SceneNo: 7
     HasTutorial: 0
     TutorialNumber: 0
+    ContinuesStory: 0
+    NextStoryNumber: 0
     StorySceneEntries:
     - EntryNo: 7a
       IllustrationName: 
@@ -242,6 +256,8 @@ MonoBehaviour:
     SceneNo: 8
     HasTutorial: 1
     TutorialNumber: 4
+    ContinuesStory: 0
+    NextStoryNumber: 0
     StorySceneEntries:
     - EntryNo: 8a
       IllustrationName: 
@@ -262,6 +278,8 @@ MonoBehaviour:
     SceneNo: 9
     HasTutorial: 1
     TutorialNumber: 5
+    ContinuesStory: 0
+    NextStoryNumber: 0
     StorySceneEntries:
     - EntryNo: 9a
       IllustrationName: 
@@ -296,6 +314,8 @@ MonoBehaviour:
     SceneNo: 10
     HasTutorial: 0
     TutorialNumber: 0
+    ContinuesStory: 0
+    NextStoryNumber: 0
     StorySceneEntries:
     - EntryNo: 10a
       IllustrationName: 
@@ -308,6 +328,8 @@ MonoBehaviour:
     SceneNo: 11
     HasTutorial: 0
     TutorialNumber: 0
+    ContinuesStory: 0
+    NextStoryNumber: 0
     StorySceneEntries:
     - EntryNo: 11a
       IllustrationName: 
@@ -321,6 +343,8 @@ MonoBehaviour:
     SceneNo: 12
     HasTutorial: 0
     TutorialNumber: 0
+    ContinuesStory: 0
+    NextStoryNumber: 0
     StorySceneEntries:
     - EntryNo: 12a
       IllustrationName: 
@@ -350,6 +374,8 @@ MonoBehaviour:
     SceneNo: 13
     HasTutorial: 0
     TutorialNumber: 0
+    ContinuesStory: 0
+    NextStoryNumber: 0
     StorySceneEntries:
     - EntryNo: 13a
       IllustrationName: 
@@ -398,6 +424,8 @@ MonoBehaviour:
     SceneNo: 14
     HasTutorial: 1
     TutorialNumber: 7
+    ContinuesStory: 0
+    NextStoryNumber: 0
     StorySceneEntries:
     - EntryNo: 14a
       IllustrationName: 
@@ -418,6 +446,8 @@ MonoBehaviour:
     SceneNo: 15
     HasTutorial: 0
     TutorialNumber: 0
+    ContinuesStory: 0
+    NextStoryNumber: 0
     StorySceneEntries:
     - EntryNo: 15a
       IllustrationName: 
@@ -430,6 +460,8 @@ MonoBehaviour:
     SceneNo: 16
     HasTutorial: 0
     TutorialNumber: 0
+    ContinuesStory: 0
+    NextStoryNumber: 0
     StorySceneEntries:
     - EntryNo: 16a
       IllustrationName: 
@@ -476,6 +508,8 @@ MonoBehaviour:
     SceneNo: 17
     HasTutorial: 1
     TutorialNumber: 8
+    ContinuesStory: 0
+    NextStoryNumber: 0
     StorySceneEntries:
     - EntryNo: 17a
       IllustrationName: 

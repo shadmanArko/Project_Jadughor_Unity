@@ -1445,10 +1445,11 @@ MonoBehaviour:
   portraitsResourceFolder: Portraits
   illustrationsResourceFolder: Illustrations
   root: {fileID: 897008775}
-  dialogueBox: {fileID: 1628265581}
+  slideRoot: {fileID: 897008776}
   dialogueText: {fileID: 1973570902}
   nextDialogueButton: {fileID: 1973570904}
   characterPortrait: {fileID: 458381056}
+  cutscenePanelRoot: {fileID: 883350544}
   cutsceneArt: {fileID: 484250073}
   delayBetweenLetters: 0.03
   delayForFullStop: 0.4
@@ -2622,7 +2623,8 @@ MonoBehaviour:
   playTutorialKey: 95
   tutorialToPlay: 1
   fireActionKey: 96
-  actionToFire: SelectItem
+  fallbackAction: SelectItem
+  tutorialManager: {fileID: 0}
 --- !u!4 &1006942286
 Transform:
   m_ObjectHideFlags: 0

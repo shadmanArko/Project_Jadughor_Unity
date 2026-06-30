@@ -4,6 +4,8 @@
     "SceneNo": 1,
     "HasTutorial": false,
     "TutorialNumber": 0,
+    "ContinuesStory": true,
+    "NextStoryNumber": 0,
     "StorySceneEntries": [
       {
         "EntryNo": "1a",
@@ -21,6 +23,8 @@
     "SceneNo": 2,
     "HasTutorial": false,
     "TutorialNumber": 0,
+    "ContinuesStory": true,
+    "NextStoryNumber": 0,
     "StorySceneEntries": [
       {
         "EntryNo": "2a",
@@ -92,6 +96,8 @@
     "SceneNo": 3,
     "HasTutorial": false,
     "TutorialNumber": 0,
+    "ContinuesStory": true,
+    "NextStoryNumber": 0,
     "StorySceneEntries": [
       {
         "EntryNo": "3a",
@@ -127,6 +133,8 @@
     "SceneNo": 4,
     "HasTutorial": true,
     "TutorialNumber": 1,
+    "ContinuesStory": false,
+    "NextStoryNumber": 0,
     "StorySceneEntries": [
       {
         "EntryNo": "4a",
@@ -171,6 +179,8 @@
     "SceneNo": 5,
     "HasTutorial": true,
     "TutorialNumber": 2,
+    "ContinuesStory": false,
+    "NextStoryNumber": 0,
     "StorySceneEntries": [
       {
         "EntryNo": "5a",
@@ -206,6 +216,8 @@
     "SceneNo": 6,
     "HasTutorial": true,
     "TutorialNumber": 3,
+    "ContinuesStory": false,
+    "NextStoryNumber": 0,
     "StorySceneEntries": [
       {
         "EntryNo": "6a",
@@ -259,6 +271,8 @@
     "SceneNo": 7,
     "HasTutorial": false,
     "TutorialNumber": 0,
+    "ContinuesStory": false,
+    "NextStoryNumber": 0,
     "StorySceneEntries": [
       {
         "EntryNo": "7a",
@@ -276,6 +290,8 @@
     "SceneNo": 8,
     "HasTutorial": true,
     "TutorialNumber": 4,
+    "ContinuesStory": false,
+    "NextStoryNumber": 0,
     "StorySceneEntries": [
       {
         "EntryNo": "8a",
@@ -302,6 +318,8 @@
     "SceneNo": 9,
     "HasTutorial": true,
     "TutorialNumber": 5,
+    "ContinuesStory": false,
+    "NextStoryNumber": 0,
     "StorySceneEntries": [
       {
         "EntryNo": "9a",
@@ -346,6 +364,8 @@
     "SceneNo": 10,
     "HasTutorial": false,
     "TutorialNumber": 0,
+    "ContinuesStory": false,
+    "NextStoryNumber": 0,
     "StorySceneEntries": [
       {
         "EntryNo": "10a",
@@ -363,6 +383,8 @@
     "SceneNo": 11,
     "HasTutorial": false,
     "TutorialNumber": 0,
+    "ContinuesStory": false,
+    "NextStoryNumber": 0,
     "StorySceneEntries": [
       {
         "EntryNo": "11a",
@@ -380,6 +402,8 @@
     "SceneNo": 12,
     "HasTutorial": false,
     "TutorialNumber": 0,
+    "ContinuesStory": false,
+    "NextStoryNumber": 0,
     "StorySceneEntries": [
       {
         "EntryNo": "12a",
@@ -415,6 +439,8 @@
     "SceneNo": 13,
     "HasTutorial": false,
     "TutorialNumber": 0,
+    "ContinuesStory": false,
+    "NextStoryNumber": 0,
     "StorySceneEntries": [
       {
         "EntryNo": "13a",
@@ -477,6 +503,8 @@
     "SceneNo": 14,
     "HasTutorial": true,
     "TutorialNumber": 7,
+    "ContinuesStory": false,
+    "NextStoryNumber": 0,
     "StorySceneEntries": [
       {
         "EntryNo": "14a",
@@ -503,6 +531,8 @@
     "SceneNo": 15,
     "HasTutorial": false,
     "TutorialNumber": 0,
+    "ContinuesStory": false,
+    "NextStoryNumber": 0,
     "StorySceneEntries": [
       {
         "EntryNo": "15a",
@@ -520,6 +550,8 @@
     "SceneNo": 16,
     "HasTutorial": false,
     "TutorialNumber": 0,
+    "ContinuesStory": false,
+    "NextStoryNumber": 0,
     "StorySceneEntries": [
       {
         "EntryNo": "16a",
@@ -573,6 +605,8 @@
     "SceneNo": 17,
     "HasTutorial": true,
     "TutorialNumber": 8,
+    "ContinuesStory": false,
+    "NextStoryNumber": 0,
     "StorySceneEntries": [
       {
         "EntryNo": "17a",

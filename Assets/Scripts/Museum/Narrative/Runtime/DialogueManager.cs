@@ -28,14 +28,20 @@ namespace ProjectMuseum.Narrative
         [SerializeField] private string illustrationsResourceFolder = "Illustrations";
 
         [Header("UI references")]
-        [Tooltip("Root that is shown/hidden. Usually this same Dialogue Panel object.")]
+        [Tooltip("Root that is shown/hidden. Usually the Dialogue Panel object.")]
         [SerializeField] private GameObject root;
-        [Tooltip("The box that slides in/out (its RectTransform is tweened).")]
-        [SerializeField] private RectTransform dialogueBox;
+        [Tooltip("The container that slides in/out — assign your 'Panel Bg' so the " +
+                 "dialogue box AND the portrait move together.")]
+        [SerializeField] private RectTransform slideRoot;
         [SerializeField] private TMP_Text dialogueText;
         [SerializeField] private Button nextDialogueButton;
         [SerializeField] private Image characterPortrait;
-        [Tooltip("Optional full-screen cutscene illustration shown above the box.")]
+
+        [Header("Cutscene (separate panel)")]
+        [Tooltip("The whole Cutscene Panel object — enabled while an entry has a " +
+                 "cutscene, disabled otherwise.")]
+        [SerializeField] private GameObject cutscenePanelRoot;
+        [Tooltip("The Image inside the Cutscene Panel that shows the illustration.")]
         [SerializeField] private Image cutsceneArt;
 
         [Header("Typewriter delays (seconds)")]
@@ -69,13 +75,14 @@ namespace ProjectMuseum.Narrative
         private void Awake()
         {
             if (root == null) root = gameObject;
-            if (dialogueBox != null)
+            if (slideRoot != null)
             {
-                _shownPos = dialogueBox.anchoredPosition;
+                _shownPos = slideRoot.anchoredPosition;
                 _hiddenPos = _shownPos + hiddenOffset;
-                dialogueBox.anchoredPosition = _hiddenPos;
+                slideRoot.anchoredPosition = _hiddenPos;
             }
             root.SetActive(false);
+            if (cutscenePanelRoot != null) cutscenePanelRoot.SetActive(false);
         }
 
         private void OnEnable()
@@ -184,13 +191,28 @@ namespace ProjectMuseum.Narrative
 
             await SlideOut();
 
-            if (cutsceneArt != null) cutsceneArt.gameObject.SetActive(false);
+            SetCutscenePanelActive(false);
             root.SetActive(false);
 
-            if (_storyScene.HasTutorial)
-                MuseumActions.PlayTutorial?.Invoke(_storyScene.TutorialNumber);
-            else
-                MuseumActions.StorySceneEnded?.Invoke(_currentStorySceneNumber);
+            // Capture chain decisions before _storyScene is reused by a new load.
+            bool hasTutorial = _storyScene.HasTutorial;
+            int tutorialNumber = _storyScene.TutorialNumber;
+            bool continuesStory = _storyScene.ContinuesStory;
+            int nextStoryNumber = _storyScene.ResolvedNextStoryNumber;
+            int endedScene = _currentStorySceneNumber;
+
+            // Always announce the scene finished, then decide what plays next.
+            MuseumActions.StorySceneEnded?.Invoke(endedScene);
+
+            if (hasTutorial)
+            {
+                // The tutorial decides whether to continue the story (Tutorial.ContinuesStory).
+                MuseumActions.PlayTutorial?.Invoke(tutorialNumber);
+            }
+            else if (continuesStory)
+            {
+                MuseumActions.PlayStoryScene?.Invoke(nextStoryNumber);
+            }
         }
 
         // ── Portrait / cutscene art ─────────────────────────────────────
@@ -207,16 +229,18 @@ namespace ProjectMuseum.Narrative
 
         private void LoadAndSetCutsceneArt()
         {
-            if (cutsceneArt == null) return;
             StorySceneEntry entry = _storyScene.StorySceneEntries[_storyEntryCount];
 
+            // No cutscene this line → hide the whole Cutscene Panel.
             if (!entry.HasCutscene)
             {
-                cutsceneArt.gameObject.SetActive(false);
+                SetCutscenePanelActive(false);
                 return;
             }
 
-            cutsceneArt.gameObject.SetActive(true);
+            SetCutscenePanelActive(true);
+
+            if (cutsceneArt == null) return;
 
             if (!entry.HasCutsceneArt || string.IsNullOrEmpty(entry.IllustrationName))
             {
@@ -228,6 +252,12 @@ namespace ProjectMuseum.Narrative
             Sprite sprite = LoadSprite($"{illustrationsResourceFolder}/{entry.IllustrationName}");
             cutsceneArt.sprite = sprite;
             cutsceneArt.enabled = sprite != null;
+        }
+
+        private void SetCutscenePanelActive(bool value)
+        {
+            if (cutscenePanelRoot != null) cutscenePanelRoot.SetActive(value);
+            else if (cutsceneArt != null) cutsceneArt.gameObject.SetActive(value);
         }
 
         /// <summary>
@@ -335,28 +365,28 @@ namespace ProjectMuseum.Narrative
 
         private void SlideIn()
         {
-            if (dialogueBox == null) { SetNextButtonInteractable(true); return; }
+            if (slideRoot == null) { SetNextButtonInteractable(true); return; }
             SetNextButtonInteractable(false);
-            dialogueBox.DOKill();
-            dialogueBox.DOAnchorPos(_shownPos, slideDuration)
-                       .SetEase(slideEase)
-                       .SetUpdate(true) // run on unscaled time (works while paused)
-                       .OnComplete(() => SetNextButtonInteractable(true));
+            slideRoot.DOKill();
+            slideRoot.DOAnchorPos(_shownPos, slideDuration)
+                     .SetEase(slideEase)
+                     .SetUpdate(true) // run on unscaled time (works while paused)
+                     .OnComplete(() => SetNextButtonInteractable(true));
         }
 
         private UniTask SlideOut()
         {
-            if (dialogueBox == null) return UniTask.CompletedTask;
+            if (slideRoot == null) return UniTask.CompletedTask;
             SetNextButtonInteractable(false);
-            dialogueBox.DOKill();
+            slideRoot.DOKill();
 
             // Drive a completion source from OnComplete so we don't depend on the
             // optional UniTask⇄DOTween integration define (UNITASK_DOTWEEN_SUPPORT).
             var tcs = new UniTaskCompletionSource();
-            dialogueBox.DOAnchorPos(_hiddenPos, slideDuration)
-                       .SetEase(slideEase)
-                       .SetUpdate(true)
-                       .OnComplete(() => tcs.TrySetResult());
+            slideRoot.DOAnchorPos(_hiddenPos, slideDuration)
+                     .SetEase(slideEase)
+                     .SetUpdate(true)
+                     .OnComplete(() => tcs.TrySetResult());
             return tcs.Task;
         }
 

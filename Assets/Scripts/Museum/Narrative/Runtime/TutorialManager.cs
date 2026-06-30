@@ -190,5 +190,21 @@ namespace ProjectMuseum.Narrative
 
         /// <summary>EntryNo of the step currently in progress (empty when none).</summary>
         public string CurrentEntryNo => _currentEntry?.EntryNo ?? string.Empty;
+
+        /// <summary>True while a tutorial step is awaiting completion.</summary>
+        public bool HasActiveStep => !_currentTutorialCompleted && _currentEntry != null;
+
+        /// <summary>
+        /// The first required action of the current step that hasn't been performed
+        /// yet, or null if there's none pending (no step, or all actions done).
+        /// Used by the debug trigger to fire required actions one at a time.
+        /// </summary>
+        public string NextPendingAction()
+        {
+            if (_currentEntry?.ActionsNeedsToPerform == null) return null;
+            foreach (string action in _currentEntry.ActionsNeedsToPerform)
+                if (!_performedActions.Contains(action)) return action;
+            return null;
+        }
     }
 }

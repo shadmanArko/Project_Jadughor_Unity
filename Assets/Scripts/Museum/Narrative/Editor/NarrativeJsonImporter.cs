@@ -43,6 +43,8 @@ namespace ProjectMuseum.Narrative.EditorTools
             string json = ReadSource(StoryJson);
             if (json == null) return 0;
 
+            // The JSON is the source of truth, including ContinuesStory /
+            // NextStoryNumber — re-importing fully rebuilds the asset from it.
             StoryScene[] scenes = JsonHelper.FromJsonArray<StoryScene>(json);
 
             StoryDatabase db = LoadOrCreate<StoryDatabase>(StoryAssetPath);

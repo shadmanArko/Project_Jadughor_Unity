@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace ProjectMuseum.Narrative
 {
@@ -16,7 +17,15 @@ namespace ProjectMuseum.Narrative
         public int SceneNo;
         public bool HasTutorial;
         public int TutorialNumber;
+        
+        public bool ContinuesStory;
+        [Tooltip("Which scene to continue to. Leave 0 to default to SceneNo + 1.")]
+        public int NextStoryNumber;
+
         public List<StorySceneEntry> StorySceneEntries = new List<StorySceneEntry>();
+
+        /// <summary>The scene to chain into: explicit NextStoryNumber, else SceneNo+1.</summary>
+        public int ResolvedNextStoryNumber => NextStoryNumber > 0 ? NextStoryNumber : SceneNo + 1;
     }
 
     /// <summary>One spoken line within a <see cref="StoryScene"/>.</summary>
