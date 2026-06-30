@@ -37,6 +37,7 @@ namespace Systems.MineSystem.ToolbarSystem.Handler
         public abstract ItemActionKind ActionKind { get; }
         protected virtual bool ApplyImpactOnCompletion => false;
         protected virtual bool RepeatWhileActionHeld => false;
+        protected virtual int? RecoveryHandoffMarker => null;
 
         protected AnimatedItemActionHandler(
             IPlayerItemAnimationService animation,
@@ -68,7 +69,7 @@ namespace Systems.MineSystem.ToolbarSystem.Handler
 
         public virtual void Deactivate()
         {
-            _actionHeld = false;
+            SetActionHeld(false);
             ActiveItem = null;
             ActiveProfile = null;
             ActiveSlot = -1;
@@ -77,14 +78,28 @@ namespace Systems.MineSystem.ToolbarSystem.Handler
         public void SetActionHeld(bool isHeld)
         {
             _actionHeld = isHeld;
+            if (_pendingItem != null)
+            {
+                _animation.SetRecoveryHandoffBlocked(
+                    _pendingAnimationId,
+                    isHeld);
+            }
         }
 
         public bool TryExecute()
         {
             if (ActiveItem == null ||
                 ActiveProfile == null ||
-                _pendingItem != null ||
-                !TryPrepareAction(
+                _pendingItem != null)
+            {
+                WarnInvalidAction();
+                return false;
+            }
+
+            if (!CanStartAction(ActiveProfile))
+                return false;
+
+            if (!TryPrepareAction(
                     ActiveProfile,
                     out var animationId,
                     out var marker,
@@ -105,6 +120,10 @@ namespace Systems.MineSystem.ToolbarSystem.Handler
             _pendingTarget = target;
             _impactApplied = false;
             _navigationLock.SetNavigationLocked(true);
+            _animation.SetRecoveryHandoffBlocked(
+                _pendingAnimationId,
+                _actionHeld);
+            OnActionStarted(ActiveProfile);
             return true;
         }
 
@@ -134,13 +153,28 @@ namespace Systems.MineSystem.ToolbarSystem.Handler
             TProfile profile,
             ItemActionTarget target);
 
+        protected virtual bool CanStartAction(TProfile profile) => true;
+
+        protected virtual void OnActionStarted(TProfile profile)
+        {
+        }
+
         private void OnMarkerReached(
             MinePlayerSystem.SubSystem.PlayerAnimationSubSystem.Model.PlayerAnimationMarkerEvent animationEvent)
         {
             if (_pendingItem == null ||
-                ApplyImpactOnCompletion ||
+                animationEvent.AnimationId != _pendingAnimationId)
+                return;
+
+            if (RecoveryHandoffMarker.HasValue &&
+                animationEvent.Marker == RecoveryHandoffMarker.Value)
+            {
+                _animation.OpenRecoveryHandoff(_pendingAnimationId);
+                return;
+            }
+
+            if (ApplyImpactOnCompletion ||
                 _impactApplied ||
-                animationEvent.AnimationId != _pendingAnimationId ||
                 animationEvent.Marker != _pendingMarker)
                 return;
 

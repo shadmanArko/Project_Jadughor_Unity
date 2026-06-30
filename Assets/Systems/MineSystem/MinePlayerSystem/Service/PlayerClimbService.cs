@@ -21,6 +21,7 @@ namespace Systems.MineSystem.MinePlayerSystem.Service
         private readonly MineModel _mineModel;
         private readonly VineConfig _vineConfig;
         private readonly PlayerFallService _fallService;
+        private readonly PlayerActionService _actionService;
 
         private bool _toggleRequested;
         private bool _wasGrounded;
@@ -33,7 +34,8 @@ namespace Systems.MineSystem.MinePlayerSystem.Service
             MinePlayerDataConfig config,
             MineModel mineModel,
             VineConfig vineConfig,
-            PlayerFallService fallService)
+            PlayerFallService fallService,
+            PlayerActionService actionService)
         {
             _view = view;
             _mineView = mineView;
@@ -43,6 +45,7 @@ namespace Systems.MineSystem.MinePlayerSystem.Service
             _mineModel = mineModel;
             _vineConfig = vineConfig;
             _fallService = fallService;
+            _actionService = actionService;
         }
 
         public void ToggleClimb()
@@ -92,7 +95,9 @@ namespace Systems.MineSystem.MinePlayerSystem.Service
                 return;
             }
 
-            if (_toggleRequested)
+            if (_toggleRequested &&
+                _runtime.actionState.Value == PlayerActionState.None &&
+                !_actionService.IsRecoveryHandoffBlocked)
             {
                 _toggleRequested = false;
                 if (_runtime.isClimbing.Value)

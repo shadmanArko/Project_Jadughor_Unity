@@ -20,6 +20,7 @@ namespace Systems.MineSystem.MinePlayerSystem.Service
         private readonly Subject<PlayerAnimationMarkerEvent> _markerReached = new();
         private readonly Subject<PlayerAnimationCompletedEvent> _actionCompleted = new();
         private readonly Subject<string> _actionFailed = new();
+        private readonly Subject<Unit> _recoveryHandedOff = new();
 
         private PlayerActionState _requestedAction;
         private string _requestedAnimationId;
@@ -27,6 +28,9 @@ namespace Systems.MineSystem.MinePlayerSystem.Service
         private PlayerRestrictionFlags _appliedRestrictions;
         private int _animationGeneration;
         private int _actionSequence;
+        private bool _recoveryHandoffOpen;
+        private bool _recoveryHandoffRequested;
+        private bool _recoveryHandoffBlocked;
         private readonly HashSet<string> _invalidItemAnimations = new();
 
         public IObservable<PlayerAnimationMarkerEvent> MarkerReached =>
@@ -34,9 +38,11 @@ namespace Systems.MineSystem.MinePlayerSystem.Service
         public IObservable<PlayerAnimationCompletedEvent> ActionCompleted =>
             _actionCompleted;
         public IObservable<string> ActionFailed => _actionFailed;
+        public IObservable<Unit> RecoveryHandedOff => _recoveryHandedOff;
         public string ActiveAnimationId =>
             _activeAnimationId ?? PlayerAnimationId.None;
         public int ActionSequence => _actionSequence;
+        public bool IsRecoveryHandoffBlocked => _recoveryHandoffBlocked;
 
         public PlayerActionService(
             RuntimeDataScriptable runtime,
@@ -94,6 +100,47 @@ namespace Systems.MineSystem.MinePlayerSystem.Service
             return true;
         }
 
+        public void OpenRecoveryHandoff(string animationId)
+        {
+            if (string.IsNullOrWhiteSpace(animationId) ||
+                animationId != _activeAnimationId)
+                return;
+
+            _recoveryHandoffOpen = true;
+            TryCompleteRecoveryHandoff();
+        }
+
+        public void SetRecoveryHandoffBlocked(
+            string animationId,
+            bool blocked)
+        {
+            if (string.IsNullOrWhiteSpace(animationId) ||
+                (animationId != _activeAnimationId &&
+                 animationId != _requestedAnimationId))
+                return;
+
+            _recoveryHandoffBlocked = blocked;
+            if (!blocked)
+                TryCompleteRecoveryHandoff();
+        }
+
+        public bool RequestRecoveryHandoff()
+        {
+            var hasActiveAction =
+                _runtime.actionState.Value ==
+                    PlayerActionState.PrimaryAction &&
+                !string.IsNullOrWhiteSpace(_activeAnimationId);
+            var hasRequestedAction =
+                _requestedAction == PlayerActionState.PrimaryAction &&
+                !string.IsNullOrWhiteSpace(_requestedAnimationId);
+            if (!hasActiveAction && !hasRequestedAction)
+                return false;
+
+            _recoveryHandoffRequested = true;
+            TryCompleteRecoveryHandoff();
+            return true;
+        }
+
         public void InterruptForFall()
         {
             InterruptCurrentAction();
@@ -130,6 +177,7 @@ namespace Systems.MineSystem.MinePlayerSystem.Service
                 _activeAnimationId = null;
                 _runtime.actionState.Value = PlayerActionState.None;
                 _appliedRestrictions = PlayerRestrictionFlags.None;
+                ResetRecoveryHandoff();
                 return;
             }
 
@@ -138,6 +186,9 @@ namespace Systems.MineSystem.MinePlayerSystem.Service
                 InterruptForFall();
                 return;
             }
+
+            if (TryCompleteRecoveryHandoff())
+                return;
 
             if (_requestedAction == PlayerActionState.None ||
                 _runtime.actionState.Value != PlayerActionState.None)
@@ -204,6 +255,8 @@ namespace Systems.MineSystem.MinePlayerSystem.Service
 
             _activeAnimationId = animationId;
             _requestedAnimationId = null;
+            _recoveryHandoffOpen = false;
+            _recoveryHandoffRequested = false;
             _actionSequence++;
             _runtime.actionState.Value = actionState;
             var requestedRestrictions =
@@ -237,6 +290,32 @@ namespace Systems.MineSystem.MinePlayerSystem.Service
             _runtime.actionState.Value = PlayerActionState.None;
             _runtime.restrictions.Value &= ~_appliedRestrictions;
             _appliedRestrictions = PlayerRestrictionFlags.None;
+            ResetRecoveryHandoff();
+        }
+
+        private bool TryCompleteRecoveryHandoff()
+        {
+            if (_recoveryHandoffBlocked ||
+                !_recoveryHandoffOpen ||
+                (!_recoveryHandoffRequested &&
+                 _runtime.movementInput.Value.sqrMagnitude <= 0.0001f))
+                return false;
+
+            var animationId = _activeAnimationId;
+            if (string.IsNullOrWhiteSpace(animationId))
+                return false;
+
+            CancelAction();
+            _recoveryHandedOff.OnNext(Unit.Default);
+            _actionFailed.OnNext(animationId);
+            return true;
+        }
+
+        private void ResetRecoveryHandoff()
+        {
+            _recoveryHandoffOpen = false;
+            _recoveryHandoffRequested = false;
+            _recoveryHandoffBlocked = false;
         }
 
         private static string GetDefaultAnimationId(
@@ -257,6 +336,7 @@ namespace Systems.MineSystem.MinePlayerSystem.Service
             _markerReached.Dispose();
             _actionCompleted.Dispose();
             _actionFailed.Dispose();
+            _recoveryHandedOff.Dispose();
         }
     }
 }

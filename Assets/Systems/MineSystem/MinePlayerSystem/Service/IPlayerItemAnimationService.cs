@@ -10,5 +10,7 @@ namespace Systems.MineSystem.MinePlayerSystem.Service
         IObservable<string> ActionFailed { get; }
         string ActiveAnimationId { get; }
         bool TryRequestItemAction(string animationId);
+        void OpenRecoveryHandoff(string animationId);
+        void SetRecoveryHandoffBlocked(string animationId, bool blocked);
     }
 }

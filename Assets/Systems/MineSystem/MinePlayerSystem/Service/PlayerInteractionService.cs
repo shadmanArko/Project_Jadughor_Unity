@@ -12,11 +12,15 @@ namespace Systems.MineSystem.MinePlayerSystem.Service
     public sealed class PlayerInteractionService : IInitializable, IDisposable
     {
         private readonly IReadOnlyList<IPlayerInteractionHandler> _handlers;
+        private readonly PlayerActionService _actionService;
         private readonly CompositeDisposable _disposables = new();
+        private bool _interactionQueued;
 
         public PlayerInteractionService(
-            List<IPlayerInteractionHandler> handlers)
+            List<IPlayerInteractionHandler> handlers,
+            PlayerActionService actionService)
         {
+            _actionService = actionService;
             _handlers = handlers
                 .OrderByDescending(handler => handler.Priority)
                 .ToArray();
@@ -25,8 +29,33 @@ namespace Systems.MineSystem.MinePlayerSystem.Service
         public void Initialize()
         {
             GlobalEventBus.OnSignal<InteractInputSignal>()
-                .Subscribe(_ => TryInteract())
+                .Subscribe(_ => HandleInteractionInput())
                 .AddTo(_disposables);
+            _actionService.RecoveryHandedOff
+                .Subscribe(_ => ExecuteQueuedInteraction())
+                .AddTo(_disposables);
+            _actionService.ActionFailed
+                .Subscribe(_ => _interactionQueued = false)
+                .AddTo(_disposables);
+        }
+
+        private void HandleInteractionInput()
+        {
+            _interactionQueued = true;
+            if (_actionService.RequestRecoveryHandoff())
+                return;
+
+            _interactionQueued = false;
+            TryInteract();
+        }
+
+        private void ExecuteQueuedInteraction()
+        {
+            if (!_interactionQueued)
+                return;
+
+            _interactionQueued = false;
+            TryInteract();
         }
 
         private void TryInteract()

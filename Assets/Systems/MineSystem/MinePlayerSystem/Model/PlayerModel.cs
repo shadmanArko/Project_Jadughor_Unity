@@ -69,6 +69,7 @@ namespace Systems.MineSystem.MinePlayerSystem.Model
 
         public void ToggleClimb()
         {
+            _actionService.RequestRecoveryHandoff();
             _climbService.ToggleClimb();
         }
 

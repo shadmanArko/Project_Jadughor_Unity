@@ -6,6 +6,7 @@ using Systems.MineSystem.ToolbarSystem.Enum;
 using Systems.MineSystem.ToolbarSystem.Interface;
 using Systems.MineSystem.ToolbarSystem.Model;
 using Systems.MineSystem.ToolbarSystem.Profile;
+using UnityEngine;
 
 namespace Systems.MineSystem.ToolbarSystem.Handler
 {
@@ -17,9 +18,11 @@ namespace Systems.MineSystem.ToolbarSystem.Handler
         private readonly RuntimeDataScriptable _runtime;
         private readonly ItemActionProfileCatalog _catalog;
         private readonly IPlaceableRuntimeResolver _placeables;
+        private float _nextAllowedActionTime;
 
         public override ItemActionKind ActionKind => ItemActionKind.Tool;
         protected override bool RepeatWhileActionHeld => true;
+        protected override int? RecoveryHandoffMarker => 2;
 
         public ToolItemActionHandler(
             MineModel mine,
@@ -54,6 +57,16 @@ namespace Systems.MineSystem.ToolbarSystem.Handler
 
             PersistHorizontalFacing(target.Direction);
             return true;
+        }
+
+        protected override bool CanStartAction(ToolActionProfile profile)
+        {
+            return Time.time >= _nextAllowedActionTime;
+        }
+
+        protected override void OnActionStarted(ToolActionProfile profile)
+        {
+            _nextAllowedActionTime = Time.time + profile.CooldownSeconds;
         }
 
         private void PersistHorizontalFacing(CardinalDirection direction)

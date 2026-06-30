@@ -28,3 +28,4 @@ MonoBehaviour:
     left: equippable.pickaxe.ordinaryPickaxe.climb.left
     right: equippable.pickaxe.ordinaryPickaxe.climb.right
   wallDamage: 10
+  cooldownSeconds: 0.8333333
