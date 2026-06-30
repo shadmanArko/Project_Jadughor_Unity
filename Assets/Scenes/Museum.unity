@@ -1363,6 +1363,7 @@ GameObject:
   - component: {fileID: 488035639}
   - component: {fileID: 488035641}
   - component: {fileID: 488035640}
+  - component: {fileID: 488035642}
   m_Layer: 5
   m_Name: Dialogue Panel
   m_TagString: Untagged
@@ -1428,6 +1429,34 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 488035638}
   m_CullTransparentMesh: 1
+--- !u!114 &488035642
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 488035638}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a158f08483a236a468ac601327fc4f89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ProjectMuseum.Narrative.DialogueManager
+  storyDatabase: {fileID: 11400000, guid: 90589e33f941add4cb29a974888b911b, type: 2}
+  portraitsResourceFolder: Portraits
+  illustrationsResourceFolder: Illustrations
+  root: {fileID: 897008775}
+  dialogueBox: {fileID: 1628265581}
+  dialogueText: {fileID: 1973570902}
+  nextDialogueButton: {fileID: 1973570904}
+  characterPortrait: {fileID: 458381056}
+  cutsceneArt: {fileID: 484250073}
+  delayBetweenLetters: 0.03
+  delayForFullStop: 0.4
+  delayForComma: 0.2
+  delayForPause: 0.6
+  hiddenOffset: {x: 0, y: -600}
+  slideDuration: 0.6
+  slideEase: 9
 --- !u!1 &491923568
 GameObject:
   m_ObjectHideFlags: 0
@@ -1473,6 +1502,7 @@ GameObject:
   - component: {fileID: 566216945}
   - component: {fileID: 566216947}
   - component: {fileID: 566216946}
+  - component: {fileID: 566216948}
   m_Layer: 5
   m_Name: TutorialPanel
   m_TagString: Untagged
@@ -1538,6 +1568,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 566216944}
   m_CullTransparentMesh: 1
+--- !u!114 &566216948
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 566216944}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e91da6cb6d5b0dc478fb61068d237c1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ProjectMuseum.Narrative.TutorialPanelController
+  root: {fileID: 1782719425}
+  panel: {fileID: 1782719426}
+  tutorialBody: {fileID: 1031754759}
+  hiddenOffset: {x: -700, y: 0}
+  slideDuration: 0.5
+  slideEase: 9
+  showDelay: 0.6
 --- !u!1 &574724365
 GameObject:
   m_ObjectHideFlags: 0
@@ -2537,6 +2586,58 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 938325601}
   m_CullTransparentMesh: 1
+--- !u!1 &1006942284
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1006942286}
+  - component: {fileID: 1006942285}
+  m_Layer: 0
+  m_Name: NarrativeDebugTrigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1006942285
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1006942284}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d1eb8b269343164387f3adcbec11d39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ProjectMuseum.Narrative.NarrativeDebugTrigger
+  playStorySceneOnStart: 1
+  storySceneOnStart: 1
+  playStoryKey: 94
+  storySceneToPlay: 1
+  playTutorialKey: 95
+  tutorialToPlay: 1
+  fireActionKey: 96
+  actionToFire: SelectItem
+--- !u!4 &1006942286
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1006942284}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 836.9177, y: 360.04935, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1019524156
 GameObject:
   m_ObjectHideFlags: 0
@@ -7003,6 +7104,53 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1395003096}
   m_CullTransparentMesh: 1
+--- !u!1 &1395743682
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1395743684}
+  - component: {fileID: 1395743683}
+  m_Layer: 0
+  m_Name: PlayerInfoProvider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1395743683
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1395743682}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab9b28f632ecbce4786932595de332ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ProjectMuseum.Narrative.PlayerInfoProvider
+  playerName: Player
+  gender: Male
+  tutorialsEnabled: 1
+--- !u!4 &1395743684
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1395743682}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1401699525
 GameObject:
   m_ObjectHideFlags: 0
@@ -8395,8 +8543,9 @@ GameObject:
   - component: {fileID: 1973570901}
   - component: {fileID: 1973570903}
   - component: {fileID: 1973570902}
+  - component: {fileID: 1973570904}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Text + Next Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8521,6 +8670,50 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1973570900}
   m_CullTransparentMesh: 1
+--- !u!114 &1973570904
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1973570900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 1973570902}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &2019907476
 GameObject:
   m_ObjectHideFlags: 0
@@ -8714,6 +8907,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2065331203}
   m_CullTransparentMesh: 1
+--- !u!1 &2121415173
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2121415175}
+  - component: {fileID: 2121415174}
+  m_Layer: 0
+  m_Name: Tutorial Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2121415174
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2121415173}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa724fbcc901f4a4d8467be08510f48a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ProjectMuseum.Narrative.TutorialManager
+  tutorialDatabase: {fileID: 11400000, guid: 11bd4a53fc7995941b4bc9cf605028d4, type: 2}
+--- !u!4 &2121415175
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2121415173}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 836.9177, y: 360.04935, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &662202058368393595
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9030,3 +9268,6 @@ SceneRoots:
   - {fileID: 22690709}
   - {fileID: 1916323786}
   - {fileID: 287848811}
+  - {fileID: 1395743684}
+  - {fileID: 2121415175}
+  - {fileID: 1006942286}
