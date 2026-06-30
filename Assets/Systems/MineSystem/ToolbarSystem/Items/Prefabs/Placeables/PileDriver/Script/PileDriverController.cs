@@ -163,7 +163,10 @@ namespace Systems.MineSystem.ToolbarSystem.Items.Prefabs.Placeables.PileDriver.S
                 .SetEase(Ease.InCubic));
             sequence.AppendCallback(() =>
             {
-                _mine.TryHitCell(targetCell, damage);
+                _mine.TryHitCell(
+                    targetCell,
+                    damage,
+                    GetImpactSide(_direction));
                 if (capturedShake.HasValue)
                 {
                     PlayDirectionalScreenShake(
@@ -296,6 +299,18 @@ namespace Systems.MineSystem.ToolbarSystem.Items.Prefabs.Placeables.PileDriver.S
                 PileDriverDirection.Right => 90f,
                 PileDriverDirection.Up => 180f,
                 _ => 0f
+            };
+        }
+
+        private static Direction GetImpactSide(
+            PileDriverDirection direction)
+        {
+            return direction switch
+            {
+                PileDriverDirection.Left => Direction.Right,
+                PileDriverDirection.Right => Direction.Left,
+                PileDriverDirection.Up => Direction.Down,
+                _ => Direction.Up
             };
         }
 

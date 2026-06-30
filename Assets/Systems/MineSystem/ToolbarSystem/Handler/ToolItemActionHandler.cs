@@ -82,7 +82,21 @@ namespace Systems.MineSystem.ToolbarSystem.Handler
                 return;
             }
 
-            _mine.TryHitCell(target.CellPosition, profile.WallDamage);
+            _mine.TryHitCell(
+                target.CellPosition,
+                profile.WallDamage,
+                GetImpactSide(target.Direction));
+        }
+
+        private static Direction GetImpactSide(CardinalDirection direction)
+        {
+            return direction switch
+            {
+                CardinalDirection.Left => Direction.Right,
+                CardinalDirection.Right => Direction.Left,
+                CardinalDirection.Up => Direction.Down,
+                _ => Direction.Up
+            };
         }
     }
 }

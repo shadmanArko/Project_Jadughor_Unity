@@ -169,7 +169,10 @@ namespace Systems.MineSystem.Mine.Model
                 _playerScriptable.playerData.pickAxeStrength.Value);
         }
 
-        public bool TryHitCell(Vector3Int cellPos, int damage)
+        public bool TryHitCell(
+            Vector3Int cellPos,
+            int damage,
+            Direction? impactSide = null)
         {
             if (_mineData.Value == null || damage <= 0)
                 return false;
@@ -182,6 +185,8 @@ namespace Systems.MineSystem.Mine.Model
             }
 
             var wasBroken = cell.IsBroken;
+            cell.LatestImpactDirection =
+                impactSide ?? cell.LatestImpactDirection ?? Direction.Left;
             cell.HitPoint -= damage;
             
             cell.IsBroken = cell.HitPoint <= 0;

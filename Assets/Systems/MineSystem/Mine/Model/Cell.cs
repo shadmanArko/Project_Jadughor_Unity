@@ -14,6 +14,7 @@ namespace Systems.MineSystem.Mine.Model
 
         public int MaxHitPoint { get; set; }
         public int HitPoint { get; set; }
+        public Direction? LatestImpactDirection { get; set; }
 
         public bool IsBreakable { get; set; }
         public bool IsBroken { get; set; }

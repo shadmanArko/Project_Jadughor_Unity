@@ -15,14 +15,11 @@ namespace Systems.MineSystem.Mine.Service.VisualizerService
     [Serializable]
     public class CellCrackVisualizerService : IInitializable, IDisposable
     {
-        private const string SmallCrackId = "small";
-        private const string MediumCrackId = "medium";
-        private const string LargeCrackId = "large";
-
         private readonly MineView _mineView;
         private readonly CellCrackScriptable _cellCrackScriptable;
         private readonly MinePlayerScriptable _playerScriptable;
-        private readonly Dictionary<string, Tile> _crackTiles = new();
+        private readonly Dictionary<(Direction, CellCrackSize), Tile>
+            _crackTiles = new();
         private CompositeDisposable _disposable;
 
         public CellCrackVisualizerService(
@@ -55,26 +52,50 @@ namespace Systems.MineSystem.Mine.Service.VisualizerService
                 return;
             }
 
-            CacheCrackTile(crackData, SmallCrackId);
-            CacheCrackTile(crackData, MediumCrackId);
-            CacheCrackTile(crackData, LargeCrackId);
+            foreach (Direction direction in
+                     System.Enum.GetValues(typeof(Direction)))
+            {
+                var directionalData = crackData.cellCrackSpriteDataList?
+                    .FirstOrDefault(data => data.direction == direction);
+
+                if (directionalData == null)
+                {
+                    Debug.LogError(
+                        $"Cell crack data for direction '{direction}' is missing for region {crackData.region} and site {crackData.site}.");
+                    continue;
+                }
+
+                foreach (CellCrackSize size in
+                         System.Enum.GetValues(typeof(CellCrackSize)))
+                {
+                    CacheCrackTile(
+                        crackData,
+                        directionalData,
+                        direction,
+                        size);
+                }
+            }
         }
 
-        private void CacheCrackTile(CellCrackSpriteData crackData, string crackId)
+        private void CacheCrackTile(
+            CellCrackData crackData,
+            DirectionalCellCrackSpriteData directionalData,
+            Direction direction,
+            CellCrackSize size)
         {
-            var spriteData = crackData.cellCrackSpriteDataList?
-                .FirstOrDefault(data => data.id == crackId);
+            var spriteData = directionalData.crackSpriteDataList?
+                .FirstOrDefault(data => data.size == size);
 
-            if (spriteData?.objectSprite == null)
+            if (spriteData?.sprite?.objectSprite == null)
             {
                 Debug.LogError(
-                    $"Cell crack sprite '{crackId}' is missing for region {crackData.region} and site {crackData.site}.");
+                    $"Cell crack sprite for direction '{direction}' and size '{size}' is missing for region {crackData.region} and site {crackData.site}.");
                 return;
             }
 
             var tile = ScriptableObject.CreateInstance<Tile>();
-            tile.sprite = spriteData.objectSprite;
-            _crackTiles[crackId] = tile;
+            tile.sprite = spriteData.sprite.objectSprite;
+            _crackTiles[(direction, size)] = tile;
         }
 
         public void UpdateCellWallCrack(Cell cell)
@@ -82,8 +103,12 @@ namespace Systems.MineSystem.Mine.Service.VisualizerService
             if (cell == null)
                 return;
 
-            var crackId = GetCrackId(cell);
-            if (crackId == null || !_crackTiles.TryGetValue(crackId, out var crackTile))
+            var crackSize = GetCrackSize(cell);
+            var direction = cell.LatestImpactDirection ?? Direction.Left;
+            if (crackSize == null ||
+                !_crackTiles.TryGetValue(
+                    (direction, crackSize.Value),
+                    out var crackTile))
             {
                 _mineView.cellCrackTilemap.SetTile(cell.GetPosition(), null);
                 return;
@@ -103,7 +128,7 @@ namespace Systems.MineSystem.Mine.Service.VisualizerService
                 UpdateCellWallCrack(cell);
         }
 
-        private static string GetCrackId(Cell cell)
+        private static CellCrackSize? GetCrackSize(Cell cell)
         {
             if (!cell.IsBreakable || cell.IsBlank || cell.IsBroken ||
                 cell.MaxHitPoint <= 0 || cell.HitPoint <= 0 || cell.HitPoint >= cell.MaxHitPoint)
@@ -115,13 +140,13 @@ namespace Systems.MineSystem.Mine.Service.VisualizerService
             var maxHitPoint = (long)cell.MaxHitPoint;
 
             if (scaledHitPoint <= maxHitPoint)
-                return LargeCrackId;
+                return CellCrackSize.Large;
 
             if (scaledHitPoint <= maxHitPoint * 2)
-                return MediumCrackId;
+                return CellCrackSize.Medium;
 
             if (scaledHitPoint <= maxHitPoint * 3)
-                return SmallCrackId;
+                return CellCrackSize.Small;
 
             return null;
         }

@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using Systems.MineSystem.InventorySystem.Model;
 using Systems.MineSystem.Mine.Service.MineArtifactService.Model;
-using Systems.MineSystem.Mine.Service.MineArtifactService.Test;
 using Systems.MineSystem.Mine.Service.MineResourceService.Model;
 using UnityEngine;
 

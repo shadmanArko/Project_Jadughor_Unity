@@ -16,12 +16,71 @@ MonoBehaviour:
   - region: 1
     site: 0
     cellCrackSpriteDataList:
-    - id: small
-      objectSprite: {fileID: -3712403699549254009, guid: e3e8044c7208f3e4ea403d092c1ff1c8, type: 3}
-      iconSprite: {fileID: 0}
-    - id: medium
-      objectSprite: {fileID: 1336252981090314998, guid: e3e8044c7208f3e4ea403d092c1ff1c8, type: 3}
-      iconSprite: {fileID: 0}
-    - id: large
-      objectSprite: {fileID: -3729182964849552250, guid: e3e8044c7208f3e4ea403d092c1ff1c8, type: 3}
-      iconSprite: {fileID: 0}
+    - direction: 1
+      crackSpriteDataList:
+      - size: 0
+        sprite:
+          id: 
+          objectSprite: {fileID: 25024599, guid: 74c46aac5208fa04ca5876c03a8e3b44, type: 3}
+          iconSprite: {fileID: 0}
+      - size: 1
+        sprite:
+          id: 
+          objectSprite: {fileID: -805175294, guid: 74c46aac5208fa04ca5876c03a8e3b44, type: 3}
+          iconSprite: {fileID: 0}
+      - size: 2
+        sprite:
+          id: 
+          objectSprite: {fileID: 1195799274, guid: 74c46aac5208fa04ca5876c03a8e3b44, type: 3}
+          iconSprite: {fileID: 0}
+    - direction: 0
+      crackSpriteDataList:
+      - size: 0
+        sprite:
+          id: 
+          objectSprite: {fileID: 1844481982, guid: 74c46aac5208fa04ca5876c03a8e3b44, type: 3}
+          iconSprite: {fileID: 0}
+      - size: 1
+        sprite:
+          id: 
+          objectSprite: {fileID: 593941684, guid: 74c46aac5208fa04ca5876c03a8e3b44, type: 3}
+          iconSprite: {fileID: 0}
+      - size: 2
+        sprite:
+          id: 
+          objectSprite: {fileID: 1866020648, guid: 74c46aac5208fa04ca5876c03a8e3b44, type: 3}
+          iconSprite: {fileID: 0}
+    - direction: 2
+      crackSpriteDataList:
+      - size: 0
+        sprite:
+          id: 
+          objectSprite: {fileID: -899373481, guid: 74c46aac5208fa04ca5876c03a8e3b44, type: 3}
+          iconSprite: {fileID: 0}
+      - size: 1
+        sprite:
+          id: 
+          objectSprite: {fileID: -1552198900, guid: 74c46aac5208fa04ca5876c03a8e3b44, type: 3}
+          iconSprite: {fileID: 0}
+      - size: 2
+        sprite:
+          id: 
+          objectSprite: {fileID: 684765030, guid: 74c46aac5208fa04ca5876c03a8e3b44, type: 3}
+          iconSprite: {fileID: 0}
+    - direction: 3
+      crackSpriteDataList:
+      - size: 0
+        sprite:
+          id: 
+          objectSprite: {fileID: -609085773, guid: 74c46aac5208fa04ca5876c03a8e3b44, type: 3}
+          iconSprite: {fileID: 0}
+      - size: 1
+        sprite:
+          id: 
+          objectSprite: {fileID: 94050799, guid: 74c46aac5208fa04ca5876c03a8e3b44, type: 3}
+          iconSprite: {fileID: 0}
+      - size: 2
+        sprite:
+          id: 
+          objectSprite: {fileID: -2146458473, guid: 74c46aac5208fa04ca5876c03a8e3b44, type: 3}
+          iconSprite: {fileID: 0}
