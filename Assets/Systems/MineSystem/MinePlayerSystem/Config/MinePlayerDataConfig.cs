@@ -19,6 +19,11 @@ namespace Systems.MineSystem.MinePlayerSystem.Config
         [Min(0f)] public float climbSpeed = 0.5f;
         [Min(0f)] public float normalGravityScale = 0.5f;
 
+        [Header("Spawn")]
+        [Tooltip("Exact world position used when the transition system activates the player.")]
+        [FormerlySerializedAs("spawnOffset")]
+        public Vector2 spawnPosition = new(-3f, 0.3f);
+
         [Header("Ground Detection")]
         public LayerMask wallLayerMask = 1 << 7;
         [Min(0.001f)] public float groundProbeThickness = 0.04f;

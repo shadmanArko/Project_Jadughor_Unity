@@ -5,6 +5,9 @@ using Systems.MineSystem.MinePlayerSystem.Scriptable;
 using Systems.MineSystem.MinePlayerSystem.SubSystem.PlayerAnimationSubSystem.Model;
 using Systems.MineSystem.MinePlayerSystem.View;
 using UnityEngine;
+using System.Threading;
+using Cysharp.Threading.Tasks;
+using DG.Tweening;
 using Zenject;
 
 namespace Systems.MineSystem.MinePlayerSystem.Model
@@ -19,6 +22,8 @@ namespace Systems.MineSystem.MinePlayerSystem.Model
         private readonly PlayerClimbService _climbService;
         private readonly PlayerActionService _actionService;
         private readonly PlayerMovementService _movementService;
+        private readonly PlayerAutoMovementService _autoMovementService;
+        private readonly PlayerAutoAnimationService _autoAnimationService;
         private readonly IInventoryService _inventory;
         private readonly PlayerView _view;
 
@@ -31,6 +36,8 @@ namespace Systems.MineSystem.MinePlayerSystem.Model
             PlayerClimbService climbService,
             PlayerActionService actionService,
             PlayerMovementService movementService,
+            PlayerAutoMovementService autoMovementService,
+            PlayerAutoAnimationService autoAnimationService,
             IInventoryService inventory,
             PlayerView view)
         {
@@ -42,6 +49,8 @@ namespace Systems.MineSystem.MinePlayerSystem.Model
             _climbService = climbService;
             _actionService = actionService;
             _movementService = movementService;
+            _autoMovementService = autoMovementService;
+            _autoAnimationService = autoAnimationService;
             _inventory = inventory;
             _view = view;
         }
@@ -97,8 +106,24 @@ namespace Systems.MineSystem.MinePlayerSystem.Model
             _fallService.ResetVerticalState();
         }
 
+        public UniTask AutoMoveAsync(Vector2 destination, float duration,
+            Ease ease, CancellationToken cancellationToken) =>
+            _autoMovementService.MoveAsync(destination, duration, ease,
+                cancellationToken);
+
+        public void PlayForcedAnimation(string animationId,
+            PlayerFacingDirection facing) =>
+            _autoAnimationService.Play(animationId, facing);
+
+        public void ClearForcedAnimation() => _autoAnimationService.Clear();
+
+        public void PrepareForTransport() => _climbService.PrepareForTransport();
+
         public void FixedTick()
         {
+            if (!_runtime.isSpawned.Value)
+                return;
+
             _groundingService.OnFixedTick();
             _fallService.OnFixedTick();
             _deathService.OnFixedTick();

@@ -14,6 +14,7 @@ namespace Systems.MineSystem.MinePlayerSystem.Scriptable
         public ReactiveProperty<bool> canPerformAction = new(true);
         public ReactiveProperty<bool> canUsePickaxe = new(true);
         public ReactiveProperty<bool> canUseWeapon = new(true);
+        public ReactiveProperty<bool> isSpawned = new(false);
 
         public ReactiveProperty<PlayerLocomotionState> locomotionState =
             new(PlayerLocomotionState.Idle);
@@ -26,6 +27,8 @@ namespace Systems.MineSystem.MinePlayerSystem.Scriptable
         public ReactiveProperty<PlayerRestrictionFlags> restrictions =
             new(PlayerRestrictionFlags.None);
         public ReactiveProperty<string> activeAnimation =
+            new(PlayerAnimationId.None);
+        public ReactiveProperty<string> forcedAnimation =
             new(PlayerAnimationId.None);
 
         public ReactiveProperty<Vector2> movementInput = new(Vector2.zero);

@@ -10,7 +10,6 @@ using Systems.MineSystem.MinePlayerSystem.SubSystem.PlayerAnimationSubSystem.Enu
 using Systems.MineSystem.MinePlayerSystem.View;
 using Systems.Utilities.EventBus;
 using UniRx;
-using Unity.Cinemachine;
 using UnityEngine;
 using Zenject;
 
@@ -41,8 +40,7 @@ namespace Systems.MineSystem.MinePlayerSystem.Controller
             CollectorRegistry collectorRegistry,
             MinePlayerDataConfig config,
             MinePlayerScriptable playerScriptable,
-            RuntimeDataScriptable runtimeData,
-            CinemachineCamera cinemachineCamera)
+            RuntimeDataScriptable runtimeData)
         {
             _model = model;
             _view = view;
@@ -50,9 +48,7 @@ namespace Systems.MineSystem.MinePlayerSystem.Controller
             _config = config;
             _playerScriptable = playerScriptable;
             _runtimeData = runtimeData;
-            
-            cinemachineCamera.Follow = _view.transform;
-            cinemachineCamera.Lens.OrthographicSize = 2f;
+            _view.gameObject.SetActive(false);
         }
         
         public void Initialize()
@@ -88,11 +84,12 @@ namespace Systems.MineSystem.MinePlayerSystem.Controller
 
         private void InitializeRuntimeData()
         {
-            _runtimeData.canMove.Value = true;
-            _runtimeData.canClimb.Value = true;
-            _runtimeData.canPerformAction.Value = true;
-            _runtimeData.canUsePickaxe.Value = true;
-            _runtimeData.canUseWeapon.Value = true;
+            _runtimeData.canMove.Value = false;
+            _runtimeData.canClimb.Value = false;
+            _runtimeData.canPerformAction.Value = false;
+            _runtimeData.canUsePickaxe.Value = false;
+            _runtimeData.canUseWeapon.Value = false;
+            _runtimeData.isSpawned.Value = false;
             _runtimeData.locomotionState.Value =
                 PlayerLocomotionState.Idle;
             _runtimeData.actionState.Value = PlayerActionState.None;
@@ -109,6 +106,8 @@ namespace Systems.MineSystem.MinePlayerSystem.Controller
             _runtimeData.isHurt.Value = false;
             _runtimeData.isInvincible.Value = false;
             _runtimeData.activeAnimation.Value =
+                PlayerAnimationId.None;
+            _runtimeData.forcedAnimation.Value =
                 PlayerAnimationId.None;
             _view.SetGravityScale(_config.normalGravityScale);
         }

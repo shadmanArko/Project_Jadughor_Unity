@@ -19,6 +19,7 @@ MonoBehaviour:
   moveSpeed: 0.75
   climbSpeed: 0.5
   normalGravityScale: 0.5
+  spawnPosition: {x: -3, y: 0.3}
   wallLayerMask:
     serializedVersion: 2
     m_Bits: 128

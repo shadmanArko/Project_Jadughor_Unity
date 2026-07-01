@@ -120,6 +120,9 @@ namespace Systems.MineSystem.MinePlayerSystem.SubSystem.PlayerAnimationSubSystem
             if (_runtime.isDamagingFall.Value)
                 return PlayerAnimationId.Fall;
 
+            if (!string.IsNullOrEmpty(_runtime.forcedAnimation.Value))
+                return _runtime.forcedAnimation.Value;
+
             switch (_runtime.actionState.Value)
             {
                 case PlayerActionState.PrimaryAction:

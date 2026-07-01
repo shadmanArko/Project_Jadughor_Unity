@@ -6,6 +6,8 @@ namespace Systems.MineSystem.Mine.View
     public class MineView : MonoBehaviour
     {
         public Grid grid;
+        public BoxCollider2D cameraBoundaryCollider;
+        public SpriteRenderer darkeningShaderRenderer;
 
         public Tilemap backgroundTileMap;
         public Tilemap specialBackdropTileMap;

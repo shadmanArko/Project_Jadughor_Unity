@@ -12,14 +12,14 @@ namespace Systems.Utilities.ScreenShake
         IDisposable
     {
         private static ScreenShakeController _instance;
-        private static bool canScreenShake = true;
+        private static bool _canScreenShake = true;
 
         public static bool CanScreenShake
         {
-            get => canScreenShake;
+            get => _canScreenShake;
             set
             {
-                canScreenShake = value;
+                _canScreenShake = value;
                 if (!value)
                     _instance?.StopActiveShake();
             }
@@ -249,7 +249,7 @@ namespace Systems.Utilities.ScreenShake
             out ScreenShakeController controller)
         {
             controller = _instance;
-            if (!canScreenShake)
+            if (!_canScreenShake)
                 return false;
 
             if (controller != null && controller._follow != null)

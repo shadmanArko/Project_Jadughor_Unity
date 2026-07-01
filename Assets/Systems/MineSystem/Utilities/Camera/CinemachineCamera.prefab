@@ -10,9 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1158882790892676894}
   - component: {fileID: 8671611523288170894}
-  - component: {fileID: 8692592291329569104}
+  - component: {fileID: -850274167761424738}
   - component: {fileID: 4757147047803406080}
   - component: {fileID: -7333369787828999552}
+  - component: {fileID: 6111111111111111103}
   m_Layer: 0
   m_Name: CinemachineCamera
   m_TagString: Untagged
@@ -60,7 +61,7 @@ MonoBehaviour:
     CustomLookAtTarget: 0
   Lens:
     FieldOfView: 60
-    OrthographicSize: 1.5
+    OrthographicSize: 1
     NearClipPlane: 0.3
     FarClipPlane: 200
     Dutch: 0
@@ -78,7 +79,7 @@ MonoBehaviour:
       BarrelClipping: 0.25
       Anamorphism: 0
   BlendHint: 0
---- !u!114 &8692592291329569104
+--- !u!114 &-850274167761424738
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -92,7 +93,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineFollow
   TrackerSettings:
     BindingMode: 4
-    PositionDamping: {x: 2, y: 2, z: 1}
+    PositionDamping: {x: 0, y: 0, z: 0}
     AngularDampingMode: 0
     RotationDamping: {x: 1, y: 1, z: 1}
     QuaternionDamping: 1
@@ -126,3 +127,21 @@ MonoBehaviour:
   FocusTarget: {fileID: 0}
   FocusOffset: 0
   Profile: {fileID: 11400000, guid: eb40cb27a3fa41c48965a9e0cc55ee0a, type: 2}
+--- !u!114 &6111111111111111103
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4497728654783413476}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f453f694addf4275988fac205bc91968, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineConfiner2D
+  BoundingShape2D: {fileID: 0}
+  Damping: 0
+  SlowingDistance: 0
+  OversizeWindow:
+    Enabled: 0
+    MaxWindowSize: 0

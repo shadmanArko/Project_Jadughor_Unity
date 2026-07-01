@@ -1,10 +1,12 @@
 using System;
 using Cysharp.Threading.Tasks;
 using Systems.MineSystem.Mine.Model;
+using Systems.MineSystem.Mine.Signal;
 using Systems.MineSystem.Mine.Service;
 using Systems.MineSystem.Mine.Service.VisualizerService;
 using Systems.MineSystem.Mine.View;
 using Systems.MineSystem.MineGenerationSystem.Controller;
+using Systems.Utilities.EventBus;
 using UniRx;
 using UnityEngine;
 using Zenject;
@@ -21,6 +23,9 @@ namespace Systems.MineSystem.Mine.Controller
 
         private readonly MineGenerationController _mineGenerationController;
         private readonly MineWallVisualizerService _mineWallVisualizerService;
+        private readonly ReplaySubject<MineData> _mineGenerated = new(1);
+
+        public IObservable<MineData> MineGenerated => _mineGenerated;
 
         public MineController(
             MineModel model, 
@@ -45,6 +50,11 @@ namespace Systems.MineSystem.Mine.Controller
             var mineData = await _mineGenerationController.GenerateMineData();
             _model.SetMineData(mineData);
             _model.GenerateMineFromData();
+            _mineGenerated.OnNext(mineData);
+            GlobalEventBus.Fire(new MineGeneratedSignal
+            {
+                MineData = mineData
+            });
         }
 
         #region Hit Wall
@@ -60,6 +70,8 @@ namespace Systems.MineSystem.Mine.Controller
         public void Dispose()
         {
             _disposable?.Dispose();
+            _mineGenerated.OnCompleted();
+            _mineGenerated.Dispose();
         }
     }
 }

@@ -71,10 +71,13 @@ namespace Systems.MineSystem.MinePlayerSystem.Installer
                 .AsSingle()
                 .NonLazy();
             Container.Bind<PlayerMovementService>().AsSingle();
+            Container.BindInterfacesAndSelfTo<PlayerAutoMovementService>().AsSingle();
+            Container.Bind<PlayerAutoAnimationService>().AsSingle();
             Container.BindInterfacesAndSelfTo<PlayerAnimationService>()
                 .AsSingle()
                 .NonLazy();
             Container.BindInterfacesAndSelfTo<PlayerModel>().AsSingle();
+            Container.Bind<PlayerTransitionService>().AsSingle();
             Container.BindInterfacesAndSelfTo<PlayerController>()
                 .AsSingle()
                 .NonLazy();

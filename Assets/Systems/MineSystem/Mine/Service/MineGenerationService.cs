@@ -39,6 +39,8 @@ namespace Systems.MineSystem.Mine.Service
                     if (y == 1 && x == mineWidth / 2)
                     {
                         CreateBreakableCell(cell, 40, false);
+                        cell.HitPoint = 0;
+                        cell.IsBroken = true;
                         cell.IsRevealed = true;
                         cell.BrokenSides = BrokenEdges.Top;
                         cells.Add(cell);
@@ -61,6 +63,8 @@ namespace Systems.MineSystem.Mine.Service
                 }
             }
 
+            RevealMineEntranceNeighbors(cells);
+
             mineData.Cells = cells;
             mineData.GridWidth = mineWidth;
             mineData.GridHeight = mineHeight;
@@ -73,6 +77,36 @@ namespace Systems.MineSystem.Mine.Service
 
             await UniTask.SwitchToMainThread();
             return mineData;
+        }
+
+        private static void RevealMineEntranceNeighbors(List<Cell> cells)
+        {
+            foreach (var cell in cells)
+            {
+                var x = cell.Position.X;
+                var y = cell.Position.Y;
+                if (Math.Abs(x) > 1 || y > 0 || y < -2 ||
+                    (x == 0 && y == -1))
+                    continue;
+
+                cell.IsRevealed = true;
+                if (x == 0 && y == 0)
+                    cell.BrokenSides |= BrokenEdges.Bottom;
+                else if (x == 1 && y == -1)
+                    cell.BrokenSides |= BrokenEdges.Left;
+                else if (x == -1 && y == -1)
+                    cell.BrokenSides |= BrokenEdges.Right;
+                else if (x == 0 && y == -2)
+                    cell.BrokenSides |= BrokenEdges.Top;
+                else if (x == 1 && y == 0)
+                    cell.BrokenSides |= BrokenEdges.BottomLeftCorner;
+                else if (x == -1 && y == 0)
+                    cell.BrokenSides |= BrokenEdges.BottomRightCorner;
+                else if (x == 1 && y == -2)
+                    cell.BrokenSides |= BrokenEdges.TopLeftCorner;
+                else if (x == -1 && y == -2)
+                    cell.BrokenSides |= BrokenEdges.TopRightCorner;
+            }
         }
 
         private static void CreateBlankCell(Cell cell)
