@@ -3,6 +3,7 @@ using Systems.MineSystem.InventorySystem.Interface;
 using Systems.MineSystem.InventorySystem.Model;
 using Systems.MineSystem.MinePlayerSystem.Model;
 using Systems.MineSystem.MinePlayerSystem.Scriptable;
+using Systems.MineSystem.NotificationSystem.Controller;
 using Systems.MineSystem.ToolbarSystem.Enum;
 using Systems.MineSystem.ToolbarSystem.Interface;
 using Systems.MineSystem.ToolbarSystem.Model;
@@ -30,6 +31,7 @@ namespace Systems.MineSystem.ToolbarSystem.Handler
         private readonly ElevatorPlacementValidator _elevatorValidator;
         private readonly IPileDriverPlacementValidator
             _pileDriverValidator;
+        private readonly NotificationController _notifications;
         private readonly CompositeDisposable _disposables = new();
 
         private Item _item;
@@ -53,7 +55,8 @@ namespace Systems.MineSystem.ToolbarSystem.Handler
             IToolbarInventorySource toolbarInventory,
             RuntimeDataScriptable runtime,
             ElevatorPlacementValidator elevatorValidator,
-            IPileDriverPlacementValidator pileDriverValidator)
+            IPileDriverPlacementValidator pileDriverValidator,
+            NotificationController notifications)
         {
             _targets = targets;
             _validator = validator;
@@ -63,6 +66,7 @@ namespace Systems.MineSystem.ToolbarSystem.Handler
             _runtime = runtime;
             _elevatorValidator = elevatorValidator;
             _pileDriverValidator = pileDriverValidator;
+            _notifications = notifications;
 
             _targets.PointerTargetChanged
                 .Subscribe(UpdatePreview)
@@ -110,9 +114,14 @@ namespace Systems.MineSystem.ToolbarSystem.Handler
         public bool TryExecute()
         {
             if (_item == null ||
-                _profile == null ||
-                !CanPlace())
+                _profile == null)
                 return false;
+
+            if (!CanPlace())
+            {
+                NotifyMissingPileDriverOpening();
+                return false;
+            }
 
             PersistHorizontalFacing(_target.Direction);
             var instanceId = Guid.NewGuid().ToString("N");
@@ -141,6 +150,18 @@ namespace Systems.MineSystem.ToolbarSystem.Handler
 
             UpdatePreview(_targets.ResolveDirectionalTarget(1));
             return true;
+        }
+
+        private void NotifyMissingPileDriverOpening()
+        {
+            if (_profile is not PileDriverActionProfile ||
+                _pileDriverValidator.HasBrokenCellInDirection(
+                    _target.CellPosition,
+                    _pileDriverDirection))
+                return;
+
+            _notifications.ShowNotification(
+                "Pile driver requires the first wall in its direction to be broken");
         }
 
         private void PersistHorizontalFacing(CardinalDirection direction)

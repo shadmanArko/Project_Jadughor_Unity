@@ -5,5 +5,8 @@ namespace Systems.MineSystem.ToolbarSystem.Items.Prefabs.Placeables.PileDriver.S
     public interface IPileDriverPlacementValidator
     {
         bool CanPlace(Vector3Int anchor, PileDriverDirection direction);
+        bool HasBrokenCellInDirection(
+            Vector3Int anchor,
+            PileDriverDirection direction);
     }
 }

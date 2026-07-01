@@ -25,6 +25,15 @@ namespace Systems.MineSystem.ToolbarSystem.Items.Prefabs.Placeables.PileDriver.S
                    IsOpen(data.GetCell(anchor + ToOffset(direction)));
         }
 
+        public bool HasBrokenCellInDirection(
+            Vector3Int anchor,
+            PileDriverDirection direction)
+        {
+            var data = _mine.MineData.Value;
+            var cell = data?.GetCell(anchor + ToOffset(direction));
+            return cell != null && cell.IsBroken;
+        }
+
         private static bool IsOpen(Cell cell)
         {
             return cell != null &&
