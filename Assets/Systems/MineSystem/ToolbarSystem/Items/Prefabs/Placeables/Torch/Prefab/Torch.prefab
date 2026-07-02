@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2109633142752792214}
   - component: {fileID: 5236168765276042396}
   - component: {fileID: 5533714215414176691}
+  - component: {fileID: 7638921746012593331}
   m_Layer: 0
   m_Name: Torch
   m_TagString: Untagged
@@ -58,6 +59,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab385e9e55024c24e9d2e934fff87001, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Torch
+--- !u!114 &7638921746012593331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 587733085330896082}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6cb3a03c7da4bd28ef768879c0873ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Systems.MineSystem.Mine.Service.Lighting.LightingSourceReporter
+  managedByLightingManager: 1
 --- !u!1 &745708580170323141
 GameObject:
   m_ObjectHideFlags: 0
@@ -119,7 +133,7 @@ MonoBehaviour:
   m_NormalMapDistance: 3
   m_NormalMapQuality: 2
   m_UseNormalMap: 0
-  m_ShadowsEnabled: 1
+  m_ShadowsEnabled: 0
   m_ShadowIntensity: 0.75
   m_ShadowSoftness: 0.3
   m_ShadowSoftnessFalloffIntensity: 0.5

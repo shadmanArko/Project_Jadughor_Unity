@@ -103,7 +103,9 @@ namespace Systems.MineSystem.Mine.Installer
             Container.BindInterfacesAndSelfTo<SpecialBackdropVisualizerService>().AsSingle();
             Container.BindInterfacesAndSelfTo<CaveFormationPool>().AsSingle();
             Container.BindInterfacesAndSelfTo<CaveVisualizerService>().AsSingle();
-            Container.BindInterfacesAndSelfTo<MineLightingService>().AsSingle().NonLazy();
+            Container.BindInterfacesAndSelfTo<LightingSourceManager>()
+                .AsSingle()
+                .NonLazy();
             Container.BindInterfacesAndSelfTo<MineDarkeningService>()
                 .AsSingle().NonLazy();
             
