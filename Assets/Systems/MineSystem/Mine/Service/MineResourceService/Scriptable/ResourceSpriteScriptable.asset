@@ -24,10 +24,13 @@ MonoBehaviour:
       iconSprite: {fileID: 21300000, guid: 8f95b0040553de248a0d22fc8e156727, type: 3}
     - id: MilkyQuartz
       objectSprite: {fileID: 4648121433337308090, guid: 0e5d88be3fd712c4ca7c3767a78cab3c, type: 3}
-      iconSprite: {fileID: 4648121433337308090, guid: 0e5d88be3fd712c4ca7c3767a78cab3c, type: 3}
+      iconSprite: {fileID: 21300000, guid: 452bef1244624ca4ba02ee3a3861ea78, type: 3}
     - id: PinkQuartz
       objectSprite: {fileID: -2326459205579473762, guid: 0e5d88be3fd712c4ca7c3767a78cab3c, type: 3}
-      iconSprite: {fileID: -2326459205579473762, guid: 0e5d88be3fd712c4ca7c3767a78cab3c, type: 3}
+      iconSprite: {fileID: 21300000, guid: 0e1181e00617a2045af392f536d6bc9b, type: 3}
     - id: SmokyQuartz
       objectSprite: {fileID: 3857046670083785811, guid: 0e5d88be3fd712c4ca7c3767a78cab3c, type: 3}
-      iconSprite: {fileID: 3857046670083785811, guid: 0e5d88be3fd712c4ca7c3767a78cab3c, type: 3}
+      iconSprite: {fileID: 21300000, guid: 3a774e8a4ca622042810c2f5b516a94b, type: 3}
+    - id: BlueQuartz
+      objectSprite: {fileID: -4689007363366001974, guid: 0e5d88be3fd712c4ca7c3767a78cab3c, type: 3}
+      iconSprite: {fileID: 21300000, guid: 6a5b297e7f4ad2f448563dbcdff75774, type: 3}
