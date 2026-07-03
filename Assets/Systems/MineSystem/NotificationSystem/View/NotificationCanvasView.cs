@@ -29,6 +29,7 @@ namespace Systems.MineSystem.NotificationSystem.View
         public void HideNotification()
         {
             canvasGroup.alpha = 0f;
+            if(notificationPanel == null) return;
             notificationPanel.SetActive(false);
         }
 

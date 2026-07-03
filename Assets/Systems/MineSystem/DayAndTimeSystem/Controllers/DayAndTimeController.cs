@@ -2,48 +2,69 @@ using System;
 using Systems.MineSystem.DayAndTimeSystem.Models;
 using Systems.MineSystem.DayAndTimeSystem.Structs;
 using Systems.MineSystem.DayAndTimeSystem.Views;
+using Systems.MineSystem.PauseSystem.Interface;
+using Systems.MineSystem.PauseSystem.Signal;
+using Systems.Utilities.EventBus;
 using UniRx;
 using Zenject;
 
 namespace Systems.MineSystem.DayAndTimeSystem.Controllers
 {
     [Serializable]
-    public class DayAndTimeController : IDayAndTimeController, IInitializable, IDisposable
+    public sealed class DayAndTimeController :
+        IDayAndTimeController,
+        IPausable,
+        IInitializable,
+        IDisposable
     {
-        private readonly CompositeDisposable _disposable;
         private readonly DayAndTimeModel _model;
-        private readonly DayAndTimeView  _view;
+        private readonly DayAndTimeView _view;
+        private bool _isAffectedByPause = true;
+        private bool _disposed;
 
-        // ── Pass-through reactive state for external observers ─────────────────
-        public IReadOnlyReactiveProperty<int> Day    => _model.Day;
-        public IReadOnlyReactiveProperty<int> Hour   => _model.Hour;
+        public IReadOnlyReactiveProperty<int> Day => _model.Day;
+        public IReadOnlyReactiveProperty<int> Hour => _model.Hour;
         public IReadOnlyReactiveProperty<int> Minute => _model.Minute;
+
+        public bool IsAffectedByPause
+        {
+            get => _isAffectedByPause;
+            set
+            {
+                if (_isAffectedByPause == value)
+                    return;
+                _isAffectedByPause = value;
+                GlobalEventBus.Fire(
+                    new PausableAffectationChangedSignal(this));
+            }
+        }
 
         public DayAndTimeController(DayAndTimeModel model, DayAndTimeView view)
         {
             _model = model;
-            _view  = view;
-            
-            _disposable = new CompositeDisposable();
+            _view = view;
         }
 
-        // ── Zenject entry point ───────────────────────────────────────────────
         public void Initialize()
         {
-            _view.Bind(_model); // give view its data source
+            _view.Bind(_model);
             _model.StartTime();
+            GlobalEventBus.Fire(new PausableRegisteredSignal(this));
         }
 
-        // ── Public API ────────────────────────────────────────────────────────
         public void Pause() => _model.Pause();
         public void Resume() => _model.Resume();
+        public void OnPause() => _model.SetGloballyPaused(true);
+        public void OnUnpause() => _model.SetGloballyPaused(false);
         public void SetTime(MineTime time) => _model.SetTime(time);
         public MineTime GetCurrentTime() => _model.GetCurrentTime();
-        
+
         public void Dispose()
         {
-            _disposable?.Dispose();
+            if (_disposed)
+                return;
+            _disposed = true;
+            GlobalEventBus.Fire(new PausableUnregisteredSignal(this));
         }
     }
-    
 }

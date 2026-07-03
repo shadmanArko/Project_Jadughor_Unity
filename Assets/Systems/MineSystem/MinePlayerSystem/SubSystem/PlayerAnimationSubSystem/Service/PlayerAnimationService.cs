@@ -20,6 +20,7 @@ namespace Systems.MineSystem.MinePlayerSystem.SubSystem.PlayerAnimationSubSystem
         private readonly PlayerActionService _actionService;
         private readonly PlayerDeathService _deathService;
         private readonly PlayerDamageService _damageService;
+        private readonly PlayerPauseStateData _pauseState;
 
         private string _currentAnimation = PlayerAnimationId.None;
         private int _currentActionSequence = -1;
@@ -33,7 +34,8 @@ namespace Systems.MineSystem.MinePlayerSystem.SubSystem.PlayerAnimationSubSystem
             AnimationProfile profile,
             PlayerActionService actionService,
             PlayerDeathService deathService,
-            PlayerDamageService damageService)
+            PlayerDamageService damageService,
+            PlayerPauseStateData pauseState)
         {
             _view = view;
             _runtime = runtime;
@@ -41,6 +43,7 @@ namespace Systems.MineSystem.MinePlayerSystem.SubSystem.PlayerAnimationSubSystem
             _actionService = actionService;
             _deathService = deathService;
             _damageService = damageService;
+            _pauseState = pauseState;
         }
 
         public void Initialize()
@@ -51,6 +54,8 @@ namespace Systems.MineSystem.MinePlayerSystem.SubSystem.PlayerAnimationSubSystem
 
         public void Tick()
         {
+            if (_pauseState.IsPaused)
+                return;
             _view.AnimationController.SetFacing(
                 _runtime.facingDirection.Value);
 

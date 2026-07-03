@@ -29,6 +29,8 @@ namespace Systems.MineSystem.MineTransitionSystem.Installer
             Container.BindInterfacesAndSelfTo<MineCameraController>()
                 .AsSingle().NonLazy();
             Container.Bind<CampToMineService>().AsSingle();
+            Container.BindInterfacesAndSelfTo<MineTransitionPauseService>()
+                .AsSingle();
             Container.Bind<CampToMuseumService>().AsSingle();
             Container.Bind<MineToCampService>().AsSingle();
             Container.BindInterfacesAndSelfTo<MineTransitionController>()

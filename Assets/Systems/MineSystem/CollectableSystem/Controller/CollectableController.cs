@@ -11,16 +11,39 @@ using Systems.MineSystem.Mine.Service.MineResourceService.Model;
 using UniRx;
 using UnityEngine;
 using Zenject;
+using Systems.MineSystem.PauseSystem.Interface;
+using Systems.MineSystem.PauseSystem.Signal;
+using Systems.Utilities.EventBus;
 
 namespace Systems.MineSystem.CollectableSystem.Controller
 {
-    public sealed class CollectableController : IInitializable, ITickable, IDisposable
+    public sealed class CollectableController :
+        IPausable,
+        IInitializable,
+        ITickable,
+        IDisposable
     {
         private readonly CollectableFactory _factory;
         private readonly CollectorRegistry _collectors;
         private readonly CollectableSystemConfig _config;
         private readonly List<CollectableModel> _active = new();
         private readonly CompositeDisposable _disposables = new();
+        private bool _isAffectedByPause = true;
+        private bool _isPaused;
+        private bool _disposed;
+
+        public bool IsAffectedByPause
+        {
+            get => _isAffectedByPause;
+            set
+            {
+                if (_isAffectedByPause == value)
+                    return;
+                _isAffectedByPause = value;
+                GlobalEventBus.Fire(
+                    new PausableAffectationChangedSignal(this));
+            }
+        }
 
         public CollectableController(
             CollectableFactory factory,
@@ -37,10 +60,13 @@ namespace Systems.MineSystem.CollectableSystem.Controller
             _factory.Spawned
                 .Subscribe(Activate)
                 .AddTo(_disposables);
+            GlobalEventBus.Fire(new PausableRegisteredSignal(this));
         }
 
         public void Tick()
         {
+            if (_isPaused)
+                return;
             var now = Time.time;
             var step = _config.pullSpeed * Time.deltaTime;
 
@@ -89,6 +115,7 @@ namespace Systems.MineSystem.CollectableSystem.Controller
         {
             model.NextCollectorScanTime =
                 Time.time + Mathf.Max(0f, _config.attractionDelay);
+            model.AttractionAvailableTime = model.NextCollectorScanTime;
             model.TriggerSubscription = model.View.TriggerEntered
                 .Subscribe(collider => TryCollect(model, collider));
 
@@ -98,12 +125,24 @@ namespace Systems.MineSystem.CollectableSystem.Controller
             }
             else
             {
-                model.AttractionDelaySubscription = Observable
-                    .Timer(TimeSpan.FromSeconds(_config.attractionDelay))
-                    .Subscribe(_ => model.EnableAttraction());
+                ScheduleAttraction(
+                    model,
+                    Mathf.Max(0f, _config.attractionDelay));
             }
 
             _active.Add(model);
+            if (_isPaused)
+                Pause(model);
+        }
+
+        private static void ScheduleAttraction(
+            CollectableModel model,
+            float delay)
+        {
+            model.AttractionAvailableTime = Time.time + delay;
+            model.AttractionDelaySubscription = Observable
+                .Timer(TimeSpan.FromSeconds(delay))
+                .Subscribe(_ => model.EnableAttraction());
         }
 
         private ICollector FindNearestCollector(CollectableModel model)
@@ -147,7 +186,7 @@ namespace Systems.MineSystem.CollectableSystem.Controller
 
         private void TryCollect(CollectableModel model, Collider2D collider)
         {
-            if (!model.IsAttractionAvailable.Value ||
+            if (_isPaused || !model.IsAttractionAvailable.Value ||
                 !_collectors.TryGetCollector(collider, out var collector) ||
                 !collector.CanCollect(model.Item) ||
                 !collector.TryCollect(model.Item))
@@ -157,6 +196,71 @@ namespace Systems.MineSystem.CollectableSystem.Controller
             var index = _active.IndexOf(model);
             if (index >= 0)
                 RemoveAt(index);
+        }
+
+        public void OnPause()
+        {
+            if (_isPaused)
+                return;
+            _isPaused = true;
+            for (var i = 0; i < _active.Count; i++)
+                Pause(_active[i]);
+        }
+
+        private static void Pause(CollectableModel model)
+        {
+            var state = model.PauseState;
+            if (state.HasSnapshot)
+                return;
+
+            var body = model.View.Body;
+            state.HasSnapshot = true;
+            state.BodyWasSimulated = body.simulated;
+            state.TriggerWasEnabled = model.View.CollectionEnabled;
+            state.GravityScale = body.gravityScale;
+            state.Velocity = body.linearVelocity;
+            state.AngularVelocity = body.angularVelocity;
+            state.CollectorScanRemaining = Mathf.Max(
+                0f,
+                model.NextCollectorScanTime - Time.time);
+            state.AttractionDelayRemaining = Mathf.Max(
+                0f,
+                model.AttractionAvailableTime - Time.time);
+            model.AttractionDelaySubscription?.Dispose();
+            model.AttractionDelaySubscription = null;
+            model.View.SetCollectionEnabled(false);
+            body.linearVelocity = Vector2.zero;
+            body.angularVelocity = 0f;
+            body.simulated = false;
+        }
+
+        public void OnUnpause()
+        {
+            if (!_isPaused)
+                return;
+            _isPaused = false;
+            for (var i = 0; i < _active.Count; i++)
+                Resume(_active[i]);
+        }
+
+        private static void Resume(CollectableModel model)
+        {
+            var state = model.PauseState;
+            if (!state.HasSnapshot)
+                return;
+
+            var body = model.View.Body;
+            body.simulated = state.BodyWasSimulated;
+            body.gravityScale = state.GravityScale;
+            body.linearVelocity = state.Velocity;
+            body.angularVelocity = state.AngularVelocity;
+            model.NextCollectorScanTime =
+                Time.time + state.CollectorScanRemaining;
+            if (!model.IsAttractionAvailable.Value)
+                ScheduleAttraction(model, state.AttractionDelayRemaining);
+            else
+                model.View.SetCollectionEnabled(state.TriggerWasEnabled);
+            state.HasSnapshot = false;
         }
 
         private static void LogCollectedItem(Item item)
@@ -197,6 +301,10 @@ namespace Systems.MineSystem.CollectableSystem.Controller
 
         public void Dispose()
         {
+            if (_disposed)
+                return;
+            _disposed = true;
+            GlobalEventBus.Fire(new PausableUnregisteredSignal(this));
             for (var i = _active.Count - 1; i >= 0; i--)
                 RemoveAt(i);
 

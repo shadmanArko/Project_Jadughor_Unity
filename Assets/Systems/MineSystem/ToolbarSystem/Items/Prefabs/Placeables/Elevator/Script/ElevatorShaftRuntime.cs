@@ -7,7 +7,9 @@ using Zenject;
 
 namespace Systems.MineSystem.ToolbarSystem.Items.Prefabs.Placeables.Elevator.Script
 {
-    public sealed class ElevatorShaftRuntime : MonoBehaviour, IPlaceableRuntime
+    public sealed class ElevatorShaftRuntime :
+        PausablePlaceableRuntime,
+        IPlaceableRuntime
     {
         [SerializeField] private ElevatorView view;
 
@@ -17,7 +19,7 @@ namespace Systems.MineSystem.ToolbarSystem.Items.Prefabs.Placeables.Elevator.Scr
         private Action<IPlaceableRuntime> _releaseAction;
         private PlaceableSpawnContext _context;
 
-        public IPlaceableDamageView DamageView => view;
+        public override IPlaceableDamageView DamageView => view;
         public Vector3Int CellPosition { get; private set; }
 
         [Inject]
@@ -76,6 +78,7 @@ namespace Systems.MineSystem.ToolbarSystem.Items.Prefabs.Placeables.Elevator.Scr
 
         private void OnDisable()
         {
+            ClearPauseState();
             DisposeDurability();
         }
 

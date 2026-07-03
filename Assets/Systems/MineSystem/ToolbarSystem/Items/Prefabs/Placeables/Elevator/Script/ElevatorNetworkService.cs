@@ -9,11 +9,17 @@ using Systems.MineSystem.MinePlayerSystem.Model;
 using Systems.MineSystem.MinePlayerSystem.Service;
 using Systems.MineSystem.MinePlayerSystem.View;
 using UnityEngine;
+using Systems.MineSystem.PauseSystem.Interface;
+using Systems.MineSystem.PauseSystem.Signal;
+using Systems.Utilities.EventBus;
+using Zenject;
 
 namespace Systems.MineSystem.ToolbarSystem.Items.Prefabs.Placeables.Elevator.Script
 {
     public sealed class ElevatorNetworkService :
         IPlayerInteractionHandler,
+        IPausable,
+        IInitializable,
         IDisposable
     {
         private readonly MineModel _mine;
@@ -30,6 +36,20 @@ namespace Systems.MineSystem.ToolbarSystem.Items.Prefabs.Placeables.Elevator.Scr
             _controllers = new();
 
         private ElevatorController _activeController;
+        private bool _isAffectedByPause = true;
+        private bool _isPaused;
+        private bool _disposed;
+
+        public bool IsAffectedByPause
+        {
+            get => _isAffectedByPause;
+            set
+            {
+                if (_isAffectedByPause == value) return;
+                _isAffectedByPause = value;
+                GlobalEventBus.Fire(new PausableAffectationChangedSignal(this));
+            }
+        }
 
         public ElevatorNetworkService(
             MineModel mine,
@@ -49,9 +69,12 @@ namespace Systems.MineSystem.ToolbarSystem.Items.Prefabs.Placeables.Elevator.Scr
 
         public int Priority => 100;
 
+        public void Initialize() =>
+            GlobalEventBus.Fire(new PausableRegisteredSignal(this));
+
         public bool TryInteract()
         {
-            return TryUseElevatorFromPlayerPosition();
+            return !_isPaused && TryUseElevatorFromPlayerPosition();
         }
 
         public bool HasShaft(Vector3Int cell) => _shafts.ContainsKey(cell);
@@ -131,6 +154,8 @@ namespace Systems.MineSystem.ToolbarSystem.Items.Prefabs.Placeables.Elevator.Scr
                 _input,
                 _climbService);
             _controllers[lift] = controller;
+            if (_isPaused)
+                controller.OnPause();
         }
 
         public void UnregisterLift(ElevatorLiftRuntime lift)
@@ -306,12 +331,31 @@ namespace Systems.MineSystem.ToolbarSystem.Items.Prefabs.Placeables.Elevator.Scr
 
         public void Dispose()
         {
+            if (_disposed) return;
+            _disposed = true;
+            GlobalEventBus.Fire(new PausableUnregisteredSignal(this));
             foreach (var controller in _controllers.Values.ToArray())
                 controller.Dispose();
 
             _controllers.Clear();
             _lifts.Clear();
             _shafts.Clear();
+        }
+
+        public void OnPause()
+        {
+            if (_isPaused) return;
+            _isPaused = true;
+            foreach (var controller in _controllers.Values)
+                controller.OnPause();
+        }
+
+        public void OnUnpause()
+        {
+            if (!_isPaused) return;
+            _isPaused = false;
+            foreach (var controller in _controllers.Values)
+                controller.OnUnpause();
         }
     }
 }

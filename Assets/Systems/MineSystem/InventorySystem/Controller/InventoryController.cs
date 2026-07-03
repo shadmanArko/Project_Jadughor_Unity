@@ -9,6 +9,9 @@ using Systems.MineSystem.InventorySystem.View;
 using Systems.MineSystem.Mine.Service.MineArtifactService.Test;
 using Systems.MineSystem.MinePlayerSystem.Config;
 using Systems.MineSystem.MinePlayerSystem.Scriptable;
+using Systems.MineSystem.PauseSystem.Interface;
+using Systems.MineSystem.PauseSystem.Signal;
+using Systems.Utilities.EventBus;
 using UniRx;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -18,7 +21,11 @@ using Zenject;
 namespace Systems.MineSystem.InventorySystem.Controller
 {
     [Serializable]
-    public sealed class InventoryController : IInitializable, ITickable, IDisposable
+    public sealed class InventoryController :
+        IPauser,
+        IInitializable,
+        ITickable,
+        IDisposable
     {
         private readonly InventoryModel _model;
         private readonly InventoryCanvasView _view;
@@ -54,6 +61,9 @@ namespace Systems.MineSystem.InventorySystem.Controller
         private float _nextNavigationRepeatTime;
         private int _rightHeldSlot = -1;
         private float _nextRightTransferTime;
+        private bool _pauseRequested;
+
+        public string PauserId => "Inventory";
 
         public InventoryController(
             InventoryModel model,
@@ -359,6 +369,7 @@ namespace Systems.MineSystem.InventorySystem.Controller
             _model.SetOpen(open);
             _view.SetVisible(open);
             SetInventoryInputOpen(open);
+            SetPauseRequested(open);
             if (!open)
             {
                 _heldNavigationDelta = 0;
@@ -366,6 +377,18 @@ namespace Systems.MineSystem.InventorySystem.Controller
             }
             if (open)
                 SelectSlot(_selectedIndex);
+        }
+
+        private void SetPauseRequested(bool requested)
+        {
+            if (_pauseRequested == requested)
+                return;
+
+            _pauseRequested = requested;
+            if (requested)
+                GlobalEventBus.Fire(new PauseRequestedSignal(this));
+            else
+                GlobalEventBus.Fire(new PauseReleasedSignal(this));
         }
 
         private void SetInventoryInputOpen(bool open)
@@ -491,6 +514,7 @@ namespace Systems.MineSystem.InventorySystem.Controller
 
             if (_model.IsOpen.Value)
                 SetInventoryInputOpen(false);
+            SetPauseRequested(false);
             _disposables.Dispose();
         }
     }

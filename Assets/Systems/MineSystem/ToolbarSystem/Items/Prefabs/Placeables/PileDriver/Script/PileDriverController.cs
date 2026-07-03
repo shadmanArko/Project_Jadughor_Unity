@@ -25,6 +25,7 @@ namespace Systems.MineSystem.ToolbarSystem.Items.Prefabs.Placeables.PileDriver.S
         private readonly Quaternion _baseRootRotation;
         private Tween _activeTween;
         private PileDriverDirection _direction;
+        private bool _tweenWasPlaying;
 
         public PileDriverController(
             PileDriverModel model,
@@ -314,16 +315,32 @@ namespace Systems.MineSystem.ToolbarSystem.Items.Prefabs.Placeables.PileDriver.S
             };
         }
 
-        private static async UniTask DelayAsync(
+        private async UniTask DelayAsync(
             float seconds,
             CancellationToken cancellationToken)
         {
             if (seconds <= 0f)
                 return;
+            await AwaitTweenAsync(
+                DOVirtual.DelayedCall(seconds, () => { }, false),
+                cancellationToken);
+        }
 
-            await UniTask.Delay(
-                TimeSpan.FromSeconds(seconds),
-                cancellationToken: cancellationToken);
+        public void OnPause()
+        {
+            _tweenWasPlaying = _activeTween != null &&
+                               _activeTween.IsActive() &&
+                               _activeTween.IsPlaying();
+            if (_tweenWasPlaying)
+                _activeTween.Pause();
+        }
+
+        public void OnUnpause()
+        {
+            if (_tweenWasPlaying && _activeTween != null &&
+                _activeTween.IsActive())
+                _activeTween.Play();
+            _tweenWasPlaying = false;
         }
 
         private async UniTask AwaitTweenAsync(

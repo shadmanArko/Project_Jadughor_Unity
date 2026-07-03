@@ -6,6 +6,8 @@ using Systems.MineSystem.ToolbarSystem.Model;
 using Systems.MineSystem.ToolbarSystem.Profile;
 using UnityEngine;
 using Zenject;
+using Systems.MineSystem.PauseSystem.Signal;
+using Systems.Utilities.EventBus;
 
 namespace Systems.MineSystem.ToolbarSystem.Service
 {
@@ -105,6 +107,7 @@ namespace Systems.MineSystem.ToolbarSystem.Service
             runtime.Initialize(context);
             _active[runtime] = (pool, context);
             _registry.Register(runtime, context);
+            GlobalEventBus.Fire(new PausableRegisteredSignal(runtime));
             return true;
         }
 
@@ -117,6 +120,7 @@ namespace Systems.MineSystem.ToolbarSystem.Service
             if (behaviour == null)
                 return;
 
+            GlobalEventBus.Fire(new PausableUnregisteredSignal(runtime));
             _registry.Unregister(runtime);
             behaviour.gameObject.SetActive(false);
             behaviour.transform.SetParent(_root, false);

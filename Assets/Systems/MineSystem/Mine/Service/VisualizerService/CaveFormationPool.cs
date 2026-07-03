@@ -9,6 +9,8 @@ using Systems.MineSystem.ToolbarSystem.Model;
 using Systems.MineSystem.ToolbarSystem.Service;
 using UnityEngine;
 using Zenject;
+using Systems.MineSystem.PauseSystem.Signal;
+using Systems.Utilities.EventBus;
 
 namespace Systems.MineSystem.Mine.Service.VisualizerService
 {
@@ -89,6 +91,7 @@ namespace Systems.MineSystem.Mine.Service.VisualizerService
                 !_active.Remove(runtime, out var pool))
                 return;
 
+            GlobalEventBus.Fire(new PausableUnregisteredSignal(runtime));
             _registry.Unregister(runtime);
             Despawned?.Invoke(runtime);
             runtime.transform.SetParent(_root, false);
@@ -147,6 +150,7 @@ namespace Systems.MineSystem.Mine.Service.VisualizerService
                 rootCellId);
             _active[runtime] = pool;
             _registry.RegisterCell(runtime, cellPosition);
+            GlobalEventBus.Fire(new PausableRegisteredSignal(runtime));
             return runtime;
         }
 

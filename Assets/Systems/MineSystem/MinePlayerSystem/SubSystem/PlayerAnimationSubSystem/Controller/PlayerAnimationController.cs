@@ -29,6 +29,7 @@ namespace Systems.MineSystem.MinePlayerSystem.SubSystem.PlayerAnimationSubSystem
         public string CurrentAnimationId =>
             _currentAnimation?.id ?? PlayerAnimationId.None;
         public int CurrentGeneration => _generation;
+        public float AnimatorSpeed => animator != null ? animator.speed : 0f;
 
         public void ApplyProfile(AnimationProfile profile)
         {
@@ -86,6 +87,12 @@ namespace Systems.MineSystem.MinePlayerSystem.SubSystem.PlayerAnimationSubSystem
         {
             _facingDirection = direction;
             ApplyFlips();
+        }
+
+        public void SetAnimatorSpeed(float speed)
+        {
+            if (animator != null)
+                animator.speed = speed;
         }
 
         public void AnimationEvent_AdvanceFrame()

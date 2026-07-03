@@ -1,5 +1,6 @@
 using System;
 using Systems.MineSystem.MinePlayerSystem.Signal.InputSignal;
+using Systems.MineSystem.MinePlayerSystem.Model;
 using Systems.Utilities.EventBus;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -11,10 +12,14 @@ namespace Systems.MineSystem.MinePlayerSystem.Service
     public sealed class PlayerInputActionHandler : IInitializable, ITickable, IDisposable
     {
         private readonly InputSystem_Actions _inputSystem;
+        private readonly PlayerPauseStateData _pauseState;
 
-        public PlayerInputActionHandler(InputSystem_Actions inputSystem)
+        public PlayerInputActionHandler(
+            InputSystem_Actions inputSystem,
+            PlayerPauseStateData pauseState)
         {
             _inputSystem = inputSystem;
+            _pauseState = pauseState;
         }
 
         public void Initialize()
@@ -47,6 +52,8 @@ namespace Systems.MineSystem.MinePlayerSystem.Service
 
         public void Tick()
         {
+            if (_pauseState.IsPaused)
+                return;
             OnMovementInput();
         }
 
@@ -58,31 +65,54 @@ namespace Systems.MineSystem.MinePlayerSystem.Service
             });
         }
 
-        private static void OnActionInput(InputAction.CallbackContext context)
+        private void OnActionInput(InputAction.CallbackContext context)
         {
+            if (_pauseState.IsPaused)
+                return;
             GlobalEventBus.Fire(new ActionInputSignal
             {
                 IsPressed = true
             });
         }
 
-        private static void OnActionInputReleased(
+        private void OnActionInputReleased(
             InputAction.CallbackContext context)
         {
+            if (_pauseState.IsPaused)
+                return;
             GlobalEventBus.Fire(new ActionInputSignal
             {
                 IsPressed = false
             });
         }
 
-        private static void OnInteractInput(InputAction.CallbackContext context)
+        private void OnInteractInput(InputAction.CallbackContext context)
         {
+            if (_pauseState.IsPaused)
+                return;
             GlobalEventBus.Fire<InteractInputSignal>();
         }
 
-        private static void OnClimbInput(InputAction.CallbackContext context)
+        private void OnClimbInput(InputAction.CallbackContext context)
         {
+            if (_pauseState.IsPaused)
+                return;
             GlobalEventBus.Fire<ClimbInputSignal>();
+        }
+
+        public void Pause()
+        {
+            _pauseState.PlayerMapWasEnabled = _inputSystem.Player.enabled;
+            _pauseState.IsPaused = true;
+            if (_pauseState.PlayerMapWasEnabled)
+                _inputSystem.Player.Disable();
+        }
+
+        public void Resume()
+        {
+            _pauseState.IsPaused = false;
+            if (_pauseState.PlayerMapWasEnabled)
+                _inputSystem.Player.Enable();
         }
         
         public void Dispose()

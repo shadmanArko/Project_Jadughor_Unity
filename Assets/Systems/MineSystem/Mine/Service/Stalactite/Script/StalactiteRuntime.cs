@@ -72,6 +72,8 @@ namespace Systems.MineSystem.Mine.Service.Stalactite.Script
                        startY - _body.position.y <
                        Config.stalactiteMaxFallDistance)
                 {
+                    await WaitForResumeAsync();
+                    cancellationToken.ThrowIfCancellationRequested();
                     var next = _body.position +
                                Vector2.down *
                                (Config.stalactiteFallSpeed *

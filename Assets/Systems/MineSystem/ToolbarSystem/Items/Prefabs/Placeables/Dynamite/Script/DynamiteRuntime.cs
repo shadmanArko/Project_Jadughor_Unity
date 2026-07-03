@@ -7,11 +7,12 @@ using Systems.MineSystem.ToolbarSystem.Service;
 using UniRx;
 using UnityEngine;
 using Zenject;
+using DG.Tweening;
 
 namespace Systems.MineSystem.ToolbarSystem.Items.Prefabs.Placeables.Dynamite.Script
 {
     public sealed class DynamiteRuntime :
-        MonoBehaviour,
+        PausablePlaceableRuntime,
         IPlaceableRuntime
     {
         [SerializeField] private DynamiteView view;
@@ -25,8 +26,10 @@ namespace Systems.MineSystem.ToolbarSystem.Items.Prefabs.Placeables.Dynamite.Scr
         private bool _detonating;
         private CircleCollider2D _damageCollider;
         private readonly CompositeDisposable _damageSubscriptions = new();
+        private Tween _countdownDelay;
+        private bool _countdownWasPlaying;
 
-        public IPlaceableDamageView DamageView => view;
+        public override IPlaceableDamageView DamageView => view;
 
         [Inject]
         public void Construct(
@@ -102,12 +105,65 @@ namespace Systems.MineSystem.ToolbarSystem.Items.Prefabs.Placeables.Dynamite.Scr
                 if (remaining == 0)
                     break;
 
-                await UniTask.Delay(
-                    TimeSpan.FromSeconds(_config.TickInterval),
-                    cancellationToken: cancellationToken);
+                await AwaitDelayAsync(_config.TickInterval, cancellationToken);
             }
 
             BeginDetonation();
+        }
+
+        private async UniTask AwaitDelayAsync(
+            float seconds,
+            CancellationToken cancellationToken)
+        {
+            var tween = DOVirtual.DelayedCall(
+                Mathf.Max(0f, seconds),
+                () => { },
+                false);
+            _countdownDelay = tween;
+            var completion = new UniTaskCompletionSource();
+            var finished = false;
+            CancellationTokenRegistration registration = default;
+            tween.OnComplete(() =>
+            {
+                if (finished) return;
+                finished = true;
+                registration.Dispose();
+                completion.TrySetResult();
+            });
+            tween.OnKill(() =>
+            {
+                if (finished) return;
+                finished = true;
+                registration.Dispose();
+                if (cancellationToken.IsCancellationRequested)
+                    completion.TrySetCanceled(cancellationToken);
+                else
+                    completion.TrySetResult();
+            });
+            if (cancellationToken.CanBeCanceled)
+                registration = cancellationToken.Register(() => tween.Kill());
+            await completion.Task;
+            if (ReferenceEquals(_countdownDelay, tween))
+                _countdownDelay = null;
+        }
+
+        public override void OnPause()
+        {
+            base.OnPause();
+            _countdownWasPlaying = _countdownDelay != null &&
+                                   _countdownDelay.IsActive() &&
+                                   _countdownDelay.IsPlaying();
+            if (_countdownWasPlaying)
+                _countdownDelay.Pause();
+        }
+
+        public override void OnUnpause()
+        {
+            base.OnUnpause();
+            if (_countdownWasPlaying && _countdownDelay != null &&
+                _countdownDelay.IsActive())
+                _countdownDelay.Play();
+            _countdownWasPlaying = false;
         }
 
         private void BeginDetonation()
@@ -139,11 +195,15 @@ namespace Systems.MineSystem.ToolbarSystem.Items.Prefabs.Placeables.Dynamite.Scr
 
         private void OnDisable()
         {
+            ClearPauseState();
             ResetRuntime();
         }
 
         private void ResetRuntime()
         {
+            _countdownDelay?.Kill();
+            _countdownDelay = null;
+            _countdownWasPlaying = false;
             if (_countdown != null)
             {
                 if (!_countdown.IsCancellationRequested)

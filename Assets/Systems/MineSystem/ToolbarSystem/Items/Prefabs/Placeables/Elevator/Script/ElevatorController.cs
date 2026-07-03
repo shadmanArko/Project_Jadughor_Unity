@@ -28,6 +28,8 @@ namespace Systems.MineSystem.ToolbarSystem.Items.Prefabs.Placeables.Elevator.Scr
         private bool _riderFollowRunning;
         private int _heldDirection;
         private int _lastTravelDirection;
+        private bool _isPaused;
+        private UniTaskCompletionSource _resumeSource;
 
         public ElevatorController(
             ElevatorModel model,
@@ -72,7 +74,7 @@ namespace Systems.MineSystem.ToolbarSystem.Items.Prefabs.Placeables.Elevator.Scr
 
         public bool TryCallTo(Vector3Int targetCell)
         {
-            if (_disposed ||
+            if (_disposed || _isPaused ||
                 _model.HasRider ||
                 _model.IsMoving ||
                 !ServesCell(targetCell) ||
@@ -93,7 +95,7 @@ namespace Systems.MineSystem.ToolbarSystem.Items.Prefabs.Placeables.Elevator.Scr
 
         public bool TryMount()
         {
-            if (_disposed || _model.HasRider || _model.IsMoving)
+            if (_disposed || _isPaused || _model.HasRider || _model.IsMoving)
                 return false;
 
             RefreshNetwork();
@@ -162,6 +164,8 @@ namespace Systems.MineSystem.ToolbarSystem.Items.Prefabs.Placeables.Elevator.Scr
             {
                 while (!_disposed && _model.HasRider)
                 {
+                    await WaitForResumeAsync();
+                    if (_disposed) break;
                     if (!TryResolveMotionTarget(out var targetCell))
                     {
                         _model.EndMove();
@@ -195,6 +199,8 @@ namespace Systems.MineSystem.ToolbarSystem.Items.Prefabs.Placeables.Elevator.Scr
             {
                 while (!_disposed && !_model.HasRider)
                 {
+                    await WaitForResumeAsync();
+                    if (_disposed) break;
                     RefreshNetwork();
                     if (!ServesCell(targetCell))
                     {
@@ -217,6 +223,8 @@ namespace Systems.MineSystem.ToolbarSystem.Items.Prefabs.Placeables.Elevator.Scr
 
                     while (!_disposed && !_model.HasRider)
                     {
+                        await WaitForResumeAsync();
+                        if (_disposed) break;
                         if (!_network.HasShaft(nextCell))
                         {
                             await SettleAtCurrentCellAsync();
@@ -248,6 +256,7 @@ namespace Systems.MineSystem.ToolbarSystem.Items.Prefabs.Placeables.Elevator.Scr
             while (!_disposed &&
                    !MoveLiftTowardsCell(currentCell, false))
             {
+                await WaitForResumeAsync();
                 await UniTask.Yield(PlayerLoopTiming.FixedUpdate);
             }
         }
@@ -358,6 +367,7 @@ namespace Systems.MineSystem.ToolbarSystem.Items.Prefabs.Placeables.Elevator.Scr
             {
                 while (!_disposed && _model.HasRider)
                 {
+                    await WaitForResumeAsync();
                     await UniTask.Yield(PlayerLoopTiming.FixedUpdate);
                     if (_disposed || !_model.HasRider)
                         break;
@@ -369,6 +379,29 @@ namespace Systems.MineSystem.ToolbarSystem.Items.Prefabs.Placeables.Elevator.Scr
             {
                 _riderFollowRunning = false;
             }
+        }
+
+        private UniTask WaitForResumeAsync()
+        {
+            if (!_isPaused)
+                return UniTask.CompletedTask;
+            _resumeSource ??= new UniTaskCompletionSource();
+            return _resumeSource.Task;
+        }
+
+        public void OnPause()
+        {
+            if (_isPaused) return;
+            _isPaused = true;
+            _resumeSource = new UniTaskCompletionSource();
+        }
+
+        public void OnUnpause()
+        {
+            if (!_isPaused) return;
+            _isPaused = false;
+            _resumeSource?.TrySetResult();
+            _resumeSource = null;
         }
 
         private void RestorePlayerControls()
@@ -403,6 +436,7 @@ namespace Systems.MineSystem.ToolbarSystem.Items.Prefabs.Placeables.Elevator.Scr
                 return;
 
             _disposed = true;
+            OnUnpause();
             _disposables.Dispose();
 
             if (_ownsRider)

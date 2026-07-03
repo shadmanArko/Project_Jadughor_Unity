@@ -14,6 +14,8 @@ namespace Systems.MineSystem.CollectableSystem.Model
         public ICollector Target { get; set; }
         public bool IsBeingPulled { get; set; }
         public float NextCollectorScanTime { get; set; }
+        public float AttractionAvailableTime { get; set; }
+        public CollectablePauseStateData PauseState { get; } = new();
         public IDisposable TriggerSubscription { get; set; }
         public IDisposable AttractionDelaySubscription { get; set; }
         public IReadOnlyReactiveProperty<bool> IsAttractionAvailable =>
@@ -47,6 +49,7 @@ namespace Systems.MineSystem.CollectableSystem.Model
             Target = null;
             IsBeingPulled = false;
             _isAttractionAvailable.Dispose();
+            PauseState.HasSnapshot = false;
         }
     }
 }

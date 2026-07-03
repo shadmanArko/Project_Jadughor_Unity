@@ -7,7 +7,7 @@ using Zenject;
 
 namespace Systems.MineSystem.ToolbarSystem.Service
 {
-    public class PlaceableRuntime : MonoBehaviour, IPlaceableRuntime
+    public class PlaceableRuntime : PausablePlaceableRuntime, IPlaceableRuntime
     {
         private Action<IPlaceableRuntime> _releaseAction;
         private PlaceableItemizationService _itemization;
@@ -15,7 +15,7 @@ namespace Systems.MineSystem.ToolbarSystem.Service
         private IPlaceableDamageView _damageView;
 
         public PlaceableSpawnContext Context { get; private set; }
-        public IPlaceableDamageView DamageView => _damageView;
+        public override IPlaceableDamageView DamageView => _damageView;
 
         [Inject]
         public void Construct(PlaceableItemizationService itemization)
@@ -65,6 +65,7 @@ namespace Systems.MineSystem.ToolbarSystem.Service
 
         protected virtual void OnDisable()
         {
+            ClearPauseState();
             DisposeDurability();
         }
 

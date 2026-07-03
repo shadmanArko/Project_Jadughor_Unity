@@ -13,10 +13,15 @@ using Systems.Utilities.EventBus;
 using UniRx;
 using UnityEngine;
 using Zenject;
+using Systems.MineSystem.PauseSystem.Interface;
+using Systems.MineSystem.PauseSystem.Signal;
 
 namespace Systems.MineSystem.MineTransitionSystem.Controller
 {
-    public sealed class MineTransitionController : IInitializable, IDisposable
+    public sealed class MineTransitionController :
+        IPausable,
+        IInitializable,
+        IDisposable
     {
         private readonly MineController _mineController;
         private readonly CampToMineService _campToMine;
@@ -30,6 +35,20 @@ namespace Systems.MineSystem.MineTransitionSystem.Controller
             new(MineTransitionState.Idle);
         private CancellationTokenSource _lifetime;
         private CancellationTokenSource _activeTransition;
+        private readonly MineTransitionPauseService _pause;
+        private bool _isAffectedByPause = true;
+        private bool _disposed;
+
+        public bool IsAffectedByPause
+        {
+            get => _isAffectedByPause;
+            set
+            {
+                if (_isAffectedByPause == value) return;
+                _isAffectedByPause = value;
+                GlobalEventBus.Fire(new PausableAffectationChangedSignal(this));
+            }
+        }
 
         public IReadOnlyReactiveProperty<MineTransitionState> State => _state;
 
@@ -39,7 +58,8 @@ namespace Systems.MineSystem.MineTransitionSystem.Controller
             MineToCampService mineToCamp,
             PlayerTransitionService playerTransitionService,
             MineCameraController camera,
-            MineTransitionCanvasView canvas)
+            MineTransitionCanvasView canvas,
+            MineTransitionPauseService pause)
         {
             _mineController = mineController;
             _campToMine = campToMine;
@@ -48,6 +68,7 @@ namespace Systems.MineSystem.MineTransitionSystem.Controller
             _playerTransitionService = playerTransitionService;
             _camera = camera;
             _canvas = canvas;
+            _pause = pause;
         }
 
         public void Initialize()
@@ -69,7 +90,11 @@ namespace Systems.MineSystem.MineTransitionSystem.Controller
                 .Subscribe(_ => MineToCampAsync(_lifetime.Token)
                     .Forget(Debug.LogException))
                 .AddTo(_disposables);
+            GlobalEventBus.Fire(new PausableRegisteredSignal(this));
         }
+
+        public void OnPause() => _pause.Pause();
+        public void OnUnpause() => _pause.Resume();
 
         private void PrepareCamp(MineData mineData)
         {
@@ -178,6 +203,9 @@ namespace Systems.MineSystem.MineTransitionSystem.Controller
 
         public void Dispose()
         {
+            if (_disposed) return;
+            _disposed = true;
+            GlobalEventBus.Fire(new PausableUnregisteredSignal(this));
             if (_lifetime != null && !_lifetime.IsCancellationRequested)
                 _lifetime.Cancel();
             _activeTransition?.Cancel();

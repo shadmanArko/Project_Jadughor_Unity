@@ -18,6 +18,8 @@ namespace Systems.MineSystem.CollectableSystem.View
         public Item Item { get; private set; }
         public Transform Transform => transform;
         public IObservable<Collider2D> TriggerEntered => _triggerEntered;
+        public Rigidbody2D Body => body;
+        public bool CollectionEnabled => triggerCollider.enabled;
 
         public void Present(
             Item item,

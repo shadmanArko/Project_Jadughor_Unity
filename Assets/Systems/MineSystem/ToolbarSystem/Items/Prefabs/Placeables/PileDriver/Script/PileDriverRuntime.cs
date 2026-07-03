@@ -11,7 +11,7 @@ using Zenject;
 namespace Systems.MineSystem.ToolbarSystem.Items.Prefabs.Placeables.PileDriver.Script
 {
     public sealed class PileDriverRuntime :
-        MonoBehaviour,
+        PausablePlaceableRuntime,
         IPlaceableRuntime
     {
         [SerializeField] private PileDriverView view;
@@ -25,7 +25,7 @@ namespace Systems.MineSystem.ToolbarSystem.Items.Prefabs.Placeables.PileDriver.S
         private PlaceableDurabilityModel _durability;
         private PlaceableSpawnContext _context;
 
-        public IPlaceableDamageView DamageView => view;
+        public override IPlaceableDamageView DamageView => view;
 
         [Inject]
         public void Construct(
@@ -97,8 +97,21 @@ namespace Systems.MineSystem.ToolbarSystem.Items.Prefabs.Placeables.PileDriver.S
 
         private void OnDisable()
         {
+            ClearPauseState();
             DisposeController();
             DisposeDurability();
+        }
+
+        public override void OnPause()
+        {
+            base.OnPause();
+            _controller?.OnPause();
+        }
+
+        public override void OnUnpause()
+        {
+            base.OnUnpause();
+            _controller?.OnUnpause();
         }
 
         private void DisposeController()

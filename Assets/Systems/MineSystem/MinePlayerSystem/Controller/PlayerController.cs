@@ -12,12 +12,16 @@ using Systems.Utilities.EventBus;
 using UniRx;
 using UnityEngine;
 using Zenject;
+using Systems.MineSystem.MinePlayerSystem.Service;
+using Systems.MineSystem.PauseSystem.Interface;
+using Systems.MineSystem.PauseSystem.Signal;
 
 namespace Systems.MineSystem.MinePlayerSystem.Controller
 {
     [Serializable]
     public sealed class PlayerController :
         ICollector,
+        IPausable,
         IInitializable,
         IDisposable
     {
@@ -28,6 +32,24 @@ namespace Systems.MineSystem.MinePlayerSystem.Controller
         private readonly MinePlayerScriptable _playerScriptable;
         private readonly RuntimeDataScriptable _runtimeData;
         private readonly CompositeDisposable _disposables = new();
+        private readonly PlayerPauseStateData _pauseState;
+        private readonly PlayerInputActionHandler _inputHandler;
+        private readonly PlayerAutoMovementService _autoMovement;
+        private bool _isAffectedByPause = true;
+        private bool _disposed;
+
+        public bool IsAffectedByPause
+        {
+            get => _isAffectedByPause;
+            set
+            {
+                if (_isAffectedByPause == value)
+                    return;
+                _isAffectedByPause = value;
+                GlobalEventBus.Fire(
+                    new PausableAffectationChangedSignal(this));
+            }
+        }
 
         public Transform CollectionPoint => _view.CollectionPoint;
         public Collider2D CollectorCollider => _view.PlayerCollider;
@@ -40,7 +62,10 @@ namespace Systems.MineSystem.MinePlayerSystem.Controller
             CollectorRegistry collectorRegistry,
             MinePlayerDataConfig config,
             MinePlayerScriptable playerScriptable,
-            RuntimeDataScriptable runtimeData)
+            RuntimeDataScriptable runtimeData,
+            PlayerPauseStateData pauseState,
+            PlayerInputActionHandler inputHandler,
+            PlayerAutoMovementService autoMovement)
         {
             _model = model;
             _view = view;
@@ -48,6 +73,9 @@ namespace Systems.MineSystem.MinePlayerSystem.Controller
             _config = config;
             _playerScriptable = playerScriptable;
             _runtimeData = runtimeData;
+            _pauseState = pauseState;
+            _inputHandler = inputHandler;
+            _autoMovement = autoMovement;
             _view.gameObject.SetActive(false);
         }
         
@@ -64,6 +92,7 @@ namespace Systems.MineSystem.MinePlayerSystem.Controller
             SubscribeToAnimationEvents();
             SubscribeToDamageRequests();
             _collectorRegistry.Register(this);
+            GlobalEventBus.Fire(new PausableRegisteredSignal(this));
         }
 
         private void InitializePlayerData()
@@ -148,9 +177,59 @@ namespace Systems.MineSystem.MinePlayerSystem.Controller
         {
             return _model.TryCollect(item);
         }
+
+        public void OnPause()
+        {
+            if (_pauseState.IsPaused)
+                return;
+
+            var body = _view.Body;
+            _pauseState.HasSnapshot = true;
+            _pauseState.Velocity = body.linearVelocity;
+            _pauseState.AngularVelocity = body.angularVelocity;
+            _pauseState.GravityScale = body.gravityScale;
+            _pauseState.BodyWasSimulated = body.simulated;
+            _pauseState.MovementInput = _runtimeData.movementInput.Value;
+            _pauseState.AnimatorSpeed =
+                _view.AnimationController.AnimatorSpeed;
+            _pauseState.DamageWasEnabled = _view.DamageEnabled;
+            _pauseState.AutoMovementWasPlaying = _autoMovement.Pause();
+
+            _runtimeData.movementInput.Value = Vector2.zero;
+            _view.Stop();
+            body.angularVelocity = 0f;
+            body.simulated = false;
+            _view.AnimationController.SetAnimatorSpeed(0f);
+            _view.SetDamageEnabled(false);
+            _inputHandler.Pause();
+        }
+
+        public void OnUnpause()
+        {
+            if (!_pauseState.HasSnapshot)
+                return;
+
+            var body = _view.Body;
+            body.simulated = _pauseState.BodyWasSimulated;
+            body.gravityScale = _pauseState.GravityScale;
+            body.linearVelocity = _pauseState.Velocity;
+            body.angularVelocity = _pauseState.AngularVelocity;
+            _runtimeData.velocity.Value = _pauseState.Velocity;
+            _runtimeData.movementInput.Value = _pauseState.MovementInput;
+            _view.AnimationController.SetAnimatorSpeed(
+                _pauseState.AnimatorSpeed);
+            _view.SetDamageEnabled(_pauseState.DamageWasEnabled);
+            _inputHandler.Resume();
+            _autoMovement.Resume(_pauseState.AutoMovementWasPlaying);
+            _pauseState.ClearSnapshot();
+        }
         
         public void Dispose()
         {
+            if (_disposed)
+                return;
+            _disposed = true;
+            GlobalEventBus.Fire(new PausableUnregisteredSignal(this));
             _collectorRegistry.Unregister(this);
             if (_view != null)
                 _view.Stop();

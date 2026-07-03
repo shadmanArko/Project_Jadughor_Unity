@@ -29,6 +29,7 @@ namespace Systems.Utilities.ScreenShake
         private CinemachineFollow _follow;
         private Vector3 _baseFollowOffset;
         private Tween _activeShake;
+        private bool _shakeWasPlaying;
 
         public ScreenShakeController(CinemachineCamera camera)
         {
@@ -192,6 +193,23 @@ namespace Systems.Utilities.ScreenShake
 
             _activeShake = null;
             RestoreOffset();
+        }
+
+        public void PauseActiveShake()
+        {
+            _shakeWasPlaying = _activeShake != null &&
+                               _activeShake.IsActive() &&
+                               _activeShake.IsPlaying();
+            if (_shakeWasPlaying)
+                _activeShake.Pause();
+        }
+
+        public void ResumeActiveShake()
+        {
+            if (_shakeWasPlaying && _activeShake != null &&
+                _activeShake.IsActive())
+                _activeShake.Play();
+            _shakeWasPlaying = false;
         }
 
         private void RestoreOffset()

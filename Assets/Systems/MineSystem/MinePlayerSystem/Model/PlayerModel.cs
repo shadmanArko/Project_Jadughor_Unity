@@ -9,10 +9,11 @@ using System.Threading;
 using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using Zenject;
+using System;
 
 namespace Systems.MineSystem.MinePlayerSystem.Model
 {
-    public sealed class PlayerModel : IFixedTickable
+    public sealed class PlayerModel : IFixedTickable, IDisposable
     {
         private readonly RuntimeDataScriptable _runtime;
         private readonly PlayerGroundingService _groundingService;
@@ -26,6 +27,7 @@ namespace Systems.MineSystem.MinePlayerSystem.Model
         private readonly PlayerAutoAnimationService _autoAnimationService;
         private readonly IInventoryService _inventory;
         private readonly PlayerView _view;
+        private readonly PlayerPauseStateData _pauseState;
 
         public PlayerModel(
             RuntimeDataScriptable runtime,
@@ -39,7 +41,8 @@ namespace Systems.MineSystem.MinePlayerSystem.Model
             PlayerAutoMovementService autoMovementService,
             PlayerAutoAnimationService autoAnimationService,
             IInventoryService inventory,
-            PlayerView view)
+            PlayerView view,
+            PlayerPauseStateData pauseState)
         {
             _runtime = runtime;
             _groundingService = groundingService;
@@ -53,6 +56,7 @@ namespace Systems.MineSystem.MinePlayerSystem.Model
             _autoAnimationService = autoAnimationService;
             _inventory = inventory;
             _view = view;
+            _pauseState = pauseState;
         }
 
         public bool CanCollect(Item item)
@@ -121,7 +125,7 @@ namespace Systems.MineSystem.MinePlayerSystem.Model
 
         public void FixedTick()
         {
-            if (!_runtime.isSpawned.Value)
+            if (_pauseState.IsPaused || !_runtime.isSpawned.Value)
                 return;
 
             _groundingService.OnFixedTick();
@@ -132,6 +136,10 @@ namespace Systems.MineSystem.MinePlayerSystem.Model
             _movementService.OnFixedTick();
             _runtime.worldPosition.Value =
                 _view.PlayerCollider.bounds.center;
+        }
+
+        public void Dispose()
+        {
         }
     }
 }

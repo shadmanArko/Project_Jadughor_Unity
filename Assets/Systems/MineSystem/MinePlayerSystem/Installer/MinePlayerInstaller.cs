@@ -34,6 +34,8 @@ namespace Systems.MineSystem.MinePlayerSystem.Installer
                 .FromInstance(CreateInstance<RuntimeDataScriptable>())
                 .AsSingle();
 
+            Container.Bind<PlayerPauseStateData>().AsSingle();
+
             Container.Bind<InputSystem_Actions>()
                 .AsSingle()
                 .NonLazy();

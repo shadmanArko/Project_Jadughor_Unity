@@ -6,6 +6,8 @@ namespace Systems.MineSystem.ToolbarSystem.Interface
 {
     public interface IPlaceableDamageView : IDamageable, IItemizable
     {
+        bool DamageEnabled { get; }
         IObservable<float> DamageRequested { get; }
+        void SetDamageEnabled(bool enabled);
     }
 }

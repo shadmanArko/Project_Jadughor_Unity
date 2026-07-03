@@ -21,17 +21,20 @@ namespace Systems.MineSystem.MineTransitionSystem.Service
         private readonly MineView _mineView;
         private readonly MineTransitionConfig _config;
         private readonly CampView _campView;
+        private readonly MineTransitionPauseService _pause;
 
         public CampToMineService(
             PlayerTransitionService player,
             MineCameraController camera, 
             MineView mineView,
-            MineTransitionConfig config)
+            MineTransitionConfig config,
+            MineTransitionPauseService pause)
         {
             _player = player;
             _camera = camera;
             _mineView = mineView;
             _config = config;
+            _pause = pause;
         }
 
         public async UniTask<MineTransitionResult> ExecuteAsync(
@@ -43,12 +46,15 @@ namespace Systems.MineSystem.MineTransitionSystem.Service
 
             try
             {
+                await _pause.WaitAsync();
                 _player.PlayForcedAnimation(PlayerAnimationId.Move,
                     PlayerFacingDirection.Right);
                 await _player.AutoMoveAsync(_config.campWalkTarget,
                     _config.campWalkDuration, _config.playerMovementEase,
                     cancellationToken);
                 _player.ClearForcedAnimation();
+
+                await _pause.WaitAsync();
 
                 _camera.ClearFollowTarget();
                 _camera.SetFreeMovement(true);
@@ -60,6 +66,8 @@ namespace Systems.MineSystem.MineTransitionSystem.Service
                     entranceTop - _camera.OrthographicSize, cameraFrom.z);
                 await _camera.PanAsync(cameraFrom, cameraTo,
                     _config.cameraPanDuration, cancellationToken);
+
+                await _pause.WaitAsync();
 
                 _camera.SetFreeMovement(false);
                 _camera.SetFollowTarget(_player.PlayerTransform);
@@ -75,6 +83,8 @@ namespace Systems.MineSystem.MineTransitionSystem.Service
                     _mineView.grid.GetCellCenterWorld(landingCell),
                     _config.mineEntryDuration, _config.playerMovementEase,
                     cancellationToken);
+
+                await _pause.WaitAsync();
 
                 _player.ClearForcedAnimation();
                 _player.SetManualControlsEnabled(true);

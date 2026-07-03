@@ -9,16 +9,41 @@ using Systems.MineSystem.ToolbarSystem.Interface;
 using Systems.MineSystem.ToolbarSystem.Model;
 using Systems.Utilities.ScreenShake;
 using UnityEngine;
+using DG.Tweening;
+using Systems.MineSystem.PauseSystem.Interface;
+using Systems.MineSystem.PauseSystem.Signal;
+using Systems.Utilities.EventBus;
+using Zenject;
 
 namespace Systems.MineSystem.ToolbarSystem.Items.Prefabs.Placeables.Dynamite.Script
 {
-    public sealed class DynamiteExplosionService : IDisposable
+    public sealed class DynamiteExplosionService :
+        IPausable,
+        IInitializable,
+        IDisposable
     {
         private readonly MineModel _mine;
         private readonly MineView _mineView;
         private readonly ExplosionSmokePool _smokePool;
         private readonly ICellDamageService _cellDamage;
         private readonly CancellationTokenSource _lifetime = new();
+        private readonly List<ExplosionSmokeView> _activeSmoke = new();
+        private Tween _stageDelay;
+        private bool _stageDelayWasPlaying;
+        private bool _isAffectedByPause = true;
+        private bool _isPaused;
+        private bool _disposed;
+
+        public bool IsAffectedByPause
+        {
+            get => _isAffectedByPause;
+            set
+            {
+                if (_isAffectedByPause == value) return;
+                _isAffectedByPause = value;
+                GlobalEventBus.Fire(new PausableAffectationChangedSignal(this));
+            }
+        }
 
         public DynamiteExplosionService(
             MineModel mine,
@@ -31,6 +56,9 @@ namespace Systems.MineSystem.ToolbarSystem.Items.Prefabs.Placeables.Dynamite.Scr
             _smokePool = smokePool;
             _cellDamage = cellDamage;
         }
+
+        public void Initialize() =>
+            GlobalEventBus.Fire(new PausableRegisteredSignal(this));
 
         public void Detonate(
             PlaceableSpawnContext context,
@@ -108,15 +136,46 @@ namespace Systems.MineSystem.ToolbarSystem.Items.Prefabs.Placeables.Dynamite.Scr
                 cancellationToken);
         }
 
-        private static UniTask WaitBetweenStagesAsync(
+        private UniTask WaitBetweenStagesAsync(
             DynamiteConfig config,
             CancellationToken cancellationToken)
         {
             return config.DelayBetweenStages <= 0f
                 ? UniTask.CompletedTask
-                : UniTask.Delay(
-                    TimeSpan.FromSeconds(config.DelayBetweenStages),
-                    cancellationToken: cancellationToken);
+                : AwaitStageDelayAsync(
+                    config.DelayBetweenStages,
+                    cancellationToken);
+        }
+
+        private async UniTask AwaitStageDelayAsync(
+            float seconds,
+            CancellationToken cancellationToken)
+        {
+            var tween = DOVirtual.DelayedCall(seconds, () => { }, false);
+            _stageDelay = tween;
+            if (_isPaused) tween.Pause();
+            var completion = new UniTaskCompletionSource();
+            var finished = false;
+            CancellationTokenRegistration registration = default;
+            tween.OnComplete(() =>
+            {
+                if (finished) return;
+                finished = true;
+                registration.Dispose();
+                completion.TrySetResult();
+            });
+            tween.OnKill(() =>
+            {
+                if (finished) return;
+                finished = true;
+                registration.Dispose();
+                if (cancellationToken.IsCancellationRequested)
+                    completion.TrySetCanceled(cancellationToken);
+                else completion.TrySetResult();
+            });
+            registration = cancellationToken.Register(() => tween.Kill());
+            await completion.Task;
+            if (ReferenceEquals(_stageDelay, tween)) _stageDelay = null;
         }
 
         private Vector3Int[] CollectParticipatingCells(
@@ -222,6 +281,8 @@ namespace Systems.MineSystem.ToolbarSystem.Items.Prefabs.Placeables.Dynamite.Scr
         {
             try
             {
+                _activeSmoke.Add(smoke);
+                if (_isPaused) smoke.PausePlayback();
                 await smoke.PlayAsync(
                     worldPosition,
                     config,
@@ -249,6 +310,7 @@ namespace Systems.MineSystem.ToolbarSystem.Items.Prefabs.Placeables.Dynamite.Scr
             }
             finally
             {
+                _activeSmoke.Remove(smoke);
                 _smokePool.Despawn(smoke);
             }
         }
@@ -269,9 +331,35 @@ namespace Systems.MineSystem.ToolbarSystem.Items.Prefabs.Placeables.Dynamite.Scr
 
         public void Dispose()
         {
+            if (_disposed) return;
+            _disposed = true;
+            GlobalEventBus.Fire(new PausableUnregisteredSignal(this));
             if (!_lifetime.IsCancellationRequested)
                 _lifetime.Cancel();
             _lifetime.Dispose();
+        }
+
+        public void OnPause()
+        {
+            if (_isPaused) return;
+            _isPaused = true;
+            _stageDelayWasPlaying = _stageDelay != null &&
+                                    _stageDelay.IsActive() &&
+                                    _stageDelay.IsPlaying();
+            if (_stageDelayWasPlaying) _stageDelay.Pause();
+            for (var i = 0; i < _activeSmoke.Count; i++)
+                _activeSmoke[i].PausePlayback();
+        }
+
+        public void OnUnpause()
+        {
+            if (!_isPaused) return;
+            _isPaused = false;
+            if (_stageDelayWasPlaying && _stageDelay != null &&
+                _stageDelay.IsActive()) _stageDelay.Play();
+            _stageDelayWasPlaying = false;
+            for (var i = 0; i < _activeSmoke.Count; i++)
+                _activeSmoke[i].ResumePlayback();
         }
     }
 }

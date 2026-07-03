@@ -7,16 +7,36 @@ using Systems.MineSystem.Mine.View;
 using Unity.Cinemachine;
 using UnityEngine;
 using Zenject;
+using Systems.MineSystem.PauseSystem.Interface;
+using Systems.MineSystem.PauseSystem.Signal;
+using Systems.Utilities.EventBus;
 
 namespace Systems.MineSystem.Utilities.Camera
 {
-    public sealed class MineCameraController : IInitializable, IDisposable
+    public sealed class MineCameraController :
+        IPausable,
+        IInitializable,
+        IDisposable
     {
         private readonly CinemachineCamera _camera;
         private readonly MineView _mineView;
         private readonly MineCameraConfig _config;
         private CinemachineConfiner2D _confiner;
         private Tween _activeTween;
+        private bool _isAffectedByPause = true;
+        private bool _tweenWasPlaying;
+        private bool _disposed;
+
+        public bool IsAffectedByPause
+        {
+            get => _isAffectedByPause;
+            set
+            {
+                if (_isAffectedByPause == value) return;
+                _isAffectedByPause = value;
+                GlobalEventBus.Fire(new PausableAffectationChangedSignal(this));
+            }
+        }
 
         public Vector3 Position => _camera.transform.position;
         public float OrthographicSize => _camera.Lens.OrthographicSize;
@@ -43,6 +63,7 @@ namespace Systems.MineSystem.Utilities.Camera
             _confiner.BoundingShape2D = _mineView.cameraBoundaryCollider;
             ClearFollowTarget();
             SetFreeMovement(true);
+            GlobalEventBus.Fire(new PausableRegisteredSignal(this));
         }
 
         public void ConfigureMineBounds(MineData mineData)
@@ -136,8 +157,26 @@ namespace Systems.MineSystem.Utilities.Camera
 
         public void Dispose()
         {
+            if (_disposed) return;
+            _disposed = true;
+            GlobalEventBus.Fire(new PausableUnregisteredSignal(this));
             _activeTween?.Kill();
             _activeTween = null;
+        }
+
+        public void OnPause()
+        {
+            _tweenWasPlaying = _activeTween != null &&
+                               _activeTween.IsActive() &&
+                               _activeTween.IsPlaying();
+            if (_tweenWasPlaying) _activeTween.Pause();
+        }
+
+        public void OnUnpause()
+        {
+            if (_tweenWasPlaying && _activeTween != null &&
+                _activeTween.IsActive()) _activeTween.Play();
+            _tweenWasPlaying = false;
         }
     }
 }

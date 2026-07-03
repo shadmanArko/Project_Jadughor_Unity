@@ -84,5 +84,20 @@ namespace Systems.MineSystem.MinePlayerSystem.Service
             _activeTween?.Kill();
             _activeTween = null;
         }
+
+        public bool Pause()
+        {
+            if (_activeTween == null || !_activeTween.IsActive() ||
+                !_activeTween.IsPlaying())
+                return false;
+            _activeTween.Pause();
+            return true;
+        }
+
+        public void Resume(bool wasPlaying)
+        {
+            if (wasPlaying && _activeTween != null && _activeTween.IsActive())
+                _activeTween.Play();
+        }
     }
 }

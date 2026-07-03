@@ -13,6 +13,7 @@ namespace Systems.MineSystem.MinePlayerSystem.View
     {
         private static PhysicsMaterial2D _frictionlessMaterial;
         private readonly Subject<float> _damageRequested = new();
+        private bool _damageEnabled = true;
 
         [SerializeField] private Rigidbody2D body;
         [SerializeField] private Collider2D playerCollider;
@@ -33,11 +34,16 @@ namespace Systems.MineSystem.MinePlayerSystem.View
         public IObservable<PlayerAnimationCompletedEvent> AnimationCompleted =>
             animationController.Completed;
         public IObservable<float> DamageRequested => _damageRequested;
+        public bool DamageEnabled => _damageEnabled;
 
         public void ApplyDamage(float amount)
         {
-            _damageRequested.OnNext(amount);
+            if (_damageEnabled)
+                _damageRequested.OnNext(amount);
         }
+
+        public void SetDamageEnabled(bool enabled) =>
+            _damageEnabled = enabled;
 
         public void Configure()
         {

@@ -6,13 +6,16 @@ using Systems.MineSystem.Mine.Model;
 using Systems.MineSystem.Mine.View;
 using Systems.MineSystem.ToolbarSystem.Interface;
 using Systems.MineSystem.ToolbarSystem.Model;
+using Systems.MineSystem.ToolbarSystem.Service;
+using Systems.MineSystem.PauseSystem.Service;
+using DG.Tweening;
 using UniRx;
 using UnityEngine;
 
 namespace Systems.MineSystem.Mine.Service.VisualizerService
 {
     public abstract class CaveFormationRuntime :
-        MonoBehaviour,
+        PausablePlaceableRuntime,
         IPlaceableRuntime
     {
         private readonly CompositeDisposable _disposables = new();
@@ -20,6 +23,9 @@ namespace Systems.MineSystem.Mine.Service.VisualizerService
         private float _health;
         private bool _isBreaking;
         private CancellationTokenSource _lifetime;
+        private readonly PauseGate _pauseGate = new();
+        private Tween _activeDelay;
+        private bool _delayWasPlaying;
 
         protected CaveFormationConfig Config { get; private set; }
         protected MineView MineView { get; private set; }
@@ -28,7 +34,8 @@ namespace Systems.MineSystem.Mine.Service.VisualizerService
         protected Animator Animator { get; private set; }
 
         public PlaceableSpawnContext Context { get; private set; }
-        public IPlaceableDamageView DamageView { get; private set; }
+        private IPlaceableDamageView _damageView;
+        public override IPlaceableDamageView DamageView => _damageView;
         public Vector3Int CellPosition { get; private set; }
         public string CellId => Cell?.Id;
         public string RootCellId { get; private set; }
@@ -102,9 +109,52 @@ namespace Systems.MineSystem.Mine.Service.VisualizerService
             if (duration <= 0f)
                 return;
 
-            await UniTask.Delay(
-                TimeSpan.FromSeconds(duration),
-                cancellationToken: cancellationToken);
+            var tween = DOVirtual.DelayedCall(duration, () => { }, false);
+            _activeDelay = tween;
+            var completion = new UniTaskCompletionSource();
+            var finished = false;
+            CancellationTokenRegistration registration = default;
+            tween.OnComplete(() =>
+            {
+                if (finished) return;
+                finished = true;
+                registration.Dispose();
+                completion.TrySetResult();
+            });
+            tween.OnKill(() =>
+            {
+                if (finished) return;
+                finished = true;
+                registration.Dispose();
+                if (cancellationToken.IsCancellationRequested)
+                    completion.TrySetCanceled(cancellationToken);
+                else completion.TrySetResult();
+            });
+            if (cancellationToken.CanBeCanceled)
+                registration = cancellationToken.Register(() => tween.Kill());
+            await completion.Task;
+            if (ReferenceEquals(_activeDelay, tween)) _activeDelay = null;
+        }
+
+        protected UniTask WaitForResumeAsync() => _pauseGate.WaitAsync();
+
+        public override void OnPause()
+        {
+            base.OnPause();
+            _pauseGate.Pause();
+            _delayWasPlaying = _activeDelay != null &&
+                               _activeDelay.IsActive() &&
+                               _activeDelay.IsPlaying();
+            if (_delayWasPlaying) _activeDelay.Pause();
+        }
+
+        public override void OnUnpause()
+        {
+            base.OnUnpause();
+            if (_delayWasPlaying && _activeDelay != null &&
+                _activeDelay.IsActive()) _activeDelay.Play();
+            _delayWasPlaying = false;
+            _pauseGate.Resume();
         }
 
         protected bool TryBeginBreak()
@@ -144,6 +194,7 @@ namespace Systems.MineSystem.Mine.Service.VisualizerService
 
         protected virtual void OnDisable()
         {
+            ClearPauseState();
             DisposeRuntime();
         }
 
@@ -167,9 +218,9 @@ namespace Systems.MineSystem.Mine.Service.VisualizerService
 
         private void EnsureRuntimeComponents()
         {
-            DamageView = GetComponentInChildren<CaveFormationDamageView>(true);
-            if (DamageView == null)
-                DamageView = gameObject.AddComponent<CaveFormationDamageView>();
+            _damageView = GetComponentInChildren<CaveFormationDamageView>(true);
+            if (_damageView == null)
+                _damageView = gameObject.AddComponent<CaveFormationDamageView>();
 
             Animator = GetComponentInChildren<Animator>(true);
             foreach (var collider in GetComponentsInChildren<Collider2D>(true))
@@ -183,6 +234,9 @@ namespace Systems.MineSystem.Mine.Service.VisualizerService
 
         private void DisposeRuntime()
         {
+            _activeDelay?.Kill();
+            _activeDelay = null;
+            _pauseGate.Resume();
             _disposables.Clear();
             if (_lifetime != null)
             {

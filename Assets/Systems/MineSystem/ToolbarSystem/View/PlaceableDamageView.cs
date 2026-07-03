@@ -11,17 +11,22 @@ namespace Systems.MineSystem.ToolbarSystem.View
     {
         private readonly Subject<float> _damageRequested = new();
         private Func<bool> _convertToItem;
+        private bool _damageEnabled = true;
 
         public IObservable<float> DamageRequested => _damageRequested;
+        public bool DamageEnabled => _damageEnabled;
 
         public void ApplyDamage(float amount)
         {
-            _damageRequested.OnNext(amount);
+            if (_damageEnabled)
+                _damageRequested.OnNext(amount);
         }
+
+        public void SetDamageEnabled(bool enabled) => _damageEnabled = enabled;
 
         public bool ConvertToItem()
         {
-            return _convertToItem?.Invoke() == true;
+            return _damageEnabled && _convertToItem?.Invoke() == true;
         }
 
         public void ConfigureItemization(Func<bool> convertToItem)

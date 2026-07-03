@@ -2,12 +2,17 @@ using System;
 using System.Threading;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
+using DG.Tweening;
 
 namespace Systems.MineSystem.ToolbarSystem.Items.Prefabs.Placeables.Dynamite.Script
 {
     public sealed class ExplosionSmokeView : MonoBehaviour
     {
         [SerializeField] private Animator animator;
+        private Tween _activeDelay;
+        private float _animatorSpeed;
+        private bool _delayWasPlaying;
+        private bool _isPaused;
 
         public async UniTask PlayAsync(
             Vector3 worldPosition,
@@ -34,9 +39,7 @@ namespace Systems.MineSystem.ToolbarSystem.Items.Prefabs.Placeables.Dynamite.Scr
 
             if (impactDelay > 0f)
             {
-                await UniTask.Delay(
-                    TimeSpan.FromSeconds(impactDelay),
-                    cancellationToken: cancellationToken);
+                await DelayAsync(impactDelay, cancellationToken);
             }
 
             impact?.Invoke();
@@ -44,14 +47,71 @@ namespace Systems.MineSystem.ToolbarSystem.Items.Prefabs.Placeables.Dynamite.Scr
             var remaining = duration - impactDelay;
             if (remaining > 0f)
             {
-                await UniTask.Delay(
-                    TimeSpan.FromSeconds(remaining),
-                    cancellationToken: cancellationToken);
+                await DelayAsync(remaining, cancellationToken);
             }
+        }
+
+        private async UniTask DelayAsync(
+            float seconds,
+            CancellationToken cancellationToken)
+        {
+            var tween = DOVirtual.DelayedCall(seconds, () => { }, false);
+            _activeDelay = tween;
+            if (_isPaused)
+            {
+                _delayWasPlaying = true;
+                tween.Pause();
+            }
+            var completion = new UniTaskCompletionSource();
+            var finished = false;
+            CancellationTokenRegistration registration = default;
+            tween.OnComplete(() =>
+            {
+                if (finished) return;
+                finished = true;
+                registration.Dispose();
+                completion.TrySetResult();
+            });
+            tween.OnKill(() =>
+            {
+                if (finished) return;
+                finished = true;
+                registration.Dispose();
+                if (cancellationToken.IsCancellationRequested)
+                    completion.TrySetCanceled(cancellationToken);
+                else completion.TrySetResult();
+            });
+            if (cancellationToken.CanBeCanceled)
+                registration = cancellationToken.Register(() => tween.Kill());
+            await completion.Task;
+            if (ReferenceEquals(_activeDelay, tween)) _activeDelay = null;
+        }
+
+        public void PausePlayback()
+        {
+            _isPaused = true;
+            _animatorSpeed = animator != null ? animator.speed : 0f;
+            if (animator != null) animator.speed = 0f;
+            _delayWasPlaying = _activeDelay != null &&
+                               _activeDelay.IsActive() &&
+                               _activeDelay.IsPlaying();
+            if (_delayWasPlaying) _activeDelay.Pause();
+        }
+
+        public void ResumePlayback()
+        {
+            _isPaused = false;
+            if (animator != null) animator.speed = _animatorSpeed;
+            if (_delayWasPlaying && _activeDelay != null &&
+                _activeDelay.IsActive()) _activeDelay.Play();
+            _delayWasPlaying = false;
         }
 
         public void ResetView()
         {
+            _activeDelay?.Kill();
+            _activeDelay = null;
+            _isPaused = false;
             if (animator != null)
                 animator.Rebind();
 
