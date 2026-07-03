@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11111111111141118111111111111127, type: 3}
+  m_Name: StonePickaxeActionProfile
+  m_EditorClassIdentifier: Assembly-CSharp::Systems.MineSystem.ToolbarSystem.Profile.ToolActionProfile
+  itemType: Equippable
+  itemCategory: Tool
+  itemVariant: StonePickaxe
+  iconSprite: {fileID: 21300000, guid: e76fd636377d8ca44adc668423409ec2, type: 3}
+  range: 1
+  groundAnimations:
+    up: equippable.pickaxe.ordinaryPickaxe.ground.up
+    down: equippable.pickaxe.ordinaryPickaxe.ground.down
+    left: equippable.pickaxe.ordinaryPickaxe.ground.left
+    right: equippable.pickaxe.ordinaryPickaxe.ground.right
+  climbAnimations:
+    up: equippable.pickaxe.ordinaryPickaxe.climb.up
+    down: 
+    left: equippable.pickaxe.ordinaryPickaxe.climb.left
+    right: equippable.pickaxe.ordinaryPickaxe.climb.right
+  wallDamage: 10
+  cooldownSeconds: 0

@@ -1,0 +1,288 @@
+using System;
+using DG.Tweening;
+using Unity.Cinemachine;
+using UnityEngine;
+using Zenject;
+
+namespace Systems.Utilities.ScreenShake
+{
+    [Serializable]
+    public sealed class ScreenShakeController :
+        IInitializable,
+        IDisposable
+    {
+        private static ScreenShakeController _instance;
+        private static bool _canScreenShake = true;
+
+        public static bool CanScreenShake
+        {
+            get => _canScreenShake;
+            set
+            {
+                _canScreenShake = value;
+                if (!value)
+                    _instance?.StopActiveShake();
+            }
+        }
+
+        private readonly CinemachineCamera _camera;
+        private CinemachineFollow _follow;
+        private Vector3 _baseFollowOffset;
+        private Tween _activeShake;
+        private bool _shakeWasPlaying;
+
+        public ScreenShakeController(CinemachineCamera camera)
+        {
+            _camera = camera;
+        }
+
+        public void Initialize()
+        {
+            _follow = _camera != null
+                ? _camera.GetComponent<CinemachineFollow>()
+                : null;
+
+            if (_follow == null)
+            {
+                Debug.LogError(
+                    "ScreenShakeController requires a CinemachineFollow component.");
+                return;
+            }
+
+            _baseFollowOffset = _follow.FollowOffset;
+            _instance = this;
+        }
+
+        public static void DownwardShake(
+            ScreenShakeLevel level = ScreenShakeLevel.Medium)
+        {
+            if (!TryGetInstance(out var controller))
+                return;
+
+            controller.PlayDirectionalShake(Vector2.down, level);
+        }
+
+        public static void UpwardShake(
+            ScreenShakeLevel level = ScreenShakeLevel.Medium)
+        {
+            if (!TryGetInstance(out var controller))
+                return;
+
+            controller.PlayDirectionalShake(Vector2.up, level);
+        }
+
+        public static void LeftwardShake(
+            ScreenShakeLevel level = ScreenShakeLevel.Medium)
+        {
+            if (!TryGetInstance(out var controller))
+                return;
+
+            controller.PlayDirectionalShake(Vector2.left, level);
+        }
+
+        public static void RightwardShake(
+            ScreenShakeLevel level = ScreenShakeLevel.Medium)
+        {
+            if (!TryGetInstance(out var controller))
+                return;
+
+            controller.PlayDirectionalShake(Vector2.right, level);
+        }
+
+        public static void RandomShake(
+            float duration,
+            float strength = 0.08f)
+        {
+            if (!TryGetInstance(out var controller))
+                return;
+
+            controller.PlayRandomShake(duration, strength);
+        }
+
+        public static void Stop()
+        {
+            _instance?.StopActiveShake();
+        }
+
+        private void PlayDirectionalShake(
+            Vector2 direction,
+            ScreenShakeLevel level)
+        {
+            GetDirectionalSettings(
+                level,
+                out var duration,
+                out var strength,
+                out var vibrato);
+
+            StartDirectionalPunch(
+                duration,
+                new Vector3(
+                    direction.x * strength,
+                    direction.y * strength,
+                    0f),
+                vibrato);
+        }
+
+        private void PlayRandomShake(float duration, float strength)
+        {
+            duration = Mathf.Max(0.01f, duration);
+            strength = Mathf.Max(0f, strength);
+            if (strength <= 0f)
+                return;
+
+            StartShake(
+                duration,
+                new Vector3(strength, strength, 0f),
+                Mathf.Max(2, Mathf.RoundToInt(duration * 30f)),
+                90f,
+                ShakeRandomnessMode.Full);
+        }
+
+        private void StartShake(
+            float duration,
+            Vector3 strength,
+            int vibrato,
+            float randomness,
+            ShakeRandomnessMode randomnessMode)
+        {
+            StopActiveShake();
+
+            Tween shake = null;
+            shake = DOTween.Shake(
+                    () => _follow.FollowOffset,
+                    value => _follow.FollowOffset = value,
+                    duration,
+                    strength,
+                    vibrato,
+                    randomness,
+                    false,
+                    randomnessMode)
+                .SetUpdate(true)
+                .SetTarget(this)
+                .OnKill(() => FinishShake(shake))
+                .OnComplete(() => FinishShake(shake));
+            _activeShake = shake;
+        }
+
+        private void StartDirectionalPunch(
+            float duration,
+            Vector3 direction,
+            int vibrato)
+        {
+            StopActiveShake();
+
+            Tween shake = null;
+            shake = DOTween.Punch(
+                    () => _follow.FollowOffset,
+                    value => _follow.FollowOffset = value,
+                    direction,
+                    duration,
+                    vibrato,
+                    0.35f)
+                .SetUpdate(true)
+                .SetTarget(this)
+                .OnKill(() => FinishShake(shake))
+                .OnComplete(() => FinishShake(shake));
+            _activeShake = shake;
+        }
+
+        private void StopActiveShake()
+        {
+            if (_activeShake != null && _activeShake.IsActive())
+                _activeShake.Kill();
+
+            _activeShake = null;
+            RestoreOffset();
+        }
+
+        public void PauseActiveShake()
+        {
+            _shakeWasPlaying = _activeShake != null &&
+                               _activeShake.IsActive() &&
+                               _activeShake.IsPlaying();
+            if (_shakeWasPlaying)
+                _activeShake.Pause();
+        }
+
+        public void ResumeActiveShake()
+        {
+            if (_shakeWasPlaying && _activeShake != null &&
+                _activeShake.IsActive())
+                _activeShake.Play();
+            _shakeWasPlaying = false;
+        }
+
+        private void RestoreOffset()
+        {
+            if (_follow != null)
+                _follow.FollowOffset = _baseFollowOffset;
+        }
+
+        private void FinishShake(Tween shake)
+        {
+            if (!ReferenceEquals(_activeShake, shake))
+                return;
+
+            _activeShake = null;
+            RestoreOffset();
+        }
+
+        private static void GetDirectionalSettings(
+            ScreenShakeLevel level,
+            out float duration,
+            out float strength,
+            out int vibrato)
+        {
+            switch (level)
+            {
+                case ScreenShakeLevel.Light:
+                    duration = 0.04f;
+                    strength = 0.02f;
+                    vibrato = 3;
+                    break;
+                case ScreenShakeLevel.Medium:
+                    duration = 0.1f;
+                    strength = 0.04f;
+                    vibrato = 4;
+                    break;
+                case ScreenShakeLevel.Heavy:
+                    duration = 0.14f;
+                    strength = 0.07f;
+                    vibrato = 5;
+                    break;
+                case ScreenShakeLevel.Extreme:
+                    duration = 0.18f;
+                    strength = 0.11f;
+                    vibrato = 7;
+                    break;
+                default:
+                    duration = 0.12f;
+                    strength = 0.02f;
+                    vibrato = 3;
+                    break;
+            }
+        }
+
+        private static bool TryGetInstance(
+            out ScreenShakeController controller)
+        {
+            controller = _instance;
+            if (!_canScreenShake)
+                return false;
+
+            if (controller != null && controller._follow != null)
+                return true;
+
+            Debug.LogWarning(
+                "Screen shake was requested before ScreenShakeController initialized.");
+            return false;
+        }
+
+        public void Dispose()
+        {
+            StopActiveShake();
+            if (ReferenceEquals(_instance, this))
+                _instance = null;
+        }
+    }
+}

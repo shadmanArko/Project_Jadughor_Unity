@@ -2,17 +2,17 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!78 &1
 TagManager:
-  serializedVersion: 2
+  serializedVersion: 3
   tags: []
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Collectable
   - Water
   - UI
-  - 
-  - 
+  - Player
+  - Wall
   - 
   - 
   - 
@@ -41,3 +41,41 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Background
+    uniqueID: 3965370595
+    locked: 0
+  - name: SpecialBackdrop
+    uniqueID: 3950958223
+    locked: 0
+  - name: Vine
+    uniqueID: 4035512281
+    locked: 0
+  - name: Wall
+    uniqueID: 2089630699
+    locked: 0
+  - name: Artifact
+    uniqueID: 170277371
+    locked: 0
+  - name: Resource
+    uniqueID: 1354806321
+    locked: 0
+  - name: Placeable
+    uniqueID: 1615840499
+    locked: 0
+  - name: Crack
+    uniqueID: 1273293183
+    locked: 0
+  - name: Player
+    uniqueID: 392558305
+    locked: 0
+  - name: Collectable
+    uniqueID: 3696210385
+    locked: 0
+  - name: PlaceablePreview
+    uniqueID: 2840252971
+    locked: 0
+  - name: Unrevealed
+    uniqueID: 2822122113
+    locked: 0
+  m_RenderingLayers:
+  - Default

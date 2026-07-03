@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4444444444444444844444444444444d, type: 3}
+  m_Name: PileDriverConfig
+  m_EditorClassIdentifier: Assembly-CSharp::Systems.MineSystem.ToolbarSystem.Items.Prefabs.Placeables.PileDriver.Script.PileDriverConfig
+  processedCellCount: 5
+  firstTargetOffset: 2
+  damagePerStomp: 10
+  secondsPerCell: 3
+  hardStompSecondsPerCell: 0.2
+  stompTravelCells: 0.5
+  delayAfterStomp: 2
+  turnOnState: TurnOn
+  activeState: Active
+  turnOffState: TurnOff
+  turnOnFallbackDuration: 0.02
+  turnOffFallbackDuration: 0.02
+  extremeShakeDistance: 3
+  heavyShakeDistance: 6
+  mediumShakeDistance: 9
+  lightShakeDistance: 12
+  fallbackCellWorldSize: 0.2

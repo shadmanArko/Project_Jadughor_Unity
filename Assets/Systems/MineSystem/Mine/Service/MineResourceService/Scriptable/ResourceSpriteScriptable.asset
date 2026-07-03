@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc2b5fe7784a4a02a9bbb5b048d1a060, type: 3}
+  m_Name: ResourceSpriteScriptable
+  m_EditorClassIdentifier: Assembly-CSharp::Systems.MineSystem.ResourceSystem.Scriptable.ResourceSpriteScriptable
+  resourceSpriteDatas:
+  - region: 1
+    site: 0
+    spriteDatas:
+    - id: Coal
+      objectSprite: {fileID: -9184849575763380954, guid: 0e5d88be3fd712c4ca7c3767a78cab3c, type: 3}
+      iconSprite: {fileID: 21300000, guid: 2518aaf392df9f84ebf8d2ed65d7c4bb, type: 3}
+    - id: Iron
+      objectSprite: {fileID: -7248506988745690217, guid: 0e5d88be3fd712c4ca7c3767a78cab3c, type: 3}
+      iconSprite: {fileID: 21300000, guid: 8f95b0040553de248a0d22fc8e156727, type: 3}
+    - id: MilkyQuartz
+      objectSprite: {fileID: 4648121433337308090, guid: 0e5d88be3fd712c4ca7c3767a78cab3c, type: 3}
+      iconSprite: {fileID: 21300000, guid: 452bef1244624ca4ba02ee3a3861ea78, type: 3}
+    - id: PinkQuartz
+      objectSprite: {fileID: -2326459205579473762, guid: 0e5d88be3fd712c4ca7c3767a78cab3c, type: 3}
+      iconSprite: {fileID: 21300000, guid: 0e1181e00617a2045af392f536d6bc9b, type: 3}
+    - id: SmokyQuartz
+      objectSprite: {fileID: 3857046670083785811, guid: 0e5d88be3fd712c4ca7c3767a78cab3c, type: 3}
+      iconSprite: {fileID: 21300000, guid: 3a774e8a4ca622042810c2f5b516a94b, type: 3}
+    - id: BlueQuartz
+      objectSprite: {fileID: -4689007363366001974, guid: 0e5d88be3fd712c4ca7c3767a78cab3c, type: 3}
+      iconSprite: {fileID: 21300000, guid: 6a5b297e7f4ad2f448563dbcdff75774, type: 3}

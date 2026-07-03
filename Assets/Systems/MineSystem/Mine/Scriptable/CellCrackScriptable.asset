@@ -1,0 +1,86 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f1d9296b01446f38757df6bc6608e6d, type: 3}
+  m_Name: CellCrackScriptable
+  m_EditorClassIdentifier: Assembly-CSharp::Systems.MineSystem.Mine.Scriptable.CellCrackScriptable
+  cellCrackSpriteDatas:
+  - region: 1
+    site: 0
+    cellCrackSpriteDataList:
+    - direction: 1
+      crackSpriteDataList:
+      - size: 0
+        sprite:
+          id: 
+          objectSprite: {fileID: 25024599, guid: 74c46aac5208fa04ca5876c03a8e3b44, type: 3}
+          iconSprite: {fileID: 0}
+      - size: 1
+        sprite:
+          id: 
+          objectSprite: {fileID: -805175294, guid: 74c46aac5208fa04ca5876c03a8e3b44, type: 3}
+          iconSprite: {fileID: 0}
+      - size: 2
+        sprite:
+          id: 
+          objectSprite: {fileID: 1195799274, guid: 74c46aac5208fa04ca5876c03a8e3b44, type: 3}
+          iconSprite: {fileID: 0}
+    - direction: 0
+      crackSpriteDataList:
+      - size: 0
+        sprite:
+          id: 
+          objectSprite: {fileID: 1844481982, guid: 74c46aac5208fa04ca5876c03a8e3b44, type: 3}
+          iconSprite: {fileID: 0}
+      - size: 1
+        sprite:
+          id: 
+          objectSprite: {fileID: 593941684, guid: 74c46aac5208fa04ca5876c03a8e3b44, type: 3}
+          iconSprite: {fileID: 0}
+      - size: 2
+        sprite:
+          id: 
+          objectSprite: {fileID: 1866020648, guid: 74c46aac5208fa04ca5876c03a8e3b44, type: 3}
+          iconSprite: {fileID: 0}
+    - direction: 2
+      crackSpriteDataList:
+      - size: 0
+        sprite:
+          id: 
+          objectSprite: {fileID: -899373481, guid: 74c46aac5208fa04ca5876c03a8e3b44, type: 3}
+          iconSprite: {fileID: 0}
+      - size: 1
+        sprite:
+          id: 
+          objectSprite: {fileID: -1552198900, guid: 74c46aac5208fa04ca5876c03a8e3b44, type: 3}
+          iconSprite: {fileID: 0}
+      - size: 2
+        sprite:
+          id: 
+          objectSprite: {fileID: 684765030, guid: 74c46aac5208fa04ca5876c03a8e3b44, type: 3}
+          iconSprite: {fileID: 0}
+    - direction: 3
+      crackSpriteDataList:
+      - size: 0
+        sprite:
+          id: 
+          objectSprite: {fileID: -609085773, guid: 74c46aac5208fa04ca5876c03a8e3b44, type: 3}
+          iconSprite: {fileID: 0}
+      - size: 1
+        sprite:
+          id: 
+          objectSprite: {fileID: 94050799, guid: 74c46aac5208fa04ca5876c03a8e3b44, type: 3}
+          iconSprite: {fileID: 0}
+      - size: 2
+        sprite:
+          id: 
+          objectSprite: {fileID: -2146458473, guid: 74c46aac5208fa04ca5876c03a8e3b44, type: 3}
+          iconSprite: {fileID: 0}
