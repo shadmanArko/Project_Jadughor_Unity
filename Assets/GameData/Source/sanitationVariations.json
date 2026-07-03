@@ -1,0 +1,12 @@
+[
+  {
+    "SanitationId": "Toilet1",
+    "PlacementCost": 50.0,
+    "CanAccomodate": 2,
+    "LengthInTiles": 2,
+    "WidthInTiles": 2,
+    "NumberOfTilesNeeded": 4,
+    "NumberOfFrames": 4,
+    "BeautyRating": 5.0
+  }
+]

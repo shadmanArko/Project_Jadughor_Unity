@@ -13,6 +13,13 @@ public class MuseumTilePlacementManager : MonoBehaviour
     private TileBase selectedTile;
     private int selectedIndex = 0;
 
+    /// <summary>
+    /// Read-only view of the placeable tiles, so the builder panel can list them as
+    /// Flooring cards without owning the tileset. Never null.
+    /// </summary>
+    public System.Collections.Generic.IReadOnlyList<TileBase> AvailableTiles =>
+        availableTiles ?? System.Array.Empty<TileBase>();
+
     [Header("Placement Settings")]
     [SerializeField] private Color previewColor = new Color(1f, 1f, 1f, 0.5f);
 

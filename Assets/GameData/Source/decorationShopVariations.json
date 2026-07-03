@@ -1,0 +1,28 @@
+[
+  {
+    "VariationName": "vendingmachine1",
+    "NumberOfTilesNeeded": 1,
+    "IsDrinkShop": true,
+    "IsFoodShop": false,
+    "IsSouvenirShop": false,
+    "BasePricePerItem": 5,
+    "LengthInTiles": 1,
+    "WidthInTiles": 1,
+    "NumberOfFrames": 4,
+    "BeautyRating": 4,
+    "PlacementCost": 100.0
+  },
+  {
+    "VariationName": "vendingmachine2",
+    "NumberOfTilesNeeded": 1,
+    "IsDrinkShop": false,
+    "IsFoodShop": true,
+    "IsSouvenirShop": false,
+    "BasePricePerItem": 8,
+    "LengthInTiles": 1,
+    "WidthInTiles": 1,
+    "BeautyRating": 4,
+    "PlacementCost": 75.0,
+    "NumberOfFrames": 4
+  }
+]

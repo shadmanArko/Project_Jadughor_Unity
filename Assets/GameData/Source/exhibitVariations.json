@@ -1,0 +1,25 @@
+[
+  {
+	"VariationName": "BasicExhibit1x1",
+	"Price": 50,
+	"ExhibitDecoration": "Sprite-0006",
+	"ExhibitSize": "small",
+	"NumberOfTilesNeeded": 1,
+	"TilesExtendInDirection": "Both",
+	"IsHangingExhibit": false,
+	"NumberOfFrames": 4,
+	"IsWallExhibit": false
+  }
+ ,
+  {
+	"VariationName": "BasicExhibit4x4",
+	"Price": 50,
+	"ExhibitDecoration": "Sprite-0009",
+	"ExhibitSize": "Large",
+	"NumberOfTilesNeeded": 2,
+	"TilesExtendInDirection": "Right",
+	"IsHangingExhibit": false,
+	"NumberOfFrames": 4,
+	"IsWallExhibit": false
+  }
+]

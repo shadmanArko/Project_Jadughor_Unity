@@ -1,0 +1,16 @@
+[
+  {
+    "VariationName": "plant_fern_1",
+    "NumberOfTilesNeeded": 1,
+    "BeautyRating": 4,
+    "NumberOfFrames": 4,
+    "PlacementCost": 100.0
+  },
+  {
+    "VariationName": "plant_fern_2",
+    "NumberOfTilesNeeded": 1,
+    "BeautyRating": 4,
+    "NumberOfFrames": 4,
+    "PlacementCost": 75.0
+  }
+]

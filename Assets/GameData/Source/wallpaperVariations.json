@@ -1,0 +1,27 @@
+[
+  {
+    "VariationName": "basic_light_grey_wallpaper",
+    "NumberOfFrames": 3,
+    "Price": 2
+  },
+  {
+    "VariationName": "basic_red_wallpaper",
+    "NumberOfFrames": 3,
+    "Price": 2
+  },
+  {
+    "VariationName": "dark_purple_wallpaper",
+    "NumberOfFrames": 3,
+    "Price": 2
+  },
+  {
+  "VariationName": "green_flower_wallpaper",
+  "NumberOfFrames": 3,
+    "Price": 2
+  },
+  {
+    "VariationName": "maroon_wallpaper",
+    "NumberOfFrames": 3,
+    "Price": 2
+  }
+]
