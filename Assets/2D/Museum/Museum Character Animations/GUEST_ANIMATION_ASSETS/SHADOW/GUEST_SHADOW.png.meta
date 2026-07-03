@@ -1,0 +1,5291 @@
+fileFormatVersion: 2
+guid: 6fd63739d040cd6458bc53535293cc70
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 297054560230464130
+    second: GUEST_SHADOW_0
+  - first:
+      213: -8916638610076012434
+    second: GUEST_SHADOW_1
+  - first:
+      213: 3282315478909044788
+    second: GUEST_SHADOW_2
+  - first:
+      213: -6780470039462017050
+    second: GUEST_SHADOW_3
+  - first:
+      213: -2551465609658850898
+    second: GUEST_SHADOW_4
+  - first:
+      213: 4965625178994030585
+    second: GUEST_SHADOW_5
+  - first:
+      213: -622805026807888457
+    second: GUEST_SHADOW_6
+  - first:
+      213: -8100256364676080659
+    second: GUEST_SHADOW_7
+  - first:
+      213: -6868041384455889203
+    second: GUEST_SHADOW_8
+  - first:
+      213: -2201050369884279571
+    second: GUEST_SHADOW_9
+  - first:
+      213: 8385862864931662027
+    second: GUEST_SHADOW_10
+  - first:
+      213: 7486415836950565101
+    second: GUEST_SHADOW_11
+  - first:
+      213: 8156464594202025711
+    second: GUEST_SHADOW_12
+  - first:
+      213: 7239743635157152375
+    second: GUEST_SHADOW_13
+  - first:
+      213: 8136908485643196632
+    second: GUEST_SHADOW_14
+  - first:
+      213: 6209127136691221749
+    second: GUEST_SHADOW_15
+  - first:
+      213: 316958653486958968
+    second: GUEST_SHADOW_16
+  - first:
+      213: -3852351566488011670
+    second: GUEST_SHADOW_17
+  - first:
+      213: 5641394234914739023
+    second: GUEST_SHADOW_18
+  - first:
+      213: -2571359022381730698
+    second: GUEST_SHADOW_19
+  - first:
+      213: 7540064960472599591
+    second: GUEST_SHADOW_20
+  - first:
+      213: 826871464839098189
+    second: GUEST_SHADOW_21
+  - first:
+      213: -8345305449103240461
+    second: GUEST_SHADOW_22
+  - first:
+      213: 8009634457082469713
+    second: GUEST_SHADOW_23
+  - first:
+      213: 5467607910971530744
+    second: GUEST_SHADOW_24
+  - first:
+      213: 4935694325760171654
+    second: GUEST_SHADOW_25
+  - first:
+      213: -9062694817691174180
+    second: GUEST_SHADOW_26
+  - first:
+      213: 5164059935304149895
+    second: GUEST_SHADOW_27
+  - first:
+      213: 6565956192244216876
+    second: GUEST_SHADOW_28
+  - first:
+      213: -7953006998098064767
+    second: GUEST_SHADOW_29
+  - first:
+      213: -3743392663047943801
+    second: GUEST_SHADOW_30
+  - first:
+      213: 2670113704164612809
+    second: GUEST_SHADOW_31
+  - first:
+      213: -4905595170657169041
+    second: GUEST_SHADOW_32
+  - first:
+      213: -3959138439569000432
+    second: GUEST_SHADOW_33
+  - first:
+      213: -3296370284671777564
+    second: GUEST_SHADOW_34
+  - first:
+      213: -3642275076633810023
+    second: GUEST_SHADOW_35
+  - first:
+      213: -4193318702994012904
+    second: GUEST_SHADOW_36
+  - first:
+      213: 32723693548105270
+    second: GUEST_SHADOW_37
+  - first:
+      213: 6731937272956197815
+    second: GUEST_SHADOW_38
+  - first:
+      213: -7726634605114845955
+    second: GUEST_SHADOW_39
+  - first:
+      213: -6868866295110372649
+    second: GUEST_SHADOW_40
+  - first:
+      213: 9059591299761991371
+    second: GUEST_SHADOW_41
+  - first:
+      213: 6637959201207186736
+    second: GUEST_SHADOW_42
+  - first:
+      213: 6249502718144935571
+    second: GUEST_SHADOW_43
+  - first:
+      213: 7939498403664340260
+    second: GUEST_SHADOW_44
+  - first:
+      213: -4268813336176750049
+    second: GUEST_SHADOW_45
+  - first:
+      213: -7449525661989870998
+    second: GUEST_SHADOW_46
+  - first:
+      213: -7790773178897905655
+    second: GUEST_SHADOW_47
+  - first:
+      213: -6986204801825105166
+    second: GUEST_SHADOW_48
+  - first:
+      213: 7494255911010105022
+    second: GUEST_SHADOW_49
+  - first:
+      213: 7678897449553710665
+    second: GUEST_SHADOW_50
+  - first:
+      213: 3066716764971013643
+    second: GUEST_SHADOW_51
+  - first:
+      213: 6879542937265059499
+    second: GUEST_SHADOW_52
+  - first:
+      213: 172171196763671236
+    second: GUEST_SHADOW_53
+  - first:
+      213: 7895541980455984285
+    second: GUEST_SHADOW_54
+  - first:
+      213: 7310038108538017193
+    second: GUEST_SHADOW_55
+  - first:
+      213: -6478460700116879792
+    second: GUEST_SHADOW_56
+  - first:
+      213: -8000278313725312302
+    second: GUEST_SHADOW_57
+  - first:
+      213: -7950308189286384861
+    second: GUEST_SHADOW_58
+  - first:
+      213: 4862432190847452458
+    second: GUEST_SHADOW_59
+  - first:
+      213: -1110922304413616822
+    second: GUEST_SHADOW_60
+  - first:
+      213: -2187587684861961083
+    second: GUEST_SHADOW_61
+  - first:
+      213: -5303564637641005606
+    second: GUEST_SHADOW_62
+  - first:
+      213: 874023220269839736
+    second: GUEST_SHADOW_63
+  - first:
+      213: 1957913460320623717
+    second: GUEST_SHADOW_64
+  - first:
+      213: 3764657897023884446
+    second: GUEST_SHADOW_65
+  - first:
+      213: -761045013310815855
+    second: GUEST_SHADOW_66
+  - first:
+      213: 5270530221399243975
+    second: GUEST_SHADOW_67
+  - first:
+      213: 7674091412427505317
+    second: GUEST_SHADOW_68
+  - first:
+      213: -5925145811730601511
+    second: GUEST_SHADOW_69
+  - first:
+      213: 1431838227602845671
+    second: GUEST_SHADOW_70
+  - first:
+      213: 5813276314367560379
+    second: GUEST_SHADOW_71
+  - first:
+      213: 7221912052644007245
+    second: GUEST_SHADOW_72
+  - first:
+      213: -6723185724437302831
+    second: GUEST_SHADOW_73
+  - first:
+      213: 2985843530977450910
+    second: GUEST_SHADOW_74
+  - first:
+      213: -4898321351784125902
+    second: GUEST_SHADOW_75
+  - first:
+      213: -517138930047075612
+    second: GUEST_SHADOW_76
+  - first:
+      213: 4881831379024837834
+    second: GUEST_SHADOW_77
+  - first:
+      213: -1224307254588713660
+    second: GUEST_SHADOW_78
+  - first:
+      213: -6437996968253969483
+    second: GUEST_SHADOW_79
+  - first:
+      213: -3122611531237355869
+    second: GUEST_SHADOW_80
+  - first:
+      213: -200498027295907662
+    second: GUEST_SHADOW_81
+  - first:
+      213: -6918097409063314103
+    second: GUEST_SHADOW_82
+  - first:
+      213: -1909601285305150769
+    second: GUEST_SHADOW_83
+  - first:
+      213: 3473187962917410845
+    second: GUEST_SHADOW_84
+  - first:
+      213: 4149287740520193464
+    second: GUEST_SHADOW_85
+  - first:
+      213: 5369653537696517642
+    second: GUEST_SHADOW_86
+  - first:
+      213: -2528829750633067540
+    second: GUEST_SHADOW_87
+  - first:
+      213: 8557287019861246032
+    second: GUEST_SHADOW_88
+  - first:
+      213: 9102472846411103881
+    second: GUEST_SHADOW_89
+  - first:
+      213: -4189906169669855469
+    second: GUEST_SHADOW_90
+  - first:
+      213: 7484599995751248745
+    second: GUEST_SHADOW_91
+  - first:
+      213: -7028530082999251006
+    second: GUEST_SHADOW_92
+  - first:
+      213: 2620660308653683331
+    second: GUEST_SHADOW_93
+  - first:
+      213: -2848117657444631067
+    second: GUEST_SHADOW_94
+  - first:
+      213: 5672497324310703647
+    second: GUEST_SHADOW_95
+  - first:
+      213: 5703784904063706014
+    second: GUEST_SHADOW_96
+  - first:
+      213: -5703271540174429169
+    second: GUEST_SHADOW_97
+  - first:
+      213: -5560610731387048419
+    second: GUEST_SHADOW_98
+  - first:
+      213: -5328837977675393671
+    second: GUEST_SHADOW_99
+  - first:
+      213: -2370533009826552659
+    second: GUEST_SHADOW_100
+  - first:
+      213: -3310553425583147248
+    second: GUEST_SHADOW_101
+  - first:
+      213: 1139368950293237813
+    second: GUEST_SHADOW_102
+  - first:
+      213: -4383790305779890805
+    second: GUEST_SHADOW_103
+  - first:
+      213: -4866135138447869930
+    second: GUEST_SHADOW_104
+  - first:
+      213: -5316139474803839970
+    second: GUEST_SHADOW_105
+  - first:
+      213: -3191623472897916750
+    second: GUEST_SHADOW_106
+  - first:
+      213: 5473721587428650179
+    second: GUEST_SHADOW_107
+  - first:
+      213: -2614863955894861156
+    second: GUEST_SHADOW_108
+  - first:
+      213: 7368169969042272095
+    second: GUEST_SHADOW_109
+  - first:
+      213: 6223437961596126375
+    second: GUEST_SHADOW_110
+  - first:
+      213: -5210152741546215437
+    second: GUEST_SHADOW_111
+  - first:
+      213: 5240452164667142075
+    second: GUEST_SHADOW_112
+  - first:
+      213: -6137352693611492277
+    second: GUEST_SHADOW_113
+  - first:
+      213: 4422743018752962478
+    second: GUEST_SHADOW_114
+  - first:
+      213: 3632686683260644691
+    second: GUEST_SHADOW_115
+  - first:
+      213: 6624223901236631745
+    second: GUEST_SHADOW_116
+  - first:
+      213: -1957758272927715985
+    second: GUEST_SHADOW_117
+  - first:
+      213: 1338616849031597591
+    second: GUEST_SHADOW_118
+  - first:
+      213: -6990933128960989516
+    second: GUEST_SHADOW_119
+  - first:
+      213: 6869721812454729819
+    second: GUEST_SHADOW_120
+  - first:
+      213: -2373243774052523775
+    second: GUEST_SHADOW_121
+  - first:
+      213: -6776201594654920194
+    second: GUEST_SHADOW_122
+  - first:
+      213: 2617700196417559002
+    second: GUEST_SHADOW_123
+  - first:
+      213: 6357123032712109759
+    second: GUEST_SHADOW_124
+  - first:
+      213: 7534195809658876871
+    second: GUEST_SHADOW_125
+  - first:
+      213: -834062591779648340
+    second: GUEST_SHADOW_126
+  - first:
+      213: 8546344011933622255
+    second: GUEST_SHADOW_127
+  - first:
+      213: -3141596176815519945
+    second: GUEST_SHADOW_128
+  - first:
+      213: 2661813476518557216
+    second: GUEST_SHADOW_129
+  - first:
+      213: 5516459427635614297
+    second: GUEST_SHADOW_130
+  - first:
+      213: -841223373138440951
+    second: GUEST_SHADOW_131
+  - first:
+      213: -1157474358561743897
+    second: GUEST_SHADOW_132
+  - first:
+      213: 226667337084894225
+    second: GUEST_SHADOW_133
+  - first:
+      213: -4753979271879036192
+    second: GUEST_SHADOW_134
+  - first:
+      213: 6390769052616453880
+    second: GUEST_SHADOW_135
+  - first:
+      213: -5087406900366743000
+    second: GUEST_SHADOW_136
+  - first:
+      213: 1211612040877678315
+    second: GUEST_SHADOW_137
+  - first:
+      213: 4030763576093436354
+    second: GUEST_SHADOW_138
+  - first:
+      213: 2224165479772223127
+    second: GUEST_SHADOW_139
+  - first:
+      213: 49272972067759355
+    second: GUEST_SHADOW_140
+  - first:
+      213: -3731432110936165926
+    second: GUEST_SHADOW_141
+  - first:
+      213: 7777462924434742374
+    second: GUEST_SHADOW_142
+  - first:
+      213: -1239174932742735321
+    second: GUEST_SHADOW_143
+  - first:
+      213: 7964810600302420257
+    second: GUEST_SHADOW_144
+  - first:
+      213: 4280973198972336666
+    second: GUEST_SHADOW_145
+  - first:
+      213: -7245202003373091571
+    second: GUEST_SHADOW_146
+  - first:
+      213: 8398497536019534199
+    second: GUEST_SHADOW_147
+  - first:
+      213: -3307412391889119722
+    second: GUEST_SHADOW_148
+  - first:
+      213: -2021716451346024286
+    second: GUEST_SHADOW_149
+  - first:
+      213: 7005089564823914012
+    second: GUEST_SHADOW_150
+  - first:
+      213: -1028317567563011531
+    second: GUEST_SHADOW_151
+  - first:
+      213: -4746336222646922968
+    second: GUEST_SHADOW_152
+  - first:
+      213: -8619774298830184781
+    second: GUEST_SHADOW_153
+  - first:
+      213: 4474675648766257454
+    second: GUEST_SHADOW_154
+  - first:
+      213: 7367054265172181862
+    second: GUEST_SHADOW_155
+  - first:
+      213: 999682731682158263
+    second: GUEST_SHADOW_156
+  - first:
+      213: 5098649578589545629
+    second: GUEST_SHADOW_157
+  - first:
+      213: 5066310521998852948
+    second: GUEST_SHADOW_158
+  - first:
+      213: -1980623276912745969
+    second: GUEST_SHADOW_159
+  - first:
+      213: -4092432960046580188
+    second: GUEST_SHADOW_160
+  - first:
+      213: 8555284085709150869
+    second: GUEST_SHADOW_161
+  - first:
+      213: 8185088304480647595
+    second: GUEST_SHADOW_162
+  - first:
+      213: -2887341439172572021
+    second: GUEST_SHADOW_163
+  - first:
+      213: 7791339226833094292
+    second: GUEST_SHADOW_164
+  - first:
+      213: 5966708101294643770
+    second: GUEST_SHADOW_165
+  - first:
+      213: -4454857379906518487
+    second: GUEST_SHADOW_166
+  - first:
+      213: 400138667327233463
+    second: GUEST_SHADOW_167
+  - first:
+      213: 4115583720731210493
+    second: GUEST_SHADOW_168
+  - first:
+      213: -5017511960196602339
+    second: GUEST_SHADOW_169
+  - first:
+      213: 6228807765500144669
+    second: GUEST_SHADOW_170
+  - first:
+      213: 6282504349886601010
+    second: GUEST_SHADOW_171
+  - first:
+      213: 4364838802214975245
+    second: GUEST_SHADOW_172
+  - first:
+      213: 53076564155804045
+    second: GUEST_SHADOW_173
+  - first:
+      213: -4186460766945528120
+    second: GUEST_SHADOW_174
+  - first:
+      213: -1133958578990617735
+    second: GUEST_SHADOW_175
+  - first:
+      213: -9161120811650181978
+    second: GUEST_SHADOW_176
+  - first:
+      213: 4532177650123307422
+    second: GUEST_SHADOW_177
+  - first:
+      213: -1885595580888459790
+    second: GUEST_SHADOW_178
+  - first:
+      213: 1276559509119163571
+    second: GUEST_SHADOW_179
+  - first:
+      213: 5774284752601170718
+    second: GUEST_SHADOW_180
+  - first:
+      213: 8024385881428314267
+    second: GUEST_SHADOW_181
+  - first:
+      213: 3087049787418701201
+    second: GUEST_SHADOW_182
+  - first:
+      213: 6232883296767242878
+    second: GUEST_SHADOW_183
+  - first:
+      213: -1132321097875030246
+    second: GUEST_SHADOW_184
+  - first:
+      213: -7210721991916926610
+    second: GUEST_SHADOW_185
+  - first:
+      213: -2387383602838182067
+    second: GUEST_SHADOW_186
+  - first:
+      213: -3553859621297691117
+    second: GUEST_SHADOW_187
+  - first:
+      213: -1973614002932815943
+    second: GUEST_SHADOW_188
+  - first:
+      213: -6909663309728316289
+    second: GUEST_SHADOW_189
+  - first:
+      213: -4471338762867305148
+    second: GUEST_SHADOW_190
+  - first:
+      213: -4004251921693509369
+    second: GUEST_SHADOW_191
+  - first:
+      213: 4089246374136142263
+    second: GUEST_SHADOW_192
+  - first:
+      213: -7582677611498502509
+    second: GUEST_SHADOW_193
+  - first:
+      213: 7393398489889866538
+    second: GUEST_SHADOW_194
+  - first:
+      213: -3018531263702433193
+    second: GUEST_SHADOW_195
+  - first:
+      213: -5434850972764936243
+    second: GUEST_SHADOW_196
+  - first:
+      213: -6346961815708583447
+    second: GUEST_SHADOW_197
+  - first:
+      213: -4737722429314625133
+    second: GUEST_SHADOW_198
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: GUEST_SHADOW_0
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 993
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 28a52757c895f1400800000000000000
+      internalID: 297054560230464130
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_1
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 993
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e60f2ef2d6cb14480800000000000000
+      internalID: -8916638610076012434
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_2
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 993
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 438c321a9802d8d20800000000000000
+      internalID: 3282315478909044788
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_3
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 993
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6e700bf6c6ee6e1a0800000000000000
+      internalID: -6780470039462017050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_4
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 993
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ea1a8a7db8f579cd0800000000000000
+      internalID: -2551465609658850898
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_5
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 992
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f7bca19ac179e440800000000000000
+      internalID: 4965625178994030585
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_6
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 992
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b5c9ccb02a5b57f0800000000000000
+      internalID: -622805026807888457
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_7
+      rect:
+        serializedVersion: 2
+        x: 166
+        y: 992
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: deb92e9d0cb169f80800000000000000
+      internalID: -8100256364676080659
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_8
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 948
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dce13d0dfb0dfa0a0800000000000000
+      internalID: -6868041384455889203
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_9
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 947
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dec2e4aa95c4471e0800000000000000
+      internalID: -2201050369884279571
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_10
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 947
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bc8246f68d1906470800000000000000
+      internalID: 8385862864931662027
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_11
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 947
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: de01c4af98715e760800000000000000
+      internalID: 7486415836950565101
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_12
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 948
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fee56786555913170800000000000000
+      internalID: 8156464594202025711
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_13
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 948
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 772ff667a7cb87460800000000000000
+      internalID: 7239743635157152375
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_14
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 948
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d8df90182b1ce070800000000000000
+      internalID: 8136908485643196632
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_15
+      rect:
+        serializedVersion: 2
+        x: 166
+        y: 948
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f4f7b3cb304b2650800000000000000
+      internalID: 6209127136691221749
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_16
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 903
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 879839d4730166400800000000000000
+      internalID: 316958653486958968
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_17
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 903
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a6cff8139a2b98ac0800000000000000
+      internalID: -3852351566488011670
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_18
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 903
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f439702da224a4e40800000000000000
+      internalID: 5641394234914739023
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_19
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 903
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 674f0f0c792b05cd0800000000000000
+      internalID: -2571359022381730698
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_20
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 903
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 72cc650f121b3a860800000000000000
+      internalID: 7540064960472599591
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_21
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 903
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d4f24a06733a97b00800000000000000
+      internalID: 826871464839098189
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_22
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 858
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3f2d11cc8e48f2c80800000000000000
+      internalID: -8345305449103240461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_23
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 858
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 15d11231a10f72f60800000000000000
+      internalID: 8009634457082469713
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_24
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 858
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8fdd2982d68d0eb40800000000000000
+      internalID: 5467607910971530744
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_25
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 858
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 68e98deb6db1f7440800000000000000
+      internalID: 4935694325760171654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_26
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 858
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cda7ebb5417da3280800000000000000
+      internalID: -9062694817691174180
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_27
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 858
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 78b61aa962d6aa740800000000000000
+      internalID: 5164059935304149895
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_28
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 813
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c243e717e56fe1b50800000000000000
+      internalID: 6565956192244216876
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_29
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 813
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 18a4b26a54e31a190800000000000000
+      internalID: -7953006998098064767
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_30
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 813
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7894930d43ccc0cc0800000000000000
+      internalID: -3743392663047943801
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_31
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 768
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9ca52ae54462e0520800000000000000
+      internalID: 2670113704164612809
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_32
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 768
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f619b19ee23dbebb0800000000000000
+      internalID: -4905595170657169041
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_33
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 768
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 01835ecc0905e09c0800000000000000
+      internalID: -3959138439569000432
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_34
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 723
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e44cf5e0b0f042d0800000000000000
+      internalID: -3296370284671777564
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_35
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 723
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 99babfa8d1a047dc0800000000000000
+      internalID: -3642275076633810023
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_36
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 723
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8154a065bd65ec5c0800000000000000
+      internalID: -4193318702994012904
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_37
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 678
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 63e6ca1a602447000800000000000000
+      internalID: 32723693548105270
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_38
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 678
+        width: 16
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7bb14cc4845ac6d50800000000000000
+      internalID: 6731937272956197815
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_39
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 678
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: df493ec93ca75c490800000000000000
+      internalID: -7726634605114845955
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_40
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 678
+        width: 14
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7d2fa465f72eca0a0800000000000000
+      internalID: -6868866295110372649
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_41
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 678
+        width: 14
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bce688099422abd70800000000000000
+      internalID: 9059591299761991371
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_42
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 633
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0357d7d59b4ce1c50800000000000000
+      internalID: 6637959201207186736
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_43
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 633
+        width: 16
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 396fdd16c91bab650800000000000000
+      internalID: 6249502718144935571
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_44
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 633
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 425a13d9bb3ce2e60800000000000000
+      internalID: 7939498403664340260
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_45
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 633
+        width: 14
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f121cbc43e022c4c0800000000000000
+      internalID: -4268813336176750049
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_46
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 633
+        width: 14
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a62efe331e7fd9890800000000000000
+      internalID: -7449525661989870998
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_47
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 588
+        width: 14
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9084622321d91e390800000000000000
+      internalID: -7790773178897905655
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_48
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 588
+        width: 14
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2fa161b4fb30c0f90800000000000000
+      internalID: -6986204801825105166
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_49
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 588
+        width: 14
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eb6f0a77b02f00860800000000000000
+      internalID: 7494255911010105022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_50
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 588
+        width: 14
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 94e4d4bbb8ce09a60800000000000000
+      internalID: 7678897449553710665
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_51
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 588
+        width: 16
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b0615da46aa2f8a20800000000000000
+      internalID: 3066716764971013643
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_52
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 588
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ba63bb02adb097f50800000000000000
+      internalID: 6879542937265059499
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_53
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 588
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ca07af8acca36200800000000000000
+      internalID: 172171196763671236
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_54
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 543
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d9c534e4999929d60800000000000000
+      internalID: 7895541980455984285
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_55
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 543
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9a51af1fde8727560800000000000000
+      internalID: 7310038108538017193
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_56
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 543
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 056743e4152e716a0800000000000000
+      internalID: -6478460700116879792
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_57
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 543
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2d2442ec24d49f090800000000000000
+      internalID: -8000278313725312302
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_58
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 543
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 32bb4ba03d4daa190800000000000000
+      internalID: -7950308189286384861
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_59
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 543
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a2503e7b054da7340800000000000000
+      internalID: 4862432190847452458
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_60
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 543
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a453e50dc063590f0800000000000000
+      internalID: -1110922304413616822
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_61
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 498
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 58c98c8479024a1e0800000000000000
+      internalID: -2187587684861961083
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_62
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 498
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ad5a512cf04f566b0800000000000000
+      internalID: -5303564637641005606
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_63
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 498
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 87570a1fc77212c00800000000000000
+      internalID: 874023220269839736
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_64
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 498
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 56cdd5f2be7eb2b10800000000000000
+      internalID: 1957913460320623717
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_65
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 498
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e9c4afc4960ce3430800000000000000
+      internalID: 3764657897023884446
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_66
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 498
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 191c683b7993075f0800000000000000
+      internalID: -761045013310815855
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_67
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 453
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7cc7678df4fa42940800000000000000
+      internalID: 5270530221399243975
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_68
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 453
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5aefd930b79df7a60800000000000000
+      internalID: 7674091412427505317
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_69
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 453
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9d96769e647a5cda0800000000000000
+      internalID: -5925145811730601511
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_70
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 453
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7efa7142849eed310800000000000000
+      internalID: 1431838227602845671
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_71
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 453
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bba02130208eca050800000000000000
+      internalID: 5813276314367560379
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_72
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 453
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d4d45f0afb2693460800000000000000
+      internalID: 7221912052644007245
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_73
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 408
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1d1ffef543272b2a0800000000000000
+      internalID: -6723185724437302831
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_74
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 408
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e9b1fca2fd8df6920800000000000000
+      internalID: 2985843530977450910
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_75
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 408
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 23a2237deaaa50cb0800000000000000
+      internalID: -4898321351784125902
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_76
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 408
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4eab40f02e0c2d8f0800000000000000
+      internalID: -517138930047075612
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_77
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 408
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: acc712036cfbfb340800000000000000
+      internalID: 4881831379024837834
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_78
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 408
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4455e42e903620fe0800000000000000
+      internalID: -1224307254588713660
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_79
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 408
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5bb2e2a0ed3a7a6a0800000000000000
+      internalID: -6437996968253969483
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_80
+      rect:
+        serializedVersion: 2
+        x: 166
+        y: 408
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ae0f0d4b514aa4d0800000000000000
+      internalID: -3122611531237355869
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_81
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 363
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b06cd04b10b73df0800000000000000
+      internalID: -200498027295907662
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_82
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 363
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 94d1b336f0bfdff90800000000000000
+      internalID: -6918097409063314103
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_83
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 363
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fc2d1ce9fbbbf75e0800000000000000
+      internalID: -1909601285305150769
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_84
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 363
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d18dadfec0e333030800000000000000
+      internalID: 3473187962917410845
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_85
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 363
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8bdd694573b359930800000000000000
+      internalID: 4149287740520193464
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_86
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 363
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a0e02516177d48a40800000000000000
+      internalID: 5369653537696517642
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_87
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 363
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ceb83187dbac7ecd0800000000000000
+      internalID: -2528829750633067540
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_88
+      rect:
+        serializedVersion: 2
+        x: 166
+        y: 363
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 05004e3c43791c670800000000000000
+      internalID: 8557287019861246032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_89
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 318
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 98ef8fba3da725e70800000000000000
+      internalID: 9102472846411103881
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_90
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 318
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3175c9aa9867ad5c0800000000000000
+      internalID: -4189906169669855469
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_91
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 318
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 963b4a08a04aed760800000000000000
+      internalID: 7484599995751248745
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_92
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 318
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2cfcea5d025a57e90800000000000000
+      internalID: -7028530082999251006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_93
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 318
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 382b4467aa47e5420800000000000000
+      internalID: 2620660308653683331
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_94
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 318
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5edbe7d94147978d0800000000000000
+      internalID: -2848117657444631067
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_95
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 318
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f1ea4e42342c8be40800000000000000
+      internalID: 5672497324310703647
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_96
+      rect:
+        serializedVersion: 2
+        x: 166
+        y: 318
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e93e3f9762ae72f40800000000000000
+      internalID: 5703784904063706014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_97
+      rect:
+        serializedVersion: 2
+        x: 189
+        y: 318
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f04ee4e50c8e9d0b0800000000000000
+      internalID: -5703271540174429169
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_98
+      rect:
+        serializedVersion: 2
+        x: 212
+        y: 318
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d1e237d400eb4d2b0800000000000000
+      internalID: -5560610731387048419
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_99
+      rect:
+        serializedVersion: 2
+        x: 235
+        y: 318
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9751c0bb71a2c06b0800000000000000
+      internalID: -5328837977675393671
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_100
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 318
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: da463f489cc2a1fd0800000000000000
+      internalID: -2370533009826552659
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_101
+      rect:
+        serializedVersion: 2
+        x: 281
+        y: 318
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 017f922133d8e02d0800000000000000
+      internalID: -3310553425583147248
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_102
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 318
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 530965e060adfcf00800000000000000
+      internalID: 1139368950293237813
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_103
+      rect:
+        serializedVersion: 2
+        x: 327
+        y: 318
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b85403671f5a923c0800000000000000
+      internalID: -4383790305779890805
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_104
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 273
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 618b4cb9fd3087cb0800000000000000
+      internalID: -4866135138447869930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_105
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 273
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e1ca2e350574936b0800000000000000
+      internalID: -5316139474803839970
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_106
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 273
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b00f118c5315b3d0800000000000000
+      internalID: -3191623472897916750
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_107
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 273
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3cc621268c096fb40800000000000000
+      internalID: 5473721587428650179
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_108
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 273
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c920ae4161326bbd0800000000000000
+      internalID: -2614863955894861156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_109
+      rect:
+        serializedVersion: 2
+        x: 119
+        y: 273
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f5f27717c8ff04660800000000000000
+      internalID: 7368169969042272095
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_110
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 273
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7a44e965ad71e5650800000000000000
+      internalID: 6223437961596126375
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_111
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 273
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3f73c96afa1d1b7b0800000000000000
+      internalID: -5210152741546215437
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_112
+      rect:
+        serializedVersion: 2
+        x: 188
+        y: 273
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bbf69698a73d9b840800000000000000
+      internalID: 5240452164667142075
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_113
+      rect:
+        serializedVersion: 2
+        x: 212
+        y: 273
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b4c00040e3eb3daa0800000000000000
+      internalID: -6137352693611492277
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_114
+      rect:
+        serializedVersion: 2
+        x: 235
+        y: 273
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eafeb95c75db06d30800000000000000
+      internalID: 4422743018752962478
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_115
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 273
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 35dea08aa45e96230800000000000000
+      internalID: 3632686683260644691
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_116
+      rect:
+        serializedVersion: 2
+        x: 281
+        y: 273
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1c89cd1aa88fdeb50800000000000000
+      internalID: 6624223901236631745
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_117
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 273
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f6daf023935a4d4e0800000000000000
+      internalID: -1957758272927715985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_118
+      rect:
+        serializedVersion: 2
+        x: 327
+        y: 273
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 71e81e09ee8b39210800000000000000
+      internalID: 1338616849031597591
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_119
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 228
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4b625c7db573bfe90800000000000000
+      internalID: -6990933128960989516
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_120
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 228
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b58ed115797265f50800000000000000
+      internalID: 6869721812454729819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_121
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 228
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 101213a8c5b801fd0800000000000000
+      internalID: -2373243774052523775
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_122
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 228
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ef178203d8816f1a0800000000000000
+      internalID: -6776201594654920194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_123
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 228
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ad950ff9570f35420800000000000000
+      internalID: 2617700196417559002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_124
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 228
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fbe524e77b9093850800000000000000
+      internalID: 6357123032712109759
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_125
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 228
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c334f6cb27de8860800000000000000
+      internalID: 7534195809658876871
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_126
+      rect:
+        serializedVersion: 2
+        x: 166
+        y: 228
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cac4888ed70dc64f0800000000000000
+      internalID: -834062591779648340
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_127
+      rect:
+        serializedVersion: 2
+        x: 189
+        y: 228
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fef179f2996ba9670800000000000000
+      internalID: 8546344011933622255
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_128
+      rect:
+        serializedVersion: 2
+        x: 212
+        y: 228
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7378f2d0ceec664d0800000000000000
+      internalID: -3141596176815519945
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_129
+      rect:
+        serializedVersion: 2
+        x: 235
+        y: 228
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0267c360149a0f420800000000000000
+      internalID: 2661813476518557216
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_130
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 228
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 952531a3f966e8c40800000000000000
+      internalID: 5516459427635614297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_131
+      rect:
+        serializedVersion: 2
+        x: 281
+        y: 228
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 90dc3539ccf5354f0800000000000000
+      internalID: -841223373138440951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_132
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 228
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7ebdd451433dfefe0800000000000000
+      internalID: -1157474358561743897
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_133
+      rect:
+        serializedVersion: 2
+        x: 327
+        y: 228
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 11cf02dfdb8452300800000000000000
+      internalID: 226667337084894225
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_134
+      rect:
+        serializedVersion: 2
+        x: 350
+        y: 228
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0e274163a09760eb0800000000000000
+      internalID: -4753979271879036192
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_135
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 183
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8fe63c6f79290b850800000000000000
+      internalID: 6390769052616453880
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_136
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 183
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 82ae4cbd066e569b0800000000000000
+      internalID: -5087406900366743000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_137
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 183
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bee99165bb280d010800000000000000
+      internalID: 1211612040877678315
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_138
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 183
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c9e1a6dd1620f730800000000000000
+      internalID: 4030763576093436354
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_139
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 183
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 796728f38b2ddde10800000000000000
+      internalID: 2224165479772223127
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_140
+      rect:
+        serializedVersion: 2
+        x: 119
+        y: 183
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf4602dc18d0fa000800000000000000
+      internalID: 49272972067759355
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_141
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 183
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ad1f92cd34a473cc0800000000000000
+      internalID: -3731432110936165926
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_142
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 183
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 66c14b0b2591feb60800000000000000
+      internalID: 7777462924434742374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_143
+      rect:
+        serializedVersion: 2
+        x: 188
+        y: 183
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 72afc4fc6f09dcee0800000000000000
+      internalID: -1239174932742735321
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_144
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 183
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 121aa46aa01b88e60800000000000000
+      internalID: 7964810600302420257
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_145
+      rect:
+        serializedVersion: 2
+        x: 234
+        y: 183
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a1ab6b16172196b30800000000000000
+      internalID: 4280973198972336666
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_146
+      rect:
+        serializedVersion: 2
+        x: 257
+        y: 183
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d059ff62a2fd37b90800000000000000
+      internalID: -7245202003373091571
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_147
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 183
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 771107903057d8470800000000000000
+      internalID: 8398497536019534199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_148
+      rect:
+        serializedVersion: 2
+        x: 303
+        y: 183
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 61659b7f3f5b912d0800000000000000
+      internalID: -3307412391889119722
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_149
+      rect:
+        serializedVersion: 2
+        x: 326
+        y: 183
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a8f4f8599b61f3e0800000000000000
+      internalID: -2021716451346024286
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_150
+      rect:
+        serializedVersion: 2
+        x: 349
+        y: 183
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c16002b38d3173160800000000000000
+      internalID: 7005089564823914012
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_151
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 138
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 53aec1dde9eaab1f0800000000000000
+      internalID: -1028317567563011531
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_152
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 138
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8219f884a50a12eb0800000000000000
+      internalID: -4746336222646922968
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_153
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 138
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3be5f2ad1f8606880800000000000000
+      internalID: -8619774298830184781
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_154
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 138
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e29adc17bcd391e30800000000000000
+      internalID: 4474675648766257454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_155
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 138
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6634d9462d80d3660800000000000000
+      internalID: 7367054265172181862
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_156
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 138
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b6d10ed5269fdd00800000000000000
+      internalID: 999682731682158263
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_157
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 138
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d94660627ca02c640800000000000000
+      internalID: 5098649578589545629
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_158
+      rect:
+        serializedVersion: 2
+        x: 166
+        y: 138
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 453c099c3962f4640800000000000000
+      internalID: 5066310521998852948
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_159
+      rect:
+        serializedVersion: 2
+        x: 189
+        y: 138
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f02eeb99f996384e0800000000000000
+      internalID: -1980623276912745969
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_160
+      rect:
+        serializedVersion: 2
+        x: 212
+        y: 138
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 42eb25dc7e1c437c0800000000000000
+      internalID: -4092432960046580188
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_161
+      rect:
+        serializedVersion: 2
+        x: 235
+        y: 138
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 59a1f315c897ab670800000000000000
+      internalID: 8555284085709150869
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_162
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 138
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ba9f5cb4276479170800000000000000
+      internalID: 8185088304480647595
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_163
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 93
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b8c8ad4424a1ee7d0800000000000000
+      internalID: -2887341439172572021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_164
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 93
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 49604fb1fb5602c60800000000000000
+      internalID: 7791339226833094292
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_165
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 93
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a3adc18b7610ec250800000000000000
+      internalID: 5966708101294643770
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_166
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 93
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 92205a9d0da2d22c0800000000000000
+      internalID: -4454857379906518487
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_167
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 93
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7bd10f67ff39d8500800000000000000
+      internalID: 400138667327233463
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_168
+      rect:
+        serializedVersion: 2
+        x: 119
+        y: 93
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: df27095b69d7d1930800000000000000
+      internalID: 4115583720731210493
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_169
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 93
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d162534c4773e5ab0800000000000000
+      internalID: -5017511960196602339
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_170
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 93
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d1ca4dc39ab217650800000000000000
+      internalID: 6228807765500144669
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_171
+      rect:
+        serializedVersion: 2
+        x: 188
+        y: 93
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 23756da8b60ff2750800000000000000
+      internalID: 6282504349886601010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_172
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 93
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d077dd3c3c5039c30800000000000000
+      internalID: 4364838802214975245
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_173
+      rect:
+        serializedVersion: 2
+        x: 234
+        y: 93
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d89a7689ad09cb000800000000000000
+      internalID: 53076564155804045
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_174
+      rect:
+        serializedVersion: 2
+        x: 257
+        y: 93
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c63a100d14b6e5c0800000000000000
+      internalID: -4186460766945528120
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_175
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 48
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 97be14d2eae5340f0800000000000000
+      internalID: -1133958578990617735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_176
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 48
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a41725d8292dd080800000000000000
+      internalID: -9161120811650181978
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_177
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 48
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e99709e6f8785ee30800000000000000
+      internalID: 4532177650123307422
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_178
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 48
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2f5d81b3fc405d5e0800000000000000
+      internalID: -1885595580888459790
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_179
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 48
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3bcd1bb2c1047b110800000000000000
+      internalID: 1276559509119163571
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_180
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 48
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e134fb69361622050800000000000000
+      internalID: 5774284752601170718
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_181
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 48
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b98c133b1785c5f60800000000000000
+      internalID: 8024385881428314267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_182
+      rect:
+        serializedVersion: 2
+        x: 166
+        y: 48
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 19d690ffc6767da20800000000000000
+      internalID: 3087049787418701201
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_183
+      rect:
+        serializedVersion: 2
+        x: 189
+        y: 48
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e72f64ec556af7650800000000000000
+      internalID: 6232883296767242878
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_184
+      rect:
+        serializedVersion: 2
+        x: 212
+        y: 48
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a1f7a75f5ff2940f0800000000000000
+      internalID: -1132321097875030246
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_185
+      rect:
+        serializedVersion: 2
+        x: 235
+        y: 48
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e69c1b96d8e5eeb90800000000000000
+      internalID: -7210721991916926610
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_186
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 48
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d47ec3a134f4eded0800000000000000
+      internalID: -2387383602838182067
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_187
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 3
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 31662fae0872eaec0800000000000000
+      internalID: -3553859621297691117
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_188
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 3
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9b7e37f55805c94e0800000000000000
+      internalID: -1973614002932815943
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_189
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 3
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f74081a24d1fb10a0800000000000000
+      internalID: -6909663309728316289
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_190
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 3
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4451cd8d51d92f1c0800000000000000
+      internalID: -4471338762867305148
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_191
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 3
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7097848b71a0e68c0800000000000000
+      internalID: -4004251921693509369
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_192
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 3
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b9507959ebefb830800000000000000
+      internalID: 4089246374136142263
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_193
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 3
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 396035813eae4c690800000000000000
+      internalID: -7582677611498502509
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_194
+      rect:
+        serializedVersion: 2
+        x: 166
+        y: 3
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a238bc031c0aa9660800000000000000
+      internalID: 7393398489889866538
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_195
+      rect:
+        serializedVersion: 2
+        x: 189
+        y: 3
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7520b9bfec50c16d0800000000000000
+      internalID: -3018531263702433193
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_196
+      rect:
+        serializedVersion: 2
+        x: 212
+        y: 3
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc7e829d5d78394b0800000000000000
+      internalID: -5434850972764936243
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_197
+      rect:
+        serializedVersion: 2
+        x: 235
+        y: 3
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9e9b8b33bdf0be7a0800000000000000
+      internalID: -6346961815708583447
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUEST_SHADOW_198
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 3
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3911d445d8a304eb0800000000000000
+      internalID: -4737722429314625133
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      GUEST_SHADOW_0: 297054560230464130
+      GUEST_SHADOW_1: -8916638610076012434
+      GUEST_SHADOW_10: 8385862864931662027
+      GUEST_SHADOW_100: -2370533009826552659
+      GUEST_SHADOW_101: -3310553425583147248
+      GUEST_SHADOW_102: 1139368950293237813
+      GUEST_SHADOW_103: -4383790305779890805
+      GUEST_SHADOW_104: -4866135138447869930
+      GUEST_SHADOW_105: -5316139474803839970
+      GUEST_SHADOW_106: -3191623472897916750
+      GUEST_SHADOW_107: 5473721587428650179
+      GUEST_SHADOW_108: -2614863955894861156
+      GUEST_SHADOW_109: 7368169969042272095
+      GUEST_SHADOW_11: 7486415836950565101
+      GUEST_SHADOW_110: 6223437961596126375
+      GUEST_SHADOW_111: -5210152741546215437
+      GUEST_SHADOW_112: 5240452164667142075
+      GUEST_SHADOW_113: -6137352693611492277
+      GUEST_SHADOW_114: 4422743018752962478
+      GUEST_SHADOW_115: 3632686683260644691
+      GUEST_SHADOW_116: 6624223901236631745
+      GUEST_SHADOW_117: -1957758272927715985
+      GUEST_SHADOW_118: 1338616849031597591
+      GUEST_SHADOW_119: -6990933128960989516
+      GUEST_SHADOW_12: 8156464594202025711
+      GUEST_SHADOW_120: 6869721812454729819
+      GUEST_SHADOW_121: -2373243774052523775
+      GUEST_SHADOW_122: -6776201594654920194
+      GUEST_SHADOW_123: 2617700196417559002
+      GUEST_SHADOW_124: 6357123032712109759
+      GUEST_SHADOW_125: 7534195809658876871
+      GUEST_SHADOW_126: -834062591779648340
+      GUEST_SHADOW_127: 8546344011933622255
+      GUEST_SHADOW_128: -3141596176815519945
+      GUEST_SHADOW_129: 2661813476518557216
+      GUEST_SHADOW_13: 7239743635157152375
+      GUEST_SHADOW_130: 5516459427635614297
+      GUEST_SHADOW_131: -841223373138440951
+      GUEST_SHADOW_132: -1157474358561743897
+      GUEST_SHADOW_133: 226667337084894225
+      GUEST_SHADOW_134: -4753979271879036192
+      GUEST_SHADOW_135: 6390769052616453880
+      GUEST_SHADOW_136: -5087406900366743000
+      GUEST_SHADOW_137: 1211612040877678315
+      GUEST_SHADOW_138: 4030763576093436354
+      GUEST_SHADOW_139: 2224165479772223127
+      GUEST_SHADOW_14: 8136908485643196632
+      GUEST_SHADOW_140: 49272972067759355
+      GUEST_SHADOW_141: -3731432110936165926
+      GUEST_SHADOW_142: 7777462924434742374
+      GUEST_SHADOW_143: -1239174932742735321
+      GUEST_SHADOW_144: 7964810600302420257
+      GUEST_SHADOW_145: 4280973198972336666
+      GUEST_SHADOW_146: -7245202003373091571
+      GUEST_SHADOW_147: 8398497536019534199
+      GUEST_SHADOW_148: -3307412391889119722
+      GUEST_SHADOW_149: -2021716451346024286
+      GUEST_SHADOW_15: 6209127136691221749
+      GUEST_SHADOW_150: 7005089564823914012
+      GUEST_SHADOW_151: -1028317567563011531
+      GUEST_SHADOW_152: -4746336222646922968
+      GUEST_SHADOW_153: -8619774298830184781
+      GUEST_SHADOW_154: 4474675648766257454
+      GUEST_SHADOW_155: 7367054265172181862
+      GUEST_SHADOW_156: 999682731682158263
+      GUEST_SHADOW_157: 5098649578589545629
+      GUEST_SHADOW_158: 5066310521998852948
+      GUEST_SHADOW_159: -1980623276912745969
+      GUEST_SHADOW_16: 316958653486958968
+      GUEST_SHADOW_160: -4092432960046580188
+      GUEST_SHADOW_161: 8555284085709150869
+      GUEST_SHADOW_162: 8185088304480647595
+      GUEST_SHADOW_163: -2887341439172572021
+      GUEST_SHADOW_164: 7791339226833094292
+      GUEST_SHADOW_165: 5966708101294643770
+      GUEST_SHADOW_166: -4454857379906518487
+      GUEST_SHADOW_167: 400138667327233463
+      GUEST_SHADOW_168: 4115583720731210493
+      GUEST_SHADOW_169: -5017511960196602339
+      GUEST_SHADOW_17: -3852351566488011670
+      GUEST_SHADOW_170: 6228807765500144669
+      GUEST_SHADOW_171: 6282504349886601010
+      GUEST_SHADOW_172: 4364838802214975245
+      GUEST_SHADOW_173: 53076564155804045
+      GUEST_SHADOW_174: -4186460766945528120
+      GUEST_SHADOW_175: -1133958578990617735
+      GUEST_SHADOW_176: -9161120811650181978
+      GUEST_SHADOW_177: 4532177650123307422
+      GUEST_SHADOW_178: -1885595580888459790
+      GUEST_SHADOW_179: 1276559509119163571
+      GUEST_SHADOW_18: 5641394234914739023
+      GUEST_SHADOW_180: 5774284752601170718
+      GUEST_SHADOW_181: 8024385881428314267
+      GUEST_SHADOW_182: 3087049787418701201
+      GUEST_SHADOW_183: 6232883296767242878
+      GUEST_SHADOW_184: -1132321097875030246
+      GUEST_SHADOW_185: -7210721991916926610
+      GUEST_SHADOW_186: -2387383602838182067
+      GUEST_SHADOW_187: -3553859621297691117
+      GUEST_SHADOW_188: -1973614002932815943
+      GUEST_SHADOW_189: -6909663309728316289
+      GUEST_SHADOW_19: -2571359022381730698
+      GUEST_SHADOW_190: -4471338762867305148
+      GUEST_SHADOW_191: -4004251921693509369
+      GUEST_SHADOW_192: 4089246374136142263
+      GUEST_SHADOW_193: -7582677611498502509
+      GUEST_SHADOW_194: 7393398489889866538
+      GUEST_SHADOW_195: -3018531263702433193
+      GUEST_SHADOW_196: -5434850972764936243
+      GUEST_SHADOW_197: -6346961815708583447
+      GUEST_SHADOW_198: -4737722429314625133
+      GUEST_SHADOW_2: 3282315478909044788
+      GUEST_SHADOW_20: 7540064960472599591
+      GUEST_SHADOW_21: 826871464839098189
+      GUEST_SHADOW_22: -8345305449103240461
+      GUEST_SHADOW_23: 8009634457082469713
+      GUEST_SHADOW_24: 5467607910971530744
+      GUEST_SHADOW_25: 4935694325760171654
+      GUEST_SHADOW_26: -9062694817691174180
+      GUEST_SHADOW_27: 5164059935304149895
+      GUEST_SHADOW_28: 6565956192244216876
+      GUEST_SHADOW_29: -7953006998098064767
+      GUEST_SHADOW_3: -6780470039462017050
+      GUEST_SHADOW_30: -3743392663047943801
+      GUEST_SHADOW_31: 2670113704164612809
+      GUEST_SHADOW_32: -4905595170657169041
+      GUEST_SHADOW_33: -3959138439569000432
+      GUEST_SHADOW_34: -3296370284671777564
+      GUEST_SHADOW_35: -3642275076633810023
+      GUEST_SHADOW_36: -4193318702994012904
+      GUEST_SHADOW_37: 32723693548105270
+      GUEST_SHADOW_38: 6731937272956197815
+      GUEST_SHADOW_39: -7726634605114845955
+      GUEST_SHADOW_4: -2551465609658850898
+      GUEST_SHADOW_40: -6868866295110372649
+      GUEST_SHADOW_41: 9059591299761991371
+      GUEST_SHADOW_42: 6637959201207186736
+      GUEST_SHADOW_43: 6249502718144935571
+      GUEST_SHADOW_44: 7939498403664340260
+      GUEST_SHADOW_45: -4268813336176750049
+      GUEST_SHADOW_46: -7449525661989870998
+      GUEST_SHADOW_47: -7790773178897905655
+      GUEST_SHADOW_48: -6986204801825105166
+      GUEST_SHADOW_49: 7494255911010105022
+      GUEST_SHADOW_5: 4965625178994030585
+      GUEST_SHADOW_50: 7678897449553710665
+      GUEST_SHADOW_51: 3066716764971013643
+      GUEST_SHADOW_52: 6879542937265059499
+      GUEST_SHADOW_53: 172171196763671236
+      GUEST_SHADOW_54: 7895541980455984285
+      GUEST_SHADOW_55: 7310038108538017193
+      GUEST_SHADOW_56: -6478460700116879792
+      GUEST_SHADOW_57: -8000278313725312302
+      GUEST_SHADOW_58: -7950308189286384861
+      GUEST_SHADOW_59: 4862432190847452458
+      GUEST_SHADOW_6: -622805026807888457
+      GUEST_SHADOW_60: -1110922304413616822
+      GUEST_SHADOW_61: -2187587684861961083
+      GUEST_SHADOW_62: -5303564637641005606
+      GUEST_SHADOW_63: 874023220269839736
+      GUEST_SHADOW_64: 1957913460320623717
+      GUEST_SHADOW_65: 3764657897023884446
+      GUEST_SHADOW_66: -761045013310815855
+      GUEST_SHADOW_67: 5270530221399243975
+      GUEST_SHADOW_68: 7674091412427505317
+      GUEST_SHADOW_69: -5925145811730601511
+      GUEST_SHADOW_7: -8100256364676080659
+      GUEST_SHADOW_70: 1431838227602845671
+      GUEST_SHADOW_71: 5813276314367560379
+      GUEST_SHADOW_72: 7221912052644007245
+      GUEST_SHADOW_73: -6723185724437302831
+      GUEST_SHADOW_74: 2985843530977450910
+      GUEST_SHADOW_75: -4898321351784125902
+      GUEST_SHADOW_76: -517138930047075612
+      GUEST_SHADOW_77: 4881831379024837834
+      GUEST_SHADOW_78: -1224307254588713660
+      GUEST_SHADOW_79: -6437996968253969483
+      GUEST_SHADOW_8: -6868041384455889203
+      GUEST_SHADOW_80: -3122611531237355869
+      GUEST_SHADOW_81: -200498027295907662
+      GUEST_SHADOW_82: -6918097409063314103
+      GUEST_SHADOW_83: -1909601285305150769
+      GUEST_SHADOW_84: 3473187962917410845
+      GUEST_SHADOW_85: 4149287740520193464
+      GUEST_SHADOW_86: 5369653537696517642
+      GUEST_SHADOW_87: -2528829750633067540
+      GUEST_SHADOW_88: 8557287019861246032
+      GUEST_SHADOW_89: 9102472846411103881
+      GUEST_SHADOW_9: -2201050369884279571
+      GUEST_SHADOW_90: -4189906169669855469
+      GUEST_SHADOW_91: 7484599995751248745
+      GUEST_SHADOW_92: -7028530082999251006
+      GUEST_SHADOW_93: 2620660308653683331
+      GUEST_SHADOW_94: -2848117657444631067
+      GUEST_SHADOW_95: 5672497324310703647
+      GUEST_SHADOW_96: 5703784904063706014
+      GUEST_SHADOW_97: -5703271540174429169
+      GUEST_SHADOW_98: -5560610731387048419
+      GUEST_SHADOW_99: -5328837977675393671
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

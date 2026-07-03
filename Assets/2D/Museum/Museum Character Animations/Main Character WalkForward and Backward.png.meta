@@ -1,0 +1,533 @@
+fileFormatVersion: 2
+guid: 8bf3ab56dd43836468870d63a087c9c4
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -802194292937425880
+    second: Main Character WalkForward and Backward_0
+  - first:
+      213: -5526520977802787648
+    second: Main Character WalkForward and Backward_1
+  - first:
+      213: 3010031277472708532
+    second: Main Character WalkForward and Backward_2
+  - first:
+      213: 7889473099253156213
+    second: Main Character WalkForward and Backward_3
+  - first:
+      213: -1192909523933858214
+    second: Main Character WalkForward and Backward_4
+  - first:
+      213: -1943036063875204285
+    second: Main Character WalkForward and Backward_5
+  - first:
+      213: -7294545310393282651
+    second: Main Character WalkForward and Backward_6
+  - first:
+      213: 3307420956110444170
+    second: Main Character WalkForward and Backward_7
+  - first:
+      213: 4243081173641825865
+    second: Main Character WalkForward and Backward_8
+  - first:
+      213: 7491778081469827620
+    second: Main Character WalkForward and Backward_9
+  - first:
+      213: -5224827506275512748
+    second: Main Character WalkForward and Backward_10
+  - first:
+      213: 2285710961859124595
+    second: Main Character WalkForward and Backward_11
+  - first:
+      213: 7803070249274412714
+    second: Main Character WalkForward and Backward_12
+  - first:
+      213: 3605198622176962700
+    second: Main Character WalkForward and Backward_13
+  - first:
+      213: 7220914100102922248
+    second: Main Character WalkForward and Backward_14
+  - first:
+      213: 7016287995447131689
+    second: Main Character WalkForward and Backward_15
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Main Character WalkForward and Backward_0
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 48
+        width: 19
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 82c7e907a880ed4f0800000000000000
+      internalID: -802194292937425880
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Main Character WalkForward and Backward_1
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 48
+        width: 19
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c40252937add43b0800000000000000
+      internalID: -5526520977802787648
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Main Character WalkForward and Backward_2
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 48
+        width: 19
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4b77390cf77c5c920800000000000000
+      internalID: 3010031277472708532
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Main Character WalkForward and Backward_3
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 48
+        width: 19
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5790cf9cbf90d7d60800000000000000
+      internalID: 7889473099253156213
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Main Character WalkForward and Backward_4
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 48
+        width: 19
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a56fdb8bb1fe17fe0800000000000000
+      internalID: -1192909523933858214
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Main Character WalkForward and Backward_5
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 47
+        width: 19
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 34bf1fa9ef2f805e0800000000000000
+      internalID: -1943036063875204285
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Main Character WalkForward and Backward_6
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 47
+        width: 19
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5af440830b194ca90800000000000000
+      internalID: -7294545310393282651
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Main Character WalkForward and Backward_7
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 47
+        width: 19
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a8655ab06d156ed20800000000000000
+      internalID: 3307420956110444170
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Main Character WalkForward and Backward_8
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 3
+        width: 19
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 94e811cb8d372ea30800000000000000
+      internalID: 4243081173641825865
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Main Character WalkForward and Backward_9
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 2
+        width: 19
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 42a0112d87428f760800000000000000
+      internalID: 7491778081469827620
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Main Character WalkForward and Backward_10
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 2
+        width: 19
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 45e02cbb01fad77b0800000000000000
+      internalID: -5224827506275512748
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Main Character WalkForward and Backward_11
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 2
+        width: 19
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 37d54d4720a78bf10800000000000000
+      internalID: 2285710961859124595
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Main Character WalkForward and Backward_12
+      rect:
+        serializedVersion: 2
+        x: 89
+        y: 3
+        width: 20
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aae8b6d9c031a4c60800000000000000
+      internalID: 7803070249274412714
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Main Character WalkForward and Backward_13
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 3
+        width: 20
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c88e593bb0d380230800000000000000
+      internalID: 3605198622176962700
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Main Character WalkForward and Backward_14
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 3
+        width: 19
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8008e32bd17d53460800000000000000
+      internalID: 7220914100102922248
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Main Character WalkForward and Backward_15
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 3
+        width: 19
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 92eb67a02ccde5160800000000000000
+      internalID: 7016287995447131689
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Main Character WalkForward and Backward_0: -802194292937425880
+      Main Character WalkForward and Backward_1: -5526520977802787648
+      Main Character WalkForward and Backward_10: -5224827506275512748
+      Main Character WalkForward and Backward_11: 2285710961859124595
+      Main Character WalkForward and Backward_12: 7803070249274412714
+      Main Character WalkForward and Backward_13: 3605198622176962700
+      Main Character WalkForward and Backward_14: 7220914100102922248
+      Main Character WalkForward and Backward_15: 7016287995447131689
+      Main Character WalkForward and Backward_2: 3010031277472708532
+      Main Character WalkForward and Backward_3: 7889473099253156213
+      Main Character WalkForward and Backward_4: -1192909523933858214
+      Main Character WalkForward and Backward_5: -1943036063875204285
+      Main Character WalkForward and Backward_6: -7294545310393282651
+      Main Character WalkForward and Backward_7: 3307420956110444170
+      Main Character WalkForward and Backward_8: 4243081173641825865
+      Main Character WalkForward and Backward_9: 7491778081469827620
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
