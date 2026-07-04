@@ -40,6 +40,7 @@ namespace Systems.MineSystem.MinePlayerSystem.Scriptable
         public ReactiveProperty<bool> isDamagingFall = new(false);
         public ReactiveProperty<bool> isHurt = new(false);
         public ReactiveProperty<bool> isInvincible = new(false);
+        public ReactiveProperty<int> cellsBrokenInCurrentMine = new(0);
 
         public float highestAirborneY;
         public float currentFallDistance;

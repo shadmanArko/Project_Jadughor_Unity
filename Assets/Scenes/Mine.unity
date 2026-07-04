@@ -429,7 +429,7 @@ MonoBehaviour:
   m_Intensity: 1
   m_LightVolumeIntensity: 1
   m_LightVolumeEnabled: 0
-  m_ApplyToSortingLayers: 00000000e3c05aec8fd67eebfb39260a31b4c050eb3b8d7c812a36a8d1b14fdce1f665172bd24aa9f3c44f60d90789f07fe9e44b
+  m_ApplyToSortingLayers: 00000000e3c05aec8fd67eebfb39260a31b4c050eb3b8d7c812a36a8d1b14fdce1f665172bd24aa9f3c44f60d90789f07fe9e44bf7549151
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -626,6 +626,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Zenject::Zenject.SceneContext
   _scriptableObjectInstallers:
+  - {fileID: 11400000, guid: 198ef6fb94b7423d912de2cbfe2eb7cf, type: 2}
   - {fileID: 11400000, guid: b28dbb540dc84db49f3d33b42b46bdf7, type: 2}
   - {fileID: 11400000, guid: cb8184b59a7974f47b2ace8a6627d465, type: 2}
   - {fileID: 11400000, guid: 931f2685ded96e64dbfcb8dacc7784c3, type: 2}
