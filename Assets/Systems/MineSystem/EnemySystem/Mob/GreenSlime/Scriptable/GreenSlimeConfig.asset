@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyType: 0
   prefab: {fileID: 1937851054011437442, guid: 6cfefae9019d07046aee60a1cdd68056, type: 3}
-  maxHealth: 10
-  damage: 1
-  moveSpeed: 1
-  aggroRangeInTiles: 4
-  attackRangeInTiles: 1
+  maxHealth: 25
+  damage: 5
+  moveSpeed: 0.5
+  aggroRangeInTiles: 5
+  attackRangeInTiles: 0
   attackCooldown: 1
   minimumSpawnDistanceInTiles: 4
   slimeVariant: 0
