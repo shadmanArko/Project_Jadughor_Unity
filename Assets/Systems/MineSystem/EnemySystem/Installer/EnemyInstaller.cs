@@ -36,11 +36,12 @@ namespace Systems.MineSystem.EnemySystem.Installer
                 .To<NoOpEnemyStatusEffectApplier>().AsSingle();
             Container.Bind<IEnemyAttackService>()
                 .To<EnemyAttackService>().AsSingle();
+            Container.Bind<IEnemyPlacementValidator>()
+                .To<EnemyPlacementValidator>().AsSingle();
             Container.BindInterfacesAndSelfTo<EnemyPathfindingService>()
                 .AsSingle();
+            Container.Bind<EnemySpawnCandidateService>().AsSingle();
 
-            Container.Bind<IEnemySpawnRule>()
-                .To<SlimeSpawnRule>().AsSingle();
             Container.BindInterfacesAndSelfTo<SlimePool>().AsSingle();
             Container.Bind<IEnemyFactory>()
                 .To<SlimeFactory>().AsSingle();

@@ -1,8 +1,10 @@
+using System;
 using Systems.MineSystem.EnemySystem.Enum;
 using Systems.MineSystem.EnemySystem.Interface;
 using Systems.MineSystem.EnemySystem.Mob.Slime.Config;
 using Systems.MineSystem.EnemySystem.Mob.Slime.Controller;
 using Systems.MineSystem.EnemySystem.Model;
+using UnityEngine;
 
 namespace Systems.MineSystem.EnemySystem.Mob.Slime.Service
 {
@@ -24,11 +26,21 @@ namespace Systems.MineSystem.EnemySystem.Mob.Slime.Service
             if (request.Config is not SlimeConfigScriptable config)
                 return null;
             var entry = _pool.Acquire(config);
-            entry.Controller.Initialize(new EnemyInitializeData(
-                config,
-                spawnData.GridPosition,
-                spawnData.WorldPosition));
-            return entry.Controller;
+            try
+            {
+                entry.Controller.Initialize(new EnemyInitializeData(
+                    config,
+                    spawnData.GridPosition,
+                    spawnData.WorldPosition));
+                return entry.Controller;
+            }
+            catch (Exception exception)
+            {
+                Debug.LogWarning(
+                    $"Slime spawn rejected: {exception.Message}");
+                _pool.Release(entry.Controller);
+                return null;
+            }
         }
 
         public void Release(IEnemyController enemyController)

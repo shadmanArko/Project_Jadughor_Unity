@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animatorController: {fileID: 9100000, guid: 8aa2f5c4105a53b49b48c633120f18bd, type: 2}
   visualScale: {x: 1, y: 1}
-  visualOffset: {x: 0, y: 0}
+  visualOffset: {x: 0, y: 0.1}
   animations:
   - id: Slime.Spawn
     stateName: GreenSlime_Spawn
@@ -53,12 +53,12 @@ MonoBehaviour:
     stateName: GreenSlime_Aggro
     triggerName: 
     animationSprites:
-    - {fileID: -1050732783, guid: b5c740ae3c16aa94ba6f44d3fc67f6fe, type: 3}
-    - {fileID: 1190502070, guid: b5c740ae3c16aa94ba6f44d3fc67f6fe, type: 3}
-    - {fileID: -1701589661, guid: b5c740ae3c16aa94ba6f44d3fc67f6fe, type: 3}
-    - {fileID: 760703675, guid: b5c740ae3c16aa94ba6f44d3fc67f6fe, type: 3}
-    - {fileID: 393510460, guid: b5c740ae3c16aa94ba6f44d3fc67f6fe, type: 3}
-    - {fileID: 815453646, guid: b5c740ae3c16aa94ba6f44d3fc67f6fe, type: 3}
+    - {fileID: 1311911491, guid: b5c740ae3c16aa94ba6f44d3fc67f6fe, type: 3}
+    - {fileID: 2138056169, guid: b5c740ae3c16aa94ba6f44d3fc67f6fe, type: 3}
+    - {fileID: 2001338891, guid: b5c740ae3c16aa94ba6f44d3fc67f6fe, type: 3}
+    - {fileID: -1479889944, guid: b5c740ae3c16aa94ba6f44d3fc67f6fe, type: 3}
+    - {fileID: 1947763590, guid: b5c740ae3c16aa94ba6f44d3fc67f6fe, type: 3}
+    - {fileID: -1041209986, guid: b5c740ae3c16aa94ba6f44d3fc67f6fe, type: 3}
     speed: 1
     playOnlyOnce: 1
     flipX: 1

@@ -3,6 +3,7 @@ using Systems.MineSystem.Mine.Model;
 using Systems.MineSystem.Mine.View;
 using Systems.MineSystem.MinePlayerSystem.Model;
 using Systems.MineSystem.MinePlayerSystem.Scriptable;
+using Systems.MineSystem.MinePlayerSystem.View;
 using UnityEngine;
 
 namespace Systems.MineSystem.EnemySystem.Service
@@ -11,13 +12,16 @@ namespace Systems.MineSystem.EnemySystem.Service
     {
         private readonly RuntimeDataScriptable _runtime;
         private readonly MineView _mineView;
+        private readonly PlayerView _playerView;
 
         public EnemyTargetProvider(
             RuntimeDataScriptable runtime,
-            MineView mineView)
+            MineView mineView,
+            PlayerView playerView)
         {
             _runtime = runtime;
             _mineView = mineView;
+            _playerView = playerView;
         }
 
         public bool IsTargetAvailable =>
@@ -25,6 +29,11 @@ namespace Systems.MineSystem.EnemySystem.Service
             _runtime.lifeState.Value == PlayerLifeState.Alive;
 
         public Vector2 WorldPosition => _runtime.worldPosition.Value;
+
+        public bool IsTargetCollider(Collider2D collider) =>
+            collider != null && _playerView != null &&
+            (collider == _playerView.PlayerCollider ||
+             collider == _playerView.GroundCollider);
 
         public GridPosition GridPosition
         {

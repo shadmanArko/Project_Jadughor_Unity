@@ -9,6 +9,8 @@ namespace Systems.MineSystem.EnemySystem.Mob.Slime.Enum
         Attack,
         Hurt,
         Fall,
+        TeleportDespawn,
+        TeleportSpawn,
         Despawn,
         Death
     }

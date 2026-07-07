@@ -6,6 +6,7 @@ using Systems.MineSystem.Mine.Model;
 
 namespace Systems.MineSystem.EnemySystem.Mob.Slime.Service
 {
+    [Obsolete("EnemySpawnLocator now validates slime spawn requirements from SlimeConfigScriptable.")]
     public sealed class SlimeSpawnRule : IEnemySpawnRule
     {
         public EnemyType EnemyType => EnemyType.Slime;

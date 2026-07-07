@@ -168,11 +168,15 @@ namespace Systems.MineSystem.EnemySystem.Controller
         {
             try
             {
+                var visibilityRule =
+                    signal.EnemyConfig != null &&
+                    signal.EnemyConfig.AllowCameraVisibleWaveSpawn
+                        ? EnemySpawnVisibilityRule.Any
+                        : EnemySpawnVisibilityRule.OutsideCameraViewport;
                 var result = await SpawnAsync(
                     new EnemySpawnRequest(
                         signal.EnemyConfig,
-                        visibilityRule:
-                            EnemySpawnVisibilityRule.OutsideCameraViewport,
+                        visibilityRule: visibilityRule,
                         outsideCameraMarginInTiles:
                             signal.OutsideCameraMarginInTiles),
                     _waveSpawnCancellation.Token);

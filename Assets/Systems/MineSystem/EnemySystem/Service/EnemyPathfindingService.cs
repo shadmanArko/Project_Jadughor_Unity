@@ -121,18 +121,21 @@ namespace Systems.MineSystem.EnemySystem.Service
 
         private void Rebuild(MineData mineData)
         {
-            if (mineData?.Cells == null)
+            if (mineData == null)
             {
                 _snapshot = null;
                 return;
             }
 
             var open = new HashSet<GridPosition>();
-            for (var i = 0; i < mineData.Cells.Count; i++)
+            var brokenPositions = _mine.BrokenCellPositions;
+            for (var i = 0; i < brokenPositions.Count; i++)
             {
-                var cell = mineData.Cells[i];
-                if (cell.IsRevealed && (cell.IsBroken || cell.IsBlank))
-                    open.Add(cell.Position);
+                var position = brokenPositions[i];
+                if (_mine.TryGetCell(position, out var cell) &&
+                    cell.IsRevealed &&
+                    cell.IsBroken)
+                    open.Add(position);
             }
 
             var walkable = new HashSet<GridPosition>();

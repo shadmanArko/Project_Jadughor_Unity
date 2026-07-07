@@ -17,6 +17,7 @@ namespace Systems.MineSystem.EnemySystem.Mob.Slime.View
         [SerializeField] private EnemyAnimationController animationController;
 
         private readonly Subject<float> _damageRequested = new();
+        private readonly Subject<Collider2D> _contactStayed = new();
         private readonly RaycastHit2D[] _groundHits = new RaycastHit2D[4];
         private bool _damageEnabled;
 
@@ -26,6 +27,7 @@ namespace Systems.MineSystem.EnemySystem.Mob.Slime.View
         public bool DamageEnabled => _damageEnabled;
         public float AnimatorSpeed => animationController.Speed;
         public IObservable<float> DamageRequested => _damageRequested;
+        public IObservable<Collider2D> ContactStayed => _contactStayed;
         public IObservable<EnemyAnimationMarkerEvent> AnimationMarkers =>
             animationController.Markers;
         public IObservable<EnemyAnimationCompletedEvent> AnimationCompleted =>
@@ -120,10 +122,17 @@ namespace Systems.MineSystem.EnemySystem.Mob.Slime.View
             animationController.ResetRuntime();
         }
 
+        private void OnTriggerStay2D(Collider2D other)
+        {
+            _contactStayed.OnNext(other);
+        }
+
         private void OnDestroy()
         {
             _damageRequested.OnCompleted();
             _damageRequested.Dispose();
+            _contactStayed.OnCompleted();
+            _contactStayed.Dispose();
         }
     }
 }

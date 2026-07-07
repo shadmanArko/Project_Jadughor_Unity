@@ -9,7 +9,6 @@ using Systems.MineSystem.EnemySystem.Mob.Slime.Model;
 using Systems.MineSystem.EnemySystem.Mob.Slime.View;
 using Systems.MineSystem.EnemySystem.Model;
 using Systems.MineSystem.Mine.Model;
-using Systems.MineSystem.Mine.View;
 using Systems.MineSystem.PauseSystem.Signal;
 using Systems.Utilities.EventBus;
 using UniRx;
@@ -23,11 +22,15 @@ namespace Systems.MineSystem.EnemySystem.Mob.Slime.Controller
         private readonly SlimeModel _model;
         private readonly SlimeView _view;
         private readonly SlimeStateMachine _stateMachine;
+        private readonly IEnemyTargetProvider _target;
+        private readonly IEnemyAttackService _attack;
+        private readonly IEnemyPlacementValidator _placement;
         private readonly SlimePauseStateData _pauseState = new();
 
         private CompositeDisposable _subscriptions;
         private CancellationTokenSource _lifetimeCancellation;
         private bool _isAffectedByPause = true;
+        private SlimeConfigScriptable _config;
         private bool _disposed;
 
         public Guid EnemyId { get; private set; }
@@ -57,10 +60,13 @@ namespace Systems.MineSystem.EnemySystem.Mob.Slime.Controller
             IEnemyPathfindingService pathfinding,
             IEnemyTargetProvider target,
             IEnemyAttackService attack,
-            MineView mineView,
+            IEnemyPlacementValidator placement,
             LazyInject<EnemyManager> enemyManager)
         {
             _view = view;
+            _target = target;
+            _attack = attack;
+            _placement = placement;
             _model = new SlimeModel();
             _stateMachine = new SlimeStateMachine(
                 _model,
@@ -68,7 +74,7 @@ namespace Systems.MineSystem.EnemySystem.Mob.Slime.Controller
                 pathfinding,
                 target,
                 attack,
-                mineView,
+                placement,
                 enemyManager);
         }
 
@@ -90,11 +96,20 @@ namespace Systems.MineSystem.EnemySystem.Mob.Slime.Controller
             _lifetimeCancellation = new CancellationTokenSource();
             _subscriptions = new CompositeDisposable();
             _model.Initialize(config, initializeData.SpawnGridPosition);
+            _config = config;
             _view.ResetRuntime();
+            if (!_placement.IsPlacementClear(
+                    _view.TerrainCollider,
+                    initializeData.SpawnWorldPosition))
+            {
+                throw new InvalidOperationException(
+                    $"Slime cannot fit at spawn cell {initializeData.SpawnGridPosition}.");
+            }
             _view.transform.position = initializeData.SpawnWorldPosition;
             _view.ApplyConfig(config);
             _view.SetDamageEnabled(false);
             _view.DamageRequested.Subscribe(OnDamageRequested).AddTo(_subscriptions);
+            _view.ContactStayed.Subscribe(OnContactStayed).AddTo(_subscriptions);
             _view.AnimationMarkers
                 .Subscribe(_stateMachine.HandleAnimationMarker)
                 .AddTo(_subscriptions);
@@ -135,6 +150,15 @@ namespace Systems.MineSystem.EnemySystem.Mob.Slime.Controller
                 _stateMachine.EnterDeath();
             else
                 _stateMachine.EnterHurt();
+        }
+
+        private void OnContactStayed(Collider2D other)
+        {
+            if (!IsActive || IsDead || _pauseState.HasSnapshot ||
+                !_view.DamageEnabled || _config == null ||
+                !_target.IsTargetCollider(other))
+                return;
+            _attack.TryAttack(_config.Damage, _config.StatusEffect);
         }
 
         public void OnPause()
@@ -182,6 +206,7 @@ namespace Systems.MineSystem.EnemySystem.Mob.Slime.Controller
             _subscriptions?.Dispose();
             _subscriptions = null;
             _stateMachine.Release();
+            _config = null;
             _pauseState.Clear();
             _model.ResetRuntime();
             _view.ResetRuntime();
@@ -194,6 +219,7 @@ namespace Systems.MineSystem.EnemySystem.Mob.Slime.Controller
             Release();
             _disposed = true;
             _stateMachine.Dispose();
+            _model.Dispose();
         }
     }
 }

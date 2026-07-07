@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Systems.MineSystem.EnemySystem.Mob.Slime.Config;
 using Systems.MineSystem.EnemySystem.Mob.Slime.Enum;
@@ -7,8 +8,10 @@ using UnityEngine;
 
 namespace Systems.MineSystem.EnemySystem.Mob.Slime.Model
 {
-    public sealed class SlimeModel
+    public sealed class SlimeModel : IDisposable
     {
+        private bool _disposed;
+
         public SlimeConfigScriptable Config { get; private set; }
         public int CurrentHealth { get; private set; }
         public GridPosition CurrentGridPosition { get; private set; }
@@ -19,6 +22,7 @@ namespace Systems.MineSystem.EnemySystem.Mob.Slime.Model
         public int PathGeneration { get; private set; }
         public bool PathPending { get; private set; }
         public bool WasChasing { get; private set; }
+        public bool IsAggro { get; private set; }
         public float AttackCooldownRemaining { get; private set; }
         public bool IsDead => CurrentHealth <= 0;
 
@@ -36,10 +40,13 @@ namespace Systems.MineSystem.EnemySystem.Mob.Slime.Model
             PathGeneration = 0;
             PathPending = false;
             WasChasing = false;
+            IsAggro = false;
             AttackCooldownRemaining = 0f;
         }
 
         public void SetState(SlimeState state) => CurrentState = state;
+
+        public void SetAggro(bool isAggro) => IsAggro = isAggro;
 
         public void ApplyDamage(float amount)
         {
@@ -58,13 +65,14 @@ namespace Systems.MineSystem.EnemySystem.Mob.Slime.Model
             return ++PathGeneration;
         }
 
-        public void CompletePath(PathResult result)
+        public bool CompletePath(PathResult result)
         {
             if (result.Generation != PathGeneration)
-                return;
+                return false;
             PathPending = false;
             CachedPath = result.Succeeded ? result.Steps : null;
             PathIndex = 0;
+            return true;
         }
 
         public EnemyPathStep? CurrentPathStep =>
@@ -108,6 +116,15 @@ namespace Systems.MineSystem.EnemySystem.Mob.Slime.Model
             PathIndex = 0;
             PathGeneration++;
             AttackCooldownRemaining = 0f;
+            IsAggro = false;
+        }
+
+        public void Dispose()
+        {
+            if (_disposed)
+                return;
+            _disposed = true;
+            ResetRuntime();
         }
     }
 }
