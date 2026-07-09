@@ -208,6 +208,9 @@ public class ExpansionManager : MonoBehaviour
         }
 
         _chunks[chunk] = data;
+
+        // Museum data records the newly developed chunk (seeds its tile records).
+        ProjectMuseum.Builder.BuilderActions.OnMuseumChunkExpanded?.Invoke(chunk);
         return true;
     }
 

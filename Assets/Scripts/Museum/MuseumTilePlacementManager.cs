@@ -114,7 +114,12 @@ public class MuseumTilePlacementManager : MonoBehaviour
 
         for (int x = minX; x <= maxX; x++)
             for (int y = minY; y <= maxY; y++)
+            {
                 placementTilemap.SetTile(new Vector3Int(x, y, 0), selectedTile);
+                // Museum data records the painted floor (no-op on undeveloped land).
+                ProjectMuseum.Builder.BuilderActions.OnFloorTilePainted?.Invoke(
+                    new Vector2Int(x, y), selectedTile.name);
+            }
     }
 
     void EraseTile(Vector3Int cellPos)

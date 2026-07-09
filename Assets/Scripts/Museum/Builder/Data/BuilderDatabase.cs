@@ -77,6 +77,111 @@ namespace ProjectMuseum.Builder
         private static Sprite Icon(Texture2D tex, int frames) => BuilderSpriteUtil.FirstFrameSprite(tex, frames);
         private static string Money(float price) => $"${price:0.##}";
 
+        // ── Placement info ──────────────────────────────────────────────
+
+        /// <summary>Everything the placement system needs about one variation.</summary>
+        public struct PlacementInfo
+        {
+            public Texture2D Texture;
+            public int NumberOfFrames;
+            public int WidthInTiles;
+            public int LengthInTiles;
+            public float Cost;
+        }
+
+        /// <summary>
+        /// Look up placement data for a variation of a placeable-object category.
+        /// Exhibits/DecorationOthers have no explicit width/length in the data, so
+        /// their footprint is NumberOfTilesNeeded × 1. Returns false if unknown.
+        /// </summary>
+        public bool TryGetPlacementInfo(BuilderCardType type, string cardName, out PlacementInfo info)
+        {
+            info = default;
+            switch (type)
+            {
+                case BuilderCardType.Exhibit:
+                    foreach (var e in exhibits)
+                        if (e?.Data != null && e.Data.VariationName == cardName)
+                        {
+                            info = new PlacementInfo
+                            {
+                                Texture = e.Icon,
+                                NumberOfFrames = e.Data.NumberOfFrames,
+                                WidthInTiles = Mathf.Max(1, e.Data.NumberOfTilesNeeded),
+                                LengthInTiles = 1,
+                                Cost = e.Data.Price
+                            };
+                            return true;
+                        }
+                    break;
+
+                case BuilderCardType.DecorationShop:
+                    foreach (var e in decorationShops)
+                        if (e?.Data != null && e.Data.VariationName == cardName)
+                        {
+                            info = new PlacementInfo
+                            {
+                                Texture = e.Icon,
+                                NumberOfFrames = e.Data.NumberOfFrames,
+                                WidthInTiles = Mathf.Max(1, e.Data.WidthInTiles),
+                                LengthInTiles = Mathf.Max(1, e.Data.LengthInTiles),
+                                Cost = e.Data.PlacementCost
+                            };
+                            return true;
+                        }
+                    break;
+
+                case BuilderCardType.DecorationOther:
+                    foreach (var e in decorationOthers)
+                        if (e?.Data != null && e.Data.VariationName == cardName)
+                        {
+                            info = new PlacementInfo
+                            {
+                                Texture = e.Icon,
+                                NumberOfFrames = e.Data.NumberOfFrames,
+                                WidthInTiles = Mathf.Max(1, e.Data.NumberOfTilesNeeded),
+                                LengthInTiles = 1,
+                                Cost = e.Data.PlacementCost
+                            };
+                            return true;
+                        }
+                    break;
+
+                case BuilderCardType.Sanitation:
+                    foreach (var e in sanitations)
+                        if (e?.Data != null && e.Data.SanitationId == cardName)
+                        {
+                            info = new PlacementInfo
+                            {
+                                Texture = e.Icon,
+                                NumberOfFrames = e.Data.NumberOfFrames,
+                                WidthInTiles = Mathf.Max(1, e.Data.WidthInTiles),
+                                LengthInTiles = Mathf.Max(1, e.Data.LengthInTiles),
+                                Cost = e.Data.PlacementCost
+                            };
+                            return true;
+                        }
+                    break;
+
+                case BuilderCardType.Wallpaper:
+                    foreach (var e in wallpapers)
+                        if (e?.Data != null && e.Data.VariationName == cardName)
+                        {
+                            info = new PlacementInfo
+                            {
+                                Texture = e.Icon,
+                                NumberOfFrames = e.Data.NumberOfFrames,
+                                WidthInTiles = 1,
+                                LengthInTiles = 1,
+                                Cost = e.Data.Price
+                            };
+                            return true;
+                        }
+                    break;
+            }
+            return false;
+        }
+
 #if UNITY_EDITOR
         public void SetExhibits(List<ExhibitEntry> v) => exhibits = v;
         public void SetDecorationShops(List<DecorationShopEntry> v) => decorationShops = v;

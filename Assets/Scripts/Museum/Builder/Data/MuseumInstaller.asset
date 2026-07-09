@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92a89efd3b839464c944d4fc5ad747c5, type: 3}
+  m_Name: MuseumInstaller
+  m_EditorClassIdentifier: Assembly-CSharp::ProjectMuseum.Builder.MuseumInstaller
+  museumData: {fileID: 11400000, guid: 1480ed51c10282049a08b2dead91608f, type: 2}
+  builderDatabase: {fileID: 11400000, guid: 6d24e97c8fbb83a47afc9e6dcf22fd0a, type: 2}

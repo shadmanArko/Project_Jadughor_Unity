@@ -69,8 +69,80 @@ background wrapped together, or a content wrapper).
 - The two vending machines were renamed in `decorationShopVariations.json`
   (`vendingmachine1/2`) to match the sprite files.
 
-## Next phase (not built yet)
-Placement (ghost/preview, tile footprint via `NumberOfTilesNeeded`, Y-sort via
-`YSortable`, cost checks), wallpaper application to walls, a pointer-over-UI guard so
-card clicks don't trigger the tile-placement drag, and wiring Flooring card clicks to
-`MuseumTilePlacementManager.SelectTile`.
+---
+
+# Phase 2 — Museum Data + Object Placement (Zenject + UniRx)
+
+## Architecture
+
+```
+MuseumDataAsset (SO, working copy — inspect live state in the editor)
+└── MuseumData: Info(money) · DevelopedChunks · Tiles · PlacedObjects · Exhibits
+        ▲ mutated ONLY by
+MuseumDataModel (Zenject IInitializable/IDisposable, UniRx)
+  · ReactiveProperty: Money, PlacedObjectCount, DevelopedChunkCount
+  · API: CanPlace / PlaceObject / RemoveObject / SetFloorTile / RegisterExpandedChunk
+  · Persistence: JSON at Application.persistentDataPath/museumData.json
+        ▲ injected into
+MuseumObjectPlacementSystem (MonoBehaviour)
+  · card click → grid-snapped ghost (green/red = valid+affordable / not)
+  · LMB place (repeats for multiples) · RMB/Esc cancel · UI clicks ignored
+  · Start(): respawns every saved object from data
+```
+
+Hooks already wired: `ExpansionManager.TryExpand` → `OnMuseumChunkExpanded` (seeds
+the chunk's tile records); `MuseumTilePlacementManager.PlaceRectangle` →
+`OnFloorTilePainted` (records painted floors). New actions live in `BuilderActions`
+(placement started/cancelled, object placed/removed, floor painted, chunk expanded).
+
+## Scene setup (one-time)
+
+1. **Assets**: Create **Project Museum ▸ Museum Data** (`Assets/GameData/MuseumData.asset`)
+   — set Chunk Size (20×18) to match ExpansionManager. Create
+   **Installers ▸ Museum Installer** (`Assets/GameData/MuseumInstaller.asset`) and
+   assign MuseumData + BuilderDatabase to it.
+2. **SceneContext**: the Museum scene needs one (GameObject ▸ Zenject ▸ Scene Context).
+   Add `MuseumInstaller` to its **Scriptable Object Installers** list.
+3. **Placement system**: add `MuseumObjectPlacementSystem` to a manager object;
+   assign the Grid and an "Objects" parent transform. Tune `worldPixelsPerUnit` /
+   `spriteYOffset` so sprites sit on tiles correctly.
+
+## Notes
+- Data model auto-loads the save on init, else seeds a new game (chunk 0,0).
+  `MuseumDataModel.Save()` writes the JSON — call it from your save point
+  (sleep/save spot) or a debug key; nothing auto-saves yet.
+- The SO asset keeps play-mode changes **in the editor only** — handy for
+  inspection; the JSON is the real save. New Game = `InitializeNewGame()`.
+- Placing an exhibit also creates its `ExhibitData` row (artifact slots) —
+  artifact placement is the next phase.
+- Money starts at `StartingMoney` (asset); placements deduct their cost and are
+  rejected when unaffordable.
+
+## Testing save/load (MuseumSaveTester + friends)
+
+Extra scene components for the full test loop:
+
+| Component | Put it on | Assign |
+|---|---|---|
+| `MuseumSaveTester` | a "Museum Test" GameObject | nothing — right-click the component header for **Save Museum / Load Museum / New Game / Delete Save / Log State** (works in Play mode); F5/F9 hotkeys optional |
+| `MuseumWallpaperSystem` | a manager object | **Wall Containers** = Left Walls, Right Walls, Bottom Left Walls, Bottom Right Walls |
+| `MuseumFloorSync` | a manager object | Floor **Tilemap** + `MuseumTilePlacementManager` |
+
+Test loop: place objects from cards, paint floors, click a wallpaper card (applies to
+all registered walls for now) → **Save Museum** → move/remove stuff or restart Play →
+**Load Museum** → objects respawn, floors repaint, wallpapers reapply.
+All three systems refresh via `BuilderActions.OnMuseumDataReloaded`.
+
+Wallpaper notes: every wall segment gets a `WallData` record (`container/childIndex`
+id) in `MuseumData.Walls`. Card click = apply to ALL walls (per-wall click selection
+comes later). "Clear All Wallpapers" (context menu on `MuseumWallpaperSystem`)
+restores the original sprites and saves `""`.
+
+⚠ On `MuseumData.asset`, keep **Default Tile Variation Name EMPTY** — floor records
+then only fill in when the player actually paints, so loading never repaints your
+hand-authored floor with a default tile.
+
+## Still to come
+Artifact-in-exhibit placement, per-wall wallpaper selection + real wall art,
+object move/remove UI, rotation frames, folding MuseumData + PlayerInfo into one
+master SaveData.
