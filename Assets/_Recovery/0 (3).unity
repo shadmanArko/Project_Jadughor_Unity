@@ -316,7 +316,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 206560967}
   m_CullTransparentMesh: 1
---- !u!1 &265223879
+--- !u!1 &259153230
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -324,40 +324,44 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 265223881}
-  - component: {fileID: 265223880}
+  - component: {fileID: 259153232}
+  - component: {fileID: 259153231}
   m_Layer: 0
-  m_Name: Save Tester
+  m_Name: MuseumObjectPlacementSystem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &265223880
+--- !u!114 &259153231
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 265223879}
+  m_GameObject: {fileID: 259153230}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e794a28c62f552444aa6ac9158523ef4, type: 3}
+  m_Script: {fileID: 11500000, guid: 3200c11e04acfe64fbb855d0a6229871, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ProjectMuseum.Data.MuseumSaveTester
-  enableHotkeys: 1
-  saveKey: 98
-  loadKey: 102
---- !u!4 &265223881
+  m_EditorClassIdentifier: Assembly-CSharp::ProjectMuseum.Builder.MuseumObjectPlacementSystem
+  grid: {fileID: 1779382418}
+  objectsParent: {fileID: 1767116136}
+  worldPixelsPerUnit: 100
+  spriteYOffset: 0
+  validTint: {r: 0.5, g: 1, b: 0.5, a: 0.6}
+  invalidTint: {r: 1, g: 0.4, b: 0.4, a: 0.6}
+  sortingLayerName: 
+--- !u!4 &259153232
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 265223879}
+  m_GameObject: {fileID: 259153230}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.28727, y: 16.51257, z: 0}
+  m_LocalPosition: {x: -2.40684, y: 18.23803, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7224,55 +7228,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 25669a8e79d1d254a922f4bed5a409a7, type: 3}
---- !u!1 &1445255740
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1445255742}
-  - component: {fileID: 1445255741}
-  m_Layer: 0
-  m_Name: MuseumObjectPlacementSystem
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1445255741
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1445255740}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3200c11e04acfe64fbb855d0a6229871, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ProjectMuseum.Builder.MuseumObjectPlacementSystem
-  grid: {fileID: 1779382418}
-  objectsParent: {fileID: 1445255742}
-  validTint: {r: 0.5, g: 1, b: 0.5, a: 1}
-  invalidTint: {r: 1, g: 0.4, b: 0.4, a: 1}
-  logPlacementBlocks: 1
---- !u!4 &1445255742
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1445255740}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.40684, y: 18.23803, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1475030407
 GameObject:
   m_ObjectHideFlags: 0
@@ -7724,6 +7679,37 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2308912143425071822, guid: 207b7e128171c68469b27e6ef9cbea24, type: 3}
   m_PrefabInstance: {fileID: 3811439896889230266}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1767116135
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1767116136}
+  m_Layer: 0
+  m_Name: Objects parent
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1767116136
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1767116135}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1771867532
 GameObject:
   m_ObjectHideFlags: 0
@@ -9052,5 +9038,5 @@ SceneRoots:
   - {fileID: 2121415175}
   - {fileID: 1006942286}
   - {fileID: 1362042341}
-  - {fileID: 1445255742}
-  - {fileID: 265223881}
+  - {fileID: 1767116136}
+  - {fileID: 259153232}

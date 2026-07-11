@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ProjectMuseum.Builder.MuseumInstaller
   museumData: {fileID: 11400000, guid: 1480ed51c10282049a08b2dead91608f, type: 2}
   builderDatabase: {fileID: 11400000, guid: 6d24e97c8fbb83a47afc9e6dcf22fd0a, type: 2}
+  placeablePrefabConfig: {fileID: 11400000, guid: 72e06cbbfd24a8b4286fc95aa685f0a3, type: 2}

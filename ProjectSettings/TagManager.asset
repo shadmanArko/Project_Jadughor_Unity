@@ -83,5 +83,8 @@ TagManager:
   - name: Unrevealed
     uniqueID: 2822122113
     locked: 0
+  - name: PlacedMuseumObject
+    uniqueID: 3682064351
+    locked: 0
   m_RenderingLayers:
   - Default

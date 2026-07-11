@@ -77,7 +77,7 @@ background wrapped together, or a content wrapper).
 
 ```
 MuseumDataAsset (SO, working copy — inspect live state in the editor)
-└── MuseumData: Info(money) · DevelopedChunks · Tiles · PlacedObjects · Exhibits
+└── MuseumData: Info(money) · DevelopedChunks · Tiles · PlacedObjects · Exhibits · Walls
         ▲ mutated ONLY by
 MuseumDataModel (Zenject IInitializable/IDisposable, UniRx)
   · ReactiveProperty: Money, PlacedObjectCount, DevelopedChunkCount
@@ -85,27 +85,77 @@ MuseumDataModel (Zenject IInitializable/IDisposable, UniRx)
   · Persistence: JSON at Application.persistentDataPath/museumData.json
         ▲ injected into
 MuseumObjectPlacementSystem (MonoBehaviour)
-  · card click → grid-snapped ghost (green/red = valid+affordable / not)
+  · card click → look up variation's prefab in PlaceablePrefabConfig → ghost copy
+    (green/red = valid+affordable / not) follows the mouse, grid-snapped
   · LMB place (repeats for multiples) · RMB/Esc cancel · UI clicks ignored
-  · Start(): respawns every saved object from data
+  · Start(): respawns every saved object from its prefab
 ```
 
 Hooks already wired: `ExpansionManager.TryExpand` → `OnMuseumChunkExpanded` (seeds
 the chunk's tile records); `MuseumTilePlacementManager.PlaceRectangle` →
 `OnFloorTilePainted` (records painted floors). New actions live in `BuilderActions`
-(placement started/cancelled, object placed/removed, floor painted, chunk expanded).
+(placement started/cancelled, object placed/removed, floor painted, chunk expanded,
+wallpaper changed, data reloaded).
+
+## Placeable-object prefabs (`PlaceablePrefabConfig`)
+
+Ghost previews and placed objects are now **real prefabs**, keyed by **category +
+footprint size** (not by individual variation) — this fixes both the missing-object
+and wrong-size-preview issues, and matches the fact that many variations (e.g. every
+plant color) share the same size and just need a different sprite.
+
+You don't make one prefab per variation — you make one prefab per **(Type, Width ×
+Length)** you need, e.g. Exhibit-1x1, Exhibit-2x1, Sanitation-2x2, DecorationOther-1x1.
+At spawn time the system:
+1. Looks up the clicked variation's real size + texture from `BuilderDatabase`.
+2. Fetches the matching sized prefab from `PlaceablePrefabConfig`.
+3. Instantiates it, then calls `view.ApplyVariationSprite(...)` to swap in that
+   specific variation's cropped artwork (first frame of its sheet) — so the shared
+   prefab actually shows the right object.
+
+Each prefab: a root `GameObject` sized/anchored for its footprint, with a
+`SpriteRenderer` and a **`PlaceableObjectView`** component (or a subclass —
+`ExhibitObjectView`, `ShopObjectView`, `DecorationObjectView`, `SanitationObjectView`).
+If a prefab has multiple renderers, set **Primary Renderer** on the view to the one
+that should receive the swapped sprite (defaults to the first one otherwise). If a
+prefab has no view component at all, the placement system adds a base
+`PlaceableObjectView` automatically — but adding the right subclass yourself keeps the
+door open for per-category logic (e.g. exhibit artifact slots) later.
+
+> **Give that renderer a placeholder sprite sized correctly for the tile footprint**
+> (any sprite — even a plain box — works). `ApplyVariationSprite` reads that
+> placeholder's visual size and rescales the renderer so the swapped-in variation
+> art fills the exact same footprint, regardless of the source texture's own pixel
+> size or PPU. Skip this and the swapped art renders at whatever size its raw pixel
+> dimensions happen to produce, which is usually NOT what you want.
+
+Then create **Project Museum ▸ Placeable Prefab Config** and add one entry per prefab
+(Type + Width In Tiles + Length In Tiles + Prefab), and assign it to `MuseumInstaller`.
+Console warns (with the sizes you *have* configured for that type) if a variation asks
+for a size you haven't built.
+
+> **Which sizes are actually reachable right now** (checked against the current data):
+> **1×1** — Exhibit `BasicExhibit1x1`, both DecorationShop, both DecorationOther.
+> **2×1** — Exhibit `BasicExhibit4x4` (its `NumberOfTilesNeeded` is 2, derived as a
+> 2-wide row; despite the "4x4" name it is NOT a real 2×2 today). **2×2** — Sanitation
+> `Toilet1` (its data already carries real `WidthInTiles`/`LengthInTiles` = 2×2).
+> **1×2 is not reachable by anything yet** — no current variation produces that
+> combination. If you're building a 1×2 prefab, either a variation needs to actually
+> use it, or the Exhibit/DecorationOther footprint derivation should read the data's
+> `TilesExtendInDirection` field to pick the axis instead of always defaulting to
+> width — tell me if you want that derivation fixed.
 
 ## Scene setup (one-time)
 
 1. **Assets**: Create **Project Museum ▸ Museum Data** (`Assets/GameData/MuseumData.asset`)
    — set Chunk Size (20×18) to match ExpansionManager. Create
-   **Installers ▸ Museum Installer** (`Assets/GameData/MuseumInstaller.asset`) and
-   assign MuseumData + BuilderDatabase to it.
+   **Project Museum ▸ Placeable Prefab Config** and assign your prefabs (see above).
+   Create **Installers ▸ Museum Installer** (`Assets/GameData/MuseumInstaller.asset`)
+   and assign MuseumData + BuilderDatabase + PlaceablePrefabConfig to it.
 2. **SceneContext**: the Museum scene needs one (GameObject ▸ Zenject ▸ Scene Context).
    Add `MuseumInstaller` to its **Scriptable Object Installers** list.
 3. **Placement system**: add `MuseumObjectPlacementSystem` to a manager object;
-   assign the Grid and an "Objects" parent transform. Tune `worldPixelsPerUnit` /
-   `spriteYOffset` so sprites sit on tiles correctly.
+   assign the Grid and an "Objects" parent transform.
 
 ## Notes
 - Data model auto-loads the save on init, else seeds a new game (chunk 0,0).
@@ -117,6 +167,15 @@ the chunk's tile records); `MuseumTilePlacementManager.PlaceRectangle` →
   artifact placement is the next phase.
 - Money starts at `StartingMoney` (asset); placements deduct their cost and are
   rejected when unaffordable.
+- **Nothing placing?** `MuseumObjectPlacementSystem` now logs *why* every blocked
+  click failed (over UI / no space / can't afford) — check the Console. A very
+  common cause: a full-screen background `Image` somewhere in the canvas with
+  **Raycast Target** left ON, which makes Unity's EventSystem think the pointer is
+  "over UI" everywhere, so clicks in the world are silently ignored. If you see
+  "Click ignored — pointer is over UI" for clicks over the museum floor, find that
+  background and turn its Raycast Target off.
+- Missing-injection is now a loud `Debug.LogError` (not a silent no-op) if the scene
+  has no SceneContext/MuseumInstaller, or the installer is missing a reference.
 
 ## Testing save/load (MuseumSaveTester + friends)
 
