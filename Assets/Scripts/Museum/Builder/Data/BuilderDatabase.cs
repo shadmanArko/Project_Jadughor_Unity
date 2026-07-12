@@ -90,9 +90,22 @@ namespace ProjectMuseum.Builder
         }
 
         /// <summary>
+        /// Exhibit/DecorationOther footprint: use the variation's explicit
+        /// WidthInTiles/LengthInTiles when set (&gt;0); otherwise fall back to
+        /// NumberOfTilesNeeded × 1 (the old Godot data has no real width/length for
+        /// these two categories, only a single ambiguous tile count).
+        /// </summary>
+        private static (int width, int length) ResolveFootprint(
+            int widthInTiles, int lengthInTiles, int numberOfTilesNeeded)
+        {
+            if (widthInTiles > 0 && lengthInTiles > 0)
+                return (widthInTiles, lengthInTiles);
+            return (Mathf.Max(1, numberOfTilesNeeded), 1);
+        }
+
+        /// <summary>
         /// Look up placement data for a variation of a placeable-object category.
-        /// Exhibits/DecorationOthers have no explicit width/length in the data, so
-        /// their footprint is NumberOfTilesNeeded × 1. Returns false if unknown.
+        /// Returns false if unknown.
         /// </summary>
         public bool TryGetPlacementInfo(BuilderCardType type, string cardName, out PlacementInfo info)
         {
@@ -103,12 +116,14 @@ namespace ProjectMuseum.Builder
                     foreach (var e in exhibits)
                         if (e?.Data != null && e.Data.VariationName == cardName)
                         {
+                            var (w, l) = ResolveFootprint(
+                                e.Data.WidthInTiles, e.Data.LengthInTiles, e.Data.NumberOfTilesNeeded);
                             info = new PlacementInfo
                             {
                                 Texture = e.Icon,
                                 NumberOfFrames = e.Data.NumberOfFrames,
-                                WidthInTiles = Mathf.Max(1, e.Data.NumberOfTilesNeeded),
-                                LengthInTiles = 1,
+                                WidthInTiles = w,
+                                LengthInTiles = l,
                                 Cost = e.Data.Price
                             };
                             return true;
@@ -135,12 +150,14 @@ namespace ProjectMuseum.Builder
                     foreach (var e in decorationOthers)
                         if (e?.Data != null && e.Data.VariationName == cardName)
                         {
+                            var (w, l) = ResolveFootprint(
+                                e.Data.WidthInTiles, e.Data.LengthInTiles, e.Data.NumberOfTilesNeeded);
                             info = new PlacementInfo
                             {
                                 Texture = e.Icon,
                                 NumberOfFrames = e.Data.NumberOfFrames,
-                                WidthInTiles = Mathf.Max(1, e.Data.NumberOfTilesNeeded),
-                                LengthInTiles = 1,
+                                WidthInTiles = w,
+                                LengthInTiles = l,
                                 Cost = e.Data.PlacementCost
                             };
                             return true;

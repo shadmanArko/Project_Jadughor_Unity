@@ -7255,6 +7255,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ProjectMuseum.Builder.MuseumObjectPlacementSystem
   grid: {fileID: 1779382418}
   objectsParent: {fileID: 1445255742}
+  anchorOffset: {x: 0, y: 0}
   validTint: {r: 0.5, g: 1, b: 0.5, a: 1}
   invalidTint: {r: 1, g: 0.4, b: 0.4, a: 1}
   logPlacementBlocks: 1

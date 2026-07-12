@@ -8,7 +8,9 @@
 	"TilesExtendInDirection": "Both",
 	"IsHangingExhibit": false,
 	"NumberOfFrames": 4,
-	"IsWallExhibit": false
+	"IsWallExhibit": false,
+	"WidthInTiles": 1,
+	"LengthInTiles": 1
   }
  ,
   {
@@ -20,6 +22,8 @@
 	"TilesExtendInDirection": "Right",
 	"IsHangingExhibit": false,
 	"NumberOfFrames": 4,
-	"IsWallExhibit": false
+	"IsWallExhibit": false,
+	"WidthInTiles": 2,
+	"LengthInTiles": 2
   }
 ]

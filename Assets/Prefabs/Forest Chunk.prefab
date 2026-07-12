@@ -83,7 +83,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -1069
+  m_SortingOrder: -473
   m_MaskInteraction: 0
   m_Sprite: {fileID: 21300000, guid: 2a719f017045140478ac088cd72ade8a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -167,7 +167,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f9e8d7c6b5a493827160514e3d2c1b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ForestChunkExpansion
-  direction: 0
+  autoDetectChunk: 1
+  manualChunk: {x: 1, y: 0}
   expandButtonRoot: {fileID: 8787693250575257741}
   manager: {fileID: 0}
   autoFitCollider: 1

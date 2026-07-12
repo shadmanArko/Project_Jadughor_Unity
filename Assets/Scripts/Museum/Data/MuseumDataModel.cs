@@ -234,7 +234,8 @@ namespace ProjectMuseum.Data
         /// Returns null if the placement is invalid or unaffordable.
         /// </summary>
         public PlacedObjectData PlaceObject(BuilderCardType type, string variationName,
-                                            Vector2Int anchor, int width, int length, float cost)
+                                            Vector2Int anchor, int width, int length, float cost,
+                                            int rotationFrame = 0)
         {
             if (!CanPlace(anchor, width, length))
             {
@@ -256,7 +257,7 @@ namespace ProjectMuseum.Data
                 Y = anchor.y,
                 WidthInTiles = width,
                 LengthInTiles = length,
-                RotationFrame = 0,
+                RotationFrame = rotationFrame,
                 OccupiedTiles = FootprintCells(anchor, width, length)
             };
 

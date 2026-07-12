@@ -112,12 +112,12 @@ TextureImporter:
       name: BasicExhibit1x1_0
       rect:
         serializedVersion: 2
-        x: 1
-        y: 1
-        width: 34
-        height: 26
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2
+        y: 2
+        width: 32
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -134,12 +134,12 @@ TextureImporter:
       name: BasicExhibit1x1_1
       rect:
         serializedVersion: 2
-        x: 37
-        y: 1
-        width: 34
-        height: 26
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 38
+        y: 2
+        width: 32
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -156,12 +156,12 @@ TextureImporter:
       name: BasicExhibit1x1_2
       rect:
         serializedVersion: 2
-        x: 73
-        y: 1
-        width: 34
-        height: 26
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 74
+        y: 2
+        width: 32
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -178,12 +178,12 @@ TextureImporter:
       name: BasicExhibit1x1_3
       rect:
         serializedVersion: 2
-        x: 109
-        y: 1
-        width: 34
-        height: 26
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 110
+        y: 2
+        width: 32
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -200,7 +200,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 2b8ae6e039c392742bea14cae1e8ae4a
     internalID: 0
     vertices: []
     indices: 
@@ -208,7 +208,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":4.0,"y":1.0},"gridSpriteSize":{"x":32.0,"y":24.0},"gridSpriteOffset":{"x":2.0,"y":2.0},"gridSpritePadding":{"x":4.0,"y":2.0},"pivot":{"x":0.5,"y":0.0},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":7,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       BasicExhibit1x1_0: 4286473884372957115
       BasicExhibit1x1_1: -6633946040583718721

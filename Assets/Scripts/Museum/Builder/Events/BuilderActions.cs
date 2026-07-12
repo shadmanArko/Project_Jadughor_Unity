@@ -33,6 +33,13 @@ namespace ProjectMuseum.Builder
         /// <summary>The pending placement was cancelled (right-click / Esc).</summary>
         public static Action OnPlacementCancelled;
 
+        /// <summary>
+        /// The PENDING ghost's rotation frame changed (Q/E) — carries the new frame
+        /// index. Mirrors Godot's <c>OnItemRotated</c>. Only fires while a ghost is
+        /// active; already-placed objects have no rotate-in-place interaction yet.
+        /// </summary>
+        public static Action<int> OnPlacementRotated;
+
         /// <summary>An object was placed and recorded in the museum data.</summary>
         public static Action<PlacedObjectData> OnObjectPlaced;
 

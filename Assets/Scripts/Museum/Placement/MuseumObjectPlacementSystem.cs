@@ -38,6 +38,10 @@ namespace ProjectMuseum.Builder
         [SerializeField] private Grid grid;
         [Tooltip("Parent for spawned museum objects (keeps hierarchy tidy).")]
         [SerializeField] private Transform objectsParent;
+        [Tooltip("Fine-tune nudge (world units) applied after snapping to the tile's " +
+                 "corner — use this if objects still sit a few pixels off the tile's " +
+                 "front vertex after the bottom-pivot fix (e.g. from cell gap/art padding).")]
+        [SerializeField] private Vector2 anchorOffset = Vector2.zero;
 
         [Header("Ghost preview")]
         [SerializeField] private Color validTint = new Color(0.5f, 1f, 0.5f, 0.75f);
@@ -47,6 +51,12 @@ namespace ProjectMuseum.Builder
         [Tooltip("Log why a click didn't place anything (over UI / no space / can't afford).")]
         [SerializeField] private bool logPlacementBlocks = true;
 
+        [Header("Rotation (matches Godot: Q/E rotate the pending ghost through its frames)")]
+        [Tooltip("Advances the rotation frame forward (+1, wraps). Godot: Q.")]
+        [SerializeField] private Key rotateForwardKey = Key.Q;
+        [Tooltip("Advances the rotation frame backward (-1, wraps). Godot: E.")]
+        [SerializeField] private Key rotateBackwardKey = Key.E;
+
         private Camera _cam;
 
         // Ghost/pending placement state
@@ -54,8 +64,10 @@ namespace ProjectMuseum.Builder
         private BuilderCardType _pendingType;
         private string _pendingName;
         private BuilderDatabase.PlacementInfo _pendingInfo;
+        private int _pendingRotationFrame;
         private GameObject _ghostGo;
         private PlaceableObjectView _ghostView;
+        private YSortable _ghostYSortable;
 
         // Spawned visuals by PlacedObjectData.Id (for removal support)
         private readonly Dictionary<string, GameObject> _spawned = new();
@@ -159,14 +171,18 @@ namespace ProjectMuseum.Builder
             _pendingType = type;
             _pendingName = cardName;
             _pendingInfo = info;
+            _pendingRotationFrame = 0; // fresh session for a newly-selected card starts unrotated
             _isPlacing = true;
 
             _ghostGo = Instantiate(prefab);
             _ghostGo.name = $"Ghost_{cardName}";
             _ghostView = _ghostGo.GetComponent<PlaceableObjectView>();
             if (_ghostView == null) _ghostView = _ghostGo.AddComponent<PlaceableObjectView>();
-            _ghostView.ApplyVariationSprite(BuilderSpriteUtil.FirstFrameSprite(info.Texture, info.NumberOfFrames));
+            RefreshGhostSprite();
             StripGhostComponents(_ghostGo);
+
+            _ghostYSortable = _ghostGo.GetComponent<YSortable>();
+            if (_ghostYSortable == null) _ghostYSortable = _ghostGo.AddComponent<YSortable>();
 
             BuilderActions.OnPlacementStarted?.Invoke(type, cardName);
         }
@@ -176,6 +192,37 @@ namespace ProjectMuseum.Builder
         {
             foreach (Collider2D c in go.GetComponentsInChildren<Collider2D>(true)) c.enabled = false;
             foreach (Collider c in go.GetComponentsInChildren<Collider>(true)) c.enabled = false;
+        }
+
+        /// <summary>Re-crop the ghost's sprite to the current pending rotation frame.</summary>
+        private void RefreshGhostSprite()
+        {
+            _ghostView.ApplyVariationSprite(BuilderSpriteUtil.FrameSprite(
+                _pendingInfo.Texture, _pendingInfo.NumberOfFrames, _pendingRotationFrame,
+                BuilderSpriteUtil.BottomCenterPivot));
+        }
+
+        /// <summary>
+        /// Q/E step the pending object through its rotation frames (Godot parity —
+        /// there it's a Sprite2D.Frame swap, not a transform rotation, wrapping at
+        /// NumberOfFrames; footprint size never changes with rotation). A no-op if
+        /// the variation only has one frame. Rotation persists across placing
+        /// several objects in the same session (only resets when a new card is
+        /// clicked) so you can lay down a row all facing the same way.
+        /// </summary>
+        private void HandleRotationInput(Keyboard kb)
+        {
+            if (kb == null || _pendingInfo.NumberOfFrames <= 1) return;
+
+            int frames = _pendingInfo.NumberOfFrames;
+            int delta = 0;
+            if (kb[rotateForwardKey].wasPressedThisFrame) delta = 1;
+            else if (kb[rotateBackwardKey].wasPressedThisFrame) delta = -1;
+            if (delta == 0) return;
+
+            _pendingRotationFrame = ((_pendingRotationFrame + delta) % frames + frames) % frames;
+            RefreshGhostSprite();
+            BuilderActions.OnPlacementRotated?.Invoke(_pendingRotationFrame);
         }
 
         // ── Ghost follow + place/cancel ──────────────────────────────────
@@ -195,8 +242,13 @@ namespace ProjectMuseum.Builder
                 return;
             }
 
+            HandleRotationInput(kb);
+
             Vector2Int anchor = MouseCell(mouse);
             _ghostGo.transform.position = CellToWorld(anchor);
+            // Re-sort every frame — the ghost moves continuously, unlike a placed
+            // object, so its render order must keep tracking its new position.
+            _ghostYSortable?.UpdateSortOrder();
 
             bool canPlace = _model.CanPlace(anchor, _pendingInfo.WidthInTiles, _pendingInfo.LengthInTiles);
             bool canAfford = _model.CanAfford(_pendingInfo.Cost);
@@ -227,7 +279,8 @@ namespace ProjectMuseum.Builder
         {
             PlacedObjectData placed = _model.PlaceObject(
                 _pendingType, _pendingName, anchor,
-                _pendingInfo.WidthInTiles, _pendingInfo.LengthInTiles, _pendingInfo.Cost);
+                _pendingInfo.WidthInTiles, _pendingInfo.LengthInTiles, _pendingInfo.Cost,
+                _pendingRotationFrame);
             if (placed == null) return; // model already logged why
 
             SpawnVisual(placed);
@@ -240,6 +293,7 @@ namespace ProjectMuseum.Builder
             if (_ghostGo != null) Destroy(_ghostGo);
             _ghostGo = null;
             _ghostView = null;
+            _ghostYSortable = null;
         }
 
         private void OnObjectRemoved(PlacedObjectData placed)
@@ -270,10 +324,16 @@ namespace ProjectMuseum.Builder
 
             var view = go.GetComponent<PlaceableObjectView>();
             if (view == null) view = go.AddComponent<PlaceableObjectView>();
-            view.ApplyVariationSprite(BuilderSpriteUtil.FirstFrameSprite(info.Texture, info.NumberOfFrames));
+            view.ApplyVariationSprite(BuilderSpriteUtil.FrameSprite(
+                info.Texture, info.NumberOfFrames, placed.RotationFrame, BuilderSpriteUtil.BottomCenterPivot));
             view.Initialize(placed);
 
-            if (go.GetComponent<YSortable>() == null) go.AddComponent<YSortable>();
+            // Instantiate() already ran Awake() — with the PREFAB's default transform,
+            // before the two lines above set the real position/sprite — so YSortable's
+            // Awake-time sort order is stale. Force a fresh recompute now that both are final.
+            YSortable ySortable = go.GetComponent<YSortable>();
+            if (ySortable == null) ySortable = go.AddComponent<YSortable>();
+            ySortable.UpdateSortOrder();
 
             _spawned[placed.Id] = go;
             return go;
@@ -291,7 +351,12 @@ namespace ProjectMuseum.Builder
 
         private Vector3 CellToWorld(Vector2Int cell)
         {
-            Vector3 pos = grid.GetCellCenterWorld(new Vector3Int(cell.x, cell.y, 0));
+            // NOT GetCellCenterWorld: for an Isometric grid, the cell's CENTER and its
+            // CORNER differ diagonally in world space (not just vertically), which is
+            // why objects were rendering offset down-and-right of the hovered tile.
+            // CellToWorld gives the corner — the tile's front/bottom vertex — which is
+            // what a bottom-pivoted sprite should be anchored to.
+            Vector3 pos = grid.CellToWorld(new Vector3Int(cell.x, cell.y, 0)) + (Vector3)anchorOffset;
             pos.z = 0f;
             return pos;
         }

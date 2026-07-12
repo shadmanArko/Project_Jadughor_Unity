@@ -15,39 +15,44 @@ public static class MouseCoordinateOverlay
 
     static void OnSceneGUI(SceneView sceneView)
     {
-        // Get mouse position in world space
         Event e = Event.current;
+
+        // Only trust mouse position on events that actually carry a real cursor position
+        if (e.type != EventType.MouseMove &&
+            e.type != EventType.MouseDrag &&
+            e.type != EventType.Repaint &&
+            e.type != EventType.MouseDown &&
+            e.type != EventType.MouseUp)
+            return;
+
         Vector2 mousePos = e.mousePosition;
+        Camera cam = sceneView.camera;
 
-        // Convert to world position
         float pixelsPerPoint = EditorGUIUtility.pixelsPerPoint;
-        mousePos.y = sceneView.camera.pixelHeight - mousePos.y * pixelsPerPoint;
-        mousePos.x *= pixelsPerPoint;
+        float screenX = mousePos.x * pixelsPerPoint;
+        float screenY = cam.pixelHeight - mousePos.y * pixelsPerPoint;
 
-        Vector3 worldPos = sceneView.camera.ScreenToWorldPoint(
-            new Vector3(mousePos.x, mousePos.y, 0)
-        );
+        // Guard: skip if outside the camera's actual pixel rect
+        if (screenX < 0 || screenX > cam.pixelWidth ||
+            screenY < 0 || screenY > cam.pixelHeight)
+            return;
+
+        Vector3 worldPos = cam.ScreenToWorldPoint(new Vector3(screenX, screenY, 0));
         worldPos.z = 0;
 
-        // Try to get tilemap cell if available
         if (_tilemap == null)
-            _tilemap = GameObject.FindObjectOfType<Tilemap>();
+            _tilemap = Object.FindObjectOfType<Tilemap>();
 
-        string cellInfo = "";
-        if (_tilemap != null)
-        {
-            Vector3Int cell = _tilemap.WorldToCell(worldPos);
-            cellInfo = $"\nCell: ({cell.x}, {cell.y})";
-        }
+        Vector3Int cell = default;
+        bool hasTilemap = _tilemap != null;
+        if (hasTilemap)
+            cell = _tilemap.WorldToCell(worldPos);
 
-        // Draw overlay in top-left of Scene view
         Handles.BeginGUI();
-        GUI.Box(new Rect(10, 10, 200, _tilemap ? 52 : 32), GUIContent.none);
-        GUI.Label(new Rect(15, 14, 190, 20),
-            $"World: ({worldPos.x:F1}, {worldPos.y:F1})");
-        if (cellInfo != "")
-            GUI.Label(new Rect(15, 32, 190, 20),
-                $"Cell:  ({_tilemap.WorldToCell(worldPos).x}, {_tilemap.WorldToCell(worldPos).y})");
+        GUI.Box(new Rect(10, 10, 200, hasTilemap ? 52 : 32), GUIContent.none);
+        GUI.Label(new Rect(15, 14, 190, 20), $"World: ({worldPos.x:F1}, {worldPos.y:F1})");
+        if (hasTilemap)
+            GUI.Label(new Rect(15, 32, 190, 20), $"Cell:  ({cell.x}, {cell.y})");
         Handles.EndGUI();
 
         sceneView.Repaint();

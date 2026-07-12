@@ -20,6 +20,12 @@ namespace ProjectMuseum.Builder
         public bool IsHangingExhibit;
         public int NumberOfFrames;
         public bool IsWallExhibit;
+
+        // Not present in the original Godot data (which only had NumberOfTilesNeeded —
+        // ambiguous for anything wider than 1 tile). Set explicitly per variation; 0
+        // means "not set" and BuilderDatabase falls back to NumberOfTilesNeeded × 1.
+        public int WidthInTiles;
+        public int LengthInTiles;
     }
 
     /// <summary>A vendor machine / shop decoration.</summary>
@@ -48,6 +54,10 @@ namespace ProjectMuseum.Builder
         public int BeautyRating;
         public int NumberOfFrames;
         public float PlacementCost;
+
+        // Same fallback as ExhibitVariation — 0 means "not set".
+        public int WidthInTiles;
+        public int LengthInTiles;
     }
 
     /// <summary>A sanitation fixture (toilets, etc.). Note: id/price fields differ.</summary>

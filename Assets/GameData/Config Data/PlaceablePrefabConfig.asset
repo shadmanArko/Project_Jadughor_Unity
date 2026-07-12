@@ -16,4 +16,8 @@ MonoBehaviour:
   - Type: 0
     WidthInTiles: 1
     LengthInTiles: 1
-    Prefab: {fileID: 7489829879845548497, guid: fc26bc2927647cc48bc4917b35babe31, type: 3}
+    Prefab: {fileID: 8663861948872111296, guid: f59b70fca38a54048af8fac1d4ae9702, type: 3}
+  - Type: 0
+    WidthInTiles: 2
+    LengthInTiles: 2
+    Prefab: {fileID: 5743524106570636594, guid: cb1f2a0a28f450446bee79011ff11446, type: 3}

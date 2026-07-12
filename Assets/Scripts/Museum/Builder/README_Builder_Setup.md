@@ -129,21 +129,142 @@ door open for per-category logic (e.g. exhibit artifact slots) later.
 > size or PPU. Skip this and the swapped art renders at whatever size its raw pixel
 > dimensions happen to produce, which is usually NOT what you want.
 
+### Sprite pivot — objects must be anchored at their BASE, not their center
+
+An isometric object (a box with height) should sit with its **bottom** on the tile,
+not have the tile pass through its visual middle. Two places control this:
+
+1. **Runtime-swapped sprite** (what actually renders once placed in Play mode) — fixed
+   in code: `BuilderSpriteUtil.FirstFrameSprite(..., pivot)` now takes an explicit pivot,
+   and `MuseumObjectPlacementSystem` passes `BuilderSpriteUtil.BottomCenterPivot`
+   (`(0.5, 0)`) for every ghost and placed object. You don't need to do anything for
+   this part — it's already bottom-anchored.
+2. **Your prefab's own placeholder sprite** (what you see in the Scene view when you
+   drag the prefab in directly to check alignment, as in your screenshot — this runs
+   BEFORE any runtime swap, so it uses whatever pivot the source texture was imported
+   with). If that pivot is "Center" (Unity's default), the object will look
+   misaligned in the editor even though the runtime version is fine. Fix it per
+   texture: select the sprite in the Project window → **Sprite Editor** (or the
+   Inspector's Pivot dropdown for Single-sprite-mode textures) → set **Pivot: Bottom**
+   (or Custom `X=0.5, Y=0`) → **Apply**. Do this for every sprite/frame in
+   `Assets/2D/Museum/{Exhibits,DecorationShops,DecorationOthers,Sanitations}` that you
+   use as a prefab placeholder, so editor preview matches what Play mode will show.
+
+> Note for multi-tile objects (2×2, etc.): bottom-center assumes the art is
+> horizontally symmetric around its own footprint — true for the boxes shown. If a
+> future asset's visual "front" isn't centered on its own bounding box, its pivot may
+> need a custom X offset instead of 0.5.
+
+### Anchor point — tile CORNER, not CENTER
+
+Even with a bottom-pivoted sprite, the ghost/placed object still needs to be
+positioned at the right point on the tile. This was using
+`Grid.GetCellCenterWorld` (the tile's visual middle) — for an **Isometric** grid,
+center and corner differ **diagonally** in world space (not just vertically), so
+the object rendered offset down-and-right of the tile you were actually hovering.
+
+Fixed: `MuseumObjectPlacementSystem.CellToWorld` now uses `Grid.CellToWorld` (the
+cell's corner, which for an isometric cell is its front/bottom vertex) instead of
+`GetCellCenterWorld` — combined with the bottom-pivoted sprite, the object's base
+now lands exactly on that vertex.
+
+If it's still a few pixels off after this (e.g. from cell gap or padding baked into
+your art), nudge it with the new **Anchor Offset** field (world units) on
+`MuseumObjectPlacementSystem` — tune it live in Play mode until the ghost sits
+exactly on the tile.
+
+### Y-sort between different footprint sizes (e.g. a 2×2 rendering in front of an adjacent 1×1)
+
+Two bugs, both in `YSortable`/how it's invoked:
+
+1. **Sort key ignored footprint size entirely.** `YSortable` sorted purely by
+   `transform.position.y` (the object's own anchor point) — two objects on the same
+   tile row have the SAME anchor Y regardless of how big their sprite actually is, so
+   sorting couldn't tell a 1×1 from a 2×2 apart; which one drew on top was
+   essentially a tiebreak. **Fixed:** it now sorts by
+   `SpriteRenderer.bounds.min.y` — the sprite's actual rendered bottom edge in world
+   space — which naturally scales with each object's real footprint.
+2. **Sort order was computed before the object was actually positioned.**
+   `Instantiate(prefab, ...)` runs `Awake()` (and therefore `YSortable`'s
+   Awake-time `UpdateSortOrder()`) **before** the very next line sets the object's
+   real world position — so every placed object's sort order reflected the
+   *prefab's own default transform*, not where it was actually placed. **Fixed:**
+   `MuseumObjectPlacementSystem` now explicitly calls `YSortable.UpdateSortOrder()`
+   again once the position AND swapped sprite are both final — for the ghost this
+   also happens every frame as it follows the mouse (it's the one object that keeps
+   moving after spawn).
+
+No prefab/Inspector changes needed for this — it's purely a code fix, and applies to
+every `YSortable` object project-wide (characters, walls, decorations), not just the
+builder system.
+
+### Rotation (Q/E) — Godot parity
+
+Matches the Godot behavior exactly: rotating is a **sprite-sheet frame swap**, not a
+transform rotation, and it only affects the **pending ghost** — there's no
+rotate-in-place interaction for already-placed objects yet (Godot didn't have one
+either; that would ride on a future "select/move a placed object" system).
+
+- **Q** steps the rotation frame forward, **E** steps it backward (configurable —
+  `Rotate Forward Key` / `Rotate Backward Key` on `MuseumObjectPlacementSystem`),
+  wrapping at the variation's `NumberOfFrames` (typically 4 = one sprite per facing).
+  A variation with only 1 frame simply can't be rotated (no-op).
+- The ghost's sprite re-crops to the new frame immediately (`BuilderSpriteUtil.FrameSprite`,
+  a generalization of the old always-frame-0 crop). `BuilderActions.OnPlacementRotated(int)`
+  fires each step (mirrors Godot's `OnItemRotated`) if you want to hook a sound effect etc.
+- Rotation **persists across placing several objects in one open session** (right-click/Esc
+  to stop) — rotate once, then lay down a whole row facing the same way — and only
+  resets to frame 0 when you pick a **new** card. This is a small, deliberate departure
+  from Godot (which always started a fresh drag instance per item); flag it if you'd
+  rather it reset after every placement instead.
+- Footprint (`WidthInTiles`/`LengthInTiles`) never changes with rotation — matches
+  Godot exactly (no width/length swap on rotate, even for non-square footprints).
+- **Persisted correctly**: `PlacedObjectData.RotationFrame` (this field already existed
+  in the data model, just unused until now) is set from the pending frame at placement
+  time, and `SpawnVisual` — the SAME method used both for a fresh placement and for
+  respawning from a loaded save — reads it back to re-crop the correct frame. No
+  special-casing needed between "just placed" and "loaded from disk."
+
 Then create **Project Museum ▸ Placeable Prefab Config** and add one entry per prefab
 (Type + Width In Tiles + Length In Tiles + Prefab), and assign it to `MuseumInstaller`.
 Console warns (with the sizes you *have* configured for that type) if a variation asks
 for a size you haven't built.
 
-> **Which sizes are actually reachable right now** (checked against the current data):
-> **1×1** — Exhibit `BasicExhibit1x1`, both DecorationShop, both DecorationOther.
-> **2×1** — Exhibit `BasicExhibit4x4` (its `NumberOfTilesNeeded` is 2, derived as a
-> 2-wide row; despite the "4x4" name it is NOT a real 2×2 today). **2×2** — Sanitation
-> `Toilet1` (its data already carries real `WidthInTiles`/`LengthInTiles` = 2×2).
-> **1×2 is not reachable by anything yet** — no current variation produces that
-> combination. If you're building a 1×2 prefab, either a variation needs to actually
-> use it, or the Exhibit/DecorationOther footprint derivation should read the data's
-> `TilesExtendInDirection` field to pick the axis instead of always defaulting to
-> width — tell me if you want that derivation fixed.
+### Data flow (how a size is chosen)
+
+```
+BuilderCard click → BuilderActions.OnClickBuilderCard(type, cardName)
+  → MuseumObjectPlacementSystem.OnClickBuilderCard
+      → BuilderDatabase.TryGetPlacementInfo(type, cardName)
+            finds the variation by name, returns PlacementInfo
+            { WidthInTiles, LengthInTiles, Texture, NumberOfFrames, Cost }
+      → PlaceablePrefabConfig.GetPrefab(type, info.WidthInTiles, info.LengthInTiles)
+            EXACT match only — no match → warns (with configured sizes) → no ghost
+```
+
+**Where WidthInTiles/LengthInTiles actually come from, per category:**
+- **DecorationShop / Sanitation** — explicit `WidthInTiles`/`LengthInTiles` fields
+  already in their JSON (ground truth, no guessing).
+- **Exhibit / DecorationOther** — the Godot source data only ever had
+  `NumberOfTilesNeeded` (a single ambiguous number), so these two models now carry
+  their own explicit `WidthInTiles`/`LengthInTiles` fields too (added on our side,
+  not from Godot). **If left at `0` (unset), `BuilderDatabase` falls back to
+  `NumberOfTilesNeeded × 1`** — which is almost never the footprint you actually want
+  for anything wider than 1 tile, and is the exact bug that made `BasicExhibit4x4`
+  fail to preview/place (it derived to 2×1, not the 2×2 you'd configured a prefab
+  for). Both exhibit variations and both decoration-others now have explicit
+  values set in `exhibitVariations.json` / `decorationOtherVariations.json`
+  (`BasicExhibit1x1`→1×1, `BasicExhibit4x4`→**2×2** — my best guess from the "4x4"
+  name; change it directly in the JSON if that's wrong for your art).
+
+**⚠ Re-run Tools ▸ Project Museum ▸ Import Builder JSON after this change** so
+`BuilderDatabase.asset` picks up the new fields — otherwise it's still serving the
+old (wrong) footprints.
+
+> **Reachable sizes today:** 1×1 (Exhibit small, both Shop, both DecorationOther),
+> 2×2 (Exhibit "4x4", Sanitation Toilet1). Nothing currently requests 1×2 or plain
+> 2×1 — add a variation with those explicit values (or a prefab config entry with
+> a matching size) if you need one.
 
 ## Scene setup (one-time)
 
