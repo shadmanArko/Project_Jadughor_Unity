@@ -18,6 +18,7 @@ namespace Systems.MineSystem.EnemySystem.Mob.Slime.View
 
         private readonly Subject<float> _damageRequested = new();
         private readonly Subject<Collider2D> _contactStayed = new();
+        private readonly Subject<Collider2D> _horizontalCollision = new();
         private readonly RaycastHit2D[] _groundHits = new RaycastHit2D[4];
         private bool _damageEnabled;
 
@@ -28,6 +29,7 @@ namespace Systems.MineSystem.EnemySystem.Mob.Slime.View
         public float AnimatorSpeed => animationController.Speed;
         public IObservable<float> DamageRequested => _damageRequested;
         public IObservable<Collider2D> ContactStayed => _contactStayed;
+        public IObservable<Collider2D> HorizontalCollision => _horizontalCollision;
         public IObservable<EnemyAnimationMarkerEvent> AnimationMarkers =>
             animationController.Markers;
         public IObservable<EnemyAnimationCompletedEvent> AnimationCompleted =>
@@ -52,6 +54,7 @@ namespace Systems.MineSystem.EnemySystem.Mob.Slime.View
         {
             animationController.ApplyProfile(config.AnimationProfile);
             spriteRenderer.color = config.SlimeColor;
+            IgnoreSelfLayerForTerrainCollision();
         }
 
         public int Play(
@@ -127,12 +130,48 @@ namespace Systems.MineSystem.EnemySystem.Mob.Slime.View
             _contactStayed.OnNext(other);
         }
 
+        private void OnCollisionEnter2D(Collision2D collision)
+        {
+            PublishHorizontalCollision(collision);
+        }
+
+        private void OnCollisionStay2D(Collision2D collision)
+        {
+            PublishHorizontalCollision(collision);
+        }
+
+        private void PublishHorizontalCollision(Collision2D collision)
+        {
+            if (collision == null)
+                return;
+            for (var i = 0; i < collision.contactCount; i++)
+            {
+                var normal = collision.GetContact(i).normal;
+                if (Mathf.Abs(normal.x) < 0.5f ||
+                    Mathf.Abs(normal.y) > 0.6f)
+                    continue;
+                _horizontalCollision.OnNext(collision.collider);
+                return;
+            }
+        }
+
+        private void IgnoreSelfLayerForTerrainCollision()
+        {
+            if (terrainCollider == null)
+                return;
+            var excludedLayers = terrainCollider.excludeLayers;
+            excludedLayers.value |= 1 << terrainCollider.gameObject.layer;
+            terrainCollider.excludeLayers = excludedLayers;
+        }
+
         private void OnDestroy()
         {
             _damageRequested.OnCompleted();
             _damageRequested.Dispose();
             _contactStayed.OnCompleted();
             _contactStayed.Dispose();
+            _horizontalCollision.OnCompleted();
+            _horizontalCollision.Dispose();
         }
     }
 }

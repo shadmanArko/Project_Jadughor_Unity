@@ -36,6 +36,48 @@ namespace Systems.MineSystem.EnemySystem.Service
         public bool IsWalkable(GridPosition position) =>
             _snapshot != null && _snapshot.WalkableCells.Contains(position);
 
+        public int WalkableCount => _snapshot?.WalkablePositions.Count ?? 0;
+
+        public bool TryFindWalkableNear(
+            GridPosition origin,
+            int minimumDistance,
+            int maximumDistance,
+            int startOffset,
+            out GridPosition position)
+        {
+            position = default;
+            var snapshot = _snapshot;
+            if (snapshot == null ||
+                snapshot.WalkablePositions.Count == 0 ||
+                maximumDistance < minimumDistance)
+                return false;
+
+            var candidates = snapshot.WalkablePositions;
+            var start = NormalizeStart(startOffset, candidates.Count);
+            for (var i = 0; i < candidates.Count; i++)
+            {
+                var candidate = candidates[(start + i) % candidates.Count];
+                var distance = Heuristic(candidate, origin);
+                if (distance < minimumDistance || distance > maximumDistance)
+                    continue;
+                position = candidate;
+                return true;
+            }
+            return false;
+        }
+
+        public bool TryFindAnyWalkable(int startOffset, out GridPosition position)
+        {
+            position = default;
+            var snapshot = _snapshot;
+            if (snapshot == null || snapshot.WalkablePositions.Count == 0)
+                return false;
+
+            var candidates = snapshot.WalkablePositions;
+            position = candidates[NormalizeStart(startOffset, candidates.Count)];
+            return true;
+        }
+
         public async UniTask<PathResult> FindPathAsync(
             EnemyPathRequest request,
             CancellationToken cancellationToken)
@@ -146,6 +188,14 @@ namespace Systems.MineSystem.EnemySystem.Service
                     walkable.Add(position);
             }
             _snapshot = new EnemyNavigationSnapshot(open, walkable);
+        }
+
+        private static int NormalizeStart(int startOffset, int count)
+        {
+            if (count <= 0)
+                return 0;
+            var start = startOffset % count;
+            return start < 0 ? start + count : start;
         }
 
         private static void AddNeighbours(

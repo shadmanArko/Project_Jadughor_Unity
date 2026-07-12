@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Threading;
 using Cysharp.Threading.Tasks;
 using Systems.MineSystem.EnemySystem.Animation.Model;
-using Systems.MineSystem.EnemySystem.Controller;
 using Systems.MineSystem.EnemySystem.Enum;
 using Systems.MineSystem.EnemySystem.Interface;
 using Systems.MineSystem.EnemySystem.Mob.Slime.Config;
@@ -16,19 +15,20 @@ using Systems.MineSystem.Mine.Model;
 using Systems.MineSystem.PauseSystem.Service;
 using Systems.Utilities.EventBus;
 using UnityEngine;
-using Zenject;
 
 namespace Systems.MineSystem.EnemySystem.Mob.Slime.Controller
 {
     public sealed class SlimeStateMachine : IDisposable
     {
+        private const int PatrolDirectionAttempts = 2;
+
         private readonly SlimeModel _model;
         private readonly SlimeView _view;
         private readonly IEnemyPathfindingService _pathfinding;
         private readonly IEnemyTargetProvider _target;
         private readonly IEnemyAttackService _attack;
         private readonly IEnemyPlacementValidator _placement;
-        private readonly LazyInject<EnemyManager> _enemyManager;
+        private readonly IEnemyChaseTargetResolver _chaseTargetResolver;
         private readonly PauseGate _pauseGate = new();
 
         private SlimeConfigScriptable _config;
@@ -38,12 +38,14 @@ namespace Systems.MineSystem.EnemySystem.Mob.Slime.Controller
         private UniTaskCompletionSource _stateCompletion;
         private float _stateElapsed;
         private int _animationGeneration;
+        private int _teleportSearchOffset;
         private bool _attackApplied;
         private bool _fallObservedAirborne;
         private bool _deathSignalSent;
         private bool _despawnSignalSent;
-        private bool _aggroRequested;
         private GridPosition? _teleportDestination;
+        private GridPosition _lastChaseTargetPosition;
+        private bool _hasLastChaseTargetPosition;
         private GridPosition _lastSafeGridPosition;
         private Vector2 _lastSafeWorldPosition;
         private bool _disposed;
@@ -55,7 +57,7 @@ namespace Systems.MineSystem.EnemySystem.Mob.Slime.Controller
             IEnemyTargetProvider target,
             IEnemyAttackService attack,
             IEnemyPlacementValidator placement,
-            LazyInject<EnemyManager> enemyManager)
+            IEnemyChaseTargetResolver chaseTargetResolver)
         {
             _model = model;
             _view = view;
@@ -63,7 +65,7 @@ namespace Systems.MineSystem.EnemySystem.Mob.Slime.Controller
             _target = target;
             _attack = attack;
             _placement = placement;
-            _enemyManager = enemyManager;
+            _chaseTargetResolver = chaseTargetResolver;
         }
 
         public void Initialize(
@@ -76,11 +78,13 @@ namespace Systems.MineSystem.EnemySystem.Mob.Slime.Controller
             _enemyId = enemyId;
             _lifetimeToken = lifetimeToken;
             _stateElapsed = 0f;
+            _teleportSearchOffset = Math.Abs(enemyId.GetHashCode());
             _attackApplied = false;
             _deathSignalSent = false;
             _despawnSignalSent = false;
-            _aggroRequested = false;
             _teleportDestination = null;
+            _lastChaseTargetPosition = default;
+            _hasLastChaseTargetPosition = false;
             _lastSafeGridPosition = _model.CurrentGridPosition;
             _lastSafeWorldPosition = _view.Body.position;
             _pauseGate.Resume();
@@ -97,8 +101,17 @@ namespace Systems.MineSystem.EnemySystem.Mob.Slime.Controller
             if (_disposed || _pauseGate.IsPaused || _model.IsDead &&
                 _model.CurrentState != SlimeState.Death)
                 return;
+
             _stateElapsed += context.FixedDeltaTime;
             _model.TickCooldown(context.FixedDeltaTime);
+            if ((_model.CurrentState == SlimeState.Move ||
+                 _model.CurrentState == SlimeState.Fall) &&
+                _model.TickMovementTimeout(context.FixedDeltaTime))
+            {
+                HandleMovementTimeout();
+                return;
+            }
+
             switch (_model.CurrentState)
             {
                 case SlimeState.Idle:
@@ -131,6 +144,18 @@ namespace Systems.MineSystem.EnemySystem.Mob.Slime.Controller
             ChangeState(SlimeState.Death);
         }
 
+        public void HandleHorizontalCollision(Collider2D collider)
+        {
+            if (_pauseGate.IsPaused ||
+                _model.CurrentState != SlimeState.Move ||
+                _model.IsAggro ||
+                !IsTerrainWallCollider(collider))
+                return;
+            _model.ReversePatrolDirection();
+            _view.SetFacing(_model.PatrolDirection < 0);
+            StartPatrolBehavior();
+        }
+
         public void HandleAnimationMarker(EnemyAnimationMarkerEvent animationEvent)
         {
             if (_pauseGate.IsPaused ||
@@ -142,7 +167,7 @@ namespace Systems.MineSystem.EnemySystem.Mob.Slime.Controller
                 !_attackApplied)
             {
                 _attackApplied = true;
-                if (IsTargetInRange(_config.AttackRangeInTiles))
+                if (IsTargetAttackable())
                     _attack.TryAttack(_config.Damage, _config.StatusEffect);
             }
         }
@@ -157,17 +182,18 @@ namespace Systems.MineSystem.EnemySystem.Mob.Slime.Controller
                 case SlimeState.Spawn:
                     _view.SetDamageEnabled(true);
                     _stateCompletion?.TrySetResult();
-                    ChangeState(SlimeState.Idle);
+                    RestartDecisionCycle();
                     break;
                 case SlimeState.Attack:
                     _model.ResetAttackCooldown();
-                    ResumeAfterAction();
+                    _model.SetAggro(false);
+                    _model.ClearPath();
+                    RestartDecisionCycle();
                     break;
                 case SlimeState.Hurt:
                     ResumeAfterAction();
                     break;
                 case SlimeState.Aggro:
-                    _model.SetAggro(true);
                     BeginChaseMovement();
                     break;
                 case SlimeState.TeleportDespawn:
@@ -176,7 +202,8 @@ namespace Systems.MineSystem.EnemySystem.Mob.Slime.Controller
                 case SlimeState.TeleportSpawn:
                     _teleportDestination = null;
                     _view.SetDamageEnabled(true);
-                    ChangeState(SlimeState.Idle);
+                    _model.StartTeleportCooldown(_config.TeleportCooldownSeconds);
+                    RestartDecisionCycle();
                     break;
                 case SlimeState.Death:
                     if (!_deathSignalSent)
@@ -213,8 +240,9 @@ namespace Systems.MineSystem.EnemySystem.Mob.Slime.Controller
             _pauseGate.Resume();
             _stateCompletion?.TrySetCanceled();
             _stateCompletion = null;
-            _aggroRequested = false;
             _teleportDestination = null;
+            _lastChaseTargetPosition = default;
+            _hasLastChaseTargetPosition = false;
             _lastSafeGridPosition = default;
             _lastSafeWorldPosition = default;
             _config = null;
@@ -233,16 +261,111 @@ namespace Systems.MineSystem.EnemySystem.Mob.Slime.Controller
             if (state == SlimeState.Death)
                 return;
             if (state == SlimeState.Despawn && !_despawnSignalSent)
-            {
                 _despawnSignalSent = true;
-            }
         }
 
-        private void ChangeState(SlimeState state)
+        private void RestartDecisionCycle()
         {
-            CancelState();
-            _stateCancellation = CancellationTokenSource.CreateLinkedTokenSource(
-                _lifetimeToken);
+            if (_config == null || _model.IsDead)
+                return;
+            if (!RevalidateCurrentPlacement())
+            {
+                if (!TryStartTeleportBehavior(true, true))
+                    ChangeState(SlimeState.Idle);
+                return;
+            }
+
+            if (!_target.IsTargetAvailable)
+            {
+                StartPatrolBehavior();
+                return;
+            }
+
+            var distance = Distance(
+                _model.CurrentGridPosition,
+                _target.GridPosition);
+            if (distance <= _config.AggroRangeInTiles)
+            {
+                StartChaseBehavior();
+                return;
+            }
+
+            if (distance >= _config.TeleportTriggerDistanceInTiles &&
+                UnityEngine.Random.value < _config.TeleportChance)
+            {
+                if (TryStartTeleportBehavior(true, false))
+                    return;
+            }
+
+            StartPatrolBehavior();
+        }
+
+        private void StartPatrolBehavior()
+        {
+            if (!PrepareBehavior(SlimeState.Idle))
+            {
+                if (!TryStartTeleportBehavior(true, true))
+                    ChangeState(SlimeState.Idle);
+                return;
+            }
+            _model.SetAggro(false);
+            _hasLastChaseTargetPosition = false;
+            if (TryRequestPatrolStep())
+                return;
+            _model.ReversePatrolDirection();
+            _view.SetFacing(_model.PatrolDirection < 0);
+        }
+
+        private void StartChaseBehavior()
+        {
+            if (!_target.IsTargetAvailable ||
+                !PrepareBehavior(SlimeState.Aggro))
+            {
+                if (!TryStartTeleportBehavior(true, true))
+                    ChangeState(SlimeState.Idle);
+                return;
+            }
+            _model.SetAggro(true);
+            RequestChasePath();
+        }
+
+        private bool TryStartTeleportBehavior(
+            bool allowAnyWalkableFallback,
+            bool bypassCooldown)
+        {
+            if (!bypassCooldown && !_model.CanTeleport)
+                return false;
+            _model.ClearPath();
+            _hasLastChaseTargetPosition = false;
+            _view.SetVelocity(Vector2.zero);
+            if (!TryChooseTeleportDestination(
+                    allowAnyWalkableFallback,
+                    out var destination))
+            {
+                return false;
+            }
+            _teleportDestination = destination;
+            ChangeState(SlimeState.TeleportDespawn);
+            return true;
+        }
+
+        private bool PrepareBehavior(SlimeState state)
+        {
+            _model.ClearPath();
+            _teleportDestination = null;
+            _view.SetVelocity(Vector2.zero);
+            ChangeState(state);
+            return RevalidateCurrentPlacement();
+        }
+
+        private void ChangeState(SlimeState state, bool cancelPendingWork = true)
+        {
+            if (cancelPendingWork || _stateCancellation == null)
+            {
+                CancelState();
+                _stateCancellation = CancellationTokenSource.CreateLinkedTokenSource(
+                    _lifetimeToken);
+            }
             _stateElapsed = 0f;
             _attackApplied = false;
             _fallObservedAirborne = false;
@@ -253,17 +376,9 @@ namespace Systems.MineSystem.EnemySystem.Mob.Slime.Controller
             {
                 _view.SetDamageEnabled(false);
             }
-            else if (state != SlimeState.Spawn &&
-                     state != SlimeState.Despawn &&
-                     state != SlimeState.Death)
-            {
-                _teleportDestination = null;
-            }
             if (state == SlimeState.Attack && _target.IsTargetAvailable)
-            {
-                _view.SetFacing(
-                    _target.WorldPosition.x < _view.Body.position.x);
-            }
+                _view.SetFacing(_target.WorldPosition.x < _view.Body.position.x);
+
             var animationId = GetAnimationId(state);
             if (!_config.AnimationProfile.TryGet(animationId, out var animation))
             {
@@ -273,49 +388,6 @@ namespace Systems.MineSystem.EnemySystem.Mob.Slime.Controller
                 return;
             }
             _animationGeneration = _view.Play(animation, true);
-            if (state == SlimeState.Idle)
-                BeginIdleDecision();
-        }
-
-        private void BeginIdleDecision()
-        {
-            _model.ClearPath();
-            _aggroRequested = false;
-            _teleportDestination = null;
-            if (!_target.IsTargetAvailable)
-                return;
-
-            var distance = Distance(
-                _model.CurrentGridPosition,
-                _target.GridPosition);
-            if (_model.IsAggro)
-            {
-                if (distance >= _config.ChaseExitRangeInTiles)
-                    _model.SetAggro(false);
-                else
-                    RequestPath(_target.GridPosition, true);
-                return;
-            }
-
-            if (distance <= _config.AggroRangeInTiles)
-            {
-                if (RequestPath(_target.GridPosition, true))
-                    return;
-                if (TryChooseDestination(false, out var patrolDestination))
-                    RequestPath(patrolDestination, false);
-                return;
-            }
-
-            if (distance >= _config.TeleportTriggerDistanceInTiles &&
-                UnityEngine.Random.value < _config.TeleportChance &&
-                TryChooseTeleportDestination(out var teleportDestination))
-            {
-                _teleportDestination = teleportDestination;
-                return;
-            }
-
-            if (TryChooseDestination(false, out var destination))
-                RequestPath(destination, false);
         }
 
         private bool RequestPath(GridPosition destination, bool chasing)
@@ -327,6 +399,7 @@ namespace Systems.MineSystem.EnemySystem.Mob.Slime.Controller
                     HandleChasePathFailed();
                 return false;
             }
+
             _view.SetVelocity(Vector2.zero);
             var generation = _model.BeginPathRequest(destination, chasing);
             var request = new EnemyPathRequest(
@@ -334,8 +407,7 @@ namespace Systems.MineSystem.EnemySystem.Mob.Slime.Controller
                 destination,
                 _config.MaxFallDistanceInTiles,
                 generation,
-                chasing,
-                _enemyManager.Value.GetOccupiedPositions(_enemyId));
+                chasing);
             CalculatePathAsync(request, _stateCancellation.Token).Forget(
                 exception => Debug.LogException(exception));
             return true;
@@ -354,36 +426,23 @@ namespace Systems.MineSystem.EnemySystem.Mob.Slime.Controller
                 cancellationToken.ThrowIfCancellationRequested();
                 if (!_model.CompletePath(result))
                     return;
-                if (!result.Succeeded && request.Chasing)
-                {
-                    HandleChasePathFailed();
-                    return;
-                }
-                if (result.Succeeded &&
-                    !IsPathPlacementClear(result.Steps))
+                if (!result.Succeeded)
                 {
                     if (request.Chasing)
                         HandleChasePathFailed();
                     else
-                        _model.ClearPath();
+                        StartPatrolBehavior();
                     return;
                 }
-                if (result.Succeeded &&
-                    request.Chasing &&
-                    !_model.IsAggro &&
-                    _model.CurrentState == SlimeState.Idle)
+                if (!IsPathPlacementClear(result.Steps))
                 {
-                    if (_target.IsTargetAvailable &&
-                        _target.GridPosition == request.Destination &&
-                        IsTargetInRange(_config.AggroRangeInTiles))
-                    {
-                        _aggroRequested = true;
-                    }
+                    if (request.Chasing)
+                        HandleChasePathFailed();
                     else
-                    {
-                        _model.ClearPath();
-                    }
+                        StartPatrolBehavior();
+                    return;
                 }
+                StartMovementTimeout(result.Steps);
             }
             catch (OperationCanceledException)
             {
@@ -392,46 +451,24 @@ namespace Systems.MineSystem.EnemySystem.Mob.Slime.Controller
 
         private void TickIdle()
         {
-            if (_stateElapsed < _config.IdleDuration)
-                return;
-            if (_aggroRequested)
-            {
-                ChangeState(SlimeState.Aggro);
-                return;
-            }
-            if (_model.IsAggro && ShouldEndChase())
-            {
-                _model.SetAggro(false);
-                ChangeState(SlimeState.Idle);
-                return;
-            }
-            if (_model.IsAggro &&
-                IsTargetInRange(_config.AttackRangeInTiles) &&
-                _model.AttackCooldownRemaining <= 0f)
-            {
-                ChangeState(SlimeState.Attack);
-                return;
-            }
             if (_model.PathPending)
                 return;
-            if (_model.CurrentPathStep.HasValue)
+            if (_teleportDestination.HasValue)
             {
-                if (!TryGetPlacement(
-                        _model.CurrentPathStep.Value.Position,
-                        out _))
-                {
-                    HandlePathStepBlocked();
-                    return;
-                }
-                ChangeState(_model.CurrentPathStep.Value.Type ==
-                            EnemyPathStepType.Fall
+                ChangeState(SlimeState.TeleportDespawn);
+                return;
+            }
+            var step = _model.CurrentPathStep;
+            if (step.HasValue)
+            {
+                ChangeState(step.Value.Type == EnemyPathStepType.Fall
                     ? SlimeState.Fall
                     : SlimeState.Move);
+                return;
             }
-            else if (_teleportDestination.HasValue)
-                ChangeState(SlimeState.TeleportDespawn);
-            else
-                ChangeState(SlimeState.Idle);
+            if (_stateElapsed < _config.IdleDuration)
+                return;
+            RestartDecisionCycle();
         }
 
         private void TickAggro()
@@ -448,7 +485,7 @@ namespace Systems.MineSystem.EnemySystem.Mob.Slime.Controller
                     EndChase();
                     return;
                 }
-                if (IsTargetInRange(_config.AttackRangeInTiles))
+                if (IsTargetAttackable())
                 {
                     _view.SetVelocity(Vector2.zero);
                     if (_model.AttackCooldownRemaining <= 0f)
@@ -456,9 +493,9 @@ namespace Systems.MineSystem.EnemySystem.Mob.Slime.Controller
                     return;
                 }
                 if (!_model.PathPending &&
-                    _target.GridPosition != _model.Destination)
+                    HasChaseTargetChanged())
                 {
-                    RequestPath(_target.GridPosition, true);
+                    RequestChasePath();
                     return;
                 }
             }
@@ -468,9 +505,9 @@ namespace Systems.MineSystem.EnemySystem.Mob.Slime.Controller
             if (!step.HasValue)
             {
                 if (_model.IsAggro)
-                    RequestPath(_target.GridPosition, true);
+                    RequestChasePath();
                 else
-                    ChangeState(SlimeState.Idle);
+                    StartPatrolBehavior();
                 return;
             }
             if (step.Value.Type == EnemyPathStepType.Fall)
@@ -502,12 +539,12 @@ namespace Systems.MineSystem.EnemySystem.Mob.Slime.Controller
             _model.CompletePathStep(step.Value.Position);
             RecordSafePlacement(step.Value.Position, targetWorld);
             if (_model.IsAggro &&
-                _target.GridPosition != _model.Destination)
-                RequestPath(_target.GridPosition, true);
+                HasChaseTargetChanged())
+                RequestChasePath();
             else if (!_model.CurrentPathStep.HasValue && _model.IsAggro)
-                RequestPath(_target.GridPosition, true);
+                RequestChasePath();
             else if (!_model.CurrentPathStep.HasValue)
-                ChangeState(SlimeState.Idle);
+                StartPatrolBehavior();
             else if (_model.CurrentPathStep.Value.Type == EnemyPathStepType.Fall)
                 ChangeState(SlimeState.Fall);
         }
@@ -522,7 +559,7 @@ namespace Systems.MineSystem.EnemySystem.Mob.Slime.Controller
             var step = _model.CurrentPathStep;
             if (!step.HasValue)
             {
-                ChangeState(SlimeState.Idle);
+                RestartDecisionCycle();
                 return;
             }
             if (!TryGetPlacement(step.Value.Position, out var targetWorld))
@@ -556,7 +593,7 @@ namespace Systems.MineSystem.EnemySystem.Mob.Slime.Controller
             if (_model.IsAggro)
                 BeginChaseMovement();
             else
-                ChangeState(SlimeState.Idle);
+                StartPatrolBehavior();
         }
 
         private void BeginChaseMovement()
@@ -566,14 +603,18 @@ namespace Systems.MineSystem.EnemySystem.Mob.Slime.Controller
                 EndChase();
                 return;
             }
-            ChangeState(SlimeState.Move);
-            if (IsTargetInRange(_config.AttackRangeInTiles) &&
+            if (IsTargetAttackable() &&
                 _model.AttackCooldownRemaining <= 0f)
             {
                 ChangeState(SlimeState.Attack);
                 return;
             }
-            RequestPath(_target.GridPosition, true);
+            if (!_model.PathPending && !_model.CurrentPathStep.HasValue)
+            {
+                if (!RequestChasePath())
+                    return;
+            }
+            ChangeState(SlimeState.Move, false);
         }
 
         private void ResumeAfterAction()
@@ -581,41 +622,92 @@ namespace Systems.MineSystem.EnemySystem.Mob.Slime.Controller
             if (_model.IsAggro)
                 BeginChaseMovement();
             else
-                ChangeState(SlimeState.Idle);
+                StartPatrolBehavior();
         }
 
         private void EndChase()
         {
             _model.SetAggro(false);
             _model.ClearPath();
-            ChangeState(SlimeState.Idle);
+            _hasLastChaseTargetPosition = false;
+            StartPatrolBehavior();
         }
 
         private void HandleChasePathFailed()
         {
-            _aggroRequested = false;
-            if (_model.IsAggro ||
-                _model.CurrentState == SlimeState.Move ||
-                _model.CurrentState == SlimeState.Fall ||
-                _model.CurrentState == SlimeState.Aggro)
+            if (!_model.IsAggro &&
+                _model.CurrentState != SlimeState.Move &&
+                _model.CurrentState != SlimeState.Fall &&
+                _model.CurrentState != SlimeState.Aggro)
             {
-                EndChase();
+                _model.ClearPath();
                 return;
             }
-            _model.SetAggro(false);
-            _model.ClearPath();
+            EndChase();
         }
 
         private void HandlePathStepBlocked()
         {
-            _aggroRequested = false;
             if (_model.IsAggro)
             {
                 EndChase();
                 return;
             }
+            _model.ReversePatrolDirection();
+            StartPatrolBehavior();
+        }
+
+        private void HandleMovementTimeout()
+        {
+            _view.SetVelocity(Vector2.zero);
             _model.ClearPath();
-            ChangeState(SlimeState.Idle);
+            _hasLastChaseTargetPosition = false;
+            if (_model.IsAggro)
+            {
+                EndChase();
+                return;
+            }
+            if (!RevalidateCurrentPlacement())
+            {
+                if (!TryStartTeleportBehavior(true, true))
+                    ChangeState(SlimeState.Idle);
+                return;
+            }
+            StartPatrolBehavior();
+        }
+
+        private bool TryRequestPatrolStep()
+        {
+            for (var i = 0; i < PatrolDirectionAttempts; i++)
+            {
+                var destination = new GridPosition(
+                    _model.CurrentGridPosition.X + _model.PatrolDirection,
+                    _model.CurrentGridPosition.Y);
+                if (IsPatrolStepValid(destination) &&
+                    RequestPath(destination, false))
+                {
+                    _view.SetFacing(_model.PatrolDirection < 0);
+                    return true;
+                }
+                _model.ReversePatrolDirection();
+                _view.SetFacing(_model.PatrolDirection < 0);
+            }
+            return false;
+        }
+
+        private bool IsPatrolStepValid(GridPosition destination) =>
+            _pathfinding.IsWalkable(destination) &&
+            TryGetPlacement(destination, out _);
+
+        private bool RevalidateCurrentPlacement()
+        {
+            var position = _placement.WorldToGrid(_view.Body.position);
+            _model.SetGridPosition(position);
+            if (!_pathfinding.IsWalkable(position) ||
+                !_placement.IsCurrentPlacementClear(_view.TerrainCollider))
+                return false;
+            RecordSafePlacement(position, _view.Body.position);
+            return true;
         }
 
         private void RecordSafePlacement(
@@ -637,66 +729,111 @@ namespace Systems.MineSystem.EnemySystem.Mob.Slime.Controller
             Distance(_model.CurrentGridPosition, _target.GridPosition) >=
             _config.ChaseExitRangeInTiles;
 
-        private bool TryChooseDestination(
-            bool chasing,
+        private bool RequestChasePath()
+        {
+            if (!_target.IsTargetAvailable ||
+                !_chaseTargetResolver.TryResolve(
+                    _view.TerrainCollider,
+                    _model.CurrentGridPosition,
+                    _target.GridPosition,
+                    EffectiveAttackDecisionRangeInTiles,
+                    out var destination))
+            {
+                HandleChasePathFailed();
+                return false;
+            }
+
+            _lastChaseTargetPosition = _target.GridPosition;
+            _hasLastChaseTargetPosition = true;
+            return RequestPath(destination, true);
+        }
+
+        private bool HasChaseTargetChanged() =>
+            !_hasLastChaseTargetPosition ||
+            _target.GridPosition != _lastChaseTargetPosition;
+
+        private bool TryChooseTeleportDestination(
+            bool allowAnyWalkableFallback,
             out GridPosition destination)
         {
-            if (chasing && _target.IsTargetAvailable &&
-                _pathfinding.IsWalkable(_target.GridPosition) &&
-                TryGetPlacement(_target.GridPosition, out _))
-            {
-                destination = _target.GridPosition;
-                return destination != _model.CurrentGridPosition;
-            }
-            for (var attempt = 0; attempt < _config.DestinationRetries; attempt++)
-            {
-                var offset = UnityEngine.Random.Range(
-                    -_config.PatrolRangeInTiles,
-                    _config.PatrolRangeInTiles + 1);
-                if (offset == 0)
-                    continue;
-                destination = new GridPosition(
-                    _model.CurrentGridPosition.X + offset,
-                    _model.CurrentGridPosition.Y);
-                if (_pathfinding.IsWalkable(destination) &&
-                    TryGetPlacement(destination, out _) &&
-                    !_enemyManager.Value.IsPositionOccupied(destination, _enemyId))
-                    return true;
-            }
+            if (_target.IsTargetAvailable &&
+                TryChooseNearbyTeleportDestination(out destination))
+                return true;
+            if (allowAnyWalkableFallback)
+                return TryChooseAnyWalkableTeleportDestination(out destination);
             destination = default;
             return false;
         }
 
-        private bool TryChooseTeleportDestination(out GridPosition destination)
+        private bool TryChooseNearbyTeleportDestination(
+            out GridPosition destination)
         {
-            var target = _target.GridPosition;
-            var currentDistance = Distance(_model.CurrentGridPosition, target);
-            for (var attempt = 0; attempt < _config.MaxTeleportAttempts; attempt++)
+            destination = default;
+            var attempts = Math.Max(1, _config.MaxTeleportAttempts);
+            for (var i = 0; i < attempts; i++)
             {
-                var offset = UnityEngine.Random.Range(
-                    -_config.MaximumTeleportDistanceInTiles,
-                    _config.MaximumTeleportDistanceInTiles + 1);
-                var candidate = new GridPosition(target.X + offset, target.Y);
-                if (!_pathfinding.IsWalkable(candidate) ||
-                    !TryGetPlacement(candidate, out _) ||
-                    _enemyManager.Value.IsPositionOccupied(candidate, _enemyId) ||
-                    Distance(candidate, target) <
-                    _config.MinimumTeleportDistanceInTiles ||
-                    Distance(candidate, target) >
-                    _config.MaximumTeleportDistanceInTiles ||
-                    Distance(candidate, target) >= currentDistance)
+                if (!_pathfinding.TryFindWalkableNear(
+                        _target.GridPosition,
+                        _config.MinimumTeleportDistanceInTiles,
+                        _config.MaximumTeleportDistanceInTiles,
+                        _teleportSearchOffset++,
+                        out var candidate))
+                    return false;
+                if (!IsTeleportCandidateValid(candidate))
                     continue;
                 destination = candidate;
                 return true;
             }
-            destination = default;
             return false;
         }
+
+        private bool TryChooseAnyWalkableTeleportDestination(
+            out GridPosition destination)
+        {
+            destination = default;
+            var count = _pathfinding.WalkableCount;
+            if (count <= 0)
+                return false;
+
+            var fallback = default(GridPosition);
+            var hasFallback = false;
+            for (var i = 0; i < count; i++)
+            {
+                if (!_pathfinding.TryFindAnyWalkable(
+                        _teleportSearchOffset + i,
+                        out var candidate) ||
+                    !IsTeleportCandidateValid(candidate))
+                    continue;
+                if (candidate == _model.CurrentGridPosition)
+                {
+                    fallback = candidate;
+                    hasFallback = true;
+                    continue;
+                }
+                destination = candidate;
+                _teleportSearchOffset += i + 1;
+                return true;
+            }
+            if (!hasFallback)
+                return false;
+            destination = fallback;
+            _teleportSearchOffset++;
+            return true;
+        }
+
+        private bool IsTeleportCandidateValid(GridPosition destination) =>
+            _pathfinding.IsWalkable(destination) &&
+            TryGetPlacement(destination, out _);
+
+        private bool IsTerrainWallCollider(Collider2D collider) =>
+            collider != null &&
+            !collider.isTrigger &&
+            (_config.GroundLayerMask.value & (1 << collider.gameObject.layer)) != 0;
 
         private void CompleteTeleportDespawn()
         {
             if (_teleportDestination.HasValue &&
-                IsTeleportDestinationValid(_teleportDestination.Value))
+                IsTeleportCandidateValid(_teleportDestination.Value))
             {
                 var destination = _teleportDestination.Value;
                 TryGetPlacement(destination, out var worldPosition);
@@ -707,23 +844,17 @@ namespace Systems.MineSystem.EnemySystem.Mob.Slime.Controller
             ChangeState(SlimeState.TeleportSpawn);
         }
 
-        private bool IsTeleportDestinationValid(GridPosition destination)
-        {
-            return _target.IsTargetAvailable &&
-                   _pathfinding.IsWalkable(destination) &&
-                   TryGetPlacement(destination, out _) &&
-                   !_enemyManager.Value.IsPositionOccupied(
-                       destination,
-                       _enemyId) &&
-                   Distance(destination, _target.GridPosition) >=
-                   _config.MinimumTeleportDistanceInTiles &&
-                   Distance(destination, _target.GridPosition) <=
-                   _config.MaximumTeleportDistanceInTiles;
-        }
-
         private bool IsTargetInRange(int range) =>
             _target.IsTargetAvailable &&
             Distance(_model.CurrentGridPosition, _target.GridPosition) <= range;
+
+        private bool IsTargetAttackable() =>
+            IsTargetInRange(EffectiveAttackDecisionRangeInTiles) &&
+            Vector2.Distance(_view.Body.position, _target.WorldPosition) <=
+            _config.AttackContactDistance;
+
+        private int EffectiveAttackDecisionRangeInTiles =>
+            Math.Max(1, _config.AttackRangeInTiles);
 
         private bool TryGetPlacement(
             GridPosition position,
@@ -733,8 +864,7 @@ namespace Systems.MineSystem.EnemySystem.Mob.Slime.Controller
                 position,
                 out worldPosition);
 
-        private bool IsPathPlacementClear(
-            IReadOnlyList<EnemyPathStep> steps)
+        private bool IsPathPlacementClear(IReadOnlyList<EnemyPathStep> steps)
         {
             if (steps == null)
                 return false;
@@ -744,6 +874,30 @@ namespace Systems.MineSystem.EnemySystem.Mob.Slime.Controller
                     return false;
             }
             return true;
+        }
+
+        private void StartMovementTimeout(IReadOnlyList<EnemyPathStep> steps)
+        {
+            if (steps == null || steps.Count == 0)
+            {
+                _model.ClearMovementTimeout();
+                return;
+            }
+
+            var distance = 0f;
+            var previous = _view.Body.position;
+            for (var i = 0; i < steps.Count; i++)
+            {
+                if (!TryGetPlacement(steps[i].Position, out var next))
+                    continue;
+                distance += Vector2.Distance(previous, next);
+                previous = next;
+            }
+            var speed = Mathf.Max(0.001f, _config.MoveSpeed);
+            var timeout = distance / speed +
+                          _config.MovementStuckBufferSeconds;
+            timeout = Mathf.Max(timeout, _config.MinimumMovementTimeoutSeconds);
+            _model.StartMovementTimeout(timeout);
         }
 
         private static int Distance(GridPosition a, GridPosition b) =>
@@ -773,7 +927,7 @@ namespace Systems.MineSystem.EnemySystem.Mob.Slime.Controller
             {
                 _view.SetDamageEnabled(true);
                 _stateCompletion?.TrySetResult();
-                ChangeState(SlimeState.Idle);
+                RestartDecisionCycle();
             }
             else if (state == SlimeState.Death || state == SlimeState.Despawn)
             {
@@ -790,16 +944,24 @@ namespace Systems.MineSystem.EnemySystem.Mob.Slime.Controller
                     GlobalEventBus.Fire(new EnemyDespawnedSignal(_enemyId));
                 }
             }
-            else if (state == SlimeState.TeleportDespawn ||
-                     state == SlimeState.TeleportSpawn)
+            else if (state == SlimeState.TeleportDespawn)
+            {
+                CompleteTeleportDespawn();
+            }
+            else if (state == SlimeState.TeleportSpawn)
             {
                 _teleportDestination = null;
                 _view.SetDamageEnabled(true);
-                ChangeState(SlimeState.Idle);
+                _model.StartTeleportCooldown(_config.TeleportCooldownSeconds);
+                RestartDecisionCycle();
+            }
+            else if (state == SlimeState.Aggro)
+            {
+                BeginChaseMovement();
             }
             else if (state != SlimeState.Idle)
             {
-                ChangeState(SlimeState.Idle);
+                RestartDecisionCycle();
             }
         }
 

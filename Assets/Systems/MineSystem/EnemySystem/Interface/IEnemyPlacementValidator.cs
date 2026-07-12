@@ -15,5 +15,7 @@ namespace Systems.MineSystem.EnemySystem.Interface
             Vector2 worldPosition);
 
         bool IsCurrentPlacementClear(Collider2D terrainCollider);
+
+        GridPosition WorldToGrid(Vector2 worldPosition);
     }
 }

@@ -27,6 +27,10 @@ namespace Systems.MineSystem.EnemySystem.Mob.Slime.Config
         [Min(1)] [SerializeField] private int destinationRetries = 4;
         [Tooltip("World-space tolerance used when deciding the slime reached a target.")]
         [Min(0.001f)] [SerializeField] private float positionTolerance = 0.05f;
+        [Tooltip("Extra seconds added to estimated movement time before treating the slime as stuck.")]
+        [Min(0f)] [SerializeField] private float movementStuckBufferSeconds = 1.5f;
+        [Tooltip("Minimum allowed movement duration before stuck recovery can trigger.")]
+        [Min(0.01f)] [SerializeField] private float minimumMovementTimeoutSeconds = 0.75f;
 
         [Header("Movement And Grounding")]
         [Tooltip("Maximum number of open tiles the slime may fall during pathing.")]
@@ -49,6 +53,12 @@ namespace Systems.MineSystem.EnemySystem.Mob.Slime.Config
         [Min(0)] [SerializeField] private int teleportTriggerDistanceInTiles = 10;
         [Tooltip("Chance that an eligible idle decision chooses teleporting.")]
         [Range(0f, 1f)] [SerializeField] private float teleportChance = 0.4f;
+        [Tooltip("Seconds after a teleport before normal relocation can teleport again.")]
+        [Min(0f)] [SerializeField] private float teleportCooldownSeconds = 6f;
+
+        [Header("Attack Contact")]
+        [Tooltip("World-space distance required before the slime can start or apply an attack.")]
+        [Min(0f)] [SerializeField] private float attackContactDistance = 0.5f;
 
         [Header("Status Effect")]
         [Tooltip("Status effect applied by slime attacks, if any.")]
@@ -78,8 +88,12 @@ namespace Systems.MineSystem.EnemySystem.Mob.Slime.Config
         public int TeleportTriggerDistanceInTiles =>
             teleportTriggerDistanceInTiles;
         public float TeleportChance => teleportChance;
+        public float TeleportCooldownSeconds => teleportCooldownSeconds;
+        public float AttackContactDistance => attackContactDistance;
         public int DestinationRetries => destinationRetries;
         public float PositionTolerance => positionTolerance;
+        public float MovementStuckBufferSeconds => movementStuckBufferSeconds;
+        public float MinimumMovementTimeoutSeconds => minimumMovementTimeoutSeconds;
         public float GroundProbeDistance => groundProbeDistance;
         public LayerMask GroundLayerMask => groundLayerMask;
         public int InitialPoolSize => initialPoolSize;
@@ -132,6 +146,24 @@ namespace Systems.MineSystem.EnemySystem.Mob.Slime.Config
             {
                 error = $"{name} teleport chance ({teleportChance}) must be " +
                         "between zero and one.";
+                return false;
+            }
+            if (teleportCooldownSeconds < 0f)
+            {
+                error =
+                    $"{name} teleport cooldown must be zero or greater.";
+                return false;
+            }
+            if (attackContactDistance < 0f)
+            {
+                error =
+                    $"{name} attack contact distance must be zero or greater.";
+                return false;
+            }
+            if (minimumMovementTimeoutSeconds <= 0f)
+            {
+                error =
+                    $"{name} requires a positive minimum movement timeout.";
                 return false;
             }
             error = null;

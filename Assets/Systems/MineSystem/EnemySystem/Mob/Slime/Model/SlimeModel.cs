@@ -24,6 +24,11 @@ namespace Systems.MineSystem.EnemySystem.Mob.Slime.Model
         public bool WasChasing { get; private set; }
         public bool IsAggro { get; private set; }
         public float AttackCooldownRemaining { get; private set; }
+        public int PatrolDirection { get; private set; } = 1;
+        public bool MovementTimeoutActive { get; private set; }
+        public float MovementTimeoutRemaining { get; private set; }
+        public float TeleportCooldownRemaining { get; private set; }
+        public bool CanTeleport => TeleportCooldownRemaining <= 0f;
         public bool IsDead => CurrentHealth <= 0;
 
         public void Initialize(
@@ -42,11 +47,18 @@ namespace Systems.MineSystem.EnemySystem.Mob.Slime.Model
             WasChasing = false;
             IsAggro = false;
             AttackCooldownRemaining = 0f;
+            PatrolDirection = 1;
+            MovementTimeoutActive = false;
+            MovementTimeoutRemaining = 0f;
+            TeleportCooldownRemaining = 0f;
         }
 
         public void SetState(SlimeState state) => CurrentState = state;
 
         public void SetAggro(bool isAggro) => IsAggro = isAggro;
+
+        public void ReversePatrolDirection() =>
+            PatrolDirection = PatrolDirection < 0 ? 1 : -1;
 
         public void ApplyDamage(float amount)
         {
@@ -95,17 +107,49 @@ namespace Systems.MineSystem.EnemySystem.Mob.Slime.Model
             PathIndex = 0;
             PathPending = false;
             PathGeneration++;
+            ClearMovementTimeout();
+        }
+
+        public void StartMovementTimeout(float duration)
+        {
+            MovementTimeoutActive = true;
+            MovementTimeoutRemaining = Mathf.Max(0f, duration);
+        }
+
+        public bool TickMovementTimeout(float deltaTime)
+        {
+            if (!MovementTimeoutActive)
+                return false;
+            MovementTimeoutRemaining = Mathf.Max(
+                0f,
+                MovementTimeoutRemaining - Mathf.Max(0f, deltaTime));
+            return MovementTimeoutRemaining <= 0f;
+        }
+
+        public void ClearMovementTimeout()
+        {
+            MovementTimeoutActive = false;
+            MovementTimeoutRemaining = 0f;
         }
 
         public void TickCooldown(float deltaTime)
         {
+            var safeDeltaTime = Mathf.Max(0f, deltaTime);
             AttackCooldownRemaining = Mathf.Max(
                 0f,
-                AttackCooldownRemaining - Mathf.Max(0f, deltaTime));
+                AttackCooldownRemaining - safeDeltaTime);
+            TeleportCooldownRemaining = Mathf.Max(
+                0f,
+                TeleportCooldownRemaining - safeDeltaTime);
         }
 
         public void ResetAttackCooldown() =>
             AttackCooldownRemaining = Config.AttackCooldown;
+
+        public void StartTeleportCooldown(float duration)
+        {
+            TeleportCooldownRemaining = Mathf.Max(0f, duration);
+        }
 
         public void ResetRuntime()
         {
@@ -117,6 +161,9 @@ namespace Systems.MineSystem.EnemySystem.Mob.Slime.Model
             PathGeneration++;
             AttackCooldownRemaining = 0f;
             IsAggro = false;
+            PatrolDirection = 1;
+            TeleportCooldownRemaining = 0f;
+            ClearMovementTimeout();
         }
 
         public void Dispose()

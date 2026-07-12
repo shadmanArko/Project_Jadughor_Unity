@@ -59,6 +59,14 @@ namespace Systems.MineSystem.EnemySystem.Service
             CanValidate(terrainCollider) &&
             IsPlacementClear(terrainCollider, GetBodyPosition(terrainCollider));
 
+        public GridPosition WorldToGrid(Vector2 worldPosition)
+        {
+            if (_mineView?.grid == null)
+                return default;
+            var cell = _mineView.grid.WorldToCell(worldPosition);
+            return new GridPosition(cell.x, cell.y);
+        }
+
         private bool CanValidate(Collider2D terrainCollider) =>
             terrainCollider != null &&
             !terrainCollider.isTrigger &&

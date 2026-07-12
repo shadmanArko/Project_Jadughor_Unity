@@ -58,6 +58,11 @@ namespace Systems.MineSystem.EnemySystem.Mob.Slime.Service
             if (controller == null || !_active.Remove(controller, out var entry))
                 return;
             controller.Release();
+            if (entry.View == null)
+            {
+                _all.Remove(entry);
+                return;
+            }
             entry.View.gameObject.SetActive(false);
             entry.View.transform.SetParent(_root, false);
             _available[entry.Prefab].Push(entry);

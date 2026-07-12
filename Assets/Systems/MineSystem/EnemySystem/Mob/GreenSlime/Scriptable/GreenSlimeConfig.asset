@@ -16,7 +16,7 @@ MonoBehaviour:
   prefab: {fileID: 1937851054011437442, guid: 6cfefae9019d07046aee60a1cdd68056, type: 3}
   maxHealth: 25
   damage: 5
-  moveSpeed: 0.5
+  moveSpeed: 0.3
   aggroRangeInTiles: 5
   attackRangeInTiles: 0
   attackCooldown: 1
@@ -30,21 +30,24 @@ MonoBehaviour:
   slimeVariant: 0
   animationProfile: {fileID: 11400000, guid: f24f23a381784db7af2fa5baf7e5c5eb, type: 2}
   slimeColor: {r: 1, g: 1, b: 1, a: 1}
-  idleDuration: 1
-  patrolRangeInTiles: 5
-  maxFallDistanceInTiles: 8
-  maxTeleportAttempts: 4
-  minimumTeleportDistanceInTiles: 2
-  maximumTeleportDistanceInTiles: 5
-  chaseExitRangeInTiles: 8
-  teleportTriggerDistanceInTiles: 10
-  teleportChance: 0.4
-  destinationRetries: 1
+  idleDuration: 1.5
+  patrolRangeInTiles: 10
+  destinationRetries: 4
   positionTolerance: 0.03
+  movementStuckBufferSeconds: 1.5
+  minimumMovementTimeoutSeconds: 0.75
+  maxFallDistanceInTiles: 20
   groundProbeDistance: 0.08
   groundLayerMask:
     serializedVersion: 2
     m_Bits: 128
+  maxTeleportAttempts: 5
+  minimumTeleportDistanceInTiles: 2
+  maximumTeleportDistanceInTiles: 6
+  chaseExitRangeInTiles: 8
+  teleportTriggerDistanceInTiles: 10
+  teleportChance: 0.4
+  teleportCooldownSeconds: 6
   statusEffectType: 0
   statusEffectDuration: 0
   statusEffectPower: 0

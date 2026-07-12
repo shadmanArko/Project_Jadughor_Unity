@@ -38,6 +38,8 @@ namespace Systems.MineSystem.EnemySystem.Installer
                 .To<EnemyAttackService>().AsSingle();
             Container.Bind<IEnemyPlacementValidator>()
                 .To<EnemyPlacementValidator>().AsSingle();
+            Container.Bind<IEnemyChaseTargetResolver>()
+                .To<EnemyChaseTargetResolver>().AsSingle();
             Container.BindInterfacesAndSelfTo<EnemyPathfindingService>()
                 .AsSingle();
             Container.Bind<EnemySpawnCandidateService>().AsSingle();

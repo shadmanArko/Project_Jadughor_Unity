@@ -7,6 +7,7 @@ namespace Systems.MineSystem.EnemySystem.Model
     {
         public readonly HashSet<GridPosition> OpenCells;
         public readonly HashSet<GridPosition> WalkableCells;
+        public readonly IReadOnlyList<GridPosition> WalkablePositions;
 
         public EnemyNavigationSnapshot(
             HashSet<GridPosition> openCells,
@@ -14,6 +15,7 @@ namespace Systems.MineSystem.EnemySystem.Model
         {
             OpenCells = openCells;
             WalkableCells = walkableCells;
+            WalkablePositions = new List<GridPosition>(walkableCells);
         }
     }
 }
