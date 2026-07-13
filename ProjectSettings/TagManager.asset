@@ -86,5 +86,8 @@ TagManager:
   - name: PlacedMuseumObject
     uniqueID: 3682064351
     locked: 0
+  - name: FrontWall
+    uniqueID: 339264083
+    locked: 0
   m_RenderingLayers:
   - Default

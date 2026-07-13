@@ -173,30 +173,48 @@ your art), nudge it with the new **Anchor Offset** field (world units) on
 `MuseumObjectPlacementSystem` — tune it live in Play mode until the ghost sits
 exactly on the tile.
 
-### Y-sort between different footprint sizes (e.g. a 2×2 rendering in front of an adjacent 1×1)
+### Museum Sorting (`MuseumSortingSystem`) — depth sorting for placed objects
 
-Two bugs, both in `YSortable`/how it's invoked:
+Placed museum objects (and the ghost) are **no longer sorted by `YSortable`** — they
+use a dedicated **`MuseumSortingSystem`** (Placement/MuseumSortingSystem.cs), the
+Unity port of the Godot project's `ManualSorting.cs`.
 
-1. **Sort key ignored footprint size entirely.** `YSortable` sorted purely by
-   `transform.position.y` (the object's own anchor point) — two objects on the same
-   tile row have the SAME anchor Y regardless of how big their sprite actually is, so
-   sorting couldn't tell a 1×1 from a 2×2 apart; which one drew on top was
-   essentially a tiebreak. **Fixed:** it now sorts by
-   `SpriteRenderer.bounds.min.y` — the sprite's actual rendered bottom edge in world
-   space — which naturally scales with each object's real footprint.
-2. **Sort order was computed before the object was actually positioned.**
-   `Instantiate(prefab, ...)` runs `Awake()` (and therefore `YSortable`'s
-   Awake-time `UpdateSortOrder()`) **before** the very next line sets the object's
-   real world position — so every placed object's sort order reflected the
-   *prefab's own default transform*, not where it was actually placed. **Fixed:**
-   `MuseumObjectPlacementSystem` now explicitly calls `YSortable.UpdateSortOrder()`
-   again once the position AND swapped sprite are both final — for the ghost this
-   also happens every frame as it follows the mouse (it's the one object that keeps
-   moving after spawn).
+**Why:** with mixed footprint sizes (1×1 next to 2×2, wide 2×1 rows…), NO single
+scalar depth value — pivot Y, bounds Y, or any "corner sum" of cell coordinates —
+can order every configuration correctly (e.g. a wide front row vs a 1×1 directly
+behind its left tile inverts any such formula). Several single-key attempts each
+fixed some layouts and broke others, which matched the in-game symptom exactly
+("working for some not for all"). The Godot solution was **pairwise + dynamic**:
+compare items two at a time using tile coordinates and footprint, re-running on
+every item update. This port keeps that model but replaces Godot's fragile
+±0.1-Y-position nudging with deterministic explicit sort orders.
 
-No prefab/Inspector changes needed for this — it's purely a code fix, and applies to
-every `YSortable` object project-wide (characters, walls, decorations), not just the
-builder system.
+**How it works:**
+- The placement system registers every spawned object (and the ghost) with its
+  anchor cell + footprint; the ghost re-registers whenever it moves to a new cell
+  (the dynamic part — mirrors Godot's `OnItemUpdated` re-sort trigger).
+- On every change it derives pairwise constraints — using the axis convention
+  already validated by `ExpansionManager` (+X/+Y cell directions = the BACK edges):
+  **A draws in front of B if every tile of A is at lower X than all of B, or at
+  lower Y than all of B.** Diagonal neighbours (front on one axis, behind on the
+  other) can't visually overlap and get no constraint.
+- Constraints are flattened by topological sort (back-most first; exact integer
+  `x+y` of the far corner only breaks ties between unrelated objects), and the
+  resulting order is written to **every `SpriteRenderer`** under each object, so
+  multi-part prefabs always sort as one unit.
+
+**Wiring:** none needed — `MuseumObjectPlacementSystem` auto-adds the component to
+its own GameObject if the serialized field is empty. It also **removes any
+`YSortable`** from spawned instances/ghosts so the two systems never fight over
+`sortingOrder`. `YSortable` remains the simple Y-based sorter for non-grid things
+(characters, walls, one-off scene sprites).
+
+> If your 2×2 prefab genuinely has separate sub-pieces (not just one sprite drawn
+> to *look* like several boxes), note that `PlaceableObjectView.ApplyVariationSprite`
+> still only swaps ONE renderer's sprite (`Primary Renderer`, or the first one
+> found) — the other pieces keep whatever placeholder art the prefab was built
+> with. That's separate from sorting; flag it if each sub-piece needs its own
+> per-variation artwork.
 
 ### Rotation (Q/E) — Godot parity
 

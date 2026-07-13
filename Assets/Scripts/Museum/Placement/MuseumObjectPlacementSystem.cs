@@ -57,6 +57,10 @@ namespace ProjectMuseum.Builder
         [Tooltip("Advances the rotation frame backward (-1, wraps). Godot: E.")]
         [SerializeField] private Key rotateBackwardKey = Key.E;
 
+        [Tooltip("Footprint-aware depth sorter for placed objects + ghost. " +
+                 "Auto-added to this GameObject if left empty.")]
+        [SerializeField] private MuseumSortingSystem sortingSystem;
+
         private Camera _cam;
 
         // Ghost/pending placement state
@@ -67,7 +71,8 @@ namespace ProjectMuseum.Builder
         private int _pendingRotationFrame;
         private GameObject _ghostGo;
         private PlaceableObjectView _ghostView;
-        private YSortable _ghostYSortable;
+        private Vector2Int _lastGhostAnchor;
+        private bool _hasGhostAnchor;
 
         // Spawned visuals by PlacedObjectData.Id (for removal support)
         private readonly Dictionary<string, GameObject> _spawned = new();
@@ -85,6 +90,11 @@ namespace ProjectMuseum.Builder
             _cam = Camera.main != null ? Camera.main : FindFirstObjectByType<Camera>();
             if (grid == null) grid = FindFirstObjectByType<Grid>();
             if (objectsParent == null) objectsParent = transform;
+            if (sortingSystem == null)
+            {
+                sortingSystem = GetComponent<MuseumSortingSystem>();
+                if (sortingSystem == null) sortingSystem = gameObject.AddComponent<MuseumSortingSystem>();
+            }
         }
 
         private void OnEnable()
@@ -138,6 +148,9 @@ namespace ProjectMuseum.Builder
             foreach (GameObject go in _spawned.Values)
                 if (go != null) Destroy(go);
             _spawned.Clear();
+            // Everything visual is gone (ghost was cancelled just before this in
+            // OnDataReloaded) — reset the sorter; respawning re-registers each object.
+            sortingSystem.ClearAll();
         }
 
         /// <summary>Respawn visuals for every object already in the data (save load).</summary>
@@ -181,17 +194,27 @@ namespace ProjectMuseum.Builder
             RefreshGhostSprite();
             StripGhostComponents(_ghostGo);
 
-            _ghostYSortable = _ghostGo.GetComponent<YSortable>();
-            if (_ghostYSortable == null) _ghostYSortable = _ghostGo.AddComponent<YSortable>();
+            // Museum sorting owns depth for grid objects — register the ghost at the
+            // currently hovered cell; Update() re-registers it whenever the cell changes.
+            Mouse mouseNow = Mouse.current;
+            Vector2Int startAnchor = mouseNow != null ? MouseCell(mouseNow) : Vector2Int.zero;
+            sortingSystem.RegisterObject(_ghostGo, startAnchor, info.WidthInTiles, info.LengthInTiles);
+            _lastGhostAnchor = startAnchor;
+            _hasGhostAnchor = true;
 
             BuilderActions.OnPlacementStarted?.Invoke(type, cardName);
         }
 
-        /// <summary>A ghost shouldn't collide or otherwise act like a real placed object.</summary>
+        /// <summary>
+        /// A ghost shouldn't collide or otherwise act like a real placed object —
+        /// and it must not carry an active YSortable, or it would fight the
+        /// MuseumSortingSystem over sortingOrder.
+        /// </summary>
         private static void StripGhostComponents(GameObject go)
         {
             foreach (Collider2D c in go.GetComponentsInChildren<Collider2D>(true)) c.enabled = false;
             foreach (Collider c in go.GetComponentsInChildren<Collider>(true)) c.enabled = false;
+            foreach (YSortable y in go.GetComponentsInChildren<YSortable>(true)) Destroy(y);
         }
 
         /// <summary>Re-crop the ghost's sprite to the current pending rotation frame.</summary>
@@ -246,9 +269,15 @@ namespace ProjectMuseum.Builder
 
             Vector2Int anchor = MouseCell(mouse);
             _ghostGo.transform.position = CellToWorld(anchor);
-            // Re-sort every frame — the ghost moves continuously, unlike a placed
-            // object, so its render order must keep tracking its new position.
-            _ghostYSortable?.UpdateSortOrder();
+            // Re-sort whenever the ghost lands on a new cell (dynamic, like Godot's
+            // OnItemUpdated re-sort) — no need to re-run while it stays on one tile.
+            if (!_hasGhostAnchor || anchor != _lastGhostAnchor)
+            {
+                sortingSystem.UpdateObjectFootprint(_ghostGo, anchor,
+                    _pendingInfo.WidthInTiles, _pendingInfo.LengthInTiles);
+                _lastGhostAnchor = anchor;
+                _hasGhostAnchor = true;
+            }
 
             bool canPlace = _model.CanPlace(anchor, _pendingInfo.WidthInTiles, _pendingInfo.LengthInTiles);
             bool canAfford = _model.CanAfford(_pendingInfo.Cost);
@@ -290,16 +319,23 @@ namespace ProjectMuseum.Builder
         private void CancelPlacement()
         {
             _isPlacing = false;
-            if (_ghostGo != null) Destroy(_ghostGo);
+            if (_ghostGo != null)
+            {
+                if (sortingSystem != null) sortingSystem.UnregisterObject(_ghostGo);
+                Destroy(_ghostGo);
+            }
             _ghostGo = null;
             _ghostView = null;
-            _ghostYSortable = null;
+            _hasGhostAnchor = false;
         }
 
         private void OnObjectRemoved(PlacedObjectData placed)
         {
             if (_spawned.TryGetValue(placed.Id, out GameObject go) && go != null)
+            {
+                sortingSystem.UnregisterObject(go);
                 Destroy(go);
+            }
             _spawned.Remove(placed.Id);
         }
 
@@ -328,12 +364,10 @@ namespace ProjectMuseum.Builder
                 info.Texture, info.NumberOfFrames, placed.RotationFrame, BuilderSpriteUtil.BottomCenterPivot));
             view.Initialize(placed);
 
-            // Instantiate() already ran Awake() — with the PREFAB's default transform,
-            // before the two lines above set the real position/sprite — so YSortable's
-            // Awake-time sort order is stale. Force a fresh recompute now that both are final.
-            YSortable ySortable = go.GetComponent<YSortable>();
-            if (ySortable == null) ySortable = go.AddComponent<YSortable>();
-            ySortable.UpdateSortOrder();
+            // MuseumSortingSystem now owns depth for placed objects — remove any
+            // YSortable the prefab carries so the two never fight over sortingOrder.
+            foreach (YSortable y in go.GetComponentsInChildren<YSortable>(true)) Destroy(y);
+            sortingSystem.RegisterObject(go, placed.AnchorCell, placed.WidthInTiles, placed.LengthInTiles);
 
             _spawned[placed.Id] = go;
             return go;
