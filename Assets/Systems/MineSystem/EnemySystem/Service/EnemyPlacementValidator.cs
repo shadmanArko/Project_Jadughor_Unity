@@ -67,6 +67,14 @@ namespace Systems.MineSystem.EnemySystem.Service
             return new GridPosition(cell.x, cell.y);
         }
 
+        public Vector2 GridToWorld(GridPosition gridPosition)
+        {
+            if (_mineView?.grid == null)
+                return default;
+            return _mineView.grid.GetCellCenterWorld(
+                gridPosition.ToVector3Int());
+        }
+
         private bool CanValidate(Collider2D terrainCollider) =>
             terrainCollider != null &&
             !terrainCollider.isTrigger &&

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animatorController: {fileID: 9100000, guid: 8aa2f5c4105a53b49b48c633120f18bd, type: 2}
   visualScale: {x: 1, y: 1}
-  visualOffset: {x: 0, y: 0.1}
+  visualOffset: {x: 0, y: 0}
   animations:
   - id: Slime.Spawn
     stateName: GreenSlime_Spawn
@@ -73,6 +73,7 @@ MonoBehaviour:
     - {fileID: 236136337, guid: b5c740ae3c16aa94ba6f44d3fc67f6fe, type: 3}
     - {fileID: -284653192, guid: b5c740ae3c16aa94ba6f44d3fc67f6fe, type: 3}
     - {fileID: -593766404, guid: b5c740ae3c16aa94ba6f44d3fc67f6fe, type: 3}
+    - {fileID: -139761603, guid: b5c740ae3c16aa94ba6f44d3fc67f6fe, type: 3}
     speed: 1
     playOnlyOnce: 0
     flipX: 1

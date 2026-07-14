@@ -23,11 +23,19 @@ namespace Systems.MineSystem.EnemySystem.Mob.Slime.Model
         public bool PathPending { get; private set; }
         public bool WasChasing { get; private set; }
         public bool IsAggro { get; private set; }
+        public SlimeMovementMode MovementMode { get; private set; }
+        public bool EngagementActive { get; private set; }
+        public bool AggroPlayedForEngagement { get; private set; }
+        public bool HasReachabilityFailure { get; private set; }
+        public GridPosition ReachabilityFailureTarget { get; private set; }
+        public int ReachabilityFailureRevision { get; private set; }
         public float AttackCooldownRemaining { get; private set; }
         public int PatrolDirection { get; private set; } = 1;
         public bool MovementTimeoutActive { get; private set; }
         public float MovementTimeoutRemaining { get; private set; }
         public float TeleportCooldownRemaining { get; private set; }
+        public float IdleRemaining { get; private set; }
+        public int PatrolFailureCount { get; private set; }
         public bool CanTeleport => TeleportCooldownRemaining <= 0f;
         public bool IsDead => CurrentHealth <= 0;
 
@@ -46,16 +54,77 @@ namespace Systems.MineSystem.EnemySystem.Mob.Slime.Model
             PathPending = false;
             WasChasing = false;
             IsAggro = false;
+            MovementMode = SlimeMovementMode.None;
+            EngagementActive = false;
+            AggroPlayedForEngagement = false;
+            HasReachabilityFailure = false;
+            ReachabilityFailureTarget = default;
+            ReachabilityFailureRevision = -1;
             AttackCooldownRemaining = 0f;
             PatrolDirection = 1;
             MovementTimeoutActive = false;
             MovementTimeoutRemaining = 0f;
             TeleportCooldownRemaining = 0f;
+            IdleRemaining = 0f;
+            PatrolFailureCount = 0;
         }
 
         public void SetState(SlimeState state) => CurrentState = state;
 
         public void SetAggro(bool isAggro) => IsAggro = isAggro;
+
+        public void SetMovementMode(SlimeMovementMode movementMode) =>
+            MovementMode = movementMode;
+
+        public void BeginEngagement()
+        {
+            EngagementActive = true;
+        }
+
+        public void MarkAggroPlayed()
+        {
+            EngagementActive = true;
+            AggroPlayedForEngagement = true;
+            IsAggro = true;
+        }
+
+        public void RequireAggroReplay()
+        {
+            if (EngagementActive)
+                AggroPlayedForEngagement = false;
+            IsAggro = false;
+        }
+
+        public void ResetEngagement()
+        {
+            EngagementActive = false;
+            AggroPlayedForEngagement = false;
+            IsAggro = false;
+            ClearReachabilityFailure();
+        }
+
+        public void RecordReachabilityFailure(
+            GridPosition target,
+            int navigationRevision)
+        {
+            HasReachabilityFailure = true;
+            ReachabilityFailureTarget = target;
+            ReachabilityFailureRevision = navigationRevision;
+        }
+
+        public bool IsReachabilityFailureCurrent(
+            GridPosition target,
+            int navigationRevision) =>
+            HasReachabilityFailure &&
+            ReachabilityFailureTarget == target &&
+            ReachabilityFailureRevision == navigationRevision;
+
+        public void ClearReachabilityFailure()
+        {
+            HasReachabilityFailure = false;
+            ReachabilityFailureTarget = default;
+            ReachabilityFailureRevision = -1;
+        }
 
         public void ReversePatrolDirection() =>
             PatrolDirection = PatrolDirection < 0 ? 1 : -1;
@@ -82,6 +151,8 @@ namespace Systems.MineSystem.EnemySystem.Mob.Slime.Model
             if (result.Generation != PathGeneration)
                 return false;
             PathPending = false;
+            if (result.Succeeded)
+                Destination = result.Destination;
             CachedPath = result.Succeeded ? result.Steps : null;
             PathIndex = 0;
             return true;
@@ -109,6 +180,21 @@ namespace Systems.MineSystem.EnemySystem.Mob.Slime.Model
             PathGeneration++;
             ClearMovementTimeout();
         }
+
+        public void StartIdle(float duration) =>
+            IdleRemaining = Mathf.Max(0f, duration);
+
+        public bool TickIdle(float deltaTime)
+        {
+            IdleRemaining = Mathf.Max(
+                0f,
+                IdleRemaining - Mathf.Max(0f, deltaTime));
+            return IdleRemaining <= 0f;
+        }
+
+        public void RecordPatrolFailure() => PatrolFailureCount++;
+
+        public void ResetPatrolFailures() => PatrolFailureCount = 0;
 
         public void StartMovementTimeout(float duration)
         {
@@ -161,8 +247,16 @@ namespace Systems.MineSystem.EnemySystem.Mob.Slime.Model
             PathGeneration++;
             AttackCooldownRemaining = 0f;
             IsAggro = false;
+            MovementMode = SlimeMovementMode.None;
+            EngagementActive = false;
+            AggroPlayedForEngagement = false;
+            HasReachabilityFailure = false;
+            ReachabilityFailureTarget = default;
+            ReachabilityFailureRevision = -1;
             PatrolDirection = 1;
             TeleportCooldownRemaining = 0f;
+            IdleRemaining = 0f;
+            PatrolFailureCount = 0;
             ClearMovementTimeout();
         }
 

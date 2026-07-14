@@ -27,6 +27,8 @@ namespace Systems.MineSystem.EnemySystem.Mob.Slime.View
         public Collider2D HurtboxCollider => hurtboxCollider;
         public bool DamageEnabled => _damageEnabled;
         public float AnimatorSpeed => animationController.Speed;
+        public float CurrentAnimationCycleDuration =>
+            animationController.CurrentCycleDuration;
         public IObservable<float> DamageRequested => _damageRequested;
         public IObservable<Collider2D> ContactStayed => _contactStayed;
         public IObservable<Collider2D> HorizontalCollision => _horizontalCollision;
@@ -105,6 +107,31 @@ namespace Systems.MineSystem.EnemySystem.Mob.Slime.View
                 _groundHits,
                 Mathf.Max(0.01f, distance));
             return count > 0;
+        }
+
+        public bool IsTerrainWall(Collider2D collider, LayerMask layerMask)
+        {
+            return collider != null &&
+                   (layerMask.value & (1 << collider.gameObject.layer)) != 0;
+        }
+
+        public bool TryGetDamageable(
+            Collider2D collider,
+            out IDamageable damageable)
+        {
+            damageable = null;
+            if (collider == null)
+                return false;
+            var behaviours = collider.GetComponentsInParent<MonoBehaviour>();
+            for (var i = 0; i < behaviours.Length; i++)
+            {
+                if (behaviours[i] is not IDamageable candidate ||
+                    ReferenceEquals(candidate, this))
+                    continue;
+                damageable = candidate;
+                return true;
+            }
+            return false;
         }
 
         public void ResetRuntime()

@@ -144,7 +144,8 @@ namespace Systems.MineSystem.MinePlayerSystem.Controller
         private void SubscribeToInputSignals()
         {
             GlobalEventBus.OnSignal<MovementInputSignal>()
-                .Subscribe(signal => _model.SetMovementInput(signal.Direction))
+                .Subscribe(signal =>
+                    _model.SetMovementInput(signal.Direction))
                 .AddTo(_disposables);
             GlobalEventBus.OnSignal<ClimbInputSignal>()
                 .Subscribe(_ => _model.ToggleClimb())
@@ -236,5 +237,6 @@ namespace Systems.MineSystem.MinePlayerSystem.Controller
 
             _disposables.Dispose();
         }
+
     }
 }

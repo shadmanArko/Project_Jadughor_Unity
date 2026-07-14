@@ -28,6 +28,9 @@ namespace Systems.MineSystem.EnemySystem.Service
             _runtime != null && _runtime.isSpawned.Value &&
             _runtime.lifeState.Value == PlayerLifeState.Alive;
 
+        public bool IsCombatTargetAvailable =>
+            IsTargetAvailable && !_runtime.isClimbing.Value;
+
         public Vector2 WorldPosition => _runtime.worldPosition.Value;
 
         public bool IsTargetCollider(Collider2D collider) =>

@@ -17,6 +17,12 @@ namespace Systems.MineSystem.EnemySystem.Mob.Slime.Config
         [SerializeField] private EnemyAnimationProfileScriptable animationProfile;
         [Tooltip("Tint applied to the slime renderer when spawned.")]
         [SerializeField] private Color slimeColor = Color.white;
+        [Tooltip("How this slime responds when it touches an IDamageable placeable.")]
+        [SerializeField] private PlaceableCollisionBehavior placeableCollisionBehavior;
+
+        [Header("Detection")]
+        [Tooltip("World-space distance at which the slime notices the player.")]
+        [Min(0f)] [SerializeField] private float aggroDistance = 1f;
 
         [Header("Idle And Patrol")]
         [Tooltip("Seconds the slime waits before making its next idle decision.")]
@@ -58,7 +64,7 @@ namespace Systems.MineSystem.EnemySystem.Mob.Slime.Config
 
         [Header("Attack Contact")]
         [Tooltip("World-space distance required before the slime can start or apply an attack.")]
-        [Min(0f)] [SerializeField] private float attackContactDistance = 0.5f;
+        [Min(0f)] [SerializeField] private float attackContactDistance = 0.1f;
 
         [Header("Status Effect")]
         [Tooltip("Status effect applied by slime attacks, if any.")]
@@ -76,6 +82,9 @@ namespace Systems.MineSystem.EnemySystem.Mob.Slime.Config
         public override string VariantId => slimeVariant.ToString();
         public EnemyAnimationProfileScriptable AnimationProfile => animationProfile;
         public Color SlimeColor => slimeColor;
+        public PlaceableCollisionBehavior PlaceableCollisionBehavior =>
+            placeableCollisionBehavior;
+        public float AggroDistance => aggroDistance;
         public float IdleDuration => idleDuration;
         public int PatrolRangeInTiles => patrolRangeInTiles;
         public int MaxFallDistanceInTiles => maxFallDistanceInTiles;
@@ -158,6 +167,12 @@ namespace Systems.MineSystem.EnemySystem.Mob.Slime.Config
             {
                 error =
                     $"{name} attack contact distance must be zero or greater.";
+                return false;
+            }
+            if (aggroDistance < 0f)
+            {
+                error =
+                    $"{name} aggro distance must be zero or greater.";
                 return false;
             }
             if (minimumMovementTimeoutSeconds <= 0f)

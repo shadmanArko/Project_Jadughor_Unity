@@ -18,7 +18,9 @@ namespace Systems.MineSystem.EnemySystem.Service
     {
         private readonly MineModel _mine;
         private readonly CompositeDisposable _disposables = new();
+        private readonly Subject<GridPosition> _navigationChanged = new();
         private EnemyNavigationSnapshot _snapshot;
+        private int _navigationRevision;
 
         public EnemyPathfindingService(MineModel mine)
         {
@@ -29,14 +31,19 @@ namespace Systems.MineSystem.EnemySystem.Service
         {
             _mine.MineData.Subscribe(Rebuild).AddTo(_disposables);
             _mine.OnCellModified
-                .Subscribe(_ => Rebuild(_mine.MineData.Value))
+                .Subscribe(HandleCellModified)
                 .AddTo(_disposables);
         }
+
+        public IObservable<GridPosition> NavigationChanged =>
+            _navigationChanged;
 
         public bool IsWalkable(GridPosition position) =>
             _snapshot != null && _snapshot.WalkableCells.Contains(position);
 
         public int WalkableCount => _snapshot?.WalkablePositions.Count ?? 0;
+
+        public int NavigationRevision => _navigationRevision;
 
         public bool TryFindWalkableNear(
             GridPosition origin,
@@ -78,36 +85,127 @@ namespace Systems.MineSystem.EnemySystem.Service
             return true;
         }
 
+        public bool TryFindFarthestDirectional(
+            GridPosition origin,
+            int direction,
+            int maximumDistance,
+            out GridPosition position)
+        {
+            position = default;
+            var snapshot = _snapshot;
+            if (snapshot == null || maximumDistance <= 0)
+                return false;
+
+            var signedDirection = direction < 0 ? -1 : 1;
+            var found = false;
+            var bestHorizontalDistance = -1;
+            var bestDistance = int.MaxValue;
+            var candidates = snapshot.WalkablePositions;
+            for (var i = 0; i < candidates.Count; i++)
+            {
+                var candidate = candidates[i];
+                var horizontalDistance = candidate.X - origin.X;
+                if (horizontalDistance * signedDirection <= 0)
+                    continue;
+                var absoluteHorizontalDistance = Math.Abs(horizontalDistance);
+                var distance = absoluteHorizontalDistance +
+                               Math.Abs(candidate.Y - origin.Y);
+                if (absoluteHorizontalDistance > maximumDistance ||
+                    distance > maximumDistance)
+                    continue;
+                if (found && (absoluteHorizontalDistance < bestHorizontalDistance ||
+                              absoluteHorizontalDistance == bestHorizontalDistance &&
+                              distance >= bestDistance))
+                    continue;
+
+                position = candidate;
+                bestHorizontalDistance = absoluteHorizontalDistance;
+                bestDistance = distance;
+                found = true;
+            }
+            return found;
+        }
+
         public async UniTask<PathResult> FindPathAsync(
             EnemyPathRequest request,
             CancellationToken cancellationToken)
         {
             await UniTask.Yield(PlayerLoopTiming.Update, cancellationToken);
+            var destinations = new[] { request.Destination };
+            return FindPath(
+                request.Start,
+                request.Destination,
+                request.Generation,
+                request.MaxFallDistanceInTiles,
+                destinations,
+                request.OccupiedPositions,
+                cancellationToken);
+        }
+
+        public async UniTask<PathResult> FindPathToAnyAsync(
+            EnemyMultiTargetPathRequest request,
+            CancellationToken cancellationToken)
+        {
+            await UniTask.Yield(PlayerLoopTiming.Update, cancellationToken);
+            return FindPath(
+                request.Start,
+                request.Target,
+                request.Generation,
+                request.MaxFallDistanceInTiles,
+                request.Destinations,
+                null,
+                cancellationToken);
+        }
+
+        private PathResult FindPath(
+            GridPosition start,
+            GridPosition fallbackDestination,
+            int generation,
+            int maxFallDistanceInTiles,
+            IReadOnlyList<GridPosition> destinations,
+            IReadOnlyCollection<GridPosition> occupiedPositions,
+            CancellationToken cancellationToken)
+        {
             var snapshot = _snapshot;
             if (snapshot == null ||
-                !snapshot.WalkableCells.Contains(request.Start) ||
-                !snapshot.WalkableCells.Contains(request.Destination))
+                !snapshot.WalkableCells.Contains(start) ||
+                destinations == null || destinations.Count == 0)
             {
                 return PathResult.Failure(
-                    request.Destination,
-                    request.Generation,
-                    "Path endpoints are not walkable.");
+                    fallbackDestination,
+                    generation,
+                    "Path start or destinations are unavailable.");
             }
 
-            var occupied = request.OccupiedPositions == null
-                ? null
-                : new HashSet<GridPosition>(request.OccupiedPositions);
-            occupied?.Remove(request.Start);
-            occupied?.Remove(request.Destination);
+            var destinationSet = new HashSet<GridPosition>();
+            for (var i = 0; i < destinations.Count; i++)
+            {
+                if (snapshot.WalkableCells.Contains(destinations[i]))
+                    destinationSet.Add(destinations[i]);
+            }
+            if (destinationSet.Count == 0)
+            {
+                return PathResult.Failure(
+                    fallbackDestination,
+                    generation,
+                    "No path destination is walkable.");
+            }
 
-            var open = new List<GridPosition> { request.Start };
+            var occupied = occupiedPositions == null
+                ? null
+                : new HashSet<GridPosition>(occupiedPositions);
+            occupied?.Remove(start);
+            foreach (var destination in destinationSet)
+                occupied?.Remove(destination);
+
+            var open = new List<GridPosition> { start };
             var closed = new HashSet<GridPosition>();
             var cameFrom = new Dictionary<GridPosition, GridPosition>();
             var stepTypes = new Dictionary<GridPosition, EnemyPathStepType>();
-            var gScore = new Dictionary<GridPosition, int> { [request.Start] = 0 };
+            var gScore = new Dictionary<GridPosition, int> { [start] = 0 };
             var fScore = new Dictionary<GridPosition, int>
             {
-                [request.Start] = Heuristic(request.Start, request.Destination)
+                [start] = HeuristicToAny(start, destinationSet)
             };
             var neighbours = new List<EnemyPathStep>(4);
             var expansions = 0;
@@ -119,11 +217,11 @@ namespace Systems.MineSystem.EnemySystem.Service
                 var currentIndex = FindBestIndex(open, fScore);
                 var current = open[currentIndex];
                 open.RemoveAt(currentIndex);
-                if (current == request.Destination)
+                if (destinationSet.Contains(current))
                 {
                     return PathResult.Success(
-                        request.Destination,
-                        request.Generation,
+                        current,
+                        generation,
                         Reconstruct(current, cameFrom, stepTypes));
                 }
 
@@ -132,7 +230,7 @@ namespace Systems.MineSystem.EnemySystem.Service
                 AddNeighbours(
                     snapshot,
                     current,
-                    request.MaxFallDistanceInTiles,
+                    maxFallDistanceInTiles,
                     neighbours);
                 for (var i = 0; i < neighbours.Count; i++)
                 {
@@ -149,20 +247,21 @@ namespace Systems.MineSystem.EnemySystem.Service
                     cameFrom[next] = current;
                     stepTypes[next] = edge.Type;
                     gScore[next] = tentative;
-                    fScore[next] = tentative + Heuristic(next, request.Destination);
+                    fScore[next] = tentative + HeuristicToAny(next, destinationSet);
                     if (!open.Contains(next))
                         open.Add(next);
                 }
             }
 
             return PathResult.Failure(
-                request.Destination,
-                request.Generation,
+                fallbackDestination,
+                generation,
                 "No platform path exists.");
         }
 
         private void Rebuild(MineData mineData)
         {
+            _navigationRevision++;
             if (mineData == null)
             {
                 _snapshot = null;
@@ -188,6 +287,13 @@ namespace Systems.MineSystem.EnemySystem.Service
                     walkable.Add(position);
             }
             _snapshot = new EnemyNavigationSnapshot(open, walkable);
+        }
+
+        private void HandleCellModified(Cell cell)
+        {
+            Rebuild(_mine.MineData.Value);
+            if (cell != null)
+                _navigationChanged.OnNext(cell.Position);
         }
 
         private static int NormalizeStart(int startOffset, int count)
@@ -247,6 +353,16 @@ namespace Systems.MineSystem.EnemySystem.Service
         private static int Heuristic(GridPosition from, GridPosition to) =>
             Math.Abs(from.X - to.X) + Math.Abs(from.Y - to.Y);
 
+        private static int HeuristicToAny(
+            GridPosition from,
+            HashSet<GridPosition> destinations)
+        {
+            var best = int.MaxValue;
+            foreach (var destination in destinations)
+                best = Math.Min(best, Heuristic(from, destination));
+            return best;
+        }
+
         private static IReadOnlyList<EnemyPathStep> Reconstruct(
             GridPosition current,
             Dictionary<GridPosition, GridPosition> cameFrom,
@@ -265,6 +381,8 @@ namespace Systems.MineSystem.EnemySystem.Service
         public void Dispose()
         {
             _disposables.Dispose();
+            _navigationChanged.OnCompleted();
+            _navigationChanged.Dispose();
             _snapshot = null;
         }
     }

@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading;
 using Cysharp.Threading.Tasks;
+using Systems.MineSystem.Damage;
 using Systems.MineSystem.EnemySystem.Animation.Model;
 using Systems.MineSystem.EnemySystem.Enum;
 using Systems.MineSystem.EnemySystem.Interface;
@@ -20,52 +21,55 @@ namespace Systems.MineSystem.EnemySystem.Mob.Slime.Controller
 {
     public sealed class SlimeStateMachine : IDisposable
     {
-        private const int PatrolDirectionAttempts = 2;
-
         private readonly SlimeModel _model;
         private readonly SlimeView _view;
-        private readonly IEnemyPathfindingService _pathfinding;
         private readonly IEnemyTargetProvider _target;
         private readonly IEnemyAttackService _attack;
+        private readonly IEnemyPathfindingService _pathfinding;
         private readonly IEnemyPlacementValidator _placement;
-        private readonly IEnemyChaseTargetResolver _chaseTargetResolver;
+        private readonly IEnemyChaseTargetResolver _chaseResolver;
         private readonly PauseGate _pauseGate = new();
 
         private SlimeConfigScriptable _config;
         private Guid _enemyId;
         private CancellationToken _lifetimeToken;
-        private CancellationTokenSource _stateCancellation;
+        private CancellationTokenSource _pathCancellation;
         private UniTaskCompletionSource _stateCompletion;
-        private float _stateElapsed;
+        private IDamageable _placeableTarget;
+        private Vector2 _placeableWorldPosition;
+        private GridPosition _chaseTargetGrid;
+        private GridPosition _observedTargetGrid;
+        private GridPosition _fallTarget;
+        private GridPosition _fallStartGrid;
+        private Vector2 _teleportWorldPosition;
+        private int _pathNavigationRevision;
         private int _animationGeneration;
-        private int _teleportSearchOffset;
+        private bool _hasObservedTarget;
+        private bool _observedCombatAvailable;
+        private bool _fallHasLeftSupport;
+        private bool _fallIsDirected;
         private bool _attackApplied;
-        private bool _fallObservedAirborne;
+        private bool _hasTeleportDestination;
         private bool _deathSignalSent;
         private bool _despawnSignalSent;
-        private GridPosition? _teleportDestination;
-        private GridPosition _lastChaseTargetPosition;
-        private bool _hasLastChaseTargetPosition;
-        private GridPosition _lastSafeGridPosition;
-        private Vector2 _lastSafeWorldPosition;
         private bool _disposed;
 
         public SlimeStateMachine(
             SlimeModel model,
             SlimeView view,
-            IEnemyPathfindingService pathfinding,
             IEnemyTargetProvider target,
             IEnemyAttackService attack,
+            IEnemyPathfindingService pathfinding,
             IEnemyPlacementValidator placement,
-            IEnemyChaseTargetResolver chaseTargetResolver)
+            IEnemyChaseTargetResolver chaseResolver)
         {
             _model = model;
             _view = view;
-            _pathfinding = pathfinding;
             _target = target;
             _attack = attack;
+            _pathfinding = pathfinding;
             _placement = placement;
-            _chaseTargetResolver = chaseTargetResolver;
+            _chaseResolver = chaseResolver;
         }
 
         public void Initialize(
@@ -73,103 +77,185 @@ namespace Systems.MineSystem.EnemySystem.Mob.Slime.Controller
             Guid enemyId,
             CancellationToken lifetimeToken)
         {
-            CancelState();
+            CancelPathRequest();
             _config = config;
             _enemyId = enemyId;
             _lifetimeToken = lifetimeToken;
-            _stateElapsed = 0f;
-            _teleportSearchOffset = Math.Abs(enemyId.GetHashCode());
+            _placeableTarget = null;
+            _placeableWorldPosition = default;
+            _chaseTargetGrid = default;
+            _fallTarget = default;
+            _fallStartGrid = default;
+            _fallHasLeftSupport = false;
+            _fallIsDirected = false;
             _attackApplied = false;
+            _hasTeleportDestination = false;
             _deathSignalSent = false;
             _despawnSignalSent = false;
-            _teleportDestination = null;
-            _lastChaseTargetPosition = default;
-            _hasLastChaseTargetPosition = false;
-            _lastSafeGridPosition = _model.CurrentGridPosition;
-            _lastSafeWorldPosition = _view.Body.position;
+            _hasObservedTarget = _target.IsTargetAvailable;
+            _observedTargetGrid = _hasObservedTarget
+                ? _target.GridPosition
+                : default;
+            _observedCombatAvailable = _target.IsCombatTargetAvailable;
             _pauseGate.Resume();
         }
 
         public UniTask SpawnAsync(CancellationToken cancellationToken) =>
             EnterLifecycleStateAsync(SlimeState.Spawn, cancellationToken);
 
-        public UniTask DespawnAsync(CancellationToken cancellationToken) =>
-            EnterLifecycleStateAsync(SlimeState.Despawn, cancellationToken);
+        public async UniTask DespawnAsync(CancellationToken cancellationToken)
+        {
+            var cycleDuration = _view.CurrentAnimationCycleDuration;
+            if (cycleDuration > 0.01f &&
+                _model.CurrentState != SlimeState.Despawn &&
+                _model.CurrentState != SlimeState.Death)
+            {
+                await UniTask.Delay(
+                    TimeSpan.FromSeconds(cycleDuration),
+                    cancellationToken: cancellationToken);
+            }
+            await EnterLifecycleStateAsync(
+                SlimeState.Despawn,
+                cancellationToken);
+        }
 
         public void OnFixedTick(EnemyTickContext context)
         {
-            if (_disposed || _pauseGate.IsPaused || _model.IsDead &&
-                _model.CurrentState != SlimeState.Death)
+            if (_disposed || _pauseGate.IsPaused ||
+                _model.IsDead && _model.CurrentState != SlimeState.Death)
                 return;
 
-            _stateElapsed += context.FixedDeltaTime;
             _model.TickCooldown(context.FixedDeltaTime);
-            if ((_model.CurrentState == SlimeState.Move ||
-                 _model.CurrentState == SlimeState.Fall) &&
-                _model.TickMovementTimeout(context.FixedDeltaTime))
-            {
-                HandleMovementTimeout();
+            if (HandleTargetContextChanges())
                 return;
-            }
 
             switch (_model.CurrentState)
             {
                 case SlimeState.Idle:
-                    TickIdle();
-                    break;
-                case SlimeState.Aggro:
-                    TickAggro();
+                    if (!_model.PathPending &&
+                        _model.TickIdle(context.FixedDeltaTime))
+                        EvaluateDecision();
                     break;
                 case SlimeState.Move:
-                    TickMove();
+                    TickMove(context.FixedDeltaTime);
                     break;
                 case SlimeState.Fall:
-                    TickFall();
+                    TickFall(context.FixedDeltaTime);
                     break;
             }
         }
 
+        public void HandleNavigationChanged(GridPosition changedPosition)
+        {
+            if (_pauseGate.IsPaused)
+                return;
+            if (_model.CurrentState == SlimeState.Fall)
+            {
+                if (_fallIsDirected &&
+                    IsFallNavigationChangeRelevant(changedPosition))
+                {
+                    _fallIsDirected = false;
+                    _view.SetVelocity(new Vector2(
+                        0f,
+                        _view.Body.linearVelocity.y));
+                }
+                return;
+            }
+
+            if (_model.HasReachabilityFailure)
+                _model.ClearReachabilityFailure();
+            if ((_model.CurrentState != SlimeState.Move &&
+                 !_model.PathPending) ||
+                !IsNavigationChangeRelevant(changedPosition))
+                return;
+
+            CancelPathRequest();
+            _view.SetVelocity(Vector2.zero);
+            if (!_view.IsGrounded(
+                    _config.GroundLayerMask,
+                    _config.GroundProbeDistance))
+                EnterFall();
+            else
+                EnterIdle();
+        }
+
+        public void HandleHorizontalCollision(Collider2D collider)
+        {
+            if (_pauseGate.IsPaused || collider == null || _config == null ||
+                _model.CurrentState != SlimeState.Move)
+                return;
+
+            if (_view.IsTerrainWall(collider, _config.GroundLayerMask))
+            {
+                if (_model.MovementMode == SlimeMovementMode.Patrol)
+                {
+                    _model.ReversePatrolDirection();
+                    CancelPathRequest();
+                    StartPatrolPath();
+                }
+                else if (IsCombatMovement())
+                {
+                    RecordCurrentReachabilityFailure();
+                    EndChaseAndPatrol();
+                }
+                return;
+            }
+
+            if (_model.MovementMode != SlimeMovementMode.Patrol ||
+                _config.PlaceableCollisionBehavior !=
+                    PlaceableCollisionBehavior.StopAndAttack ||
+                _target.IsTargetCollider(collider) ||
+                collider.GetComponentInParent<SlimeView>() != null ||
+                !_view.TryGetDamageable(collider, out var damageable) ||
+                _model.AttackCooldownRemaining > 0f)
+                return;
+
+            _placeableTarget = damageable;
+            _placeableWorldPosition = collider.bounds.center;
+            EnterAttack();
+        }
+
         public void EnterHurt()
         {
-            _model.ClearPath();
+            CancelPathRequest();
+            _placeableTarget = null;
+            _placeableWorldPosition = default;
+            _model.SetMovementMode(SlimeMovementMode.None);
+            _model.RequireAggroReplay();
+            _view.SetVelocity(Vector2.zero);
             ChangeState(SlimeState.Hurt);
         }
 
         public void EnterDeath()
         {
-            _model.ClearPath();
-            _model.SetAggro(false);
+            CancelPathRequest();
+            _placeableTarget = null;
+            _model.SetMovementMode(SlimeMovementMode.None);
+            _model.ResetEngagement();
             _view.SetDamageEnabled(false);
             _view.SetVelocity(Vector2.zero);
             ChangeState(SlimeState.Death);
         }
 
-        public void HandleHorizontalCollision(Collider2D collider)
-        {
-            if (_pauseGate.IsPaused ||
-                _model.CurrentState != SlimeState.Move ||
-                _model.IsAggro ||
-                !IsTerrainWallCollider(collider))
-                return;
-            _model.ReversePatrolDirection();
-            _view.SetFacing(_model.PatrolDirection < 0);
-            StartPatrolBehavior();
-        }
-
         public void HandleAnimationMarker(EnemyAnimationMarkerEvent animationEvent)
         {
             if (_pauseGate.IsPaused ||
-                animationEvent.Generation != _animationGeneration)
+                animationEvent.Generation != _animationGeneration ||
+                _model.CurrentState != SlimeState.Attack ||
+                animationEvent.AnimationId != SlimeAnimationId.Attack ||
+                animationEvent.Marker != (int)EnemyAnimationMarker.AttackImpact ||
+                _attackApplied)
                 return;
-            if (_model.CurrentState == SlimeState.Attack &&
-                animationEvent.AnimationId == SlimeAnimationId.Attack &&
-                animationEvent.Marker == (int)EnemyAnimationMarker.AttackImpact &&
-                !_attackApplied)
+
+            _attackApplied = true;
+            if (_placeableTarget != null)
             {
-                _attackApplied = true;
-                if (IsTargetAttackable())
-                    _attack.TryAttack(_config.Damage, _config.StatusEffect);
+                _placeableTarget.ApplyDamage(_config.Damage);
+                return;
             }
+
+            if (IsAttackValid())
+                _attack.TryAttack(_config.Damage, _config.StatusEffect);
         }
 
         public void HandleAnimationCompleted(
@@ -177,33 +263,43 @@ namespace Systems.MineSystem.EnemySystem.Mob.Slime.Controller
         {
             if (animationEvent.Generation != _animationGeneration)
                 return;
+
             switch (_model.CurrentState)
             {
                 case SlimeState.Spawn:
                     _view.SetDamageEnabled(true);
                     _stateCompletion?.TrySetResult();
-                    RestartDecisionCycle();
+                    EnterIdle();
+                    break;
+                case SlimeState.Aggro:
+                    _model.MarkAggroPlayed();
+                    EvaluateDecision();
                     break;
                 case SlimeState.Attack:
                     _model.ResetAttackCooldown();
-                    _model.SetAggro(false);
-                    _model.ClearPath();
-                    RestartDecisionCycle();
+                    _placeableTarget = null;
+                    _placeableWorldPosition = default;
+                    EvaluateDecision();
                     break;
                 case SlimeState.Hurt:
-                    ResumeAfterAction();
-                    break;
-                case SlimeState.Aggro:
-                    BeginChaseMovement();
+                    EvaluateDecision();
                     break;
                 case SlimeState.TeleportDespawn:
-                    CompleteTeleportDespawn();
+                    if (_hasTeleportDestination)
+                    {
+                        _view.Teleport(_teleportWorldPosition);
+                        _model.SetGridPosition(
+                            _placement.WorldToGrid(_teleportWorldPosition));
+                        ChangeState(SlimeState.TeleportSpawn);
+                    }
+                    else
+                        EnterIdle();
                     break;
                 case SlimeState.TeleportSpawn:
-                    _teleportDestination = null;
-                    _view.SetDamageEnabled(true);
-                    _model.StartTeleportCooldown(_config.TeleportCooldownSeconds);
-                    RestartDecisionCycle();
+                    _model.StartTeleportCooldown(
+                        _config.TeleportCooldownSeconds);
+                    _hasTeleportDestination = false;
+                    EnterIdle();
                     break;
                 case SlimeState.Death:
                     if (!_deathSignalSent)
@@ -224,684 +320,945 @@ namespace Systems.MineSystem.EnemySystem.Mob.Slime.Controller
             }
         }
 
-        public void Pause()
-        {
-            _pauseGate.Pause();
-        }
+        public void Pause() => _pauseGate.Pause();
 
-        public void Resume()
-        {
-            _pauseGate.Resume();
-        }
+        public void Resume() => _pauseGate.Resume();
 
         public void Release()
         {
-            CancelState();
+            CancelPathRequest();
             _pauseGate.Resume();
             _stateCompletion?.TrySetCanceled();
             _stateCompletion = null;
-            _teleportDestination = null;
-            _lastChaseTargetPosition = default;
-            _hasLastChaseTargetPosition = false;
-            _lastSafeGridPosition = default;
-            _lastSafeWorldPosition = default;
+            _placeableTarget = null;
+            _placeableWorldPosition = default;
             _config = null;
         }
+
+        private bool HandleTargetContextChanges()
+        {
+            var targetAvailable = _target.IsTargetAvailable;
+            if (!targetAvailable)
+            {
+                var hadTarget = _hasObservedTarget;
+                _hasObservedTarget = false;
+                _observedCombatAvailable = false;
+                _model.ResetEngagement();
+                if (hadTarget && IsCombatMovement())
+                {
+                    EndChaseAndPatrol();
+                    return true;
+                }
+                return false;
+            }
+
+            var targetGrid = _target.GridPosition;
+            var combatAvailable = _target.IsCombatTargetAvailable;
+            var targetGridChanged = !_hasObservedTarget ||
+                                    targetGrid != _observedTargetGrid;
+            var combatAvailabilityChanged = !_hasObservedTarget ||
+                                            combatAvailable !=
+                                            _observedCombatAvailable;
+            _hasObservedTarget = true;
+            _observedTargetGrid = targetGrid;
+            _observedCombatAvailable = combatAvailable;
+
+            if (_model.EngagementActive && !IsWithinChaseExitRange())
+            {
+                _model.ResetEngagement();
+                if (IsCombatMovement())
+                {
+                    EndChaseAndPatrol();
+                    return true;
+                }
+                return false;
+            }
+
+            var beganEngagement = false;
+            if (!_model.EngagementActive && IsWithinAggroDistance())
+            {
+                _model.BeginEngagement();
+                beganEngagement = true;
+            }
+
+            if (targetGridChanged || combatAvailabilityChanged)
+                _model.ClearReachabilityFailure();
+
+            if (IsAnimationLockedState())
+                return false;
+            if (!combatAvailable)
+            {
+                if (IsCombatMovement() ||
+                    _model.PathPending && _model.CurrentState == SlimeState.Idle)
+                {
+                    EnterIdle();
+                    return true;
+                }
+                return false;
+            }
+
+            if (!_model.EngagementActive)
+                return false;
+            if (beganEngagement || targetGridChanged ||
+                combatAvailabilityChanged)
+            {
+                if (_model.CurrentState == SlimeState.Idle ||
+                    _model.CurrentState == SlimeState.Move)
+                {
+                    EvaluateDecision();
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        private void EvaluateDecision()
+        {
+            if (_disposed || _config == null || _model.IsDead)
+                return;
+            CancelPathRequest();
+            _model.SetMovementMode(SlimeMovementMode.None);
+            _view.SetVelocity(Vector2.zero);
+
+            if (!_placement.IsCurrentPlacementClear(_view.TerrainCollider))
+            {
+                StartEmergencyTeleport();
+                return;
+            }
+            _model.SetGridPosition(
+                _placement.WorldToGrid(_view.Body.position));
+            if (!_view.IsGrounded(
+                    _config.GroundLayerMask,
+                    _config.GroundProbeDistance))
+            {
+                EnterFall();
+                return;
+            }
+
+            RefreshEngagement();
+            if (_model.EngagementActive &&
+                _target.IsCombatTargetAvailable)
+            {
+                if (IsAttackValid())
+                {
+                    if (!_model.AggroPlayedForEngagement)
+                    {
+                        EnterAggro();
+                        return;
+                    }
+                    if (_model.AttackCooldownRemaining <= 0f)
+                        EnterAttack();
+                    else
+                        EnterAttackCooldownHold();
+                    return;
+                }
+
+                if (!_model.IsReachabilityFailureCurrent(
+                        _target.GridPosition,
+                        _pathfinding.NavigationRevision))
+                {
+                    RequestChaseRoute(
+                        !_model.AggroPlayedForEngagement);
+                    return;
+                }
+            }
+
+            if (ShouldTeleport())
+                StartTeleport(false);
+            else
+                StartPatrolPath();
+        }
+
+        private void RefreshEngagement()
+        {
+            if (!_target.IsTargetAvailable)
+            {
+                _model.ResetEngagement();
+                return;
+            }
+            if (_model.EngagementActive)
+            {
+                if (!IsWithinChaseExitRange())
+                    _model.ResetEngagement();
+                return;
+            }
+            if (IsWithinAggroDistance())
+                _model.BeginEngagement();
+        }
+
+        private void EnterIdle()
+        {
+            CancelPathRequest();
+            _model.SetMovementMode(SlimeMovementMode.None);
+            _placeableTarget = null;
+            _placeableWorldPosition = default;
+            _model.StartIdle(_config != null ? _config.IdleDuration : 0f);
+            ChangeState(SlimeState.Idle);
+        }
+
+        private void EnterAggro()
+        {
+            CancelPathRequest();
+            _model.SetMovementMode(SlimeMovementMode.None);
+            ChangeState(SlimeState.Aggro);
+        }
+
+        private void StartPatrolPath()
+        {
+            if (_config == null)
+                return;
+            CancelPathRequest();
+            _model.SetGridPosition(
+                _placement.WorldToGrid(_view.Body.position));
+            _model.SetMovementMode(SlimeMovementMode.Patrol);
+            if (!_pathfinding.TryFindFarthestDirectional(
+                    _model.CurrentGridPosition,
+                    _model.PatrolDirection,
+                    _config.PatrolRangeInTiles,
+                    out var destination))
+            {
+                HandlePatrolFailure();
+                return;
+            }
+
+            _model.ResetPatrolFailures();
+            RequestPatrolPath(destination);
+        }
+
+        private void RequestPatrolPath(GridPosition destination)
+        {
+            CancelPathRequest();
+            _model.SetMovementMode(SlimeMovementMode.Patrol);
+            var generation = _model.BeginPathRequest(destination, false);
+            ChangeState(SlimeState.Move);
+            _pathCancellation = CancellationTokenSource.CreateLinkedTokenSource(
+                _lifetimeToken);
+            var request = new EnemyPathRequest(
+                _model.CurrentGridPosition,
+                destination,
+                _config.MaxFallDistanceInTiles,
+                generation,
+                false);
+            FindPatrolPathAsync(request, _pathCancellation.Token).Forget(
+                HandlePathException);
+        }
+
+        private async UniTask FindPatrolPathAsync(
+            EnemyPathRequest request,
+            CancellationToken cancellationToken)
+        {
+            var result = await _pathfinding.FindPathAsync(
+                request,
+                cancellationToken);
+            if (cancellationToken.IsCancellationRequested || _disposed)
+                return;
+            HandlePatrolPathResult(result);
+        }
+
+        private void HandlePatrolPathResult(PathResult result)
+        {
+            if (_model.CurrentState != SlimeState.Move ||
+                _model.MovementMode != SlimeMovementMode.Patrol ||
+                !_model.CompletePath(result))
+                return;
+            DisposePathCancellation();
+            if (!result.Succeeded || result.Steps == null ||
+                result.Steps.Count == 0)
+            {
+                HandlePatrolFailure();
+                return;
+            }
+            _model.StartMovementTimeout(GetMovementTimeout(result.Steps));
+        }
+
+        private void RequestChaseRoute(bool aggroProbe)
+        {
+            CancelPathRequest();
+            _chaseTargetGrid = _target.GridPosition;
+            _pathNavigationRevision = _pathfinding.NavigationRevision;
+            _model.SetMovementMode(
+                aggroProbe
+                    ? SlimeMovementMode.None
+                    : SlimeMovementMode.Chase);
+            var generation = _model.BeginPathRequest(
+                _chaseTargetGrid,
+                true);
+            if (!aggroProbe)
+                ChangeState(SlimeState.Move);
+            _pathCancellation = CancellationTokenSource.CreateLinkedTokenSource(
+                _lifetimeToken);
+            FindChasePathAsync(
+                    generation,
+                    _chaseTargetGrid,
+                    _pathNavigationRevision,
+                    aggroProbe,
+                    _pathCancellation.Token)
+                .Forget(HandlePathException);
+        }
+
+        private async UniTask FindChasePathAsync(
+            int generation,
+            GridPosition targetGrid,
+            int navigationRevision,
+            bool aggroProbe,
+            CancellationToken cancellationToken)
+        {
+            var result = await _chaseResolver.FindReachablePathAsync(
+                _view.TerrainCollider,
+                _model.CurrentGridPosition,
+                targetGrid,
+                Mathf.Max(1, _config.AttackRangeInTiles),
+                _config.MaxFallDistanceInTiles,
+                generation,
+                cancellationToken);
+            if (cancellationToken.IsCancellationRequested || _disposed)
+                return;
+            HandleChasePathResult(
+                result,
+                targetGrid,
+                navigationRevision,
+                aggroProbe);
+        }
+
+        private void HandleChasePathResult(
+            PathResult result,
+            GridPosition targetGrid,
+            int navigationRevision,
+            bool aggroProbe)
+        {
+            if (result.Generation != _model.PathGeneration ||
+                !_model.PathPending ||
+                aggroProbe && _model.CurrentState != SlimeState.Idle ||
+                !aggroProbe &&
+                (_model.CurrentState != SlimeState.Move ||
+                 _model.MovementMode != SlimeMovementMode.Chase))
+                return;
+            if (!_model.CompletePath(result))
+                return;
+            DisposePathCancellation();
+
+            var contextIsCurrent = _target.IsCombatTargetAvailable &&
+                                   _target.GridPosition == targetGrid &&
+                                   _pathfinding.NavigationRevision ==
+                                   navigationRevision &&
+                                   _model.EngagementActive;
+            if (!contextIsCurrent)
+            {
+                _model.ClearPath();
+                EvaluateDecision();
+                return;
+            }
+
+            if (!result.Succeeded)
+            {
+                _model.RecordReachabilityFailure(
+                    targetGrid,
+                    navigationRevision);
+                EndChaseAndPatrol();
+                return;
+            }
+
+            _model.ClearReachabilityFailure();
+            if (aggroProbe)
+            {
+                _model.ClearPath();
+                EnterAggro();
+                return;
+            }
+
+            if (result.Steps == null || result.Steps.Count == 0)
+            {
+                _model.ClearPath();
+                if (IsAttackValid())
+                {
+                    if (_model.AttackCooldownRemaining <= 0f)
+                        EnterAttack();
+                    else
+                        EnterAttackCooldownHold();
+                }
+                else
+                    StartContactApproach();
+                return;
+            }
+
+            _model.StartMovementTimeout(GetMovementTimeout(result.Steps));
+        }
+
+        private void TickMove(float deltaTime)
+        {
+            if (!_placement.IsCurrentPlacementClear(_view.TerrainCollider))
+            {
+                StartEmergencyTeleport();
+                return;
+            }
+            if (!_view.IsGrounded(
+                    _config.GroundLayerMask,
+                    _config.GroundProbeDistance))
+            {
+                EnterFall();
+                return;
+            }
+
+            switch (_model.MovementMode)
+            {
+                case SlimeMovementMode.AttackCooldownHold:
+                    TickAttackCooldownHold();
+                    return;
+                case SlimeMovementMode.ContactApproach:
+                    if (_model.TickMovementTimeout(deltaTime))
+                    {
+                        RecordCurrentReachabilityFailure();
+                        EndChaseAndPatrol();
+                    }
+                    else
+                        TickContactApproach();
+                    return;
+                case SlimeMovementMode.Chase:
+                    if (IsAttackValid())
+                    {
+                        if (_model.AttackCooldownRemaining <= 0f)
+                            EnterAttack();
+                        else
+                            EnterAttackCooldownHold();
+                        return;
+                    }
+                    break;
+            }
+
+            if (_model.TickMovementTimeout(deltaTime))
+            {
+                HandleMovementTimeout();
+                return;
+            }
+            if (_model.PathPending)
+                return;
+            var step = _model.CurrentPathStep;
+            if (!step.HasValue)
+            {
+                FinishMovement();
+                return;
+            }
+            if (step.Value.Type == EnemyPathStepType.Fall)
+            {
+                BeginFall(step.Value.Position);
+                return;
+            }
+
+            if (!_placement.TryGetPlacement(
+                    _view.TerrainCollider,
+                    step.Value.Position,
+                    out var targetPosition))
+            {
+                HandlePatrolOrChasePathFailure();
+                return;
+            }
+
+            var bodyPosition = _view.Body.position;
+            var direction = Mathf.Sign(targetPosition.x - bodyPosition.x);
+            if (Mathf.Abs(targetPosition.x - bodyPosition.x) <=
+                _config.PositionTolerance)
+            {
+                _view.SetVelocity(Vector2.zero);
+                _model.CompletePathStep(step.Value.Position);
+                FinishMovementStep();
+                return;
+            }
+
+            _view.SetFacing(direction < 0f);
+            _view.SetVelocity(new Vector2(
+                direction * _config.MoveSpeed,
+                _view.Body.linearVelocity.y));
+        }
+
+        private void TickAttackCooldownHold()
+        {
+            _view.SetVelocity(Vector2.zero);
+            FaceTarget();
+            if (!IsAttackValid())
+            {
+                EvaluateDecision();
+                return;
+            }
+            if (_model.AttackCooldownRemaining <= 0f)
+                EnterAttack();
+        }
+
+        private void StartContactApproach()
+        {
+            CancelPathRequest();
+            _chaseTargetGrid = _target.GridPosition;
+            _model.SetMovementMode(SlimeMovementMode.ContactApproach);
+            _model.StartMovementTimeout(GetWorldMovementTimeout(
+                Vector2.Distance(
+                    _view.Body.position,
+                    _target.WorldPosition)));
+            ChangeState(SlimeState.Move);
+        }
+
+        private void TickContactApproach()
+        {
+            if (IsAttackValid())
+            {
+                if (_model.AttackCooldownRemaining <= 0f)
+                    EnterAttack();
+                else
+                    EnterAttackCooldownHold();
+                return;
+            }
+
+            var currentGrid = _placement.WorldToGrid(_view.Body.position);
+            if (currentGrid.Y != _target.GridPosition.Y)
+            {
+                RecordCurrentReachabilityFailure();
+                EndChaseAndPatrol();
+                return;
+            }
+            var deltaX = _target.WorldPosition.x - _view.Body.position.x;
+            var direction = Mathf.Sign(deltaX);
+            if (Mathf.Approximately(direction, 0f))
+            {
+                RecordCurrentReachabilityFailure();
+                EndChaseAndPatrol();
+                return;
+            }
+            var forward = new GridPosition(
+                currentGrid.X + (direction < 0f ? -1 : 1),
+                currentGrid.Y);
+            if (_target.GridPosition != currentGrid &&
+                !_pathfinding.IsWalkable(forward))
+            {
+                RecordCurrentReachabilityFailure();
+                EndChaseAndPatrol();
+                return;
+            }
+
+            _view.SetFacing(direction < 0f);
+            _view.SetVelocity(new Vector2(
+                direction * _config.MoveSpeed,
+                _view.Body.linearVelocity.y));
+        }
+
+        private void EnterAttackCooldownHold()
+        {
+            CancelPathRequest();
+            _model.SetMovementMode(SlimeMovementMode.AttackCooldownHold);
+            _chaseTargetGrid = _target.GridPosition;
+            _view.SetVelocity(Vector2.zero);
+            FaceTarget();
+            ChangeState(SlimeState.Move);
+        }
+
+        private void FinishMovementStep()
+        {
+            var nextStep = _model.CurrentPathStep;
+            if (nextStep.HasValue)
+            {
+                if (nextStep.Value.Type == EnemyPathStepType.Fall)
+                    BeginFall(nextStep.Value.Position);
+                return;
+            }
+            FinishMovement();
+        }
+
+        private void FinishMovement()
+        {
+            var completedMode = _model.MovementMode;
+            _model.ClearPath();
+            _view.SetVelocity(Vector2.zero);
+            if (completedMode == SlimeMovementMode.Chase)
+                EvaluateDecision();
+            else
+            {
+                _model.ResetPatrolFailures();
+                EnterIdle();
+            }
+        }
+
+        private void BeginFall(GridPosition targetPosition)
+        {
+            CancelPathRequest();
+            _fallTarget = targetPosition;
+            _fallStartGrid = _placement.WorldToGrid(_view.Body.position);
+            _fallHasLeftSupport = false;
+            _fallIsDirected = targetPosition != _fallStartGrid;
+            _model.SetMovementMode(SlimeMovementMode.None);
+            _model.StartMovementTimeout(GetWorldMovementTimeout(
+                Vector2.Distance(
+                    _view.Body.position,
+                    _placement.GridToWorld(targetPosition))));
+            ChangeState(SlimeState.Fall, true);
+        }
+
+        private void EnterFall()
+        {
+            CancelPathRequest();
+            _fallStartGrid = _placement.WorldToGrid(_view.Body.position);
+            _fallTarget = _fallStartGrid;
+            _fallHasLeftSupport = !_view.IsGrounded(
+                _config.GroundLayerMask,
+                _config.GroundProbeDistance);
+            _fallIsDirected = false;
+            _model.SetMovementMode(SlimeMovementMode.None);
+            var maximumFallWorld = Vector2.Distance(
+                _placement.GridToWorld(_fallStartGrid),
+                _placement.GridToWorld(new GridPosition(
+                    _fallStartGrid.X,
+                    _fallStartGrid.Y - _config.MaxFallDistanceInTiles)));
+            _model.StartMovementTimeout(
+                GetWorldMovementTimeout(maximumFallWorld));
+            ChangeState(SlimeState.Fall, true);
+        }
+
+        private void TickFall(float deltaTime)
+        {
+            if (_model.TickMovementTimeout(deltaTime))
+            {
+                StartEmergencyTeleport();
+                return;
+            }
+
+            var currentGrid = _placement.WorldToGrid(_view.Body.position);
+            var grounded = _view.IsGrounded(
+                _config.GroundLayerMask,
+                _config.GroundProbeDistance);
+            if (!grounded &&
+                (!_fallIsDirected ||
+                 currentGrid.X == _fallTarget.X ||
+                 currentGrid.Y < _fallStartGrid.Y))
+                _fallHasLeftSupport = true;
+
+            if (_fallHasLeftSupport && grounded)
+            {
+                _model.SetGridPosition(currentGrid);
+                _model.ClearMovementTimeout();
+                if (_placement.IsCurrentPlacementClear(_view.TerrainCollider))
+                    EnterIdle();
+                else
+                    StartEmergencyTeleport();
+                return;
+            }
+
+            if (_fallStartGrid.Y - currentGrid.Y >
+                _config.MaxFallDistanceInTiles)
+            {
+                StartEmergencyTeleport();
+                return;
+            }
+
+            if (!_fallIsDirected)
+                return;
+            var targetX = _placement.GridToWorld(_fallTarget).x;
+            var deltaX = targetX - _view.Body.position.x;
+            var horizontalVelocity = Mathf.Abs(deltaX) <=
+                                     _config.PositionTolerance
+                ? 0f
+                : Mathf.Sign(deltaX) * _config.MoveSpeed;
+            if (!Mathf.Approximately(horizontalVelocity, 0f))
+                _view.SetFacing(horizontalVelocity < 0f);
+            _view.SetVelocity(new Vector2(
+                horizontalVelocity,
+                _view.Body.linearVelocity.y));
+        }
+
+        private void EndChaseAndPatrol()
+        {
+            CancelPathRequest();
+            _model.SetMovementMode(SlimeMovementMode.None);
+            EnterIdle();
+        }
+
+        private void HandlePatrolFailure()
+        {
+            _model.RecordPatrolFailure();
+            _model.ReversePatrolDirection();
+            _view.SetFacing(_model.PatrolDirection < 0);
+            if (_model.PatrolFailureCount >= _config.DestinationRetries &&
+                _model.CanTeleport)
+            {
+                StartTeleport(false);
+                return;
+            }
+            EnterIdle();
+        }
+
+        private void HandlePatrolOrChasePathFailure()
+        {
+            var mode = _model.MovementMode;
+            _model.ClearPath();
+            _view.SetVelocity(Vector2.zero);
+            if (mode == SlimeMovementMode.Chase)
+            {
+                RecordCurrentReachabilityFailure();
+                EndChaseAndPatrol();
+            }
+            else
+                HandlePatrolFailure();
+        }
+
+        private void HandleMovementTimeout()
+        {
+            var mode = _model.MovementMode;
+            _model.ClearPath();
+            _view.SetVelocity(Vector2.zero);
+            if (!_placement.IsCurrentPlacementClear(_view.TerrainCollider))
+                StartEmergencyTeleport();
+            else if (mode == SlimeMovementMode.Chase ||
+                     mode == SlimeMovementMode.ContactApproach)
+            {
+                RecordCurrentReachabilityFailure();
+                EndChaseAndPatrol();
+            }
+            else
+                EnterIdle();
+        }
+
+        private void RecordCurrentReachabilityFailure()
+        {
+            if (_target.IsTargetAvailable)
+            {
+                _model.RecordReachabilityFailure(
+                    _target.GridPosition,
+                    _pathfinding.NavigationRevision);
+            }
+        }
+
+        private bool IsWithinAggroDistance() =>
+            _target.IsTargetAvailable &&
+            Vector2.Distance(_view.Body.position, _target.WorldPosition) <=
+            _config.AggroDistance;
+
+        private bool IsWithinChaseExitRange() =>
+            _target.IsTargetAvailable &&
+            GridDistance(
+                _placement.WorldToGrid(_view.Body.position),
+                _target.GridPosition) <= _config.ChaseExitRangeInTiles;
+
+        private bool IsAttackValid()
+        {
+            if (!_target.IsCombatTargetAvailable ||
+                Vector2.Distance(_view.Body.position, _target.WorldPosition) >
+                _config.AttackContactDistance)
+                return false;
+            if (_config.AttackRangeInTiles <= 0)
+                return true;
+            return GridDistance(
+                       _placement.WorldToGrid(_view.Body.position),
+                       _target.GridPosition) <= _config.AttackRangeInTiles;
+        }
+
+        private bool ShouldTeleport()
+        {
+            if (!_model.CanTeleport)
+                return false;
+            if (_model.PatrolFailureCount >= _config.DestinationRetries)
+                return true;
+            if (!_target.IsTargetAvailable)
+                return false;
+            return GridDistance(
+                       _placement.WorldToGrid(_view.Body.position),
+                       _target.GridPosition) >=
+                   _config.TeleportTriggerDistanceInTiles &&
+                   UnityEngine.Random.value <= _config.TeleportChance;
+        }
+
+        private void EnterAttack()
+        {
+            if (_model.AttackCooldownRemaining > 0f)
+            {
+                EnterAttackCooldownHold();
+                return;
+            }
+            CancelPathRequest();
+            _model.SetMovementMode(SlimeMovementMode.None);
+            _view.SetVelocity(Vector2.zero);
+            ChangeState(SlimeState.Attack);
+        }
+
+        private void FaceTarget()
+        {
+            if (_target.IsTargetAvailable)
+            {
+                _view.SetFacing(
+                    _target.WorldPosition.x < _view.Body.position.x);
+            }
+        }
+
+        private void StartEmergencyTeleport() => StartTeleport(true);
+
+        private void StartTeleport(bool emergency)
+        {
+            if (!emergency && !_model.CanTeleport)
+            {
+                EnterIdle();
+                return;
+            }
+            CancelPathRequest();
+            _model.SetMovementMode(SlimeMovementMode.None);
+            if (!TryFindTeleportDestination(out var worldPosition))
+            {
+                EnterIdle();
+                return;
+            }
+            _teleportWorldPosition = worldPosition;
+            _hasTeleportDestination = true;
+            _view.SetVelocity(Vector2.zero);
+            ChangeState(SlimeState.TeleportDespawn);
+        }
+
+        private bool TryFindTeleportDestination(out Vector2 worldPosition)
+        {
+            worldPosition = default;
+            var attempts = Mathf.Max(1, _config.MaxTeleportAttempts);
+            var playerPosition = _target.IsTargetAvailable
+                ? _target.GridPosition
+                : _model.CurrentGridPosition;
+            for (var i = 0; i < attempts; i++)
+            {
+                var offset = UnityEngine.Random.Range(
+                    0,
+                    Mathf.Max(1, _pathfinding.WalkableCount));
+                if (!_target.IsTargetAvailable ||
+                    !_pathfinding.TryFindWalkableNear(
+                        playerPosition,
+                        _config.MinimumTeleportDistanceInTiles,
+                        _config.MaximumTeleportDistanceInTiles,
+                        offset,
+                        out var candidate))
+                    continue;
+                if (_placement.TryGetPlacement(
+                        _view.TerrainCollider,
+                        candidate,
+                        out worldPosition))
+                    return true;
+            }
+
+            for (var i = 0; i < attempts; i++)
+            {
+                var offset = UnityEngine.Random.Range(
+                    0,
+                    Mathf.Max(1, _pathfinding.WalkableCount));
+                if (!_pathfinding.TryFindAnyWalkable(offset, out var candidate))
+                    continue;
+                if (_placement.TryGetPlacement(
+                        _view.TerrainCollider,
+                        candidate,
+                        out worldPosition))
+                    return true;
+            }
+            return false;
+        }
+
+        private bool IsNavigationChangeRelevant(GridPosition changedPosition)
+        {
+            if (_model.CurrentGridPosition == changedPosition ||
+                _model.Destination == changedPosition)
+                return true;
+            var path = _model.CachedPath;
+            if (path != null)
+            {
+                for (var i = _model.PathIndex; i < path.Count; i++)
+                {
+                    if (path[i].Position == changedPosition)
+                        return true;
+                }
+            }
+            return Mathf.Abs(
+                       _model.CurrentGridPosition.X - changedPosition.X) <= 1 &&
+                   Mathf.Abs(
+                       _model.CurrentGridPosition.Y - changedPosition.Y) <= 1;
+        }
+
+        private bool IsFallNavigationChangeRelevant(
+            GridPosition changedPosition) =>
+            changedPosition.X == _fallTarget.X &&
+            changedPosition.Y <= _fallStartGrid.Y &&
+            changedPosition.Y >= _fallTarget.Y - 1;
+
+        private float GetMovementTimeout(
+            IReadOnlyList<EnemyPathStep> steps)
+        {
+            var previous = _view.Body.position;
+            var distance = 0f;
+            for (var i = 0; i < steps.Count; i++)
+            {
+                var next = _placement.GridToWorld(steps[i].Position);
+                distance += Mathf.Abs(next.x - previous.x) +
+                            Mathf.Abs(next.y - previous.y);
+                previous = next;
+            }
+            return GetWorldMovementTimeout(distance);
+        }
+
+        private float GetWorldMovementTimeout(float distance)
+        {
+            var speed = Mathf.Max(0.01f, _config.MoveSpeed);
+            var duration = Mathf.Max(0f, distance) / speed +
+                           _config.MovementStuckBufferSeconds;
+            return Mathf.Max(
+                _config.MinimumMovementTimeoutSeconds,
+                duration);
+        }
+
+        private bool IsCombatMovement() =>
+            _model.MovementMode == SlimeMovementMode.Chase ||
+            _model.MovementMode == SlimeMovementMode.ContactApproach ||
+            _model.MovementMode == SlimeMovementMode.AttackCooldownHold;
+
+        private bool IsAnimationLockedState() =>
+            _model.CurrentState == SlimeState.Spawn ||
+            _model.CurrentState == SlimeState.Aggro ||
+            _model.CurrentState == SlimeState.Attack ||
+            _model.CurrentState == SlimeState.Hurt ||
+            _model.CurrentState == SlimeState.Fall ||
+            _model.CurrentState == SlimeState.TeleportDespawn ||
+            _model.CurrentState == SlimeState.TeleportSpawn ||
+            _model.CurrentState == SlimeState.Despawn ||
+            _model.CurrentState == SlimeState.Death;
+
+        private static int GridDistance(GridPosition a, GridPosition b) =>
+            Mathf.Abs(a.X - b.X) + Mathf.Abs(a.Y - b.Y);
 
         private async UniTask EnterLifecycleStateAsync(
             SlimeState state,
             CancellationToken cancellationToken)
         {
             _stateCompletion = new UniTaskCompletionSource();
+            CancelPathRequest();
+            _model.SetMovementMode(SlimeMovementMode.None);
+            _view.SetVelocity(Vector2.zero);
             ChangeState(state);
             using var registration = cancellationToken.Register(
                 () => _stateCompletion.TrySetCanceled(cancellationToken));
             await _stateCompletion.Task;
             _stateCompletion = null;
-            if (state == SlimeState.Death)
-                return;
             if (state == SlimeState.Despawn && !_despawnSignalSent)
                 _despawnSignalSent = true;
         }
 
-        private void RestartDecisionCycle()
+        private void ChangeState(SlimeState state, bool preserveVelocity = false)
         {
-            if (_config == null || _model.IsDead)
-                return;
-            if (!RevalidateCurrentPlacement())
-            {
-                if (!TryStartTeleportBehavior(true, true))
-                    ChangeState(SlimeState.Idle);
-                return;
-            }
-
-            if (!_target.IsTargetAvailable)
-            {
-                StartPatrolBehavior();
-                return;
-            }
-
-            var distance = Distance(
-                _model.CurrentGridPosition,
-                _target.GridPosition);
-            if (distance <= _config.AggroRangeInTiles)
-            {
-                StartChaseBehavior();
-                return;
-            }
-
-            if (distance >= _config.TeleportTriggerDistanceInTiles &&
-                UnityEngine.Random.value < _config.TeleportChance)
-            {
-                if (TryStartTeleportBehavior(true, false))
-                    return;
-            }
-
-            StartPatrolBehavior();
-        }
-
-        private void StartPatrolBehavior()
-        {
-            if (!PrepareBehavior(SlimeState.Idle))
-            {
-                if (!TryStartTeleportBehavior(true, true))
-                    ChangeState(SlimeState.Idle);
-                return;
-            }
-            _model.SetAggro(false);
-            _hasLastChaseTargetPosition = false;
-            if (TryRequestPatrolStep())
-                return;
-            _model.ReversePatrolDirection();
-            _view.SetFacing(_model.PatrolDirection < 0);
-        }
-
-        private void StartChaseBehavior()
-        {
-            if (!_target.IsTargetAvailable ||
-                !PrepareBehavior(SlimeState.Aggro))
-            {
-                if (!TryStartTeleportBehavior(true, true))
-                    ChangeState(SlimeState.Idle);
-                return;
-            }
-            _model.SetAggro(true);
-            RequestChasePath();
-        }
-
-        private bool TryStartTeleportBehavior(
-            bool allowAnyWalkableFallback,
-            bool bypassCooldown)
-        {
-            if (!bypassCooldown && !_model.CanTeleport)
-                return false;
-            _model.ClearPath();
-            _hasLastChaseTargetPosition = false;
-            _view.SetVelocity(Vector2.zero);
-            if (!TryChooseTeleportDestination(
-                    allowAnyWalkableFallback,
-                    out var destination))
-            {
-                return false;
-            }
-            _teleportDestination = destination;
-            ChangeState(SlimeState.TeleportDespawn);
-            return true;
-        }
-
-        private bool PrepareBehavior(SlimeState state)
-        {
-            _model.ClearPath();
-            _teleportDestination = null;
-            _view.SetVelocity(Vector2.zero);
-            ChangeState(state);
-            return RevalidateCurrentPlacement();
-        }
-
-        private void ChangeState(SlimeState state, bool cancelPendingWork = true)
-        {
-            if (cancelPendingWork || _stateCancellation == null)
-            {
-                CancelState();
-                _stateCancellation = CancellationTokenSource.CreateLinkedTokenSource(
-                    _lifetimeToken);
-            }
-            _stateElapsed = 0f;
             _attackApplied = false;
-            _fallObservedAirborne = false;
             _model.SetState(state);
-            _view.SetVelocity(Vector2.zero);
-            if (state == SlimeState.TeleportDespawn ||
-                state == SlimeState.TeleportSpawn)
+            if (!preserveVelocity)
+                _view.SetVelocity(Vector2.zero);
+            if (state == SlimeState.Attack)
             {
-                _view.SetDamageEnabled(false);
+                var facesLeft = _placeableTarget != null
+                    ? _view.Body.position.x > _placeableWorldPosition.x
+                    : _target.IsTargetAvailable &&
+                      _target.WorldPosition.x < _view.Body.position.x;
+                _view.SetFacing(facesLeft);
             }
-            if (state == SlimeState.Attack && _target.IsTargetAvailable)
-                _view.SetFacing(_target.WorldPosition.x < _view.Body.position.x);
 
             var animationId = GetAnimationId(state);
-            if (!_config.AnimationProfile.TryGet(animationId, out var animation))
+            if (_config == null ||
+                !_config.AnimationProfile.TryGet(animationId, out var animation))
             {
-                Debug.LogError(
-                    $"Slime animation '{animationId}' is missing from {_config.AnimationProfile.name}.");
                 HandleMissingAnimation(state);
                 return;
             }
             _animationGeneration = _view.Play(animation, true);
         }
-
-        private bool RequestPath(GridPosition destination, bool chasing)
-        {
-            if (!_pathfinding.IsWalkable(destination) ||
-                !TryGetPlacement(destination, out _))
-            {
-                if (chasing)
-                    HandleChasePathFailed();
-                return false;
-            }
-
-            _view.SetVelocity(Vector2.zero);
-            var generation = _model.BeginPathRequest(destination, chasing);
-            var request = new EnemyPathRequest(
-                _model.CurrentGridPosition,
-                destination,
-                _config.MaxFallDistanceInTiles,
-                generation,
-                chasing);
-            CalculatePathAsync(request, _stateCancellation.Token).Forget(
-                exception => Debug.LogException(exception));
-            return true;
-        }
-
-        private async UniTask CalculatePathAsync(
-            EnemyPathRequest request,
-            CancellationToken cancellationToken)
-        {
-            try
-            {
-                var result = await _pathfinding.FindPathAsync(
-                    request,
-                    cancellationToken);
-                await _pauseGate.WaitAsync();
-                cancellationToken.ThrowIfCancellationRequested();
-                if (!_model.CompletePath(result))
-                    return;
-                if (!result.Succeeded)
-                {
-                    if (request.Chasing)
-                        HandleChasePathFailed();
-                    else
-                        StartPatrolBehavior();
-                    return;
-                }
-                if (!IsPathPlacementClear(result.Steps))
-                {
-                    if (request.Chasing)
-                        HandleChasePathFailed();
-                    else
-                        StartPatrolBehavior();
-                    return;
-                }
-                StartMovementTimeout(result.Steps);
-            }
-            catch (OperationCanceledException)
-            {
-            }
-        }
-
-        private void TickIdle()
-        {
-            if (_model.PathPending)
-                return;
-            if (_teleportDestination.HasValue)
-            {
-                ChangeState(SlimeState.TeleportDespawn);
-                return;
-            }
-            var step = _model.CurrentPathStep;
-            if (step.HasValue)
-            {
-                ChangeState(step.Value.Type == EnemyPathStepType.Fall
-                    ? SlimeState.Fall
-                    : SlimeState.Move);
-                return;
-            }
-            if (_stateElapsed < _config.IdleDuration)
-                return;
-            RestartDecisionCycle();
-        }
-
-        private void TickAggro()
-        {
-            _view.SetVelocity(Vector2.zero);
-        }
-
-        private void TickMove()
-        {
-            if (_model.IsAggro)
-            {
-                if (ShouldEndChase())
-                {
-                    EndChase();
-                    return;
-                }
-                if (IsTargetAttackable())
-                {
-                    _view.SetVelocity(Vector2.zero);
-                    if (_model.AttackCooldownRemaining <= 0f)
-                        ChangeState(SlimeState.Attack);
-                    return;
-                }
-                if (!_model.PathPending &&
-                    HasChaseTargetChanged())
-                {
-                    RequestChasePath();
-                    return;
-                }
-            }
-            if (_model.PathPending)
-                return;
-            var step = _model.CurrentPathStep;
-            if (!step.HasValue)
-            {
-                if (_model.IsAggro)
-                    RequestChasePath();
-                else
-                    StartPatrolBehavior();
-                return;
-            }
-            if (step.Value.Type == EnemyPathStepType.Fall)
-            {
-                ChangeState(SlimeState.Fall);
-                return;
-            }
-            if (!TryGetPlacement(step.Value.Position, out var targetWorld))
-            {
-                HandlePathStepBlocked();
-                return;
-            }
-            var offset = targetWorld.x - _view.Body.position.x;
-            if (Mathf.Abs(offset) > _config.PositionTolerance)
-            {
-                _view.SetFacing(offset < 0f);
-                var velocity = _view.Body.linearVelocity;
-                velocity.x = Mathf.Sign(offset) * _config.MoveSpeed;
-                _view.SetVelocity(velocity);
-                return;
-            }
-            _view.SetVelocity(new Vector2(0f, _view.Body.linearVelocity.y));
-            if (!_placement.IsCurrentPlacementClear(_view.TerrainCollider))
-            {
-                RestoreLastSafePlacement();
-                HandlePathStepBlocked();
-                return;
-            }
-            _model.CompletePathStep(step.Value.Position);
-            RecordSafePlacement(step.Value.Position, targetWorld);
-            if (_model.IsAggro &&
-                HasChaseTargetChanged())
-                RequestChasePath();
-            else if (!_model.CurrentPathStep.HasValue && _model.IsAggro)
-                RequestChasePath();
-            else if (!_model.CurrentPathStep.HasValue)
-                StartPatrolBehavior();
-            else if (_model.CurrentPathStep.Value.Type == EnemyPathStepType.Fall)
-                ChangeState(SlimeState.Fall);
-        }
-
-        private void TickFall()
-        {
-            if (_model.IsAggro && ShouldEndChase())
-            {
-                EndChase();
-                return;
-            }
-            var step = _model.CurrentPathStep;
-            if (!step.HasValue)
-            {
-                RestartDecisionCycle();
-                return;
-            }
-            if (!TryGetPlacement(step.Value.Position, out var targetWorld))
-            {
-                HandlePathStepBlocked();
-                return;
-            }
-            var offset = targetWorld.x - _view.Body.position.x;
-            var velocity = _view.Body.linearVelocity;
-            velocity.x = Mathf.Abs(offset) <= _config.PositionTolerance
-                ? 0f
-                : Mathf.Sign(offset) * _config.MoveSpeed;
-            _view.SetFacing(velocity.x < 0f);
-            _view.SetVelocity(velocity);
-            var grounded = _view.IsGrounded(
-                _config.GroundLayerMask,
-                _config.GroundProbeDistance);
-            if (!grounded)
-                _fallObservedAirborne = true;
-            if (!_fallObservedAirborne || !grounded)
-                return;
-            _view.SetVelocity(Vector2.zero);
-            if (!_placement.IsCurrentPlacementClear(_view.TerrainCollider))
-            {
-                RestoreLastSafePlacement();
-                HandlePathStepBlocked();
-                return;
-            }
-            _model.CompletePathStep(step.Value.Position);
-            RecordSafePlacement(step.Value.Position, targetWorld);
-            if (_model.IsAggro)
-                BeginChaseMovement();
-            else
-                StartPatrolBehavior();
-        }
-
-        private void BeginChaseMovement()
-        {
-            if (ShouldEndChase())
-            {
-                EndChase();
-                return;
-            }
-            if (IsTargetAttackable() &&
-                _model.AttackCooldownRemaining <= 0f)
-            {
-                ChangeState(SlimeState.Attack);
-                return;
-            }
-            if (!_model.PathPending && !_model.CurrentPathStep.HasValue)
-            {
-                if (!RequestChasePath())
-                    return;
-            }
-            ChangeState(SlimeState.Move, false);
-        }
-
-        private void ResumeAfterAction()
-        {
-            if (_model.IsAggro)
-                BeginChaseMovement();
-            else
-                StartPatrolBehavior();
-        }
-
-        private void EndChase()
-        {
-            _model.SetAggro(false);
-            _model.ClearPath();
-            _hasLastChaseTargetPosition = false;
-            StartPatrolBehavior();
-        }
-
-        private void HandleChasePathFailed()
-        {
-            if (!_model.IsAggro &&
-                _model.CurrentState != SlimeState.Move &&
-                _model.CurrentState != SlimeState.Fall &&
-                _model.CurrentState != SlimeState.Aggro)
-            {
-                _model.ClearPath();
-                return;
-            }
-            EndChase();
-        }
-
-        private void HandlePathStepBlocked()
-        {
-            if (_model.IsAggro)
-            {
-                EndChase();
-                return;
-            }
-            _model.ReversePatrolDirection();
-            StartPatrolBehavior();
-        }
-
-        private void HandleMovementTimeout()
-        {
-            _view.SetVelocity(Vector2.zero);
-            _model.ClearPath();
-            _hasLastChaseTargetPosition = false;
-            if (_model.IsAggro)
-            {
-                EndChase();
-                return;
-            }
-            if (!RevalidateCurrentPlacement())
-            {
-                if (!TryStartTeleportBehavior(true, true))
-                    ChangeState(SlimeState.Idle);
-                return;
-            }
-            StartPatrolBehavior();
-        }
-
-        private bool TryRequestPatrolStep()
-        {
-            for (var i = 0; i < PatrolDirectionAttempts; i++)
-            {
-                var destination = new GridPosition(
-                    _model.CurrentGridPosition.X + _model.PatrolDirection,
-                    _model.CurrentGridPosition.Y);
-                if (IsPatrolStepValid(destination) &&
-                    RequestPath(destination, false))
-                {
-                    _view.SetFacing(_model.PatrolDirection < 0);
-                    return true;
-                }
-                _model.ReversePatrolDirection();
-                _view.SetFacing(_model.PatrolDirection < 0);
-            }
-            return false;
-        }
-
-        private bool IsPatrolStepValid(GridPosition destination) =>
-            _pathfinding.IsWalkable(destination) &&
-            TryGetPlacement(destination, out _);
-
-        private bool RevalidateCurrentPlacement()
-        {
-            var position = _placement.WorldToGrid(_view.Body.position);
-            _model.SetGridPosition(position);
-            if (!_pathfinding.IsWalkable(position) ||
-                !_placement.IsCurrentPlacementClear(_view.TerrainCollider))
-                return false;
-            RecordSafePlacement(position, _view.Body.position);
-            return true;
-        }
-
-        private void RecordSafePlacement(
-            GridPosition gridPosition,
-            Vector2 worldPosition)
-        {
-            _lastSafeGridPosition = gridPosition;
-            _lastSafeWorldPosition = worldPosition;
-        }
-
-        private void RestoreLastSafePlacement()
-        {
-            _view.Teleport(_lastSafeWorldPosition);
-            _model.SetGridPosition(_lastSafeGridPosition);
-        }
-
-        private bool ShouldEndChase() =>
-            !_target.IsTargetAvailable ||
-            Distance(_model.CurrentGridPosition, _target.GridPosition) >=
-            _config.ChaseExitRangeInTiles;
-
-        private bool RequestChasePath()
-        {
-            if (!_target.IsTargetAvailable ||
-                !_chaseTargetResolver.TryResolve(
-                    _view.TerrainCollider,
-                    _model.CurrentGridPosition,
-                    _target.GridPosition,
-                    EffectiveAttackDecisionRangeInTiles,
-                    out var destination))
-            {
-                HandleChasePathFailed();
-                return false;
-            }
-
-            _lastChaseTargetPosition = _target.GridPosition;
-            _hasLastChaseTargetPosition = true;
-            return RequestPath(destination, true);
-        }
-
-        private bool HasChaseTargetChanged() =>
-            !_hasLastChaseTargetPosition ||
-            _target.GridPosition != _lastChaseTargetPosition;
-
-        private bool TryChooseTeleportDestination(
-            bool allowAnyWalkableFallback,
-            out GridPosition destination)
-        {
-            if (_target.IsTargetAvailable &&
-                TryChooseNearbyTeleportDestination(out destination))
-                return true;
-            if (allowAnyWalkableFallback)
-                return TryChooseAnyWalkableTeleportDestination(out destination);
-            destination = default;
-            return false;
-        }
-
-        private bool TryChooseNearbyTeleportDestination(
-            out GridPosition destination)
-        {
-            destination = default;
-            var attempts = Math.Max(1, _config.MaxTeleportAttempts);
-            for (var i = 0; i < attempts; i++)
-            {
-                if (!_pathfinding.TryFindWalkableNear(
-                        _target.GridPosition,
-                        _config.MinimumTeleportDistanceInTiles,
-                        _config.MaximumTeleportDistanceInTiles,
-                        _teleportSearchOffset++,
-                        out var candidate))
-                    return false;
-                if (!IsTeleportCandidateValid(candidate))
-                    continue;
-                destination = candidate;
-                return true;
-            }
-            return false;
-        }
-
-        private bool TryChooseAnyWalkableTeleportDestination(
-            out GridPosition destination)
-        {
-            destination = default;
-            var count = _pathfinding.WalkableCount;
-            if (count <= 0)
-                return false;
-
-            var fallback = default(GridPosition);
-            var hasFallback = false;
-            for (var i = 0; i < count; i++)
-            {
-                if (!_pathfinding.TryFindAnyWalkable(
-                        _teleportSearchOffset + i,
-                        out var candidate) ||
-                    !IsTeleportCandidateValid(candidate))
-                    continue;
-                if (candidate == _model.CurrentGridPosition)
-                {
-                    fallback = candidate;
-                    hasFallback = true;
-                    continue;
-                }
-                destination = candidate;
-                _teleportSearchOffset += i + 1;
-                return true;
-            }
-            if (!hasFallback)
-                return false;
-            destination = fallback;
-            _teleportSearchOffset++;
-            return true;
-        }
-
-        private bool IsTeleportCandidateValid(GridPosition destination) =>
-            _pathfinding.IsWalkable(destination) &&
-            TryGetPlacement(destination, out _);
-
-        private bool IsTerrainWallCollider(Collider2D collider) =>
-            collider != null &&
-            !collider.isTrigger &&
-            (_config.GroundLayerMask.value & (1 << collider.gameObject.layer)) != 0;
-
-        private void CompleteTeleportDespawn()
-        {
-            if (_teleportDestination.HasValue &&
-                IsTeleportCandidateValid(_teleportDestination.Value))
-            {
-                var destination = _teleportDestination.Value;
-                TryGetPlacement(destination, out var worldPosition);
-                _view.Teleport(worldPosition);
-                _model.SetGridPosition(destination);
-                RecordSafePlacement(destination, worldPosition);
-            }
-            ChangeState(SlimeState.TeleportSpawn);
-        }
-
-        private bool IsTargetInRange(int range) =>
-            _target.IsTargetAvailable &&
-            Distance(_model.CurrentGridPosition, _target.GridPosition) <= range;
-
-        private bool IsTargetAttackable() =>
-            IsTargetInRange(EffectiveAttackDecisionRangeInTiles) &&
-            Vector2.Distance(_view.Body.position, _target.WorldPosition) <=
-            _config.AttackContactDistance;
-
-        private int EffectiveAttackDecisionRangeInTiles =>
-            Math.Max(1, _config.AttackRangeInTiles);
-
-        private bool TryGetPlacement(
-            GridPosition position,
-            out Vector2 worldPosition) =>
-            _placement.TryGetPlacement(
-                _view.TerrainCollider,
-                position,
-                out worldPosition);
-
-        private bool IsPathPlacementClear(IReadOnlyList<EnemyPathStep> steps)
-        {
-            if (steps == null)
-                return false;
-            for (var i = 0; i < steps.Count; i++)
-            {
-                if (!TryGetPlacement(steps[i].Position, out _))
-                    return false;
-            }
-            return true;
-        }
-
-        private void StartMovementTimeout(IReadOnlyList<EnemyPathStep> steps)
-        {
-            if (steps == null || steps.Count == 0)
-            {
-                _model.ClearMovementTimeout();
-                return;
-            }
-
-            var distance = 0f;
-            var previous = _view.Body.position;
-            for (var i = 0; i < steps.Count; i++)
-            {
-                if (!TryGetPlacement(steps[i].Position, out var next))
-                    continue;
-                distance += Vector2.Distance(previous, next);
-                previous = next;
-            }
-            var speed = Mathf.Max(0.001f, _config.MoveSpeed);
-            var timeout = distance / speed +
-                          _config.MovementStuckBufferSeconds;
-            timeout = Mathf.Max(timeout, _config.MinimumMovementTimeoutSeconds);
-            _model.StartMovementTimeout(timeout);
-        }
-
-        private static int Distance(GridPosition a, GridPosition b) =>
-            Math.Abs(a.X - b.X) + Math.Abs(a.Y - b.Y);
 
         private static string GetAnimationId(SlimeState state)
         {
@@ -927,51 +1284,45 @@ namespace Systems.MineSystem.EnemySystem.Mob.Slime.Controller
             {
                 _view.SetDamageEnabled(true);
                 _stateCompletion?.TrySetResult();
-                RestartDecisionCycle();
+                EnterIdle();
             }
-            else if (state == SlimeState.Death || state == SlimeState.Despawn)
+            else if (state == SlimeState.Death && !_deathSignalSent)
             {
-                if (state == SlimeState.Death && !_deathSignalSent)
-                {
-                    _deathSignalSent = true;
-                    _stateCompletion?.TrySetResult();
-                    GlobalEventBus.Fire(new EnemyDiedSignal(_enemyId));
-                }
-                else if (state == SlimeState.Despawn && !_despawnSignalSent)
-                {
-                    _despawnSignalSent = true;
-                    _stateCompletion?.TrySetResult();
-                    GlobalEventBus.Fire(new EnemyDespawnedSignal(_enemyId));
-                }
+                _deathSignalSent = true;
+                _stateCompletion?.TrySetResult();
+                GlobalEventBus.Fire(new EnemyDiedSignal(_enemyId));
             }
-            else if (state == SlimeState.TeleportDespawn)
+            else if (state == SlimeState.Despawn && !_despawnSignalSent)
             {
-                CompleteTeleportDespawn();
+                _despawnSignalSent = true;
+                _stateCompletion?.TrySetResult();
+                GlobalEventBus.Fire(new EnemyDespawnedSignal(_enemyId));
             }
-            else if (state == SlimeState.TeleportSpawn)
-            {
-                _teleportDestination = null;
-                _view.SetDamageEnabled(true);
-                _model.StartTeleportCooldown(_config.TeleportCooldownSeconds);
-                RestartDecisionCycle();
-            }
-            else if (state == SlimeState.Aggro)
-            {
-                BeginChaseMovement();
-            }
-            else if (state != SlimeState.Idle)
-            {
-                RestartDecisionCycle();
-            }
+            else
+                EnterIdle();
         }
 
-        private void CancelState()
+        private static void HandlePathException(Exception exception)
         {
-            if (_stateCancellation == null)
-                return;
-            _stateCancellation.Cancel();
-            _stateCancellation.Dispose();
-            _stateCancellation = null;
+            if (exception is not OperationCanceledException)
+                Debug.LogException(exception);
+        }
+
+        private void CancelPathRequest()
+        {
+            if (_pathCancellation != null)
+            {
+                _pathCancellation.Cancel();
+                _pathCancellation.Dispose();
+                _pathCancellation = null;
+            }
+            _model.ClearPath();
+        }
+
+        private void DisposePathCancellation()
+        {
+            _pathCancellation?.Dispose();
+            _pathCancellation = null;
         }
 
         public void Dispose()

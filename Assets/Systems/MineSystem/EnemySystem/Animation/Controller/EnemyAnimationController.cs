@@ -23,6 +23,11 @@ namespace Systems.MineSystem.EnemySystem.Animation.Controller
         public IObservable<EnemyAnimationCompletedEvent> Completed => _completed;
         public int CurrentGeneration => _generation;
         public float Speed => animator != null ? animator.speed : 0f;
+        public float CurrentCycleDuration =>
+            _current == null || _current.speed <= 0f ||
+            _current.animationSprites == null
+                ? 0f
+                : _current.animationSprites.Count / _current.speed;
 
         public bool ValidateReferences() =>
             spriteRenderer != null && animator != null;

@@ -20,9 +20,8 @@ namespace Systems.MineSystem.EnemySystem.Mob.Slime.Controller
         private readonly SlimeModel _model;
         private readonly SlimeView _view;
         private readonly SlimeStateMachine _stateMachine;
-        private readonly IEnemyTargetProvider _target;
-        private readonly IEnemyAttackService _attack;
         private readonly IEnemyPlacementValidator _placement;
+        private readonly IEnemyPathfindingService _pathfinding;
         private readonly SlimePauseStateData _pauseState = new();
 
         private CompositeDisposable _subscriptions;
@@ -55,25 +54,24 @@ namespace Systems.MineSystem.EnemySystem.Mob.Slime.Controller
 
         public SlimeController(
             SlimeView view,
-            IEnemyPathfindingService pathfinding,
             IEnemyTargetProvider target,
             IEnemyAttackService attack,
             IEnemyPlacementValidator placement,
-            IEnemyChaseTargetResolver chaseTargetResolver)
+            IEnemyPathfindingService pathfinding,
+            IEnemyChaseTargetResolver chaseResolver)
         {
             _view = view;
-            _target = target;
-            _attack = attack;
             _placement = placement;
+            _pathfinding = pathfinding;
             _model = new SlimeModel();
             _stateMachine = new SlimeStateMachine(
                 _model,
                 view,
-                pathfinding,
                 target,
                 attack,
+                pathfinding,
                 placement,
-                chaseTargetResolver);
+                chaseResolver);
         }
 
         public void Initialize(EnemyInitializeData initializeData)
@@ -107,7 +105,6 @@ namespace Systems.MineSystem.EnemySystem.Mob.Slime.Controller
             _view.ApplyConfig(config);
             _view.SetDamageEnabled(false);
             _view.DamageRequested.Subscribe(OnDamageRequested).AddTo(_subscriptions);
-            _view.ContactStayed.Subscribe(OnContactStayed).AddTo(_subscriptions);
             _view.HorizontalCollision
                 .Subscribe(_stateMachine.HandleHorizontalCollision)
                 .AddTo(_subscriptions);
@@ -116,6 +113,9 @@ namespace Systems.MineSystem.EnemySystem.Mob.Slime.Controller
                 .AddTo(_subscriptions);
             _view.AnimationCompleted
                 .Subscribe(_stateMachine.HandleAnimationCompleted)
+                .AddTo(_subscriptions);
+            _pathfinding.NavigationChanged
+                .Subscribe(_stateMachine.HandleNavigationChanged)
                 .AddTo(_subscriptions);
             _stateMachine.Initialize(
                 config,
@@ -151,15 +151,6 @@ namespace Systems.MineSystem.EnemySystem.Mob.Slime.Controller
                 _stateMachine.EnterDeath();
             else
                 _stateMachine.EnterHurt();
-        }
-
-        private void OnContactStayed(Collider2D other)
-        {
-            if (!IsActive || IsDead || _pauseState.HasSnapshot ||
-                !_view.DamageEnabled || _config == null ||
-                !_target.IsTargetCollider(other))
-                return;
-            _attack.TryAttack(_config.Damage, _config.StatusEffect);
         }
 
         public void OnPause()

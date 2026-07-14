@@ -1,5 +1,9 @@
 using System;
+using System.Collections.Generic;
+using System.Threading;
+using Cysharp.Threading.Tasks;
 using Systems.MineSystem.EnemySystem.Interface;
+using Systems.MineSystem.EnemySystem.Model;
 using Systems.MineSystem.Mine.Model;
 using UnityEngine;
 
@@ -18,23 +22,21 @@ namespace Systems.MineSystem.EnemySystem.Service
             _placement = placement;
         }
 
-        public bool TryResolve(
+        public UniTask<PathResult> FindReachablePathAsync(
             Collider2D enemyCollider,
             GridPosition enemyPosition,
             GridPosition targetPosition,
             int attackRange,
-            out GridPosition destination)
+            int maxFallDistanceInTiles,
+            int generation,
+            CancellationToken cancellationToken)
         {
-            destination = default;
             var range = Math.Max(0, attackRange);
+            var candidates = new List<GridPosition>(
+                1 + range * (range + 1) * 2);
             if (IsCandidateValid(enemyCollider, targetPosition))
-            {
-                destination = targetPosition;
-                return true;
-            }
+                candidates.Add(targetPosition);
 
-            var found = false;
-            var bestScore = int.MaxValue;
             for (var y = -range; y <= range; y++)
             {
                 var remainingX = range - Math.Abs(y);
@@ -47,15 +49,25 @@ namespace Systems.MineSystem.EnemySystem.Service
                         targetPosition.Y + y);
                     if (!IsCandidateValid(enemyCollider, candidate))
                         continue;
-                    var score = Distance(enemyPosition, candidate);
-                    if (found && score >= bestScore)
-                        continue;
-                    destination = candidate;
-                    bestScore = score;
-                    found = true;
+                    candidates.Add(candidate);
                 }
             }
-            return found;
+
+            if (candidates.Count == 0)
+            {
+                return UniTask.FromResult(PathResult.Failure(
+                    targetPosition,
+                    generation,
+                    "No placement-valid chase destination exists."));
+            }
+
+            var request = new EnemyMultiTargetPathRequest(
+                enemyPosition,
+                targetPosition,
+                candidates,
+                maxFallDistanceInTiles,
+                generation);
+            return _pathfinding.FindPathToAnyAsync(request, cancellationToken);
         }
 
         private bool IsCandidateValid(
@@ -63,8 +75,5 @@ namespace Systems.MineSystem.EnemySystem.Service
             GridPosition candidate) =>
             _pathfinding.IsWalkable(candidate) &&
             _placement.TryGetPlacement(enemyCollider, candidate, out _);
-
-        private static int Distance(GridPosition a, GridPosition b) =>
-            Math.Abs(a.X - b.X) + Math.Abs(a.Y - b.Y);
     }
 }
