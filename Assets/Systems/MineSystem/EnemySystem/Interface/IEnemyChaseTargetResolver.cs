@@ -12,6 +12,7 @@ namespace Systems.MineSystem.EnemySystem.Interface
             Collider2D enemyCollider,
             GridPosition enemyPosition,
             GridPosition targetPosition,
+            GridPosition preferredDestination,
             int attackRange,
             int maxFallDistanceInTiles,
             int generation,

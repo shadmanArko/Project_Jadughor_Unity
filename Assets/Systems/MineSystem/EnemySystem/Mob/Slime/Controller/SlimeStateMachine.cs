@@ -169,14 +169,25 @@ namespace Systems.MineSystem.EnemySystem.Mob.Slime.Controller
                 !IsNavigationChangeRelevant(changedPosition))
                 return;
 
-            CancelPathRequest();
-            _view.SetVelocity(Vector2.zero);
             if (!_view.IsGrounded(
                     _config.GroundLayerMask,
                     _config.GroundProbeDistance))
+            {
                 EnterFall();
-            else
-                EnterIdle();
+                return;
+            }
+            if (_model.CurrentState == SlimeState.Move &&
+                IsCombatMovement() &&
+                _model.EngagementActive &&
+                _target.IsCombatTargetAvailable)
+            {
+                RefreshChaseRoute(true);
+                return;
+            }
+
+            CancelPathRequest();
+            _view.SetVelocity(Vector2.zero);
+            EnterIdle();
         }
 
         public void HandleHorizontalCollision(Collider2D collider)
@@ -399,8 +410,7 @@ namespace Systems.MineSystem.EnemySystem.Mob.Slime.Controller
 
             if (!_model.EngagementActive)
                 return false;
-            if (beganEngagement || targetGridChanged ||
-                combatAvailabilityChanged)
+            if (beganEngagement || combatAvailabilityChanged)
             {
                 if (_model.CurrentState == SlimeState.Idle ||
                     _model.CurrentState == SlimeState.Move)
@@ -409,7 +419,50 @@ namespace Systems.MineSystem.EnemySystem.Mob.Slime.Controller
                     return true;
                 }
             }
-            return false;
+            if (!targetGridChanged)
+                return false;
+            if (_model.CurrentState == SlimeState.Idle)
+            {
+                EvaluateDecision();
+                return true;
+            }
+            if (_model.CurrentState != SlimeState.Move)
+                return false;
+            if (!IsCombatMovement())
+            {
+                EvaluateDecision();
+                return true;
+            }
+            return HandleActiveChaseTargetMoved();
+        }
+
+        private bool HandleActiveChaseTargetMoved()
+        {
+            if (IsAttackValid())
+            {
+                if (_model.AttackCooldownRemaining <= 0f)
+                    EnterAttack();
+                else
+                    EnterAttackCooldownHold();
+                return true;
+            }
+
+            if (_model.MovementMode == SlimeMovementMode.ContactApproach ||
+                _model.MovementMode == SlimeMovementMode.AttackCooldownHold)
+            {
+                if (CanUseContactApproach())
+                    StartContactApproach(true);
+                else
+                    RefreshChaseRoute(true);
+                return true;
+            }
+            if (IsApproachDestinationValid(
+                    _model.Destination,
+                    _target.GridPosition))
+                return false;
+
+            RefreshChaseRoute(false);
+            return true;
         }
 
         private void EvaluateDecision()
@@ -573,6 +626,7 @@ namespace Systems.MineSystem.EnemySystem.Mob.Slime.Controller
 
         private void RequestChaseRoute(bool aggroProbe)
         {
+            var preferredDestination = _model.Destination;
             CancelPathRequest();
             _chaseTargetGrid = _target.GridPosition;
             _pathNavigationRevision = _pathfinding.NavigationRevision;
@@ -583,30 +637,77 @@ namespace Systems.MineSystem.EnemySystem.Mob.Slime.Controller
             var generation = _model.BeginPathRequest(
                 _chaseTargetGrid,
                 true);
+            var routeStart = _model.CurrentGridPosition;
             if (!aggroProbe)
                 ChangeState(SlimeState.Move);
             _pathCancellation = CancellationTokenSource.CreateLinkedTokenSource(
                 _lifetimeToken);
             FindChasePathAsync(
                     generation,
+                    routeStart,
                     _chaseTargetGrid,
+                    preferredDestination,
                     _pathNavigationRevision,
                     aggroProbe,
+                    false,
+                    _pathCancellation.Token)
+                .Forget(HandlePathException);
+        }
+
+        private void RefreshChaseRoute(bool stopIfNoActivePath)
+        {
+            if (_model.CurrentState != SlimeState.Move ||
+                !_model.EngagementActive ||
+                !_target.IsCombatTargetAvailable ||
+                !IsWithinChaseExitRange())
+            {
+                EndChaseAndPatrol();
+                return;
+            }
+
+            var hasActivePath = _model.CurrentPathStep.HasValue;
+            var preferredDestination = _model.Destination;
+            CancelPendingPathRequestPreservingPath();
+            _chaseTargetGrid = _target.GridPosition;
+            _pathNavigationRevision = _pathfinding.NavigationRevision;
+            _model.SetMovementMode(SlimeMovementMode.Chase);
+            var generation = _model.BeginPathRefresh(true);
+            var routeStart = _model.CurrentGridPosition;
+            if (!hasActivePath)
+            {
+                _model.ClearMovementTimeout();
+                if (stopIfNoActivePath)
+                    _view.SetVelocity(Vector2.zero);
+            }
+            _pathCancellation = CancellationTokenSource.CreateLinkedTokenSource(
+                _lifetimeToken);
+            FindChasePathAsync(
+                    generation,
+                    routeStart,
+                    _chaseTargetGrid,
+                    preferredDestination,
+                    _pathNavigationRevision,
+                    false,
+                    true,
                     _pathCancellation.Token)
                 .Forget(HandlePathException);
         }
 
         private async UniTask FindChasePathAsync(
             int generation,
+            GridPosition routeStart,
             GridPosition targetGrid,
+            GridPosition preferredDestination,
             int navigationRevision,
             bool aggroProbe,
+            bool pathRefresh,
             CancellationToken cancellationToken)
         {
             var result = await _chaseResolver.FindReachablePathAsync(
                 _view.TerrainCollider,
-                _model.CurrentGridPosition,
+                routeStart,
                 targetGrid,
+                preferredDestination,
                 Mathf.Max(1, _config.AttackRangeInTiles),
                 _config.MaxFallDistanceInTiles,
                 generation,
@@ -615,39 +716,63 @@ namespace Systems.MineSystem.EnemySystem.Mob.Slime.Controller
                 return;
             HandleChasePathResult(
                 result,
+                routeStart,
                 targetGrid,
                 navigationRevision,
-                aggroProbe);
+                aggroProbe,
+                pathRefresh);
         }
 
         private void HandleChasePathResult(
             PathResult result,
+            GridPosition routeStart,
             GridPosition targetGrid,
             int navigationRevision,
-            bool aggroProbe)
+            bool aggroProbe,
+            bool pathRefresh)
         {
             if (result.Generation != _model.PathGeneration ||
                 !_model.PathPending ||
-                aggroProbe && _model.CurrentState != SlimeState.Idle ||
-                !aggroProbe &&
-                (_model.CurrentState != SlimeState.Move ||
-                 _model.MovementMode != SlimeMovementMode.Chase))
+                (aggroProbe && _model.CurrentState != SlimeState.Idle) ||
+                (!aggroProbe &&
+                 (_model.CurrentState != SlimeState.Move ||
+                  _model.MovementMode != SlimeMovementMode.Chase)))
                 return;
-            if (!_model.CompletePath(result))
-                return;
-            DisposePathCancellation();
 
-            var contextIsCurrent = _target.IsCombatTargetAvailable &&
-                                   _target.GridPosition == targetGrid &&
-                                   _pathfinding.NavigationRevision ==
-                                   navigationRevision &&
-                                   _model.EngagementActive;
-            if (!contextIsCurrent)
+            if (!_target.IsCombatTargetAvailable ||
+                !_model.EngagementActive ||
+                !IsWithinChaseExitRange())
             {
-                _model.ClearPath();
-                EvaluateDecision();
+                EndChaseAndPatrol();
                 return;
             }
+
+            var targetContextIsUsable =
+                _target.GridPosition == targetGrid ||
+                (result.Succeeded &&
+                 IsApproachDestinationValid(
+                     result.Destination,
+                     _target.GridPosition));
+            if (_pathfinding.NavigationRevision != navigationRevision ||
+                !IsPathStartCompatible(result, routeStart) ||
+                !targetContextIsUsable)
+            {
+                if (aggroProbe)
+                {
+                    CancelPathRequest();
+                    EvaluateDecision();
+                }
+                else
+                    RefreshChaseRoute(!_model.CurrentPathStep.HasValue);
+                return;
+            }
+
+            var completed = pathRefresh
+                ? _model.CompletePathRefresh(result)
+                : _model.CompletePath(result);
+            if (!completed)
+                return;
+            DisposePathCancellation();
 
             if (!result.Succeeded)
             {
@@ -677,7 +802,7 @@ namespace Systems.MineSystem.EnemySystem.Mob.Slime.Controller
                         EnterAttackCooldownHold();
                 }
                 else
-                    StartContactApproach();
+                    StartContactApproach(true);
                 return;
             }
 
@@ -730,9 +855,9 @@ namespace Systems.MineSystem.EnemySystem.Mob.Slime.Controller
                 HandleMovementTimeout();
                 return;
             }
-            if (_model.PathPending)
-                return;
             var step = _model.CurrentPathStep;
+            if (_model.PathPending && !step.HasValue)
+                return;
             if (!step.HasValue)
             {
                 FinishMovement();
@@ -776,14 +901,14 @@ namespace Systems.MineSystem.EnemySystem.Mob.Slime.Controller
             FaceTarget();
             if (!IsAttackValid())
             {
-                EvaluateDecision();
+                ContinueChaseFromCurrentMove();
                 return;
             }
             if (_model.AttackCooldownRemaining <= 0f)
                 EnterAttack();
         }
 
-        private void StartContactApproach()
+        private void StartContactApproach(bool preserveMoveAnimation = false)
         {
             CancelPathRequest();
             _chaseTargetGrid = _target.GridPosition;
@@ -792,7 +917,9 @@ namespace Systems.MineSystem.EnemySystem.Mob.Slime.Controller
                 Vector2.Distance(
                     _view.Body.position,
                     _target.WorldPosition)));
-            ChangeState(SlimeState.Move);
+            if (!preserveMoveAnimation ||
+                _model.CurrentState != SlimeState.Move)
+                ChangeState(SlimeState.Move);
         }
 
         private void TickContactApproach()
@@ -809,8 +936,7 @@ namespace Systems.MineSystem.EnemySystem.Mob.Slime.Controller
             var currentGrid = _placement.WorldToGrid(_view.Body.position);
             if (currentGrid.Y != _target.GridPosition.Y)
             {
-                RecordCurrentReachabilityFailure();
-                EndChaseAndPatrol();
+                RefreshChaseRoute(true);
                 return;
             }
             var deltaX = _target.WorldPosition.x - _view.Body.position.x;
@@ -827,8 +953,7 @@ namespace Systems.MineSystem.EnemySystem.Mob.Slime.Controller
             if (_target.GridPosition != currentGrid &&
                 !_pathfinding.IsWalkable(forward))
             {
-                RecordCurrentReachabilityFailure();
-                EndChaseAndPatrol();
+                RefreshChaseRoute(true);
                 return;
             }
 
@@ -840,12 +965,15 @@ namespace Systems.MineSystem.EnemySystem.Mob.Slime.Controller
 
         private void EnterAttackCooldownHold()
         {
+            var preserveMoveAnimation =
+                _model.CurrentState == SlimeState.Move;
             CancelPathRequest();
             _model.SetMovementMode(SlimeMovementMode.AttackCooldownHold);
             _chaseTargetGrid = _target.GridPosition;
             _view.SetVelocity(Vector2.zero);
             FaceTarget();
-            ChangeState(SlimeState.Move);
+            if (!preserveMoveAnimation)
+                ChangeState(SlimeState.Move);
         }
 
         private void FinishMovementStep()
@@ -863,15 +991,45 @@ namespace Systems.MineSystem.EnemySystem.Mob.Slime.Controller
         private void FinishMovement()
         {
             var completedMode = _model.MovementMode;
+            if (completedMode == SlimeMovementMode.Chase &&
+                _model.PathRefreshPending)
+            {
+                _model.ClearMovementTimeout();
+                _view.SetVelocity(Vector2.zero);
+                return;
+            }
             _model.ClearPath();
             _view.SetVelocity(Vector2.zero);
             if (completedMode == SlimeMovementMode.Chase)
-                EvaluateDecision();
+                ContinueChaseFromCurrentMove();
             else
             {
                 _model.ResetPatrolFailures();
                 EnterIdle();
             }
+        }
+
+        private void ContinueChaseFromCurrentMove()
+        {
+            if (!_model.EngagementActive ||
+                !_target.IsCombatTargetAvailable ||
+                !IsWithinChaseExitRange())
+            {
+                EndChaseAndPatrol();
+                return;
+            }
+            if (IsAttackValid())
+            {
+                if (_model.AttackCooldownRemaining <= 0f)
+                    EnterAttack();
+                else
+                    EnterAttackCooldownHold();
+                return;
+            }
+            if (CanUseContactApproach())
+                StartContactApproach(true);
+            else
+                RefreshChaseRoute(true);
         }
 
         private void BeginFall(GridPosition targetPosition)
@@ -1024,8 +1182,7 @@ namespace Systems.MineSystem.EnemySystem.Mob.Slime.Controller
 
         private bool IsWithinAggroDistance() =>
             _target.IsTargetAvailable &&
-            Vector2.Distance(_view.Body.position, _target.WorldPosition) <=
-            _config.AggroDistance;
+            IsWithinWorldDistance(_config.AggroDistance);
 
         private bool IsWithinChaseExitRange() =>
             _target.IsTargetAvailable &&
@@ -1036,14 +1193,56 @@ namespace Systems.MineSystem.EnemySystem.Mob.Slime.Controller
         private bool IsAttackValid()
         {
             if (!_target.IsCombatTargetAvailable ||
-                Vector2.Distance(_view.Body.position, _target.WorldPosition) >
-                _config.AttackContactDistance)
+                !IsWithinWorldDistance(_config.AttackContactDistance))
                 return false;
             if (_config.AttackRangeInTiles <= 0)
                 return true;
             return GridDistance(
                        _placement.WorldToGrid(_view.Body.position),
                        _target.GridPosition) <= _config.AttackRangeInTiles;
+        }
+
+        private bool IsWithinWorldDistance(float distance)
+        {
+            var delta = _target.WorldPosition - _view.Body.position;
+            var safeDistance = Mathf.Max(0f, distance);
+            return delta.sqrMagnitude <= safeDistance * safeDistance;
+        }
+
+        private bool IsApproachDestinationValid(
+            GridPosition destination,
+            GridPosition targetPosition) =>
+            _pathfinding.IsWalkable(destination) &&
+            GridDistance(destination, targetPosition) <=
+            Mathf.Max(1, _config.AttackRangeInTiles);
+
+        private bool IsPathStartCompatible(
+            PathResult result,
+            GridPosition routeStart)
+        {
+            if (_model.CurrentGridPosition == routeStart)
+                return true;
+            return result.Succeeded &&
+                   result.Steps != null &&
+                   result.Steps.Count > 0 &&
+                   result.Steps[0].Position == _model.CurrentGridPosition;
+        }
+
+        private bool CanUseContactApproach()
+        {
+            var currentGrid = _placement.WorldToGrid(_view.Body.position);
+            var targetGrid = _target.GridPosition;
+            if (currentGrid.Y != targetGrid.Y)
+                return false;
+            var deltaX = _target.WorldPosition.x - _view.Body.position.x;
+            if (Mathf.Abs(deltaX) <= _config.PositionTolerance)
+                return false;
+            if (targetGrid == currentGrid)
+                return true;
+            var forward = new GridPosition(
+                currentGrid.X + (deltaX < 0f ? -1 : 1),
+                currentGrid.Y);
+            return _pathfinding.IsWalkable(forward);
         }
 
         private bool ShouldTeleport()
@@ -1310,13 +1509,23 @@ namespace Systems.MineSystem.EnemySystem.Mob.Slime.Controller
 
         private void CancelPathRequest()
         {
-            if (_pathCancellation != null)
-            {
-                _pathCancellation.Cancel();
-                _pathCancellation.Dispose();
-                _pathCancellation = null;
-            }
+            CancelPathComputation();
             _model.ClearPath();
+        }
+
+        private void CancelPendingPathRequestPreservingPath()
+        {
+            CancelPathComputation();
+            _model.CancelPendingPathRequest();
+        }
+
+        private void CancelPathComputation()
+        {
+            if (_pathCancellation == null)
+                return;
+            _pathCancellation.Cancel();
+            _pathCancellation.Dispose();
+            _pathCancellation = null;
         }
 
         private void DisposePathCancellation()

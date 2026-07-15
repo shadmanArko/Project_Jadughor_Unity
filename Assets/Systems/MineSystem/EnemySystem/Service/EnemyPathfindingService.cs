@@ -138,6 +138,7 @@ namespace Systems.MineSystem.EnemySystem.Service
                 request.Generation,
                 request.MaxFallDistanceInTiles,
                 destinations,
+                request.Destination,
                 request.OccupiedPositions,
                 cancellationToken);
         }
@@ -153,6 +154,7 @@ namespace Systems.MineSystem.EnemySystem.Service
                 request.Generation,
                 request.MaxFallDistanceInTiles,
                 request.Destinations,
+                request.PreferredDestination,
                 null,
                 cancellationToken);
         }
@@ -163,6 +165,7 @@ namespace Systems.MineSystem.EnemySystem.Service
             int generation,
             int maxFallDistanceInTiles,
             IReadOnlyList<GridPosition> destinations,
+            GridPosition preferredDestination,
             IReadOnlyCollection<GridPosition> occupiedPositions,
             CancellationToken cancellationToken)
         {
@@ -214,7 +217,10 @@ namespace Systems.MineSystem.EnemySystem.Service
             {
                 if ((expansions++ & 63) == 0)
                     cancellationToken.ThrowIfCancellationRequested();
-                var currentIndex = FindBestIndex(open, fScore);
+                var currentIndex = FindBestIndex(
+                    open,
+                    fScore,
+                    preferredDestination);
                 var current = open[currentIndex];
                 open.RemoveAt(currentIndex);
                 if (destinationSet.Contains(current))
@@ -335,17 +341,26 @@ namespace Systems.MineSystem.EnemySystem.Service
 
         private static int FindBestIndex(
             List<GridPosition> open,
-            Dictionary<GridPosition, int> scores)
+            Dictionary<GridPosition, int> scores,
+            GridPosition preferredDestination)
         {
             var bestIndex = 0;
             var bestScore = scores[open[0]];
+            var bestPreference = Heuristic(
+                open[0],
+                preferredDestination);
             for (var i = 1; i < open.Count; i++)
             {
                 var score = scores[open[i]];
-                if (score >= bestScore)
+                var preference = Heuristic(
+                    open[i],
+                    preferredDestination);
+                if (score > bestScore ||
+                    score == bestScore && preference >= bestPreference)
                     continue;
                 bestIndex = i;
                 bestScore = score;
+                bestPreference = preference;
             }
             return bestIndex;
         }

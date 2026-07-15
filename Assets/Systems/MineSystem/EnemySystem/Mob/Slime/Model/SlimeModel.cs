@@ -21,6 +21,7 @@ namespace Systems.MineSystem.EnemySystem.Mob.Slime.Model
         public int PathIndex { get; private set; }
         public int PathGeneration { get; private set; }
         public bool PathPending { get; private set; }
+        public bool PathRefreshPending { get; private set; }
         public bool WasChasing { get; private set; }
         public bool IsAggro { get; private set; }
         public SlimeMovementMode MovementMode { get; private set; }
@@ -52,6 +53,7 @@ namespace Systems.MineSystem.EnemySystem.Mob.Slime.Model
             PathIndex = 0;
             PathGeneration = 0;
             PathPending = false;
+            PathRefreshPending = false;
             WasChasing = false;
             IsAggro = false;
             MovementMode = SlimeMovementMode.None;
@@ -143,6 +145,15 @@ namespace Systems.MineSystem.EnemySystem.Mob.Slime.Model
             CachedPath = null;
             PathIndex = 0;
             PathPending = true;
+            PathRefreshPending = false;
+            return ++PathGeneration;
+        }
+
+        public int BeginPathRefresh(bool chasing)
+        {
+            WasChasing = chasing;
+            PathPending = true;
+            PathRefreshPending = true;
             return ++PathGeneration;
         }
 
@@ -151,11 +162,35 @@ namespace Systems.MineSystem.EnemySystem.Mob.Slime.Model
             if (result.Generation != PathGeneration)
                 return false;
             PathPending = false;
+            PathRefreshPending = false;
             if (result.Succeeded)
                 Destination = result.Destination;
             CachedPath = result.Succeeded ? result.Steps : null;
             PathIndex = 0;
             return true;
+        }
+
+        public bool CompletePathRefresh(PathResult result)
+        {
+            if (result.Generation != PathGeneration || !PathRefreshPending)
+                return false;
+            PathPending = false;
+            PathRefreshPending = false;
+            if (!result.Succeeded)
+                return true;
+            Destination = result.Destination;
+            CachedPath = result.Steps;
+            PathIndex = 0;
+            return true;
+        }
+
+        public void CancelPendingPathRequest()
+        {
+            if (!PathPending)
+                return;
+            PathPending = false;
+            PathRefreshPending = false;
+            PathGeneration++;
         }
 
         public EnemyPathStep? CurrentPathStep =>
@@ -177,6 +212,7 @@ namespace Systems.MineSystem.EnemySystem.Mob.Slime.Model
             CachedPath = null;
             PathIndex = 0;
             PathPending = false;
+            PathRefreshPending = false;
             PathGeneration++;
             ClearMovementTimeout();
         }
@@ -243,6 +279,7 @@ namespace Systems.MineSystem.EnemySystem.Mob.Slime.Model
             CurrentHealth = 0;
             CachedPath = null;
             PathPending = false;
+            PathRefreshPending = false;
             PathIndex = 0;
             PathGeneration++;
             AttackCooldownRemaining = 0f;

@@ -26,6 +26,7 @@ namespace Systems.MineSystem.EnemySystem.Service
             Collider2D enemyCollider,
             GridPosition enemyPosition,
             GridPosition targetPosition,
+            GridPosition preferredDestination,
             int attackRange,
             int maxFallDistanceInTiles,
             int generation,
@@ -64,6 +65,7 @@ namespace Systems.MineSystem.EnemySystem.Service
             var request = new EnemyMultiTargetPathRequest(
                 enemyPosition,
                 targetPosition,
+                preferredDestination,
                 candidates,
                 maxFallDistanceInTiles,
                 generation);
