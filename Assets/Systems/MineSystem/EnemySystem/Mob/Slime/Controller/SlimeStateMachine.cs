@@ -184,6 +184,13 @@ namespace Systems.MineSystem.EnemySystem.Mob.Slime.Controller
                 return;
             }
 
+            if (_model.CurrentState == SlimeState.Move &&
+                _model.MovementMode == SlimeMovementMode.Patrol)
+            {
+                StartPatrolCorridor(true);
+                return;
+            }
+
             CancelPathRequest();
             _view.SetVelocity(Vector2.zero);
             EnterIdle();
@@ -200,8 +207,8 @@ namespace Systems.MineSystem.EnemySystem.Mob.Slime.Controller
                 if (_model.MovementMode == SlimeMovementMode.Patrol)
                 {
                     _model.ReversePatrolDirection();
-                    CancelPathRequest();
-                    StartPatrolPath();
+                    _view.SetFacing(_model.PatrolDirection < 0);
+                    StartPatrolCorridor(true);
                 }
                 else if (IsCombatMovement())
                 {
@@ -530,7 +537,7 @@ namespace Systems.MineSystem.EnemySystem.Mob.Slime.Controller
             }
             else
             {
-                StartPatrolPath();
+                StartPatrolCorridor();
             }
         }
 
@@ -569,72 +576,144 @@ namespace Systems.MineSystem.EnemySystem.Mob.Slime.Controller
             ChangeState(SlimeState.Aggro);
         }
 
-        private void StartPatrolPath()
+        private void StartPatrolCorridor(bool preserveMoveAnimation = false)
         {
             if (_config == null)
                 return;
             CancelPathRequest();
-            _model.SetGridPosition(
-                _placement.WorldToGrid(_view.Body.position));
+            var current = _placement.WorldToGrid(_view.Body.position);
+            _model.SetGridPosition(current);
             _model.SetMovementMode(SlimeMovementMode.Patrol);
-            if (!_pathfinding.TryFindFarthestDirectional(
-                    _model.CurrentGridPosition,
-                    _model.PatrolDirection,
-                    _config.PatrolRangeInTiles,
-                    out var destination))
+            if (!_pathfinding.IsWalkable(current))
+            {
+                EnterFall();
+                return;
+            }
+            if (!_placement.TryGetPlacement(
+                    _view.TerrainCollider,
+                    current,
+                    out _))
+            {
+                StartEmergencyTeleport();
+                return;
+            }
+
+            var range = Mathf.Max(0, _config.PatrolRangeInTiles);
+            var leftCount = CountPatrolCells(current, -1, range);
+            var rightCount = CountPatrolCells(current, 1, range);
+            _model.BeginPatrolCorridor(range * 2 + 1);
+            for (var offset = -leftCount; offset <= rightCount; offset++)
+            {
+                _model.AddPatrolCorridorCell(new GridPosition(
+                    current.X + offset,
+                    current.Y));
+            }
+
+            if (!_model.StartPatrolCorridor(leftCount))
             {
                 HandlePatrolFailure();
+                return;
+            }
+
+            if (_model.PatrolCorridor.Count <= 1)
+            {
+                HandlePatrolBoundary();
                 return;
             }
 
             _model.ResetPatrolFailures();
-            RequestPatrolPath(destination);
+            if (!preserveMoveAnimation ||
+                _model.CurrentState != SlimeState.Move)
+                ChangeState(SlimeState.Move);
+            PrepareNextPatrolStep();
         }
 
-        private void RequestPatrolPath(GridPosition destination)
+        private int CountPatrolCells(
+            GridPosition origin,
+            int direction,
+            int range)
         {
-            CancelPathRequest();
-            _model.SetMovementMode(SlimeMovementMode.Patrol);
-            var generation = _model.BeginPathRequest(destination, false);
-            ChangeState(SlimeState.Move);
-            _pathCancellation = CancellationTokenSource.CreateLinkedTokenSource(
-                _lifetimeToken);
-            var request = new EnemyPathRequest(
-                _model.CurrentGridPosition,
-                destination,
-                _config.MaxFallDistanceInTiles,
-                generation,
-                false);
-            FindPatrolPathAsync(request, _pathCancellation.Token).Forget(
-                HandlePathException);
+            var count = 0;
+            for (var distance = 1; distance <= range; distance++)
+            {
+                var candidate = new GridPosition(
+                    origin.X + direction * distance,
+                    origin.Y);
+                if (!IsValidPatrolCell(candidate))
+                    break;
+                count++;
+            }
+            return count;
         }
 
-        private async UniTask FindPatrolPathAsync(
-            EnemyPathRequest request,
-            CancellationToken cancellationToken)
+        private bool IsValidPatrolCell(GridPosition position) =>
+            _pathfinding.IsWalkable(position) &&
+            _placement.TryGetPlacement(
+                _view.TerrainCollider,
+                position,
+                out _);
+
+        private void PrepareNextPatrolStep()
         {
-            var result = await _pathfinding.FindPathAsync(
-                request,
-                cancellationToken);
-            if (cancellationToken.IsCancellationRequested || _disposed)
+            if (!_model.TryGetNextPatrolStep(out var step))
+            {
+                HandlePatrolBoundary();
                 return;
-            HandlePatrolPathResult(result);
+            }
+
+            var targetPosition = _placement.GridToWorld(step.Position);
+            _model.StartMovementTimeout(GetWorldMovementTimeout(
+                Vector2.Distance(_view.Body.position, targetPosition)));
+            var horizontalDelta = targetPosition.x - _view.Body.position.x;
+            if (Mathf.Abs(horizontalDelta) <= _config.PositionTolerance)
+                return;
+            var direction = Mathf.Sign(horizontalDelta);
+            _view.SetFacing(direction < 0f);
+            _view.SetVelocity(new Vector2(
+                direction * _config.MoveSpeed,
+                _view.Body.linearVelocity.y));
         }
 
-        private void HandlePatrolPathResult(PathResult result)
+        private void HandlePatrolBoundary()
         {
-            if (_model.CurrentState != SlimeState.Move ||
-                _model.MovementMode != SlimeMovementMode.Patrol ||
-                !_model.CompletePath(result))
+            if (TryChoosePatrolFall(out var fallLanding))
+            {
+                BeginFall(fallLanding);
                 return;
-            DisposePathCancellation();
-            if (!result.Succeeded || result.Steps == null ||
-                result.Steps.Count == 0)
+            }
+
+            if (_model.PatrolCorridor.Count <= 1)
             {
                 HandlePatrolFailure();
                 return;
             }
-            _model.StartMovementTimeout(GetMovementTimeout(result.Steps));
+
+            _model.ReversePatrolDirection();
+            _view.SetFacing(_model.PatrolDirection < 0);
+            PrepareNextPatrolStep();
+        }
+
+        private bool TryChoosePatrolFall(out GridPosition landing)
+        {
+            landing = default;
+            if (Mathf.Abs(
+                    _model.CurrentGridPosition.X -
+                    _model.PatrolCorridorOrigin.X) >=
+                Mathf.Max(0, _config.PatrolRangeInTiles))
+                return false;
+            if (!_pathfinding.TryFindFallLanding(
+                    _model.CurrentGridPosition,
+                    _model.PatrolDirection,
+                    _config.MaxFallDistanceInTiles,
+                    out var candidate) ||
+                !_placement.TryGetPlacement(
+                    _view.TerrainCollider,
+                    candidate,
+                    out _) ||
+                UnityEngine.Random.value >= 0.5f)
+                return false;
+            landing = candidate;
+            return true;
         }
 
         private void RequestChaseRoute(bool aggroProbe)
@@ -844,6 +923,12 @@ namespace Systems.MineSystem.EnemySystem.Mob.Slime.Controller
                 return;
             }
 
+            if (_model.MovementMode == SlimeMovementMode.Patrol)
+            {
+                TickPatrolCorridor(deltaTime);
+                return;
+            }
+
             switch (_model.MovementMode)
             {
                 case SlimeMovementMode.AttackCooldownHold:
@@ -909,6 +994,48 @@ namespace Systems.MineSystem.EnemySystem.Mob.Slime.Controller
                 return;
             }
 
+            _view.SetFacing(direction < 0f);
+            _view.SetVelocity(new Vector2(
+                direction * _config.MoveSpeed,
+                _view.Body.linearVelocity.y));
+        }
+
+        private void TickPatrolCorridor(float deltaTime)
+        {
+            if (_model.TickMovementTimeout(deltaTime))
+            {
+                HandleMovementTimeout();
+                return;
+            }
+            if (!_model.TryGetNextPatrolStep(out var step))
+            {
+                HandlePatrolBoundary();
+                return;
+            }
+            if (!_placement.TryGetPlacement(
+                    _view.TerrainCollider,
+                    step.Position,
+                    out var targetPosition) ||
+                !_pathfinding.IsWalkable(step.Position))
+            {
+                StartPatrolCorridor(true);
+                return;
+            }
+
+            var bodyPosition = _view.Body.position;
+            var horizontalDelta = targetPosition.x - bodyPosition.x;
+            if (Mathf.Abs(horizontalDelta) <= _config.PositionTolerance)
+            {
+                if (!_model.CompletePatrolStep())
+                {
+                    HandlePatrolFailure();
+                    return;
+                }
+                PrepareNextPatrolStep();
+                return;
+            }
+
+            var direction = Mathf.Sign(horizontalDelta);
             _view.SetFacing(direction < 0f);
             _view.SetVelocity(new Vector2(
                 direction * _config.MoveSpeed,
@@ -1177,6 +1304,7 @@ namespace Systems.MineSystem.EnemySystem.Mob.Slime.Controller
         {
             var mode = _model.MovementMode;
             _model.ClearPath();
+            _model.ClearPatrolCorridor();
             _view.SetVelocity(Vector2.zero);
             if (!_placement.IsCurrentPlacementClear(_view.TerrainCollider))
                 StartEmergencyTeleport();
@@ -1186,6 +1314,8 @@ namespace Systems.MineSystem.EnemySystem.Mob.Slime.Controller
                 RecordCurrentReachabilityFailure();
                 EndChaseAndPatrol();
             }
+            else if (mode == SlimeMovementMode.Patrol)
+                HandlePatrolFailure();
             else
                 EnterIdle();
         }
@@ -1372,6 +1502,15 @@ namespace Systems.MineSystem.EnemySystem.Mob.Slime.Controller
             if (_model.CurrentGridPosition == changedPosition ||
                 _model.Destination == changedPosition)
                 return true;
+            var corridor = _model.PatrolCorridor;
+            for (var i = 0; i < corridor.Count; i++)
+            {
+                var position = corridor[i].Position;
+                if (position == changedPosition ||
+                    position.X == changedPosition.X &&
+                    position.Y - 1 == changedPosition.Y)
+                    return true;
+            }
             var path = _model.CachedPath;
             if (path != null)
             {
@@ -1531,6 +1670,7 @@ namespace Systems.MineSystem.EnemySystem.Mob.Slime.Controller
         {
             CancelPathComputation();
             _model.ClearPath();
+            _model.ClearPatrolCorridor();
         }
 
         private void CancelPendingPathRequestPreservingPath()

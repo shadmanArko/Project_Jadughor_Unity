@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Systems.MineSystem.EnemySystem.Enum;
 using Systems.MineSystem.EnemySystem.Mob.Slime.Config;
 using Systems.MineSystem.EnemySystem.Mob.Slime.Enum;
 using Systems.MineSystem.EnemySystem.Model;
@@ -10,6 +11,7 @@ namespace Systems.MineSystem.EnemySystem.Mob.Slime.Model
 {
     public sealed class SlimeModel : IDisposable
     {
+        private readonly List<EnemyPathStep> _patrolCorridor = new();
         private bool _disposed;
 
         public SlimeConfigScriptable Config { get; private set; }
@@ -19,6 +21,9 @@ namespace Systems.MineSystem.EnemySystem.Mob.Slime.Model
         public SlimeState CurrentState { get; private set; }
         public IReadOnlyList<EnemyPathStep> CachedPath { get; private set; }
         public int PathIndex { get; private set; }
+        public IReadOnlyList<EnemyPathStep> PatrolCorridor => _patrolCorridor;
+        public int PatrolCorridorIndex { get; private set; }
+        public GridPosition PatrolCorridorOrigin { get; private set; }
         public int PathGeneration { get; private set; }
         public bool PathPending { get; private set; }
         public bool PathRefreshPending { get; private set; }
@@ -51,6 +56,13 @@ namespace Systems.MineSystem.EnemySystem.Mob.Slime.Model
             CurrentState = SlimeState.Spawn;
             CachedPath = null;
             PathIndex = 0;
+            _patrolCorridor.Clear();
+            var patrolCorridorCapacity =
+                Mathf.Max(1, config.PatrolRangeInTiles * 2 + 1);
+            if (_patrolCorridor.Capacity < patrolCorridorCapacity)
+                _patrolCorridor.Capacity = patrolCorridorCapacity;
+            PatrolCorridorIndex = 0;
+            PatrolCorridorOrigin = default;
             PathGeneration = 0;
             PathPending = false;
             PathRefreshPending = false;
@@ -131,6 +143,58 @@ namespace Systems.MineSystem.EnemySystem.Mob.Slime.Model
         public void ReversePatrolDirection() =>
             PatrolDirection = PatrolDirection < 0 ? 1 : -1;
 
+        public void BeginPatrolCorridor(int minimumCapacity)
+        {
+            _patrolCorridor.Clear();
+            if (_patrolCorridor.Capacity < minimumCapacity)
+                _patrolCorridor.Capacity = minimumCapacity;
+            PatrolCorridorIndex = 0;
+        }
+
+        public void AddPatrolCorridorCell(GridPosition position) =>
+            _patrolCorridor.Add(new EnemyPathStep(
+                position,
+                EnemyPathStepType.Walk));
+
+        public bool StartPatrolCorridor(int currentIndex)
+        {
+            if (currentIndex < 0 || currentIndex >= _patrolCorridor.Count)
+                return false;
+            PatrolCorridorIndex = currentIndex;
+            CurrentGridPosition = _patrolCorridor[currentIndex].Position;
+            PatrolCorridorOrigin = CurrentGridPosition;
+            return true;
+        }
+
+        public bool TryGetNextPatrolStep(out EnemyPathStep step)
+        {
+            var nextIndex = PatrolCorridorIndex + PatrolDirection;
+            if (nextIndex < 0 || nextIndex >= _patrolCorridor.Count)
+            {
+                step = default;
+                return false;
+            }
+            step = _patrolCorridor[nextIndex];
+            return true;
+        }
+
+        public bool CompletePatrolStep()
+        {
+            var nextIndex = PatrolCorridorIndex + PatrolDirection;
+            if (nextIndex < 0 || nextIndex >= _patrolCorridor.Count)
+                return false;
+            PatrolCorridorIndex = nextIndex;
+            CurrentGridPosition = _patrolCorridor[nextIndex].Position;
+            return true;
+        }
+
+        public void ClearPatrolCorridor()
+        {
+            _patrolCorridor.Clear();
+            PatrolCorridorIndex = 0;
+            PatrolCorridorOrigin = default;
+        }
+
         public void ApplyDamage(float amount)
         {
             if (IsDead || amount <= 0f)
@@ -140,6 +204,7 @@ namespace Systems.MineSystem.EnemySystem.Mob.Slime.Model
 
         public int BeginPathRequest(GridPosition destination, bool chasing)
         {
+            ClearPatrolCorridor();
             Destination = destination;
             WasChasing = chasing;
             CachedPath = null;
@@ -278,9 +343,12 @@ namespace Systems.MineSystem.EnemySystem.Mob.Slime.Model
             Config = null;
             CurrentHealth = 0;
             CachedPath = null;
+            _patrolCorridor.Clear();
             PathPending = false;
             PathRefreshPending = false;
             PathIndex = 0;
+            PatrolCorridorIndex = 0;
+            PatrolCorridorOrigin = default;
             PathGeneration++;
             AttackCooldownRemaining = 0f;
             IsAggro = false;

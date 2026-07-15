@@ -85,62 +85,38 @@ namespace Systems.MineSystem.EnemySystem.Service
             return true;
         }
 
-        public bool TryFindFarthestDirectional(
+        public bool TryFindFallLanding(
             GridPosition origin,
             int direction,
-            int maximumDistance,
+            int maximumFallDistance,
             out GridPosition position)
         {
             position = default;
             var snapshot = _snapshot;
-            if (snapshot == null || maximumDistance <= 0)
+            if (snapshot == null || maximumFallDistance <= 0)
                 return false;
 
             var signedDirection = direction < 0 ? -1 : 1;
-            var found = false;
-            var bestHorizontalDistance = -1;
-            var bestDistance = int.MaxValue;
-            var candidates = snapshot.WalkablePositions;
-            for (var i = 0; i < candidates.Count; i++)
+            var adjacent = new GridPosition(
+                origin.X + signedDirection,
+                origin.Y);
+            if (!snapshot.OpenCells.Contains(adjacent) ||
+                snapshot.WalkableCells.Contains(adjacent))
+                return false;
+
+            for (var depth = 1; depth <= maximumFallDistance; depth++)
             {
-                var candidate = candidates[i];
-                var horizontalDistance = candidate.X - origin.X;
-                if (horizontalDistance * signedDirection <= 0)
+                var candidate = new GridPosition(
+                    adjacent.X,
+                    adjacent.Y - depth);
+                if (!snapshot.OpenCells.Contains(candidate))
+                    break;
+                if (!snapshot.WalkableCells.Contains(candidate))
                     continue;
-                var absoluteHorizontalDistance = Math.Abs(horizontalDistance);
-                var distance = absoluteHorizontalDistance +
-                               Math.Abs(candidate.Y - origin.Y);
-                if (absoluteHorizontalDistance > maximumDistance ||
-                    distance > maximumDistance)
-                    continue;
-                if (found && (absoluteHorizontalDistance < bestHorizontalDistance ||
-                              absoluteHorizontalDistance == bestHorizontalDistance &&
-                              distance >= bestDistance))
-                    continue;
-
                 position = candidate;
-                bestHorizontalDistance = absoluteHorizontalDistance;
-                bestDistance = distance;
-                found = true;
+                return true;
             }
-            return found;
-        }
-
-        public async UniTask<PathResult> FindPathAsync(
-            EnemyPathRequest request,
-            CancellationToken cancellationToken)
-        {
-            await UniTask.Yield(PlayerLoopTiming.Update, cancellationToken);
-            var destinations = new[] { request.Destination };
-            return FindPath(
-                request.Start,
-                request.Destination,
-                request.Generation,
-                request.MaxFallDistanceInTiles,
-                destinations,
-                request.Destination,
-                request.OccupiedPositions,
-                cancellationToken);
+            return false;
         }
 
         public async UniTask<PathResult> FindPathToAnyAsync(
@@ -155,7 +131,6 @@ namespace Systems.MineSystem.EnemySystem.Service
                 request.MaxFallDistanceInTiles,
                 request.Destinations,
                 request.PreferredDestination,
-                null,
                 cancellationToken);
         }
 
@@ -166,7 +141,6 @@ namespace Systems.MineSystem.EnemySystem.Service
             int maxFallDistanceInTiles,
             IReadOnlyList<GridPosition> destinations,
             GridPosition preferredDestination,
-            IReadOnlyCollection<GridPosition> occupiedPositions,
             CancellationToken cancellationToken)
         {
             var snapshot = _snapshot;
@@ -193,13 +167,6 @@ namespace Systems.MineSystem.EnemySystem.Service
                     generation,
                     "No path destination is walkable.");
             }
-
-            var occupied = occupiedPositions == null
-                ? null
-                : new HashSet<GridPosition>(occupiedPositions);
-            occupied?.Remove(start);
-            foreach (var destination in destinationSet)
-                occupied?.Remove(destination);
 
             var open = new List<GridPosition> { start };
             var closed = new HashSet<GridPosition>();
@@ -242,7 +209,7 @@ namespace Systems.MineSystem.EnemySystem.Service
                 {
                     var edge = neighbours[i];
                     var next = edge.Position;
-                    if (closed.Contains(next) || occupied?.Contains(next) == true)
+                    if (closed.Contains(next))
                         continue;
                     var tentative = gScore[current] +
                                     (edge.Type == EnemyPathStepType.Fall ? 2 : 1);

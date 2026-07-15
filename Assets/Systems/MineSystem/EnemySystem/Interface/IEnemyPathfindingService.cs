@@ -1,8 +1,8 @@
+using System;
 using System.Threading;
 using Cysharp.Threading.Tasks;
 using Systems.MineSystem.EnemySystem.Model;
 using Systems.MineSystem.Mine.Model;
-using System;
 
 namespace Systems.MineSystem.EnemySystem.Interface
 {
@@ -12,9 +12,6 @@ namespace Systems.MineSystem.EnemySystem.Interface
         int NavigationRevision { get; }
         IObservable<GridPosition> NavigationChanged { get; }
 
-        UniTask<PathResult> FindPathAsync(
-            EnemyPathRequest request,
-            CancellationToken cancellationToken);
         UniTask<PathResult> FindPathToAnyAsync(
             EnemyMultiTargetPathRequest request,
             CancellationToken cancellationToken);
@@ -26,10 +23,10 @@ namespace Systems.MineSystem.EnemySystem.Interface
             int startOffset,
             out GridPosition position);
         bool TryFindAnyWalkable(int startOffset, out GridPosition position);
-        bool TryFindFarthestDirectional(
+        bool TryFindFallLanding(
             GridPosition origin,
             int direction,
-            int maximumDistance,
+            int maximumFallDistance,
             out GridPosition position);
     }
 }
