@@ -22,7 +22,7 @@ MonoBehaviour:
     startMinute: 0
     useWallBreakTrigger: 1
     requiredBrokenCells: 10
-    enemyCount: 1
-    spawnIntervalInGameMinutes: 20
+    enemyCount: 150
+    spawnIntervalInGameMinutes: 10
   failedToSpawnDelayInGameMinutes: 10
   outsideCameraMarginInTiles: 1

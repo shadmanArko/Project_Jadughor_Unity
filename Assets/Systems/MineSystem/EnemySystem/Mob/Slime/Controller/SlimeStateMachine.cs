@@ -124,7 +124,6 @@ namespace Systems.MineSystem.EnemySystem.Mob.Slime.Controller
             if (_disposed || _pauseGate.IsPaused ||
                 _model.IsDead && _model.CurrentState != SlimeState.Death)
                 return;
-
             _model.TickCooldown(context.FixedDeltaTime);
             if (HandleTargetContextChanges())
                 return;
@@ -355,7 +354,10 @@ namespace Systems.MineSystem.EnemySystem.Mob.Slime.Controller
                 _hasObservedTarget = false;
                 _observedCombatAvailable = false;
                 _model.ResetEngagement();
-                if (hadTarget && IsCombatMovement())
+                if (hadTarget &&
+                    (IsCombatMovement() ||
+                     _model.PathPending &&
+                     _model.CurrentState == SlimeState.Idle))
                 {
                     EndChaseAndPatrol();
                     return true;
@@ -377,7 +379,9 @@ namespace Systems.MineSystem.EnemySystem.Mob.Slime.Controller
             if (_model.EngagementActive && !IsWithinChaseExitRange())
             {
                 _model.ResetEngagement();
-                if (IsCombatMovement())
+                if (IsCombatMovement() ||
+                    _model.PathPending &&
+                    _model.CurrentState == SlimeState.Idle)
                 {
                     EndChaseAndPatrol();
                     return true;
@@ -393,7 +397,9 @@ namespace Systems.MineSystem.EnemySystem.Mob.Slime.Controller
             }
 
             if (targetGridChanged || combatAvailabilityChanged)
+            {
                 _model.ClearReachabilityFailure();
+            }
 
             if (IsAnimationLockedState())
                 return false;
@@ -423,6 +429,8 @@ namespace Systems.MineSystem.EnemySystem.Mob.Slime.Controller
                 return false;
             if (_model.CurrentState == SlimeState.Idle)
             {
+                if (_model.PathPending)
+                    return false;
                 EvaluateDecision();
                 return true;
             }
@@ -517,9 +525,13 @@ namespace Systems.MineSystem.EnemySystem.Mob.Slime.Controller
             }
 
             if (ShouldTeleport())
+            {
                 StartTeleport(false);
+            }
             else
+            {
                 StartPatrolPath();
+            }
         }
 
         private void RefreshEngagement()
@@ -553,6 +565,7 @@ namespace Systems.MineSystem.EnemySystem.Mob.Slime.Controller
         {
             CancelPathRequest();
             _model.SetMovementMode(SlimeMovementMode.None);
+            FaceTarget();
             ChangeState(SlimeState.Aggro);
         }
 
@@ -626,6 +639,8 @@ namespace Systems.MineSystem.EnemySystem.Mob.Slime.Controller
 
         private void RequestChaseRoute(bool aggroProbe)
         {
+            var enterProbeIdle = aggroProbe &&
+                                 _model.CurrentState != SlimeState.Idle;
             var preferredDestination = _model.Destination;
             CancelPathRequest();
             _chaseTargetGrid = _target.GridPosition;
@@ -638,7 +653,12 @@ namespace Systems.MineSystem.EnemySystem.Mob.Slime.Controller
                 _chaseTargetGrid,
                 true);
             var routeStart = _model.CurrentGridPosition;
-            if (!aggroProbe)
+            if (enterProbeIdle)
+            {
+                _model.StartIdle(0f);
+                ChangeState(SlimeState.Idle);
+            }
+            else if (!aggroProbe)
                 ChangeState(SlimeState.Move);
             _pathCancellation = CancellationTokenSource.CreateLinkedTokenSource(
                 _lifetimeToken);

@@ -226,7 +226,6 @@ namespace Systems.MineSystem.MinePlayerSystem.Service
             if (animationEvent.Generation != _animationGeneration ||
                 animationEvent.AnimationId != ActiveAnimationId)
                 return;
-
             _markerReached.OnNext(animationEvent);
         }
 
@@ -236,7 +235,6 @@ namespace Systems.MineSystem.MinePlayerSystem.Service
             if (animationEvent.Generation != _animationGeneration ||
                 animationEvent.AnimationId != ActiveAnimationId)
                 return;
-
             CancelAction();
             _actionCompleted.OnNext(animationEvent);
         }
@@ -292,6 +290,7 @@ namespace Systems.MineSystem.MinePlayerSystem.Service
 
         private void CancelAction()
         {
+            var cancelledAnimation = _activeAnimationId ?? _requestedAnimationId;
             _requestedAction = PlayerActionState.None;
             _requestedAnimationId = null;
             _activeAnimationId = null;

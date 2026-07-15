@@ -132,7 +132,7 @@ namespace Systems.MineSystem.EnemySystem.Mob.Slime.Controller
         }
 
         public UniTask SpawnAsync(CancellationToken cancellationToken) =>
-            _stateMachine.SpawnAsync(cancellationToken);
+            SpawnWithTraceAsync(cancellationToken);
 
         public UniTask DespawnAsync(CancellationToken cancellationToken)
         {
@@ -202,6 +202,12 @@ namespace Systems.MineSystem.EnemySystem.Mob.Slime.Controller
             _pauseState.Clear();
             _model.ResetRuntime();
             _view.ResetRuntime();
+        }
+
+        private async UniTask SpawnWithTraceAsync(
+            CancellationToken cancellationToken)
+        {
+            await _stateMachine.SpawnAsync(cancellationToken);
         }
 
         public void Dispose()
