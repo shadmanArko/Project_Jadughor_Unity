@@ -1,8 +1,8 @@
+using Systems.MineSystem.EnemySystem.Mob.GreenSlime.Controller;
+using Systems.MineSystem.EnemySystem.Mob.GreenSlime.View;
 using UnityEngine;
-using Systems.MineSystem.EnemySystem.Mob.Slime.Controller;
-using Systems.MineSystem.EnemySystem.Mob.Slime.View;
 
-namespace Systems.MineSystem.EnemySystem.Mob.Slime.Model
+namespace Systems.MineSystem.EnemySystem.Mob.GreenSlime.Model
 {
     public sealed class SlimePoolEntry
     {

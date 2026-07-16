@@ -4,7 +4,7 @@ using Systems.MineSystem.EnemySystem.Enum;
 using Systems.MineSystem.EnemySystem.Interface;
 using Systems.MineSystem.Mine.Model;
 
-namespace Systems.MineSystem.EnemySystem.Mob.Slime.Service
+namespace Systems.MineSystem.EnemySystem.Mob.GreenSlime.Service
 {
     [Obsolete("EnemySpawnLocator now validates slime spawn requirements from SlimeConfigScriptable.")]
     public sealed class SlimeSpawnRule : IEnemySpawnRule

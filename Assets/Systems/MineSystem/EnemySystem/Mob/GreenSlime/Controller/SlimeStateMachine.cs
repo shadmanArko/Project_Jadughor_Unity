@@ -6,10 +6,10 @@ using Systems.MineSystem.Damage;
 using Systems.MineSystem.EnemySystem.Animation.Model;
 using Systems.MineSystem.EnemySystem.Enum;
 using Systems.MineSystem.EnemySystem.Interface;
-using Systems.MineSystem.EnemySystem.Mob.Slime.Config;
-using Systems.MineSystem.EnemySystem.Mob.Slime.Enum;
-using Systems.MineSystem.EnemySystem.Mob.Slime.Model;
-using Systems.MineSystem.EnemySystem.Mob.Slime.View;
+using Systems.MineSystem.EnemySystem.Mob.GreenSlime.Config;
+using Systems.MineSystem.EnemySystem.Mob.GreenSlime.Enum;
+using Systems.MineSystem.EnemySystem.Mob.GreenSlime.Model;
+using Systems.MineSystem.EnemySystem.Mob.GreenSlime.View;
 using Systems.MineSystem.EnemySystem.Model;
 using Systems.MineSystem.EnemySystem.Signal;
 using Systems.MineSystem.Mine.Model;
@@ -17,7 +17,7 @@ using Systems.MineSystem.PauseSystem.Service;
 using Systems.Utilities.EventBus;
 using UnityEngine;
 
-namespace Systems.MineSystem.EnemySystem.Mob.Slime.Controller
+namespace Systems.MineSystem.EnemySystem.Mob.GreenSlime.Controller
 {
     public sealed class SlimeStateMachine : IDisposable
     {

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Systems.MineSystem.EnemySystem.Mob.Slime.Model
+namespace Systems.MineSystem.EnemySystem.Mob.GreenSlime.Model
 {
     public sealed class SlimePauseStateData
     {

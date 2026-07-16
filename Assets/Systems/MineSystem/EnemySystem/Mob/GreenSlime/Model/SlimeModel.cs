@@ -1,13 +1,13 @@
 using System;
 using System.Collections.Generic;
 using Systems.MineSystem.EnemySystem.Enum;
-using Systems.MineSystem.EnemySystem.Mob.Slime.Config;
-using Systems.MineSystem.EnemySystem.Mob.Slime.Enum;
+using Systems.MineSystem.EnemySystem.Mob.GreenSlime.Config;
+using Systems.MineSystem.EnemySystem.Mob.GreenSlime.Enum;
 using Systems.MineSystem.EnemySystem.Model;
 using Systems.MineSystem.Mine.Model;
 using UnityEngine;
 
-namespace Systems.MineSystem.EnemySystem.Mob.Slime.Model
+namespace Systems.MineSystem.EnemySystem.Mob.GreenSlime.Model
 {
     public sealed class SlimeModel : IDisposable
     {

@@ -2,11 +2,11 @@ using System;
 using Systems.MineSystem.Damage;
 using Systems.MineSystem.EnemySystem.Animation.Controller;
 using Systems.MineSystem.EnemySystem.Animation.Model;
-using Systems.MineSystem.EnemySystem.Mob.Slime.Config;
+using Systems.MineSystem.EnemySystem.Mob.GreenSlime.Config;
 using UniRx;
 using UnityEngine;
 
-namespace Systems.MineSystem.EnemySystem.Mob.Slime.View
+namespace Systems.MineSystem.EnemySystem.Mob.GreenSlime.View
 {
     public sealed class SlimeView : MonoBehaviour, IDamageable
     {

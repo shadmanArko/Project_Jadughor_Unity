@@ -1,13 +1,13 @@
 using System;
 using System.Collections.Generic;
-using Systems.MineSystem.EnemySystem.Mob.Slime.Config;
-using Systems.MineSystem.EnemySystem.Mob.Slime.Controller;
-using Systems.MineSystem.EnemySystem.Mob.Slime.Model;
-using Systems.MineSystem.EnemySystem.Mob.Slime.View;
+using Systems.MineSystem.EnemySystem.Mob.GreenSlime.Config;
+using Systems.MineSystem.EnemySystem.Mob.GreenSlime.Controller;
+using Systems.MineSystem.EnemySystem.Mob.GreenSlime.Model;
+using Systems.MineSystem.EnemySystem.Mob.GreenSlime.View;
 using UnityEngine;
 using Zenject;
 
-namespace Systems.MineSystem.EnemySystem.Mob.Slime.Service
+namespace Systems.MineSystem.EnemySystem.Mob.GreenSlime.Service
 {
     public sealed class SlimePool : IInitializable, IDisposable
     {

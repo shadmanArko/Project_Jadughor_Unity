@@ -1,8 +1,8 @@
 using Systems.MineSystem.EnemySystem.Controller;
 using Systems.MineSystem.EnemySystem.Config;
 using Systems.MineSystem.EnemySystem.Interface;
-using Systems.MineSystem.EnemySystem.Mob.Slime.Config;
-using Systems.MineSystem.EnemySystem.Mob.Slime.Service;
+using Systems.MineSystem.EnemySystem.Mob.GreenSlime.Config;
+using Systems.MineSystem.EnemySystem.Mob.GreenSlime.Service;
 using Systems.MineSystem.EnemySystem.Service;
 using UnityEngine;
 using Zenject;

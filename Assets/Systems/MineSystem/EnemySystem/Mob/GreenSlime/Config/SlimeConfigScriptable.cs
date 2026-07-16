@@ -1,11 +1,11 @@
 using Systems.MineSystem.EnemySystem.Animation.Scriptable;
 using Systems.MineSystem.EnemySystem.Config;
 using Systems.MineSystem.EnemySystem.Enum;
-using Systems.MineSystem.EnemySystem.Mob.Slime.Enum;
+using Systems.MineSystem.EnemySystem.Mob.GreenSlime.Enum;
 using Systems.MineSystem.EnemySystem.Model;
 using UnityEngine;
 
-namespace Systems.MineSystem.EnemySystem.Mob.Slime.Config
+namespace Systems.MineSystem.EnemySystem.Mob.GreenSlime.Config
 {
     [CreateAssetMenu(fileName = "SlimeConfig", menuName = "Enemy/Slime Config")]
     public sealed class SlimeConfigScriptable : EnemyConfigScriptable

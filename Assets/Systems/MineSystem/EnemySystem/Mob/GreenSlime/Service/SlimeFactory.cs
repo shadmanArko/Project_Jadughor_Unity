@@ -1,12 +1,12 @@
 using System;
 using Systems.MineSystem.EnemySystem.Enum;
 using Systems.MineSystem.EnemySystem.Interface;
-using Systems.MineSystem.EnemySystem.Mob.Slime.Config;
-using Systems.MineSystem.EnemySystem.Mob.Slime.Controller;
+using Systems.MineSystem.EnemySystem.Mob.GreenSlime.Config;
+using Systems.MineSystem.EnemySystem.Mob.GreenSlime.Controller;
 using Systems.MineSystem.EnemySystem.Model;
 using UnityEngine;
 
-namespace Systems.MineSystem.EnemySystem.Mob.Slime.Service
+namespace Systems.MineSystem.EnemySystem.Mob.GreenSlime.Service
 {
     public sealed class SlimeFactory : IEnemyFactory
     {
