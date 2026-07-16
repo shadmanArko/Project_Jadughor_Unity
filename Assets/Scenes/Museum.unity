@@ -6736,6 +6736,8 @@ MonoBehaviour:
   wallpaperPixelsPerUnit: 32
   validTint: {r: 0.5, g: 1, b: 0.5, a: 1}
   invalidTint: {r: 1, g: 0.4, b: 0.4, a: 1}
+  selectionOverlayTile: {fileID: 11400000, guid: 9adc8997d1d62de479015435c6423353, type: 2}
+  floorTilemap: {fileID: 1210753204}
 --- !u!4 &1326563748
 Transform:
   m_ObjectHideFlags: 0
