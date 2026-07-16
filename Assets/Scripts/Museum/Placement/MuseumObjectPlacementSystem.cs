@@ -167,7 +167,13 @@ namespace ProjectMuseum.Builder
 
         private void OnClickBuilderCard(BuilderCardType type, string cardName)
         {
-            if (Array.IndexOf(PlaceableTypes, type) < 0) return; // flooring/wallpaper: not ours
+            if (Array.IndexOf(PlaceableTypes, type) < 0)
+            {
+                // Flooring/wallpaper card — those systems take over; drop any
+                // pending object ghost so two placement modes never run at once.
+                CancelPlacement();
+                return;
+            }
             if (_model == null || _database == null || _prefabConfig == null) return; // guarded + logged in Start
 
             if (!_database.TryGetPlacementInfo(type, cardName, out BuilderDatabase.PlacementInfo info))

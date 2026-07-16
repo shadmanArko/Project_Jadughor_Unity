@@ -6695,6 +6695,62 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2454788098664129428, guid: 4b3046c9173ac324b8f43763e0496280, type: 3}
   m_PrefabInstance: {fileID: 9023450012855666799}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1326563746
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1326563748}
+  - component: {fileID: 1326563747}
+  m_Layer: 0
+  m_Name: MuseumWallpaperSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1326563747
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1326563746}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ff28885bf77eed41bdd064290e7a48e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ProjectMuseum.Builder.MuseumWallpaperSystem
+  wallContainers:
+  - {fileID: 1316230960}
+  - {fileID: 894195578}
+  - {fileID: 1127797509}
+  - {fileID: 1749479549}
+  backWallContainers:
+  - {fileID: 1316230960}
+  - {fileID: 894195578}
+  grid: {fileID: 1779382418}
+  wallpaperPixelsPerUnit: 32
+  validTint: {r: 0.5, g: 1, b: 0.5, a: 1}
+  invalidTint: {r: 1, g: 0.4, b: 0.4, a: 1}
+--- !u!4 &1326563748
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1326563746}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1342568289
 GameObject:
   m_ObjectHideFlags: 0
@@ -7259,6 +7315,9 @@ MonoBehaviour:
   validTint: {r: 0.5, g: 1, b: 0.5, a: 1}
   invalidTint: {r: 1, g: 0.4, b: 0.4, a: 1}
   logPlacementBlocks: 1
+  rotateForwardKey: 31
+  rotateBackwardKey: 19
+  sortingSystem: {fileID: 0}
 --- !u!4 &1445255742
 Transform:
   m_ObjectHideFlags: 0
@@ -9055,3 +9114,4 @@ SceneRoots:
   - {fileID: 1362042341}
   - {fileID: 1445255742}
   - {fileID: 265223881}
+  - {fileID: 1326563748}

@@ -69,6 +69,28 @@ background wrapped together, or a content wrapper).
 - The two vending machines were renamed in `decorationShopVariations.json`
   (`vendingmachine1/2`) to match the sprite files.
 
+## Flooring placement (tile painting)
+
+`MuseumTilePlacementManager` is now **armed only by picking a Flooring card** in the
+builder panel — it does nothing until then (no accidental painting from ordinary
+clicks, no scroll-wheel tile cycling fighting the camera zoom, no number-key
+selection; those bindings were removed, selection comes solely from the panel).
+
+- Flooring card click → the manager finds the matching tile in **Available Tiles**
+  by asset name, selects it, and enters placement mode.
+- **Left-drag** paints a rectangle (unchanged); drags starting over UI are ignored.
+- **Painting is clipped to the museum itself**: only cells with a record in
+  `MuseumData.Tiles` (i.e. developed chunks) are paintable — the preview and the
+  actual paint both skip anything outside (roads/forest untouched). Expanding a
+  chunk automatically makes its cells paintable, since expansion seeds their tile
+  records. (`MuseumDataModel` is `[Inject(Optional)]`-ed into the tile manager;
+  without a Zenject context it falls back to unrestricted painting.)
+- **Right-click / Esc cancels placement mode** (it no longer erases tiles — the
+  erase code is kept unbound for a future bulldoze tool).
+- Picking a card from any OTHER category disarms tile painting, and picking a
+  Flooring card cancels a pending object ghost — only one placement mode can be
+  active at a time.
+
 ---
 
 # Phase 2 — Museum Data + Object Placement (Zenject + UniRx)
@@ -331,10 +353,45 @@ all registered walls for now) → **Save Museum** → move/remove stuff or resta
 **Load Museum** → objects respawn, floors repaint, wallpapers reapply.
 All three systems refresh via `BuilderActions.OnMuseumDataReloaded`.
 
-Wallpaper notes: every wall segment gets a `WallData` record (`container/childIndex`
-id) in `MuseumData.Walls`. Card click = apply to ALL walls (per-wall click selection
-comes later). "Clear All Wallpapers" (context menu on `MuseumWallpaperSystem`)
-restores the original sprites and saves `""`.
+### Wallpaper placement (drag-select on back walls)
+
+Every wall segment gets a `WallData` record (`container/childIndex` id) in
+`MuseumData.Walls`. Placement flow:
+
+- A **Wallpaper card** arms wallpaper mode (and disarms tile/object placement —
+  one mode at a time, in both directions).
+- **Left-drag** along the wall line selects segments: each wall is mapped to its
+  grid cell once at startup, and the drag's start→current cell rectangle decides
+  what's selected — same rectangle model as floor painting. **Only segments in
+  the `Back Wall Containers` are selectable** (assign Left Walls + Right Walls
+  there); front walls never react.
+- **A wall sprite under the pointer wins**: the drag cell comes from hit-testing
+  the back-wall sprites' renderer bounds directly — the pointed-at wall
+  contributes its own edge-tile cell. (Cell math on a wall's upper area drifts
+  diagonally with height on an isometric grid, shifting the selection ALONG the
+  wall the further you are from the back corner — hit-testing avoids that
+  entirely.) Pointers over no wall fall back to WorldToCell + nearest-museum-tile
+  snapping.
+- **A single click applies one wall** — click-release without moving makes a
+  1-cell selection, so one-by-one painting works with no separate mode.
+- **A floor overlay marks the selected walls' edge tiles** (only those) with the
+  `Selection Overlay Tile`, tinted the same green/red as the walls.
+- Selected walls **preview live**: the wallpaper sprite is swapped in with a
+  **green tint**, turning **red** when the total (price × selected count) exceeds
+  your money. Walls dropped from the selection mid-drag revert to their saved look.
+- **Release** applies: writes each wall's `WallpaperName` to data and deducts the
+  total cost — or just restores the preview if unaffordable. The mode stays armed
+  for more drags; **right-click / Esc exits**.
+- Saved wallpapers reapply on load; "Clear All Wallpapers" (context menu on
+  `MuseumWallpaperSystem`) restores original sprites and saves `""` (free).
+
+**New Inspector fields on `MuseumWallpaperSystem`:** `Back Wall Containers`
+(assign **Left Walls** and **Right Walls**), `Grid` (auto-found if empty), the
+green/red tints, **`Selection Overlay Tile`** (assign a highlight tile — e.g. the
+"tile selection" tile in `Assets/2D/Museum/Floorings`; without it the floor overlay
+is simply skipped) and **`Floor Tilemap`** (the overlay copies its sorting so it
+draws above the floor). `Wall Containers` still lists ALL four containers (fronts
+are registered/saved, just not selectable).
 
 ⚠ On `MuseumData.asset`, keep **Default Tile Variation Name EMPTY** — floor records
 then only fill in when the player actually paints, so loading never repaints your
