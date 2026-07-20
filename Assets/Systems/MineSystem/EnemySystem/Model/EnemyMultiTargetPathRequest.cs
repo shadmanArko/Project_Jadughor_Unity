@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Systems.MineSystem.EnemySystem.Enum;
 using Systems.MineSystem.Mine.Model;
 
 namespace Systems.MineSystem.EnemySystem.Model
@@ -9,6 +10,7 @@ namespace Systems.MineSystem.EnemySystem.Model
         public readonly GridPosition Target;
         public readonly GridPosition PreferredDestination;
         public readonly IReadOnlyList<GridPosition> Destinations;
+        public readonly EnemyMovementType MovementType;
         public readonly int MaxFallDistanceInTiles;
         public readonly int Generation;
 
@@ -17,6 +19,7 @@ namespace Systems.MineSystem.EnemySystem.Model
             GridPosition target,
             GridPosition preferredDestination,
             IReadOnlyList<GridPosition> destinations,
+            EnemyMovementType movementType,
             int maxFallDistanceInTiles,
             int generation)
         {
@@ -24,6 +27,7 @@ namespace Systems.MineSystem.EnemySystem.Model
             Target = target;
             PreferredDestination = preferredDestination;
             Destinations = destinations;
+            MovementType = movementType;
             MaxFallDistanceInTiles = maxFallDistanceInTiles;
             Generation = generation;
         }

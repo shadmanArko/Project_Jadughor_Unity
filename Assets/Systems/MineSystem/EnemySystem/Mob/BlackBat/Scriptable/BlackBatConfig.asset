@@ -1,0 +1,52 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8975d9cd0ec04de0aca4b0d1a56bf8b6, type: 3}
+  m_Name: BlackBatConfig
+  m_EditorClassIdentifier: 
+  enemyType: 3
+  prefab: {fileID: 352435996961337015, guid: 95d316bcf492a3245949ca987645ec24, type: 3}
+  maxHealth: 15
+  damage: 5
+  moveSpeed: 0.25
+  aggroRangeInTiles: 6
+  attackRangeInTiles: 0
+  attackCooldown: 1
+  movementType: 1
+  minimumSpawnDistanceInTiles: 0
+  maximumSpawnDistanceInTiles: 0
+  requiresSolidGroundBelow: 0
+  requiresPathValidation: 1
+  requiresPlacementValidation: 1
+  allowCameraVisibleWaveSpawn: 1
+  batVariant: 3
+  animationProfile: {fileID: 11400000, guid: cb974c4fb20243fcaeba2a7cba6bb011, type: 2}
+  batColor: {r: 1, g: 1, b: 1, a: 1}
+  exploreRangeInTiles: 5
+  destinationRetries: 6
+  idleChance: 0.25
+  minimumIdleDuration: 1.5
+  maximumIdleDuration: 3
+  decisionRetryDelay: 0.5
+  positionTolerance: 0.01
+  movementStuckBufferSeconds: 0.75
+  minimumMovementTimeoutSeconds: 0.5
+  flightWobbleAmplitude: 0.015
+  flightWobbleCyclesPerCell: 1
+  perchCeilingClearance: 0.01
+  chaseExitRangeInTiles: 8
+  attackContactDistance: 0.1
+  enableCombatDiagnosticLogs: 0
+  combatDiagnosticLogInterval: 0.1
+  statusEffectType: 0
+  statusEffectDuration: 0
+  statusEffectPower: 0
+  initialPoolSize: 4

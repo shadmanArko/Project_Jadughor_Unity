@@ -9,6 +9,7 @@ namespace Systems.MineSystem.EnemySystem.Interface
         bool IsCombatTargetAvailable { get; }
         GridPosition GridPosition { get; }
         Vector2 WorldPosition { get; }
+        Vector2 BodyPosition { get; }
         bool IsTargetCollider(Collider2D collider);
     }
 }

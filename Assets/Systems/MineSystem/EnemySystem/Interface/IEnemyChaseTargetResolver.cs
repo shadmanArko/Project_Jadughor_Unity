@@ -1,5 +1,6 @@
 using System.Threading;
 using Cysharp.Threading.Tasks;
+using Systems.MineSystem.EnemySystem.Enum;
 using Systems.MineSystem.EnemySystem.Model;
 using Systems.MineSystem.Mine.Model;
 using UnityEngine;
@@ -14,6 +15,7 @@ namespace Systems.MineSystem.EnemySystem.Interface
             GridPosition targetPosition,
             GridPosition preferredDestination,
             int attackRange,
+            EnemyMovementType movementType,
             int maxFallDistanceInTiles,
             int generation,
             CancellationToken cancellationToken);

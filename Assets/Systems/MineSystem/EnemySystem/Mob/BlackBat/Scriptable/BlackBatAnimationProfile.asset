@@ -1,0 +1,133 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56eff51822024aed8ee5aa1dfa989e58, type: 3}
+  m_Name: BlackBatAnimationProfile
+  m_EditorClassIdentifier: 
+  animatorController: {fileID: 9100000, guid: 731bb09cd2d8caa42a669c42b12fa6fc, type: 2}
+  visualScale: {x: 1, y: 1}
+  visualOffset: {x: 0, y: 0}
+  animations:
+  - id: Bat.Fly
+    stateName: BlackBat_Fly
+    triggerName: 
+    animationSprites:
+    - {fileID: 8647823593821616703, guid: 4be0664b4f3eb5e49baf97f5748afc21, type: 3}
+    - {fileID: 5681806813702538305, guid: 4be0664b4f3eb5e49baf97f5748afc21, type: 3}
+    - {fileID: 697682191857345388, guid: 4be0664b4f3eb5e49baf97f5748afc21, type: 3}
+    speed: 1
+    playOnlyOnce: 0
+    flipX: 0
+    flipY: 0
+    allowFacingFlip: 1
+  - id: Bat.Attack
+    stateName: BlackBat_Attack
+    triggerName: 
+    animationSprites:
+    - {fileID: 6590739670165648896, guid: 4be0664b4f3eb5e49baf97f5748afc21, type: 3}
+    - {fileID: -6348258333912099751, guid: 4be0664b4f3eb5e49baf97f5748afc21, type: 3}
+    - {fileID: -5411109064892021778, guid: 4be0664b4f3eb5e49baf97f5748afc21, type: 3}
+    - {fileID: -7470344420229058695, guid: 4be0664b4f3eb5e49baf97f5748afc21, type: 3}
+    - {fileID: -6039392932763703690, guid: 4be0664b4f3eb5e49baf97f5748afc21, type: 3}
+    - {fileID: -5738858406084355967, guid: 4be0664b4f3eb5e49baf97f5748afc21, type: 3}
+    speed: 1
+    playOnlyOnce: 1
+    flipX: 0
+    flipY: 0
+    allowFacingFlip: 1
+  - id: Bat.Death
+    stateName: BlackBat_Death
+    triggerName: 
+    animationSprites:
+    - {fileID: 3222142716812523357, guid: 4be0664b4f3eb5e49baf97f5748afc21, type: 3}
+    - {fileID: -2944012332078822006, guid: 4be0664b4f3eb5e49baf97f5748afc21, type: 3}
+    - {fileID: 8142801067006201749, guid: 4be0664b4f3eb5e49baf97f5748afc21, type: 3}
+    - {fileID: -1594920418126068342, guid: 4be0664b4f3eb5e49baf97f5748afc21, type: 3}
+    - {fileID: 9097249214087563603, guid: 4be0664b4f3eb5e49baf97f5748afc21, type: 3}
+    - {fileID: 919936399540038682, guid: 4be0664b4f3eb5e49baf97f5748afc21, type: 3}
+    - {fileID: 6077607258172414090, guid: 4be0664b4f3eb5e49baf97f5748afc21, type: 3}
+    - {fileID: 1341607066, guid: 4be0664b4f3eb5e49baf97f5748afc21, type: 3}
+    speed: 1
+    playOnlyOnce: 1
+    flipX: 0
+    flipY: 0
+    allowFacingFlip: 1
+  - id: Bat.FlyToIdle
+    stateName: BlackBat_FlyToIdle
+    triggerName: 
+    animationSprites:
+    - {fileID: 6993031405965254486, guid: 4be0664b4f3eb5e49baf97f5748afc21, type: 3}
+    - {fileID: -8835117555573905559, guid: 4be0664b4f3eb5e49baf97f5748afc21, type: 3}
+    - {fileID: -1477298914128971197, guid: 4be0664b4f3eb5e49baf97f5748afc21, type: 3}
+    - {fileID: -1085711696175172977, guid: 4be0664b4f3eb5e49baf97f5748afc21, type: 3}
+    - {fileID: -650004520372281371, guid: 4be0664b4f3eb5e49baf97f5748afc21, type: 3}
+    - {fileID: 5596611908343470214, guid: 4be0664b4f3eb5e49baf97f5748afc21, type: 3}
+    - {fileID: -2103701215377653077, guid: 4be0664b4f3eb5e49baf97f5748afc21, type: 3}
+    speed: 1
+    playOnlyOnce: 1
+    flipX: 0
+    flipY: 0
+    allowFacingFlip: 1
+  - id: Bat.IdleToFly
+    stateName: BlackBat_IdleToFly
+    triggerName: 
+    animationSprites:
+    - {fileID: -9149983406214727455, guid: 4be0664b4f3eb5e49baf97f5748afc21, type: 3}
+    - {fileID: 8822500520823344939, guid: 4be0664b4f3eb5e49baf97f5748afc21, type: 3}
+    - {fileID: 8094889547237836083, guid: 4be0664b4f3eb5e49baf97f5748afc21, type: 3}
+    - {fileID: 3715899403775863448, guid: 4be0664b4f3eb5e49baf97f5748afc21, type: 3}
+    - {fileID: 4419668502950860722, guid: 4be0664b4f3eb5e49baf97f5748afc21, type: 3}
+    - {fileID: -3428020802489031309, guid: 4be0664b4f3eb5e49baf97f5748afc21, type: 3}
+    - {fileID: 6413210283945640860, guid: 4be0664b4f3eb5e49baf97f5748afc21, type: 3}
+    speed: 1
+    playOnlyOnce: 1
+    flipX: 0
+    flipY: 0
+    allowFacingFlip: 1
+  - id: Bat.Hurt
+    stateName: BlackBat_Hurt
+    triggerName: 
+    animationSprites:
+    - {fileID: -7588931421162680773, guid: 4be0664b4f3eb5e49baf97f5748afc21, type: 3}
+    - {fileID: 3565646450698540321, guid: 4be0664b4f3eb5e49baf97f5748afc21, type: 3}
+    - {fileID: 925038087268274908, guid: 4be0664b4f3eb5e49baf97f5748afc21, type: 3}
+    - {fileID: 1150701199, guid: 4be0664b4f3eb5e49baf97f5748afc21, type: 3}
+    - {fileID: 8381111290613614903, guid: 4be0664b4f3eb5e49baf97f5748afc21, type: 3}
+    - {fileID: -4818874195688012542, guid: 4be0664b4f3eb5e49baf97f5748afc21, type: 3}
+    - {fileID: 1150701199, guid: 4be0664b4f3eb5e49baf97f5748afc21, type: 3}
+    - {fileID: -2340803120497525164, guid: 4be0664b4f3eb5e49baf97f5748afc21, type: 3}
+    - {fileID: -1221191594444246648, guid: 4be0664b4f3eb5e49baf97f5748afc21, type: 3}
+    speed: 1
+    playOnlyOnce: 1
+    flipX: 0
+    flipY: 0
+    allowFacingFlip: 1
+  - id: Bat.Idle
+    stateName: BlackBat_Idle
+    triggerName: 
+    animationSprites:
+    - {fileID: 636376364274910095, guid: 4be0664b4f3eb5e49baf97f5748afc21, type: 3}
+    - {fileID: -965035411968596688, guid: 4be0664b4f3eb5e49baf97f5748afc21, type: 3}
+    - {fileID: -6781473042538108321, guid: 4be0664b4f3eb5e49baf97f5748afc21, type: 3}
+    - {fileID: 8476314799577297979, guid: 4be0664b4f3eb5e49baf97f5748afc21, type: 3}
+    - {fileID: 8386449994443669121, guid: 4be0664b4f3eb5e49baf97f5748afc21, type: 3}
+    - {fileID: 3982818449607943672, guid: 4be0664b4f3eb5e49baf97f5748afc21, type: 3}
+    - {fileID: 3664911899813782918, guid: 4be0664b4f3eb5e49baf97f5748afc21, type: 3}
+    - {fileID: -1021941671003581890, guid: 4be0664b4f3eb5e49baf97f5748afc21, type: 3}
+    - {fileID: 1285177925801542959, guid: 4be0664b4f3eb5e49baf97f5748afc21, type: 3}
+    - {fileID: 6861374075263083035, guid: 4be0664b4f3eb5e49baf97f5748afc21, type: 3}
+    - {fileID: -1067094163387811327, guid: 4be0664b4f3eb5e49baf97f5748afc21, type: 3}
+    - {fileID: -8337001276912124118, guid: 4be0664b4f3eb5e49baf97f5748afc21, type: 3}
+    speed: 1
+    playOnlyOnce: 0
+    flipX: 0
+    flipY: 0
+    allowFacingFlip: 1

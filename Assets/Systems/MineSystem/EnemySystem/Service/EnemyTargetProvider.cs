@@ -33,6 +33,11 @@ namespace Systems.MineSystem.EnemySystem.Service
 
         public Vector2 WorldPosition => _runtime.worldPosition.Value;
 
+        public Vector2 BodyPosition => _playerView != null &&
+                                       _playerView.Body != null
+            ? _playerView.Body.position
+            : WorldPosition;
+
         public bool IsTargetCollider(Collider2D collider) =>
             collider != null && _playerView != null &&
             (collider == _playerView.PlayerCollider ||

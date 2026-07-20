@@ -6,7 +6,9 @@ using Systems.MineSystem.Mine.Enum;
 using Systems.MineSystem.Mine.Service.MineArtifactService.Test;
 using Systems.MineSystem.Mine.Service.MineResourceService.Service;
 using Systems.MineSystem.Mine.Service.VisualizerService;
+using Systems.MineSystem.Mine.Signal;
 using Systems.MineSystem.MinePlayerSystem.Scriptable;
+using Systems.Utilities.EventBus;
 using UniRx;
 using UnityEngine;
 using Zenject;
@@ -252,18 +254,23 @@ namespace Systems.MineSystem.Mine.Model
                 }
 
                 var revealedCells = new HashSet<Cell>();
+                var revealedCaveIds = new HashSet<string>();
                 
                 cell.IsRevealed = true;
                 revealedCells.Add(cell);
 
-                RevealAdjacentCells(cellPos, revealedCells);
+                RevealAdjacentCells(
+                    cellPos,
+                    revealedCells,
+                    revealedCaveIds);
 
                 if (!string.IsNullOrEmpty(cell.CaveId))
                     _caveVisualizerService.TryRevealCave(
                         cell,
                         MineData.Value,
                         revealedCells,
-                        _adjacentBrokenEdges.Keys);
+                        _adjacentBrokenEdges.Keys,
+                        revealedCaveIds);
                 
                 RegisterBrokenCells(revealedCells);
 
@@ -273,6 +280,9 @@ namespace Systems.MineSystem.Mine.Model
                     c.BrokenSides = CalculateBrokenEdges(c.GetPosition());
                     _onCellModified.OnNext(c);
                 }
+
+                foreach (var caveId in revealedCaveIds)
+                    GlobalEventBus.Fire(new CaveRevealedSignal(caveId));
             }
             
             //TODO: make resource, artifact null after spawning those as items
@@ -285,7 +295,10 @@ namespace Systems.MineSystem.Mine.Model
                 _onCellModified.OnNext(cell);
         }
 
-        private void RevealAdjacentCells(Vector3Int cellPos, HashSet<Cell> revealedCells)
+        private void RevealAdjacentCells(
+            Vector3Int cellPos,
+            HashSet<Cell> revealedCells,
+            ISet<string> revealedCaveIds)
         {
             foreach (var adjacentCell in _adjacentBrokenEdges.Keys.Select(offset => 
                          cellPos + offset).Select(adjacentCellPos => 
@@ -302,7 +315,8 @@ namespace Systems.MineSystem.Mine.Model
                             adjacentCell,
                             MineData.Value,
                             revealedCells,
-                            _adjacentBrokenEdges.Keys);
+                            _adjacentBrokenEdges.Keys,
+                            revealedCaveIds);
                 }
                 else
                     revealedCells.Add(adjacentCell);

@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Systems.MineSystem.EnemySystem.Config;
+using Systems.MineSystem.EnemySystem.Enum;
 using Systems.MineSystem.EnemySystem.Interface;
 using Systems.MineSystem.EnemySystem.Model;
 using Systems.MineSystem.Mine.Model;
@@ -239,7 +240,7 @@ namespace Systems.MineSystem.EnemySystem.Service
             }
 
             if (request.Config.RequiresPathValidation &&
-                !_pathfinding.IsWalkable(position))
+                !IsNavigationValid(position, request.Config.MovementType))
             {
                 rejection = RejectPath;
                 return false;
@@ -392,5 +393,12 @@ namespace Systems.MineSystem.EnemySystem.Service
             }
             return true;
         }
+
+        private bool IsNavigationValid(
+            GridPosition position,
+            EnemyMovementType movementType) =>
+            movementType == EnemyMovementType.Flying
+                ? _pathfinding.IsFlyable(position)
+                : _pathfinding.IsWalkable(position);
     }
 }

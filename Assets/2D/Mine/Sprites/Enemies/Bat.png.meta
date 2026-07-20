@@ -1581,6 +1581,28 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Bat_59
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ce87a392384d5a43a8d99dc1bc1f5d8
+      internalID: 1150701199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
@@ -1652,6 +1674,7 @@ TextureImporter:
       Bat_56: 919936399540038682
       Bat_57: 6077607258172414090
       Bat_58: 1341607066
+      Bat_59: 1150701199
       Bat_6: -1085711696175172977
       Bat_7: -650004520372281371
       Bat_8: 5596611908343470214

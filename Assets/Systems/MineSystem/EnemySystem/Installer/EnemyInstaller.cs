@@ -1,6 +1,9 @@
 using Systems.MineSystem.EnemySystem.Controller;
 using Systems.MineSystem.EnemySystem.Config;
 using Systems.MineSystem.EnemySystem.Interface;
+using Systems.MineSystem.EnemySystem.Mob.BlackBat.Config;
+using Systems.MineSystem.EnemySystem.Mob.BlackBat.Controller;
+using Systems.MineSystem.EnemySystem.Mob.BlackBat.Service;
 using Systems.MineSystem.EnemySystem.Mob.GreenSlime.Config;
 using Systems.MineSystem.EnemySystem.Mob.GreenSlime.Service;
 using Systems.MineSystem.EnemySystem.Service;
@@ -13,6 +16,7 @@ namespace Systems.MineSystem.EnemySystem.Installer
     public sealed class EnemyInstaller : ScriptableObjectInstaller<EnemyInstaller>
     {
         [SerializeField] private SlimeConfigScriptable greenSlimeConfig;
+        [SerializeField] private BatConfigScriptable blackBatConfig;
         [SerializeField] private EnemyWaveConfig enemyWaveConfig;
 
         public override void InstallBindings()
@@ -22,6 +26,12 @@ namespace Systems.MineSystem.EnemySystem.Installer
                     "EnemyInstaller requires GreenSlimeConfig.");
             Container.Bind<SlimeConfigScriptable>()
                 .FromScriptableObject(greenSlimeConfig)
+                .AsSingle();
+            if (blackBatConfig == null)
+                throw new System.InvalidOperationException(
+                    "EnemyInstaller requires BlackBatConfig.");
+            Container.Bind<BatConfigScriptable>()
+                .FromScriptableObject(blackBatConfig)
                 .AsSingle();
             if (enemyWaveConfig == null)
                 throw new System.InvalidOperationException(
@@ -43,10 +53,14 @@ namespace Systems.MineSystem.EnemySystem.Installer
             Container.BindInterfacesAndSelfTo<EnemyPathfindingService>()
                 .AsSingle();
             Container.Bind<EnemySpawnCandidateService>().AsSingle();
+            Container.Bind<BatNavigationService>().AsSingle();
 
             Container.BindInterfacesAndSelfTo<SlimePool>().AsSingle();
             Container.Bind<IEnemyFactory>()
                 .To<SlimeFactory>().AsSingle();
+            Container.BindInterfacesAndSelfTo<BatPool>().AsSingle();
+            Container.Bind<IEnemyFactory>()
+                .To<BatFactory>().AsSingle();
 
             Container.Bind<EnemyFactoryRegistry>().AsSingle();
             Container.Bind<EnemySpawnLocator>().AsSingle();
@@ -55,6 +69,9 @@ namespace Systems.MineSystem.EnemySystem.Installer
                 .AsSingle()
                 .NonLazy();
             Container.BindInterfacesAndSelfTo<EnemyManager>()
+                .AsSingle()
+                .NonLazy();
+            Container.BindInterfacesAndSelfTo<BatCaveSpawnController>()
                 .AsSingle()
                 .NonLazy();
         }

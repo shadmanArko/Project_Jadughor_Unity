@@ -9,6 +9,7 @@ namespace Systems.MineSystem.EnemySystem.Interface
     public interface IEnemyPathfindingService
     {
         int WalkableCount { get; }
+        int FlyableCount { get; }
         int NavigationRevision { get; }
         IObservable<GridPosition> NavigationChanged { get; }
 
@@ -16,6 +17,7 @@ namespace Systems.MineSystem.EnemySystem.Interface
             EnemyMultiTargetPathRequest request,
             CancellationToken cancellationToken);
         bool IsWalkable(GridPosition position);
+        bool IsFlyable(GridPosition position);
         bool TryFindWalkableNear(
             GridPosition origin,
             int minimumDistance,
@@ -23,6 +25,13 @@ namespace Systems.MineSystem.EnemySystem.Interface
             int startOffset,
             out GridPosition position);
         bool TryFindAnyWalkable(int startOffset, out GridPosition position);
+        bool TryFindFlyableNear(
+            GridPosition origin,
+            int minimumDistance,
+            int maximumDistance,
+            int startOffset,
+            out GridPosition position);
+        bool TryFindAnyFlyable(int startOffset, out GridPosition position);
         bool TryFindFallLanding(
             GridPosition origin,
             int direction,

@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading;
 using Cysharp.Threading.Tasks;
+using Systems.MineSystem.EnemySystem.Enum;
 using Systems.MineSystem.EnemySystem.Interface;
 using Systems.MineSystem.EnemySystem.Model;
 using Systems.MineSystem.Mine.Model;
@@ -28,6 +29,7 @@ namespace Systems.MineSystem.EnemySystem.Service
             GridPosition targetPosition,
             GridPosition preferredDestination,
             int attackRange,
+            EnemyMovementType movementType,
             int maxFallDistanceInTiles,
             int generation,
             CancellationToken cancellationToken)
@@ -35,7 +37,10 @@ namespace Systems.MineSystem.EnemySystem.Service
             var range = Math.Max(0, attackRange);
             var candidates = new List<GridPosition>(
                 1 + range * (range + 1) * 2);
-            if (IsCandidateValid(enemyCollider, targetPosition))
+            if (IsCandidateValid(
+                    enemyCollider,
+                    targetPosition,
+                    movementType))
                 candidates.Add(targetPosition);
 
             for (var y = -range; y <= range; y++)
@@ -48,7 +53,10 @@ namespace Systems.MineSystem.EnemySystem.Service
                     var candidate = new GridPosition(
                         targetPosition.X + x,
                         targetPosition.Y + y);
-                    if (!IsCandidateValid(enemyCollider, candidate))
+                    if (!IsCandidateValid(
+                            enemyCollider,
+                            candidate,
+                            movementType))
                         continue;
                     candidates.Add(candidate);
                 }
@@ -67,6 +75,7 @@ namespace Systems.MineSystem.EnemySystem.Service
                 targetPosition,
                 preferredDestination,
                 candidates,
+                movementType,
                 maxFallDistanceInTiles,
                 generation);
             return _pathfinding.FindPathToAnyAsync(request, cancellationToken);
@@ -74,8 +83,11 @@ namespace Systems.MineSystem.EnemySystem.Service
 
         private bool IsCandidateValid(
             Collider2D enemyCollider,
-            GridPosition candidate) =>
-            _pathfinding.IsWalkable(candidate) &&
+            GridPosition candidate,
+            EnemyMovementType movementType) =>
+            (movementType == EnemyMovementType.Flying
+                ? _pathfinding.IsFlyable(candidate)
+                : _pathfinding.IsWalkable(candidate)) &&
             _placement.TryGetPlacement(enemyCollider, candidate, out _);
     }
 }

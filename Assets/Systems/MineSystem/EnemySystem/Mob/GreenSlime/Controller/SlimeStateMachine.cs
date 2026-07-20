@@ -808,6 +808,7 @@ namespace Systems.MineSystem.EnemySystem.Mob.GreenSlime.Controller
                 targetGrid,
                 preferredDestination,
                 Mathf.Max(1, _config.AttackRangeInTiles),
+                EnemyMovementType.Grounded,
                 _config.MaxFallDistanceInTiles,
                 generation,
                 cancellationToken);

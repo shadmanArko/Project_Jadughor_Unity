@@ -41,7 +41,12 @@ namespace Systems.MineSystem.EnemySystem.Service
         public bool IsWalkable(GridPosition position) =>
             _snapshot != null && _snapshot.WalkableCells.Contains(position);
 
+        public bool IsFlyable(GridPosition position) =>
+            _snapshot != null && _snapshot.OpenCells.Contains(position);
+
         public int WalkableCount => _snapshot?.WalkablePositions.Count ?? 0;
+
+        public int FlyableCount => _snapshot?.OpenPositions.Count ?? 0;
 
         public int NavigationRevision => _navigationRevision;
 
@@ -81,6 +86,48 @@ namespace Systems.MineSystem.EnemySystem.Service
                 return false;
 
             var candidates = snapshot.WalkablePositions;
+            position = candidates[NormalizeStart(startOffset, candidates.Count)];
+            return true;
+        }
+
+        public bool TryFindFlyableNear(
+            GridPosition origin,
+            int minimumDistance,
+            int maximumDistance,
+            int startOffset,
+            out GridPosition position)
+        {
+            position = default;
+            var snapshot = _snapshot;
+            if (snapshot == null ||
+                snapshot.OpenPositions.Count == 0 ||
+                maximumDistance < minimumDistance)
+                return false;
+
+            var candidates = snapshot.OpenPositions;
+            var start = NormalizeStart(startOffset, candidates.Count);
+            for (var i = 0; i < candidates.Count; i++)
+            {
+                var candidate = candidates[(start + i) % candidates.Count];
+                var distance = Heuristic(candidate, origin);
+                if (distance < minimumDistance || distance > maximumDistance)
+                    continue;
+                position = candidate;
+                return true;
+            }
+            return false;
+        }
+
+        public bool TryFindAnyFlyable(
+            int startOffset,
+            out GridPosition position)
+        {
+            position = default;
+            var snapshot = _snapshot;
+            if (snapshot == null || snapshot.OpenPositions.Count == 0)
+                return false;
+
+            var candidates = snapshot.OpenPositions;
             position = candidates[NormalizeStart(startOffset, candidates.Count)];
             return true;
         }
@@ -128,6 +175,7 @@ namespace Systems.MineSystem.EnemySystem.Service
                 request.Start,
                 request.Target,
                 request.Generation,
+                request.MovementType,
                 request.MaxFallDistanceInTiles,
                 request.Destinations,
                 request.PreferredDestination,
@@ -138,14 +186,18 @@ namespace Systems.MineSystem.EnemySystem.Service
             GridPosition start,
             GridPosition fallbackDestination,
             int generation,
+            EnemyMovementType movementType,
             int maxFallDistanceInTiles,
             IReadOnlyList<GridPosition> destinations,
             GridPosition preferredDestination,
             CancellationToken cancellationToken)
         {
             var snapshot = _snapshot;
-            if (snapshot == null ||
-                !snapshot.WalkableCells.Contains(start) ||
+            var navigationCells = movementType == EnemyMovementType.Flying
+                ? snapshot?.OpenCells
+                : snapshot?.WalkableCells;
+            if (snapshot == null || navigationCells == null ||
+                !navigationCells.Contains(start) ||
                 destinations == null || destinations.Count == 0)
             {
                 return PathResult.Failure(
@@ -157,7 +209,7 @@ namespace Systems.MineSystem.EnemySystem.Service
             var destinationSet = new HashSet<GridPosition>();
             for (var i = 0; i < destinations.Count; i++)
             {
-                if (snapshot.WalkableCells.Contains(destinations[i]))
+                if (navigationCells.Contains(destinations[i]))
                     destinationSet.Add(destinations[i]);
             }
             if (destinationSet.Count == 0)
@@ -203,6 +255,7 @@ namespace Systems.MineSystem.EnemySystem.Service
                 AddNeighbours(
                     snapshot,
                     current,
+                    movementType,
                     maxFallDistanceInTiles,
                     neighbours);
                 for (var i = 0; i < neighbours.Count; i++)
@@ -280,9 +333,19 @@ namespace Systems.MineSystem.EnemySystem.Service
         private static void AddNeighbours(
             EnemyNavigationSnapshot snapshot,
             GridPosition current,
+            EnemyMovementType movementType,
             int maxFall,
             List<EnemyPathStep> output)
         {
+            if (movementType == EnemyMovementType.Flying)
+            {
+                AddFlyingNeighbour(snapshot, current, -1, 0, output);
+                AddFlyingNeighbour(snapshot, current, 1, 0, output);
+                AddFlyingNeighbour(snapshot, current, 0, -1, output);
+                AddFlyingNeighbour(snapshot, current, 0, 1, output);
+                return;
+            }
+
             for (var direction = -1; direction <= 1; direction += 2)
             {
                 var horizontal = new GridPosition(current.X + direction, current.Y);
@@ -303,6 +366,24 @@ namespace Systems.MineSystem.EnemySystem.Service
                     output.Add(new EnemyPathStep(fall, EnemyPathStepType.Fall));
                     break;
                 }
+            }
+        }
+
+        private static void AddFlyingNeighbour(
+            EnemyNavigationSnapshot snapshot,
+            GridPosition current,
+            int offsetX,
+            int offsetY,
+            List<EnemyPathStep> output)
+        {
+            var candidate = new GridPosition(
+                current.X + offsetX,
+                current.Y + offsetY);
+            if (snapshot.OpenCells.Contains(candidate))
+            {
+                output.Add(new EnemyPathStep(
+                    candidate,
+                    EnemyPathStepType.Fly));
             }
         }
 
