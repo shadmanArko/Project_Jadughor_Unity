@@ -16,7 +16,7 @@ MonoBehaviour:
   prefab: {fileID: 352435996961337015, guid: 95d316bcf492a3245949ca987645ec24, type: 3}
   maxHealth: 15
   damage: 5
-  moveSpeed: 0.25
+  moveSpeed: 0.4
   aggroRangeInTiles: 6
   attackRangeInTiles: 0
   attackCooldown: 1
@@ -32,18 +32,22 @@ MonoBehaviour:
   batColor: {r: 1, g: 1, b: 1, a: 1}
   exploreRangeInTiles: 5
   destinationRetries: 6
-  idleChance: 0.25
-  minimumIdleDuration: 1.5
-  maximumIdleDuration: 3
+  idleChance: 0.6
+  minimumIdleDuration: 5
+  maximumIdleDuration: 8
+  idleCooldownSeconds: 5
   decisionRetryDelay: 0.5
+  chaseSpeed: 0.4
   positionTolerance: 0.01
   movementStuckBufferSeconds: 0.75
   minimumMovementTimeoutSeconds: 0.5
-  flightWobbleAmplitude: 0.015
+  flightWobbleAmplitude: 0.02
   flightWobbleCyclesPerCell: 1
   perchCeilingClearance: 0.01
   chaseExitRangeInTiles: 8
   attackContactDistance: 0.1
+  enableAiTraceLogs: 1
+  movementStallTimeoutSeconds: 1
   enableCombatDiagnosticLogs: 0
   combatDiagnosticLogInterval: 0.1
   statusEffectType: 0

@@ -22,9 +22,11 @@ namespace Systems.MineSystem.EnemySystem.Mob.BlackBat.Config
         [Range(0f, 1f)] [SerializeField] private float idleChance = 0.25f;
         [Min(0f)] [SerializeField] private float minimumIdleDuration = 1.5f;
         [Min(0f)] [SerializeField] private float maximumIdleDuration = 3f;
+        [Min(0f)] [SerializeField] private float idleCooldownSeconds = 5f;
         [Min(0f)] [SerializeField] private float decisionRetryDelay = 0.5f;
 
         [Header("Flight")]
+        [Min(0.01f)] [SerializeField] private float chaseSpeed = 0.4f;
         [Min(0.001f)] [SerializeField] private float positionTolerance = 0.01f;
         [Min(0f)] [SerializeField] private float movementStuckBufferSeconds = 0.75f;
         [Min(0.01f)] [SerializeField] private float minimumMovementTimeoutSeconds = 0.5f;
@@ -37,6 +39,8 @@ namespace Systems.MineSystem.EnemySystem.Mob.BlackBat.Config
         [Min(0f)] [SerializeField] private float attackContactDistance = 0.25f;
 
         [Header("Diagnostics")]
+        [SerializeField] private bool enableAiTraceLogs;
+        [Min(0.1f)] [SerializeField] private float movementStallTimeoutSeconds = 1f;
         [SerializeField] private bool enableCombatDiagnosticLogs;
         [Min(0.02f)] [SerializeField]
         private float combatDiagnosticLogInterval = 0.1f;
@@ -58,7 +62,9 @@ namespace Systems.MineSystem.EnemySystem.Mob.BlackBat.Config
         public float IdleChance => idleChance;
         public float MinimumIdleDuration => minimumIdleDuration;
         public float MaximumIdleDuration => maximumIdleDuration;
+        public float IdleCooldownSeconds => idleCooldownSeconds;
         public float DecisionRetryDelay => decisionRetryDelay;
+        public float ChaseSpeed => chaseSpeed;
         public float PositionTolerance => positionTolerance;
         public float MovementStuckBufferSeconds => movementStuckBufferSeconds;
         public float MinimumMovementTimeoutSeconds => minimumMovementTimeoutSeconds;
@@ -67,6 +73,8 @@ namespace Systems.MineSystem.EnemySystem.Mob.BlackBat.Config
         public float PerchCeilingClearance => perchCeilingClearance;
         public int ChaseExitRangeInTiles => chaseExitRangeInTiles;
         public float AttackContactDistance => attackContactDistance;
+        public bool EnableAiTraceLogs => enableAiTraceLogs;
+        public float MovementStallTimeoutSeconds => movementStallTimeoutSeconds;
         public bool EnableCombatDiagnosticLogs => enableCombatDiagnosticLogs;
         public float CombatDiagnosticLogInterval => combatDiagnosticLogInterval;
         public int InitialPoolSize => initialPoolSize;
@@ -97,9 +105,12 @@ namespace Systems.MineSystem.EnemySystem.Mob.BlackBat.Config
                 return false;
             }
             if (maximumIdleDuration < minimumIdleDuration ||
+                idleCooldownSeconds < 0f ||
                 chaseExitRangeInTiles < AggroRangeInTiles ||
                 attackContactDistance < 0f ||
+                movementStallTimeoutSeconds < 0.1f ||
                 combatDiagnosticLogInterval < 0.02f ||
+                chaseSpeed <= 0f ||
                 positionTolerance <= 0f ||
                 minimumMovementTimeoutSeconds <= 0f ||
                 destinationRetries <= 0 ||

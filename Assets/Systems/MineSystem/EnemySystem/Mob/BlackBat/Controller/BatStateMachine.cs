@@ -21,6 +21,11 @@ namespace Systems.MineSystem.EnemySystem.Mob.BlackBat.Controller
 {
     public sealed class BatStateMachine : IDisposable
     {
+        private const int RouteVariantCount = 8;
+        private const int ContactDirectionAttempts = 8;
+        private const float ContactRadiusSafetyFactor = 0.9f;
+        private const float GoldenAngleRadians = 2.39996323f;
+
         private readonly BatModel _model;
         private readonly BatView _view;
         private readonly IEnemyTargetProvider _target;
@@ -38,9 +43,14 @@ namespace Systems.MineSystem.EnemySystem.Mob.BlackBat.Controller
         private GridPosition _observedTargetGrid;
         private GridPosition _pathTargetGrid;
         private Vector2 _perchWorldPosition;
+        private Vector2 _movementObservationPosition;
         private float _combatDiagnosticLogRemaining;
+        private float _movementStallElapsed;
+        private int _formationSlot = -1;
+        private int _consecutiveRouteFailures;
         private int _pathNavigationRevision;
         private int _animationGeneration;
+        private bool _movementObservationActive;
         private bool _hasObservedTarget;
         private bool _isApproachingPerch;
         private bool _idleToFlyPlaying;
@@ -72,11 +82,13 @@ namespace Systems.MineSystem.EnemySystem.Mob.BlackBat.Controller
         public void Initialize(
             BatConfigScriptable config,
             Guid enemyId,
+            int formationSlot,
             CancellationToken lifetimeToken)
         {
             CancelPathRequest();
             _config = config;
             _enemyId = enemyId;
+            _formationSlot = formationSlot;
             _lifetimeToken = lifetimeToken;
             _hasObservedTarget = _target.IsTargetAvailable;
             _observedTargetGrid = _hasObservedTarget
@@ -84,8 +96,12 @@ namespace Systems.MineSystem.EnemySystem.Mob.BlackBat.Controller
                 : default;
             _pathTargetGrid = default;
             _perchWorldPosition = default;
+            _movementObservationPosition = _view.Body.position;
             _combatDiagnosticLogRemaining = 0f;
+            _movementStallElapsed = 0f;
+            _consecutiveRouteFailures = 0;
             _pathNavigationRevision = _pathfinding.NavigationRevision;
+            _movementObservationActive = false;
             _isApproachingPerch = false;
             _idleToFlyPlaying = false;
             _attackApplied = false;
@@ -98,6 +114,10 @@ namespace Systems.MineSystem.EnemySystem.Mob.BlackBat.Controller
         {
             cancellationToken.ThrowIfCancellationRequested();
             _view.SetDamageEnabled(true);
+            TraceAi(
+                "Spawn",
+                $"grid={_model.CurrentGridPosition} " +
+                $"world={_view.Body.position.ToString("F4")}");
             EnterExplore();
             return UniTask.CompletedTask;
         }
@@ -123,8 +143,12 @@ namespace Systems.MineSystem.EnemySystem.Mob.BlackBat.Controller
 
             _model.TickCooldown(context.FixedDeltaTime);
             TickCombatDiagnostics(context.FixedDeltaTime);
-            if (_model.CurrentState == BatState.Hurt ||
-                _model.CurrentState == BatState.Attack)
+            if (_model.CurrentState == BatState.Attack)
+            {
+                FaceTargetHorizontally();
+                return;
+            }
+            if (_model.CurrentState == BatState.Hurt)
                 return;
 
             if (HandleCombatContext())
@@ -186,6 +210,7 @@ namespace Systems.MineSystem.EnemySystem.Mob.BlackBat.Controller
                 _attackApplied)
                 return;
 
+            FaceTargetHorizontally();
             _attackApplied = true;
             var attackValid = IsAttackValid();
             var attackSucceeded = attackValid &&
@@ -246,11 +271,19 @@ namespace Systems.MineSystem.EnemySystem.Mob.BlackBat.Controller
 
         public void Release()
         {
+            TraceAi(
+                "PoolRelease",
+                $"state={_model.CurrentState} " +
+                $"world={_view.Body.position.ToString("F4")}");
             CancelPathRequest();
             _pauseGate.Resume();
             _isApproachingPerch = false;
             _idleToFlyPlaying = false;
             _combatDiagnosticLogRemaining = 0f;
+            _movementStallElapsed = 0f;
+            _consecutiveRouteFailures = 0;
+            _movementObservationActive = false;
+            _formationSlot = -1;
             _config = null;
         }
 
@@ -389,6 +422,8 @@ namespace Systems.MineSystem.EnemySystem.Mob.BlackBat.Controller
 
         private void TickExplore(float deltaTime)
         {
+            if (!_model.EngagementActive)
+                _model.TickIdleCooldown(deltaTime);
             if (_isApproachingPerch)
             {
                 TickPerchApproach(deltaTime);
@@ -445,18 +480,33 @@ namespace Systems.MineSystem.EnemySystem.Mob.BlackBat.Controller
                 return;
             }
 
+            var contactPosition = GetContactApproachPosition();
             var remainingDistance = Vector2.Distance(
                 _view.Body.position,
-                _target.BodyPosition);
+                contactPosition);
             _model.BeginContactApproach();
             _model.StartMovementTimeout(
-                GetWorldMovementTimeout(remainingDistance));
+                GetWorldMovementTimeout(
+                    remainingDistance,
+                    _config.ChaseSpeed));
+            BeginMovementObservation();
+            TraceAi(
+                "ContactApproach",
+                $"target={contactPosition.ToString("F4")} " +
+                $"distance={remainingDistance:F4}");
         }
 
         private void TickContactApproach(float deltaTime)
         {
             if (_model.TickMovementTimeout(deltaTime))
             {
+                ReportMovementError("Contact approach movement timeout.");
+                HandleContactApproachFailure();
+                return;
+            }
+            if (TickMovementStall(deltaTime))
+            {
+                ReportMovementError("Contact approach made no progress.");
                 HandleContactApproachFailure();
                 return;
             }
@@ -468,6 +518,7 @@ namespace Systems.MineSystem.EnemySystem.Mob.BlackBat.Controller
             if (IsAttackValid())
             {
                 _model.EndContactApproach();
+                ClearMovementObservation();
                 _view.Stop();
                 if (_model.AttackCooldownRemaining <= 0f)
                     EnterAttack();
@@ -475,7 +526,7 @@ namespace Systems.MineSystem.EnemySystem.Mob.BlackBat.Controller
             }
 
             var bodyPosition = _view.Body.position;
-            var targetPosition = _target.BodyPosition;
+            var targetPosition = GetContactApproachPosition();
             var delta = targetPosition - bodyPosition;
             var distance = delta.magnitude;
             if (distance <= Mathf.Epsilon)
@@ -484,10 +535,9 @@ namespace Systems.MineSystem.EnemySystem.Mob.BlackBat.Controller
                 return;
             }
 
-            if (Mathf.Abs(delta.x) > _config.PositionTolerance)
-                _view.SetFacing(delta.x < 0f);
+            FaceHorizontally(delta.x);
             var movementDistance = Mathf.Min(
-                _config.MoveSpeed * Mathf.Max(0f, deltaTime),
+                _config.ChaseSpeed * Mathf.Max(0f, deltaTime),
                 distance);
             _view.MovePosition(
                 bodyPosition + delta / distance * movementDistance);
@@ -512,16 +562,23 @@ namespace Systems.MineSystem.EnemySystem.Mob.BlackBat.Controller
 
         private void HandleContactApproachFailure()
         {
+            ClearMovementObservation();
             _model.EndContactApproach();
             _view.Stop();
             if (_target.IsTargetAvailable && IsWithinChaseExitRange())
             {
+                TraceAi(
+                    "Recovery",
+                    "source=ContactApproach action=RetryChase");
                 _model.BeginEngagement();
                 if (_model.CurrentState != BatState.Chase)
                     ChangeState(BatState.Chase);
                 _model.StartDecisionDelay(_config.DecisionRetryDelay);
                 return;
             }
+            TraceAi(
+                "Recovery",
+                "source=ContactApproach action=Explore");
             EndEngagementAndExplore();
         }
 
@@ -540,34 +597,49 @@ namespace Systems.MineSystem.EnemySystem.Mob.BlackBat.Controller
             CancelPathRequest();
             var current = _placement.WorldToGrid(_view.Body.position);
             _model.SetGridPosition(current);
+            var destinations = new List<GridPosition>(
+                _config.DestinationRetries);
+            var candidateCount = Mathf.Max(1, _pathfinding.FlyableCount);
+            var baseOffset = UnityEngine.Random.Range(0, candidateCount) +
+                             Mathf.Max(0, _formationSlot);
             for (var attempt = 0;
                  attempt < _config.DestinationRetries;
                  attempt++)
             {
-                var offset = UnityEngine.Random.Range(
-                    0,
-                    Mathf.Max(1, _pathfinding.FlyableCount));
                 if (!_pathfinding.TryFindFlyableNear(
                         current,
                         1,
                         _config.ExploreRangeInTiles,
-                        offset,
+                        baseOffset + attempt,
                         out var destination) ||
                     !_placement.TryGetPlacement(
                         _view.TerrainCollider,
                         destination,
-                        out _))
+                        out _) ||
+                    Contains(destinations, destination))
                     continue;
+                destinations.Add(destination);
+            }
 
-                BeginDirectPathRequest(destination, BatPathPurpose.Explore);
+            if (destinations.Count > 0)
+            {
+                BeginPathRequest(
+                    destinations[0],
+                    destinations,
+                    BatPathPurpose.Explore,
+                    false);
                 return;
             }
+            RecordRouteFailure(
+                "Explore",
+                "No distinct placement-valid roam destination was found.");
             _model.StartDecisionDelay(_config.DecisionRetryDelay);
         }
 
         private void ChooseIdleOrRoam()
         {
-            if (UnityEngine.Random.value <= _config.IdleChance &&
+            if (_model.IdleCooldownRemaining <= 0f &&
+                UnityEngine.Random.value <= _config.IdleChance &&
                 TryStartPerchRoute())
                 return;
             StartExploreRoute();
@@ -593,22 +665,45 @@ namespace Systems.MineSystem.EnemySystem.Mob.BlackBat.Controller
             GridPosition destination,
             BatPathPurpose purpose)
         {
+            var destinations = new List<GridPosition>(1) { destination };
+            BeginPathRequest(
+                destination,
+                destinations,
+                purpose,
+                false);
+        }
+
+        private void BeginPathRequest(
+            GridPosition preferredDestination,
+            IReadOnlyList<GridPosition> destinations,
+            BatPathPurpose purpose,
+            bool prioritizePreferredDestination)
+        {
             CancelPathRequest();
             var current = _placement.WorldToGrid(_view.Body.position);
             _model.SetGridPosition(current);
-            var generation = _model.BeginPathRequest(destination, purpose);
+            var generation = _model.BeginPathRequest(
+                preferredDestination,
+                purpose);
             _pathNavigationRevision = _pathfinding.NavigationRevision;
             _pathCancellation = CancellationTokenSource.CreateLinkedTokenSource(
                 _lifetimeToken);
-            var destinations = new List<GridPosition>(1) { destination };
             var request = new EnemyMultiTargetPathRequest(
                 current,
-                destination,
-                destination,
+                preferredDestination,
+                preferredDestination,
                 destinations,
                 EnemyMovementType.Flying,
                 0,
-                generation);
+                generation,
+                GetRouteVariant(),
+                prioritizePreferredDestination);
+            TraceAi(
+                "PathRequest",
+                $"purpose={purpose} generation={generation} " +
+                $"start={current} preferred={preferredDestination} " +
+                $"candidates={destinations.Count} " +
+                $"navRevision={_pathNavigationRevision}");
             FindDirectPathAsync(
                     request,
                     purpose,
@@ -651,18 +746,28 @@ namespace Systems.MineSystem.EnemySystem.Mob.BlackBat.Controller
             if (!_model.CompletePath(result))
                 return;
             DisposePathCancellation();
+            TraceAi(
+                "PathResult",
+                $"purpose={purpose} generation={result.Generation} " +
+                $"success={result.Succeeded} destination={result.Destination} " +
+                $"steps={result.Steps?.Count ?? 0} error={result.Error ?? "none"}");
             if (!result.Succeeded)
             {
+                RecordRouteFailure(purpose.ToString(), result.Error);
                 _model.ClearPath();
                 _model.StartDecisionDelay(_config.DecisionRetryDelay);
                 return;
             }
+            ResetRouteFailures();
             if (result.Steps == null || result.Steps.Count == 0)
             {
                 FinishMovement();
                 return;
             }
-            _model.StartMovementTimeout(GetMovementTimeout(result.Steps));
+            _model.StartMovementTimeout(GetMovementTimeout(
+                result.Steps,
+                purpose));
+            BeginMovementObservation();
         }
 
         private void RequestChaseRoute()
@@ -680,16 +785,25 @@ namespace Systems.MineSystem.EnemySystem.Mob.BlackBat.Controller
             var current = _placement.WorldToGrid(_view.Body.position);
             _model.SetGridPosition(current);
             _pathTargetGrid = _target.GridPosition;
+            var preferredDestination = GetPreferredChaseDestination(
+                _pathTargetGrid);
             _pathNavigationRevision = _pathfinding.NavigationRevision;
             var generation = _model.BeginPathRequest(
-                _pathTargetGrid,
+                preferredDestination,
                 BatPathPurpose.Chase);
             _pathCancellation = CancellationTokenSource.CreateLinkedTokenSource(
                 _lifetimeToken);
+            TraceAi(
+                "PathRequest",
+                $"purpose=Chase generation={generation} start={current} " +
+                $"target={_pathTargetGrid} preferred={preferredDestination} " +
+                $"routeVariant={GetRouteVariant()} " +
+                $"navRevision={_pathNavigationRevision}");
             FindChasePathAsync(
                     generation,
                     current,
                     _pathTargetGrid,
+                    preferredDestination,
                     _pathNavigationRevision,
                     _pathCancellation.Token)
                 .Forget(HandlePathException);
@@ -699,6 +813,7 @@ namespace Systems.MineSystem.EnemySystem.Mob.BlackBat.Controller
             int generation,
             GridPosition routeStart,
             GridPosition targetGrid,
+            GridPosition preferredDestination,
             int navigationRevision,
             CancellationToken cancellationToken)
         {
@@ -706,11 +821,13 @@ namespace Systems.MineSystem.EnemySystem.Mob.BlackBat.Controller
                 _view.TerrainCollider,
                 routeStart,
                 targetGrid,
-                _model.Destination,
+                preferredDestination,
                 Mathf.Max(1, _config.AttackRangeInTiles),
                 EnemyMovementType.Flying,
                 0,
                 generation,
+                GetRouteVariant(),
+                true,
                 cancellationToken);
             if (cancellationToken.IsCancellationRequested || _disposed)
                 return;
@@ -741,14 +858,21 @@ namespace Systems.MineSystem.EnemySystem.Mob.BlackBat.Controller
             if (!_model.CompletePath(result))
                 return;
             DisposePathCancellation();
+            TraceAi(
+                "PathResult",
+                $"purpose=Chase generation={result.Generation} " +
+                $"success={result.Succeeded} destination={result.Destination} " +
+                $"steps={result.Steps?.Count ?? 0} error={result.Error ?? "none"}");
             if (!result.Succeeded)
             {
+                RecordRouteFailure("Chase", result.Error);
                 _model.ClearPath();
                 _view.Stop();
                 _model.StartDecisionDelay(_config.DecisionRetryDelay);
                 return;
             }
 
+            ResetRouteFailures();
             _model.BeginEngagement();
             ChangeState(BatState.Chase);
             if (result.Steps == null || result.Steps.Count == 0)
@@ -761,19 +885,29 @@ namespace Systems.MineSystem.EnemySystem.Mob.BlackBat.Controller
                     StartContactApproach();
                 return;
             }
-            _model.StartMovementTimeout(GetMovementTimeout(result.Steps));
+            _model.StartMovementTimeout(GetMovementTimeout(
+                result.Steps,
+                BatPathPurpose.Chase));
+            BeginMovementObservation();
         }
 
         private void TickMovement(float deltaTime)
         {
-            if (_model.TickMovementTimeout(deltaTime))
-            {
-                HandleMovementFailure();
-                return;
-            }
             var step = _model.CurrentPathStep;
             if (_model.PathPending && !step.HasValue)
                 return;
+            if (_model.TickMovementTimeout(deltaTime))
+            {
+                ReportMovementError("Path movement timeout.");
+                HandleMovementFailure();
+                return;
+            }
+            if (TickMovementStall(deltaTime))
+            {
+                ReportMovementError("Path movement made no progress.");
+                HandleMovementFailure();
+                return;
+            }
             if (!step.HasValue)
             {
                 FinishMovement();
@@ -785,31 +919,36 @@ namespace Systems.MineSystem.EnemySystem.Mob.BlackBat.Controller
                     step.Value.Position,
                     out var targetPosition))
             {
+                RecordRouteFailure(
+                    _model.PathPurpose.ToString(),
+                    $"Path step {step.Value.Position} is no longer flyable or placement-valid.");
                 HandleMovementFailure();
                 return;
             }
 
             if (!_model.SegmentActive)
             {
-                var startPosition = _placement.GridToWorld(
-                    _model.CurrentGridPosition);
+                var startPosition = _view.Body.position;
                 _model.BeginSegment(startPosition, targetPosition);
             }
 
             var segmentDistance = Vector2.Distance(
                 _model.SegmentStart,
                 _model.SegmentTarget);
+            var movementSpeed = GetMovementSpeed(_model.PathPurpose);
             var progress = _model.AdvanceSegment(
-                _config.MoveSpeed * Mathf.Max(0f, deltaTime) /
+                movementSpeed * Mathf.Max(0f, deltaTime) /
                 Mathf.Max(0.0001f, segmentDistance));
             var basePosition = Vector2.Lerp(
                 _model.SegmentStart,
                 _model.SegmentTarget,
                 progress);
             var segmentDelta = _model.SegmentTarget - _model.SegmentStart;
+            var wobbleEnvelope = Mathf.Sin(progress * Mathf.PI);
             var wobble = Mathf.Sin(
                 progress * Mathf.PI * 2f *
-                _config.FlightWobbleCyclesPerCell) *
+                _config.FlightWobbleCyclesPerCell +
+                GetFormationPhase()) * wobbleEnvelope *
                 _config.FlightWobbleAmplitude;
             var horizontal = Mathf.Abs(segmentDelta.x) >=
                              Mathf.Abs(segmentDelta.y);
@@ -817,8 +956,7 @@ namespace Systems.MineSystem.EnemySystem.Mob.BlackBat.Controller
                           (horizontal
                               ? Vector2.up * wobble
                               : Vector2.right * wobble);
-            if (Mathf.Abs(segmentDelta.x) > _config.PositionTolerance)
-                _view.SetFacing(segmentDelta.x < 0f);
+            FaceHorizontally(segmentDelta.x);
             _view.MovePosition(desired);
 
             if (progress < 1f)
@@ -836,6 +974,7 @@ namespace Systems.MineSystem.EnemySystem.Mob.BlackBat.Controller
         private void FinishMovement()
         {
             var purpose = _model.PathPurpose;
+            ClearMovementObservation();
             _model.ClearPath();
             _view.Stop();
             switch (purpose)
@@ -864,18 +1003,31 @@ namespace Systems.MineSystem.EnemySystem.Mob.BlackBat.Controller
             _model.StartMovementTimeout(GetWorldMovementTimeout(
                 Vector2.Distance(
                     _view.Body.position,
-                    _perchWorldPosition)));
+                    _perchWorldPosition),
+                _config.MoveSpeed));
+            BeginMovementObservation();
         }
 
         private void TickPerchApproach(float deltaTime)
         {
             if (_model.TickMovementTimeout(deltaTime))
             {
+                ReportMovementError("Perch approach movement timeout.");
+                TraceAi("Recovery", "source=Perch action=Explore");
                 EnterExplore();
                 return;
             }
+            if (TickMovementStall(deltaTime))
+            {
+                ReportMovementError("Perch approach made no progress.");
+                TraceAi("Recovery", "source=Perch action=Explore");
+                EnterExplore();
+                return;
+            }
+            var bodyPosition = _view.Body.position;
+            FaceHorizontally(_perchWorldPosition.x - bodyPosition.x);
             var next = Vector2.MoveTowards(
-                _view.Body.position,
+                bodyPosition,
                 _perchWorldPosition,
                 _config.MoveSpeed * Mathf.Max(0f, deltaTime));
             _view.MovePosition(next);
@@ -886,6 +1038,7 @@ namespace Systems.MineSystem.EnemySystem.Mob.BlackBat.Controller
             _view.Teleport(_perchWorldPosition);
             _model.SetGridPosition(
                 _placement.WorldToGrid(_perchWorldPosition));
+            ClearMovementObservation();
             _isApproachingPerch = false;
             EnterIdle();
         }
@@ -897,6 +1050,9 @@ namespace Systems.MineSystem.EnemySystem.Mob.BlackBat.Controller
                 _target.IsTargetAvailable &&
                 IsWithinChaseExitRange())
             {
+                TraceAi(
+                    "Recovery",
+                    "source=ChasePath action=RetryChase");
                 CancelPathRequest();
                 _model.BeginEngagement();
                 if (_model.CurrentState != BatState.Chase)
@@ -905,6 +1061,9 @@ namespace Systems.MineSystem.EnemySystem.Mob.BlackBat.Controller
                 _model.StartDecisionDelay(_config.DecisionRetryDelay);
                 return;
             }
+            TraceAi(
+                "Recovery",
+                $"source={purpose} action=Explore");
             EnterExplore();
             _model.StartDecisionDelay(_config.DecisionRetryDelay);
         }
@@ -925,6 +1084,7 @@ namespace Systems.MineSystem.EnemySystem.Mob.BlackBat.Controller
         {
             CancelPathRequest();
             _model.EndIdle();
+            _model.ResetIdleCooldown();
             _idleToFlyPlaying = false;
             ChangeState(BatState.Idle);
         }
@@ -988,14 +1148,20 @@ namespace Systems.MineSystem.EnemySystem.Mob.BlackBat.Controller
 
         private void ChangeState(BatState state)
         {
+            var previousState = _model.CurrentState;
             _attackApplied = false;
             _model.SetState(state);
+            if (previousState != state)
+            {
+                TraceAi(
+                    "State",
+                    $"from={previousState} to={state} " +
+                    $"grid={_placement.WorldToGrid(_view.Body.position)} " +
+                    $"world={_view.Body.position.ToString("F4")}");
+            }
             _view.Stop();
             if (state == BatState.Attack && _target.IsTargetAvailable)
-            {
-                _view.SetFacing(
-                    _target.BodyPosition.x < _view.Body.position.x);
-            }
+                FaceTargetHorizontally();
 
             var animationId = state switch
             {
@@ -1094,7 +1260,9 @@ namespace Systems.MineSystem.EnemySystem.Mob.BlackBat.Controller
             return false;
         }
 
-        private float GetMovementTimeout(IReadOnlyList<EnemyPathStep> steps)
+        private float GetMovementTimeout(
+            IReadOnlyList<EnemyPathStep> steps,
+            BatPathPurpose purpose)
         {
             var previous = _view.Body.position;
             var distance = 0f;
@@ -1104,24 +1272,251 @@ namespace Systems.MineSystem.EnemySystem.Mob.BlackBat.Controller
                 distance += Vector2.Distance(previous, next);
                 previous = next;
             }
-            return GetWorldMovementTimeout(distance);
+            return GetWorldMovementTimeout(
+                distance,
+                GetMovementSpeed(purpose));
         }
 
-        private float GetWorldMovementTimeout(float distance)
+        private float GetWorldMovementTimeout(float distance, float movementSpeed)
         {
-            var speed = Mathf.Max(0.01f, _config.MoveSpeed);
+            var speed = Mathf.Max(0.01f, movementSpeed);
             return Mathf.Max(
                 _config.MinimumMovementTimeoutSeconds,
                 Mathf.Max(0f, distance) / speed +
                 _config.MovementStuckBufferSeconds);
         }
 
+        private float GetMovementSpeed(BatPathPurpose purpose) =>
+            purpose == BatPathPurpose.Chase
+                ? _config.ChaseSpeed
+                : _config.MoveSpeed;
+
+        private int GetRouteVariant() =>
+            NormalizeIndex(_formationSlot, RouteVariantCount);
+
+        private float GetFormationPhase() =>
+            Mathf.Repeat(
+                Mathf.Max(0, _formationSlot) * GoldenAngleRadians,
+                Mathf.PI * 2f);
+
+        private GridPosition GetPreferredChaseDestination(
+            GridPosition targetGrid)
+        {
+            var startDirection = GetPreferredCardinalDirection();
+            for (var i = 0; i < 4; i++)
+            {
+                var offset = GetCardinalDirection(startDirection + i);
+                var candidate = new GridPosition(
+                    targetGrid.X + Mathf.RoundToInt(offset.x),
+                    targetGrid.Y + Mathf.RoundToInt(offset.y));
+                if (_pathfinding.IsFlyable(candidate) &&
+                    _placement.TryGetPlacement(
+                        _view.TerrainCollider,
+                        candidate,
+                        out _))
+                    return candidate;
+            }
+            return targetGrid;
+        }
+
+        private int GetPreferredCardinalDirection()
+        {
+            var direction = GetFormationDirection(_formationSlot);
+            if (Mathf.Abs(direction.x) >= Mathf.Abs(direction.y))
+                return direction.x < 0f ? 0 : 1;
+            return direction.y < 0f ? 2 : 3;
+        }
+
+        private Vector2 GetContactApproachPosition()
+        {
+            var targetPosition = _target.BodyPosition;
+            var radius = Mathf.Max(
+                0f,
+                _config.AttackContactDistance * ContactRadiusSafetyFactor);
+            if (radius <= Mathf.Epsilon)
+                return targetPosition;
+
+            var startDirection = Mathf.Max(0, _formationSlot);
+            for (var i = 0; i < ContactDirectionAttempts; i++)
+            {
+                var direction = GetFormationDirection(startDirection + i);
+                var candidate = targetPosition + direction * radius;
+                if (_placement.IsPlacementClear(
+                        _view.TerrainCollider,
+                        candidate))
+                    return candidate;
+            }
+            return targetPosition;
+        }
+
+        private static Vector2 GetCardinalDirection(int directionIndex) =>
+            NormalizeIndex(directionIndex, 4) switch
+            {
+                0 => Vector2.left,
+                1 => Vector2.right,
+                2 => Vector2.down,
+                _ => Vector2.up
+            };
+
+        private static Vector2 GetFormationDirection(int directionIndex)
+        {
+            var angle = Mathf.PI +
+                        Mathf.Max(0, directionIndex) * GoldenAngleRadians;
+            return new Vector2(Mathf.Cos(angle), Mathf.Sin(angle));
+        }
+
+        private void BeginMovementObservation()
+        {
+            _movementObservationActive = true;
+            _movementObservationPosition = _view.Body.position;
+            _movementStallElapsed = 0f;
+        }
+
+        private bool TickMovementStall(float deltaTime)
+        {
+            if (!_movementObservationActive)
+            {
+                BeginMovementObservation();
+                return false;
+            }
+
+            var currentPosition = _view.Body.position;
+            var expectedStallDistance = GetObservedMovementSpeed() *
+                                        _config.MovementStallTimeoutSeconds;
+            var tolerance = Mathf.Max(
+                0.0001f,
+                Mathf.Min(
+                    _config.PositionTolerance,
+                    expectedStallDistance * 0.25f));
+            if ((currentPosition - _movementObservationPosition).sqrMagnitude >
+                tolerance * tolerance)
+            {
+                _movementObservationPosition = currentPosition;
+                _movementStallElapsed = 0f;
+                ResetRouteFailures();
+                return false;
+            }
+
+            _movementStallElapsed += Mathf.Max(0f, deltaTime);
+            return _movementStallElapsed >=
+                   _config.MovementStallTimeoutSeconds;
+        }
+
+        private void ClearMovementObservation()
+        {
+            _movementObservationActive = false;
+            _movementObservationPosition = _view.Body.position;
+            _movementStallElapsed = 0f;
+        }
+
+        private void ReportMovementError(string reason)
+        {
+            var body = _view.Body;
+            var step = _model.CurrentPathStep;
+            var movementSpeed = GetObservedMovementSpeed();
+            Debug.LogError(
+                $"[BlackBatAI][MovementFailure][{_enemyId:N}] " +
+                $"slot={_formationSlot} reason={reason} " +
+                $"state={_model.CurrentState} purpose={_model.PathPurpose} " +
+                $"rbPosition={body.position.ToString("F4")} " +
+                $"actualGrid={_placement.WorldToGrid(body.position)} " +
+                $"modelGrid={_model.CurrentGridPosition} " +
+                $"destination={_model.Destination} " +
+                $"step={(step.HasValue ? step.Value.Position.ToString() : "none")} " +
+                $"pathIndex={_model.PathIndex} generation={_model.PathGeneration} " +
+                $"pending={_model.PathPending} contact={_model.ContactApproachActive} " +
+                $"speed={movementSpeed:F4} " +
+                $"stallSeconds={_movementStallElapsed:F3} " +
+                $"timeout={_model.MovementTimeoutRemaining:F3} " +
+                $"simulated={body.simulated} awake={body.IsAwake()} " +
+                $"navRevision={_pathfinding.NavigationRevision}",
+                _view);
+            ClearMovementObservation();
+        }
+
+        private float GetObservedMovementSpeed() =>
+            _model.ContactApproachActive
+                ? _config.ChaseSpeed
+                : GetMovementSpeed(_model.PathPurpose);
+
+        private void RecordRouteFailure(string context, string reason)
+        {
+            _consecutiveRouteFailures++;
+            var message =
+                $"[BlackBatAI][PathFailure][{_enemyId:N}] " +
+                $"slot={_formationSlot} context={context} " +
+                $"count={_consecutiveRouteFailures} " +
+                $"reason={reason ?? "unknown"} state={_model.CurrentState} " +
+                $"rbPosition={_view.Body.position.ToString("F4")} " +
+                $"actualGrid={_placement.WorldToGrid(_view.Body.position)} " +
+                $"modelGrid={_model.CurrentGridPosition} " +
+                $"destination={_model.Destination} " +
+                $"generation={_model.PathGeneration} " +
+                $"navRevision={_pathfinding.NavigationRevision}";
+            if (_consecutiveRouteFailures == 1)
+                Debug.LogWarning(message, _view);
+            else if (_consecutiveRouteFailures == 3)
+                Debug.LogError(message, _view);
+            else if (_config != null && _config.EnableAiTraceLogs)
+                Debug.Log(message, _view);
+        }
+
+        private void ResetRouteFailures() => _consecutiveRouteFailures = 0;
+
+        private void TraceAi(string eventName, string details)
+        {
+            if (_config == null || !_config.EnableAiTraceLogs)
+                return;
+            Debug.Log(
+                $"[BlackBatAI][{eventName}][{_enemyId:N}] " +
+                $"slot={_formationSlot} {details}",
+                _view);
+        }
+
+        private void FaceTargetHorizontally()
+        {
+            if (!_target.IsTargetAvailable)
+                return;
+            FaceHorizontally(
+                _target.BodyPosition.x - _view.Body.position.x);
+        }
+
+        private void FaceHorizontally(float horizontalDelta)
+        {
+            if (Mathf.Abs(horizontalDelta) <= _config.PositionTolerance)
+                return;
+            _view.SetFacing(horizontalDelta < 0f);
+        }
+
         private static int GridDistance(GridPosition a, GridPosition b) =>
             Mathf.Abs(a.X - b.X) + Mathf.Abs(a.Y - b.Y);
+
+        private static int NormalizeIndex(int value, int count)
+        {
+            if (count <= 0)
+                return 0;
+            var normalized = value % count;
+            return normalized < 0 ? normalized + count : normalized;
+        }
+
+        private static bool Contains(
+            IReadOnlyList<GridPosition> positions,
+            GridPosition position)
+        {
+            if (positions == null)
+                return false;
+            for (var i = 0; i < positions.Count; i++)
+            {
+                if (positions[i] == position)
+                    return true;
+            }
+            return false;
+        }
 
         private void CancelPathRequest()
         {
             CancelPathComputation();
+            ClearMovementObservation();
             _model.EndContactApproach();
             _model.ClearPath();
         }
@@ -1141,10 +1536,13 @@ namespace Systems.MineSystem.EnemySystem.Mob.BlackBat.Controller
             _pathCancellation = null;
         }
 
-        private static void HandlePathException(Exception exception)
+        private void HandlePathException(Exception exception)
         {
-            if (exception is not OperationCanceledException)
-                Debug.LogException(exception);
+            if (exception is OperationCanceledException || _disposed ||
+                _config == null)
+                return;
+            RecordRouteFailure("Exception", exception.Message);
+            Debug.LogException(exception, _view);
         }
 
         public void Dispose()

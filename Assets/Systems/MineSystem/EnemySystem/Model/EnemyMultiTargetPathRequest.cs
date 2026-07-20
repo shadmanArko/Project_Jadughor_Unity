@@ -13,6 +13,8 @@ namespace Systems.MineSystem.EnemySystem.Model
         public readonly EnemyMovementType MovementType;
         public readonly int MaxFallDistanceInTiles;
         public readonly int Generation;
+        public readonly int RouteVariant;
+        public readonly bool PrioritizePreferredDestination;
 
         public EnemyMultiTargetPathRequest(
             GridPosition start,
@@ -21,7 +23,9 @@ namespace Systems.MineSystem.EnemySystem.Model
             IReadOnlyList<GridPosition> destinations,
             EnemyMovementType movementType,
             int maxFallDistanceInTiles,
-            int generation)
+            int generation,
+            int routeVariant,
+            bool prioritizePreferredDestination)
         {
             Start = start;
             Target = target;
@@ -30,6 +34,8 @@ namespace Systems.MineSystem.EnemySystem.Model
             MovementType = movementType;
             MaxFallDistanceInTiles = maxFallDistanceInTiles;
             Generation = generation;
+            RouteVariant = routeVariant;
+            PrioritizePreferredDestination = prioritizePreferredDestination;
         }
     }
 }

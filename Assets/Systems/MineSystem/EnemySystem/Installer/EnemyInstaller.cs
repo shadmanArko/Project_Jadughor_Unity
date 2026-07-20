@@ -54,6 +54,7 @@ namespace Systems.MineSystem.EnemySystem.Installer
                 .AsSingle();
             Container.Bind<EnemySpawnCandidateService>().AsSingle();
             Container.Bind<BatNavigationService>().AsSingle();
+            Container.BindInterfacesAndSelfTo<BatFormationService>().AsSingle();
 
             Container.BindInterfacesAndSelfTo<SlimePool>().AsSingle();
             Container.Bind<IEnemyFactory>()

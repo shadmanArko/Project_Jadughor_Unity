@@ -31,6 +31,7 @@ namespace Systems.MineSystem.EnemySystem.Mob.BlackBat.Model
         public float AttackCooldownRemaining { get; private set; }
         public float DecisionDelayRemaining { get; private set; }
         public float IdleRemaining { get; private set; }
+        public float IdleCooldownRemaining { get; private set; }
         public bool IdleResting { get; private set; }
         public bool MovementTimeoutActive { get; private set; }
         public float MovementTimeoutRemaining { get; private set; }
@@ -66,6 +67,7 @@ namespace Systems.MineSystem.EnemySystem.Mob.BlackBat.Model
             AttackCooldownRemaining = 0f;
             DecisionDelayRemaining = 0f;
             IdleRemaining = 0f;
+            IdleCooldownRemaining = 0f;
             IdleResting = false;
             ClearMovementTimeout();
             ClearSegment();
@@ -231,6 +233,18 @@ namespace Systems.MineSystem.EnemySystem.Mob.BlackBat.Model
             IdleRemaining = 0f;
         }
 
+        public void ResetIdleCooldown() =>
+            IdleCooldownRemaining = Config != null
+                ? Config.IdleCooldownSeconds
+                : 0f;
+
+        public void TickIdleCooldown(float deltaTime)
+        {
+            IdleCooldownRemaining = Mathf.Max(
+                0f,
+                IdleCooldownRemaining - Mathf.Max(0f, deltaTime));
+        }
+
         public void StartMovementTimeout(float duration)
         {
             MovementTimeoutActive = true;
@@ -284,6 +298,7 @@ namespace Systems.MineSystem.EnemySystem.Mob.BlackBat.Model
             AttackCooldownRemaining = 0f;
             DecisionDelayRemaining = 0f;
             EndIdle();
+            IdleCooldownRemaining = 0f;
             ClearMovementTimeout();
             ClearSegment();
         }

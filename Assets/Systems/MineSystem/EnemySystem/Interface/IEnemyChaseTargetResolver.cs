@@ -18,6 +18,8 @@ namespace Systems.MineSystem.EnemySystem.Interface
             EnemyMovementType movementType,
             int maxFallDistanceInTiles,
             int generation,
+            int routeVariant,
+            bool prioritizePreferredDestination,
             CancellationToken cancellationToken);
     }
 }

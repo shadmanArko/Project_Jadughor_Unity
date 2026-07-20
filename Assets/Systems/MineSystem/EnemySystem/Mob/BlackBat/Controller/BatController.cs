@@ -24,10 +24,12 @@ namespace Systems.MineSystem.EnemySystem.Mob.BlackBat.Controller
         private readonly BatStateMachine _stateMachine;
         private readonly IEnemyPlacementValidator _placement;
         private readonly IEnemyPathfindingService _pathfinding;
+        private readonly BatFormationService _formation;
         private readonly BatPauseStateData _pauseState = new();
 
         private CompositeDisposable _subscriptions;
         private CancellationTokenSource _lifetimeCancellation;
+        private int _formationSlot = -1;
         private bool _isAffectedByPause = true;
         private bool _disposed;
 
@@ -60,11 +62,13 @@ namespace Systems.MineSystem.EnemySystem.Mob.BlackBat.Controller
             IEnemyPlacementValidator placement,
             IEnemyPathfindingService pathfinding,
             IEnemyChaseTargetResolver chaseResolver,
-            BatNavigationService navigation)
+            BatNavigationService navigation,
+            BatFormationService formation)
         {
             _view = view;
             _placement = placement;
             _pathfinding = pathfinding;
+            _formation = formation;
             _model = new BatModel();
             _stateMachine = new BatStateMachine(
                 _model,
@@ -118,10 +122,29 @@ namespace Systems.MineSystem.EnemySystem.Mob.BlackBat.Controller
             _pathfinding.NavigationChanged
                 .Subscribe(_stateMachine.HandleNavigationChanged)
                 .AddTo(_subscriptions);
-            _stateMachine.Initialize(
-                config,
-                EnemyId,
-                _lifetimeCancellation.Token);
+            _formationSlot = _formation.Register(EnemyId);
+            try
+            {
+                _stateMachine.Initialize(
+                    config,
+                    EnemyId,
+                    _formationSlot,
+                    _lifetimeCancellation.Token);
+            }
+            catch
+            {
+                _stateMachine.Release();
+                _formation.Unregister(EnemyId);
+                _formationSlot = -1;
+                _lifetimeCancellation.Cancel();
+                _lifetimeCancellation.Dispose();
+                _lifetimeCancellation = null;
+                _subscriptions.Dispose();
+                _subscriptions = null;
+                _model.ResetRuntime();
+                _view.ResetRuntime();
+                throw;
+            }
             IsActive = true;
             GlobalEventBus.Fire(new PausableRegisteredSignal(this));
         }
@@ -197,6 +220,8 @@ namespace Systems.MineSystem.EnemySystem.Mob.BlackBat.Controller
             _subscriptions?.Dispose();
             _subscriptions = null;
             _stateMachine.Release();
+            _formation.Unregister(EnemyId);
+            _formationSlot = -1;
             _pauseState.Clear();
             _model.ResetRuntime();
             _view.ResetRuntime();

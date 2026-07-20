@@ -32,6 +32,8 @@ namespace Systems.MineSystem.EnemySystem.Service
             EnemyMovementType movementType,
             int maxFallDistanceInTiles,
             int generation,
+            int routeVariant,
+            bool prioritizePreferredDestination,
             CancellationToken cancellationToken)
         {
             var range = Math.Max(0, attackRange);
@@ -77,7 +79,9 @@ namespace Systems.MineSystem.EnemySystem.Service
                 candidates,
                 movementType,
                 maxFallDistanceInTiles,
-                generation);
+                generation,
+                routeVariant,
+                prioritizePreferredDestination);
             return _pathfinding.FindPathToAnyAsync(request, cancellationToken);
         }
 

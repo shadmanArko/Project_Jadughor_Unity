@@ -171,6 +171,25 @@ namespace Systems.MineSystem.EnemySystem.Service
             CancellationToken cancellationToken)
         {
             await UniTask.Yield(PlayerLoopTiming.Update, cancellationToken);
+            if (request.PrioritizePreferredDestination &&
+                Contains(
+                    request.Destinations,
+                    request.PreferredDestination))
+            {
+                var preferredResult = FindPath(
+                    request.Start,
+                    request.Target,
+                    request.Generation,
+                    request.MovementType,
+                    request.MaxFallDistanceInTiles,
+                    new[] { request.PreferredDestination },
+                    request.PreferredDestination,
+                    request.RouteVariant,
+                    cancellationToken);
+                if (preferredResult.Succeeded)
+                    return preferredResult;
+                cancellationToken.ThrowIfCancellationRequested();
+            }
             return FindPath(
                 request.Start,
                 request.Target,
@@ -179,6 +198,7 @@ namespace Systems.MineSystem.EnemySystem.Service
                 request.MaxFallDistanceInTiles,
                 request.Destinations,
                 request.PreferredDestination,
+                request.RouteVariant,
                 cancellationToken);
         }
 
@@ -190,6 +210,7 @@ namespace Systems.MineSystem.EnemySystem.Service
             int maxFallDistanceInTiles,
             IReadOnlyList<GridPosition> destinations,
             GridPosition preferredDestination,
+            int routeVariant,
             CancellationToken cancellationToken)
         {
             var snapshot = _snapshot;
@@ -257,6 +278,7 @@ namespace Systems.MineSystem.EnemySystem.Service
                     current,
                     movementType,
                     maxFallDistanceInTiles,
+                    routeVariant,
                     neighbours);
                 for (var i = 0; i < neighbours.Count; i++)
                 {
@@ -335,14 +357,16 @@ namespace Systems.MineSystem.EnemySystem.Service
             GridPosition current,
             EnemyMovementType movementType,
             int maxFall,
+            int routeVariant,
             List<EnemyPathStep> output)
         {
             if (movementType == EnemyMovementType.Flying)
             {
-                AddFlyingNeighbour(snapshot, current, -1, 0, output);
-                AddFlyingNeighbour(snapshot, current, 1, 0, output);
-                AddFlyingNeighbour(snapshot, current, 0, -1, output);
-                AddFlyingNeighbour(snapshot, current, 0, 1, output);
+                AddFlyingNeighbours(
+                    snapshot,
+                    current,
+                    routeVariant,
+                    output);
                 return;
             }
 
@@ -365,6 +389,38 @@ namespace Systems.MineSystem.EnemySystem.Service
                         continue;
                     output.Add(new EnemyPathStep(fall, EnemyPathStepType.Fall));
                     break;
+                }
+            }
+        }
+
+        private static void AddFlyingNeighbours(
+            EnemyNavigationSnapshot snapshot,
+            GridPosition current,
+            int routeVariant,
+            List<EnemyPathStep> output)
+        {
+            var normalizedVariant = NormalizeStart(routeVariant, 8);
+            var startDirection = normalizedVariant % 4;
+            var directionStep = normalizedVariant < 4 ? 1 : -1;
+            for (var i = 0; i < 4; i++)
+            {
+                var direction = NormalizeStart(
+                    startDirection + directionStep * i,
+                    4);
+                switch (direction)
+                {
+                    case 0:
+                        AddFlyingNeighbour(snapshot, current, -1, 0, output);
+                        break;
+                    case 1:
+                        AddFlyingNeighbour(snapshot, current, 1, 0, output);
+                        break;
+                    case 2:
+                        AddFlyingNeighbour(snapshot, current, 0, -1, output);
+                        break;
+                    default:
+                        AddFlyingNeighbour(snapshot, current, 0, 1, output);
+                        break;
                 }
             }
         }
@@ -424,6 +480,20 @@ namespace Systems.MineSystem.EnemySystem.Service
             foreach (var destination in destinations)
                 best = Math.Min(best, Heuristic(from, destination));
             return best;
+        }
+
+        private static bool Contains(
+            IReadOnlyList<GridPosition> positions,
+            GridPosition position)
+        {
+            if (positions == null)
+                return false;
+            for (var i = 0; i < positions.Count; i++)
+            {
+                if (positions[i] == position)
+                    return true;
+            }
+            return false;
         }
 
         private static IReadOnlyList<EnemyPathStep> Reconstruct(

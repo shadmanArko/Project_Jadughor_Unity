@@ -811,6 +811,8 @@ namespace Systems.MineSystem.EnemySystem.Mob.GreenSlime.Controller
                 EnemyMovementType.Grounded,
                 _config.MaxFallDistanceInTiles,
                 generation,
+                0,
+                false,
                 cancellationToken);
             if (cancellationToken.IsCancellationRequested || _disposed)
                 return;
