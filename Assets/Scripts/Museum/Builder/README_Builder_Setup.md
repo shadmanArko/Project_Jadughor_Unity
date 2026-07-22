@@ -384,6 +384,12 @@ Every wall segment gets a `WallData` record (`container/childIndex` id) in
   for more drags; **right-click / Esc exits**.
 - Saved wallpapers reapply on load; "Clear All Wallpapers" (context menu on
   `MuseumWallpaperSystem`) restores original sprites and saves `""` (free).
+- **Expansion walls register automatically.** Expanding the museum spawns new wall
+  containers at runtime; `ExpansionManager` raises `OnMuseumWallBuilt` (back walls
+  flagged selectable) / `OnMuseumWallRemoved` (seam teardown), and the wallpaper
+  system registers/unregisters them live — so newly expanded back walls are
+  immediately wallpaper-able, and walls torn down where two chunks join stop being
+  selectable. Only the initial walls need manual assignment in the Inspector.
 
 **New Inspector fields on `MuseumWallpaperSystem`:** `Back Wall Containers`
 (assign **Left Walls** and **Right Walls**), `Grid` (auto-found if empty), the

@@ -93,6 +93,8 @@ namespace ProjectMuseum.Builder
             BuilderActions.OnClickBuilderCard += OnClickBuilderCard;
             BuilderActions.OnWallpaperChanged += OnWallpaperChanged;
             BuilderActions.OnMuseumDataReloaded += OnDataReloaded;
+            BuilderActions.OnMuseumWallBuilt += OnWallBuilt;
+            BuilderActions.OnMuseumWallRemoved += OnWallRemoved;
         }
 
         private void OnDisable()
@@ -100,7 +102,33 @@ namespace ProjectMuseum.Builder
             BuilderActions.OnClickBuilderCard -= OnClickBuilderCard;
             BuilderActions.OnWallpaperChanged -= OnWallpaperChanged;
             BuilderActions.OnMuseumDataReloaded -= OnDataReloaded;
+            BuilderActions.OnMuseumWallBuilt -= OnWallBuilt;
+            BuilderActions.OnMuseumWallRemoved -= OnWallRemoved;
             CancelMode();
+        }
+
+        // Expansion adds/removes wall containers at runtime — keep the registry in sync.
+        private void OnWallBuilt(GameObject container, bool isBackWall)
+        {
+            RegisterContainer(container, isBackWall);
+            // Newly built walls start bare, but re-apply saved state in case this
+            // container is being rebuilt (e.g. expansion replayed on load).
+            Transform t = container.transform;
+            for (int i = 0; i < t.childCount; i++) RestoreWall($"{container.name}/{i}");
+        }
+
+        private void OnWallRemoved(GameObject container)
+        {
+            if (container == null) return;
+            Transform t = container.transform;
+            for (int i = 0; i < t.childCount; i++)
+            {
+                string id = $"{container.name}/{i}";
+                _wallRenderers.Remove(id);
+                _wallCells.Remove(id);
+                _selectableWalls.Remove(id);
+                _selection.Remove(id);
+            }
         }
 
         private void Start()

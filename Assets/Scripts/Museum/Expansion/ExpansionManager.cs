@@ -184,6 +184,11 @@ public class ExpansionManager : MonoBehaviour
 
         PaintFloor(chunk);
 
+        // Seed this chunk's tile records BEFORE building/announcing its walls — the
+        // wallpaper system snaps each new wall to its nearest museum tile at register
+        // time, so those tiles must already exist or it snaps back to the old chunk.
+        ProjectMuseum.Builder.BuilderActions.OnMuseumChunkExpanded?.Invoke(chunk);
+
         var data = new ChunkData();
         foreach (var kv in EdgeDirs)
         {
@@ -196,6 +201,7 @@ public class ExpansionManager : MonoBehaviour
                 Edge opp = Opposite(edge);
                 if (nb.walls.TryGetValue(opp, out var w) && w != null)
                 {
+                    ProjectMuseum.Builder.BuilderActions.OnMuseumWallRemoved?.Invoke(w);
                     w.SetActive(false);
                     nb.walls[opp] = null;
                 }
@@ -203,14 +209,16 @@ public class ExpansionManager : MonoBehaviour
             else
             {
                 GameObject wall = BuildWall(chunk, edge);
-                if (wall != null) data.walls[edge] = wall;
+                if (wall != null)
+                {
+                    data.walls[edge] = wall;
+                    bool isBack = edge == Edge.NW || edge == Edge.NE;
+                    ProjectMuseum.Builder.BuilderActions.OnMuseumWallBuilt?.Invoke(wall, isBack);
+                }
             }
         }
 
         _chunks[chunk] = data;
-
-        // Museum data records the newly developed chunk (seeds its tile records).
-        ProjectMuseum.Builder.BuilderActions.OnMuseumChunkExpanded?.Invoke(chunk);
         return true;
     }
 

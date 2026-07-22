@@ -54,6 +54,19 @@ namespace ProjectMuseum.Builder
         /// <summary>A museum chunk finished expanding (lattice coords).</summary>
         public static Action<UnityEngine.Vector2Int> OnMuseumChunkExpanded;
 
+        /// <summary>
+        /// A wall-segment container was built by expansion (container GameObject,
+        /// isBackWall). The wallpaper system registers it — and marks it selectable
+        /// only when it's a back wall — so newly expanded walls can be wallpapered.
+        /// </summary>
+        public static Action<UnityEngine.GameObject, bool> OnMuseumWallBuilt;
+
+        /// <summary>
+        /// A wall-segment container was removed/deactivated (e.g. torn down at a
+        /// seam when two chunks join). The wallpaper system unregisters its segments.
+        /// </summary>
+        public static Action<UnityEngine.GameObject> OnMuseumWallRemoved;
+
         /// <summary>A wall's wallpaper changed (wallId, wallpaperName; "" = cleared).</summary>
         public static Action<string, string> OnWallpaperChanged;
 
