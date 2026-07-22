@@ -6,7 +6,9 @@ using Systems.MineSystem.EnemySystem.Enum;
 using Systems.MineSystem.EnemySystem.Interface;
 using Systems.MineSystem.EnemySystem.Model;
 using Systems.MineSystem.Mine.Model;
+using Systems.MineSystem.ToolbarSystem.Interface;
 using UniRx;
+using UnityEngine;
 using Zenject;
 
 namespace Systems.MineSystem.EnemySystem.Service
@@ -17,18 +19,25 @@ namespace Systems.MineSystem.EnemySystem.Service
         IDisposable
     {
         private readonly MineModel _mine;
+        private readonly IPlaceableRuntimeRegistry _runtimeRegistry;
         private readonly CompositeDisposable _disposables = new();
         private readonly Subject<GridPosition> _navigationChanged = new();
+        private readonly HashSet<GridPosition> _blockedCells = new();
         private EnemyNavigationSnapshot _snapshot;
         private int _navigationRevision;
 
-        public EnemyPathfindingService(MineModel mine)
+        public EnemyPathfindingService(
+            MineModel mine,
+            IPlaceableRuntimeRegistry runtimeRegistry)
         {
             _mine = mine;
+            _runtimeRegistry = runtimeRegistry;
         }
 
         public void Initialize()
         {
+            _runtimeRegistry.RuntimeRegistered += HandleRuntimeRegistered;
+            _runtimeRegistry.RuntimeUnregistered += HandleRuntimeUnregistered;
             _mine.MineData.Subscribe(Rebuild).AddTo(_disposables);
             _mine.OnCellModified
                 .Subscribe(HandleCellModified)
@@ -39,14 +48,22 @@ namespace Systems.MineSystem.EnemySystem.Service
             _navigationChanged;
 
         public bool IsWalkable(GridPosition position) =>
-            _snapshot != null && _snapshot.WalkableCells.Contains(position);
+            _snapshot != null &&
+            _snapshot.WalkableCells.Contains(position) &&
+            !_blockedCells.Contains(position);
 
         public bool IsFlyable(GridPosition position) =>
-            _snapshot != null && _snapshot.OpenCells.Contains(position);
+            _snapshot != null &&
+            _snapshot.OpenCells.Contains(position) &&
+            !_blockedCells.Contains(position);
 
-        public int WalkableCount => _snapshot?.WalkablePositions.Count ?? 0;
+        public int WalkableCount => CountAvailable(
+            _snapshot?.WalkableCells,
+            _snapshot?.WalkablePositions.Count ?? 0);
 
-        public int FlyableCount => _snapshot?.OpenPositions.Count ?? 0;
+        public int FlyableCount => CountAvailable(
+            _snapshot?.OpenCells,
+            _snapshot?.OpenPositions.Count ?? 0);
 
         public int NavigationRevision => _navigationRevision;
 
@@ -69,6 +86,8 @@ namespace Systems.MineSystem.EnemySystem.Service
             for (var i = 0; i < candidates.Count; i++)
             {
                 var candidate = candidates[(start + i) % candidates.Count];
+                if (_blockedCells.Contains(candidate))
+                    continue;
                 var distance = Heuristic(candidate, origin);
                 if (distance < minimumDistance || distance > maximumDistance)
                     continue;
@@ -86,8 +105,7 @@ namespace Systems.MineSystem.EnemySystem.Service
                 return false;
 
             var candidates = snapshot.WalkablePositions;
-            position = candidates[NormalizeStart(startOffset, candidates.Count)];
-            return true;
+            return TryFindAvailable(candidates, startOffset, out position);
         }
 
         public bool TryFindFlyableNear(
@@ -109,6 +127,8 @@ namespace Systems.MineSystem.EnemySystem.Service
             for (var i = 0; i < candidates.Count; i++)
             {
                 var candidate = candidates[(start + i) % candidates.Count];
+                if (_blockedCells.Contains(candidate))
+                    continue;
                 var distance = Heuristic(candidate, origin);
                 if (distance < minimumDistance || distance > maximumDistance)
                     continue;
@@ -128,8 +148,7 @@ namespace Systems.MineSystem.EnemySystem.Service
                 return false;
 
             var candidates = snapshot.OpenPositions;
-            position = candidates[NormalizeStart(startOffset, candidates.Count)];
-            return true;
+            return TryFindAvailable(candidates, startOffset, out position);
         }
 
         public bool TryFindFallLanding(
@@ -148,6 +167,7 @@ namespace Systems.MineSystem.EnemySystem.Service
                 origin.X + signedDirection,
                 origin.Y);
             if (!snapshot.OpenCells.Contains(adjacent) ||
+                _blockedCells.Contains(adjacent) ||
                 snapshot.WalkableCells.Contains(adjacent))
                 return false;
 
@@ -156,7 +176,8 @@ namespace Systems.MineSystem.EnemySystem.Service
                 var candidate = new GridPosition(
                     adjacent.X,
                     adjacent.Y - depth);
-                if (!snapshot.OpenCells.Contains(candidate))
+                if (!snapshot.OpenCells.Contains(candidate) ||
+                    _blockedCells.Contains(candidate))
                     break;
                 if (!snapshot.WalkableCells.Contains(candidate))
                     continue;
@@ -230,7 +251,8 @@ namespace Systems.MineSystem.EnemySystem.Service
             var destinationSet = new HashSet<GridPosition>();
             for (var i = 0; i < destinations.Count; i++)
             {
-                if (navigationCells.Contains(destinations[i]))
+                if (navigationCells.Contains(destinations[i]) &&
+                    !_blockedCells.Contains(destinations[i]))
                     destinationSet.Add(destinations[i]);
             }
             if (destinationSet.Count == 0)
@@ -275,6 +297,7 @@ namespace Systems.MineSystem.EnemySystem.Service
                 neighbours.Clear();
                 AddNeighbours(
                     snapshot,
+                    _blockedCells,
                     current,
                     movementType,
                     maxFallDistanceInTiles,
@@ -310,6 +333,7 @@ namespace Systems.MineSystem.EnemySystem.Service
         private void Rebuild(MineData mineData)
         {
             _navigationRevision++;
+            _blockedCells.Clear();
             if (mineData == null)
             {
                 _snapshot = null;
@@ -324,7 +348,12 @@ namespace Systems.MineSystem.EnemySystem.Service
                 if (_mine.TryGetCell(position, out var cell) &&
                     cell.IsRevealed &&
                     cell.IsBroken)
+                {
                     open.Add(position);
+                    if (_runtimeRegistry.Contains<IEnemyNavigationBlocker>(
+                            position.ToVector3Int()))
+                        _blockedCells.Add(position);
+                }
             }
 
             var walkable = new HashSet<GridPosition>();
@@ -344,6 +373,78 @@ namespace Systems.MineSystem.EnemySystem.Service
                 _navigationChanged.OnNext(cell.Position);
         }
 
+        private void HandleRuntimeRegistered(
+            Vector3Int cellPosition,
+            IPlaceableRuntime runtime)
+        {
+            if (runtime is not IEnemyNavigationBlocker)
+                return;
+
+            var position = new GridPosition(cellPosition.x, cellPosition.y);
+            if (!_blockedCells.Add(position))
+                return;
+
+            PublishNavigationChange(position);
+        }
+
+        private void HandleRuntimeUnregistered(
+            Vector3Int cellPosition,
+            IPlaceableRuntime runtime)
+        {
+            if (runtime is not IEnemyNavigationBlocker ||
+                _runtimeRegistry.Contains<IEnemyNavigationBlocker>(cellPosition))
+                return;
+
+            var position = new GridPosition(cellPosition.x, cellPosition.y);
+            if (!_blockedCells.Remove(position))
+                return;
+
+            PublishNavigationChange(position);
+        }
+
+        private void PublishNavigationChange(GridPosition position)
+        {
+            _navigationRevision++;
+            _navigationChanged.OnNext(position);
+        }
+
+        private int CountAvailable(
+            HashSet<GridPosition> terrainCells,
+            int terrainCount)
+        {
+            if (terrainCells == null || terrainCount <= 0)
+                return 0;
+
+            var blockedCount = 0;
+            foreach (var blockedCell in _blockedCells)
+            {
+                if (terrainCells.Contains(blockedCell))
+                    blockedCount++;
+            }
+
+            return Math.Max(0, terrainCount - blockedCount);
+        }
+
+        private bool TryFindAvailable(
+            IReadOnlyList<GridPosition> candidates,
+            int startOffset,
+            out GridPosition position)
+        {
+            position = default;
+            var start = NormalizeStart(startOffset, candidates.Count);
+            for (var i = 0; i < candidates.Count; i++)
+            {
+                var candidate = candidates[(start + i) % candidates.Count];
+                if (_blockedCells.Contains(candidate))
+                    continue;
+
+                position = candidate;
+                return true;
+            }
+
+            return false;
+        }
+
         private static int NormalizeStart(int startOffset, int count)
         {
             if (count <= 0)
@@ -354,6 +455,7 @@ namespace Systems.MineSystem.EnemySystem.Service
 
         private static void AddNeighbours(
             EnemyNavigationSnapshot snapshot,
+            HashSet<GridPosition> blockedCells,
             GridPosition current,
             EnemyMovementType movementType,
             int maxFall,
@@ -364,6 +466,7 @@ namespace Systems.MineSystem.EnemySystem.Service
             {
                 AddFlyingNeighbours(
                     snapshot,
+                    blockedCells,
                     current,
                     routeVariant,
                     output);
@@ -373,17 +476,20 @@ namespace Systems.MineSystem.EnemySystem.Service
             for (var direction = -1; direction <= 1; direction += 2)
             {
                 var horizontal = new GridPosition(current.X + direction, current.Y);
-                if (snapshot.WalkableCells.Contains(horizontal))
+                if (snapshot.WalkableCells.Contains(horizontal) &&
+                    !blockedCells.Contains(horizontal))
                 {
                     output.Add(new EnemyPathStep(horizontal, EnemyPathStepType.Walk));
                     continue;
                 }
-                if (!snapshot.OpenCells.Contains(horizontal))
+                if (!snapshot.OpenCells.Contains(horizontal) ||
+                    blockedCells.Contains(horizontal))
                     continue;
                 for (var depth = 1; depth <= Math.Max(0, maxFall); depth++)
                 {
                     var fall = new GridPosition(horizontal.X, horizontal.Y - depth);
-                    if (!snapshot.OpenCells.Contains(fall))
+                    if (!snapshot.OpenCells.Contains(fall) ||
+                        blockedCells.Contains(fall))
                         break;
                     if (!snapshot.WalkableCells.Contains(fall))
                         continue;
@@ -395,6 +501,7 @@ namespace Systems.MineSystem.EnemySystem.Service
 
         private static void AddFlyingNeighbours(
             EnemyNavigationSnapshot snapshot,
+            HashSet<GridPosition> blockedCells,
             GridPosition current,
             int routeVariant,
             List<EnemyPathStep> output)
@@ -410,16 +517,40 @@ namespace Systems.MineSystem.EnemySystem.Service
                 switch (direction)
                 {
                     case 0:
-                        AddFlyingNeighbour(snapshot, current, -1, 0, output);
+                        AddFlyingNeighbour(
+                            snapshot,
+                            blockedCells,
+                            current,
+                            -1,
+                            0,
+                            output);
                         break;
                     case 1:
-                        AddFlyingNeighbour(snapshot, current, 1, 0, output);
+                        AddFlyingNeighbour(
+                            snapshot,
+                            blockedCells,
+                            current,
+                            1,
+                            0,
+                            output);
                         break;
                     case 2:
-                        AddFlyingNeighbour(snapshot, current, 0, -1, output);
+                        AddFlyingNeighbour(
+                            snapshot,
+                            blockedCells,
+                            current,
+                            0,
+                            -1,
+                            output);
                         break;
                     default:
-                        AddFlyingNeighbour(snapshot, current, 0, 1, output);
+                        AddFlyingNeighbour(
+                            snapshot,
+                            blockedCells,
+                            current,
+                            0,
+                            1,
+                            output);
                         break;
                 }
             }
@@ -427,6 +558,7 @@ namespace Systems.MineSystem.EnemySystem.Service
 
         private static void AddFlyingNeighbour(
             EnemyNavigationSnapshot snapshot,
+            HashSet<GridPosition> blockedCells,
             GridPosition current,
             int offsetX,
             int offsetY,
@@ -435,7 +567,8 @@ namespace Systems.MineSystem.EnemySystem.Service
             var candidate = new GridPosition(
                 current.X + offsetX,
                 current.Y + offsetY);
-            if (snapshot.OpenCells.Contains(candidate))
+            if (snapshot.OpenCells.Contains(candidate) &&
+                !blockedCells.Contains(candidate))
             {
                 output.Add(new EnemyPathStep(
                     candidate,
@@ -513,9 +646,12 @@ namespace Systems.MineSystem.EnemySystem.Service
 
         public void Dispose()
         {
+            _runtimeRegistry.RuntimeRegistered -= HandleRuntimeRegistered;
+            _runtimeRegistry.RuntimeUnregistered -= HandleRuntimeUnregistered;
             _disposables.Dispose();
             _navigationChanged.OnCompleted();
             _navigationChanged.Dispose();
+            _blockedCells.Clear();
             _snapshot = null;
         }
     }

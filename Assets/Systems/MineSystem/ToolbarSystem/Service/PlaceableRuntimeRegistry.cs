@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Systems.MineSystem.ToolbarSystem.Interface;
 using Systems.MineSystem.ToolbarSystem.Model;
@@ -6,12 +7,18 @@ using UnityEngine;
 namespace Systems.MineSystem.ToolbarSystem.Service
 {
     public sealed class PlaceableRuntimeRegistry :
-        IPlaceableRuntimeResolver
+        IPlaceableRuntimeResolver,
+        IPlaceableRuntimeRegistry
     {
         private readonly Dictionary<Vector3Int, List<IPlaceableRuntime>> _byCell =
             new();
         private readonly Dictionary<IPlaceableRuntime, List<Vector3Int>>
             _cellsByRuntime = new();
+
+        public event Action<Vector3Int, IPlaceableRuntime>
+            RuntimeRegistered;
+        public event Action<Vector3Int, IPlaceableRuntime>
+            RuntimeUnregistered;
 
         public void Register(
             IPlaceableRuntime runtime,
@@ -32,6 +39,8 @@ namespace Systems.MineSystem.ToolbarSystem.Service
             }
 
             _cellsByRuntime[runtime] = cells;
+            for (var i = 0; i < cells.Count; i++)
+                RuntimeRegistered?.Invoke(cells[i], runtime);
         }
 
         public void RegisterCell(
@@ -44,6 +53,7 @@ namespace Systems.MineSystem.ToolbarSystem.Service
             {
                 cellPosition
             };
+            RuntimeRegistered?.Invoke(cellPosition, runtime);
         }
 
         public void Unregister(IPlaceableRuntime runtime)
@@ -54,13 +64,29 @@ namespace Systems.MineSystem.ToolbarSystem.Service
 
             foreach (var cell in cells)
             {
-                if (!_byCell.TryGetValue(cell, out var runtimes))
-                    continue;
-
-                runtimes.RemoveAll(value => ReferenceEquals(value, runtime));
-                if (runtimes.Count == 0)
-                    _byCell.Remove(cell);
+                if (_byCell.TryGetValue(cell, out var runtimes))
+                {
+                    runtimes.RemoveAll(value => ReferenceEquals(value, runtime));
+                    if (runtimes.Count == 0)
+                        _byCell.Remove(cell);
+                }
+                RuntimeUnregistered?.Invoke(cell, runtime);
             }
+        }
+
+        public bool Contains<T>(Vector3Int cellPosition)
+            where T : class, IPlaceableRuntime
+        {
+            if (!_byCell.TryGetValue(cellPosition, out var runtimes))
+                return false;
+
+            for (var i = 0; i < runtimes.Count; i++)
+            {
+                if (runtimes[i] is T)
+                    return true;
+            }
+
+            return false;
         }
 
         public bool TryResolve(
