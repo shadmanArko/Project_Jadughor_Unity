@@ -25,7 +25,7 @@ MonoBehaviour:
     - {fileID: 697682191857345388, guid: 4be0664b4f3eb5e49baf97f5748afc21, type: 3}
     speed: 1
     playOnlyOnce: 0
-    flipX: 0
+    flipX: 1
     flipY: 0
     allowFacingFlip: 1
   - id: Bat.Attack
@@ -40,7 +40,7 @@ MonoBehaviour:
     - {fileID: -5738858406084355967, guid: 4be0664b4f3eb5e49baf97f5748afc21, type: 3}
     speed: 1
     playOnlyOnce: 1
-    flipX: 0
+    flipX: 1
     flipY: 0
     allowFacingFlip: 1
   - id: Bat.Death
@@ -57,7 +57,7 @@ MonoBehaviour:
     - {fileID: 1341607066, guid: 4be0664b4f3eb5e49baf97f5748afc21, type: 3}
     speed: 1
     playOnlyOnce: 1
-    flipX: 0
+    flipX: 1
     flipY: 0
     allowFacingFlip: 1
   - id: Bat.FlyToIdle
@@ -73,7 +73,7 @@ MonoBehaviour:
     - {fileID: -2103701215377653077, guid: 4be0664b4f3eb5e49baf97f5748afc21, type: 3}
     speed: 1
     playOnlyOnce: 1
-    flipX: 0
+    flipX: 1
     flipY: 0
     allowFacingFlip: 1
   - id: Bat.IdleToFly
@@ -89,7 +89,7 @@ MonoBehaviour:
     - {fileID: 6413210283945640860, guid: 4be0664b4f3eb5e49baf97f5748afc21, type: 3}
     speed: 1
     playOnlyOnce: 1
-    flipX: 0
+    flipX: 1
     flipY: 0
     allowFacingFlip: 1
   - id: Bat.Hurt
@@ -107,7 +107,7 @@ MonoBehaviour:
     - {fileID: -1221191594444246648, guid: 4be0664b4f3eb5e49baf97f5748afc21, type: 3}
     speed: 1
     playOnlyOnce: 1
-    flipX: 0
+    flipX: 1
     flipY: 0
     allowFacingFlip: 1
   - id: Bat.Idle
@@ -128,6 +128,6 @@ MonoBehaviour:
     - {fileID: -8337001276912124118, guid: 4be0664b4f3eb5e49baf97f5748afc21, type: 3}
     speed: 1
     playOnlyOnce: 0
-    flipX: 0
+    flipX: 1
     flipY: 0
     allowFacingFlip: 1

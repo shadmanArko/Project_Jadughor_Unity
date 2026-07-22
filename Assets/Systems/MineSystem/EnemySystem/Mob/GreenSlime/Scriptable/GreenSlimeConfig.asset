@@ -16,7 +16,7 @@ MonoBehaviour:
   prefab: {fileID: 1937851054011437442, guid: 6cfefae9019d07046aee60a1cdd68056, type: 3}
   maxHealth: 25
   damage: 5
-  moveSpeed: 0.3
+  moveSpeed: 0.2
   aggroRangeInTiles: 5
   attackRangeInTiles: 0
   attackCooldown: 1
@@ -28,10 +28,10 @@ MonoBehaviour:
   requiresPlacementValidation: 1
   allowCameraVisibleWaveSpawn: 1
   slimeVariant: 0
-  placeableCollisionBehavior: 0
-  aggroDistance: 1
   animationProfile: {fileID: 11400000, guid: f24f23a381784db7af2fa5baf7e5c5eb, type: 2}
   slimeColor: {r: 1, g: 1, b: 1, a: 1}
+  placeableCollisionBehavior: 0
+  aggroDistance: 1
   idleDuration: 1.5
   patrolRangeInTiles: 10
   destinationRetries: 4
