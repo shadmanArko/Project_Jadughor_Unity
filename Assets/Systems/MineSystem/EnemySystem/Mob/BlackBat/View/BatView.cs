@@ -62,6 +62,12 @@ namespace Systems.MineSystem.EnemySystem.Mob.BlackBat.View
         public void SetAnimatorSpeed(float speed) =>
             animationController.SetSpeed(speed);
 
+        public void SetFlightVisualOffset(Vector2 offset) =>
+            animationController.SetRuntimeVisualOffset(offset);
+
+        public void ClearFlightVisualOffset() =>
+            animationController.SetRuntimeVisualOffset(Vector2.zero);
+
         public void SetDamageEnabled(bool enabled) =>
             _damageEnabled = enabled;
 

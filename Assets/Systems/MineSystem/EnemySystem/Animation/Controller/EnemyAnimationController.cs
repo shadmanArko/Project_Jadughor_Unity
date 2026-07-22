@@ -14,6 +14,8 @@ namespace Systems.MineSystem.EnemySystem.Animation.Controller
         private readonly Subject<EnemyAnimationMarkerEvent> _markers = new();
         private readonly Subject<EnemyAnimationCompletedEvent> _completed = new();
         private EnemyAnimationData _current;
+        private Vector2 _profileVisualOffset;
+        private Vector2 _runtimeVisualOffset;
         private int _spriteIndex;
         private int _generation;
         private bool _completionRaised;
@@ -37,8 +39,15 @@ namespace Systems.MineSystem.EnemySystem.Animation.Controller
             if (profile == null)
                 return;
             animator.runtimeAnimatorController = profile.AnimatorController;
-            transform.localPosition = profile.VisualOffset;
+            _profileVisualOffset = profile.VisualOffset;
+            ApplyVisualOffset();
             transform.localScale = profile.VisualScale;
+        }
+
+        public void SetRuntimeVisualOffset(Vector2 offset)
+        {
+            _runtimeVisualOffset = offset;
+            ApplyVisualOffset();
         }
 
         public int Play(EnemyAnimationData data, bool restart = false)
@@ -116,7 +125,15 @@ namespace Systems.MineSystem.EnemySystem.Animation.Controller
                 animator.speed = 1f;
                 animator.Rebind();
             }
+            _runtimeVisualOffset = Vector2.zero;
+            ApplyVisualOffset();
             ApplyFlip();
+        }
+
+        private void ApplyVisualOffset()
+        {
+            var offset = _profileVisualOffset + _runtimeVisualOffset;
+            transform.localPosition = new Vector3(offset.x, offset.y, 0f);
         }
 
         private void PresentSprite()

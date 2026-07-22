@@ -262,7 +262,7 @@ namespace Systems.MineSystem.EnemySystem.Mob.BlackBat.Controller
 
         public void Pause()
         {
-            CancelPathRequest();
+            CancelPathRequest(true);
             _view.Stop();
             _pauseGate.Pause();
         }
@@ -952,12 +952,12 @@ namespace Systems.MineSystem.EnemySystem.Mob.BlackBat.Controller
                 _config.FlightWobbleAmplitude;
             var horizontal = Mathf.Abs(segmentDelta.x) >=
                              Mathf.Abs(segmentDelta.y);
-            var desired = basePosition +
-                          (horizontal
-                              ? Vector2.up * wobble
-                              : Vector2.right * wobble);
+            var visualOffset = horizontal
+                ? Vector2.up * wobble
+                : Vector2.right * wobble;
             FaceHorizontally(segmentDelta.x);
-            _view.MovePosition(desired);
+            _view.SetFlightVisualOffset(visualOffset);
+            _view.MovePosition(basePosition);
 
             if (progress < 1f)
                 return;
@@ -976,6 +976,7 @@ namespace Systems.MineSystem.EnemySystem.Mob.BlackBat.Controller
             var purpose = _model.PathPurpose;
             ClearMovementObservation();
             _model.ClearPath();
+            _view.ClearFlightVisualOffset();
             _view.Stop();
             switch (purpose)
             {
@@ -1159,6 +1160,7 @@ namespace Systems.MineSystem.EnemySystem.Mob.BlackBat.Controller
                     $"grid={_placement.WorldToGrid(_view.Body.position)} " +
                     $"world={_view.Body.position.ToString("F4")}");
             }
+            _view.ClearFlightVisualOffset();
             _view.Stop();
             if (state == BatState.Attack && _target.IsTargetAvailable)
                 FaceTargetHorizontally();
@@ -1513,12 +1515,14 @@ namespace Systems.MineSystem.EnemySystem.Mob.BlackBat.Controller
             return false;
         }
 
-        private void CancelPathRequest()
+        private void CancelPathRequest(bool preserveFlightVisualOffset = false)
         {
             CancelPathComputation();
             ClearMovementObservation();
             _model.EndContactApproach();
             _model.ClearPath();
+            if (!preserveFlightVisualOffset)
+                _view.ClearFlightVisualOffset();
         }
 
         private void CancelPathComputation()
