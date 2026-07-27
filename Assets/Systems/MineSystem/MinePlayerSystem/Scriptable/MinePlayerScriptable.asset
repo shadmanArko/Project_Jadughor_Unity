@@ -35,5 +35,6 @@ MonoBehaviour:
       value: 2.5
     unlockedInventorySlots:
       value: 12
+  characterType: 0
   region: 1
   site: 0
