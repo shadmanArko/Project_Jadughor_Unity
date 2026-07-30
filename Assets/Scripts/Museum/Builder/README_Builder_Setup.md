@@ -460,7 +460,19 @@ Drag a card onto a slot to place; **left-click a filled slot to remove**. Close 
 hides it. `debugFillStorageFromCatalog` seeds one of every artifact on first open so
 there's something to test with — turn OFF for real play.
 
-### Prefabs to build
+### ⚡ Quick build (recommended): the generator
+Run **Tools ▸ Project Museum ▸ Build Exhibit Editor UI**. It creates the whole
+"Exhibit Editor Canvas" (dimmer bg → ~70% window → left scroll list + right centred
+grid + bottom bar + close button + drag layer) in the open scene, generates the
+`ArtifactCard` + `ArtifactSlot` prefabs under `Assets/Prefabs/Exhibit Editor/`, wires
+every `ExhibitEditorUI` field, and adds an EventSystem if missing. Then just recolour /
+resize to taste. (Re-running adds a fresh canvas — delete the old one first.)
+
+You still need to: run **Import Artifact Data**, assign the artifact DB to
+`MuseumInstaller`, put `ExhibitObjectView` on exhibit prefabs, and add
+`MuseumInteractionSystem` to a manager object.
+
+### Building the prefabs by hand instead
 - **Artifact card** (`ArtifactCard`): root with a horizontal/whatever layout → `Image`
   (icon) + `TMP_Text` (name) + tags. For tags, either assign a **tag-chip prefab**
   (a small `TMP_Text`) + a **tag container** (a HorizontalLayoutGroup) — one chip per
