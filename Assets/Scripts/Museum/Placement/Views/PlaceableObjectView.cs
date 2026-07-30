@@ -16,7 +16,7 @@ namespace ProjectMuseum.Builder
     /// <see cref="ExhibitObjectView"/>, <see cref="ShopObjectView"/>,
     /// <see cref="DecorationObjectView"/>, <see cref="SanitationObjectView"/>.
     /// </summary>
-    public class PlaceableObjectView : MonoBehaviour
+    public class PlaceableObjectView : MonoBehaviour, IInteractable
     {
         [Tooltip("Renderers tinted while this instance is a ghost preview. Leave " +
                  "empty to auto-collect every SpriteRenderer under this object.")]
@@ -51,6 +51,33 @@ namespace ProjectMuseum.Builder
 
         /// <summary>Hook for subclasses — runs once identity fields are set.</summary>
         protected virtual void OnInitialized(PlacedObjectData data) { }
+
+        /// <summary>
+        /// Left-click handler (via <c>MuseumInteractionSystem</c>). Base does
+        /// nothing; subclasses override — e.g. <c>ExhibitObjectView</c> opens the
+        /// exhibit editor. Only responds once actually placed (never for a ghost).
+        /// </summary>
+        public virtual void Interact() { }
+
+        /// <summary>True if this object's art covers the given world point (for click hit-testing).</summary>
+        public bool ContainsWorldPoint(Vector3 worldPoint)
+        {
+            if (renderers == null) return false;
+            foreach (SpriteRenderer r in renderers)
+            {
+                if (r == null || !r.enabled) continue;
+                Bounds b = r.bounds;
+                if (worldPoint.x >= b.min.x && worldPoint.x <= b.max.x &&
+                    worldPoint.y >= b.min.y && worldPoint.y <= b.max.y)
+                    return true;
+            }
+            return false;
+        }
+
+        /// <summary>Representative sorting order (all this object's renderers share one).</summary>
+        public int SortingOrder =>
+            renderers != null && renderers.Length > 0 && renderers[0] != null
+                ? renderers[0].sortingOrder : 0;
 
         /// <summary>
         /// Swap in the artwork for the SPECIFIC variation being placed. The prefab is

@@ -403,7 +403,88 @@ are registered/saved, just not selectable).
 then only fill in when the player actually paints, so loading never repaints your
 hand-authored floor with a default tile.
 
+---
+
+# Phase 3 — Interaction + Exhibit Artifact Placement
+
+## Clicking placed objects (`IInteractable`)
+
+`PlaceableObjectView` now implements **`IInteractable`** (`void Interact()`) — every
+placed object is clickable. `MuseumInteractionSystem` (put on a manager object) turns a
+left-click into `Interact()` on the **front-most** placed object under the cursor
+(sprite-bounds hit-test, highest `sortingOrder` wins — no colliders needed). It ignores
+clicks over UI and while a build/paint mode is active.
+
+`ExhibitObjectView.Interact()` raises `BuilderActions.OnExhibitClicked(exhibitId)`.
+**Exhibit prefabs must have the `ExhibitObjectView` component** (not the base
+`PlaceableObjectView`) for click-to-open to work — add it to your exhibit prefab roots.
+Other categories inherit the base no-op `Interact()` (hooks for their own UIs later).
+
+## Artifact data (`MuseumArtifactDatabase` + importer)
+
+Same pattern as `BuilderDatabase`: run **Tools ▸ Project Museum ▸ Import Artifact Data**
+→ reads `Assets/Resources/ArtifactCatalogue/RawArtifactDescriptiveDataEnglish.json` +
+`RawArtifactFunctionalData.json`, merges by `Id`, and resolves **two actual `Sprite`s
+per artifact** (the DB stores real sprite references, not the stale `res://` path
+strings from the JSON):
+- **`Icon`** — the UI card/slot icon, by **ArtifactName** in `Assets/2D/UI/MineUi/Artifacts`.
+- **`IsometricSprite`** — the in-game sprite shown on the physical exhibit (used when
+  placed artifacts render in the museum — next phase), by **Id** in
+  `Assets/2D/Museum/Isometric View Artifacts`.
+
+Writes `Assets/GameData/MuseumArtifactDatabase.asset`; the console reports how many of
+each sprite it couldn't resolve. Assign that asset to `MuseumInstaller` (new
+**Artifact Database** field).
+
+Tags shown on cards come from the functional data, in order: **Era, Region, Object,
+ObjectSize, then each Material**.
+
+## Owned artifacts + slots (data)
+
+- `MuseumData.Artifacts` — `OwnedArtifactData { InstanceId, RawArtifactId }`: what the
+  player owns (from mining later; a debug seed fills it for now).
+- `ExhibitData.Slots` — `ArtifactSlotAssignment { SlotIndex, ArtifactInstanceId }`:
+  which artifact sits in which slot (replaces the old flat `ArtifactIds`).
+- Model API: `GetUnplacedArtifacts()`, `AssignArtifactToSlot(exhibitId, slot, instance)`
+  (an instance lives in at most one slot — reassigning frees the old spot),
+  `RemoveArtifactFromSlot(...)`, `AddOwnedArtifact(rawId)`. Changes raise
+  `OnExhibitArtifactsChanged`.
+
+## The exhibit editor UI
+
+`ExhibitEditorUI` (on an initially-hidden editor panel; injected). On
+`OnExhibitClicked`: shows the panel, builds the slot grid (**2×2 slots per exhibit tile**
+— a 1×1 exhibit = 4 slots, a 2×2 = 16, columns = width×2), fills the **left list** with
+draggable `ArtifactCard`s for owned-and-unplaced artifacts, and marks filled slots.
+Drag a card onto a slot to place; **left-click a filled slot to remove**. Close button
+hides it. `debugFillStorageFromCatalog` seeds one of every artifact on first open so
+there's something to test with — turn OFF for real play.
+
+### Prefabs to build
+- **Artifact card** (`ArtifactCard`): root with a horizontal/whatever layout → `Image`
+  (icon) + `TMP_Text` (name) + tags. For tags, either assign a **tag-chip prefab**
+  (a small `TMP_Text`) + a **tag container** (a HorizontalLayoutGroup) — one chip per
+  tag — or just a single **tags label** as a fallback. It's a drag source (no extra
+  setup; the script implements the drag handlers).
+- **Artifact slot** (`ArtifactSlot`): a square with a child `Image` (assigned to its
+  `icon` field) that shows the placed artifact.
+- **Editor panel**: a full-screen (or windowed) panel, hidden by default, with a left
+  ScrollView (assign its Content to `storageContent`, the card prefab), a right grid
+  (a `GridLayoutGroup`; assign it + its Content, the slot prefab), a **Close** button,
+  and a top-level **Drag Layer** RectTransform (usually the editor's canvas root) for
+  the drag ghost. It needs a Canvas + GraphicRaycaster and the scene an EventSystem
+  (already present).
+
+### Scene wiring
+Add `MuseumInteractionSystem` (any manager object) and `ExhibitEditorUI` (on the editor
+panel) — both live under the scene with the Zenject SceneContext + `MuseumInstaller`.
+Put `ExhibitObjectView` on exhibit prefabs.
+
 ## Still to come
-Artifact-in-exhibit placement, per-wall wallpaper selection + real wall art,
-object move/remove UI, rotation frames, folding MuseumData + PlayerInfo into one
-master SaveData.
+- Artifacts **rendered on the exhibit in the world** (the editor UI places them in
+  data + slots; showing the iso artifact sprites on the physical exhibit is next —
+  the iso sprites are already resolvable by Id).
+- **Size-based slot rules** (Godot's Tiny=1 slot / Small=column / Medium=whole 2×2):
+  right now it's one artifact per slot regardless of `ObjectSize` (still shown as a tag).
+- Real artifact acquisition from mining (replaces the debug seed), condition/rarity,
+  per-wall wallpaper art, object move/remove UI, master SaveData merge.

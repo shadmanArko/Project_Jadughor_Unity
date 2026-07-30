@@ -70,6 +70,14 @@ namespace ProjectMuseum.Builder
         /// <summary>A wall's wallpaper changed (wallId, wallpaperName; "" = cleared).</summary>
         public static Action<string, string> OnWallpaperChanged;
 
+        // ── Exhibits / artifacts ────────────────────────────────────────
+
+        /// <summary>A placed exhibit was clicked — open its editor UI (carries exhibit Id).</summary>
+        public static Action<string> OnExhibitClicked;
+
+        /// <summary>An exhibit's artifact slot assignments changed (carries exhibit Id).</summary>
+        public static Action<string> OnExhibitArtifactsChanged;
+
         // ── Data lifecycle ──────────────────────────────────────────────
 
         /// <summary>

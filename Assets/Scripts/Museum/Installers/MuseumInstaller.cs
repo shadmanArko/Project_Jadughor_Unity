@@ -16,6 +16,7 @@ namespace ProjectMuseum.Builder
         [SerializeField] private MuseumDataAsset museumData;
         [SerializeField] private BuilderDatabase builderDatabase;
         [SerializeField] private PlaceablePrefabConfig placeablePrefabConfig;
+        [SerializeField] private MuseumArtifactDatabase artifactDatabase;
 
         public override void InstallBindings()
         {
@@ -29,6 +30,10 @@ namespace ProjectMuseum.Builder
 
             Container.Bind<PlaceablePrefabConfig>()
                 .FromScriptableObject(placeablePrefabConfig)
+                .AsSingle();
+
+            Container.Bind<MuseumArtifactDatabase>()
+                .FromScriptableObject(artifactDatabase)
                 .AsSingle();
 
             Container.BindInterfacesAndSelfTo<MuseumDataModel>().AsSingle();

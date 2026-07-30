@@ -303,6 +303,82 @@ namespace ProjectMuseum.Data
         public ExhibitData GetExhibitData(string placedObjectId) =>
             Data.Exhibits.Find(e => e.Id == placedObjectId);
 
+        // ── Artifacts ───────────────────────────────────────────────────
+
+        public IReadOnlyList<OwnedArtifactData> OwnedArtifacts => Data.Artifacts;
+
+        /// <summary>Add an owned artifact instance (from mining, or a debug seed). Returns it.</summary>
+        public OwnedArtifactData AddOwnedArtifact(string rawArtifactId)
+        {
+            var owned = new OwnedArtifactData
+            {
+                InstanceId = Guid.NewGuid().ToString(),
+                RawArtifactId = rawArtifactId
+            };
+            Data.Artifacts.Add(owned);
+            return owned;
+        }
+
+        public OwnedArtifactData GetOwnedArtifact(string instanceId) =>
+            Data.Artifacts.Find(a => a.InstanceId == instanceId);
+
+        /// <summary>The instance ids currently sitting in some exhibit slot.</summary>
+        public HashSet<string> GetPlacedArtifactInstanceIds()
+        {
+            var set = new HashSet<string>();
+            foreach (ExhibitData ex in Data.Exhibits)
+                foreach (ArtifactSlotAssignment s in ex.Slots)
+                    if (!string.IsNullOrEmpty(s.ArtifactInstanceId)) set.Add(s.ArtifactInstanceId);
+            return set;
+        }
+
+        /// <summary>Owned artifacts not currently in any exhibit slot (the storage list).</summary>
+        public List<OwnedArtifactData> GetUnplacedArtifacts()
+        {
+            HashSet<string> placed = GetPlacedArtifactInstanceIds();
+            var free = new List<OwnedArtifactData>();
+            foreach (OwnedArtifactData a in Data.Artifacts)
+                if (!placed.Contains(a.InstanceId)) free.Add(a);
+            return free;
+        }
+
+        /// <summary>
+        /// Put an owned artifact into an exhibit slot. Any previous occupant of that
+        /// slot, and any previous placement of this instance (in this or another
+        /// exhibit), are cleared first — an instance lives in at most one slot.
+        /// </summary>
+        public bool AssignArtifactToSlot(string exhibitId, int slotIndex, string instanceId)
+        {
+            ExhibitData exhibit = GetExhibitData(exhibitId);
+            if (exhibit == null || string.IsNullOrEmpty(instanceId)) return false;
+
+            // Remove this instance from wherever it currently sits.
+            foreach (ExhibitData ex in Data.Exhibits)
+            {
+                int before = ex.Slots.Count;
+                ex.Slots.RemoveAll(s => s.ArtifactInstanceId == instanceId);
+                if (ex.Slots.Count != before && ex.Id != exhibitId)
+                    BuilderActions.OnExhibitArtifactsChanged?.Invoke(ex.Id);
+            }
+
+            // Free the target slot, then assign.
+            exhibit.Slots.RemoveAll(s => s.SlotIndex == slotIndex);
+            exhibit.Slots.Add(new ArtifactSlotAssignment { SlotIndex = slotIndex, ArtifactInstanceId = instanceId });
+
+            BuilderActions.OnExhibitArtifactsChanged?.Invoke(exhibitId);
+            return true;
+        }
+
+        /// <summary>Clear a slot (its artifact returns to storage).</summary>
+        public bool RemoveArtifactFromSlot(string exhibitId, int slotIndex)
+        {
+            ExhibitData exhibit = GetExhibitData(exhibitId);
+            if (exhibit == null) return false;
+            int removed = exhibit.Slots.RemoveAll(s => s.SlotIndex == slotIndex);
+            if (removed > 0) BuilderActions.OnExhibitArtifactsChanged?.Invoke(exhibitId);
+            return removed > 0;
+        }
+
         // ── Walls / wallpaper ───────────────────────────────────────────
 
         /// <summary>Ensure a wall record exists for a scene wall segment id.</summary>

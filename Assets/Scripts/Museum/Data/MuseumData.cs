@@ -36,6 +36,22 @@ namespace ProjectMuseum.Data
         /// <c>MuseumWallpaperSystem</c> from the scene's wall containers.
         /// </summary>
         public List<WallData> Walls = new List<WallData>();
+
+        /// <summary>
+        /// Artifacts the player owns (collected from the mine). Each is either free
+        /// (shown in the exhibit editor's storage list) or assigned to an exhibit
+        /// slot — see <see cref="ExhibitData.Slots"/>.
+        /// </summary>
+        public List<OwnedArtifactData> Artifacts = new List<OwnedArtifactData>();
+    }
+
+    /// <summary>One artifact the player owns. <see cref="InstanceId"/> is unique per
+    /// physical copy; <see cref="RawArtifactId"/> keys into the artifact catalog.</summary>
+    [Serializable]
+    public class OwnedArtifactData
+    {
+        public string InstanceId;
+        public string RawArtifactId;
     }
 
     /// <summary>
@@ -105,6 +121,15 @@ namespace ProjectMuseum.Data
     public class ExhibitData
     {
         public string Id;
-        public List<string> ArtifactIds = new List<string>();
+        /// <summary>Which owned artifact sits in which display slot of this exhibit.</summary>
+        public List<ArtifactSlotAssignment> Slots = new List<ArtifactSlotAssignment>();
+    }
+
+    /// <summary>One filled display slot: an owned artifact instance at a slot index.</summary>
+    [Serializable]
+    public class ArtifactSlotAssignment
+    {
+        public int SlotIndex;
+        public string ArtifactInstanceId;
     }
 }

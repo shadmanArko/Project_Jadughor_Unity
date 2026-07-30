@@ -3,15 +3,16 @@ using ProjectMuseum.Data;
 namespace ProjectMuseum.Builder
 {
     /// <summary>
-    /// Placed exhibit prefab. Artifact-slot wiring (reading/writing
-    /// <c>MuseumDataModel.GetExhibitData</c>) lands here when artifact placement
-    /// is built — deliberately left empty until then.
+    /// Placed exhibit prefab. Left-clicking it opens the exhibit editor UI (where
+    /// the player drags artifacts into its display slots) via
+    /// <see cref="BuilderActions.OnExhibitClicked"/>, keyed by this exhibit's Id.
     /// </summary>
     public class ExhibitObjectView : PlaceableObjectView
     {
-        protected override void OnInitialized(PlacedObjectData data)
+        public override void Interact()
         {
-            base.OnInitialized(data);
+            if (!IsPlaced || string.IsNullOrEmpty(Id)) return;
+            BuilderActions.OnExhibitClicked?.Invoke(Id);
         }
     }
 }

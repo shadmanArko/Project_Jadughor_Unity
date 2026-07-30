@@ -1,0 +1,771 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09b6fa78039e77646aa42d990a97a16f, type: 3}
+  m_Name: MuseumArtifactDatabase
+  m_EditorClassIdentifier: Assembly-CSharp::ProjectMuseum.Builder.MuseumArtifactDatabase
+  artifacts:
+  - Descriptive:
+      Id: AncientNativeAmericanClub
+      ArtifactName: Ancient Native American Club
+      Description: Few things are as reliable as fitting a sizeable rock on a stick.
+    Functional:
+      Id: AncientNativeAmericanClub
+      Era: Ancient
+      Region: American
+      Object: Club
+      Materials:
+      - Wood
+      - Stone
+      ObjectClass: Weapon
+      ObjectSize: Medium
+    Icon: {fileID: 21300000, guid: eeb42330c58869040915f8658ab70cb8, type: 3}
+    IsometricSprite: {fileID: 21300000, guid: 65357ffa0e9aa5943aed0130692fb2c1, type: 3}
+  - Descriptive:
+      Id: ClassicalNativeAmericanWoodenSword
+      ArtifactName: Classical Native American Wooden Sword
+      Description: An ornate sword carved from wood.
+    Functional:
+      Id: ClassicalNativeAmericanWoodenSword
+      Era: Classical
+      Region: American
+      Object: Sword
+      Materials:
+      - Wood
+      ObjectClass: Weapon
+      ObjectSize: Medium
+    Icon: {fileID: 21300000, guid: 8e2aec6ed17a3a8458ac5acb2b13252b, type: 3}
+    IsometricSprite: {fileID: 21300000, guid: c027c62f71aba924385e84f475c87a87, type: 3}
+  - Descriptive:
+      Id: ClassicalNativeAmericanTomahawk
+      ArtifactName: Classical Native American Tomahawk
+      Description: Evidence suggests that the earliest tomahawks were tied together
+        with animal sinew.
+    Functional:
+      Id: ClassicalNativeAmericanTomahawk
+      Era: Classical
+      Region: American
+      Object: Axe
+      Materials:
+      - Wood
+      - Bone
+      ObjectClass: Weapon
+      ObjectSize: Medium
+    Icon: {fileID: 21300000, guid: be6cdc82c6ca1054eab05d47d1171239, type: 3}
+    IsometricSprite: {fileID: 21300000, guid: 16cb0c10549034b4ca37cd3aa2943417, type: 3}
+  - Descriptive:
+      Id: MedievalNativeAmericanTomahawk
+      ArtifactName: Medieval Native American Tomahawk
+      Description: Prior to Colombian Exchange, tomahawks used by the natives were
+        made from both stone and bone.
+    Functional:
+      Id: MedievalNativeAmericanTomahawk
+      Era: Medieval
+      Region: American
+      Object: Axe
+      Materials:
+      - Wood
+      - Stone
+      ObjectClass: Weapon
+      ObjectSize: Medium
+    Icon: {fileID: 21300000, guid: 48e48717778a9374f98f1775280ea2c8, type: 3}
+    IsometricSprite: {fileID: 21300000, guid: 253436c829cd64344b0e379ec2fe8683, type: 3}
+  - Descriptive:
+      Id: RenaissanceNativeAmericanTomahawk
+      ArtifactName: Medieval Native American Tomahawk
+      Description: After the arrival of European, tomahawks began to be tipped with
+        iron and steel.
+    Functional:
+      Id: RenaissanceNativeAmericanTomahawk
+      Era: Renaissance
+      Region: American
+      Object: Axe
+      Materials:
+      - Wood
+      - Iron
+      ObjectClass: Weapon
+      ObjectSize: Medium
+    Icon: {fileID: 21300000, guid: 48e48717778a9374f98f1775280ea2c8, type: 3}
+    IsometricSprite: {fileID: 21300000, guid: 95f864e79ebca5349972ae302b6243b2, type: 3}
+  - Descriptive:
+      Id: RenaissanceAmericanCutlass
+      ArtifactName: Renaissance American Cutlass
+      Description: A descendent of the medieval falchion, the cutlass is synonymous
+        with the Age of Exploration.
+    Functional:
+      Id: RenaissanceAmericanCutlass
+      Era: Renaissance
+      Region: American
+      Object: Sword
+      Materials:
+      - Iron
+      ObjectClass: Weapon
+      ObjectSize: Medium
+    Icon: {fileID: 21300000, guid: fe955ffa261481348b92e22179461445, type: 3}
+    IsometricSprite: {fileID: 21300000, guid: 2423e7d4009ee7948996cc6f2a9e9f69, type: 3}
+  - Descriptive:
+      Id: IndustrialAmericanMusket
+      ArtifactName: Industrial American Musket
+      Description: By the Industrial Age, the musket had cemented itself as the choice
+        weapon of war.
+    Functional:
+      Id: IndustrialAmericanMusket
+      Era: Industrial
+      Region: American
+      Object: Musket
+      Materials:
+      - Iron
+      - Wood
+      ObjectClass: Weapon
+      ObjectSize: Large
+    Icon: {fileID: 21300000, guid: d76df94864406f64188b46377a75da94, type: 3}
+    IsometricSprite: {fileID: 21300000, guid: 8f6f18aff06edb1469083bd95f4551ba, type: 3}
+  - Descriptive:
+      Id: ModernAmericanRifle
+      ArtifactName: Modern American Rifle
+      Description: Over a million M14 rifles were produced in the 60s and 70s.
+    Functional:
+      Id: ModernAmericanRifle
+      Era: Modern
+      Region: American
+      Object: Rifle
+      Materials:
+      - Iron
+      - Wood
+      ObjectClass: Weapon
+      ObjectSize: Large
+    Icon: {fileID: 21300000, guid: 51bbcc50530c916418141225848a3ef6, type: 3}
+    IsometricSprite: {fileID: 21300000, guid: eae9f28644acff04999ea880fa709fff, type: 3}
+  - Descriptive:
+      Id: ClassicalNativeAmericanWarShield
+      ArtifactName: Classical Native American War Shield
+      Description: Native American made war shields and medicine shields - the latter
+        to protect the spirit of the warrior.
+    Functional:
+      Id: ClassicalNativeAmericanWarShield
+      Era: Classical
+      Region: American
+      Object: Shield
+      Materials:
+      - Leather
+      - Wood
+      ObjectClass: Armor
+      ObjectSize: Medium
+    Icon: {fileID: 21300000, guid: 4706765206bc1e843a3dc648e1ffb9fc, type: 3}
+    IsometricSprite: {fileID: 21300000, guid: 77ba3cf16a8b7dd4ab8242e76d569a2f, type: 3}
+  - Descriptive:
+      Id: MedievalNativeAmericanWarShield
+      ArtifactName: Medieval Native American War Shield
+      Description: Plains Indians considered their shield as their most precious
+        possession.
+    Functional:
+      Id: MedievalNativeAmericanWarShield
+      Era: Medieval
+      Region: American
+      Object: Shield
+      Materials:
+      - Leather
+      - Wood
+      ObjectClass: Armor
+      ObjectSize: Medium
+    Icon: {fileID: 21300000, guid: 8a41ad374db8bc44eacd50a2a2c2abc8, type: 3}
+    IsometricSprite: {fileID: 21300000, guid: 6f3db81ce4edc554a84666fc67f12b07, type: 3}
+  - Descriptive:
+      Id: AncientNativeAmericanBowl
+      ArtifactName: Ancient Native American Bowl
+      Description: Natives used bowls for ritual and everyday purposes.
+    Functional:
+      Id: AncientNativeAmericanBowl
+      Era: Ancient
+      Region: American
+      Object: Bowl
+      Materials:
+      - Clay
+      ObjectClass: Vessel
+      ObjectSize: Small
+    Icon: {fileID: 21300000, guid: 19767177d9286d2438894c98b79470d5, type: 3}
+    IsometricSprite: {fileID: 21300000, guid: 34b1dd47264688d4a8f20fac8fc38f2b, type: 3}
+  - Descriptive:
+      Id: ClassicalNativeAmericanBowl
+      ArtifactName: Classical Native American Bowl
+      Description: Clay for pottery often had to be mined and purified in labor-intensive
+        processes.
+    Functional:
+      Id: ClassicalNativeAmericanBowl
+      Era: Classical
+      Region: American
+      Object: Bowl
+      Materials:
+      - Wood
+      ObjectClass: Vessel
+      ObjectSize: Small
+    Icon: {fileID: 21300000, guid: 43d3f070f47ac0c45bd1cdfafa9ba172, type: 3}
+    IsometricSprite: {fileID: 21300000, guid: 00f94adbf0ec7384892607aadd6e4cee, type: 3}
+  - Descriptive:
+      Id: MedievalNativeAmericanBowl
+      ArtifactName: Medieval Native American Bowl
+      Description: 'Ever-increasingly sophisticated designs on pottery can be found
+        in discoveries from almost every part of the world. '
+    Functional:
+      Id: MedievalNativeAmericanBowl
+      Era: Medieval
+      Region: American
+      Object: Bowl
+      Materials:
+      - Clay
+      ObjectClass: Vessel
+      ObjectSize: Small
+    Icon: {fileID: 21300000, guid: 60b1fa52c2d18444d9afa49ce77608fb, type: 3}
+    IsometricSprite: {fileID: 21300000, guid: e0bcff424a57fab4e8390236481745da, type: 3}
+  - Descriptive:
+      Id: RenaissanceAmericanBowl
+      ArtifactName: Renaissance American Bowl
+      Description: European settlers arriving in the new world often brought their
+        own designs and production methods for their vessels.
+    Functional:
+      Id: RenaissanceAmericanBowl
+      Era: Renaissance
+      Region: American
+      Object: Bowl
+      Materials:
+      - Wood
+      ObjectClass: Vessel
+      ObjectSize: Small
+    Icon: {fileID: 21300000, guid: 3d63a1e1009ac4947a7fbc31c9566271, type: 3}
+    IsometricSprite: {fileID: 21300000, guid: a6a06bb9507406e43b74a110fe5c2c32, type: 3}
+  - Descriptive:
+      Id: MedievalNativeAmericanLeatherChestplate
+      ArtifactName: Medieval Native American Leather Chestplate
+      Description: Hardened leather was a common component in Native American armor.
+    Functional:
+      Id: MedievalNativeAmericanLeatherChestplate
+      Era: Medieval
+      Region: American
+      Object: Chestplate
+      Materials:
+      - Leather
+      ObjectClass: Armor
+      ObjectSize: Large
+    Icon: {fileID: 21300000, guid: 4d2bb2c6033c4324da94a6241f5be8b0, type: 3}
+    IsometricSprite: {fileID: 21300000, guid: 338da45f1a2b8a841b1c4fa3daa91f83, type: 3}
+  - Descriptive:
+      Id: RenaissanceAmericanIronChestplate
+      ArtifactName: Renaissance American Iron Chestplate
+      Description: The cuirass had become the most common form of body armor by the
+        Age of Exploration.
+    Functional:
+      Id: RenaissanceAmericanIronChestplate
+      Era: Renaissance
+      Region: American
+      Object: Chestplate
+      Materials:
+      - Iron
+      ObjectClass: Armor
+      ObjectSize: Large
+    Icon: {fileID: 21300000, guid: 39126b61f2a903f4c95c655eddef6986, type: 3}
+    IsometricSprite: {fileID: 21300000, guid: b337aa2d3ee342044971eee19d30e016, type: 3}
+  - Descriptive:
+      Id: IndustrialAmericanInfantryGear
+      ArtifactName: Industrial American Infantry Gear
+      Description: 'By the time of the American Civil War, soldiers'' uniforms had
+        begun to be mass produced. '
+    Functional:
+      Id: IndustrialAmericanInfantryGear
+      Era: Industrial
+      Region: American
+      Object: Infantry Gear
+      Materials:
+      - Varied
+      ObjectClass: Armor
+      ObjectSize: Large
+    Icon: {fileID: 21300000, guid: bee2c5bc30624764ba3eee46365a81c3, type: 3}
+    IsometricSprite: {fileID: 21300000, guid: 40d6d6a618540bd429a344fc9b373522, type: 3}
+  - Descriptive:
+      Id: AncientNativeAmericanWampumBeadCurrency
+      ArtifactName: Ancient Native American Wampum Bead Currency
+      Description: Wampum beads were not only used for trade, but also for clothing
+        and decorative purposes.
+    Functional:
+      Id: AncientNativeAmericanWampumBeadCurrency
+      Era: Ancient
+      Region: American
+      Object: Coin
+      Materials:
+      - Shell
+      ObjectClass: Economic
+      ObjectSize: Tiny
+    Icon: {fileID: 21300000, guid: a14f901e9c4f91d4f8864053c2cc7ac2, type: 3}
+    IsometricSprite: {fileID: 0}
+  - Descriptive:
+      Id: ClassicalNativeAmericanShellCurrency
+      ArtifactName: Classical Native American Shell Currency
+      Description: Atleast some groups from almost every continent have been recorded
+        as using shells for currency.
+    Functional:
+      Id: ClassicalNativeAmericanShellCurrency
+      Era: Classical
+      Region: American
+      Object: Coin
+      Materials:
+      - Shell
+      ObjectClass: Economic
+      ObjectSize: Tiny
+    Icon: {fileID: 21300000, guid: 8e19decec9854504b84829fe6beddbbe, type: 3}
+    IsometricSprite: {fileID: 21300000, guid: b79ed308eed19ff44b1fc22a2a23f630, type: 3}
+  - Descriptive:
+      Id: MedievalNativeAmericanWampumBeadCurrency
+      ArtifactName: Medieval Native American Wampum Bead Currency
+      Description: It was not until the arrival or Europeans that wampum beads took
+        on a primarily commercial function.
+    Functional:
+      Id: MedievalNativeAmericanWampumBeadCurrency
+      Era: Medieval
+      Region: American
+      Object: Coin
+      Materials:
+      - Beads
+      ObjectClass: Economic
+      ObjectSize: Tiny
+    Icon: {fileID: 21300000, guid: 0446cc8882ceba340a061aac649236df, type: 3}
+    IsometricSprite: {fileID: 21300000, guid: db1a62c3cbccd3041a6d215f42ad16c6, type: 3}
+  - Descriptive:
+      Id: AncientNativeAmericanVase
+      ArtifactName: Ancient Native American Vase
+      Description: NA
+    Functional:
+      Id: AncientNativeAmericanVase
+      Era: Ancient
+      Region: American
+      Object: Vase
+      Materials:
+      - Clay
+      ObjectClass: Vessel
+      ObjectSize: Medium
+    Icon: {fileID: 21300000, guid: ecd176689ffd36144a521aff71124983, type: 3}
+    IsometricSprite: {fileID: 21300000, guid: 66b01b8c783b50c4d871994ea73bf147, type: 3}
+  - Descriptive:
+      Id: MedievalNativeAmericanVase
+      ArtifactName: Medieval Native American Vase
+      Description: NA
+    Functional:
+      Id: MedievalNativeAmericanVase
+      Era: Medieval
+      Region: American
+      Object: Vase
+      Materials:
+      - Clay
+      ObjectClass: Vessel
+      ObjectSize: Medium
+    Icon: {fileID: 21300000, guid: d7b86a17745c5d341ab13f563a69668c, type: 3}
+    IsometricSprite: {fileID: 21300000, guid: d2892e95f1f60e84283d3f7a151a0181, type: 3}
+  - Descriptive:
+      Id: RenaissanceAmericanPorcelainVase
+      ArtifactName: Renaissance American Porcelain Vase
+      Description: NA
+    Functional:
+      Id: RenaissanceAmericanPorcelainVase
+      Era: Renaissance
+      Region: American
+      Object: Vase
+      Materials:
+      - Porcelain
+      ObjectClass: Vessel
+      ObjectSize: Medium
+    Icon: {fileID: 21300000, guid: 6f9b19e9500a10c40898ab777da0ead0, type: 3}
+    IsometricSprite: {fileID: 21300000, guid: 4a382be71f962874ba54c1671b58e536, type: 3}
+  - Descriptive:
+      Id: IndustrialAmericanPorcelainVase
+      ArtifactName: IndustrialAmericanPorcelainVase
+      Description: NA
+    Functional:
+      Id: IndustrialAmericanPorcelainVase
+      Era: Industrial
+      Region: American
+      Object: Vase
+      Materials:
+      - Porcelain
+      ObjectClass: Vessel
+      ObjectSize: Medium
+    Icon: {fileID: 0}
+    IsometricSprite: {fileID: 21300000, guid: d450ad70e9fbc664ebb9cfe95702ae64, type: 3}
+  - Descriptive:
+      Id: IndustrialAmericanPlate
+      ArtifactName: Industrial American Plate
+      Description: NA
+    Functional:
+      Id: 
+      Era: 
+      Region: 
+      Object: 
+      Materials: []
+      ObjectClass: 
+      ObjectSize: 
+    Icon: {fileID: 0}
+    IsometricSprite: {fileID: 0}
+  - Descriptive:
+      Id: ModernAmericanPlate
+      ArtifactName: Modern American Plate
+      Description: NA
+    Functional:
+      Id: 
+      Era: 
+      Region: 
+      Object: 
+      Materials: []
+      ObjectClass: 
+      ObjectSize: 
+    Icon: {fileID: 0}
+    IsometricSprite: {fileID: 0}
+  - Descriptive:
+      Id: RenaissanceAmericanSilverCoin
+      ArtifactName: Renaissance American Silver Coin
+      Description: NA
+    Functional:
+      Id: RenaissanceAmericanSilverCoin
+      Era: Renaissance
+      Region: American
+      Object: Coin
+      Materials:
+      - Silver
+      ObjectClass: Vessel
+      ObjectSize: Tiny
+    Icon: {fileID: 21300000, guid: f8247c684795dc4449b895baf1265396, type: 3}
+    IsometricSprite: {fileID: 0}
+  - Descriptive:
+      Id: IndustrialAmericanSilverCoin
+      ArtifactName: Industrial American Silver Coin
+      Description: NA
+    Functional:
+      Id: 
+      Era: 
+      Region: 
+      Object: 
+      Materials: []
+      ObjectClass: 
+      ObjectSize: 
+    Icon: {fileID: 0}
+    IsometricSprite: {fileID: 0}
+  - Descriptive:
+      Id: ClassicalNativeAmericanVase
+      ArtifactName: Classical Native American Vase
+      Description: NA
+    Functional:
+      Id: 
+      Era: 
+      Region: 
+      Object: 
+      Materials: []
+      ObjectClass: 
+      ObjectSize: 
+    Icon: {fileID: 0}
+    IsometricSprite: {fileID: 0}
+  - Descriptive:
+      Id: MedievalNativeAmericanLeatherBoots
+      ArtifactName: Medieval Native American Leather Boots
+      Description: NA
+    Functional:
+      Id: MedievalNativeAmericanLeatherBoots
+      Era: Medieval
+      Region: American
+      Object: Boots
+      Materials:
+      - Leather
+      ObjectClass: Clothing
+      ObjectSize: Small
+    Icon: {fileID: 21300000, guid: 933b81cc9175a2c4ebc9b1e77fd46e11, type: 3}
+    IsometricSprite: {fileID: 0}
+  - Descriptive:
+      Id: IndustrialAmericanFurBoots
+      ArtifactName: Industrial American Fur Boots
+      Description: NA
+    Functional:
+      Id: IndustrialAmericanFurBoots
+      Era: Industrial
+      Region: American
+      Object: Boots
+      Materials:
+      - Fur
+      ObjectClass: Clothing
+      ObjectSize: Small
+    Icon: {fileID: 21300000, guid: defc0987cf0670c4fa17caefec6668a2, type: 3}
+    IsometricSprite: {fileID: 0}
+  - Descriptive:
+      Id: ModernAmericanRubberBoots
+      ArtifactName: Modern American Rubber Boots
+      Description: NA
+    Functional:
+      Id: ModernAmericanRubberBoots
+      Era: Modern
+      Region: American
+      Object: Boots
+      Materials:
+      - Rubber
+      ObjectClass: Clothing
+      ObjectSize: Small
+    Icon: {fileID: 21300000, guid: 685a2eae8a6f48a419bde0a8ed3241d2, type: 3}
+    IsometricSprite: {fileID: 0}
+  - Descriptive:
+      Id: MedievalNativeAmericanCanoe
+      ArtifactName: Medieval Native American Canoe
+      Description: NA
+    Functional:
+      Id: 
+      Era: 
+      Region: 
+      Object: 
+      Materials: []
+      ObjectClass: 
+      ObjectSize: 
+    Icon: {fileID: 0}
+    IsometricSprite: {fileID: 0}
+  - Descriptive:
+      Id: RenaissanceNativeAmericanCanoe
+      ArtifactName: Renaissance Native American Canoe
+      Description: NA
+    Functional:
+      Id: 
+      Era: 
+      Region: 
+      Object: 
+      Materials: []
+      ObjectClass: 
+      ObjectSize: 
+    Icon: {fileID: 0}
+    IsometricSprite: {fileID: 0}
+  - Descriptive:
+      Id: AncientNativeAmericanBeadNecklace
+      ArtifactName: Ancient Native American Bead Necklace
+      Description: NA
+    Functional:
+      Id: 
+      Era: 
+      Region: 
+      Object: 
+      Materials: []
+      ObjectClass: 
+      ObjectSize: 
+    Icon: {fileID: 0}
+    IsometricSprite: {fileID: 0}
+  - Descriptive:
+      Id: AncientNativeAmericanShellNecklace
+      ArtifactName: Ancient Native American Shell Necklace
+      Description: NA
+    Functional:
+      Id: 
+      Era: 
+      Region: 
+      Object: 
+      Materials: []
+      ObjectClass: 
+      ObjectSize: 
+    Icon: {fileID: 0}
+    IsometricSprite: {fileID: 0}
+  - Descriptive:
+      Id: ClassicalNativeAmericanBeadNecklace
+      ArtifactName: Classical Native American Bead Necklace
+      Description: NA
+    Functional:
+      Id: ClassicalNativeAmericanBeadNecklace
+      Era: Classical
+      Region: American
+      Object: Necklace
+      Materials:
+      - Beads
+      ObjectClass: Ceremonial
+      ObjectSize: Small
+    Icon: {fileID: 21300000, guid: 9adfa3410acd3114f81db527dc054c6f, type: 3}
+    IsometricSprite: {fileID: 0}
+  - Descriptive:
+      Id: ClassicalNativeAmericanShellNecklace
+      ArtifactName: Classical Native American Shell Necklace
+      Description: NA
+    Functional:
+      Id: ClassicalNativeAmericanShellNecklace
+      Era: Classical
+      Region: American
+      Object: Necklace
+      Materials:
+      - Shell
+      ObjectClass: Ceremonial
+      ObjectSize: Small
+    Icon: {fileID: 21300000, guid: 6fbeb58ebcd5f684b97f8320b864dfa5, type: 3}
+    IsometricSprite: {fileID: 0}
+  - Descriptive:
+      Id: MedievalNativeAmericanGemNecklace
+      ArtifactName: Medieval Native American Gem Necklace
+      Description: NA
+    Functional:
+      Id: MedievalNativeAmericanGemNecklace
+      Era: Medieval
+      Region: American
+      Object: Necklace
+      Materials:
+      - Gems
+      ObjectClass: Ceremonial
+      ObjectSize: Small
+    Icon: {fileID: 21300000, guid: b59ada98ce7e92640a33e93bdf02cf83, type: 3}
+    IsometricSprite: {fileID: 0}
+  - Descriptive:
+      Id: AncientNativeAmericanClayHumanFigurine
+      ArtifactName: Ancient Native American Clay Human Figurine
+      Description: NA
+    Functional:
+      Id: AncientNativeAmericanClayHumanFigurine
+      Era: Ancient
+      Region: American
+      Object: Toy
+      Materials:
+      - Clay
+      ObjectClass: Leisure
+      ObjectSize: Tiny
+    Icon: {fileID: 21300000, guid: 718f1306268e03f4b8f99f44af53215d, type: 3}
+    IsometricSprite: {fileID: 0}
+  - Descriptive:
+      Id: ClassicalNativeAmericanClayHumamFigurine
+      ArtifactName: Classical Native American Clay Humam Figurine
+      Description: NA
+    Functional:
+      Id: 
+      Era: 
+      Region: 
+      Object: 
+      Materials: []
+      ObjectClass: 
+      ObjectSize: 
+    Icon: {fileID: 0}
+    IsometricSprite: {fileID: 0}
+  - Descriptive:
+      Id: MedievalNativeAmericanClayPrisonerFigurine
+      ArtifactName: Medieval Native American Clay Prisoner Figurine
+      Description: NA
+    Functional:
+      Id: MedievalNativeAmericanClayPrisonerFigurine
+      Era: Medieval
+      Region: American
+      Object: Toy
+      Materials:
+      - Clay
+      ObjectClass: Leisure
+      ObjectSize: Tiny
+    Icon: {fileID: 21300000, guid: ae4862bc86ba10b418796a72483475c5, type: 3}
+    IsometricSprite: {fileID: 0}
+  - Descriptive:
+      Id: RenaissanceAmericanWoodenBoatToy
+      ArtifactName: Renaissance American Wooden Boat Toy
+      Description: NA
+    Functional:
+      Id: 
+      Era: 
+      Region: 
+      Object: 
+      Materials: []
+      ObjectClass: 
+      ObjectSize: 
+    Icon: {fileID: 0}
+    IsometricSprite: {fileID: 0}
+  - Descriptive:
+      Id: IndustrialAmericanIronTrainToy
+      ArtifactName: Industrial American Iron Train Toy
+      Description: NA
+    Functional:
+      Id: 
+      Era: 
+      Region: 
+      Object: 
+      Materials: []
+      ObjectClass: 
+      ObjectSize: 
+    Icon: {fileID: 0}
+    IsometricSprite: {fileID: 0}
+  - Descriptive:
+      Id: RenaissanceNativeAmericanHorseGear
+      ArtifactName: Renaissance Native American Horse Gear
+      Description: NA
+    Functional:
+      Id: 
+      Era: 
+      Region: 
+      Object: 
+      Materials: []
+      ObjectClass: 
+      ObjectSize: 
+    Icon: {fileID: 0}
+    IsometricSprite: {fileID: 0}
+  - Descriptive:
+      Id: RenaissanceAmericanHorseGear
+      ArtifactName: Renaissance American Horse Gear
+      Description: NA
+    Functional:
+      Id: 
+      Era: 
+      Region: 
+      Object: 
+      Materials: []
+      ObjectClass: 
+      ObjectSize: 
+    Icon: {fileID: 0}
+    IsometricSprite: {fileID: 0}
+  - Descriptive:
+      Id: MedievalNativeAmericanBoneArrowhead
+      ArtifactName: Medieval Native American Bone Arrowhead
+      Description: NA
+    Functional:
+      Id: 
+      Era: 
+      Region: 
+      Object: 
+      Materials: []
+      ObjectClass: 
+      ObjectSize: 
+    Icon: {fileID: 0}
+    IsometricSprite: {fileID: 0}
+  - Descriptive:
+      Id: IndustrialNativeAmericanSilverBeltBuckle
+      ArtifactName: Industrial Native American Silver Belt Buckle
+      Description: NA
+    Functional:
+      Id: 
+      Era: 
+      Region: 
+      Object: 
+      Materials: []
+      ObjectClass: 
+      ObjectSize: 
+    Icon: {fileID: 0}
+    IsometricSprite: {fileID: 0}
+  - Descriptive:
+      Id: IndustrialAmericanGramophone
+      ArtifactName: Industrial American Gramophone
+      Description: NA
+    Functional:
+      Id: 
+      Era: 
+      Region: 
+      Object: 
+      Materials: []
+      ObjectClass: 
+      ObjectSize: 
+    Icon: {fileID: 0}
+    IsometricSprite: {fileID: 0}
+  - Descriptive:
+      Id: RenaissanceAmericanWagon
+      ArtifactName: Renaissance American Wagon
+      Description: NA
+    Functional:
+      Id: 
+      Era: 
+      Region: 
+      Object: 
+      Materials: []
+      ObjectClass: 
+      ObjectSize: 
+    Icon: {fileID: 0}
+    IsometricSprite: {fileID: 0}
