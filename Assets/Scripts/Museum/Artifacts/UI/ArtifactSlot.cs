@@ -5,23 +5,43 @@ using UnityEngine.UI;
 namespace ProjectMuseum.Builder
 {
     /// <summary>
-    /// One display slot in the exhibit editor's right-hand grid. Accepts a dropped
-    /// <see cref="ArtifactCard"/> (assign), and left-clicking a filled slot clears
-    /// it (the artifact returns to storage).
+    /// One tiny grid cell in the exhibit editor. Cells are the base unit; an artifact
+    /// covers a footprint of cells depending on its size. A cell can be:
+    ///  • a drop target (drop a dragged artifact → snaps to a size-aligned anchor),
+    ///  • a drag source (drag a placed artifact out — grabs the whole covering artifact),
+    ///  • click-to-remove (left-click a filled cell clears its artifact).
+    ///
+    /// Each cell also has four thin edge strips (top/bottom/left/right). A placement
+    /// group is outlined by enabling only the strips on that group's perimeter, giving
+    /// real border LINES around each candidate slot. All logic lives in
+    /// <see cref="ExhibitEditorUI"/>; the cell just reports its index and paints.
     /// </summary>
-    public class ArtifactSlot : MonoBehaviour, IDropHandler, IPointerClickHandler
+    public class ArtifactSlot : MonoBehaviour,
+        IBeginDragHandler, IDragHandler, IEndDragHandler, IDropHandler, IPointerClickHandler
     {
-        [Tooltip("Image that shows the placed artifact's icon (empty when the slot is free).")]
+        [Tooltip("Cell background — recoloured for empty / occupied.")]
+        [SerializeField] private Image background;
+        [Tooltip("Artifact art, shown on the footprint's anchor cell.")]
         [SerializeField] private Image icon;
 
+        [Header("Group border strips (thin edges)")]
+        [SerializeField] private Image borderTop;
+        [SerializeField] private Image borderBottom;
+        [SerializeField] private Image borderLeft;
+        [SerializeField] private Image borderRight;
+
         public int Index { get; private set; }
-        public bool IsFilled => icon != null && icon.sprite != null && icon.enabled;
+        public int Col { get; private set; }
+        public int Row { get; private set; }
+        public RectTransform RT => (RectTransform)transform;
 
         private ExhibitEditorUI _owner;
 
-        public void Setup(int index, ExhibitEditorUI owner)
+        public void Setup(int index, int col, int row, ExhibitEditorUI owner)
         {
             Index = index;
+            Col = col;
+            Row = row;
             _owner = owner;
             SetIcon(null);
         }
@@ -34,16 +54,42 @@ namespace ProjectMuseum.Builder
             icon.preserveAspect = true;
         }
 
-        public void OnDrop(PointerEventData e)
+        public void SetBackground(Color color)
         {
-            ArtifactCard card = e.pointerDrag != null ? e.pointerDrag.GetComponent<ArtifactCard>() : null;
-            if (card != null) _owner?.AssignToSlot(Index, card.InstanceId);
+            if (background != null) background.color = color;
         }
+
+        /// <summary>Colour all four edges the same (idle grid lines).</summary>
+        public void SetBorderColor(Color color) => SetEdgeColors(color, color, color, color);
+
+        /// <summary>
+        /// Colour each edge independently — lets a placement group paint its OUTER
+        /// (perimeter) edges one colour and the INNER edges shared with same-group
+        /// cells another. Strips stay always visible; only the colour changes.
+        /// </summary>
+        public void SetEdgeColors(Color top, Color bottom, Color left, Color right)
+        {
+            Edge(borderTop, top);
+            Edge(borderBottom, bottom);
+            Edge(borderLeft, left);
+            Edge(borderRight, right);
+        }
+
+        private static void Edge(Image img, Color color)
+        {
+            if (img == null) return;
+            img.enabled = true;
+            img.color = color;
+        }
+
+        public void OnBeginDrag(PointerEventData e) => _owner?.BeginSlotDrag(Index, e);
+        public void OnDrag(PointerEventData e) => _owner?.DragUpdate(e);
+        public void OnEndDrag(PointerEventData e) => _owner?.EndDrag(e);
+        public void OnDrop(PointerEventData e) => _owner?.DropOnCell(Index, e);
 
         public void OnPointerClick(PointerEventData e)
         {
-            if (IsFilled && e.button == PointerEventData.InputButton.Left)
-                _owner?.ClearSlot(Index);
+            if (e.button == PointerEventData.InputButton.Left) _owner?.ClickCell(Index);
         }
     }
 }

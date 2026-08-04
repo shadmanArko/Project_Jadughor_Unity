@@ -12,7 +12,8 @@ namespace ProjectMuseum.Builder
     /// driven by the owning <see cref="ExhibitEditorUI"/> (it spawns/moves the drag
     /// ghost); a slot reads the dragged card via <c>eventData.pointerDrag</c>.
     /// </summary>
-    public class ArtifactCard : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
+    public class ArtifactCard : MonoBehaviour,
+        IBeginDragHandler, IDragHandler, IEndDragHandler, IPointerDownHandler, IPointerUpHandler
     {
         [SerializeField] private Image icon;
         [SerializeField] private TMP_Text nameLabel;
@@ -67,9 +68,13 @@ namespace ProjectMuseum.Builder
             }
         }
 
-        // Drag is delegated to the owner (single place that owns the drag ghost).
+        // Pressing the card previews its placement groups on the grid before any drag.
+        public void OnPointerDown(PointerEventData e) => _owner?.PreviewFootprint(InstanceId);
+        public void OnPointerUp(PointerEventData e) => _owner?.ClearPreview();
+
+        // Drag is delegated to the owner (single place that owns the drag ghost + grid highlight).
         public void OnBeginDrag(PointerEventData e) => _owner?.BeginCardDrag(this, e);
-        public void OnDrag(PointerEventData e) => _owner?.DragCard(e);
-        public void OnEndDrag(PointerEventData e) => _owner?.EndCardDrag(e);
+        public void OnDrag(PointerEventData e) => _owner?.DragUpdate(e);
+        public void OnEndDrag(PointerEventData e) => _owner?.EndDrag(e);
     }
 }

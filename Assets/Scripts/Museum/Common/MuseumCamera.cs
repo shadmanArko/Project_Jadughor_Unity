@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
 public class MuseumCamera : MonoBehaviour
@@ -48,12 +49,19 @@ public class MuseumCamera : MonoBehaviour
 
     void HandleZoom()
     {
+        // Don't zoom the world when the cursor is over UI (e.g. scrolling the
+        // artifact list in the exhibit editor should scroll the list, not zoom).
+        if (IsPointerOverUi()) return;
+
         float scroll = Mouse.current.scroll.ReadValue().y;
         if (Mathf.Approximately(scroll, 0f)) return;
 
         targetZoom -= scroll * zoomSpeed * Time.unscaledDeltaTime * 10f;
         targetZoom  = Mathf.Clamp(targetZoom, minZoom, maxZoom);
     }
+
+    static bool IsPointerOverUi() =>
+        EventSystem.current != null && EventSystem.current.IsPointerOverGameObject();
 
     // ── Pan ────────────────────────────────────────────────────
 

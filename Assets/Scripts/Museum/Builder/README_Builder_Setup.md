@@ -453,12 +453,59 @@ ObjectSize, then each Material**.
 ## The exhibit editor UI
 
 `ExhibitEditorUI` (on an initially-hidden editor panel; injected). On
-`OnExhibitClicked`: shows the panel, builds the slot grid (**2×2 slots per exhibit tile**
-— a 1×1 exhibit = 4 slots, a 2×2 = 16, columns = width×2), fills the **left list** with
-draggable `ArtifactCard`s for owned-and-unplaced artifacts, and marks filled slots.
-Drag a card onto a slot to place; **left-click a filled slot to remove**. Close button
-hides it. `debugFillStorageFromCatalog` seeds one of every artifact on first open so
-there's something to test with — turn OFF for real play.
+`OnExhibitClicked`: shows the panel, builds the display grid in **tiny cells**
+(`slotsPerTileAxis` per tile axis, **default 2** → a 1×1 exhibit is a **2×2 = 4-cell**
+grid, a 2×2 exhibit is 4×4 = 16), fills the **left list** with draggable
+`ArtifactCard`s for owned-and-unplaced artifacts, and paints occupied cells.
+`debugFillStorageFromCatalog` seeds one of every artifact on first open (turn OFF for
+real play).
+
+**Size-based placement.** Each artifact covers a footprint of cells by its
+`ObjectSize`, and can only sit on a size-**aligned** anchor with all covered cells free:
+
+| Size | Footprint (w×h cells) | Fits per 1×1 exhibit |
+|---|---|---|
+| Tiny | 1×1 | 4 |
+| Small | 1×2 | 2 |
+| Medium | 2×2 | 1 |
+| Large | 2×4 | needs a bigger exhibit |
+| Huge | 4×4 | needs a 2×2 exhibit |
+
+"Aligned" = anchor col is a multiple of the footprint width and anchor row a multiple
+of its height — so a 1×2 Small can only go rows (0,1) or (2,3)…, never straddling.
+
+**Grid lines are always visible and recolour per placement group.** Every cell has four
+thin edge strips (`borderTop/Bottom/Left/Right`) that stay on — with
+`GridLayoutGroup.Spacing = 0` they merge into continuous grid lines (idle = *default*
+colour). The instant you **press or drag** an artifact card, the whole grid recolours by
+that artifact's size: each cell maps to its size-aligned group and each edge is coloured
+by whether it's on the group's **outer perimeter** or an **inner** edge shared with a
+same-group cell — with separate colour sets for **placeable** vs **not**:
+
+- available group → perimeter = **availablePerimeterColor** (white), inner = **availableInnerColor**
+- unavailable group → perimeter = **unavailablePerimeterColor** (black), inner = **unavailableInnerColor**
+
+So a Medium outlines each free 2×2 in white with a faint cross inside; a Small outlines
+each 1×2 pair with a faint line between its two cells; blocked groups go black. All five
+line colours + the three background tints are on `ExhibitEditorUI` (changeable).
+
+**The drag ghost** is a backdrop **sized to the placement group** (footprint × cell) with
+the artifact icon **centred on top**. On drop the ghost is replaced by the **placed
+visual** — the same centred icon spanning the whole group, drawn on an overlay layer
+above the cells — so the artifact stays centred across its cells (a 1×2 Small's art sits
+in the middle of its two cells, a Medium's in the middle of its 2×2, etc.). Placed
+visuals are raycast-transparent, so you still drag/click the cells beneath to move/remove.
+
+Strip thickness is in the slot prefab (`AddEdge`, 3px).
+
+> ⚠ The slot prefab now needs the four edge strips + the `background` field, and the
+> grid uses **0 spacing**. **Re-run Tools ▸ Project Museum ▸ Build Exhibit Editor UI**
+> to regenerate `ArtifactSlot.prefab` + the canvas (delete the old Exhibit Editor Canvas
+> first), or set spacing 0 and add the strips by hand.
+
+> Visual note: the artifact icon currently shows on its footprint's **anchor cell**
+> (top-left), with the rest of the footprint tinted occupied — functional, but not a
+> single sprite spanning the whole footprint yet (a polish pass for later).
 
 ### ⚡ Quick build (recommended): the generator
 Run **Tools ▸ Project Museum ▸ Build Exhibit Editor UI**. It creates the whole

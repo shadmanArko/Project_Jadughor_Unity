@@ -116,7 +116,7 @@ namespace ProjectMuseum.Builder.EditorTools
             grid.anchorMin = grid.anchorMax = grid.pivot = new Vector2(0.5f, 0.5f); // centred
             var glg = grid.gameObject.AddComponent<GridLayoutGroup>();
             glg.cellSize = new Vector2(88, 88);
-            glg.spacing = new Vector2(6, 6);
+            glg.spacing = Vector2.zero; // 0 spacing — always-on cell borders merge into grid lines
             glg.childAlignment = TextAnchor.MiddleCenter;
             glg.constraint = GridLayoutGroup.Constraint.FixedColumnCount;
             glg.constraintCount = 4;
@@ -154,9 +154,17 @@ namespace ProjectMuseum.Builder.EditorTools
             SetRef(so, "slotGrid", glg);
             SetRef(so, "slotPrefab", slotPrefab.GetComponent<ArtifactSlot>());
             SetRef(so, "dragLayer", dragLayer);
-            so.FindProperty("slotsPerTileAxis").intValue = 4;
-            so.FindProperty("dragGhostSize").vector2Value = new Vector2(90, 90);
+            so.FindProperty("slotsPerTileAxis").intValue = 2; // 1×1 exhibit → 2×2 (4 cells)
             so.FindProperty("debugFillStorageFromCatalog").boolValue = true;
+            SetColorIfPresent(so, "emptyColor", new Color(1f, 1f, 1f, 0.06f));
+            SetColorIfPresent(so, "occupiedColor", new Color(0.85f, 0.55f, 0.25f, 0.35f));
+            SetColorIfPresent(so, "availableColor", new Color(0.4f, 1f, 0.4f, 0.15f));
+            SetColorIfPresent(so, "lineDefaultColor", new Color(1f, 1f, 1f, 0.25f));
+            SetColorIfPresent(so, "availablePerimeterColor", Color.white);
+            SetColorIfPresent(so, "availableInnerColor", new Color(1f, 1f, 1f, 0.4f));
+            SetColorIfPresent(so, "unavailablePerimeterColor", Color.black);
+            SetColorIfPresent(so, "unavailableInnerColor", new Color(0f, 0f, 0f, 0.4f));
+            SetColorIfPresent(so, "ghostBackdropColor", new Color(1f, 1f, 1f, 0.25f));
             so.ApplyModifiedPropertiesWithoutUndo();
 
             EditorSceneManager.MarkSceneDirty(canvasGo.scene);
@@ -219,8 +227,7 @@ namespace ProjectMuseum.Builder.EditorTools
         {
             RectTransform root = NewUI("ArtifactSlot", null);
             root.sizeDelta = new Vector2(88, 88);
-            AddImage(root, SlotColor);
-            var slot = root.gameObject.AddComponent<ArtifactSlot>();
+            var bgImg = AddImage(root, SlotColor); // background = highlight/tint layer
 
             RectTransform icon = NewUI("Icon", root);
             Anchor(icon, Vector2.zero, Vector2.one);
@@ -228,10 +235,24 @@ namespace ProjectMuseum.Builder.EditorTools
             icon.offsetMax = new Vector2(-6, -6);
             var iconImg = AddImage(icon, Color.white);
             iconImg.preserveAspect = true;
-            iconImg.enabled = false; // empty slot by default
+            iconImg.raycastTarget = false; // let the cell background receive drops/drags
+            iconImg.enabled = false;       // empty slot by default
 
+            // Four thin edge strips (disabled by default) used to outline placement groups.
+            const float t = 3f;
+            Image top = AddEdge(root, "BorderTop", new Vector2(0, 1), new Vector2(1, 1), new Vector2(0.5f, 1f), new Vector2(0, t));
+            Image bottom = AddEdge(root, "BorderBottom", new Vector2(0, 0), new Vector2(1, 0), new Vector2(0.5f, 0f), new Vector2(0, t));
+            Image left = AddEdge(root, "BorderLeft", new Vector2(0, 0), new Vector2(0, 1), new Vector2(0f, 0.5f), new Vector2(t, 0));
+            Image right = AddEdge(root, "BorderRight", new Vector2(1, 0), new Vector2(1, 1), new Vector2(1f, 0.5f), new Vector2(t, 0));
+
+            var slot = root.gameObject.AddComponent<ArtifactSlot>();
             var so = new SerializedObject(slot);
+            SetRef(so, "background", bgImg);
             SetRef(so, "icon", iconImg);
+            SetRef(so, "borderTop", top);
+            SetRef(so, "borderBottom", bottom);
+            SetRef(so, "borderLeft", left);
+            SetRef(so, "borderRight", right);
             so.ApplyModifiedPropertiesWithoutUndo();
 
             GameObject prefab = PrefabUtility.SaveAsPrefabAsset(root.gameObject, SlotPrefabPath);
@@ -252,6 +273,23 @@ namespace ProjectMuseum.Builder.EditorTools
         {
             var img = rt.gameObject.AddComponent<Image>();
             img.color = color;
+            return img;
+        }
+
+        /// <summary>A thin edge strip anchored to one side of the cell — disabled until a group outlines it.</summary>
+        private static Image AddEdge(RectTransform parent, string name,
+            Vector2 anchorMin, Vector2 anchorMax, Vector2 pivot, Vector2 sizeDelta)
+        {
+            RectTransform rt = NewUI(name, parent);
+            rt.anchorMin = anchorMin;
+            rt.anchorMax = anchorMax;
+            rt.pivot = pivot;
+            rt.anchoredPosition = Vector2.zero;
+            rt.sizeDelta = sizeDelta;
+            var img = rt.gameObject.AddComponent<Image>();
+            img.color = new Color(1f, 1f, 1f, 0.25f); // default grid-line tint (recoloured at runtime)
+            img.raycastTarget = false;
+            img.enabled = true; // always visible — spacing 0 merges them into grid lines
             return img;
         }
 
@@ -290,6 +328,12 @@ namespace ProjectMuseum.Builder.EditorTools
             SerializedProperty p = so.FindProperty(field);
             if (p != null) p.objectReferenceValue = value;
             else Debug.LogWarning($"[ExhibitEditorUIBuilder] No serialized field '{field}' on ExhibitEditorUI.");
+        }
+
+        private static void SetColorIfPresent(SerializedObject so, string field, Color value)
+        {
+            SerializedProperty p = so.FindProperty(field);
+            if (p != null) p.colorValue = value;
         }
 
         private static void EnsureEventSystem()
