@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Museum.Artifacts.UI;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -19,10 +20,11 @@ namespace ProjectMuseum.Builder
         [SerializeField] private TMP_Text nameLabel;
 
         [Header("Tags (assign EITHER a chip prefab + container, OR a single label)")]
-        [Tooltip("Container that receives one instantiated tag chip per tag.")]
+        [Tooltip("Container the chips are parented under — give it a FlowLayoutGroup so " +
+                 "variable-width chips wrap.")]
         [SerializeField] private Transform tagContainer;
-        [Tooltip("A small TMP label prefab used as a tag chip.")]
-        [SerializeField] private TMP_Text tagChipPrefab;
+        [Tooltip("The ArtifactTagChip prefab — one instantiated per tag.")]
+        [SerializeField] private ArtifactTagChip tagChipPrefab;
         [Tooltip("Fallback: a single label showing all tags joined, if no chip prefab.")]
         [SerializeField] private TMP_Text tagsLabel;
 
@@ -56,8 +58,8 @@ namespace ProjectMuseum.Builder
                     Destroy(tagContainer.GetChild(i).gameObject);
                 foreach (string t in tags)
                 {
-                    TMP_Text chip = Instantiate(tagChipPrefab, tagContainer);
-                    chip.text = t;
+                    ArtifactTagChip chip = Instantiate(tagChipPrefab, tagContainer);
+                    chip.SetTag(t);
                     chip.gameObject.SetActive(true);
                 }
                 if (tagsLabel != null) tagsLabel.gameObject.SetActive(false);
