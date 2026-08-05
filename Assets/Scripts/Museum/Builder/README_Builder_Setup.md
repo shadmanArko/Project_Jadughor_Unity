@@ -496,30 +496,16 @@ above the cells — so the artifact stays centred across its cells (a 1×2 Small
 in the middle of its two cells, a Medium's in the middle of its 2×2, etc.). Placed
 visuals are raycast-transparent, so you still drag/click the cells beneath to move/remove.
 
-Strip thickness is in the slot prefab (`AddEdge`, 3px).
+The slot prefab needs the four edge strips (thin Images on each side, ~3px) + the
+`background` field, and the grid uses **0 spacing**.
 
-> ⚠ The slot prefab now needs the four edge strips + the `background` field, and the
-> grid uses **0 spacing**. **Re-run Tools ▸ Project Museum ▸ Build Exhibit Editor UI**
-> to regenerate `ArtifactSlot.prefab` + the canvas (delete the old Exhibit Editor Canvas
-> first), or set spacing 0 and add the strips by hand.
+> The exhibit-editor UI is **hand-authored** (the one-shot generator was removed at the
+> user's request, so it can never overwrite the tuned visuals). Build/maintain the
+> canvas + prefabs by hand — see below. Also required: run **Import Artifact Data**,
+> assign the artifact DB to `MuseumInstaller`, put `ExhibitObjectView` on exhibit
+> prefabs, and add `MuseumInteractionSystem` to a manager object.
 
-> Visual note: the artifact icon currently shows on its footprint's **anchor cell**
-> (top-left), with the rest of the footprint tinted occupied — functional, but not a
-> single sprite spanning the whole footprint yet (a polish pass for later).
-
-### ⚡ Quick build (recommended): the generator
-Run **Tools ▸ Project Museum ▸ Build Exhibit Editor UI**. It creates the whole
-"Exhibit Editor Canvas" (dimmer bg → ~70% window → left scroll list + right centred
-grid + bottom bar + close button + drag layer) in the open scene, generates the
-`ArtifactCard` + `ArtifactSlot` prefabs under `Assets/Prefabs/Exhibit Editor/`, wires
-every `ExhibitEditorUI` field, and adds an EventSystem if missing. Then just recolour /
-resize to taste. (Re-running adds a fresh canvas — delete the old one first.)
-
-You still need to: run **Import Artifact Data**, assign the artifact DB to
-`MuseumInstaller`, put `ExhibitObjectView` on exhibit prefabs, and add
-`MuseumInteractionSystem` to a manager object.
-
-### Building the prefabs by hand instead
+### Building the prefabs by hand
 - **Artifact card** (`ArtifactCard`): root with a horizontal/whatever layout → `Image`
   (icon) + `TMP_Text` (name) + tags. For tags, either assign a **tag-chip prefab**
   (a small `TMP_Text`) + a **tag container** (a HorizontalLayoutGroup) — one chip per
