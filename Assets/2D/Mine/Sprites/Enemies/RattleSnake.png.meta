@@ -1,0 +1,1645 @@
+fileFormatVersion: 2
+guid: b64854b5167281c4e9c8c50a30b33dd6
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 5638775433898442464
+    second: rattle_snake_side_animation(1)_0
+  - first:
+      213: 7696544968517275209
+    second: rattle_snake_side_animation(1)_1
+  - first:
+      213: -8272203255815403280
+    second: rattle_snake_side_animation(1)_2
+  - first:
+      213: -7427811423332588008
+    second: rattle_snake_side_animation(1)_3
+  - first:
+      213: -6303170953008572697
+    second: rattle_snake_side_animation(1)_4
+  - first:
+      213: -919967381737776263
+    second: rattle_snake_side_animation(1)_5
+  - first:
+      213: -2114947685914059472
+    second: rattle_snake_side_animation(1)_6
+  - first:
+      213: -3222045158788367128
+    second: rattle_snake_side_animation(1)_7
+  - first:
+      213: 2153866120075942846
+    second: rattle_snake_side_animation(1)_8
+  - first:
+      213: 8525013737181094439
+    second: rattle_snake_side_animation(1)_9
+  - first:
+      213: 8177360349265700328
+    second: rattle_snake_side_animation(1)_10
+  - first:
+      213: 3809406561330846911
+    second: rattle_snake_side_animation(1)_11
+  - first:
+      213: 685672669615193768
+    second: rattle_snake_side_animation(1)_12
+  - first:
+      213: -2217041835035218122
+    second: rattle_snake_side_animation(1)_13
+  - first:
+      213: 5617784965321358087
+    second: rattle_snake_side_animation(1)_14
+  - first:
+      213: 1209607416695532628
+    second: rattle_snake_side_animation(1)_15
+  - first:
+      213: 1204156951170553022
+    second: rattle_snake_side_animation(1)_16
+  - first:
+      213: 7770868369399021653
+    second: rattle_snake_side_animation(1)_17
+  - first:
+      213: 7164421743334364900
+    second: rattle_snake_side_animation(1)_18
+  - first:
+      213: 285417888277449677
+    second: rattle_snake_side_animation(1)_19
+  - first:
+      213: -7709207645337793784
+    second: rattle_snake_side_animation(1)_20
+  - first:
+      213: 5955919520889901373
+    second: rattle_snake_side_animation(1)_21
+  - first:
+      213: -7500391319500557285
+    second: rattle_snake_side_animation(1)_22
+  - first:
+      213: 2571058314619469308
+    second: rattle_snake_side_animation(1)_23
+  - first:
+      213: 4535019890650327677
+    second: rattle_snake_side_animation(1)_24
+  - first:
+      213: -8413455206295731628
+    second: rattle_snake_side_animation(1)_25
+  - first:
+      213: 1892995224194154756
+    second: rattle_snake_side_animation(1)_26
+  - first:
+      213: 2029423799528889631
+    second: rattle_snake_side_animation(1)_27
+  - first:
+      213: 9221074006488829893
+    second: rattle_snake_side_animation(1)_28
+  - first:
+      213: -8771381229846341796
+    second: rattle_snake_side_animation(1)_29
+  - first:
+      213: 1643209561786103131
+    second: rattle_snake_side_animation(1)_30
+  - first:
+      213: 596733944768487064
+    second: rattle_snake_side_animation(1)_31
+  - first:
+      213: 6339239918994504766
+    second: rattle_snake_side_animation(1)_32
+  - first:
+      213: -3759498262637048664
+    second: rattle_snake_side_animation(1)_33
+  - first:
+      213: -3781170870559006135
+    second: rattle_snake_side_animation(1)_34
+  - first:
+      213: 6342565277217504079
+    second: rattle_snake_side_animation(1)_35
+  - first:
+      213: -7400168603913753025
+    second: rattle_snake_side_animation(1)_36
+  - first:
+      213: -4695372223555307510
+    second: rattle_snake_side_animation(1)_37
+  - first:
+      213: 5287846391459791714
+    second: rattle_snake_side_animation(1)_38
+  - first:
+      213: 2592371950031733884
+    second: rattle_snake_side_animation(1)_39
+  - first:
+      213: 9023679438436782643
+    second: rattle_snake_side_animation(1)_40
+  - first:
+      213: -4372123351528396849
+    second: rattle_snake_side_animation(1)_41
+  - first:
+      213: 3657064426134176540
+    second: rattle_snake_side_animation(1)_42
+  - first:
+      213: 4631996808483431594
+    second: rattle_snake_side_animation(1)_43
+  - first:
+      213: -2293262362452090419
+    second: rattle_snake_side_animation(1)_44
+  - first:
+      213: -6497375949858516586
+    second: rattle_snake_side_animation(1)_45
+  - first:
+      213: 4903998098556397157
+    second: rattle_snake_side_animation(1)_46
+  - first:
+      213: -757986238432116846
+    second: rattle_snake_side_animation(1)_47
+  - first:
+      213: -1281931715960111922
+    second: rattle_snake_side_animation(1)_48
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 0
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: RattleSnake_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 160
+        width: 35
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f9c545c69d2e9b40951c9758497fede
+      internalID: 256297894
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RattleSnake_1
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 160
+        width: 35
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a0eab5e15e375ac4696b25cf64274ca1
+      internalID: -1967675761
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RattleSnake_2
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 160
+        width: 35
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb7b18cfc04416e43b7eb38cb718a47e
+      internalID: 1681741679
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RattleSnake_3
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 160
+        width: 35
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 131089821f7c2ea46a23f59528c42492
+      internalID: -290043792
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RattleSnake_4
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 160
+        width: 35
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b726fe78a0245347be948cffdbc5567
+      internalID: 253776246
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RattleSnake_5
+      rect:
+        serializedVersion: 2
+        x: 175
+        y: 160
+        width: 35
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c4fb1a479dc6b143be263ee62383754
+      internalID: 1280422767
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RattleSnake_6
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 160
+        width: 35
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47151bbf6f461c049984e2858bfeab18
+      internalID: -901688593
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RattleSnake_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 140
+        width: 35
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f660cf5f539a824a8e844947c028c85
+      internalID: -729571530
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RattleSnake_11
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 140
+        width: 35
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 99a3fdc10c7620a428698d4d0edb93ab
+      internalID: -508648569
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RattleSnake_12
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 140
+        width: 35
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 493df6f8235280444804f4a76d4b2ec8
+      internalID: -1507367004
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RattleSnake_13
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 140
+        width: 35
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a376c05300a66d43bee48df9dc2c3bc
+      internalID: 1411038582
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RattleSnake_14
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 140
+        width: 35
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f69a046ef256d21479238821a2250873
+      internalID: 396560165
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RattleSnake_15
+      rect:
+        serializedVersion: 2
+        x: 175
+        y: 140
+        width: 35
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4659757791f02c4c9d094164ad63361
+      internalID: -1765605939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RattleSnake_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 120
+        width: 35
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2def197e8c6f50042880f29229476327
+      internalID: -818264438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RattleSnake_21
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 120
+        width: 35
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f87dc3278542aca49b3052ec1f848fe2
+      internalID: 748605279
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RattleSnake_22
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 120
+        width: 35
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d24692419a17549429687d9f39e01d99
+      internalID: -1399845799
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RattleSnake_23
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 120
+        width: 35
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1849dbc2259f094cbecf5ad235a9ae1
+      internalID: -1046200336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RattleSnake_24
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 120
+        width: 35
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0404eb32d96620f46b1e5778f64f2e16
+      internalID: -921362132
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RattleSnake_25
+      rect:
+        serializedVersion: 2
+        x: 175
+        y: 120
+        width: 35
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b341a09374ec744d873f91b08361e54
+      internalID: 725853972
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RattleSnake_26
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 120
+        width: 35
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c41732ec21bf9854e8ae7d8ba3807c93
+      internalID: 1992789666
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RattleSnake_27
+      rect:
+        serializedVersion: 2
+        x: 245
+        y: 120
+        width: 35
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5675bf6e5a6044a419efbd6f7f23edb8
+      internalID: -292832746
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RattleSnake_28
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 120
+        width: 35
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0bc5cea81c703b42843fa5b465af5e7
+      internalID: -1301964256
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RattleSnake_29
+      rect:
+        serializedVersion: 2
+        x: 315
+        y: 120
+        width: 35
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 28fdf9dbeee7894438e63f9665f17a87
+      internalID: 1426627053
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RattleSnake_30
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 100
+        width: 35
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a1b0d5430abee5429d6ac46ed4a3f9a
+      internalID: 1444857211
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RattleSnake_31
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 100
+        width: 35
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9803575e196969418b62dcdbde28104
+      internalID: -1980097837
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RattleSnake_32
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 100
+        width: 35
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c967266abac8eb24eb4ff4e75738aaf2
+      internalID: -78442604
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RattleSnake_33
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 100
+        width: 35
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 727e47d7b180d2a47a1d68036c43f8c5
+      internalID: 22870237
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RattleSnake_34
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 100
+        width: 35
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd6fab886a30518459e6226d7bcfba18
+      internalID: 728166435
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RattleSnake_35
+      rect:
+        serializedVersion: 2
+        x: 175
+        y: 100
+        width: 35
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 999ca8e72ded01445a713cf63ff1f63f
+      internalID: 1438324421
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RattleSnake_36
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 100
+        width: 35
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6142478870d320548bf3a2f385eb3023
+      internalID: 1888009601
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RattleSnake_37
+      rect:
+        serializedVersion: 2
+        x: 245
+        y: 100
+        width: 35
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e7034e55fde4ddd45a9ce3bd87b7b000
+      internalID: 668070456
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RattleSnake_40
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 80
+        width: 35
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e204369cabf528438db8cb68af48943
+      internalID: -133849718
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RattleSnake_41
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 80
+        width: 35
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 128069e675162644cae2ba1702acb019
+      internalID: 306907174
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RattleSnake_42
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 80
+        width: 35
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c26566523f1d013438ee0af934b13f9b
+      internalID: -918888509
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RattleSnake_43
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 80
+        width: 35
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52795f03b8646874dabebdd9252eb015
+      internalID: -2089902127
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RattleSnake_44
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 80
+        width: 35
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2432143a1e2bba84eb319019b9a178af
+      internalID: 2091631958
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RattleSnake_45
+      rect:
+        serializedVersion: 2
+        x: 175
+        y: 80
+        width: 35
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 599ec16538c65464dbcdfdb3f68d17b6
+      internalID: -1586136316
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RattleSnake_46
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 80
+        width: 35
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 041d8994bbe9ecd4fa5994bcd9e86d86
+      internalID: -82154547
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RattleSnake_47
+      rect:
+        serializedVersion: 2
+        x: 245
+        y: 80
+        width: 35
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f97ccd1c0b25c394091c858da71b02e9
+      internalID: 258099217
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RattleSnake_48
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 80
+        width: 35
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 171220cb5f6d6ff45a7910e880c8ff12
+      internalID: -1342164575
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RattleSnake_50
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 60
+        width: 35
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56b6e3ca705585549b36e576dd6f349f
+      internalID: 505665462
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RattleSnake_51
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 60
+        width: 35
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 122fd6f8320ede24fbde116ca6999a17
+      internalID: 1133186463
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RattleSnake_52
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 60
+        width: 35
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a81c25ca2e4d2ca47882a3fa0e4ca64a
+      internalID: -2033542949
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RattleSnake_53
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 60
+        width: 35
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5fe12984ec08f1848b7c4e11f3c052ee
+      internalID: 648686128
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RattleSnake_54
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 60
+        width: 35
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f8d6b543db05504094aeb3aa251c19e
+      internalID: -166052945
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RattleSnake_55
+      rect:
+        serializedVersion: 2
+        x: 175
+        y: 60
+        width: 35
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b2c01e8d659ce0546ad9d9c864930fdc
+      internalID: 1106543201
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RattleSnake_56
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 60
+        width: 35
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed1807d93391abf4788e697f9fd3d40d
+      internalID: 2019422087
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RattleSnake_57
+      rect:
+        serializedVersion: 2
+        x: 245
+        y: 60
+        width: 35
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cfdc3b22d05bf3146afaef1b06546a7f
+      internalID: -202927345
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RattleSnake_60
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 40
+        width: 35
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 11165994ce2636d4d9535ebe38b635c7
+      internalID: -93273373
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RattleSnake_61
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 40
+        width: 35
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 957e2ea0ed5095041b41c5a049d54a88
+      internalID: -1740406846
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RattleSnake_62
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 40
+        width: 35
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb45313b83bd1cd46a1970fe5a00c44d
+      internalID: 1148038460
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RattleSnake_70
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 20
+        width: 35
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 173101f81dcd6924084ac5e852ac1840
+      internalID: 1726903657
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RattleSnake_71
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 20
+        width: 35
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b0c014f31f5d3247898229d6739a0bf
+      internalID: -2083034257
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RattleSnake_72
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 20
+        width: 35
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 406010f3f1d97cf4480976927fa2617a
+      internalID: 1025562456
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RattleSnake_80
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 35
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ef86f94ab0e11a48975e478924499ae
+      internalID: -170345173
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RattleSnake_81
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 0
+        width: 35
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4def48ecf7561645bdea868f6476db4
+      internalID: 949318460
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RattleSnake_82
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 0
+        width: 35
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 72a723d4256f5da4facc0f10357e4489
+      internalID: 2115238565
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RattleSnake_83
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 0
+        width: 35
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 358ae86defc57254cbfd1a5321f30bd5
+      internalID: 1739903252
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 953fc5cc43e9b7b47b710f926e0d4d2d
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":10.0,"y":9.0},"gridSpriteSize":{"x":35.0,"y":20.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":true,"isAlternate":false}'
+    nameFileIdTable:
+      RattleSnake_0: 256297894
+      RattleSnake_1: -1967675761
+      RattleSnake_10: -729571530
+      RattleSnake_11: -508648569
+      RattleSnake_12: -1507367004
+      RattleSnake_13: 1411038582
+      RattleSnake_14: 396560165
+      RattleSnake_15: -1765605939
+      RattleSnake_16: 1225929790
+      RattleSnake_17: 1185639176
+      RattleSnake_18: -1655184533
+      RattleSnake_19: 1786836289
+      RattleSnake_2: 1681741679
+      RattleSnake_20: -818264438
+      RattleSnake_21: 748605279
+      RattleSnake_22: -1399845799
+      RattleSnake_23: -1046200336
+      RattleSnake_24: -921362132
+      RattleSnake_25: 725853972
+      RattleSnake_26: 1992789666
+      RattleSnake_27: -292832746
+      RattleSnake_28: -1301964256
+      RattleSnake_29: 1426627053
+      RattleSnake_3: -290043792
+      RattleSnake_30: 1444857211
+      RattleSnake_31: -1980097837
+      RattleSnake_32: -78442604
+      RattleSnake_33: 22870237
+      RattleSnake_34: 728166435
+      RattleSnake_35: 1438324421
+      RattleSnake_36: 1888009601
+      RattleSnake_37: 668070456
+      RattleSnake_38: 1828381453
+      RattleSnake_39: 1314990717
+      RattleSnake_4: 253776246
+      RattleSnake_40: -133849718
+      RattleSnake_41: 306907174
+      RattleSnake_42: -918888509
+      RattleSnake_43: -2089902127
+      RattleSnake_44: 2091631958
+      RattleSnake_45: -1586136316
+      RattleSnake_46: -82154547
+      RattleSnake_47: 258099217
+      RattleSnake_48: -1342164575
+      RattleSnake_49: -1103768611
+      RattleSnake_5: 1280422767
+      RattleSnake_50: 505665462
+      RattleSnake_51: 1133186463
+      RattleSnake_52: -2033542949
+      RattleSnake_53: 648686128
+      RattleSnake_54: -166052945
+      RattleSnake_55: 1106543201
+      RattleSnake_56: 2019422087
+      RattleSnake_57: -202927345
+      RattleSnake_58: 1605664343
+      RattleSnake_59: -574200805
+      RattleSnake_6: -901688593
+      RattleSnake_60: -93273373
+      RattleSnake_61: -1740406846
+      RattleSnake_62: 1148038460
+      RattleSnake_63: 276411811
+      RattleSnake_64: 771356734
+      RattleSnake_65: -846736846
+      RattleSnake_66: -783697824
+      RattleSnake_67: -1088732999
+      RattleSnake_68: -1104034148
+      RattleSnake_69: -267678150
+      RattleSnake_7: 275851446
+      RattleSnake_70: 1726903657
+      RattleSnake_71: -2083034257
+      RattleSnake_72: 1025562456
+      RattleSnake_73: -741150098
+      RattleSnake_74: -1236328298
+      RattleSnake_75: -1830914072
+      RattleSnake_76: 1672527115
+      RattleSnake_77: 1130812809
+      RattleSnake_78: 589595489
+      RattleSnake_79: -105150999
+      RattleSnake_8: -1424574730
+      RattleSnake_80: -170345173
+      RattleSnake_81: 949318460
+      RattleSnake_82: 2115238565
+      RattleSnake_83: 1739903252
+      RattleSnake_84: 1763368594
+      RattleSnake_85: -2097126658
+      RattleSnake_86: 1786804807
+      RattleSnake_87: 2116324694
+      RattleSnake_88: 1157510127
+      RattleSnake_89: 463562248
+      RattleSnake_9: -405860548
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
