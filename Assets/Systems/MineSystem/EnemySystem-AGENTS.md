@@ -4,12 +4,14 @@ This file governs `Assets/Systems/MineSystem/EnemySystem`. It supplements the
 master [`AGENTS.md`](AGENTS.md) one directory up — every mandatory rule there
 (disposal, no `Update`/coroutines, Zenject lifecycle binding, one type per
 file, etc.) applies here without exception. This document adds the patterns
-specific to enemies, extracted from the two working reference
-implementations: **GreenSlime** (grounded) and **BlackBat** (flying).
+specific to enemies, extracted from the three working reference
+implementations: **GreenSlime** (grounded), **BlackBat** (flying), and
+**RattleSnake** (crawling — grounded in practice today, see the movement-type
+contract below).
 
-`EnemyType` also declares `RattleSnake` and `Skunk`. Neither has an
-implementation yet (`Mob/Skunk/` is empty scaffolding). Use this guide to
-build them, or any new enemy, the same way Slime and Bat were built.
+`EnemyType` also declares `Skunk`, which has no implementation yet
+(`Mob/Skunk/` is empty scaffolding). Use this guide to build it, or any new
+enemy, the same way Slime, Bat, and Snake were built.
 
 ## Authority and interpretation
 
@@ -30,7 +32,7 @@ build them, or any new enemy, the same way Slime and Bat were built.
 EnemySystem/
 |-- Config/            EnemyConfigScriptable (abstract base), EnemyWaveConfig
 |-- Controller/         EnemyManager (the only IFixedTickable driver)
-|-- Enum/               EnemyType, EnemyMovementType, EnemyPathStepType, ...
+|-- Enum/               EnemyType, EnemyMovementType, PlaceableCollisionBehavior, ...
 |-- Interface/          IEnemyController, IEnemyFactory, IEnemyPathfindingService, ...
 |-- Model/              Structs/records shared across all enemies
 |-- Service/            EnemySpawnService, EnemySpawnLocator, EnemyPathfindingService, ...
@@ -116,10 +118,25 @@ a movement-mode/path-purpose enum, and `Variant`.
 ## Contracts a new enemy must satisfy
 
 1. Add a value to `EnemySystem/Enum/EnemyType.cs`.
-2. Decide `EnemyMovementType` (`Grounded` or `Flying`) — this determines
-   which pathfinding queries the state machine must use
+2. Decide `EnemyMovementType` (`Grounded`, `Flying`, or `Crawling`) — this
+   determines which pathfinding queries the state machine must use
    (`IsWalkable`/`TryFindWalkableNear` vs `IsFlyable`/`TryFindFlyableNear`,
-   and `EnemyMovementType` passed into `EnemyMultiTargetPathRequest`).
+   and `EnemyMovementType` passed into `EnemyMultiTargetPathRequest`). Every
+   real branch on this enum (`EnemyChaseTargetResolver.IsCandidateValid`,
+   `EnemySpawnLocator.IsNavigationValid`, `EnemyPathfindingService.FindPath`'s
+   cell-set selection, and `EnemyPathfindingService.AddNeighbours`) is a
+   ternary keyed on `== Flying`, so **anything that isn't `Flying` gets
+   identical walk/fall behavior to `Grounded`** — this is why `Crawling`
+   (RattleSnake) needed zero pathfinding changes to behave exactly like a
+   grounded enemy. `Crawling` exists as its own value only so a *future*
+   vertical-crawling variant can be special-cased later without touching
+   `Grounded`/Slime. That future variant would need: a `ClimbableCells`
+   snapshot set built in `EnemyPathfindingService.Rebuild` alongside
+   `WalkableCells`/`OpenCells`, an `IsClimbable`/`TryFindClimbableNear` pair
+   mirroring the existing Walkable/Flyable API, and a vertical-stepping
+   branch in `AddNeighbours` gated on `movementType == Crawling`. None of
+   this exists yet — do not add it speculatively before an enemy actually
+   needs vertical movement.
 3. Subclass `EnemyConfigScriptable`, override `VariantId`, and override
    `Validate()` — call `base.Validate()` first, then add every
    enemy-specific cross-field check (ranges that must exceed other ranges,
@@ -148,7 +165,7 @@ a movement-mode/path-purpose enum, and `Variant`.
    dedicated `IInitializable`/`IDisposable` controller (mirroring
    `BatCaveSpawnController`) for a bespoke spawn trigger.
 
-## Behavioral conventions shared by Slime and Bat
+## Behavioral conventions shared by Slime, Bat, and Snake
 
 - **Pause.** The state machine owns a `PauseGate`
   (`Systems.MineSystem.PauseSystem.Service.PauseGate`); `OnFixedTick`,
@@ -196,12 +213,16 @@ a movement-mode/path-purpose enum, and `Variant`.
   attempt carries a timeout (`StartMovementTimeout`/`TickMovementTimeout`)
   computed from distance and speed, plus a minimum floor. Grounded
   movement also tracks placement validity every tick
-  (`IsCurrentPlacementClear`) and falls back to `StartEmergencyTeleport` if
-  the enemy is no longer sitting in a valid cell (e.g. terrain changed
-  under it). Flying movement additionally tracks stall (`TickMovementStall`
-  — no measurable progress for `MovementStallTimeoutSeconds`) and falls
-  back to `Explore`. A new enemy must have an equivalent "I'm stuck, do
-  something safe" path — never leave a state with no exit condition.
+  (`IsCurrentPlacementClear`) and falls back to something safe if the enemy
+  is no longer sitting in a valid cell (e.g. terrain changed under it) —
+  Slime's fallback is `StartEmergencyTeleport`, RattleSnake's is a quiet
+  reposition or passive idle-retry (see "Known intentional divergences"
+  below for why these differ). Flying movement additionally tracks stall
+  (`TickMovementStall` — no measurable progress for
+  `MovementStallTimeoutSeconds`) and falls back to `Explore`. A new enemy
+  must have an equivalent "I'm stuck, do something safe" path — never leave
+  a state with no exit condition, and pick the fallback appropriate to the
+  animations it actually has.
 - **Reachability-failure caching.** `RecordReachabilityFailure`/
   `IsReachabilityFailureCurrent` remember "path to X failed under
   navigation revision N" so the enemy doesn't retry an unreachable target
@@ -213,9 +234,17 @@ a movement-mode/path-purpose enum, and `Variant`.
   (a newer request superseded it) and always cancel the previous
   `CancellationTokenSource` before starting a new path search.
 
-## Known intentional divergences (Grounded vs Flying)
+## Known intentional divergences (Grounded vs Flying vs Crawling)
 
-These are deliberate per-species differences, not inconsistencies to fix:
+These are deliberate per-species differences, not inconsistencies to fix.
+RattleSnake (Crawling) deliberately mirrors Slime's grounded movement almost
+exactly, which is itself useful evidence: comparing Slime and Snake shows
+which parts of "how Slime behaves" are really tied to being grounded
+(patrol corridor, fall recovery, physics-driven movement — copy these) versus
+which parts are just Slime's own personality (Aggro telegraph, teleport —
+these are per-species animation-availability choices, not part of the
+grounded-movement pattern itself, so a new grounded enemy should not assume
+it needs them).
 
 - **Movement execution.** Slime drives a `Rigidbody2D` via
   `SetVelocity`/horizontal-only movement and relies on physics + ground
@@ -237,8 +266,28 @@ These are deliberate per-species differences, not inconsistencies to fix:
 - **Aggro telegraph.** Slime plays a dedicated `Aggro` animation the first
   time it engages a target before it starts chasing (`aggroProbe` path in
   `RequestChaseRoute`/`EvaluateDecision`). Bat has no telegraph state — it
-  transitions straight into `Chase`. Add a telegraph only if the design
-  calls for one; it is not a required part of the pattern.
+  transitions straight into `Chase`. RattleSnake also has no telegraph
+  (no `Aggro` animation exists for it) and mirrors Bat's simpler
+  straight-into-chase flow despite being grounded like Slime — proof this is
+  purely a per-species animation choice, not something tied to
+  `EnemyMovementType`. Add a telegraph only if the design calls for one; it
+  is not a required part of the pattern.
+- **Movement-failure escape hatches differ by available animation set, not
+  by movement type.** Slime has a full two-state teleport animation
+  (`TeleportDespawn`/`TeleportSpawn`) and uses `StartEmergencyTeleport()` as
+  its last resort when stuck or encased. Bat has no ground/fall concept at
+  all and falls back to `Explore`. RattleSnake has neither a teleport
+  animation nor Bat's explore state, so its last resorts are: a silent,
+  unanimated reposition (`SnakeStateMachine.TryQuietReposition` — calls
+  `SnakeView.Teleport(Vector2)` directly with no state/animation change,
+  used only from `Fall`'s give-up paths) bounded by a small retry counter
+  that despawns the enemy without an animation if repositioning keeps
+  failing (mirrors `HandleMissingAnimation`'s existing "no animation, just
+  fire the signal" pattern); and a passive idle-and-recheck-next-cycle
+  no-op for the rarer "stationary and encased" case, since there's nothing
+  else to fall back to. Match the new enemy's actual animation set — don't
+  copy Slime's teleport sequence onto an enemy that has no teleport
+  animation.
 - **Multi-instance coordination.** `BatFormationService` hands each bat a
   stable slot index used to offset explore-destination search order,
   wobble phase (so multiple bats don't move in visual lock-step), and
@@ -248,15 +297,16 @@ These are deliberate per-species differences, not inconsistencies to fix:
   arbitrate runtime movement conflicts. If a new grounded enemy needs
   multi-instance coordination, use `BatFormationService` as the template
   rather than inventing a new mechanism.
-- **Placeable contact.** Slime has an explicit
-  `PlaceableCollisionBehavior` (`ContinueMovement` vs `StopAndAttack`)
-  driven by `View.HorizontalCollision`, letting a patrolling slime stop
-  and attack a damageable placeable it walks into. Bats don't touch
-  placeables this way since they fly around obstacles rather than into
-  them; a new grounded enemy that should ignore placeables can omit this
-  entirely, but if it should interact with them, copy Slime's
-  `HandleHorizontalCollision` pattern rather than adding trigger-based
-  placeable detection.
+- **Placeable contact.** `PlaceableCollisionBehavior`
+  (`ContinueMovement` vs `StopAndAttack`, shared from `EnemySystem/Enum/`
+  — promoted out of Slime's own folder once Snake needed the same concept)
+  driven by `View.HorizontalCollision` lets a patrolling grounded enemy stop
+  and attack a damageable placeable it walks into; both Slime and RattleSnake
+  use it. Bats don't touch placeables this way since they fly around
+  obstacles rather than into them; a new grounded enemy that should ignore
+  placeables can omit this entirely, but if it should interact with them,
+  copy Slime's/Snake's `HandleHorizontalCollision` pattern rather than
+  adding trigger-based placeable detection.
 
 ## Pre-delivery checklist (enemy-specific, in addition to the master AGENTS.md checklist)
 
@@ -270,10 +320,16 @@ These are deliberate per-species differences, not inconsistencies to fix:
       assigned `EnemyAnimationProfileScriptable`, or the
       `HandleMissingAnimation` fallback path is deliberately acceptable.
 - [ ] `Config.MovementType` matches the pathfinding calls actually used
-      (`Grounded` -> walkable queries, `Flying` -> flyable queries).
+      (`Grounded`/`Crawling` -> walkable queries, `Flying` -> flyable
+      queries).
 - [ ] Pool prewarms `InitialPoolSize`; `Release()` fully resets
       Model+View+PauseState+subscriptions; `Dispose()` releases every
       pool-held instance and destroys their GameObjects.
+- [ ] If animation clips were authored as placeholder stubs (empty sprite
+      lists, assumed frame counts), confirm each clip's
+      `AnimationEvent_AdvanceFrame` count/timing was revisited once real
+      frames were dropped in, and that any `AttackImpact` marker still
+      lands on the intended frame.
 - [ ] No `Update`/`FixedUpdate`/coroutines were added — all per-frame logic
       runs through `EnemyManager.FixedTick` -> `IEnemyController.OnFixedTick`.
 - [ ] `Controller`, `StateMachine`, `Model`, and `Pool` all implement and

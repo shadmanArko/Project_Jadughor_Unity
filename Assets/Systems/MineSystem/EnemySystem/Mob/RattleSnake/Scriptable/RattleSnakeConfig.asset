@@ -1,0 +1,51 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 003363c92bff73b28ece29e85a384659, type: 3}
+  m_Name: RattleSnakeConfig
+  m_EditorClassIdentifier:
+  enemyType: 1
+  prefab: {fileID: 500000001, guid: ac3283ede10893c4409f039ca9367b7a, type: 3}
+  maxHealth: 15
+  damage: 4
+  moveSpeed: 0.35
+  aggroRangeInTiles: 5
+  attackRangeInTiles: 0
+  attackCooldown: 1.2
+  movementType: 2
+  minimumSpawnDistanceInTiles: 4
+  maximumSpawnDistanceInTiles: 0
+  requiresSolidGroundBelow: 1
+  requiresPathValidation: 1
+  requiresPlacementValidation: 1
+  allowCameraVisibleWaveSpawn: 1
+  snakeVariant: 0
+  animationProfile: {fileID: 11400000, guid: 7c5520ec524051fa1daf2a1a10910952, type: 2}
+  snakeColor: {r: 1, g: 1, b: 1, a: 1}
+  placeableCollisionBehavior: 0
+  aggroDistance: 1.2
+  chaseExitRangeInTiles: 8
+  idleDuration: 1.2
+  patrolRangeInTiles: 6
+  destinationRetries: 4
+  positionTolerance: 0.03
+  movementStuckBufferSeconds: 1.5
+  minimumMovementTimeoutSeconds: 0.75
+  maxFallDistanceInTiles: 12
+  groundProbeDistance: 0.08
+  groundLayerMask:
+    serializedVersion: 2
+    m_Bits: 128
+  attackContactDistance: 0.12
+  statusEffectType: 0
+  statusEffectDuration: 0
+  statusEffectPower: 0
+  initialPoolSize: 2

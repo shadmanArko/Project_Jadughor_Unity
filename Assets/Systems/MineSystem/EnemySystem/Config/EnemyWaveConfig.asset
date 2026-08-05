@@ -22,7 +22,18 @@ MonoBehaviour:
     startMinute: 0
     useWallBreakTrigger: 1
     requiredBrokenCells: 10
-    enemyCount: 150
+    enemyCount: 1
+    spawnIntervalInGameMinutes: 5
+  - waveId: RattleSnake
+    enemyType: 1
+    variantId: RattleSnake
+    enemyConfig: {fileID: 11400000, guid: f3dff39ee0b8937cfadd61d2226efad0, type: 2}
+    useTimeTrigger: 0
+    startHour: 0
+    startMinute: 0
+    useWallBreakTrigger: 1
+    requiredBrokenCells: 10
+    enemyCount: 1
     spawnIntervalInGameMinutes: 5
   failedToSpawnDelayInGameMinutes: 10
   outsideCameraMarginInTiles: 1

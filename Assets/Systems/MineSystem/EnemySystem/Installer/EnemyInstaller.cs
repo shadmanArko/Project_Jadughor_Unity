@@ -6,6 +6,8 @@ using Systems.MineSystem.EnemySystem.Mob.BlackBat.Controller;
 using Systems.MineSystem.EnemySystem.Mob.BlackBat.Service;
 using Systems.MineSystem.EnemySystem.Mob.GreenSlime.Config;
 using Systems.MineSystem.EnemySystem.Mob.GreenSlime.Service;
+using Systems.MineSystem.EnemySystem.Mob.RattleSnake.Config;
+using Systems.MineSystem.EnemySystem.Mob.RattleSnake.Service;
 using Systems.MineSystem.EnemySystem.Service;
 using UnityEngine;
 using Zenject;
@@ -17,6 +19,7 @@ namespace Systems.MineSystem.EnemySystem.Installer
     {
         [SerializeField] private SlimeConfigScriptable greenSlimeConfig;
         [SerializeField] private BatConfigScriptable blackBatConfig;
+        [SerializeField] private SnakeConfigScriptable rattleSnakeConfig;
         [SerializeField] private EnemyWaveConfig enemyWaveConfig;
 
         public override void InstallBindings()
@@ -32,6 +35,12 @@ namespace Systems.MineSystem.EnemySystem.Installer
                     "EnemyInstaller requires BlackBatConfig.");
             Container.Bind<BatConfigScriptable>()
                 .FromScriptableObject(blackBatConfig)
+                .AsSingle();
+            if (rattleSnakeConfig == null)
+                throw new System.InvalidOperationException(
+                    "EnemyInstaller requires RattleSnakeConfig.");
+            Container.Bind<SnakeConfigScriptable>()
+                .FromScriptableObject(rattleSnakeConfig)
                 .AsSingle();
             if (enemyWaveConfig == null)
                 throw new System.InvalidOperationException(
@@ -62,6 +71,9 @@ namespace Systems.MineSystem.EnemySystem.Installer
             Container.BindInterfacesAndSelfTo<BatPool>().AsSingle();
             Container.Bind<IEnemyFactory>()
                 .To<BatFactory>().AsSingle();
+            Container.BindInterfacesAndSelfTo<SnakePool>().AsSingle();
+            Container.Bind<IEnemyFactory>()
+                .To<SnakeFactory>().AsSingle();
 
             Container.Bind<EnemyFactoryRegistry>().AsSingle();
             Container.Bind<EnemySpawnLocator>().AsSingle();

@@ -66,11 +66,11 @@ TagManager:
   - name: Crack
     uniqueID: 1273293183
     locked: 0
-  - name: Enemy
-    uniqueID: 1368478967
-    locked: 0
   - name: Player
     uniqueID: 392558305
+    locked: 0
+  - name: Enemy
+    uniqueID: 1368478967
     locked: 0
   - name: Collectable
     uniqueID: 3696210385

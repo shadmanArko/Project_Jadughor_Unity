@@ -1,4 +1,4 @@
-namespace Systems.MineSystem.EnemySystem.Mob.GreenSlime.Enum
+namespace Systems.MineSystem.EnemySystem.Enum
 {
     public enum PlaceableCollisionBehavior
     {

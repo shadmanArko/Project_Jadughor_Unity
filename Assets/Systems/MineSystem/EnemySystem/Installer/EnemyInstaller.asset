@@ -14,4 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   greenSlimeConfig: {fileID: 11400000, guid: 2ffef7ce59df4a6fa8e1655f9b196e1f, type: 2}
   blackBatConfig: {fileID: 11400000, guid: d4c5b54eb2bb4f4eb89147c13ef355a1, type: 2}
+  rattleSnakeConfig: {fileID: 11400000, guid: f3dff39ee0b8937cfadd61d2226efad0, type: 2}
   enemyWaveConfig: {fileID: 11400000, guid: ffbc7603b6c243629fd3d2204351640c, type: 2}
