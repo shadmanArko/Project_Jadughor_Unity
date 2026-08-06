@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 423931352657228325}
   - component: {fileID: 6781301663967384831}
   - component: {fileID: 79341551250305892}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -130,7 +130,7 @@ GameObject:
   - component: {fileID: 4141580190880985053}
   - component: {fileID: 1052348148131238446}
   - component: {fileID: 6216582732597560}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PlayerObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -198,7 +198,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 392558305
-  m_SortingLayer: 9
+  m_SortingLayer: 10
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 9119549463136492614, guid: 2f8d26d839b24c948a35f0f8ece3c665, type: 3}
@@ -340,12 +340,12 @@ MonoBehaviour:
   m_ComponentVersion: 2
   m_LightType: 3
   m_BlendStyleIndex: 0
-  m_FalloffIntensity: 0.3
+  m_FalloffIntensity: 0.6
   m_Color: {r: 0.9433962, g: 0.75759643, b: 0.19134924, a: 1}
-  m_Intensity: 3
+  m_Intensity: 0.85
   m_LightVolumeIntensity: 1
   m_LightVolumeEnabled: 0
-  m_ApplyToSortingLayers: e3c05aec8fd67eebd1b14fdceb3b8d7c
+  m_ApplyToSortingLayers: 00000000e3c05aec8fd67eebfb39260a31b4c050eb3b8d7c812a36a8d1b14fdce1f665172bd24aa9f3c44f60d90789f07fe9e44bf7549151
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -365,7 +365,7 @@ MonoBehaviour:
     m_Extent: {x: 0.9985302, y: 0.99853027, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
-  m_PointLightInnerRadius: 0
+  m_PointLightInnerRadius: 0.15
   m_PointLightOuterRadius: 0.5
   m_ShapeLightParametricSides: 5
   m_ShapeLightParametricAngleOffset: 0

@@ -20,8 +20,7 @@ namespace Systems.MineSystem.MinePlayerSystem.Installer
         [SerializeField] private PlayerView playerPrefab;
         [SerializeField]
         private PlayerAnimationLibraryScriptable playerAnimationLibrary;
-        [SerializeField] private string animationProfileId;
-        
+
         public override void InstallBindings()
         {
             Container.Bind<MinePlayerDataConfig>()
@@ -46,9 +45,10 @@ namespace Systems.MineSystem.MinePlayerSystem.Installer
 
             // Input can exist before a playable character prefab is configured.
             if (playerPrefab == null ||
+                playerScriptable == null ||
                 playerAnimationLibrary == null ||
                 !playerAnimationLibrary.TryGetProfile(
-                    animationProfileId,
+                    playerScriptable.characterType,
                     out var animationProfile))
                 return;
 

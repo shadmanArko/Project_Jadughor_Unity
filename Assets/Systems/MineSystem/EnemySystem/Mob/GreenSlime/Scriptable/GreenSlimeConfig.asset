@@ -1,0 +1,57 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a93d78a44125404494b1605ddb04d418, type: 3}
+  m_Name: GreenSlimeConfig
+  m_EditorClassIdentifier: 
+  enemyType: 0
+  prefab: {fileID: 1937851054011437442, guid: 6cfefae9019d07046aee60a1cdd68056, type: 3}
+  maxHealth: 25
+  damage: 5
+  moveSpeed: 0.2
+  aggroRangeInTiles: 5
+  attackRangeInTiles: 0
+  attackCooldown: 1
+  movementType: 0
+  minimumSpawnDistanceInTiles: 4
+  maximumSpawnDistanceInTiles: 0
+  requiresSolidGroundBelow: 1
+  requiresPathValidation: 1
+  requiresPlacementValidation: 1
+  allowCameraVisibleWaveSpawn: 1
+  slimeVariant: 0
+  animationProfile: {fileID: 11400000, guid: f24f23a381784db7af2fa5baf7e5c5eb, type: 2}
+  slimeColor: {r: 1, g: 1, b: 1, a: 1}
+  placeableCollisionBehavior: 0
+  aggroDistance: 1
+  idleDuration: 1.5
+  patrolRangeInTiles: 10
+  destinationRetries: 4
+  positionTolerance: 0.03
+  movementStuckBufferSeconds: 1.5
+  minimumMovementTimeoutSeconds: 0.75
+  maxFallDistanceInTiles: 20
+  groundProbeDistance: 0.08
+  groundLayerMask:
+    serializedVersion: 2
+    m_Bits: 128
+  maxTeleportAttempts: 5
+  minimumTeleportDistanceInTiles: 2
+  maximumTeleportDistanceInTiles: 6
+  chaseExitRangeInTiles: 8
+  teleportTriggerDistanceInTiles: 10
+  teleportChance: 0.4
+  teleportCooldownSeconds: 6
+  attackContactDistance: 0.1
+  statusEffectType: 0
+  statusEffectDuration: 0
+  statusEffectPower: 0
+  initialPoolSize: 2

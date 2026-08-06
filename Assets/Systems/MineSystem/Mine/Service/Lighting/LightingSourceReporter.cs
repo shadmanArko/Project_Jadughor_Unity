@@ -11,6 +11,11 @@ namespace Systems.MineSystem.Mine.Service.Lighting
     {
         [SerializeField] private bool managedByLightingManager = true;
 
+        [SerializeField, Tooltip("Culling radius for light shapes the reporter " +
+             "cannot measure (Freeform / Parametric, which expose no public " +
+             "bounds). Ignored when zero or less.")]
+        private float radiusOverride = -1f;
+
         private Light2D[] _lights;
         private bool[] _authoredEnabled;
         private bool _started;
@@ -95,11 +100,36 @@ namespace Systems.MineSystem.Mine.Service.Lighting
                 var scale = light.transform.lossyScale;
                 var largestScale = Mathf.Max(Mathf.Abs(scale.x),
                     Mathf.Abs(scale.y));
-                radius = Mathf.Max(radius,
-                    light.pointLightOuterRadius * largestScale);
+                radius = Mathf.Max(radius, GetLocalRadius(light) * largestScale);
             }
 
             return radius;
+        }
+
+        private float GetLocalRadius(Light2D light)
+        {
+            if (radiusOverride > 0f)
+                return radiusOverride;
+
+            switch (light.lightType)
+            {
+                case Light2D.LightType.Point:
+                    return light.pointLightOuterRadius;
+                case Light2D.LightType.Sprite:
+                    // Sprite lights leave pointLightOuterRadius at its authored
+                    // value, which has nothing to do with the cookie's size, so
+                    // measure the sprite instead. Without this the culling margin
+                    // collapses and the light pops off at the screen edge.
+                    var cookie = light.lightCookieSprite;
+                    if (cookie == null)
+                        return 0f;
+                    var extents = cookie.bounds.extents;
+                    return Mathf.Max(extents.x, extents.y);
+                default:
+                    // Freeform / Parametric expose no public bounds - set
+                    // radiusOverride on the reporter for those.
+                    return 0f;
+            }
         }
 
         public void RestoreAuthoredState()

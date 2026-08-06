@@ -1,5 +1,4 @@
 using System;
-using Systems.MineSystem.Mine.Model;
 using Systems.MineSystem.Mine.Scriptable;
 using Systems.MineSystem.Mine.View;
 using Systems.MineSystem.MinePlayerSystem.Scriptable;
@@ -9,21 +8,29 @@ using Zenject;
 
 namespace Systems.MineSystem.Mine.Service.Lighting
 {
+    /// <summary>
+    /// Darkens the mine by driving the Global Light 2D intensity from the player's
+    /// depth. The global light shares blend style 0 (Multiply) with every reveal
+    /// light, and lights on a shared blend style accumulate additively before the
+    /// style is applied - so a MineLightSource near the player adds on top of the
+    /// low ambient value and restores normal brightness inside its radius.
+    /// </summary>
     public sealed class MineDarkeningService : IInitializable, IDisposable
     {
-        private readonly MineModel _mine;
+        private const float IntensityEpsilon = 0.001f;
+
         private readonly MineView _view;
         private readonly RuntimeDataScriptable _playerRuntime;
         private readonly MineDarkeningConfig _config;
         private readonly CompositeDisposable _disposables = new();
+        private float _appliedIntensity = float.NaN;
+        private int _playerCellY;
 
         public MineDarkeningService(
-            MineModel mine,
             MineView view,
             RuntimeDataScriptable playerRuntime,
             MineDarkeningConfig config)
         {
-            _mine = mine;
             _view = view;
             _playerRuntime = playerRuntime;
             _config = config;
@@ -31,75 +38,61 @@ namespace Systems.MineSystem.Mine.Service.Lighting
 
         public void Initialize()
         {
-            if (_view.darkeningShaderRenderer == null)
+            if (_view.globalLight == null)
                 throw new InvalidOperationException(
-                    "MineView requires a DarkeningShader SpriteRenderer reference.");
+                    "MineView requires a Global Light 2D reference.");
 
-            SetAlpha(0f);
-            _mine.MineData
-                .Where(data => data != null)
-                .Subscribe(SizeToMine)
-                .AddTo(_disposables);
+            // The legacy AllIn1 quad is unlit, so no Light2D can ever cut through
+            // it. Left in MineView (disabled) rather than deleted so the old look
+            // stays one checkbox away for comparison.
+            if (_view.darkeningShaderRenderer != null)
+                _view.darkeningShaderRenderer.enabled = false;
+
+            // worldPosition is a ReactiveProperty, so this fires immediately with
+            // the current value and seeds the ambient light.
             _playerRuntime.worldPosition
-                .Subscribe(UpdateAlpha)
+                .Subscribe(OnPlayerPositionChanged)
                 .AddTo(_disposables);
-        }
+            _config.ObserveChanged()
+                .Subscribe(_ => ApplyAmbient(true))
+                .AddTo(_disposables);
 
-        private void SizeToMine(MineData mineData)
-        {
-            if (mineData.GridWidth <= 0 || mineData.GridHeight <= 0)
-                return;
-
-            var minCell = new Vector3Int(
-                -(mineData.GridWidth / 2),
-                -(mineData.GridHeight - 1), 0);
-            var maxCell = new Vector3Int(
-                minCell.x + mineData.GridWidth - 1, 0, 0);
-            var minCenter = _view.grid.GetCellCenterWorld(minCell);
-            var maxCenter = _view.grid.GetCellCenterWorld(maxCell);
-            var cellOrigin = _view.grid.CellToWorld(Vector3Int.zero);
-            var cellStep = _view.grid.CellToWorld(Vector3Int.one) - cellOrigin;
-            var mineWidth = Mathf.Abs(cellStep.x) * mineData.GridWidth;
-            var mineHeight = Mathf.Abs(cellStep.y) * mineData.GridHeight;
-
-            var renderer = _view.darkeningShaderRenderer;
-            var position = (minCenter + maxCenter) * 0.5f;
-            position.z = renderer.transform.position.z;
-            renderer.transform.position = position;
-
-            var spriteSize = renderer.sprite != null
-                ? renderer.sprite.bounds.size
-                : Vector3.one;
-            var parentScale = renderer.transform.parent != null
-                ? renderer.transform.parent.lossyScale
-                : Vector3.one;
-            renderer.transform.localScale = new Vector3(
-                mineWidth / (spriteSize.x * Mathf.Abs(parentScale.x)),
-                mineHeight / (spriteSize.y * Mathf.Abs(parentScale.y)),
-                1f);
-        }
-
-        private void UpdateAlpha(Vector2 playerWorldPosition)
-        {
-            var playerCellY = _view.grid.WorldToCell(playerWorldPosition).y;
-            var fade = Mathf.InverseLerp(
-                _config.fadeStartCellY,
-                _config.maxAlphaCellY,
-                playerCellY);
-            SetAlpha(fade * (_config.maxAlpha / 255f));
-        }
-
-        private void SetAlpha(float alpha)
-        {
-            var renderer = _view.darkeningShaderRenderer;
-            var color = renderer.color;
-            color.a = Mathf.Clamp(alpha, 0f, _config.maxAlpha / 255f);
-            renderer.color = color;
+            if (float.IsNaN(_appliedIntensity))
+                ApplyAmbient(true);
         }
 
         public void Dispose()
         {
             _disposables.Dispose();
+        }
+
+        private void OnPlayerPositionChanged(Vector2 playerWorldPosition)
+        {
+            _playerCellY = _view.grid.WorldToCell(playerWorldPosition).y;
+            ApplyAmbient(false);
+        }
+
+        private void ApplyAmbient(bool force)
+        {
+            var fade = Mathf.InverseLerp(
+                _config.fadeStartCellY,
+                _config.maxAlphaCellY,
+                _playerCellY);
+            var intensity = Mathf.Lerp(
+                _config.surfaceAmbientIntensity,
+                _config.deepAmbientIntensity,
+                fade);
+
+            // worldPosition ticks every frame and writing to a Light2D dirties it,
+            // so only push a value that actually moved.
+            if (!force &&
+                Mathf.Abs(intensity - _appliedIntensity) < IntensityEpsilon)
+                return;
+
+            var light = _view.globalLight;
+            light.intensity = intensity;
+            light.color = _config.ambientColor;
+            _appliedIntensity = intensity;
         }
     }
 }

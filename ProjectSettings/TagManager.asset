@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 3
-  tags: []
+  tags:
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -13,7 +14,7 @@ TagManager:
   - UI
   - Player
   - Wall
-  - 
+  - Enemy
   - 
   - 
   - 
@@ -50,11 +51,8 @@ TagManager:
   - name: Vine
     uniqueID: 4035512281
     locked: 0
-  - name: Ground
-    uniqueID: 3617601881
-    locked: 0
-  - name: Walls
-    uniqueID: 1009249805
+  - name: FungalVegetation
+    uniqueID: 4079872879
     locked: 0
   - name: Wall
     uniqueID: 2089630699
@@ -73,6 +71,9 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 392558305
+    locked: 0
+  - name: Enemy
+    uniqueID: 1368478967
     locked: 0
   - name: Collectable
     uniqueID: 3696210385

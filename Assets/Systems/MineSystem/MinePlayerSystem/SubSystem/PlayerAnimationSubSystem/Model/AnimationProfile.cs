@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Systems.MineSystem.MinePlayerSystem.Enum;
 using Systems.MineSystem.MinePlayerSystem.Model;
 using UnityEngine;
 
@@ -10,6 +11,7 @@ namespace Systems.MineSystem.MinePlayerSystem.SubSystem.PlayerAnimationSubSystem
     {
         public string id;
         public string name;
+        public CharacterType characterType;
         public RuntimeAnimatorController animatorController;
         public Vector2 visualScale = Vector2.one;
         public Vector2 visualOffset;

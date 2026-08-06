@@ -14,4 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Systems.MineSystem.Mine.Scriptable.MineDarkeningConfig
   fadeStartCellY: -5
   maxAlphaCellY: -15
+  surfaceAmbientIntensity: 0.85
+  deepAmbientIntensity: 0.273
+  ambientColor: {r: 0.4245283, g: 0.4245283, b: 0.4245283, a: 1}
   maxAlpha: 200

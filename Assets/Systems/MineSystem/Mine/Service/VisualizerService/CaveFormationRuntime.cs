@@ -9,6 +9,7 @@ using Systems.MineSystem.ToolbarSystem.Model;
 using Systems.MineSystem.ToolbarSystem.Service;
 using Systems.MineSystem.PauseSystem.Service;
 using DG.Tweening;
+using Systems.MineSystem.EnemySystem.Interface;
 using UniRx;
 using UnityEngine;
 
@@ -16,7 +17,7 @@ namespace Systems.MineSystem.Mine.Service.VisualizerService
 {
     public abstract class CaveFormationRuntime :
         PausablePlaceableRuntime,
-        IPlaceableRuntime
+        IEnemyNavigationBlocker
     {
         private readonly CompositeDisposable _disposables = new();
         private Action<IPlaceableRuntime> _releaseAction;

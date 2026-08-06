@@ -119,12 +119,12 @@ MonoBehaviour:
   m_ComponentVersion: 2
   m_LightType: 3
   m_BlendStyleIndex: 0
-  m_FalloffIntensity: 0.5
+  m_FalloffIntensity: 0.6
   m_Color: {r: 0.89737386, g: 0.9056604, b: 0.046991818, a: 1}
-  m_Intensity: 9.35
+  m_Intensity: 1.1
   m_LightVolumeIntensity: 0.005
   m_LightVolumeEnabled: 1
-  m_ApplyToSortingLayers: 00000000e3c05aec8fd67eebeb3b8d7cfb39260a31b4c050d1b14fdc812a36a8
+  m_ApplyToSortingLayers: 00000000e3c05aec8fd67eebfb39260a31b4c050eb3b8d7c812a36a8d1b14fdce1f665172bd24aa9f3c44f60d90789f07fe9e44bf7549151
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0

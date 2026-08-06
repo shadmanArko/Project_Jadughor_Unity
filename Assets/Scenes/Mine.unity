@@ -408,7 +408,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1006323501
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -429,7 +429,7 @@ MonoBehaviour:
   m_Intensity: 1
   m_LightVolumeIntensity: 1
   m_LightVolumeEnabled: 0
-  m_ApplyToSortingLayers: 00000000e3c05aec8fd67eebfb39260a31b4c050eb3b8d7c812a36a8d1b14fdce1f665172bd24aa9f3c44f60d90789f07fe9e44b
+  m_ApplyToSortingLayers: 00000000e3c05aec8fd67eebfb39260a31b4c050eb3b8d7c812a36a8d1b14fdce1f665172bd24aa9f3c44f60d90789f07fe9e44bf7549151
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -626,9 +626,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Zenject::Zenject.SceneContext
   _scriptableObjectInstallers:
+  - {fileID: 11400000, guid: 198ef6fb94b7423d912de2cbfe2eb7cf, type: 2}
   - {fileID: 11400000, guid: b28dbb540dc84db49f3d33b42b46bdf7, type: 2}
   - {fileID: 11400000, guid: cb8184b59a7974f47b2ace8a6627d465, type: 2}
   - {fileID: 11400000, guid: 931f2685ded96e64dbfcb8dacc7784c3, type: 2}
+  - {fileID: 11400000, guid: abad397cba81840fd82e81e67db41bae, type: 2}
   - {fileID: 11400000, guid: f07352eab9abd2449a85aefc95f6e5bd, type: 2}
   - {fileID: 11400000, guid: b74cefc2cb891e94c8cc860f3c5ba677, type: 2}
   - {fileID: 11400000, guid: 97bf36721cd34237b77292e719d4e063, type: 2}

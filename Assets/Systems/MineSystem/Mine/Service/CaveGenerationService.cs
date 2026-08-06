@@ -161,6 +161,7 @@ namespace Systems.MineSystem.Mine.Service
                 TopBound = yMin,
                 IsRevealed = false,
                 BottomBound = yMax,
+                NoOfFlyingEnemies = (xMax - xMin + 1) / 2,
                 CellPositions = new List<GridPosition>(),
                 StalagmiteCellIds = new List<string>(),
                 StalactiteCellIds = new List<string>(),
