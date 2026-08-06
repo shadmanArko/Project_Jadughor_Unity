@@ -51,6 +51,9 @@ TagManager:
   - name: Vine
     uniqueID: 4035512281
     locked: 0
+  - name: FungalVegetation
+    uniqueID: 4079872879
+    locked: 0
   - name: Wall
     uniqueID: 2089630699
     locked: 0

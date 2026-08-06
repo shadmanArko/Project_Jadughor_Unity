@@ -15,6 +15,6 @@ MonoBehaviour:
   fadeStartCellY: -5
   maxAlphaCellY: -15
   surfaceAmbientIntensity: 0.85
-  deepAmbientIntensity: 0.2
-  ambientColor: {r: 0.55, g: 0.47, b: 0.85, a: 1}
+  deepAmbientIntensity: 0.273
+  ambientColor: {r: 0.4245283, g: 0.4245283, b: 0.4245283, a: 1}
   maxAlpha: 200

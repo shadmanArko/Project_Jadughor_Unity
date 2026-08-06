@@ -14,6 +14,8 @@ namespace Systems.MineSystem.Mine.View
         public Tilemap backgroundTileMap;
         public Tilemap specialBackdropTileMap;
         public Tilemap vineTileMap;
+        public Tilemap fungalVegetation;
+        public Tilemap fungalVegetationSecondary;
         public Tilemap artifactTileMap;
         public Tilemap resourceTileMap;
         public Tilemap wallTileMap;
