@@ -78,6 +78,8 @@ namespace Systems.MineSystem.EnemySystem.Installer
             Container.Bind<EnemyFactoryRegistry>().AsSingle();
             Container.Bind<EnemySpawnLocator>().AsSingle();
             Container.Bind<EnemySpawnService>().AsSingle();
+            Container.BindInterfacesAndSelfTo<EnemyRelocationService>()
+                .AsSingle();
             Container.BindInterfacesAndSelfTo<EnemyWaveService>()
                 .AsSingle()
                 .NonLazy();

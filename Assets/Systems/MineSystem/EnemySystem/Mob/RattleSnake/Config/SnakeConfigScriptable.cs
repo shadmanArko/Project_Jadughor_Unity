@@ -134,6 +134,14 @@ namespace Systems.MineSystem.EnemySystem.Mob.RattleSnake.Config
                     $"{name} requires a positive minimum movement timeout.";
                 return false;
             }
+            if (RelocateWhenPlayerDistant &&
+                RelocationDistanceInTiles <= chaseExitRangeInTiles)
+            {
+                error = $"{name} relocation distance " +
+                        $"({RelocationDistanceInTiles}) must exceed the chase " +
+                        $"exit range ({chaseExitRangeInTiles}).";
+                return false;
+            }
             error = null;
             return true;
         }

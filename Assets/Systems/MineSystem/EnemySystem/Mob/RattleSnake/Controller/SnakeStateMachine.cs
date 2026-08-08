@@ -11,6 +11,7 @@ using Systems.MineSystem.EnemySystem.Mob.RattleSnake.Enum;
 using Systems.MineSystem.EnemySystem.Mob.RattleSnake.Model;
 using Systems.MineSystem.EnemySystem.Mob.RattleSnake.View;
 using Systems.MineSystem.EnemySystem.Model;
+using Systems.MineSystem.EnemySystem.Service;
 using Systems.MineSystem.EnemySystem.Signal;
 using Systems.MineSystem.Mine.Model;
 using Systems.MineSystem.PauseSystem.Service;
@@ -47,9 +48,11 @@ namespace Systems.MineSystem.EnemySystem.Mob.RattleSnake.Controller
         private bool _observedCombatAvailable;
         private bool _fallHasLeftSupport;
         private bool _fallIsDirected;
+        private bool _fallCommitting;
         private bool _attackApplied;
         private bool _deathSignalSent;
         private bool _despawnSignalSent;
+        private bool _relocationRequested;
         private bool _disposed;
 
         public SnakeStateMachine(
@@ -86,9 +89,11 @@ namespace Systems.MineSystem.EnemySystem.Mob.RattleSnake.Controller
             _fallStartGrid = default;
             _fallHasLeftSupport = false;
             _fallIsDirected = false;
+            _fallCommitting = false;
             _attackApplied = false;
             _deathSignalSent = false;
             _despawnSignalSent = false;
+            _relocationRequested = false;
             _hasObservedTarget = _target.IsTargetAvailable;
             _observedTargetGrid = _hasObservedTarget
                 ? _target.GridPosition
@@ -151,6 +156,7 @@ namespace Systems.MineSystem.EnemySystem.Mob.RattleSnake.Controller
                     IsFallNavigationChangeRelevant(changedPosition))
                 {
                     _fallIsDirected = false;
+                    _fallCommitting = false;
                     _view.SetVelocity(new Vector2(
                         0f,
                         _view.Body.linearVelocity.y));
@@ -324,6 +330,7 @@ namespace Systems.MineSystem.EnemySystem.Mob.RattleSnake.Controller
             _stateCompletion = null;
             _placeableTarget = null;
             _placeableWorldPosition = default;
+            _relocationRequested = false;
             _config = null;
         }
 
@@ -465,7 +472,21 @@ namespace Systems.MineSystem.EnemySystem.Mob.RattleSnake.Controller
 
             if (!_placement.IsCurrentPlacementClear(_view.TerrainCollider))
             {
-                EnterIdle();
+                // Encased by terrain. Retry for a few idle cycles in case the
+                // player digs it out, then escalate — this used to idle here
+                // indefinitely, leaving a live enemy nothing could recover.
+                _model.RecordRepositionFailure();
+                EnemyDiagnosticsLog.Warn(
+                    _enemyId,
+                    "Placement obstructed while deciding " +
+                    $"(attempt {_model.RepositionFailureCount}).");
+                if (_model.RepositionFailureCount >=
+                    Mathf.Max(1, _config.DestinationRetries))
+                {
+                    RequestRelocationOrDespawn();
+                    return;
+                }
+                EnterFallRecoveryIdle();
                 return;
             }
             _model.SetGridPosition(
@@ -526,9 +547,23 @@ namespace Systems.MineSystem.EnemySystem.Mob.RattleSnake.Controller
             _model.SetMovementMode(SnakeMovementMode.None);
             _placeableTarget = null;
             _placeableWorldPosition = default;
-            _model.ResetRepositionFailures();
+            // Note: the reposition counters are deliberately NOT reset here.
+            // EvaluateDecision routes an encased snake straight back into Idle,
+            // so resetting here would keep the counter at zero forever and make
+            // the stuck escape hatch unreachable. They are cleared in
+            // RecordMovementProgress() once the snake actually moves.
             _model.StartIdle(_config != null ? _config.IdleDuration : 0f);
             ChangeState(SnakeState.Idle);
+        }
+
+        /// <summary>
+        /// Marks a genuine recovery: the snake completed a movement step under
+        /// its own power, so any accumulated stuck state is stale.
+        /// </summary>
+        private void RecordMovementProgress()
+        {
+            _model.ResetRepositionFailures();
+            _model.ResetRepositionCount();
         }
 
         private void EnterFallRecoveryIdle()
@@ -924,6 +959,7 @@ namespace Systems.MineSystem.EnemySystem.Mob.RattleSnake.Controller
             {
                 _view.SetVelocity(Vector2.zero);
                 _model.CompletePathStep(step.Value.Position);
+                RecordMovementProgress();
                 FinishMovementStep();
                 return;
             }
@@ -965,6 +1001,7 @@ namespace Systems.MineSystem.EnemySystem.Mob.RattleSnake.Controller
                     HandlePatrolFailure();
                     return;
                 }
+                RecordMovementProgress();
                 PrepareNextPatrolStep();
                 return;
             }
@@ -1117,6 +1154,8 @@ namespace Systems.MineSystem.EnemySystem.Mob.RattleSnake.Controller
             _fallStartGrid = _placement.WorldToGrid(_view.Body.position);
             _fallHasLeftSupport = false;
             _fallIsDirected = targetPosition != _fallStartGrid;
+            _fallCommitting = false;
+            _model.ClearGroundedFall();
             _model.SetMovementMode(SnakeMovementMode.None);
             _model.StartMovementTimeout(GetWorldMovementTimeout(
                 Vector2.Distance(
@@ -1129,11 +1168,26 @@ namespace Systems.MineSystem.EnemySystem.Mob.RattleSnake.Controller
         {
             CancelPathRequest();
             _fallStartGrid = _placement.WorldToGrid(_view.Body.position);
+
+            // A Fall entered while still physically grounded can never satisfy
+            // the landing latch in TickFall (which needs an airborne frame
+            // first), so it would sit doing nothing until the movement timeout.
+            // This happens at a ledge lip, where WorldToGrid resolves to the
+            // open cell past the edge while the ground boxcast still hits the
+            // ledge. Treat it as a grid/physics disagreement and resync instead.
+            if (_view.IsGrounded(
+                    _config.GroundLayerMask,
+                    _config.GroundProbeDistance))
+            {
+                ResolveGroundedFallEntry();
+                return;
+            }
+
             _fallTarget = _fallStartGrid;
-            _fallHasLeftSupport = !_view.IsGrounded(
-                _config.GroundLayerMask,
-                _config.GroundProbeDistance);
+            _fallHasLeftSupport = true;
             _fallIsDirected = false;
+            _fallCommitting = false;
+            _model.ClearGroundedFall();
             _model.SetMovementMode(SnakeMovementMode.None);
             var maximumFallWorld = Vector2.Distance(
                 _placement.GridToWorld(_fallStartGrid),
@@ -1143,6 +1197,88 @@ namespace Systems.MineSystem.EnemySystem.Mob.RattleSnake.Controller
             _model.StartMovementTimeout(
                 GetWorldMovementTimeout(maximumFallWorld));
             ChangeState(SnakeState.Fall, true);
+        }
+
+        /// <summary>
+        /// Handles a fall request raised while the snake is still standing on
+        /// solid ground. Resyncs the model grid to the collider and routes back
+        /// into normal AI rather than a Fall with no exit condition.
+        /// </summary>
+        private void ResolveGroundedFallEntry()
+        {
+            var current = _placement.WorldToGrid(_view.Body.position);
+            _model.SetGridPosition(current);
+            _model.ClearGroundedFall();
+            _model.ClearMovementTimeout();
+
+            // Walkable: StartPatrolCorridor's own IsWalkable guard passes, so
+            // this cannot bounce straight back into EnterFall.
+            if (_pathfinding.IsWalkable(current))
+            {
+                EnemyDiagnosticsLog.Warn(
+                    _enemyId,
+                    $"Fall requested while grounded at {current}; " +
+                    "cell is walkable, resuming patrol.");
+                StartPatrolCorridor();
+                return;
+            }
+
+            // Standing on geometry the navigation snapshot does not consider
+            // walkable (typically the lip of a ledge). Step onto the nearest
+            // walkable cell so the next decision has a valid footing.
+            if (TryNudgeToNearbyWalkable(current))
+            {
+                EnemyDiagnosticsLog.Warn(
+                    _enemyId,
+                    $"Fall requested while grounded at {current}; " +
+                    "nudged onto nearest walkable cell.");
+                EnterIdle();
+                return;
+            }
+
+            // Nothing walkable within patrol range: the snake is encased.
+            // Retry a few cycles in case terrain changes, then escalate rather
+            // than idling here forever.
+            _model.RecordRepositionFailure();
+            EnemyDiagnosticsLog.Warn(
+                _enemyId,
+                $"Fall requested while grounded at {current}; no walkable " +
+                $"cell found (attempt {_model.RepositionFailureCount}).");
+            if (_model.RepositionFailureCount >=
+                Mathf.Max(1, _config.DestinationRetries))
+            {
+                RequestRelocationOrDespawn();
+                return;
+            }
+            EnterFallRecoveryIdle();
+        }
+
+        private bool TryNudgeToNearbyWalkable(GridPosition current)
+        {
+            var attempts = Mathf.Max(1, _config.DestinationRetries);
+            var radius = Mathf.Max(1, _config.PatrolRangeInTiles);
+            for (var i = 0; i < attempts; i++)
+            {
+                var offset = UnityEngine.Random.Range(
+                    0,
+                    Mathf.Max(1, _pathfinding.WalkableCount));
+                if (!_pathfinding.TryFindWalkableNear(
+                        current,
+                        1,
+                        radius,
+                        offset,
+                        out var candidate) ||
+                    candidate == current ||
+                    !_placement.TryGetPlacement(
+                        _view.TerrainCollider,
+                        candidate,
+                        out var worldPosition))
+                    continue;
+                _view.Teleport(worldPosition);
+                _model.SetGridPosition(candidate);
+                return true;
+            }
+            return false;
         }
 
         private void TickFall(float deltaTime)
@@ -1163,10 +1299,25 @@ namespace Systems.MineSystem.EnemySystem.Mob.RattleSnake.Controller
                  currentGrid.Y < _fallStartGrid.Y))
                 _fallHasLeftSupport = true;
 
+            if (_fallHasLeftSupport)
+                _model.ClearGroundedFall();
+
             if (_fallHasLeftSupport && grounded)
             {
+                // The slime validates its footing on landing; without this the
+                // snake can come to rest embedded in terrain and stay there.
+                if (!_placement.IsCurrentPlacementClear(_view.TerrainCollider))
+                {
+                    EnemyDiagnosticsLog.Warn(
+                        _enemyId,
+                        $"Landed at {currentGrid} with an obstructed " +
+                        "placement; repositioning.");
+                    TryQuietReposition();
+                    return;
+                }
                 _model.SetGridPosition(currentGrid);
                 _model.ClearMovementTimeout();
+                _model.ClearGroundedFall();
                 EnterIdle();
                 return;
             }
@@ -1179,13 +1330,53 @@ namespace Systems.MineSystem.EnemySystem.Mob.RattleSnake.Controller
             }
 
             if (!_fallIsDirected)
+            {
+                // Undirected fall that never left the ground: nothing in this
+                // branch will ever move the snake, so bail out quickly instead
+                // of burning the full fall timeout (~7s at current tuning).
+                if (grounded)
+                    TickGroundedFallGuard(
+                        deltaTime,
+                        currentGrid,
+                        _config.MinimumMovementTimeoutSeconds);
                 return;
+            }
+
             var targetX = _placement.GridToWorld(_fallTarget).x;
             var deltaX = targetX - _view.Body.position.x;
-            var horizontalVelocity = Mathf.Abs(deltaX) <=
-                                     _config.PositionTolerance
-                ? 0f
-                : Mathf.Sign(deltaX) * _config.MoveSpeed;
+            var reachedTargetColumn =
+                Mathf.Abs(deltaX) <= _config.PositionTolerance;
+            float horizontalVelocity;
+
+            if (grounded && !_fallHasLeftSupport)
+            {
+                // Standing on the lip. Once the snake reaches the target column
+                // and is still supported, gravity alone will not carry it over
+                // the edge, so latch a commit direction and keep pushing. The
+                // latch matters: steering by deltaX would reverse the moment it
+                // overshoots the target, which is the observed edge jitter.
+                if (_fallCommitting || reachedTargetColumn)
+                {
+                    if (TickGroundedFallGuard(
+                            deltaTime,
+                            currentGrid,
+                            GetFallCommitTimeout()))
+                        return;
+                    _fallCommitting = true;
+                    horizontalVelocity =
+                        GetFallCommitDirection() * _config.MoveSpeed;
+                }
+                else
+                    horizontalVelocity = Mathf.Sign(deltaX) * _config.MoveSpeed;
+            }
+            else
+            {
+                _fallCommitting = false;
+                horizontalVelocity = reachedTargetColumn
+                    ? 0f
+                    : Mathf.Sign(deltaX) * _config.MoveSpeed;
+            }
+
             if (!Mathf.Approximately(horizontalVelocity, 0f))
                 _view.SetFacing(horizontalVelocity < 0f);
             _view.SetVelocity(new Vector2(
@@ -1193,9 +1384,90 @@ namespace Systems.MineSystem.EnemySystem.Mob.RattleSnake.Controller
                 _view.Body.linearVelocity.y));
         }
 
+        /// <summary>
+        /// Accumulates time spent in Fall while still grounded and bails out to
+        /// Idle once it exceeds <paramref name="limitSeconds"/>. Returns true
+        /// when the fall was abandoned and the caller must stop.
+        /// </summary>
+        private bool TickGroundedFallGuard(
+            float deltaTime,
+            GridPosition currentGrid,
+            float limitSeconds)
+        {
+            _model.TickGroundedFall(deltaTime);
+            if (_model.GroundedFallSeconds < limitSeconds)
+                return false;
+            EnemyDiagnosticsLog.Warn(
+                _enemyId,
+                $"Fall at {currentGrid} never left the ground after " +
+                $"{_model.GroundedFallSeconds:F2}s; abandoning fall.");
+            _model.ClearGroundedFall();
+            _model.ClearMovementTimeout();
+            _view.SetVelocity(new Vector2(0f, _view.Body.linearVelocity.y));
+            EnterIdle();
+            return true;
+        }
+
+        /// <summary>
+        /// How long the snake may keep pushing itself off a ledge lip before
+        /// the drop is abandoned. Sized from the terrain collider, because
+        /// clearing the lip means moving roughly half a collider width past
+        /// the edge before the ground probe stops hitting it — a flat
+        /// MinimumMovementTimeoutSeconds is too short at low move speeds.
+        /// </summary>
+        private float GetFallCommitTimeout()
+        {
+            var width = _view.TerrainCollider != null
+                ? _view.TerrainCollider.bounds.size.x
+                : 1f;
+            return GetWorldMovementTimeout(width);
+        }
+
+        /// <summary>
+        /// Horizontal direction that commits the snake to its chosen drop.
+        /// Falls back to the current facing when the landing cell sits in the
+        /// same column as the start (a straight-down drop).
+        /// </summary>
+        private float GetFallCommitDirection()
+        {
+            var columnDelta = _fallTarget.X - _fallStartGrid.X;
+            if (columnDelta != 0)
+                return Mathf.Sign(columnDelta);
+            return _model.PatrolDirection < 0 ? -1f : 1f;
+        }
+
         private void TryQuietReposition()
         {
+            // A relocation is already in flight; the manager despawns this
+            // snake as soon as its current animation cycle ends, so do not
+            // teleport it around in the meantime.
+            if (_relocationRequested || _despawnSignalSent)
+            {
+                EnterFallRecoveryIdle();
+                return;
+            }
+
             var attempts = Mathf.Max(1, _config.DestinationRetries);
+            var currentGrid = _placement.WorldToGrid(_view.Body.position);
+            EnemyDiagnosticsLog.Log(
+                _enemyId,
+                $"Quiet reposition from {currentGrid} " +
+                $"(repositions {_model.RepositionCount}, " +
+                $"failures {_model.RepositionFailureCount}).");
+
+            // A snake that keeps needing to reposition is stuck even though no
+            // single attempt failed. Escalate before teleporting it around the
+            // mine forever.
+            if (_model.RepositionCount >= attempts)
+            {
+                EnemyDiagnosticsLog.Warn(
+                    _enemyId,
+                    $"Repositioned {_model.RepositionCount} times without " +
+                    "recovering; requesting relocation.");
+                RequestRelocationOrDespawn();
+                return;
+            }
+
             for (var i = 0; i < attempts; i++)
             {
                 var offset = UnityEngine.Random.Range(
@@ -1203,10 +1475,11 @@ namespace Systems.MineSystem.EnemySystem.Mob.RattleSnake.Controller
                     Mathf.Max(1, _pathfinding.WalkableCount));
                 if (_pathfinding.TryFindWalkableNear(
                         _fallStartGrid,
-                        0,
+                        1,
                         Mathf.Max(1, _config.MaxFallDistanceInTiles * 2),
                         offset,
                         out var candidate) &&
+                    candidate != currentGrid &&
                     _placement.TryGetPlacement(
                         _view.TerrainCollider,
                         candidate,
@@ -1223,6 +1496,7 @@ namespace Systems.MineSystem.EnemySystem.Mob.RattleSnake.Controller
                     0,
                     Mathf.Max(1, _pathfinding.WalkableCount));
                 if (_pathfinding.TryFindAnyWalkable(offset, out var candidate) &&
+                    candidate != currentGrid &&
                     _placement.TryGetPlacement(
                         _view.TerrainCollider,
                         candidate,
@@ -1236,7 +1510,11 @@ namespace Systems.MineSystem.EnemySystem.Mob.RattleSnake.Controller
             _model.RecordRepositionFailure();
             if (_model.RepositionFailureCount >= attempts)
             {
-                DespawnWithoutAnimation();
+                EnemyDiagnosticsLog.Warn(
+                    _enemyId,
+                    $"Reposition failed {_model.RepositionFailureCount} " +
+                    "times; requesting relocation.");
+                RequestRelocationOrDespawn();
                 return;
             }
             EnterFallRecoveryIdle();
@@ -1247,18 +1525,52 @@ namespace Systems.MineSystem.EnemySystem.Mob.RattleSnake.Controller
             Vector2 worldPosition)
         {
             _model.ResetRepositionFailures();
+            _model.RecordReposition();
             _view.Teleport(worldPosition);
             _model.SetGridPosition(candidate);
             _fallStartGrid = candidate;
             _fallTarget = candidate;
             _fallHasLeftSupport = false;
             _fallIsDirected = false;
-            _model.StartMovementTimeout(GetWorldMovementTimeout(
-                Vector2.Distance(
-                    worldPosition,
-                    _placement.GridToWorld(new GridPosition(
-                        candidate.X,
-                        candidate.Y - _config.MaxFallDistanceInTiles)))));
+            _fallCommitting = false;
+            _model.ClearGroundedFall();
+            _model.ClearMovementTimeout();
+            EnemyDiagnosticsLog.Log(
+                _enemyId,
+                $"Repositioned to {candidate}; returning to idle.");
+
+            // Repositioning lands the snake on a walkable cell, i.e. already
+            // grounded, so the Fall landing latch could never fire again.
+            // Leaving Fall here is what stops the endless teleport loop.
+            EnterFallRecoveryIdle();
+        }
+
+        /// <summary>
+        /// Last resort when the snake cannot recover on its own. Prefers a
+        /// managed relocation (despawn + respawn near the player) and falls
+        /// back to the silent despawn when relocation is not configured.
+        /// </summary>
+        private void RequestRelocationOrDespawn()
+        {
+            if (_despawnSignalSent || _relocationRequested)
+                return;
+            if (_config == null || !_config.RelocateWhenStuck)
+            {
+                DespawnWithoutAnimation();
+                return;
+            }
+            _relocationRequested = true;
+            _model.ResetRepositionFailures();
+            _model.ResetRepositionCount();
+            _model.ClearGroundedFall();
+            _model.ClearMovementTimeout();
+            _view.SetVelocity(Vector2.zero);
+
+            // Idle while the manager runs the despawn/respawn so the snake is
+            // not left ticking a state it cannot leave if relocation fails.
+            EnterFallRecoveryIdle();
+            EnemyDiagnosticsLog.Log(_enemyId, "Firing relocation request.");
+            GlobalEventBus.Fire(new EnemyRelocationRequestedSignal(_enemyId));
         }
 
         private void DespawnWithoutAnimation()
@@ -1511,6 +1823,15 @@ namespace Systems.MineSystem.EnemySystem.Mob.RattleSnake.Controller
 
         private void ChangeState(SnakeState state, bool preserveVelocity = false)
         {
+            EnemyDiagnosticsLog.Log(
+                _enemyId,
+                $"{_model.CurrentState} -> {state} " +
+                $"mode={_model.MovementMode} " +
+                $"grid={_placement.WorldToGrid(_view.Body.position)} " +
+                $"world={_view.Body.position} " +
+                $"grounded={_view.IsGrounded(_config != null ? _config.GroundLayerMask : 0, _config != null ? _config.GroundProbeDistance : 0f)} " +
+                $"leftSupport={_fallHasLeftSupport} " +
+                $"directed={_fallIsDirected}");
             _attackApplied = false;
             _model.SetState(state);
             if (!preserveVelocity)

@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading;
 using Cysharp.Threading.Tasks;
+using Systems.MineSystem.EnemySystem.Config;
 using Systems.MineSystem.EnemySystem.Interface;
 using Systems.MineSystem.EnemySystem.Enum;
 using Systems.MineSystem.EnemySystem.Model;
@@ -25,7 +26,13 @@ namespace Systems.MineSystem.EnemySystem.Controller
         IDisposable
     {
         private readonly EnemySpawnService _spawnService;
+        private readonly IEnemyTargetProvider _target;
+        private readonly EnemyRelocationService _relocationService;
         private readonly Dictionary<Guid, IEnemyController> _activeEnemies = new();
+        private readonly Dictionary<Guid, EnemyConfigScriptable> _activeConfigs =
+            new();
+        private readonly HashSet<Guid> _relocatingEnemies = new();
+        private readonly List<Guid> _pendingRelocations = new();
         private readonly List<IEnemyController> _tickSnapshot = new();
         private readonly List<GridPosition> _occupiedPositions = new();
         private readonly CompositeDisposable _subscriptions = new();
@@ -75,9 +82,14 @@ namespace Systems.MineSystem.EnemySystem.Controller
             }
         }
 
-        public EnemyManager(EnemySpawnService spawnService)
+        public EnemyManager(
+            EnemySpawnService spawnService,
+            IEnemyTargetProvider target,
+            EnemyRelocationService relocationService)
         {
             _spawnService = spawnService;
+            _target = target;
+            _relocationService = relocationService;
         }
 
         public void Initialize()
@@ -87,6 +99,9 @@ namespace Systems.MineSystem.EnemySystem.Controller
                 .AddTo(_subscriptions);
             GlobalEventBus.OnSignal<EnemyDespawnedSignal>()
                 .Subscribe(signal => RemoveAndRelease(signal.EnemyId))
+                .AddTo(_subscriptions);
+            GlobalEventBus.OnSignal<EnemyRelocationRequestedSignal>()
+                .Subscribe(signal => StartRelocation(signal.EnemyId))
                 .AddTo(_subscriptions);
             GlobalEventBus.OnSignal<MineGeneratedSignal>()
                 .Subscribe(_ => HandleMineGenerated())
@@ -114,6 +129,7 @@ namespace Systems.MineSystem.EnemySystem.Controller
 
             var enemyController = result.Enemy;
             _activeEnemies.Add(enemyController.EnemyId, enemyController);
+            _activeConfigs[enemyController.EnemyId] = request.Config;
             try
             {
                 await enemyController.SpawnAsync(cancellationToken);
@@ -150,13 +166,91 @@ namespace Systems.MineSystem.EnemySystem.Controller
             foreach (var enemy in _activeEnemies.Values)
                 _tickSnapshot.Add(enemy);
             var context = new EnemyTickContext(Time.fixedDeltaTime);
+            _pendingRelocations.Clear();
             for (var i = 0; i < _tickSnapshot.Count; i++)
             {
                 var enemy = _tickSnapshot[i];
-                if (enemy.IsActive &&
-                    _activeEnemies.TryGetValue(enemy.EnemyId, out var current) &&
-                    ReferenceEquals(enemy, current))
-                    enemy.OnFixedTick(context);
+                if (!enemy.IsActive ||
+                    !_activeEnemies.TryGetValue(enemy.EnemyId, out var current) ||
+                    !ReferenceEquals(enemy, current))
+                    continue;
+                enemy.OnFixedTick(context);
+                if (ShouldRelocateForDistance(enemy, context.FixedDeltaTime))
+                    _pendingRelocations.Add(enemy.EnemyId);
+            }
+
+            // Started after the loop so the relocation's despawn cannot mutate
+            // _activeEnemies while it is being iterated.
+            for (var i = 0; i < _pendingRelocations.Count; i++)
+                StartRelocation(_pendingRelocations[i]);
+            _pendingRelocations.Clear();
+        }
+
+        private bool ShouldRelocateForDistance(
+            IEnemyController enemy,
+            float deltaTime)
+        {
+            if (enemy.IsDead ||
+                _relocatingEnemies.Contains(enemy.EnemyId) ||
+                !_activeConfigs.TryGetValue(enemy.EnemyId, out var config))
+                return false;
+            return _relocationService.ShouldRelocate(
+                enemy.EnemyId,
+                config,
+                enemy.CurrentGridPosition,
+                _target.GridPosition,
+                _target.IsTargetAvailable,
+                deltaTime);
+        }
+
+        private void StartRelocation(Guid enemyId)
+        {
+            if (_disposed || !_activeEnemies.ContainsKey(enemyId) ||
+                !_relocatingEnemies.Add(enemyId))
+                return;
+            RelocateAsync(enemyId, _waveSpawnCancellation.Token)
+                .Forget(exception => Debug.LogException(exception));
+        }
+
+        /// <summary>
+        /// Despawns an enemy through its normal animation + signal path and
+        /// spawns a replacement near the player. Never throws into the tick —
+        /// a failed respawn simply leaves the enemy count reduced.
+        /// </summary>
+        private async UniTask RelocateAsync(
+            Guid enemyId,
+            CancellationToken cancellationToken)
+        {
+            try
+            {
+                if (!_activeConfigs.TryGetValue(enemyId, out var config) ||
+                    config == null)
+                    return;
+                EnemyDiagnosticsLog.Log(enemyId, "Relocating near the player.");
+                await DespawnAsync(enemyId, cancellationToken);
+                var result = await SpawnAsync(
+                    new EnemySpawnRequest(
+                        config,
+                        visibilityRule:
+                            EnemySpawnVisibilityRule.OutsideCameraViewport,
+                        outsideCameraMarginInTiles:
+                            config.RelocationOutsideCameraMarginInTiles),
+                    cancellationToken);
+                if (result.Succeeded)
+                    EnemyDiagnosticsLog.Log(
+                        enemyId,
+                        $"Relocated as {result.Enemy?.EnemyId}.");
+                else
+                    EnemyDiagnosticsLog.Warn(
+                        enemyId,
+                        $"Relocation respawn failed: {result.Error}");
+            }
+            catch (OperationCanceledException)
+            {
+            }
+            finally
+            {
+                _relocatingEnemies.Remove(enemyId);
             }
         }
 
@@ -203,6 +297,8 @@ namespace Systems.MineSystem.EnemySystem.Controller
         {
             if (!_activeEnemies.Remove(enemyId, out var enemy))
                 return;
+            _activeConfigs.Remove(enemyId);
+            _relocationService.Forget(enemyId);
             _spawnService.Release(enemy);
         }
 
@@ -212,6 +308,10 @@ namespace Systems.MineSystem.EnemySystem.Controller
             foreach (var enemy in _activeEnemies.Values)
                 _tickSnapshot.Add(enemy);
             _activeEnemies.Clear();
+            _activeConfigs.Clear();
+            _relocatingEnemies.Clear();
+            _pendingRelocations.Clear();
+            _relocationService.Clear();
             for (var i = 0; i < _tickSnapshot.Count; i++)
                 _spawnService.Release(_tickSnapshot[i]);
             _tickSnapshot.Clear();

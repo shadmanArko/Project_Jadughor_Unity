@@ -57,6 +57,24 @@ on the global event bus when their death/despawn animation completes.
 `EnemyManager` subscribes to both and removes+releases the enemy back to
 its pool. Never remove an enemy from `_activeEnemies` any other way.
 
+**Relocation (the leash):** enemies are otherwise never culled — without
+this they tick full AI for the whole mine session no matter where the
+player is. `EnemyRelocationService` accumulates, per enemy, how long the
+player has stayed beyond `RelocationDistanceInTiles`; once that exceeds
+`RelocationDelaySeconds`, `EnemyManager.RelocateAsync` despawns the enemy
+through the normal `DespawnAsync` path and spawns a replacement near the
+player with `EnemySpawnVisibilityRule.OutsideCameraViewport`. A state
+machine that has exhausted its own stuck recovery can request the same
+treatment by firing `EnemyRelocationRequestedSignal`; `_relocatingEnemies`
+guards against a leash tick and a stuck request racing on one enemy.
+All of it is opt-in through the `[Header("Relocation")]` fields on
+`EnemyConfigScriptable` and is currently enabled only on RattleSnake.
+Relocation *is* a despawn + respawn — never bypass the signal path with a
+direct pool release, and note the enemy's `MaximumSpawnDistanceInTiles`
+must be set (and closer than the relocation distance) or the "respawn near
+the player" lands anywhere in the mine and immediately relocates again.
+`EnemyConfigScriptable.Validate()` enforces both.
+
 **Wave spawning:** `EnemyWaveService` evaluates `EnemyWaveConfig` entries
 against elapsed mine time and broken-cell count, fires
 `EnemyWaveSpawnRequestedSignal`, and `EnemyManager` resolves it and fires
@@ -277,17 +295,38 @@ it needs them).
   (`TeleportDespawn`/`TeleportSpawn`) and uses `StartEmergencyTeleport()` as
   its last resort when stuck or encased. Bat has no ground/fall concept at
   all and falls back to `Explore`. RattleSnake has neither a teleport
-  animation nor Bat's explore state, so its last resorts are: a silent,
-  unanimated reposition (`SnakeStateMachine.TryQuietReposition` — calls
-  `SnakeView.Teleport(Vector2)` directly with no state/animation change,
-  used only from `Fall`'s give-up paths) bounded by a small retry counter
-  that despawns the enemy without an animation if repositioning keeps
-  failing (mirrors `HandleMissingAnimation`'s existing "no animation, just
-  fire the signal" pattern); and a passive idle-and-recheck-next-cycle
-  no-op for the rarer "stationary and encased" case, since there's nothing
-  else to fall back to. Match the new enemy's actual animation set — don't
-  copy Slime's teleport sequence onto an enemy that has no teleport
-  animation.
+  animation nor Bat's explore state, so its ladder is: a silent, unanimated
+  reposition (`SnakeStateMachine.TryQuietReposition` — calls
+  `SnakeView.Teleport(Vector2)` directly, used only from `Fall`'s give-up
+  paths), then `EnemyRelocationRequestedSignal` once either the failure
+  count or the *success* count passes `DestinationRetries`, then
+  `DespawnWithoutAnimation()` when relocation is disabled. Both counters
+  matter: an enemy that repositions successfully over and over is just as
+  stuck as one whose repositions fail, and only the second counter catches
+  it. `CompleteQuietReposition` must leave `Fall` (it calls
+  `EnterFallRecoveryIdle`) — a reposition lands on a walkable cell, i.e.
+  already grounded, so `TickFall`'s landing latch could never fire again and
+  the snake would teleport on every timeout forever. Match the new enemy's
+  actual animation set — don't copy Slime's teleport sequence onto an enemy
+  that has no teleport animation.
+- **Fall is entered only when actually airborne.** `EnterFall()` resyncs and
+  routes back to normal AI (`ResolveGroundedFallEntry`) if the ground probe
+  still hits, because the landing latch needs an ungrounded frame *before* a
+  grounded one and can never be satisfied otherwise. This matters at a ledge
+  lip, where `WorldToGrid` resolves to the open cell past the edge while the
+  collider is still supported. A directed drop that stalls on the lip latches
+  a commit direction (`_fallCommitting`) instead of steering by `deltaX` —
+  steering reverses the instant it overshoots, which reads as edge jitter —
+  and `TickGroundedFallGuard` abandons the fall on a short budget so a stalled
+  drop cannot ride out the full `MaxFallDistanceInTiles` movement timeout
+  (~7s at current tuning). The budget differs by case: an undirected grounded
+  fall can never move at all, so it bails after
+  `MinimumMovementTimeoutSeconds`; the commit push gets a collider-width
+  distance budget, because clearing a lip means travelling roughly half a
+  collider width past the edge before the ground probe stops hitting it, and a
+  flat minimum is too short at low move speeds. Any new grounded enemy copying
+  the fall pattern needs all three: the grounded-entry guard, the commit latch,
+  and the bail-out.
 - **Multi-instance coordination.** `BatFormationService` hands each bat a
   stable slot index used to offset explore-destination search order,
   wobble phase (so multiple bats don't move in visual lock-step), and
@@ -308,6 +347,17 @@ it needs them).
   copy Slime's/Snake's `HandleHorizontalCollision` pattern rather than
   adding trigger-based placeable detection.
 
+## Debugging stuck states
+
+`EnemyDiagnosticsLog` (`Service/EnemyDiagnosticsLog.cs`) traces state
+transitions, grounded/latch flags, repositions and relocations. Every method
+is `[Conditional("ENEMY_DIAGNOSTICS")]`, so both the calls and their argument
+expressions are compiled out unless that symbol is in
+*Project Settings > Player > Scripting Define Symbols* — add it while
+reproducing an AI stall and remove it before shipping. Prefer extending this
+over sprinkling raw `Debug.Log`, which would allocate on the FixedUpdate path
+in real builds.
+
 ## Pre-delivery checklist (enemy-specific, in addition to the master AGENTS.md checklist)
 
 - [ ] New `EnemyType` value added; no two `IEnemyFactory` implementations
@@ -322,6 +372,12 @@ it needs them).
 - [ ] `Config.MovementType` matches the pathfinding calls actually used
       (`Grounded`/`Crawling` -> walkable queries, `Flying` -> flyable
       queries).
+- [ ] If relocation is enabled, `MaximumSpawnDistanceInTiles` is non-zero and
+      smaller than `RelocationDistanceInTiles`, and the enemy has despawn/spawn
+      presentation good enough to be seen doing it.
+- [ ] Every state reachable from `OnFixedTick` has an exit that cannot depend
+      on a condition the state itself makes unreachable (the Fall landing-latch
+      class of bug). Walk each state and name what ends it.
 - [ ] Pool prewarms `InitialPoolSize`; `Release()` fully resets
       Model+View+PauseState+subscriptions; `Dispose()` releases every
       pool-held instance and destroys their GameObjects.

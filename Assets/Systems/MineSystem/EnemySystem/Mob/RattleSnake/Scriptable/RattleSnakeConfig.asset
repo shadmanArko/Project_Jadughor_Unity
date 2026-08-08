@@ -21,12 +21,17 @@ MonoBehaviour:
   attackRangeInTiles: 0
   attackCooldown: 1.2
   movementType: 2
-  minimumSpawnDistanceInTiles: 4
-  maximumSpawnDistanceInTiles: 0
+  minimumSpawnDistanceInTiles: 6
+  maximumSpawnDistanceInTiles: 16
   requiresSolidGroundBelow: 1
   requiresPathValidation: 1
   requiresPlacementValidation: 1
   allowCameraVisibleWaveSpawn: 1
+  relocateWhenPlayerDistant: 1
+  relocationDistanceInTiles: 20
+  relocationDelaySeconds: 6
+  relocateWhenStuck: 1
+  relocationOutsideCameraMarginInTiles: 2
   snakeVariant: 0
   animationProfile: {fileID: 11400000, guid: 7c5520ec524051fa1daf2a1a10910952, type: 2}
   snakeColor: {r: 1, g: 1, b: 1, a: 1}

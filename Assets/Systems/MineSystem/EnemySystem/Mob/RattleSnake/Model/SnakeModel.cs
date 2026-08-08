@@ -38,6 +38,8 @@ namespace Systems.MineSystem.EnemySystem.Mob.RattleSnake.Model
         public float MovementTimeoutRemaining { get; private set; }
         public float IdleRemaining { get; private set; }
         public int RepositionFailureCount { get; private set; }
+        public int RepositionCount { get; private set; }
+        public float GroundedFallSeconds { get; private set; }
         public bool IsDead => CurrentHealth <= 0;
 
         public void Initialize(
@@ -72,6 +74,8 @@ namespace Systems.MineSystem.EnemySystem.Mob.RattleSnake.Model
             MovementTimeoutRemaining = 0f;
             IdleRemaining = 0f;
             RepositionFailureCount = 0;
+            RepositionCount = 0;
+            GroundedFallSeconds = 0f;
         }
 
         public void SetState(SnakeState state) => CurrentState = state;
@@ -265,6 +269,25 @@ namespace Systems.MineSystem.EnemySystem.Mob.RattleSnake.Model
 
         public void ResetRepositionFailures() => RepositionFailureCount = 0;
 
+        /// <summary>
+        /// Counts successful quiet repositions. A snake that keeps needing to
+        /// reposition is stuck even though no single attempt failed, so this is
+        /// tracked separately from <see cref="RepositionFailureCount"/>.
+        /// </summary>
+        public void RecordReposition() => RepositionCount++;
+
+        public void ResetRepositionCount() => RepositionCount = 0;
+
+        /// <summary>
+        /// Accumulates time spent in Fall while still physically grounded. The
+        /// landing latch needs an airborne frame first, so this is the escape
+        /// hatch for a Fall that was entered without ever leaving the ground.
+        /// </summary>
+        public void TickGroundedFall(float deltaTime) =>
+            GroundedFallSeconds += Mathf.Max(0f, deltaTime);
+
+        public void ClearGroundedFall() => GroundedFallSeconds = 0f;
+
         public void StartMovementTimeout(float duration)
         {
             MovementTimeoutActive = true;
@@ -318,6 +341,8 @@ namespace Systems.MineSystem.EnemySystem.Mob.RattleSnake.Model
             PatrolDirection = 1;
             IdleRemaining = 0f;
             RepositionFailureCount = 0;
+            RepositionCount = 0;
+            GroundedFallSeconds = 0f;
             ClearMovementTimeout();
         }
 

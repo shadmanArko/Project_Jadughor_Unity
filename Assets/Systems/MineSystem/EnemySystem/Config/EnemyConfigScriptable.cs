@@ -48,6 +48,29 @@ namespace Systems.MineSystem.EnemySystem.Config
             "Use only for enemies with suitable spawn/despawn presentation.")]
         [SerializeField] private bool allowCameraVisibleWaveSpawn;
 
+        [Header("Relocation")]
+        [Tooltip(
+            "Despawns this enemy and respawns it near the player once the " +
+            "player has stayed far away for the delay below. Leave off to " +
+            "keep the enemy where it spawned for the whole mine session.")]
+        [SerializeField] private bool relocateWhenPlayerDistant;
+        [Tooltip(
+            "Manhattan distance in tiles beyond which the relocation timer " +
+            "runs. Must exceed the enemy's chase exit range.")]
+        [Min(0)] [SerializeField] private int relocationDistanceInTiles;
+        [Tooltip(
+            "Seconds the player must stay beyond the relocation distance " +
+            "before the enemy relocates.")]
+        [Min(0f)] [SerializeField] private float relocationDelaySeconds;
+        [Tooltip(
+            "Relocates this enemy when its own stuck recovery is exhausted, " +
+            "instead of silently despawning it.")]
+        [SerializeField] private bool relocateWhenStuck;
+        [Tooltip(
+            "Camera margin in tiles applied to the relocation respawn so the " +
+            "enemy does not pop in on screen.")]
+        [Min(0)] [SerializeField] private int relocationOutsideCameraMarginInTiles;
+
         public EnemyType EnemyType => enemyType;
         public abstract string VariantId { get; }
         public GameObject Prefab => prefab;
@@ -65,6 +88,12 @@ namespace Systems.MineSystem.EnemySystem.Config
         public bool RequiresPlacementValidation => requiresPlacementValidation;
         public bool AllowCameraVisibleWaveSpawn =>
             allowCameraVisibleWaveSpawn;
+        public bool RelocateWhenPlayerDistant => relocateWhenPlayerDistant;
+        public int RelocationDistanceInTiles => relocationDistanceInTiles;
+        public float RelocationDelaySeconds => relocationDelaySeconds;
+        public bool RelocateWhenStuck => relocateWhenStuck;
+        public int RelocationOutsideCameraMarginInTiles =>
+            relocationOutsideCameraMarginInTiles;
 
         public virtual bool Validate(out string error)
         {
@@ -90,6 +119,43 @@ namespace Systems.MineSystem.EnemySystem.Config
                     $"({maximumSpawnDistanceInTiles}) must be 0 or at least " +
                     $"the minimum ({minimumSpawnDistanceInTiles}).";
                 return false;
+            }
+
+            if (relocateWhenPlayerDistant)
+            {
+                if (relocationDelaySeconds <= 0f)
+                {
+                    error =
+                        $"{name} requires a positive relocation delay when " +
+                        "distance relocation is enabled.";
+                    return false;
+                }
+                if (relocationDistanceInTiles <= aggroRangeInTiles)
+                {
+                    error =
+                        $"{name} relocation distance " +
+                        $"({relocationDistanceInTiles}) must exceed the " +
+                        $"aggro range ({aggroRangeInTiles}).";
+                    return false;
+                }
+                // Without a spawn window the respawn can land anywhere in the
+                // mine, which defeats the point of relocating near the player.
+                if (maximumSpawnDistanceInTiles <= 0)
+                {
+                    error =
+                        $"{name} requires a maximum spawn distance when " +
+                        "distance relocation is enabled.";
+                    return false;
+                }
+                if (maximumSpawnDistanceInTiles >= relocationDistanceInTiles)
+                {
+                    error =
+                        $"{name} maximum spawn distance " +
+                        $"({maximumSpawnDistanceInTiles}) must be closer than " +
+                        $"the relocation distance ({relocationDistanceInTiles}) " +
+                        "or the enemy will relocate again immediately.";
+                    return false;
+                }
             }
 
             error = null;
