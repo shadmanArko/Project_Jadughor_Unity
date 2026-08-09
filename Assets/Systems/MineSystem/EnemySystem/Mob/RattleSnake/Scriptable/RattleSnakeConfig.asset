@@ -11,12 +11,12 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 003363c92bff73b28ece29e85a384659, type: 3}
   m_Name: RattleSnakeConfig
-  m_EditorClassIdentifier:
+  m_EditorClassIdentifier: 
   enemyType: 1
   prefab: {fileID: 500000001, guid: ac3283ede10893c4409f039ca9367b7a, type: 3}
-  maxHealth: 15
-  damage: 4
-  moveSpeed: 0.35
+  maxHealth: 25
+  damage: 10
+  moveSpeed: 0.25
   aggroRangeInTiles: 5
   attackRangeInTiles: 0
   attackCooldown: 1.2

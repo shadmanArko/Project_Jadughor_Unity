@@ -89,8 +89,8 @@ namespace Systems.MineSystem.FungalVegetationSystem.Service
         }
 
         /// <summary>
-        /// Cells that must never be decorated because a gameplay prop already occupies
-        /// them - the cave stalactite/stalagmite formations. Rebuilt per mine.
+        /// Cells a gameplay prop already occupies - the cave stalactite/stalagmite
+        /// formations. They are neither decorable nor usable as an anchor. Rebuilt per mine.
         /// </summary>
         public void SetExcludedCellIds(HashSet<string> excludedCellIds)
         {
@@ -290,6 +290,13 @@ namespace Systems.MineSystem.FungalVegetationSystem.Service
         /// because TryGetCell yields no cell there, and the single blank entrance cell is
         /// excluded explicitly.
         /// </summary>
+        /// <remarks>
+        /// Solid in the data model is not the same as a wall face. CaveGenerationService
+        /// .PlaceFormations re-solidifies the cell a stalactite/stalagmite occupies, so
+        /// without the exclusion test below a growth would cling to the flank or tip of the
+        /// formation prefab rather than to rock. Placeables only ever occupy broken cells
+        /// today, so that test is belt-and-braces against a future solid-cell placeable.
+        /// </remarks>
         private bool IsSolidWall(Vector3Int position)
         {
             if (!_mineModel.TryGetCell(
@@ -297,7 +304,17 @@ namespace Systems.MineSystem.FungalVegetationSystem.Service
                     out var cell))
                 return false;
 
-            return !cell.IsBroken && !cell.IsBlank;
+            if (cell.IsBroken || cell.IsBlank)
+                return false;
+
+            if (!string.IsNullOrEmpty(cell.Id) &&
+                _excludedCellIds.Contains(cell.Id))
+                return false;
+
+            if (cell.HasCellPlaceable || cell.HasWallPlaceable)
+                return false;
+
+            return true;
         }
 
         private bool TryPickAnchor(int eligibleCount, out FungalAnchor anchor) =>
