@@ -86,12 +86,13 @@ namespace ProjectMuseum.Builder
         /// instance actually look like the object the player picked. Called for both
         /// ghosts and real placements, before <see cref="Initialize"/> for the latter.
         ///
-        /// The new sprite is auto-scaled to fill the SAME visual footprint the
-        /// renderer's placeholder sprite had, so it doesn't matter what pixel size or
-        /// pixels-per-unit the swapped-in texture happens to have — the target
-        /// renderer's transform is rescaled to compensate. Give the renderer any
-        /// placeholder sprite sized/positioned correctly for its tile footprint (a
-        /// plain box is fine) so there's a reference size to match.
+        /// The new sprite is auto-sized to the SAME world width as the renderer's
+        /// placeholder sprite by choosing its pixels-per-unit — NOT by scaling the
+        /// transform. Scaling the transform would also resize any child renderers
+        /// (e.g. an exhibit's glass case, shadows), which is wrong. Aspect ratio is
+        /// preserved (uniform PPU), so the art never distorts. Give the target
+        /// renderer a placeholder sprite sized correctly for its footprint so there's
+        /// a reference width to match.
         /// </summary>
         public void ApplyVariationSprite(Sprite sprite)
         {
@@ -100,16 +101,23 @@ namespace ProjectMuseum.Builder
                 : (renderers != null && renderers.Length > 0 ? renderers[0] : null);
             if (target == null) return;
 
-            Vector2 oldSize = target.sprite != null ? (Vector2)target.sprite.bounds.size : Vector2.zero;
-            target.sprite = sprite;
+            float placeholderWidth = target.sprite != null ? target.sprite.bounds.size.x : 0f;
 
-            if (oldSize.x <= 0f || oldSize.y <= 0f) return; // no placeholder to match — leave as-is
-
-            Vector2 newSize = sprite.bounds.size;
-            Vector3 scale = target.transform.localScale;
-            if (newSize.x > 0f) scale.x *= oldSize.x / newSize.x;
-            if (newSize.y > 0f) scale.y *= oldSize.y / newSize.y;
-            target.transform.localScale = scale;
+            if (placeholderWidth > 0f && sprite.texture != null && sprite.rect.width > 0f)
+            {
+                // pixels-per-unit that makes the new sprite's world width == the
+                // placeholder's. bounds.size.x = rect.width / ppu  →  ppu = rect.width / width.
+                float ppu = sprite.rect.width / placeholderWidth;
+                Vector2 pivot = new Vector2(
+                    sprite.pivot.x / sprite.rect.width,
+                    sprite.rect.height > 0f ? sprite.pivot.y / sprite.rect.height : 0f);
+                target.sprite = Sprite.Create(sprite.texture, sprite.rect, pivot, ppu);
+            }
+            else
+            {
+                target.sprite = sprite; // no placeholder / no texture — use as-is
+            }
+            // NOTE: transform.localScale is intentionally left untouched.
         }
 
         public void SetGhostTint(Color tint)

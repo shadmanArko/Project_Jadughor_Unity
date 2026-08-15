@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 5776f151c716c2942a9d663a7111cec2
+guid: bfe689de3e7640e4facaeb8dc3858b10
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -103,10 +103,10 @@ TextureImporter:
       name: Renaissance Native American Tomahawk_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 5
         y: 2
-        width: 13
-        height: 22
+        width: 14
+        height: 23
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

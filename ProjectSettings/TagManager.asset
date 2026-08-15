@@ -59,9 +59,6 @@ TagManager:
   - name: Wall
     uniqueID: 2089630699
     locked: 0
-  - name: Artifact
-    uniqueID: 170277371
-    locked: 0
   - name: Resource
     uniqueID: 1354806321
     locked: 0
@@ -85,6 +82,9 @@ TagManager:
     locked: 0
   - name: PlacedMuseumObject
     uniqueID: 3682064351
+    locked: 0
+  - name: Artifact
+    uniqueID: 170277371
     locked: 0
   - name: FrontWall
     uniqueID: 339264083

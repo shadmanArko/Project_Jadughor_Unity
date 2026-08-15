@@ -52,6 +52,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2039670583568800894, guid: d8205877195b1f54a8c11a427df4f8ab, type: 3}
+      propertyPath: m_SortingOrder
+      value: -21536
+      objectReference: {fileID: 0}
     - target: {fileID: 8960038425225100497, guid: d8205877195b1f54a8c11a427df4f8ab, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -59,6 +63,10 @@ PrefabInstance:
     - target: {fileID: 8960038425225100497, guid: d8205877195b1f54a8c11a427df4f8ab, type: 3}
       propertyPath: m_SortingOrder
       value: -21536
+      objectReference: {fileID: 0}
+    - target: {fileID: 9083969195402890742, guid: d8205877195b1f54a8c11a427df4f8ab, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

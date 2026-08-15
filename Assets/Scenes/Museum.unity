@@ -298,7 +298,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -612902945
-  m_SortingLayer: 15
+  m_SortingLayer: 14
   m_SortingOrder: -602
   m_MaskInteraction: 0
   m_Sprite: {fileID: 21300000, guid: 8e2aec6ed17a3a8458ac5acb2b13252b, type: 3}
@@ -9426,7 +9426,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6061186277029141289, guid: cb4b9f38dd805bb40a6f4b0d564bc8c4, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0.8499756
+      value: 0.8498535
       objectReference: {fileID: 0}
     - target: {fileID: 6061186277029141289, guid: cb4b9f38dd805bb40a6f4b0d564bc8c4, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -9553,7 +9553,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -612902945
-  m_SortingLayer: 15
+  m_SortingLayer: 14
   m_SortingOrder: -602
   m_MaskInteraction: 0
   m_Sprite: {fileID: 5325854822392874551, guid: 88520a32891aa72429a25244fa6d5715, type: 3}
