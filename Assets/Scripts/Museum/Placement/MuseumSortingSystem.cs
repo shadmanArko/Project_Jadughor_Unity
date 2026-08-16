@@ -39,6 +39,7 @@ namespace ProjectMuseum.Builder
             public Vector2Int Min;              // anchor (front) cell
             public Vector2Int Max;              // far (back) cell, inclusive
             public SpriteRenderer[] Renderers;
+            public int[] Offsets;               // per-renderer sorting-order offset (MuseumSortOffset)
             public int FallbackDepth => Max.x + Max.y; // tie/cycle fallback only
         }
 
@@ -50,11 +51,19 @@ namespace ProjectMuseum.Builder
         public void RegisterObject(GameObject go, Vector2Int anchor, int width, int length)
         {
             if (go == null) return;
+            SpriteRenderer[] renderers = go.GetComponentsInChildren<SpriteRenderer>(true);
+            var offsets = new int[renderers.Length];
+            for (int i = 0; i < renderers.Length; i++)
+            {
+                var o = renderers[i] != null ? renderers[i].GetComponent<MuseumSortOffset>() : null;
+                offsets[i] = o != null ? o.offset : 0;
+            }
             _entries[go] = new Entry
             {
                 Min = anchor,
                 Max = anchor + new Vector2Int(Mathf.Max(1, width) - 1, Mathf.Max(1, length) - 1),
-                Renderers = go.GetComponentsInChildren<SpriteRenderer>(true)
+                Renderers = renderers,
+                Offsets = offsets
             };
             Resort();
         }
@@ -151,8 +160,12 @@ namespace ProjectMuseum.Builder
                 foreach (int nb in drawsAfter[best]) inDegree[nb]--;
 
                 int order = baseOrder + assigned++;
-                foreach (SpriteRenderer r in items[best].Renderers)
-                    if (r != null) r.sortingOrder = order;
+                Entry e = items[best];
+                for (int k = 0; k < e.Renderers.Length; k++)
+                {
+                    SpriteRenderer r = e.Renderers[k];
+                    if (r != null) r.sortingOrder = order + (e.Offsets != null && k < e.Offsets.Length ? e.Offsets[k] : 0);
+                }
             }
         }
     }

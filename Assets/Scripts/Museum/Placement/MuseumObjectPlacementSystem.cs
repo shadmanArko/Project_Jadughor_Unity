@@ -33,6 +33,7 @@ namespace ProjectMuseum.Builder
         [Inject] private MuseumDataModel _model;
         [Inject] private BuilderDatabase _database;
         [Inject] private PlaceablePrefabConfig _prefabConfig;
+        [Inject] private MuseumArtifactDatabase _artifactDatabase;
 
         [Header("Scene references")]
         [SerializeField] private Grid grid;
@@ -369,6 +370,12 @@ namespace ProjectMuseum.Builder
             view.ApplyVariationSprite(BuilderSpriteUtil.FrameSprite(
                 info.Texture, info.NumberOfFrames, placed.RotationFrame, BuilderSpriteUtil.BottomCenterPivot));
             view.Initialize(placed);
+
+            // Exhibits display their assigned artifacts on their pre-placed slot renderers.
+            // Runs BEFORE RegisterObject so the artifacts' sort-offset markers are in
+            // place when the sorting system captures this object's renderers.
+            if (view is ExhibitObjectView exhibitView)
+                exhibitView.SetupArtifacts(_model, _artifactDatabase, placed.WidthInTiles);
 
             // MuseumSortingSystem now owns depth for placed objects — remove any
             // YSortable the prefab carries so the two never fight over sortingOrder.

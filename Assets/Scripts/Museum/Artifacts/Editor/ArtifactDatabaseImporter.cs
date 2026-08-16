@@ -11,8 +11,9 @@ namespace ProjectMuseum.Builder.EditorTools
     /// functional by Id, resolves BOTH the artifact's UI icon and its in-game
     /// isometric sprite, and writes a single <see cref="MuseumArtifactDatabase"/>
     /// asset. Lookups are exact (trimmed, case-insensitive) filename matches:
-    /// the UI icon by ArtifactName in the UI-icon folder, the isometric sprite by Id
-    /// in the isometric folder. Misses are logged and left null. Mirrors
+    /// BOTH the UI icon and the isometric sprite are matched by ArtifactName (the
+    /// sprite files in both folders are named by artifact name, with spaces — not by
+    /// the space-less Id). Misses are logged and left null. Mirrors
     /// <c>BuilderJsonImporter</c>.
     ///
     /// Run from <c>Tools ▸ Project Museum ▸ Import Artifact Data</c>.
@@ -26,9 +27,9 @@ namespace ProjectMuseum.Builder.EditorTools
         private const string OutputFolder = "Assets/GameData";
         private const string AssetPath = OutputFolder + "/MuseumArtifactDatabase.asset";
 
-        // UI icon: matched by ArtifactName. Isometric/world sprite: matched by Id.
+        // Both matched by ArtifactName (files in both folders are named with spaces).
         private static readonly string[] IconFoldersByName = { "Assets/2D/UI/MineUi/Artifacts" };
-        private static readonly string[] IsometricFoldersById = { "Assets/2D/Museum/Isometric View Artifacts" };
+        private static readonly string[] IsometricFoldersByName = { "Assets/2D/Museum/Isometric View Artifacts" };
 
         [MenuItem("Tools/Project Museum/Import Artifact Data")]
         public static void Import()
@@ -50,7 +51,7 @@ namespace ProjectMuseum.Builder.EditorTools
                 funcById.TryGetValue(d.Id, out ArtifactFunctional f);
 
                 Sprite icon = ResolveSprite(d.ArtifactName, IconFoldersByName);
-                Sprite iso = ResolveSprite(d.Id, IsometricFoldersById);
+                Sprite iso = ResolveSprite(d.ArtifactName, IsometricFoldersByName);
                 if (icon == null) missingIcons++;
                 if (iso == null) missingIso++;
 
