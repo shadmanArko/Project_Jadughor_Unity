@@ -21,6 +21,11 @@ namespace ProjectMuseum.Builder
         [Tooltip("How far in front of the exhibit body the artifacts draw. 1 = just in " +
                  "front of the body (they still Y-sort among themselves).")]
         [SerializeField] private int artifactSortOffset = 1;
+        [Tooltip("Draw order for the glass case — keep ABOVE Artifact Sort Offset so the " +
+                 "glass covers the artifacts.")]
+        [SerializeField] private int glassSortOffset = 2;
+        [Tooltip("Glass (front) renderers. Leave empty to auto-find children named 'Glass'.")]
+        [SerializeField] private SpriteRenderer[] glassRenderers;
 
         private MuseumDataModel _model;
         private MuseumArtifactDatabase _artifacts;
@@ -37,7 +42,8 @@ namespace ProjectMuseum.Builder
         /// <summary>
         /// Wire the services this view needs (it is spawned via plain Instantiate, so
         /// it isn't Zenject-injected) and draw the currently-assigned artifacts.
-        /// Called by <c>MuseumObjectPlacementSystem</c> right after registration.
+        /// Called by <c>MuseumObjectPlacementSystem</c> right BEFORE it registers the
+        /// object with the sorting system, so the sort-offset markers are in place.
         /// </summary>
         public void SetupArtifacts(MuseumDataModel model, MuseumArtifactDatabase artifacts, int widthInTiles)
         {
@@ -54,11 +60,11 @@ namespace ProjectMuseum.Builder
                 // exhibit body. Must happen BEFORE the sorting system registers this
                 // object (the placement system calls SetupArtifacts first for that reason).
                 foreach (SpriteRenderer r in _layout.SlotRenderers)
-                {
-                    var off = r.GetComponent<MuseumSortOffset>();
-                    if (off == null) off = r.gameObject.AddComponent<MuseumSortOffset>();
-                    off.offset = artifactSortOffset;
-                }
+                    SetOffset(r, artifactSortOffset);
+
+            // Glass draws in front of the artifacts.
+            foreach (SpriteRenderer g in ResolveGlassRenderers())
+                SetOffset(g, glassSortOffset);
 
             if (!_subscribed)
             {
@@ -71,6 +77,27 @@ namespace ProjectMuseum.Builder
         private void OnDestroy()
         {
             if (_subscribed) BuilderActions.OnExhibitArtifactsChanged -= OnArtifactsChanged;
+        }
+
+        private static void SetOffset(SpriteRenderer r, int offset)
+        {
+            if (r == null) return;
+            var off = r.GetComponent<MuseumSortOffset>();
+            if (off == null) off = r.gameObject.AddComponent<MuseumSortOffset>();
+            off.offset = offset;
+        }
+
+        /// <summary>Explicitly-assigned glass renderers, or every child named "Glass".</summary>
+        private System.Collections.Generic.IEnumerable<SpriteRenderer> ResolveGlassRenderers()
+        {
+            if (glassRenderers != null && glassRenderers.Length > 0)
+            {
+                foreach (SpriteRenderer g in glassRenderers)
+                    if (g != null) yield return g;
+                yield break;
+            }
+            foreach (SpriteRenderer sr in GetComponentsInChildren<SpriteRenderer>(true))
+                if (sr.gameObject.name.ToLowerInvariant().Contains("glass")) yield return sr;
         }
 
         private void OnArtifactsChanged(string exhibitId)
