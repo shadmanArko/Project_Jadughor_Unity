@@ -89,5 +89,8 @@ TagManager:
   - name: FrontWall
     uniqueID: 339264083
     locked: 0
+  - name: Guest
+    uniqueID: 1478064927
+    locked: 0
   m_RenderingLayers:
   - Default

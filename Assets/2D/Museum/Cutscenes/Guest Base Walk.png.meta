@@ -148,12 +148,12 @@ TextureImporter:
       name: Guest Base Walk_0
       rect:
         serializedVersion: 2
-        x: 5
-        y: 93
-        width: 15
-        height: 6
+        x: 0
+        y: 90
+        width: 22
+        height: 45
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -170,12 +170,12 @@ TextureImporter:
       name: Guest Base Walk_1
       rect:
         serializedVersion: 2
-        x: 27
-        y: 93
-        width: 15
-        height: 6
+        x: 22
+        y: 90
+        width: 22
+        height: 45
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -192,12 +192,12 @@ TextureImporter:
       name: Guest Base Walk_2
       rect:
         serializedVersion: 2
-        x: 49
-        y: 93
-        width: 15
-        height: 6
+        x: 44
+        y: 90
+        width: 22
+        height: 45
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -214,12 +214,12 @@ TextureImporter:
       name: Guest Base Walk_3
       rect:
         serializedVersion: 2
-        x: 71
-        y: 93
-        width: 15
-        height: 6
+        x: 66
+        y: 90
+        width: 22
+        height: 45
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -236,12 +236,12 @@ TextureImporter:
       name: Guest Base Walk_4
       rect:
         serializedVersion: 2
-        x: 93
-        y: 93
-        width: 15
-        height: 6
+        x: 88
+        y: 90
+        width: 22
+        height: 45
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -258,12 +258,12 @@ TextureImporter:
       name: Guest Base Walk_5
       rect:
         serializedVersion: 2
-        x: 115
-        y: 92
-        width: 15
-        height: 6
+        x: 110
+        y: 90
+        width: 22
+        height: 45
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -280,12 +280,12 @@ TextureImporter:
       name: Guest Base Walk_6
       rect:
         serializedVersion: 2
-        x: 137
-        y: 92
-        width: 15
-        height: 6
+        x: 132
+        y: 90
+        width: 22
+        height: 45
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -302,12 +302,12 @@ TextureImporter:
       name: Guest Base Walk_7
       rect:
         serializedVersion: 2
-        x: 159
-        y: 92
-        width: 15
-        height: 6
+        x: 154
+        y: 90
+        width: 22
+        height: 45
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -324,12 +324,12 @@ TextureImporter:
       name: Guest Base Walk_8
       rect:
         serializedVersion: 2
-        x: 4
-        y: 30
-        width: 17
-        height: 55
+        x: 0
+        y: 45
+        width: 22
+        height: 45
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -346,12 +346,12 @@ TextureImporter:
       name: Guest Base Walk_9
       rect:
         serializedVersion: 2
-        x: 25
-        y: 28
-        width: 36
-        height: 56
+        x: 22
+        y: 45
+        width: 22
+        height: 45
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -368,12 +368,12 @@ TextureImporter:
       name: Guest Base Walk_10
       rect:
         serializedVersion: 2
-        x: 48
-        y: 49
-        width: 15
-        height: 34
+        x: 44
+        y: 45
+        width: 22
+        height: 45
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -390,12 +390,12 @@ TextureImporter:
       name: Guest Base Walk_11
       rect:
         serializedVersion: 2
-        x: 70
-        y: 50
-        width: 15
-        height: 34
+        x: 66
+        y: 45
+        width: 22
+        height: 45
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -412,12 +412,12 @@ TextureImporter:
       name: Guest Base Walk_12
       rect:
         serializedVersion: 2
-        x: 76
-        y: 29
-        width: 32
-        height: 56
+        x: 88
+        y: 45
+        width: 22
+        height: 45
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -434,12 +434,12 @@ TextureImporter:
       name: Guest Base Walk_13
       rect:
         serializedVersion: 2
-        x: 113
-        y: 29
-        width: 17
-        height: 55
+        x: 110
+        y: 45
+        width: 22
+        height: 45
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -456,12 +456,12 @@ TextureImporter:
       name: Guest Base Walk_14
       rect:
         serializedVersion: 2
-        x: 136
-        y: 47
-        width: 15
-        height: 36
+        x: 132
+        y: 45
+        width: 22
+        height: 45
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -478,12 +478,12 @@ TextureImporter:
       name: Guest Base Walk_15
       rect:
         serializedVersion: 2
-        x: 142
-        y: 28
-        width: 31
-        height: 56
+        x: 154
+        y: 45
+        width: 22
+        height: 45
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -496,11 +496,187 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Guest Base Walk_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 22
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: adc876c7cf9fa8f4da191ef8eea35041
+      internalID: 1546481681
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Guest Base Walk_17
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 0
+        width: 22
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b16b7fa4d0ac5d45bce2e0ef16e934f
+      internalID: -1052916642
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Guest Base Walk_18
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 0
+        width: 22
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce2e30665316a2f4a98333f3164a95fd
+      internalID: 14501250
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Guest Base Walk_19
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 0
+        width: 22
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b850f613c9bd4de4494518a8ad7dd4eb
+      internalID: -700274723
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Guest Base Walk_20
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 0
+        width: 22
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d71e06f29c7ab3348b3200fdf3a821d1
+      internalID: 2145484151
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Guest Base Walk_21
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 0
+        width: 22
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32944fd3900f4264da2a433d58208b70
+      internalID: 1984101530
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Guest Base Walk_22
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 0
+        width: 22
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a9bc829174b5d64c86c77b418bee33d
+      internalID: -8453624
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Guest Base Walk_23
+      rect:
+        serializedVersion: 2
+        x: 154
+        y: 0
+        width: 22
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 60225dd206160eb4fae93995703eb785
+      internalID: -1425050078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 087801b45950500429daf3fdbfdd2d21
     internalID: 0
     vertices: []
     indices: 
@@ -508,7 +684,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":8.0,"y":3.0},"gridSpriteSize":{"x":22.0,"y":45.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       Guest Base Walk_0: -5699292605455360750
       Guest Base Walk_1: 5394531820836898302
@@ -518,7 +696,15 @@ TextureImporter:
       Guest Base Walk_13: -474030004380410219
       Guest Base Walk_14: -7086707060948359069
       Guest Base Walk_15: 5899750070476816503
+      Guest Base Walk_16: 1546481681
+      Guest Base Walk_17: -1052916642
+      Guest Base Walk_18: 14501250
+      Guest Base Walk_19: -700274723
       Guest Base Walk_2: 8223645352811474165
+      Guest Base Walk_20: 2145484151
+      Guest Base Walk_21: 1984101530
+      Guest Base Walk_22: -8453624
+      Guest Base Walk_23: -1425050078
       Guest Base Walk_3: 4920420920498626183
       Guest Base Walk_4: -32021764405797921
       Guest Base Walk_5: 3520500695960785600
