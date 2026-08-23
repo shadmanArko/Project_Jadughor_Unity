@@ -3402,7 +3402,7 @@ Transform:
   m_GameObject: {fileID: 1174630030}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 6.43, z: 0}
+  m_LocalPosition: {x: 0.238, y: 6.032, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -7345,7 +7345,7 @@ Transform:
   m_GameObject: {fileID: 1276691017}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 4.94, z: 0}
+  m_LocalPosition: {x: -1.215, y: 5.328, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -9978,7 +9978,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43a20434f35f79f4b87ef9dc97e4fd6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ProjectMuseum.Characters.SheetSpriteRenderer
-  _sheet: {fileID: 2800000, guid: 31193193a7d3d2b4b9e66958f8eb605b, type: 3}
+  _sheet: {fileID: 2800000, guid: 1955bfa9273714045b08e3117f49814c, type: 3}
   _hFrames: 16
   _vFrames: 23
   Frame: 0

@@ -818,7 +818,7 @@ SpriteRenderer:
   m_SortingLayer: 14
   m_SortingOrder: -29260
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 21300000, guid: c723f49bd8fb1fe47a37fbffa1c02b4c, type: 3}
+  m_Sprite: {fileID: 4600802157421672957, guid: 788de290c807f7d4b9ff80384280ed8a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -884,6 +884,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8960038425225100497, guid: d8205877195b1f54a8c11a427df4f8ab, type: 3}
+      propertyPath: m_SortingOrder
+      value: -29260
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 6822225879244837314, guid: d8205877195b1f54a8c11a427df4f8ab, type: 3}
@@ -940,6 +944,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ProjectMuseum.Builder.ExhibitObjectView
   renderers: []
   primaryRenderer: {fileID: 422221998604979655}
+  artifactSortOffset: 1
+  glassSortOffset: 2
+  glassRenderers: []
 --- !u!114 &6132996353675352112
 MonoBehaviour:
   m_ObjectHideFlags: 0
