@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45f99a45e5c74b740acdf8d4bdc610ee, type: 3}
+  m_Name: HedgeHogBossProfile
+  m_EditorClassIdentifier: Assembly-CSharp::Systems.MineSystem.BossLairSystem.Scriptable.BossProfileScriptable
+  bossVariant: 0
+  displayName: Nuclear Hog Lanny
+  gatePrefab: {fileID: 3929968401704990667, guid: 0172c89fa0ee0db4789476196aa85e4f, type: 3}
+  bossConfig: {fileID: 11400000, guid: be1da96cb452e7344b85ab592aa79d64, type: 2}
+  proceduralLairConfig: {fileID: 11400000, guid: 83812b2ddb787ce45b50a697a9ead6ae, type: 2}

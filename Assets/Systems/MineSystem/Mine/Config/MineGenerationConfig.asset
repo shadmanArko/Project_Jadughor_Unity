@@ -17,9 +17,6 @@ MonoBehaviour:
   cellSize: 20
   hardCellHitPoint: 80
   regularCellHitPoint: 40
-  hasBossCave: 1
-  bossCaveSizeX: 0
-  bossCaveSizeY: 0
   numberOfMaxCaves: 7
   caveMinSizeX: 5
   caveMinSizeY: 4

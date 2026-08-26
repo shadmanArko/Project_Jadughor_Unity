@@ -16,11 +16,7 @@ namespace Systems.MineSystem.Mine.Config
         public int hardCellHitPoint;
         public int regularCellHitPoint;
 
-        [Header("Boss Cave Data")] public bool hasBossCave;
-        public int bossCaveSizeX;
-        public int bossCaveSizeY;
-
-        [Header("Cave Data")] 
+        [Header("Cave Data")]
         public int numberOfMaxCaves;
         public int caveMinSizeX;
         public int caveMinSizeY;

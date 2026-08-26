@@ -73,8 +73,6 @@ namespace Systems.MineSystem.MineGenerationSystem.Model
             var mineData = await _mineGenerationService.GenerateMineCellData(_mineGenerationConfig);
             mineData.InitializeLookupCache();
             
-            if (_mineGenerationConfig.hasBossCave)
-                await _caveGenerationService.GenerateBossCave(_mineGenerationConfig, mineData);
             await _caveGenerationService.GenerateCave(_mineGenerationConfig, mineData);
             await _vineGenerationService.GenerateVines(mineData, _vineConfig);
 

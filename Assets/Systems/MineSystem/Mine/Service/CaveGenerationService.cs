@@ -26,45 +26,6 @@ namespace Systems.MineSystem.Mine.Service
         private readonly Random _rand = new();
 
         // ─────────────────────────────────────────────────────────────────────
-        //  Boss Cave
-        // ─────────────────────────────────────────────────────────────────────
-        /// <summary>
-        /// Places a single boss cave near the bottom-centre of the mine,
-        /// with a randomly chosen preset size, positional jitter, deformation
-        /// and corrosion applied.
-        /// </summary>
-        public async UniTask GenerateBossCave(MineGenerationConfig config, MineData mineData)
-        {
-            await UniTask.SwitchToThreadPool();
-
-            var w = 20;
-            var h = 5;
-            var mineW = config.mineSizeX;
-            var mineH = config.mineSizeY;
-
-            // Centre-bottom anchor with ±2 cell horizontal jitter
-            var jitterX = _rand.Next(-2, 3);
-            var centreX = mineW / 2 + jitterX;
-
-            var xMin = Math.Clamp(centreX - w / 2, 2, mineW - w - 2);
-            var xMax = xMin + w;
-            var yMax = mineH - 3; // near the floor, 2 cells from border
-            var yMin = Math.Clamp(yMax - h, 2, mineH - 3);
-
-            var stalagmites = Math.Clamp(config.stalagmiteCount, 0, w);
-            var stalactites = Math.Clamp(config.stalactiteCount, 0, w);
-
-            var cave = CarveAndDeformCave(xMin, xMax, yMin, yMax,
-                stalagmites, stalactites, mineData);
-            mineData.Caves.Add(cave);
-
-            Debug.Log($"[BossCave] Size:{w}x{h}  L:{cave.LeftBound} R:{cave.RightBound} " +
-                      $"T:{cave.TopBound} B:{cave.BottomBound}");
-
-            await UniTask.SwitchToMainThread();
-        }
-
-        // ─────────────────────────────────────────────────────────────────────
         //  Regular Caves
         // ─────────────────────────────────────────────────────────────────────
         /// <summary>
@@ -92,8 +53,6 @@ namespace Systems.MineSystem.Mine.Service
             {
                 for (var sj = 0; sj < slotsY; sj++)
                 {
-                    if (si == 1 && sj == 2) continue; // keep centre-bottom clear (boss area)
-
                     var cx = slotW * si + slotW / 2;
                     var cy = slotH * sj + slotH / 2;
                     slots.Add((cx, cy));

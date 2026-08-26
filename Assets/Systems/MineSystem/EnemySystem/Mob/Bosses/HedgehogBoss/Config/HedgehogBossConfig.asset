@@ -1,0 +1,65 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3ae377bc2554594b9f33048836d087b, type: 3}
+  m_Name: HedgehogBossConfig
+  m_EditorClassIdentifier: Assembly-CSharp::Systems.MineSystem.EnemySystem.Mob.HedgehogBoss.Config.HedgehogBossConfigScriptable
+  enemyType: 4
+  prefab: {fileID: 6945493060639995540, guid: 02ad06b84eaf3bd4ea0bdd3da5016192, type: 3}
+  maxHealth: 200
+  damage: 30
+  moveSpeed: 1
+  aggroRangeInTiles: 4
+  attackRangeInTiles: 1
+  attackCooldown: 1
+  movementType: 0
+  minimumSpawnDistanceInTiles: 4
+  maximumSpawnDistanceInTiles: 0
+  requiresSolidGroundBelow: 1
+  requiresPathValidation: 1
+  requiresPlacementValidation: 1
+  allowCameraVisibleWaveSpawn: 0
+  relocateWhenPlayerDistant: 0
+  relocationDistanceInTiles: 0
+  relocationDelaySeconds: 0
+  relocateWhenStuck: 0
+  relocationOutsideCameraMarginInTiles: 0
+  bossVariant: 0
+  animationProfile: {fileID: 0}
+  bossColor: {r: 1, g: 1, b: 1, a: 1}
+  aggroDistance: 4
+  positionTolerance: 0.05
+  idleDuration: 0.75
+  spawnInvulnerabilitySeconds: 0.5
+  deathDuration: 2
+  attackWindupSeconds: 0.4
+  attackActiveSeconds: 0.2
+  attackRecoverySeconds: 0.6
+  attackContactDistance: 0.2
+  chargeSpeed: 4
+  chargeWindupSeconds: 0.5
+  chargeMaxDuration: 1.5
+  chargeCooldown: 4
+  chargeDamage: 2
+  chargeWallStunSeconds: 1.5
+  phases:
+  - healthThresholdPercent: 100
+    moveSpeedMultiplier: 1
+    damageMultiplier: 1
+    attackCooldownMultiplier: 1
+    allowChargeAttack: 1
+  groundProbeDistance: 0.1
+  groundLayerMask:
+    serializedVersion: 2
+    m_Bits: 0
+  statusEffectType: 0
+  statusEffectDuration: 0
+  statusEffectPower: 0

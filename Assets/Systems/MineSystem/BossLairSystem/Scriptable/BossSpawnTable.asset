@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 828dc93fb520fbd46af477fd9a85d455, type: 3}
+  m_Name: BossSpawnTable
+  m_EditorClassIdentifier: Assembly-CSharp::Systems.MineSystem.BossLairSystem.Scriptable.BossSpawnTableScriptable
+  bossGateChancePercent: 100
+  entries:
+  - region: 1
+    site: 0
+    candidates:
+    - profile: {fileID: 11400000, guid: 6edfcb79dc6835748aebbb48ec38e8f5, type: 2}
+      spawnChancePercent: 100

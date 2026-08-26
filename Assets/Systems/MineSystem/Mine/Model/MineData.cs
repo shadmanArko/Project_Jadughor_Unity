@@ -143,20 +143,26 @@ namespace Systems.MineSystem.Mine.Model
         }
 
         public Cell GetCell(GridPosition position) => GetCell(new Vector3Int(position.X, position.Y, 0));
-        public Cell GetCellById(string id) =>
-            !string.IsNullOrEmpty(id) &&
-            _cellById != null &&
-            _cellById.TryGetValue(id, out var cell)
-                ? cell
-                : Cells?.FirstOrDefault(candidate => candidate.Id == id);
+        public Cell GetCellById(string id)
+        {
+            if (string.IsNullOrEmpty(id))
+                return null;
+            // Same reasoning as GetCell: only scan before the cache is built.
+            if (_cellById != null)
+                return _cellById.TryGetValue(id, out var cell) ? cell : null;
+            return Cells?.FirstOrDefault(candidate => candidate.Id == id);
+        }
 
         public Cell GetCell(Vector3Int position)
         {
-            if (_cellLookup != null && _cellLookup.TryGetValue(position, out var cell))
-            {
-                return cell;
-            }
-            // Fallback in case cache isn't initialized yet
+            // Once the cache exists a miss means the cell does not exist, so
+            // return null instead of scanning. The linear fallback below is only
+            // for the pre-cache window: it allocates a closure and walks every
+            // cell, and it used to run on every out-of-bounds lookup - which is
+            // every frame while the player is outside the mine grid, for example
+            // inside the boss lair.
+            if (_cellLookup != null)
+                return _cellLookup.TryGetValue(position, out var cell) ? cell : null;
             return Cells?.FirstOrDefault(c => c.Position == position);
         }
 

@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b73ae2a7a7d3dd94dbac5ad1e92b37b8, type: 3}
+  m_Name: HedgeHogBossLairInstaller
+  m_EditorClassIdentifier: Assembly-CSharp::Systems.MineSystem.BossLairSystem.Installer.BossLairInstaller
+  lairConfig: {fileID: 11400000, guid: a89d307b62b9409449d09b1b72c3ca10, type: 2}
+  spawnTable: {fileID: 11400000, guid: 9e14a28dfed00f74cbf0071890af5824, type: 2}
+  decor: {fileID: 11400000, guid: 0af3b9dd359bd6f458e9b29612f1539d, type: 2}
+  lairPrefab: {fileID: 8629193355401020719, guid: 3ae40ac505e286c47b5945d4aaaae4bd, type: 3}
