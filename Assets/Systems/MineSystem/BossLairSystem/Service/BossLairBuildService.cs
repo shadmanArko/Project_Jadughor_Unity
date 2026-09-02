@@ -1,6 +1,7 @@
 using Systems.MineSystem.BossLairSystem.Config;
 using Systems.MineSystem.BossLairSystem.Model;
 using Systems.MineSystem.BossLairSystem.Scriptable;
+using Systems.MineSystem.EnemySystem.Mob.HedgehogBoss.Config;
 using UnityEngine;
 using Random = System.Random;
 
@@ -21,6 +22,7 @@ namespace Systems.MineSystem.BossLairSystem.Service
         private readonly BossLairShellGenerationService _shell;
         private readonly BossLairDecorService _decor;
         private readonly BossLairFactory _factory;
+        private readonly BossLairBossFactory _bossFactory;
         private readonly BossLairModel _model;
         private readonly BossLairConfig _config;
         private readonly Random _random = new();
@@ -31,6 +33,7 @@ namespace Systems.MineSystem.BossLairSystem.Service
             BossLairShellGenerationService shell,
             BossLairDecorService decor,
             BossLairFactory factory,
+            BossLairBossFactory bossFactory,
             BossLairModel model,
             BossLairConfig config)
         {
@@ -39,6 +42,7 @@ namespace Systems.MineSystem.BossLairSystem.Service
             _shell = shell;
             _decor = decor;
             _factory = factory;
+            _bossFactory = bossFactory;
             _model = model;
             _config = config;
         }
@@ -69,6 +73,9 @@ namespace Systems.MineSystem.BossLairSystem.Service
             _shell.Generate(view, lairConfig, placement);
             _decor.Decorate(view, placement, ResolveDecorSeed());
 
+            if (profile.BossConfig is HedgehogBossConfigScriptable hedgehogConfig)
+                _bossFactory.Create(view, hedgehogConfig);
+
             WarnIfArenaIsSmallerThanFrame(placement, lairConfig);
             Debug.Log(
                 $"[BossLair] Built {profile.DisplayName} arena " +
@@ -80,6 +87,7 @@ namespace Systems.MineSystem.BossLairSystem.Service
 
         public void Teardown()
         {
+            _bossFactory.Destroy();
             _shell.Clear(_factory.Active);
             _factory.Destroy();
         }

@@ -41,6 +41,14 @@ namespace Systems.MineSystem.BossLairSystem.Config
         [Tooltip("Seed used when the fixed decor seed is enabled.")]
         [SerializeField] private int fixedDecorSeed;
 
+        [Header("Boss Intro")]
+        [Tooltip("World units the boss steps toward the player during its intro.")]
+        [Min(0f)] [SerializeField] private float bossIntroStepDistance = 0.5f;
+        [Tooltip("Seconds the boss's intro step takes.")]
+        [Min(0f)] [SerializeField] private float bossIntroWalkDuration = 0.6f;
+        [Tooltip("Seconds the boss's roar animation is held before control returns.")]
+        [Min(0f)] [SerializeField] private float bossIntroRoarDuration = 1f;
+
         [Header("Interaction")]
         [Tooltip(
             "Interaction priority of the boss gate. Must stay above the " +
@@ -58,6 +66,9 @@ namespace Systems.MineSystem.BossLairSystem.Config
         public bool UseFixedDecorSeed => useFixedDecorSeed;
         public int FixedDecorSeed => fixedDecorSeed;
         public int GateInteractionPriority => gateInteractionPriority;
+        public float BossIntroStepDistance => bossIntroStepDistance;
+        public float BossIntroWalkDuration => bossIntroWalkDuration;
+        public float BossIntroRoarDuration => bossIntroRoarDuration;
 
         public bool Validate(out string error)
         {

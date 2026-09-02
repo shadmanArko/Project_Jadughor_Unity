@@ -1,16 +1,18 @@
 using System.Threading;
 using Cysharp.Threading.Tasks;
 using DG.Tweening;
+using Systems.MineSystem.ActorSystem.Interface;
 using Systems.MineSystem.MinePlayerSystem.Config;
 using Systems.MineSystem.MinePlayerSystem.Model;
 using Systems.MineSystem.MinePlayerSystem.Scriptable;
+using Systems.MineSystem.MinePlayerSystem.SubSystem.PlayerAnimationSubSystem.Enum;
 using Systems.MineSystem.MinePlayerSystem.View;
 using Systems.MineSystem.MineTransitionSystem.View;
 using UnityEngine;
 
 namespace Systems.MineSystem.MinePlayerSystem.Service
 {
-    public sealed class PlayerTransitionService
+    public sealed class PlayerTransitionService : IActor
     {
         private readonly PlayerModel _model;
         private readonly PlayerView _view;
@@ -78,5 +80,19 @@ namespace Systems.MineSystem.MinePlayerSystem.Service
             _model.PlayForcedAnimation(animationId, facing);
 
         public void ClearForcedAnimation() => _model.ClearForcedAnimation();
+
+        UniTask IActor.MoveToAsync(
+            Vector2 destination,
+            float duration,
+            Ease ease,
+            CancellationToken cancellationToken) =>
+            AutoMoveAsync(destination, duration, ease, cancellationToken);
+
+        void IActor.PlayAnimation(string animationId, bool facesLeft) =>
+            PlayForcedAnimation(
+                animationId,
+                facesLeft ? PlayerFacingDirection.Left : PlayerFacingDirection.Right);
+
+        void IActor.ClearAnimation() => ClearForcedAnimation();
     }
 }

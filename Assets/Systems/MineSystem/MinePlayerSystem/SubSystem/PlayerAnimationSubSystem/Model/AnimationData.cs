@@ -1,12 +1,13 @@
 using System;
 using System.Collections.Generic;
+using Systems.MineSystem.ActorSystem.Animation;
 using Systems.MineSystem.MinePlayerSystem.Model;
 using UnityEngine;
 
 namespace Systems.MineSystem.MinePlayerSystem.SubSystem.PlayerAnimationSubSystem.Model
 {
     [Serializable]
-    public sealed class AnimationData
+    public sealed class AnimationData : IActorAnimationClip
     {
         public string id;
         public string animationName;
@@ -35,5 +36,14 @@ namespace Systems.MineSystem.MinePlayerSystem.SubSystem.PlayerAnimationSubSystem
             string.IsNullOrEmpty(triggerName)
                 ? 0
                 : Animator.StringToHash(triggerName);
+
+        string IActorAnimationClip.Id => id;
+        IReadOnlyList<Sprite> IActorAnimationClip.AnimationSprites => animationSprites;
+        float IActorAnimationClip.Speed => speed;
+        bool IActorAnimationClip.PlayOnlyOnce => playOnlyOnce;
+        bool IActorAnimationClip.FlipX => flipX;
+        bool IActorAnimationClip.FlipY => flipY;
+        bool IActorAnimationClip.AllowFacingFlip => allowFacingFlip;
+        bool IActorAnimationClip.IsReversed => isReversed;
     }
 }

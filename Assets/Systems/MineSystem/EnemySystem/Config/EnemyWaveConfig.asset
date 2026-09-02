@@ -22,7 +22,7 @@ MonoBehaviour:
     startMinute: 0
     useWallBreakTrigger: 1
     requiredBrokenCells: 10
-    enemyCount: 1
+    enemyCount: 20
     spawnIntervalInGameMinutes: 5
   - waveId: RattleSnake
     enemyType: 1

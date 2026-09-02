@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Systems.MineSystem.MinePlayerSystem.Scriptable.MinePlayerScriptable
   playerData:
     health:
-      value: 0
+      value: 100
     maxHealth:
       value: 100
     stamina:
@@ -35,6 +35,6 @@ MonoBehaviour:
       value: 1
     unlockedInventorySlots:
       value: 12
-  characterType: 1
+  characterType: 0
   region: 1
   site: 0

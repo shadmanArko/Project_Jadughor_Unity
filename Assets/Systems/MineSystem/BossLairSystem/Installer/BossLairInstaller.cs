@@ -5,6 +5,7 @@ using Systems.MineSystem.BossLairSystem.Model;
 using Systems.MineSystem.BossLairSystem.Scriptable;
 using Systems.MineSystem.BossLairSystem.Service;
 using Systems.MineSystem.BossLairSystem.View;
+using Systems.MineSystem.EnemySystem.Mob.HedgehogBoss.View;
 using UnityEngine;
 using Zenject;
 
@@ -38,6 +39,8 @@ namespace Systems.MineSystem.BossLairSystem.Installer
         [Header("Prefabs")]
         [Tooltip("Arena prefab instantiated during mine generation when a gate is placed.")]
         [SerializeField] private BossLairView lairPrefab;
+        [Tooltip("Hedgehog boss prefab instantiated alongside the arena.")]
+        [SerializeField] private HedgehogBossView bossPrefab;
 
         public override void InstallBindings()
         {
@@ -68,6 +71,8 @@ namespace Systems.MineSystem.BossLairSystem.Installer
                 .AsSingle();
             Container.BindInterfacesAndSelfTo<BossLairFactory>()
                 .AsSingle().WithArguments(lairPrefab);
+            Container.BindInterfacesAndSelfTo<BossLairBossFactory>()
+                .AsSingle().WithArguments(bossPrefab);
 
             Container.BindInterfacesAndSelfTo<BossLairController>()
                 .AsSingle().NonLazy();

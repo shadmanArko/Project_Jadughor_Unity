@@ -1,9 +1,11 @@
 using System;
 using System.Threading;
 using Cysharp.Threading.Tasks;
+using Systems.MineSystem.ActorSystem.Interface;
 using Systems.MineSystem.BossLairSystem.Config;
 using Systems.MineSystem.BossLairSystem.Model;
 using Systems.MineSystem.BossLairSystem.View;
+using Systems.MineSystem.EnemySystem.Mob.HedgehogBoss.Model;
 using Systems.MineSystem.MinePlayerSystem.Model;
 using Systems.MineSystem.MinePlayerSystem.Service;
 using Systems.MineSystem.MinePlayerSystem.SubSystem.PlayerAnimationSubSystem.Enum;
@@ -34,6 +36,7 @@ namespace Systems.MineSystem.BossLairSystem.Service
         private readonly PlayerTransitionService _player;
         private readonly BossLairCameraService _camera;
         private readonly BossLairFactory _factory;
+        private readonly BossLairBossFactory _bossFactory;
         private readonly BossLairSpawnService _spawn;
         private readonly BossGatePlacementService _gatePlacement;
         private readonly BossLairPauseService _pause;
@@ -44,6 +47,7 @@ namespace Systems.MineSystem.BossLairSystem.Service
             PlayerTransitionService player,
             BossLairCameraService camera,
             BossLairFactory factory,
+            BossLairBossFactory bossFactory,
             BossLairSpawnService spawn,
             BossGatePlacementService gatePlacement,
             BossLairPauseService pause,
@@ -53,6 +57,7 @@ namespace Systems.MineSystem.BossLairSystem.Service
             _player = player;
             _camera = camera;
             _factory = factory;
+            _bossFactory = bossFactory;
             _spawn = spawn;
             _gatePlacement = gatePlacement;
             _pause = pause;
@@ -96,6 +101,9 @@ namespace Systems.MineSystem.BossLairSystem.Service
                         TimeSpan.FromSeconds(_config.ArenaEntryDuration),
                         cancellationToken: cancellationToken);
 
+                await _pause.WaitAsync();
+                await BossIntroAsync(cancellationToken);
+
                 _player.SetManualControlsEnabled(true);
                 return true;
             }
@@ -114,6 +122,38 @@ namespace Systems.MineSystem.BossLairSystem.Service
             {
                 _player.ClearForcedAnimation();
             }
+        }
+
+        /// <summary>
+        /// Has the boss step toward the player and roar, if this lair has a
+        /// boss instance. No-ops safely for a lair variant with no boss, so
+        /// entry behaves exactly as before when there is nothing to animate.
+        /// </summary>
+        private async UniTask BossIntroAsync(CancellationToken cancellationToken)
+        {
+            IActor boss = _bossFactory.Active;
+            if (boss == null)
+                return;
+
+            var facesLeft = _player.Position.x < boss.Position.x;
+            var direction = facesLeft ? Vector2.left : Vector2.right;
+            var stepTarget = boss.Position +
+                direction * _config.BossIntroStepDistance;
+
+            boss.PlayAnimation(HedgehogBossAnimationId.Move, facesLeft);
+            await boss.MoveToAsync(
+                stepTarget,
+                _config.BossIntroWalkDuration,
+                _config.PlayerMovementEase,
+                cancellationToken);
+
+            boss.PlayAnimation(HedgehogBossAnimationId.Roar, facesLeft);
+            if (_config.BossIntroRoarDuration > 0f)
+                await UniTask.Delay(
+                    TimeSpan.FromSeconds(_config.BossIntroRoarDuration),
+                    cancellationToken: cancellationToken);
+
+            boss.ClearAnimation();
         }
 
         /// <summary>
@@ -184,6 +224,7 @@ namespace Systems.MineSystem.BossLairSystem.Service
             view.SetArenaActive(false);
             _camera.ExitLair(_player.PlayerTransform);
             _player.SetManualControlsEnabled(true);
+            _bossFactory.Active?.ClearAnimation();
         }
     }
 }
