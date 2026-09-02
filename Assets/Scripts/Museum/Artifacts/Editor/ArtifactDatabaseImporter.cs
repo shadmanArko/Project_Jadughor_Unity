@@ -57,6 +57,7 @@ namespace ProjectMuseum.Builder.EditorTools
 
                 entries.Add(new MuseumArtifactDatabase.Entry
                 {
+                    Id = d.Id,
                     Descriptive = d,
                     Functional = f,
                     Icon = icon,

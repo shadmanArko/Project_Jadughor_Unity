@@ -16,6 +16,10 @@ namespace ProjectMuseum.Builder
         [System.Serializable]
         public class Entry
         {
+            [Tooltip("Raw artifact id — the merge key for the descriptive/functional JSON " +
+                     "and the label this entry shows in the list. Set by the importer.")]
+            public string Id;
+
             public ArtifactDescriptive Descriptive;
             public ArtifactFunctional Functional;
             [Tooltip("UI card/slot icon — from Assets/2D/UI/MineUi/Artifacts (by ArtifactName).")]
@@ -25,8 +29,9 @@ namespace ProjectMuseum.Builder
                      "when placed artifacts render in the museum.")]
             public Sprite IsometricSprite;
 
-            public string Id => Descriptive != null ? Descriptive.Id : null;
-            public string Name => Descriptive != null ? Descriptive.ArtifactName : Id;
+            public string Name => Descriptive != null && !string.IsNullOrEmpty(Descriptive.ArtifactName)
+                ? Descriptive.ArtifactName
+                : Id;
             public List<string> Tags => Functional != null ? Functional.BuildTags() : new List<string>();
         }
 
@@ -43,13 +48,31 @@ namespace ProjectMuseum.Builder
             {
                 _byId = new Dictionary<string, Entry>(artifacts.Count);
                 foreach (Entry e in artifacts)
-                    if (e?.Id != null) _byId[e.Id] = e;
+                    if (!string.IsNullOrEmpty(e?.Id)) _byId[e.Id] = e;
             }
             return _byId.TryGetValue(id, out Entry entry) ? entry : null;
         }
 
 #if UNITY_EDITOR
         public void SetArtifacts(List<Entry> v) { artifacts = v; _byId = null; }
+
+        /// <summary>
+        /// Backfills Entry.Id from the old per-DTO id on assets imported before the id
+        /// moved up to the entry, so an existing database keeps working without a re-import.
+        /// </summary>
+        private void OnValidate()
+        {
+            bool changed = false;
+            foreach (Entry e in artifacts)
+            {
+                if (e == null || !string.IsNullOrEmpty(e.Id)) continue;
+                string legacy = e.Descriptive?.Id ?? e.Functional?.Id;
+                if (string.IsNullOrEmpty(legacy)) continue;
+                e.Id = legacy;
+                changed = true;
+            }
+            if (changed) { _byId = null; UnityEditor.EditorUtility.SetDirty(this); }
+        }
 #endif
     }
 }

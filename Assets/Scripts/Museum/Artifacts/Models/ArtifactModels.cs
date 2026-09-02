@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace ProjectMuseum.Builder
 {
@@ -10,7 +11,9 @@ namespace ProjectMuseum.Builder
     [Serializable]
     public class ArtifactDescriptive
     {
-        public string Id;
+        // Merge key for the JSON only — surfaced on MuseumArtifactDatabase.Entry.Id,
+        // so it stays hidden here to avoid showing the same id three times.
+        [HideInInspector] public string Id;
         public string ArtifactName;
         public string Description;
     }
@@ -25,7 +28,8 @@ namespace ProjectMuseum.Builder
     [Serializable]
     public class ArtifactFunctional
     {
-        public string Id;
+        // See ArtifactDescriptive.Id — hidden for the same reason.
+        [HideInInspector] public string Id;
         public string Era;
         public string Region;
         public string Object;

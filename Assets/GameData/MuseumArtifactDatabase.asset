@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: MuseumArtifactDatabase
   m_EditorClassIdentifier: Assembly-CSharp::ProjectMuseum.Builder.MuseumArtifactDatabase
   artifacts:
-  - Descriptive:
+  - Id: AncientNativeAmericanClub
+    Descriptive:
       Id: AncientNativeAmericanClub
       ArtifactName: Ancient Native American Club
       Description: Few things are as reliable as fitting a sizeable rock on a stick.
@@ -29,7 +30,8 @@ MonoBehaviour:
       ObjectSize: Medium
     Icon: {fileID: 21300000, guid: eeb42330c58869040915f8658ab70cb8, type: 3}
     IsometricSprite: {fileID: 21300000, guid: 5a7ac1ccb4c2fc14f9e7b8919a064a6c, type: 3}
-  - Descriptive:
+  - Id: ClassicalNativeAmericanWoodenSword
+    Descriptive:
       Id: ClassicalNativeAmericanWoodenSword
       ArtifactName: Classical Native American Wooden Sword
       Description: An ornate sword carved from wood.
@@ -44,7 +46,8 @@ MonoBehaviour:
       ObjectSize: Medium
     Icon: {fileID: 21300000, guid: 8e2aec6ed17a3a8458ac5acb2b13252b, type: 3}
     IsometricSprite: {fileID: 21300000, guid: 2adcebfe494784b42901da9a3d95089b, type: 3}
-  - Descriptive:
+  - Id: ClassicalNativeAmericanTomahawk
+    Descriptive:
       Id: ClassicalNativeAmericanTomahawk
       ArtifactName: Classical Native American Tomahawk
       Description: Evidence suggests that the earliest tomahawks were tied together
@@ -61,7 +64,8 @@ MonoBehaviour:
       ObjectSize: Medium
     Icon: {fileID: 21300000, guid: be6cdc82c6ca1054eab05d47d1171239, type: 3}
     IsometricSprite: {fileID: 21300000, guid: 181b28a39641dc3459026ebc9a0a0fe6, type: 3}
-  - Descriptive:
+  - Id: MedievalNativeAmericanTomahawk
+    Descriptive:
       Id: MedievalNativeAmericanTomahawk
       ArtifactName: Medieval Native American Tomahawk
       Description: Prior to Colombian Exchange, tomahawks used by the natives were
@@ -78,7 +82,8 @@ MonoBehaviour:
       ObjectSize: Medium
     Icon: {fileID: 21300000, guid: 48e48717778a9374f98f1775280ea2c8, type: 3}
     IsometricSprite: {fileID: 21300000, guid: cc915ceba8c33c842b50947fbb51a75f, type: 3}
-  - Descriptive:
+  - Id: RenaissanceNativeAmericanTomahawk
+    Descriptive:
       Id: RenaissanceNativeAmericanTomahawk
       ArtifactName: Medieval Native American Tomahawk
       Description: After the arrival of European, tomahawks began to be tipped with
@@ -95,7 +100,8 @@ MonoBehaviour:
       ObjectSize: Medium
     Icon: {fileID: 21300000, guid: 48e48717778a9374f98f1775280ea2c8, type: 3}
     IsometricSprite: {fileID: 21300000, guid: cc915ceba8c33c842b50947fbb51a75f, type: 3}
-  - Descriptive:
+  - Id: RenaissanceAmericanCutlass
+    Descriptive:
       Id: RenaissanceAmericanCutlass
       ArtifactName: Renaissance American Cutlass
       Description: A descendent of the medieval falchion, the cutlass is synonymous
@@ -111,7 +117,8 @@ MonoBehaviour:
       ObjectSize: Medium
     Icon: {fileID: 21300000, guid: fe955ffa261481348b92e22179461445, type: 3}
     IsometricSprite: {fileID: 21300000, guid: 83662d908dc1fc847b9bb632138e354c, type: 3}
-  - Descriptive:
+  - Id: IndustrialAmericanMusket
+    Descriptive:
       Id: IndustrialAmericanMusket
       ArtifactName: Industrial American Musket
       Description: By the Industrial Age, the musket had cemented itself as the choice
@@ -128,7 +135,8 @@ MonoBehaviour:
       ObjectSize: Large
     Icon: {fileID: 21300000, guid: d76df94864406f64188b46377a75da94, type: 3}
     IsometricSprite: {fileID: 21300000, guid: b667588da262f8846ad2c2599adac28a, type: 3}
-  - Descriptive:
+  - Id: ModernAmericanRifle
+    Descriptive:
       Id: ModernAmericanRifle
       ArtifactName: Modern American Rifle
       Description: Over a million M14 rifles were produced in the 60s and 70s.
@@ -144,7 +152,8 @@ MonoBehaviour:
       ObjectSize: Large
     Icon: {fileID: 21300000, guid: 51bbcc50530c916418141225848a3ef6, type: 3}
     IsometricSprite: {fileID: 21300000, guid: 5916f11ded98c4642a2fe14e58281eab, type: 3}
-  - Descriptive:
+  - Id: ClassicalNativeAmericanWarShield
+    Descriptive:
       Id: ClassicalNativeAmericanWarShield
       ArtifactName: Classical Native American War Shield
       Description: Native American made war shields and medicine shields - the latter
@@ -161,7 +170,8 @@ MonoBehaviour:
       ObjectSize: Medium
     Icon: {fileID: 21300000, guid: 4706765206bc1e843a3dc648e1ffb9fc, type: 3}
     IsometricSprite: {fileID: 21300000, guid: eac1fc6a1aa3cf24b9f9e4aeff35fa0b, type: 3}
-  - Descriptive:
+  - Id: MedievalNativeAmericanWarShield
+    Descriptive:
       Id: MedievalNativeAmericanWarShield
       ArtifactName: Medieval Native American War Shield
       Description: Plains Indians considered their shield as their most precious
@@ -178,7 +188,8 @@ MonoBehaviour:
       ObjectSize: Medium
     Icon: {fileID: 21300000, guid: 8a41ad374db8bc44eacd50a2a2c2abc8, type: 3}
     IsometricSprite: {fileID: 21300000, guid: 280601efc416cdc47a6d865c4a666199, type: 3}
-  - Descriptive:
+  - Id: AncientNativeAmericanBowl
+    Descriptive:
       Id: AncientNativeAmericanBowl
       ArtifactName: Ancient Native American Bowl
       Description: Natives used bowls for ritual and everyday purposes.
@@ -193,7 +204,8 @@ MonoBehaviour:
       ObjectSize: Small
     Icon: {fileID: 21300000, guid: 19767177d9286d2438894c98b79470d5, type: 3}
     IsometricSprite: {fileID: 21300000, guid: a9a9796ffa4aa8b468eca08dd982db7e, type: 3}
-  - Descriptive:
+  - Id: ClassicalNativeAmericanBowl
+    Descriptive:
       Id: ClassicalNativeAmericanBowl
       ArtifactName: Classical Native American Bowl
       Description: Clay for pottery often had to be mined and purified in labor-intensive
@@ -209,7 +221,8 @@ MonoBehaviour:
       ObjectSize: Small
     Icon: {fileID: 21300000, guid: 43d3f070f47ac0c45bd1cdfafa9ba172, type: 3}
     IsometricSprite: {fileID: 21300000, guid: fcd4b7fa04d39d44588b9877f3e42990, type: 3}
-  - Descriptive:
+  - Id: MedievalNativeAmericanBowl
+    Descriptive:
       Id: MedievalNativeAmericanBowl
       ArtifactName: Medieval Native American Bowl
       Description: 'Ever-increasingly sophisticated designs on pottery can be found
@@ -225,7 +238,8 @@ MonoBehaviour:
       ObjectSize: Small
     Icon: {fileID: 21300000, guid: 60b1fa52c2d18444d9afa49ce77608fb, type: 3}
     IsometricSprite: {fileID: 21300000, guid: 42772b9b20411194a8eeb720ad4cd2c6, type: 3}
-  - Descriptive:
+  - Id: RenaissanceAmericanBowl
+    Descriptive:
       Id: RenaissanceAmericanBowl
       ArtifactName: Renaissance American Bowl
       Description: European settlers arriving in the new world often brought their
@@ -241,7 +255,8 @@ MonoBehaviour:
       ObjectSize: Small
     Icon: {fileID: 21300000, guid: 3d63a1e1009ac4947a7fbc31c9566271, type: 3}
     IsometricSprite: {fileID: 21300000, guid: 942b05326910d2443a3aff86e3edf074, type: 3}
-  - Descriptive:
+  - Id: MedievalNativeAmericanLeatherChestplate
+    Descriptive:
       Id: MedievalNativeAmericanLeatherChestplate
       ArtifactName: Medieval Native American Leather Chestplate
       Description: Hardened leather was a common component in Native American armor.
@@ -256,7 +271,8 @@ MonoBehaviour:
       ObjectSize: Large
     Icon: {fileID: 21300000, guid: 4d2bb2c6033c4324da94a6241f5be8b0, type: 3}
     IsometricSprite: {fileID: 21300000, guid: 5851f42ff02145b4ba4db72b2c4e2b49, type: 3}
-  - Descriptive:
+  - Id: RenaissanceAmericanIronChestplate
+    Descriptive:
       Id: RenaissanceAmericanIronChestplate
       ArtifactName: Renaissance American Iron Chestplate
       Description: The cuirass had become the most common form of body armor by the
@@ -272,7 +288,8 @@ MonoBehaviour:
       ObjectSize: Large
     Icon: {fileID: 21300000, guid: 39126b61f2a903f4c95c655eddef6986, type: 3}
     IsometricSprite: {fileID: 21300000, guid: 402cf2c5b44a2a243a25e447da050297, type: 3}
-  - Descriptive:
+  - Id: IndustrialAmericanInfantryGear
+    Descriptive:
       Id: IndustrialAmericanInfantryGear
       ArtifactName: Industrial American Infantry Gear
       Description: 'By the time of the American Civil War, soldiers'' uniforms had
@@ -288,7 +305,8 @@ MonoBehaviour:
       ObjectSize: Large
     Icon: {fileID: 21300000, guid: bee2c5bc30624764ba3eee46365a81c3, type: 3}
     IsometricSprite: {fileID: 21300000, guid: 687368009ce13f4499d95e410ff2dec0, type: 3}
-  - Descriptive:
+  - Id: AncientNativeAmericanWampumBeadCurrency
+    Descriptive:
       Id: AncientNativeAmericanWampumBeadCurrency
       ArtifactName: Ancient Native American Wampum Bead Currency
       Description: Wampum beads were not only used for trade, but also for clothing
@@ -304,7 +322,8 @@ MonoBehaviour:
       ObjectSize: Tiny
     Icon: {fileID: 21300000, guid: a14f901e9c4f91d4f8864053c2cc7ac2, type: 3}
     IsometricSprite: {fileID: 21300000, guid: 46e923ca21b8c134d87888a57433b148, type: 3}
-  - Descriptive:
+  - Id: ClassicalNativeAmericanShellCurrency
+    Descriptive:
       Id: ClassicalNativeAmericanShellCurrency
       ArtifactName: Classical Native American Shell Currency
       Description: Atleast some groups from almost every continent have been recorded
@@ -320,7 +339,8 @@ MonoBehaviour:
       ObjectSize: Tiny
     Icon: {fileID: 21300000, guid: 8e19decec9854504b84829fe6beddbbe, type: 3}
     IsometricSprite: {fileID: 21300000, guid: eb7d8515accdb0843bcba0b9340bd230, type: 3}
-  - Descriptive:
+  - Id: MedievalNativeAmericanWampumBeadCurrency
+    Descriptive:
       Id: MedievalNativeAmericanWampumBeadCurrency
       ArtifactName: Medieval Native American Wampum Bead Currency
       Description: It was not until the arrival or Europeans that wampum beads took
@@ -336,7 +356,8 @@ MonoBehaviour:
       ObjectSize: Tiny
     Icon: {fileID: 21300000, guid: 0446cc8882ceba340a061aac649236df, type: 3}
     IsometricSprite: {fileID: 21300000, guid: 8d763a586fcb9704593b44239cccb6ec, type: 3}
-  - Descriptive:
+  - Id: AncientNativeAmericanVase
+    Descriptive:
       Id: AncientNativeAmericanVase
       ArtifactName: Ancient Native American Vase
       Description: NA
@@ -351,7 +372,8 @@ MonoBehaviour:
       ObjectSize: Medium
     Icon: {fileID: 21300000, guid: ecd176689ffd36144a521aff71124983, type: 3}
     IsometricSprite: {fileID: 21300000, guid: 12d45e508ea3e3b4e8af727019fa175f, type: 3}
-  - Descriptive:
+  - Id: MedievalNativeAmericanVase
+    Descriptive:
       Id: MedievalNativeAmericanVase
       ArtifactName: Medieval Native American Vase
       Description: NA
@@ -366,7 +388,8 @@ MonoBehaviour:
       ObjectSize: Medium
     Icon: {fileID: 21300000, guid: d7b86a17745c5d341ab13f563a69668c, type: 3}
     IsometricSprite: {fileID: 21300000, guid: e6c19619b95612f4b810216309073094, type: 3}
-  - Descriptive:
+  - Id: RenaissanceAmericanPorcelainVase
+    Descriptive:
       Id: RenaissanceAmericanPorcelainVase
       ArtifactName: Renaissance American Porcelain Vase
       Description: NA
@@ -381,7 +404,8 @@ MonoBehaviour:
       ObjectSize: Medium
     Icon: {fileID: 21300000, guid: 6f9b19e9500a10c40898ab777da0ead0, type: 3}
     IsometricSprite: {fileID: 21300000, guid: 5187d8188b7d9f94899746ef9ce679a5, type: 3}
-  - Descriptive:
+  - Id: IndustrialAmericanPorcelainVase
+    Descriptive:
       Id: IndustrialAmericanPorcelainVase
       ArtifactName: IndustrialAmericanPorcelainVase
       Description: NA
@@ -396,7 +420,8 @@ MonoBehaviour:
       ObjectSize: Medium
     Icon: {fileID: 0}
     IsometricSprite: {fileID: 0}
-  - Descriptive:
+  - Id: IndustrialAmericanPlate
+    Descriptive:
       Id: IndustrialAmericanPlate
       ArtifactName: Industrial American Plate
       Description: NA
@@ -410,7 +435,8 @@ MonoBehaviour:
       ObjectSize: 
     Icon: {fileID: 0}
     IsometricSprite: {fileID: 21300000, guid: 456fdfce3697c744ab0268368a413d36, type: 3}
-  - Descriptive:
+  - Id: ModernAmericanPlate
+    Descriptive:
       Id: ModernAmericanPlate
       ArtifactName: Modern American Plate
       Description: NA
@@ -424,7 +450,8 @@ MonoBehaviour:
       ObjectSize: 
     Icon: {fileID: 0}
     IsometricSprite: {fileID: 21300000, guid: 50503ed1ea530684c99020cee39f8869, type: 3}
-  - Descriptive:
+  - Id: RenaissanceAmericanSilverCoin
+    Descriptive:
       Id: RenaissanceAmericanSilverCoin
       ArtifactName: Renaissance American Silver Coin
       Description: NA
@@ -439,7 +466,8 @@ MonoBehaviour:
       ObjectSize: Tiny
     Icon: {fileID: 21300000, guid: f8247c684795dc4449b895baf1265396, type: 3}
     IsometricSprite: {fileID: 21300000, guid: 285186e85d2a598429bae32a057a83d4, type: 3}
-  - Descriptive:
+  - Id: IndustrialAmericanSilverCoin
+    Descriptive:
       Id: IndustrialAmericanSilverCoin
       ArtifactName: Industrial American Silver Coin
       Description: NA
@@ -453,7 +481,8 @@ MonoBehaviour:
       ObjectSize: 
     Icon: {fileID: 0}
     IsometricSprite: {fileID: 0}
-  - Descriptive:
+  - Id: ClassicalNativeAmericanVase
+    Descriptive:
       Id: ClassicalNativeAmericanVase
       ArtifactName: Classical Native American Vase
       Description: NA
@@ -467,7 +496,8 @@ MonoBehaviour:
       ObjectSize: 
     Icon: {fileID: 0}
     IsometricSprite: {fileID: 21300000, guid: 0a2acfc4748605247abf33ced0426edf, type: 3}
-  - Descriptive:
+  - Id: MedievalNativeAmericanLeatherBoots
+    Descriptive:
       Id: MedievalNativeAmericanLeatherBoots
       ArtifactName: Medieval Native American Leather Boots
       Description: NA
@@ -482,7 +512,8 @@ MonoBehaviour:
       ObjectSize: Small
     Icon: {fileID: 21300000, guid: 933b81cc9175a2c4ebc9b1e77fd46e11, type: 3}
     IsometricSprite: {fileID: 21300000, guid: 3579289c89cd01e4c91217771ab74787, type: 3}
-  - Descriptive:
+  - Id: IndustrialAmericanFurBoots
+    Descriptive:
       Id: IndustrialAmericanFurBoots
       ArtifactName: Industrial American Fur Boots
       Description: NA
@@ -497,7 +528,8 @@ MonoBehaviour:
       ObjectSize: Small
     Icon: {fileID: 21300000, guid: defc0987cf0670c4fa17caefec6668a2, type: 3}
     IsometricSprite: {fileID: 21300000, guid: 2419275d1f1eb374b9f853b949f0f632, type: 3}
-  - Descriptive:
+  - Id: ModernAmericanRubberBoots
+    Descriptive:
       Id: ModernAmericanRubberBoots
       ArtifactName: Modern American Rubber Boots
       Description: NA
@@ -512,7 +544,8 @@ MonoBehaviour:
       ObjectSize: Small
     Icon: {fileID: 21300000, guid: 685a2eae8a6f48a419bde0a8ed3241d2, type: 3}
     IsometricSprite: {fileID: 21300000, guid: a62e96f9b123f314db9f2661f842eee1, type: 3}
-  - Descriptive:
+  - Id: MedievalNativeAmericanCanoe
+    Descriptive:
       Id: MedievalNativeAmericanCanoe
       ArtifactName: Medieval Native American Canoe
       Description: NA
@@ -526,7 +559,8 @@ MonoBehaviour:
       ObjectSize: 
     Icon: {fileID: 0}
     IsometricSprite: {fileID: 21300000, guid: 580461705e837e24e862d6c8f6eed37f, type: 3}
-  - Descriptive:
+  - Id: RenaissanceNativeAmericanCanoe
+    Descriptive:
       Id: RenaissanceNativeAmericanCanoe
       ArtifactName: Renaissance Native American Canoe
       Description: NA
@@ -540,7 +574,8 @@ MonoBehaviour:
       ObjectSize: 
     Icon: {fileID: 0}
     IsometricSprite: {fileID: 21300000, guid: 94821d2dd691e524fa21b7784b8dd3ce, type: 3}
-  - Descriptive:
+  - Id: AncientNativeAmericanBeadNecklace
+    Descriptive:
       Id: AncientNativeAmericanBeadNecklace
       ArtifactName: Ancient Native American Bead Necklace
       Description: NA
@@ -554,7 +589,8 @@ MonoBehaviour:
       ObjectSize: 
     Icon: {fileID: 0}
     IsometricSprite: {fileID: 0}
-  - Descriptive:
+  - Id: AncientNativeAmericanShellNecklace
+    Descriptive:
       Id: AncientNativeAmericanShellNecklace
       ArtifactName: Ancient Native American Shell Necklace
       Description: NA
@@ -568,7 +604,8 @@ MonoBehaviour:
       ObjectSize: 
     Icon: {fileID: 0}
     IsometricSprite: {fileID: 0}
-  - Descriptive:
+  - Id: ClassicalNativeAmericanBeadNecklace
+    Descriptive:
       Id: ClassicalNativeAmericanBeadNecklace
       ArtifactName: Classical Native American Bead Necklace
       Description: NA
@@ -583,7 +620,8 @@ MonoBehaviour:
       ObjectSize: Small
     Icon: {fileID: 21300000, guid: 9adfa3410acd3114f81db527dc054c6f, type: 3}
     IsometricSprite: {fileID: 21300000, guid: 89143bbfa69a3c64b8f6a4c7133c9fa8, type: 3}
-  - Descriptive:
+  - Id: ClassicalNativeAmericanShellNecklace
+    Descriptive:
       Id: ClassicalNativeAmericanShellNecklace
       ArtifactName: Classical Native American Shell Necklace
       Description: NA
@@ -598,7 +636,8 @@ MonoBehaviour:
       ObjectSize: Small
     Icon: {fileID: 21300000, guid: 6fbeb58ebcd5f684b97f8320b864dfa5, type: 3}
     IsometricSprite: {fileID: 21300000, guid: 37fa3164879349648b1c6abf9af7fc82, type: 3}
-  - Descriptive:
+  - Id: MedievalNativeAmericanGemNecklace
+    Descriptive:
       Id: MedievalNativeAmericanGemNecklace
       ArtifactName: Medieval Native American Gem Necklace
       Description: NA
@@ -613,7 +652,8 @@ MonoBehaviour:
       ObjectSize: Small
     Icon: {fileID: 21300000, guid: b59ada98ce7e92640a33e93bdf02cf83, type: 3}
     IsometricSprite: {fileID: 21300000, guid: 653e8f7fe19474544b22d6cb8ac27bb8, type: 3}
-  - Descriptive:
+  - Id: AncientNativeAmericanClayHumanFigurine
+    Descriptive:
       Id: AncientNativeAmericanClayHumanFigurine
       ArtifactName: Ancient Native American Clay Human Figurine
       Description: NA
@@ -628,7 +668,8 @@ MonoBehaviour:
       ObjectSize: Tiny
     Icon: {fileID: 21300000, guid: 718f1306268e03f4b8f99f44af53215d, type: 3}
     IsometricSprite: {fileID: 21300000, guid: ed885702c5ac5f94fa23868f2ecf9f58, type: 3}
-  - Descriptive:
+  - Id: ClassicalNativeAmericanClayHumamFigurine
+    Descriptive:
       Id: ClassicalNativeAmericanClayHumamFigurine
       ArtifactName: Classical Native American Clay Humam Figurine
       Description: NA
@@ -642,7 +683,8 @@ MonoBehaviour:
       ObjectSize: 
     Icon: {fileID: 0}
     IsometricSprite: {fileID: 0}
-  - Descriptive:
+  - Id: MedievalNativeAmericanClayPrisonerFigurine
+    Descriptive:
       Id: MedievalNativeAmericanClayPrisonerFigurine
       ArtifactName: Medieval Native American Clay Prisoner Figurine
       Description: NA
@@ -657,7 +699,8 @@ MonoBehaviour:
       ObjectSize: Tiny
     Icon: {fileID: 21300000, guid: ae4862bc86ba10b418796a72483475c5, type: 3}
     IsometricSprite: {fileID: 21300000, guid: 440efa78040b1a94fb7300890eb57b49, type: 3}
-  - Descriptive:
+  - Id: RenaissanceAmericanWoodenBoatToy
+    Descriptive:
       Id: RenaissanceAmericanWoodenBoatToy
       ArtifactName: Renaissance American Wooden Boat Toy
       Description: NA
@@ -671,7 +714,8 @@ MonoBehaviour:
       ObjectSize: 
     Icon: {fileID: 0}
     IsometricSprite: {fileID: 0}
-  - Descriptive:
+  - Id: IndustrialAmericanIronTrainToy
+    Descriptive:
       Id: IndustrialAmericanIronTrainToy
       ArtifactName: Industrial American Iron Train Toy
       Description: NA
@@ -685,7 +729,8 @@ MonoBehaviour:
       ObjectSize: 
     Icon: {fileID: 0}
     IsometricSprite: {fileID: 21300000, guid: f929d4335c16c8c42975255d8a769657, type: 3}
-  - Descriptive:
+  - Id: RenaissanceNativeAmericanHorseGear
+    Descriptive:
       Id: RenaissanceNativeAmericanHorseGear
       ArtifactName: Renaissance Native American Horse Gear
       Description: NA
@@ -699,7 +744,8 @@ MonoBehaviour:
       ObjectSize: 
     Icon: {fileID: 0}
     IsometricSprite: {fileID: 0}
-  - Descriptive:
+  - Id: RenaissanceAmericanHorseGear
+    Descriptive:
       Id: RenaissanceAmericanHorseGear
       ArtifactName: Renaissance American Horse Gear
       Description: NA
@@ -713,7 +759,8 @@ MonoBehaviour:
       ObjectSize: 
     Icon: {fileID: 0}
     IsometricSprite: {fileID: 21300000, guid: de0991bdd8e9ffe4180cd4d49187de7f, type: 3}
-  - Descriptive:
+  - Id: MedievalNativeAmericanBoneArrowhead
+    Descriptive:
       Id: MedievalNativeAmericanBoneArrowhead
       ArtifactName: Medieval Native American Bone Arrowhead
       Description: NA
@@ -727,7 +774,8 @@ MonoBehaviour:
       ObjectSize: 
     Icon: {fileID: 0}
     IsometricSprite: {fileID: 21300000, guid: 790583b7534148142b573054297517eb, type: 3}
-  - Descriptive:
+  - Id: IndustrialNativeAmericanSilverBeltBuckle
+    Descriptive:
       Id: IndustrialNativeAmericanSilverBeltBuckle
       ArtifactName: Industrial Native American Silver Belt Buckle
       Description: NA
@@ -741,7 +789,8 @@ MonoBehaviour:
       ObjectSize: 
     Icon: {fileID: 0}
     IsometricSprite: {fileID: 0}
-  - Descriptive:
+  - Id: IndustrialAmericanGramophone
+    Descriptive:
       Id: IndustrialAmericanGramophone
       ArtifactName: Industrial American Gramophone
       Description: NA
@@ -755,7 +804,8 @@ MonoBehaviour:
       ObjectSize: 
     Icon: {fileID: 0}
     IsometricSprite: {fileID: 21300000, guid: ba5f5f21aa3810048b049c305deee1d5, type: 3}
-  - Descriptive:
+  - Id: RenaissanceAmericanWagon
+    Descriptive:
       Id: RenaissanceAmericanWagon
       ArtifactName: Renaissance American Wagon
       Description: NA
