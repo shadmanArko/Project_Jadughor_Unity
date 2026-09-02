@@ -41,11 +41,19 @@ namespace ProjectMuseum.Builder
         private void OnEnable()
         {
             BuilderActions.OnBottomPanelBuilderCardToggleClicked += OnToggle;
+            BuilderActions.OnCloseBuilderPanel += OnCloseRequested;
         }
 
         private void OnDisable()
         {
             BuilderActions.OnBottomPanelBuilderCardToggleClicked -= OnToggle;
+            BuilderActions.OnCloseBuilderPanel -= OnCloseRequested;
+        }
+
+        /// <summary>The bar left this category behind, so the panel has nothing to show.</summary>
+        private void OnCloseRequested()
+        {
+            if (_isOpen) Close();
         }
 
         private void OnToggle(BuilderCardType type)

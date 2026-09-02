@@ -20,6 +20,13 @@ namespace ProjectMuseum.Builder
         public static Action<BuilderCardType> OnBottomPanelBuilderCardToggleClicked;
 
         /// <summary>
+        /// Close the builder panel outright, whatever category it is showing. Raised
+        /// when the bottom bar leaves a category for the top-level row, where there is
+        /// no longer a selected category for the panel to belong to.
+        /// </summary>
+        public static Action OnCloseBuilderPanel;
+
+        /// <summary>
         /// A specific object card was clicked (carries its category + card name).
         /// Placement systems subscribe to this to begin placing the object.
         /// </summary>

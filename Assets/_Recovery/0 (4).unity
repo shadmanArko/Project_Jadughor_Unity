@@ -3370,6 +3370,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ProjectMuseum.Builder.BottomBarBuilderController
   categoryButtonPrefab: {fileID: 9139632443478828654, guid: 9218458535348d54ab6018e5d86d968c, type: 3}
   buttonParent: {fileID: 1354508863}
+  buttonSpacing: 4
+  headerGap: 12
+  clipToRail: 1
+  autoFitRail: 1
+  minRailWidth: 200
+  slideDuration: 0.28
+  slideEase: 9
+  idleColor: {r: 1, g: 1, b: 1, a: 1}
+  activeColor: {r: 0.78, g: 0.78, b: 0.78, a: 1}
 --- !u!1 &1127797509 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8487398911379768931, guid: 6a85636b6ac670b45949efd370698782, type: 3}
