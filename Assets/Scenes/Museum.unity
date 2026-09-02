@@ -476,7 +476,7 @@ MonoBehaviour:
   m_IgnoreLayout: 0
   m_MinWidth: -1
   m_MinHeight: -1
-  m_PreferredWidth: 30
+  m_PreferredWidth: 12
   m_PreferredHeight: -1
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
@@ -3370,6 +3370,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ProjectMuseum.Builder.BottomBarBuilderController
   categoryButtonPrefab: {fileID: 9139632443478828654, guid: 9218458535348d54ab6018e5d86d968c, type: 3}
   buttonParent: {fileID: 1354508863}
+  buttonSpacing: 0
+  headerGap: 12
+  clipToRail: 1
+  autoFitRail: 1
+  minRailWidth: 200
+  slideDuration: 0.28
+  slideEase: 9
+  idleColor: {r: 1, g: 1, b: 1, a: 1}
+  activeColor: {r: 0.78, g: 0.78, b: 0.78, a: 1}
 --- !u!1 &1127797509 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8487398911379768931, guid: 6a85636b6ac670b45949efd370698782, type: 3}
@@ -3392,7 +3401,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1174630031
 Transform:
   m_ObjectHideFlags: 0
@@ -7335,7 +7344,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1276691018
 Transform:
   m_ObjectHideFlags: 0
@@ -7800,14 +7809,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -5754243698954085324, guid: 48ae4298a564ec44b97111a169de4dbe, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
