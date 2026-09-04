@@ -16,3 +16,4 @@ MonoBehaviour:
   spawnTable: {fileID: 11400000, guid: 9e14a28dfed00f74cbf0071890af5824, type: 2}
   decor: {fileID: 11400000, guid: 0af3b9dd359bd6f458e9b29612f1539d, type: 2}
   lairPrefab: {fileID: 8629193355401020719, guid: 3ae40ac505e286c47b5945d4aaaae4bd, type: 3}
+  bossPrefab: {fileID: 3620337608589271319, guid: 02ad06b84eaf3bd4ea0bdd3da5016192, type: 3}

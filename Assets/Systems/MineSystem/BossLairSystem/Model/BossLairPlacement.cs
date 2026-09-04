@@ -49,6 +49,33 @@ namespace Systems.MineSystem.BossLairSystem.Model
         public Vector2 InteriorWorldCenter =>
             RootWorldPosition + InteriorWorldSize * 0.5f;
 
+        /// <summary>
+        /// World-space center and size of the interior padded outward by
+        /// <paramref name="paddingInCells"/> cells on the top, left, and right,
+        /// and independently by <paramref name="bottomPaddingInCells"/> cells
+        /// on the bottom (the side away from the mine). Asymmetric padding
+        /// shifts the center toward whichever side has more of it, so callers
+        /// must use the returned center rather than
+        /// <see cref="InteriorWorldCenter"/> once any padding is applied.
+        /// </summary>
+        public void GetPaddedWorldBounds(
+            int paddingInCells,
+            int bottomPaddingInCells,
+            out Vector2 center,
+            out Vector2 size)
+        {
+            var pad = Mathf.Max(0, paddingInCells) * CellWorldSize;
+            var bottomPad = Mathf.Max(0, bottomPaddingInCells) * CellWorldSize;
+
+            var minX = RootWorldPosition.x - pad;
+            var minY = RootWorldPosition.y - bottomPad;
+            var maxX = RootWorldPosition.x + InteriorWorldSize.x + pad;
+            var maxY = RootWorldPosition.y + InteriorWorldSize.y + pad;
+
+            center = new Vector2((minX + maxX) * 0.5f, (minY + maxY) * 0.5f);
+            size = new Vector2(maxX - minX, maxY - minY);
+        }
+
         public bool IsValid =>
             WidthInCells > 0 && HeightInCells > 0 &&
             BorderThickness > 0 && CellWorldSize > 0f;

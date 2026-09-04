@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7dc7eda8c4c89349b3d8cd78c648bde, type: 3}
   m_Name: HedgeHogBossProceduralLairConfig
   m_EditorClassIdentifier: Assembly-CSharp::Systems.MineSystem.BossLairSystem.Config.BossProceduralLairConfig
-  interiorWidthInCells: 15
-  interiorHeightInCells: 8
+  interiorWidthInCells: 28
+  interiorHeightInCells: 12
   gapBelowMineInCells: 6
   centreUnderMine: 1
   borderThicknessInCells: 2

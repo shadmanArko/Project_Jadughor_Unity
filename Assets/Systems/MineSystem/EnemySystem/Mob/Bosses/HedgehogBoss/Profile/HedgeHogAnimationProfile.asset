@@ -1,0 +1,89 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56eff51822024aed8ee5aa1dfa989e58, type: 3}
+  m_Name: HedgeHogAnimationProfile
+  m_EditorClassIdentifier: Assembly-CSharp::Systems.MineSystem.EnemySystem.Animation.Scriptable.EnemyAnimationProfileScriptable
+  animatorController: {fileID: 9100000, guid: 874fc1489c4667e42bb627f0d8f1e5b5, type: 2}
+  visualScale: {x: 1, y: 1}
+  visualOffset: {x: 0, y: 0}
+  animations:
+  - id: Hedgehog.Idle
+    stateName: idle
+    triggerName: 
+    animationSprites:
+    - {fileID: 7496702162254305909, guid: 19fd766c34021644bb95a925b5856a7d, type: 3}
+    - {fileID: 6203655724000064182, guid: 19fd766c34021644bb95a925b5856a7d, type: 3}
+    - {fileID: -6620190539106576567, guid: 19fd766c34021644bb95a925b5856a7d, type: 3}
+    - {fileID: -3202301536466633808, guid: 19fd766c34021644bb95a925b5856a7d, type: 3}
+    - {fileID: -1712630249309880624, guid: 19fd766c34021644bb95a925b5856a7d, type: 3}
+    - {fileID: 7496702162254305909, guid: 19fd766c34021644bb95a925b5856a7d, type: 3}
+    speed: 1
+    playOnlyOnce: 0
+    flipX: 0
+    flipY: 0
+    allowFacingFlip: 1
+  - id: Hedgehog.Move
+    stateName: move
+    triggerName: 
+    animationSprites:
+    - {fileID: 7496702162254305909, guid: 19fd766c34021644bb95a925b5856a7d, type: 3}
+    - {fileID: 6203655724000064182, guid: 19fd766c34021644bb95a925b5856a7d, type: 3}
+    speed: 1
+    playOnlyOnce: 0
+    flipX: 0
+    flipY: 0
+    allowFacingFlip: 1
+  - id: Hedgehog.GroundSmash
+    stateName: groundSmash
+    triggerName: 
+    animationSprites: []
+    speed: 1
+    playOnlyOnce: 1
+    flipX: 0
+    flipY: 0
+    allowFacingFlip: 1
+  - id: Hedgehog.SpikeThrow
+    stateName: spikeThrow
+    triggerName: 
+    animationSprites: []
+    speed: 1
+    playOnlyOnce: 1
+    flipX: 0
+    flipY: 0
+    allowFacingFlip: 1
+  - id: Hedgehog.Roar
+    stateName: roar
+    triggerName: 
+    animationSprites: []
+    speed: 1
+    playOnlyOnce: 1
+    flipX: 0
+    flipY: 0
+    allowFacingFlip: 1
+  - id: Hedgehog.Death
+    stateName: death
+    triggerName: 
+    animationSprites: []
+    speed: 1
+    playOnlyOnce: 1
+    flipX: 0
+    flipY: 0
+    allowFacingFlip: 1
+  - id: Hedgehog.RollOut
+    stateName: rollOut
+    triggerName: 
+    animationSprites: []
+    speed: 1
+    playOnlyOnce: 1
+    flipX: 0
+    flipY: 0
+    allowFacingFlip: 1

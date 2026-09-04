@@ -1,4 +1,5 @@
 using System;
+using Systems.MineSystem.BossLairSystem.Config;
 using Systems.MineSystem.BossLairSystem.Model;
 using Systems.MineSystem.BossLairSystem.View;
 using UnityEngine;
@@ -23,14 +24,19 @@ namespace Systems.MineSystem.BossLairSystem.Service
 
         private readonly DiContainer _container;
         private readonly BossLairView _prefab;
+        private readonly BossLairConfig _config;
         private BossLairView _instance;
         private GameObject _root;
         private bool _disposed;
 
-        public BossLairFactory(DiContainer container, BossLairView prefab)
+        public BossLairFactory(
+            DiContainer container,
+            BossLairView prefab,
+            BossLairConfig config)
         {
             _container = container;
             _prefab = prefab;
+            _config = config;
         }
 
         public BossLairView Active => _instance;
@@ -70,8 +76,12 @@ namespace Systems.MineSystem.BossLairSystem.Service
                     _prefab, _root.transform);
                 _instance.transform.localPosition = Vector3.zero;
                 _instance.ValidateReferences();
-                _instance.ApplyCameraBounds(
-                    placement.InteriorWorldCenter, placement.InteriorWorldSize);
+                placement.GetPaddedWorldBounds(
+                    _config.CameraBoundsPaddingInCells,
+                    _config.CameraBoundsBottomPaddingInCells,
+                    out var paddedCenter,
+                    out var paddedSize);
+                _instance.ApplyCameraBounds(paddedCenter, paddedSize);
                 // Dormant until the player actually enters.
                 _instance.SetArenaActive(false);
                 return _instance;

@@ -56,6 +56,22 @@ namespace Systems.MineSystem.BossLairSystem.Config
             "the interaction and permanently shadows the gate.")]
         [Min(0)] [SerializeField] private int gateInteractionPriority = 200;
 
+        [Header("Camera")]
+        [Tooltip(
+            "Extra cells of padding added to the top, left, and right sides " +
+            "of a boss arena's camera confiner box, beyond the arena's own " +
+            "interior footprint. See Camera Bounds Bottom Padding In Cells " +
+            "for the bottom (the side away from the mine). Shared by every " +
+            "boss lair.")]
+        [Min(0)] [SerializeField] private int cameraBoundsPaddingInCells = 1;
+        [Tooltip(
+            "Extra cells of padding added to only the BOTTOM side (away " +
+            "from the mine, deeper into the arena) of a boss arena's camera " +
+            "confiner box. Independent of the top/left/right padding above, " +
+            "since padding this side further can never reveal the mine. " +
+            "Shared by every boss lair.")]
+        [Min(0)] [SerializeField] private int cameraBoundsBottomPaddingInCells = 2;
+
         public float GateApproachDuration => gateApproachDuration;
         public float ArenaEntryDuration => arenaEntryDuration;
         public Ease PlayerMovementEase => playerMovementEase;
@@ -66,6 +82,8 @@ namespace Systems.MineSystem.BossLairSystem.Config
         public bool UseFixedDecorSeed => useFixedDecorSeed;
         public int FixedDecorSeed => fixedDecorSeed;
         public int GateInteractionPriority => gateInteractionPriority;
+        public int CameraBoundsPaddingInCells => cameraBoundsPaddingInCells;
+        public int CameraBoundsBottomPaddingInCells => cameraBoundsBottomPaddingInCells;
         public float BossIntroStepDistance => bossIntroStepDistance;
         public float BossIntroWalkDuration => bossIntroWalkDuration;
         public float BossIntroRoarDuration => bossIntroRoarDuration;

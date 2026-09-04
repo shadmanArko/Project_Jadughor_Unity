@@ -20,13 +20,16 @@ namespace Systems.MineSystem.BossLairSystem.Service
     {
         private readonly MineGenerationConfig _mineConfig;
         private readonly MineView _mineView;
+        private readonly BossLairConfig _lairConfig;
 
         public BossLairPlacementService(
             MineGenerationConfig mineConfig,
-            MineView mineView)
+            MineView mineView,
+            BossLairConfig lairConfig)
         {
             _mineConfig = mineConfig;
             _mineView = mineView;
+            _lairConfig = lairConfig;
         }
 
         /// <summary>Authored cell size of the mine grid, in world units.</summary>
@@ -77,20 +80,26 @@ namespace Systems.MineSystem.BossLairSystem.Service
         }
 
         /// <summary>
-        /// Smallest gap that keeps the mine outside the camera window. When the
-        /// arena is larger than the window the confiner handles it and 1 is
-        /// enough; when it is smaller the camera holds a fixed shot whose window
-        /// overhangs the arena, and the gap has to cover that overhang.
+        /// Smallest gap that keeps the mine outside the camera window, plus the
+        /// confiner's own padding (<see cref="BossLairConfig.CameraBoundsPaddingInCells"/>).
+        /// The confiner box extends that many extra cells past the arena's south
+        /// edge, so a camera confined to it can pan that much closer to the mine
+        /// than the raw arena footprint implies. When the arena is larger than
+        /// the window the confiner handles it and 1 (plus padding) is enough;
+        /// when it is smaller the camera holds a fixed shot whose window
+        /// overhangs the arena, and the gap has to cover that overhang too (plus
+        /// padding).
         /// </summary>
         public int ResolveRequiredGapInCells(
             BossProceduralLairConfig config,
             float cameraWindowHeightInCells)
         {
+            var padding = _lairConfig.CameraBoundsPaddingInCells;
             var overhang = cameraWindowHeightInCells * 0.5f -
                            config.InteriorHeightInCells * 0.5f;
             if (overhang <= 0f)
-                return 1;
-            return Mathf.CeilToInt(overhang) + 1;
+                return 1 + padding;
+            return Mathf.CeilToInt(overhang) + 1 + padding;
         }
     }
 }

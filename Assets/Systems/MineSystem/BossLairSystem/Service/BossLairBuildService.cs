@@ -122,14 +122,18 @@ namespace Systems.MineSystem.BossLairSystem.Service
             if (_camera.CanConfine(placement, lairConfig.LairAssetsPPU))
                 return;
             var window = _camera.ResolveWorldWindow(lairConfig.LairAssetsPPU);
-            var size = placement.InteriorWorldSize;
+            placement.GetPaddedWorldBounds(
+                _config.CameraBoundsPaddingInCells,
+                _config.CameraBoundsBottomPaddingInCells,
+                out _, out var size);
             Debug.Log(
                 $"[BossLair] Arena ({size.x:0.##} x {size.y:0.##} world units) is " +
                 $"not larger than the camera frame ({window.x:0.##} x " +
-                $"{window.y:0.##}) at {lairConfig.LairAssetsPPU} PPU, so the " +
-                "camera will hold a fixed shot showing the whole arena. Raise " +
-                "lairAssetsPPU to zoom in further, or enlarge the arena to make " +
-                "the camera follow the player.");
+                $"{window.y:0.##}) at {lairConfig.LairAssetsPPU} PPU, so camera " +
+                "panning will be limited on whichever axis has no room " +
+                "(Cinemachine's confiner keeps it centred there instead). Raise " +
+                "lairAssetsPPU to zoom in further, or enlarge the arena for full " +
+                "panning.");
         }
 
         private int ResolveDecorSeed() =>

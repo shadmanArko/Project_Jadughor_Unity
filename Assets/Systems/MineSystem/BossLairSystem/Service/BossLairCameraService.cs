@@ -1,4 +1,5 @@
 using System;
+using Systems.MineSystem.BossLairSystem.Config;
 using Systems.MineSystem.BossLairSystem.Model;
 using Systems.MineSystem.BossLairSystem.View;
 using Systems.MineSystem.Utilities.Camera;
@@ -24,6 +25,7 @@ namespace Systems.MineSystem.BossLairSystem.Service
     {
         private readonly UnityEngine.Camera _camera;
         private readonly MineCameraController _mineCamera;
+        private readonly BossLairConfig _config;
         private PixelPerfectCamera _pixelPerfect;
         private int _mineAssetsPPU;
         private bool _isInLair;
@@ -31,10 +33,12 @@ namespace Systems.MineSystem.BossLairSystem.Service
 
         public BossLairCameraService(
             UnityEngine.Camera camera,
-            MineCameraController mineCamera)
+            MineCameraController mineCamera,
+            BossLairConfig config)
         {
             _camera = camera;
             _mineCamera = mineCamera;
+            _config = config;
         }
 
         private PixelPerfectCamera PixelPerfect =>
@@ -65,15 +69,24 @@ namespace Systems.MineSystem.BossLairSystem.Service
         }
 
         /// <summary>
-        /// True when the arena is larger than the visible window in both axes, so
-        /// the Cinemachine confiner has room to work. A confiner shrinks its
-        /// bounding shape by the camera half-window, so a shape smaller than the
-        /// window collapses and silently pins the camera, stopping player follow.
+        /// True when the arena is larger than the visible window in both axes. A
+        /// confiner shrinks its bounding shape by the camera half-window, so a
+        /// shape smaller than the window on an axis collapses there; the shared
+        /// camera's Oversize Window setting rescues that case with real panning
+        /// on whichever axis still has room, only falling back to a fixed centred
+        /// point if both axes are undersized at once. This check is now purely a
+        /// diagnostic (see <c>BossLairBuildService.WarnIfArenaIsSmallerThanFrame</c>),
+        /// not a gate on whether the camera follows. Compares against the padded
+        /// confiner box (<see cref="BossLairConfig.CameraBoundsPaddingInCells"/>),
+        /// matching the box Cinemachine actually uses.
         /// </summary>
         public bool CanConfine(BossLairPlacement placement, int assetsPPU)
         {
             var window = ResolveWorldWindow(assetsPPU);
-            var size = placement.InteriorWorldSize;
+            placement.GetPaddedWorldBounds(
+                _config.CameraBoundsPaddingInCells,
+                _config.CameraBoundsBottomPaddingInCells,
+                out _, out var size);
             return size.x > window.x && size.y > window.y;
         }
 
@@ -94,29 +107,25 @@ namespace Systems.MineSystem.BossLairSystem.Service
                 _isInLair = true;
             }
 
-            // The confiner must be off while its shape is swapped, then re-enabled
-            // only if the arena is big enough to confine within.
+            // The confiner must be off while its shape is swapped, then
+            // re-enabled once the new shape is in place.
             _mineCamera.ClearFollowTarget();
             _mineCamera.SetFreeMovement(true);
             ApplyAssetsPPU(assetsPPU);
             _mineCamera.SetBoundingShape(view.cameraBoundaryCollider);
 
-            var centre = placement.InteriorWorldCenter;
+            placement.GetPaddedWorldBounds(
+                _config.CameraBoundsPaddingInCells,
+                _config.CameraBoundsBottomPaddingInCells,
+                out var centre, out _);
             _mineCamera.SetPosition(
                 new Vector3(centre.x, centre.y, _mineCamera.Position.z));
 
-            if (CanConfine(placement, assetsPPU) && followTarget != null)
-            {
-                _mineCamera.SetFreeMovement(false);
-                _mineCamera.SetFollowTarget(followTarget);
-                return;
-            }
+            if (followTarget == null)
+                return; // Nothing to follow; stay parked at the arena centre.
 
-            // Arena fits on screen: hold a fixed shot on its centre rather than
-            // letting a degenerate confiner fight the follow target. The mine is
-            // kept out of frame by the placement gap instead.
-            _mineCamera.SetFreeMovement(true);
-            _mineCamera.ClearFollowTarget();
+            _mineCamera.SetFreeMovement(false);
+            _mineCamera.SetFollowTarget(followTarget);
         }
 
         public void ExitLair(Transform mineFollowTarget)

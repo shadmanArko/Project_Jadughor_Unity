@@ -33,7 +33,7 @@ MonoBehaviour:
   relocateWhenStuck: 0
   relocationOutsideCameraMarginInTiles: 0
   bossVariant: 0
-  animationProfile: {fileID: 0}
+  animationProfile: {fileID: 11400000, guid: 640eaef6e0b79b3488551fff608947b8, type: 2}
   bossColor: {r: 1, g: 1, b: 1, a: 1}
   aggroDistance: 4
   positionTolerance: 0.05

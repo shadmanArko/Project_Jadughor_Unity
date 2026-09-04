@@ -13,29 +13,33 @@ using Systems.MineSystem.EnemySystem.Model;
 using Systems.MineSystem.Mine.Model;
 using Systems.MineSystem.PauseSystem.Signal;
 using Systems.Utilities.EventBus;
+using UniRx;
 using UnityEngine;
 
 namespace Systems.MineSystem.EnemySystem.Mob.HedgehogBoss.Controller
 {
     /// <summary>
-    /// Minimal hedgehog boss controller: enough to be placed in its lair and
-    /// driven by a cutscene (<see cref="IActor"/>). No AI, health or attacks —
-    /// those land with the boss's own behaviour pass; this pass exists so the
-    /// boss can move and animate during the lair-entry cutscene.
+    /// Minimal hedgehog boss controller: enough to be placed in its lair,
+    /// driven by a cutscene (<see cref="IActor"/>), and take damage as a
+    /// boss the player can hit. No AI or attacks — those land with the
+    /// boss's own behaviour pass; this pass exists so the boss can move and
+    /// animate during the lair-entry cutscene and be a valid damage target.
     /// </summary>
     public sealed class HedgehogBossController : IEnemyController, IActor
     {
         private readonly HedgehogBossView _view;
         private readonly ActorMovementTweenRunner _movement = new();
         private readonly HedgehogBossPauseStateData _pauseState = new();
+        private CompositeDisposable _subscriptions;
         private HedgehogBossConfigScriptable _config;
+        private int _currentHealth;
         private bool _isAffectedByPause = true;
         private bool _disposed;
 
         public Guid EnemyId { get; private set; }
         public EnemyType EnemyType => EnemyType.Boss;
         public bool IsActive { get; private set; }
-        public bool IsDead => false;
+        public bool IsDead => _currentHealth <= 0;
         public GridPosition CurrentGridPosition { get; private set; }
         public Vector2 Position => _view.Body.position;
 
@@ -77,13 +81,28 @@ namespace Systems.MineSystem.EnemySystem.Mob.HedgehogBoss.Controller
 
             _config = config;
             EnemyId = Guid.NewGuid();
+            _currentHealth = config.MaxHealth;
             CurrentGridPosition = initializeData.SpawnGridPosition;
+            _subscriptions = new CompositeDisposable();
             _view.ResetRuntime();
             _view.Teleport(initializeData.SpawnWorldPosition);
             _view.ApplyConfig(config);
+            _view.DamageRequested
+                .Subscribe(OnDamageRequested)
+                .AddTo(_subscriptions);
             ClearAnimation();
             IsActive = true;
+            _view.SetDamageEnabled(true);
             GlobalEventBus.Fire(new PausableRegisteredSignal(this));
+        }
+
+        private void OnDamageRequested(float amount)
+        {
+            if (!IsActive || IsDead)
+                return;
+            _currentHealth = Mathf.Max(0, _currentHealth - Mathf.CeilToInt(amount));
+            // Hurt reaction, death animation and despawn land with the boss's
+            // combat pass — this pass only needs damage to register.
         }
 
         public void OnFixedTick(EnemyTickContext tickContext)
@@ -131,7 +150,9 @@ namespace Systems.MineSystem.EnemySystem.Mob.HedgehogBoss.Controller
             _pauseState.HasSnapshot = true;
             _pauseState.AnimatorSpeed = _view.AnimatorSpeed;
             _pauseState.MovementWasPlaying = _movement.Pause();
+            _pauseState.DamageWasEnabled = _view.DamageEnabled;
             _view.SetAnimatorSpeed(0f);
+            _view.SetDamageEnabled(false);
         }
 
         public void OnUnpause()
@@ -140,6 +161,7 @@ namespace Systems.MineSystem.EnemySystem.Mob.HedgehogBoss.Controller
                 return;
             _view.SetAnimatorSpeed(_pauseState.AnimatorSpeed);
             _movement.Resume(_pauseState.MovementWasPlaying);
+            _view.SetDamageEnabled(_pauseState.DamageWasEnabled);
             _pauseState.Clear();
         }
 
@@ -150,6 +172,8 @@ namespace Systems.MineSystem.EnemySystem.Mob.HedgehogBoss.Controller
             GlobalEventBus.Fire(new PausableUnregisteredSignal(this));
             IsActive = false;
             _movement.Dispose();
+            _subscriptions?.Dispose();
+            _subscriptions = null;
             _pauseState.Clear();
             _view.ResetRuntime();
         }

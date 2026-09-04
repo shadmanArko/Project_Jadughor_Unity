@@ -143,5 +143,6 @@ MonoBehaviour:
   Damping: 0
   SlowingDistance: 0
   OversizeWindow:
-    Enabled: 0
+    Enabled: 1
     MaxWindowSize: 0
+    Padding: 0

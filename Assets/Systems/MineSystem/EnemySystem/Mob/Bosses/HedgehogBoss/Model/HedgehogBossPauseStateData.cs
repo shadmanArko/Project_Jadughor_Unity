@@ -5,12 +5,14 @@ namespace Systems.MineSystem.EnemySystem.Mob.HedgehogBoss.Model
         public bool HasSnapshot;
         public bool MovementWasPlaying;
         public float AnimatorSpeed;
+        public bool DamageWasEnabled;
 
         public void Clear()
         {
             HasSnapshot = false;
             MovementWasPlaying = false;
             AnimatorSpeed = 1f;
+            DamageWasEnabled = false;
         }
     }
 }
