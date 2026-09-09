@@ -30,6 +30,34 @@ MonoBehaviour:
       ObjectSize: Medium
     Icon: {fileID: 21300000, guid: eeb42330c58869040915f8658ab70cb8, type: 3}
     IsometricSprite: {fileID: 21300000, guid: 5a7ac1ccb4c2fc14f9e7b8919a064a6c, type: 3}
+    ConditionIcons:
+    - Condition: 0
+      Rarity: 0
+      Icon: {fileID: 21300000, guid: 01755b63586845949b623d936ceab1e8, type: 3}
+    - Condition: 0
+      Rarity: 1
+      Icon: {fileID: 21300000, guid: 5b663ea39981e3140bfa722af9f3bc2f, type: 3}
+    - Condition: 0
+      Rarity: 2
+      Icon: {fileID: 21300000, guid: 8040acdd89591e94a938bfb02d0fc32b, type: 3}
+    - Condition: 1
+      Rarity: 0
+      Icon: {fileID: 21300000, guid: cbc612de3717184418d7b7e0e2ea0675, type: 3}
+    - Condition: 1
+      Rarity: 1
+      Icon: {fileID: 21300000, guid: bbe1f3d9c0e96804280cc08447cab76b, type: 3}
+    - Condition: 1
+      Rarity: 2
+      Icon: {fileID: 21300000, guid: 7470a397ba0ccf94598c0e8d26fef432, type: 3}
+    - Condition: 2
+      Rarity: 0
+      Icon: {fileID: 21300000, guid: c59849c90bb5289498225de54347a642, type: 3}
+    - Condition: 2
+      Rarity: 1
+      Icon: {fileID: 21300000, guid: 569ea8128dd88084eaa7910317e39c8f, type: 3}
+    - Condition: 2
+      Rarity: 2
+      Icon: {fileID: 21300000, guid: 23ef8583422c0d847b9ef034d54e2e03, type: 3}
   - Id: ClassicalNativeAmericanWoodenSword
     Descriptive:
       Id: ClassicalNativeAmericanWoodenSword
@@ -46,6 +74,34 @@ MonoBehaviour:
       ObjectSize: Medium
     Icon: {fileID: 21300000, guid: 8e2aec6ed17a3a8458ac5acb2b13252b, type: 3}
     IsometricSprite: {fileID: 21300000, guid: 2adcebfe494784b42901da9a3d95089b, type: 3}
+    ConditionIcons:
+    - Condition: 0
+      Rarity: 0
+      Icon: {fileID: 21300000, guid: f0819aba08fd1dd4f850374d662949ba, type: 3}
+    - Condition: 0
+      Rarity: 1
+      Icon: {fileID: 21300000, guid: bcfdf5971f889034084e4d3a8b86239c, type: 3}
+    - Condition: 0
+      Rarity: 2
+      Icon: {fileID: 21300000, guid: 55a2bb371ced402468f1ce4ac55f0f8d, type: 3}
+    - Condition: 1
+      Rarity: 0
+      Icon: {fileID: 21300000, guid: 40c3334227274854f8bc48aa77f1aba6, type: 3}
+    - Condition: 1
+      Rarity: 1
+      Icon: {fileID: 21300000, guid: ad9582a190be242478f56dff11824500, type: 3}
+    - Condition: 1
+      Rarity: 2
+      Icon: {fileID: 21300000, guid: eb45b59999c2290418bd1d3162da82fa, type: 3}
+    - Condition: 2
+      Rarity: 0
+      Icon: {fileID: 21300000, guid: 079ce5cc71f48f44f8435f40b63f828c, type: 3}
+    - Condition: 2
+      Rarity: 1
+      Icon: {fileID: 21300000, guid: 0ce85def6aa54c144864229f4b454b50, type: 3}
+    - Condition: 2
+      Rarity: 2
+      Icon: {fileID: 21300000, guid: 00c1fdd37a8abef4dba25bfeba416645, type: 3}
   - Id: ClassicalNativeAmericanTomahawk
     Descriptive:
       Id: ClassicalNativeAmericanTomahawk
@@ -64,6 +120,34 @@ MonoBehaviour:
       ObjectSize: Medium
     Icon: {fileID: 21300000, guid: be6cdc82c6ca1054eab05d47d1171239, type: 3}
     IsometricSprite: {fileID: 21300000, guid: 181b28a39641dc3459026ebc9a0a0fe6, type: 3}
+    ConditionIcons:
+    - Condition: 0
+      Rarity: 0
+      Icon: {fileID: 0}
+    - Condition: 0
+      Rarity: 1
+      Icon: {fileID: 0}
+    - Condition: 0
+      Rarity: 2
+      Icon: {fileID: 0}
+    - Condition: 1
+      Rarity: 0
+      Icon: {fileID: 0}
+    - Condition: 1
+      Rarity: 1
+      Icon: {fileID: 0}
+    - Condition: 1
+      Rarity: 2
+      Icon: {fileID: 0}
+    - Condition: 2
+      Rarity: 0
+      Icon: {fileID: 0}
+    - Condition: 2
+      Rarity: 1
+      Icon: {fileID: 0}
+    - Condition: 2
+      Rarity: 2
+      Icon: {fileID: 0}
   - Id: MedievalNativeAmericanTomahawk
     Descriptive:
       Id: MedievalNativeAmericanTomahawk
@@ -82,6 +166,34 @@ MonoBehaviour:
       ObjectSize: Medium
     Icon: {fileID: 21300000, guid: 48e48717778a9374f98f1775280ea2c8, type: 3}
     IsometricSprite: {fileID: 21300000, guid: cc915ceba8c33c842b50947fbb51a75f, type: 3}
+    ConditionIcons:
+    - Condition: 0
+      Rarity: 0
+      Icon: {fileID: 21300000, guid: 4b25f3f14bb9857449c225bf48d8f0ac, type: 3}
+    - Condition: 0
+      Rarity: 1
+      Icon: {fileID: 21300000, guid: be9b2a6752121ee40bcc4ab7ed1a7b79, type: 3}
+    - Condition: 0
+      Rarity: 2
+      Icon: {fileID: 21300000, guid: a19fe6050416a784abb31934de169a36, type: 3}
+    - Condition: 1
+      Rarity: 0
+      Icon: {fileID: 21300000, guid: 3dbb9f4ecc2de1a4ba85c786c8fd0548, type: 3}
+    - Condition: 1
+      Rarity: 1
+      Icon: {fileID: 21300000, guid: b0b4fea2b666b7f4792c8eabc156ab68, type: 3}
+    - Condition: 1
+      Rarity: 2
+      Icon: {fileID: 21300000, guid: 6a41218f7ac800f449905cf0ee7489dd, type: 3}
+    - Condition: 2
+      Rarity: 0
+      Icon: {fileID: 21300000, guid: d6018504c23b4c04fa8eb4fe67e9d289, type: 3}
+    - Condition: 2
+      Rarity: 1
+      Icon: {fileID: 21300000, guid: 1bc84a4b72f05824496bc20ba9b97ca9, type: 3}
+    - Condition: 2
+      Rarity: 2
+      Icon: {fileID: 21300000, guid: e2a16dca0ea093d4ea0b9f6c2ea3544b, type: 3}
   - Id: RenaissanceNativeAmericanTomahawk
     Descriptive:
       Id: RenaissanceNativeAmericanTomahawk
@@ -100,6 +212,34 @@ MonoBehaviour:
       ObjectSize: Medium
     Icon: {fileID: 21300000, guid: 48e48717778a9374f98f1775280ea2c8, type: 3}
     IsometricSprite: {fileID: 21300000, guid: cc915ceba8c33c842b50947fbb51a75f, type: 3}
+    ConditionIcons:
+    - Condition: 0
+      Rarity: 0
+      Icon: {fileID: 21300000, guid: 4b25f3f14bb9857449c225bf48d8f0ac, type: 3}
+    - Condition: 0
+      Rarity: 1
+      Icon: {fileID: 21300000, guid: be9b2a6752121ee40bcc4ab7ed1a7b79, type: 3}
+    - Condition: 0
+      Rarity: 2
+      Icon: {fileID: 21300000, guid: a19fe6050416a784abb31934de169a36, type: 3}
+    - Condition: 1
+      Rarity: 0
+      Icon: {fileID: 21300000, guid: 3dbb9f4ecc2de1a4ba85c786c8fd0548, type: 3}
+    - Condition: 1
+      Rarity: 1
+      Icon: {fileID: 21300000, guid: b0b4fea2b666b7f4792c8eabc156ab68, type: 3}
+    - Condition: 1
+      Rarity: 2
+      Icon: {fileID: 21300000, guid: 6a41218f7ac800f449905cf0ee7489dd, type: 3}
+    - Condition: 2
+      Rarity: 0
+      Icon: {fileID: 21300000, guid: d6018504c23b4c04fa8eb4fe67e9d289, type: 3}
+    - Condition: 2
+      Rarity: 1
+      Icon: {fileID: 21300000, guid: 1bc84a4b72f05824496bc20ba9b97ca9, type: 3}
+    - Condition: 2
+      Rarity: 2
+      Icon: {fileID: 21300000, guid: e2a16dca0ea093d4ea0b9f6c2ea3544b, type: 3}
   - Id: RenaissanceAmericanCutlass
     Descriptive:
       Id: RenaissanceAmericanCutlass
@@ -117,6 +257,34 @@ MonoBehaviour:
       ObjectSize: Medium
     Icon: {fileID: 21300000, guid: fe955ffa261481348b92e22179461445, type: 3}
     IsometricSprite: {fileID: 21300000, guid: 83662d908dc1fc847b9bb632138e354c, type: 3}
+    ConditionIcons:
+    - Condition: 0
+      Rarity: 0
+      Icon: {fileID: 21300000, guid: b59d189acab7e014084c76ac3539fa3a, type: 3}
+    - Condition: 0
+      Rarity: 1
+      Icon: {fileID: 21300000, guid: 1d28e54d5bf4abe45aac2bb024901cd1, type: 3}
+    - Condition: 0
+      Rarity: 2
+      Icon: {fileID: 21300000, guid: 87144ceb61ed1ea48a2825a05d941147, type: 3}
+    - Condition: 1
+      Rarity: 0
+      Icon: {fileID: 21300000, guid: 2a6865d2d50e43f458f67e0eb6f231dc, type: 3}
+    - Condition: 1
+      Rarity: 1
+      Icon: {fileID: 21300000, guid: 651c7c9e923d46843aeaaa42d52d6e60, type: 3}
+    - Condition: 1
+      Rarity: 2
+      Icon: {fileID: 21300000, guid: 7790a51c89b56474cbe8f7f2ff48bd7b, type: 3}
+    - Condition: 2
+      Rarity: 0
+      Icon: {fileID: 21300000, guid: 5422496243595df43a6f500d1686721d, type: 3}
+    - Condition: 2
+      Rarity: 1
+      Icon: {fileID: 21300000, guid: 489eb14aa1427e54eacd5fdaebc67500, type: 3}
+    - Condition: 2
+      Rarity: 2
+      Icon: {fileID: 21300000, guid: 0f38e20d0dbbe9a48b583933f7cf9661, type: 3}
   - Id: IndustrialAmericanMusket
     Descriptive:
       Id: IndustrialAmericanMusket
@@ -135,6 +303,34 @@ MonoBehaviour:
       ObjectSize: Large
     Icon: {fileID: 21300000, guid: d76df94864406f64188b46377a75da94, type: 3}
     IsometricSprite: {fileID: 21300000, guid: b667588da262f8846ad2c2599adac28a, type: 3}
+    ConditionIcons:
+    - Condition: 0
+      Rarity: 0
+      Icon: {fileID: 21300000, guid: f4fe423642bb07c4caeb32ecbeaef0c0, type: 3}
+    - Condition: 0
+      Rarity: 1
+      Icon: {fileID: 21300000, guid: 22d353f82d680dc4d8c1de31cbe8ad52, type: 3}
+    - Condition: 0
+      Rarity: 2
+      Icon: {fileID: 21300000, guid: 725e6810f643dcd41a559827d7e8914e, type: 3}
+    - Condition: 1
+      Rarity: 0
+      Icon: {fileID: 21300000, guid: b2c60b51ca985d840a77218878c64ba7, type: 3}
+    - Condition: 1
+      Rarity: 1
+      Icon: {fileID: 21300000, guid: c1620b0041bbc6849a361106ce3fee40, type: 3}
+    - Condition: 1
+      Rarity: 2
+      Icon: {fileID: 21300000, guid: 2ac1feaa76818374092446cc07088400, type: 3}
+    - Condition: 2
+      Rarity: 0
+      Icon: {fileID: 21300000, guid: 08413565a410e254fba21a7c3a32b687, type: 3}
+    - Condition: 2
+      Rarity: 1
+      Icon: {fileID: 21300000, guid: 29b95db0aaeea614ab8731540020531d, type: 3}
+    - Condition: 2
+      Rarity: 2
+      Icon: {fileID: 21300000, guid: c79961a80798a3740b8868301aeebf5b, type: 3}
   - Id: ModernAmericanRifle
     Descriptive:
       Id: ModernAmericanRifle
@@ -152,6 +348,34 @@ MonoBehaviour:
       ObjectSize: Large
     Icon: {fileID: 21300000, guid: 51bbcc50530c916418141225848a3ef6, type: 3}
     IsometricSprite: {fileID: 21300000, guid: 5916f11ded98c4642a2fe14e58281eab, type: 3}
+    ConditionIcons:
+    - Condition: 0
+      Rarity: 0
+      Icon: {fileID: 0}
+    - Condition: 0
+      Rarity: 1
+      Icon: {fileID: 0}
+    - Condition: 0
+      Rarity: 2
+      Icon: {fileID: 0}
+    - Condition: 1
+      Rarity: 0
+      Icon: {fileID: 0}
+    - Condition: 1
+      Rarity: 1
+      Icon: {fileID: 0}
+    - Condition: 1
+      Rarity: 2
+      Icon: {fileID: 0}
+    - Condition: 2
+      Rarity: 0
+      Icon: {fileID: 0}
+    - Condition: 2
+      Rarity: 1
+      Icon: {fileID: 0}
+    - Condition: 2
+      Rarity: 2
+      Icon: {fileID: 0}
   - Id: ClassicalNativeAmericanWarShield
     Descriptive:
       Id: ClassicalNativeAmericanWarShield
@@ -170,6 +394,34 @@ MonoBehaviour:
       ObjectSize: Medium
     Icon: {fileID: 21300000, guid: 4706765206bc1e843a3dc648e1ffb9fc, type: 3}
     IsometricSprite: {fileID: 21300000, guid: eac1fc6a1aa3cf24b9f9e4aeff35fa0b, type: 3}
+    ConditionIcons:
+    - Condition: 0
+      Rarity: 0
+      Icon: {fileID: 21300000, guid: 1e28fc32cb1c28643ac4014bad0105bc, type: 3}
+    - Condition: 0
+      Rarity: 1
+      Icon: {fileID: 21300000, guid: f6d127ec022ce404ba3676c00b54ee2f, type: 3}
+    - Condition: 0
+      Rarity: 2
+      Icon: {fileID: 21300000, guid: 49920a93e582b134ba6fa9131450d570, type: 3}
+    - Condition: 1
+      Rarity: 0
+      Icon: {fileID: 21300000, guid: 1b48d31c28c3eb748a15d186e2880ad4, type: 3}
+    - Condition: 1
+      Rarity: 1
+      Icon: {fileID: 21300000, guid: 487c72b16811e4047866f70aba156c3f, type: 3}
+    - Condition: 1
+      Rarity: 2
+      Icon: {fileID: 21300000, guid: 54d6cde74c54d5a48a29a23abe3e08f4, type: 3}
+    - Condition: 2
+      Rarity: 0
+      Icon: {fileID: 21300000, guid: 25e4e6ebd6f8f5b43874038a3dfa733c, type: 3}
+    - Condition: 2
+      Rarity: 1
+      Icon: {fileID: 21300000, guid: 7a3f0671702908c4db38af80f0b796c5, type: 3}
+    - Condition: 2
+      Rarity: 2
+      Icon: {fileID: 21300000, guid: 9f60266c8554b3e489f58ccb7e3afe3a, type: 3}
   - Id: MedievalNativeAmericanWarShield
     Descriptive:
       Id: MedievalNativeAmericanWarShield
@@ -188,6 +440,34 @@ MonoBehaviour:
       ObjectSize: Medium
     Icon: {fileID: 21300000, guid: 8a41ad374db8bc44eacd50a2a2c2abc8, type: 3}
     IsometricSprite: {fileID: 21300000, guid: 280601efc416cdc47a6d865c4a666199, type: 3}
+    ConditionIcons:
+    - Condition: 0
+      Rarity: 0
+      Icon: {fileID: 21300000, guid: 25871f77767f6a6438a1eb3f036884f6, type: 3}
+    - Condition: 0
+      Rarity: 1
+      Icon: {fileID: 21300000, guid: 6a835ca4ca458a847ba3d75351c207bb, type: 3}
+    - Condition: 0
+      Rarity: 2
+      Icon: {fileID: 21300000, guid: 6eb534f29c29e7c4fa8774feba0e9ee9, type: 3}
+    - Condition: 1
+      Rarity: 0
+      Icon: {fileID: 21300000, guid: aa47dcd0dd1a88447afa68c631732193, type: 3}
+    - Condition: 1
+      Rarity: 1
+      Icon: {fileID: 21300000, guid: 6eab076089a6fca4ca8c734be97cd6c6, type: 3}
+    - Condition: 1
+      Rarity: 2
+      Icon: {fileID: 21300000, guid: c1abe24e77b66a44c812777d17cd240a, type: 3}
+    - Condition: 2
+      Rarity: 0
+      Icon: {fileID: 21300000, guid: 775864980d9c74149abb2c7195b0aa33, type: 3}
+    - Condition: 2
+      Rarity: 1
+      Icon: {fileID: 21300000, guid: bb1c3b849a4834a40bb6795c472438ad, type: 3}
+    - Condition: 2
+      Rarity: 2
+      Icon: {fileID: 21300000, guid: fd0e26f7cca01fb49b3640fe04cc0577, type: 3}
   - Id: AncientNativeAmericanBowl
     Descriptive:
       Id: AncientNativeAmericanBowl
@@ -204,6 +484,34 @@ MonoBehaviour:
       ObjectSize: Small
     Icon: {fileID: 21300000, guid: 19767177d9286d2438894c98b79470d5, type: 3}
     IsometricSprite: {fileID: 21300000, guid: a9a9796ffa4aa8b468eca08dd982db7e, type: 3}
+    ConditionIcons:
+    - Condition: 0
+      Rarity: 0
+      Icon: {fileID: 21300000, guid: 83c8eb9c0eb52374e9522e0ba78e0e98, type: 3}
+    - Condition: 0
+      Rarity: 1
+      Icon: {fileID: 21300000, guid: 0ffbd03d363961948979d891a5227bbe, type: 3}
+    - Condition: 0
+      Rarity: 2
+      Icon: {fileID: 21300000, guid: 154433c5747752e44886a5ab8b48ae66, type: 3}
+    - Condition: 1
+      Rarity: 0
+      Icon: {fileID: 21300000, guid: 9217384905443c040bc6b9036b6f70bf, type: 3}
+    - Condition: 1
+      Rarity: 1
+      Icon: {fileID: 21300000, guid: 85538e2c63041eb40aba9977dc67c3ec, type: 3}
+    - Condition: 1
+      Rarity: 2
+      Icon: {fileID: 21300000, guid: a7e19127759389746a2ac6f07cf94577, type: 3}
+    - Condition: 2
+      Rarity: 0
+      Icon: {fileID: 21300000, guid: 3190517ba3c3c0f40824a15f8f835a96, type: 3}
+    - Condition: 2
+      Rarity: 1
+      Icon: {fileID: 21300000, guid: 3e08fc3f6187125429426edc2d3e8cc2, type: 3}
+    - Condition: 2
+      Rarity: 2
+      Icon: {fileID: 21300000, guid: 8e06bd09852e85a4bad67c3f9db4a4de, type: 3}
   - Id: ClassicalNativeAmericanBowl
     Descriptive:
       Id: ClassicalNativeAmericanBowl
@@ -221,6 +529,34 @@ MonoBehaviour:
       ObjectSize: Small
     Icon: {fileID: 21300000, guid: 43d3f070f47ac0c45bd1cdfafa9ba172, type: 3}
     IsometricSprite: {fileID: 21300000, guid: fcd4b7fa04d39d44588b9877f3e42990, type: 3}
+    ConditionIcons:
+    - Condition: 0
+      Rarity: 0
+      Icon: {fileID: 21300000, guid: f1c0ee244b868a845ad41d89143f87d3, type: 3}
+    - Condition: 0
+      Rarity: 1
+      Icon: {fileID: 21300000, guid: d4e037a6569a77342bbd929903fd2585, type: 3}
+    - Condition: 0
+      Rarity: 2
+      Icon: {fileID: 21300000, guid: 85172c648e0fd0f4291afa3d7c1c07fc, type: 3}
+    - Condition: 1
+      Rarity: 0
+      Icon: {fileID: 21300000, guid: 5ad554c91592a4044bc51eabe9e58e42, type: 3}
+    - Condition: 1
+      Rarity: 1
+      Icon: {fileID: 21300000, guid: 457aa519e399c8744b195b952622a594, type: 3}
+    - Condition: 1
+      Rarity: 2
+      Icon: {fileID: 21300000, guid: 68958f0be5b60824ba7c72823a11130c, type: 3}
+    - Condition: 2
+      Rarity: 0
+      Icon: {fileID: 21300000, guid: 6d967871012266d459a8d0bc022b8e58, type: 3}
+    - Condition: 2
+      Rarity: 1
+      Icon: {fileID: 21300000, guid: fe121b38df278964094c3de47cbdeee9, type: 3}
+    - Condition: 2
+      Rarity: 2
+      Icon: {fileID: 21300000, guid: 6c15f381314802a47ba54955592da555, type: 3}
   - Id: MedievalNativeAmericanBowl
     Descriptive:
       Id: MedievalNativeAmericanBowl
@@ -238,6 +574,34 @@ MonoBehaviour:
       ObjectSize: Small
     Icon: {fileID: 21300000, guid: 60b1fa52c2d18444d9afa49ce77608fb, type: 3}
     IsometricSprite: {fileID: 21300000, guid: 42772b9b20411194a8eeb720ad4cd2c6, type: 3}
+    ConditionIcons:
+    - Condition: 0
+      Rarity: 0
+      Icon: {fileID: 21300000, guid: 112c985b9cc476f4f9613d38f76b98db, type: 3}
+    - Condition: 0
+      Rarity: 1
+      Icon: {fileID: 21300000, guid: 866d1d56d136d16419d406b839b06e63, type: 3}
+    - Condition: 0
+      Rarity: 2
+      Icon: {fileID: 21300000, guid: 3df70e724f2aa2546ae62fdc4c0bf85a, type: 3}
+    - Condition: 1
+      Rarity: 0
+      Icon: {fileID: 21300000, guid: 5f914a05b68f4a042aa9c800de1f33ca, type: 3}
+    - Condition: 1
+      Rarity: 1
+      Icon: {fileID: 21300000, guid: 8d1fe38a91ae0824d8f400753e54f89e, type: 3}
+    - Condition: 1
+      Rarity: 2
+      Icon: {fileID: 21300000, guid: a9dfe04128e90fa41b9503e0f0580372, type: 3}
+    - Condition: 2
+      Rarity: 0
+      Icon: {fileID: 21300000, guid: 236fe6311e52c6d49a1d3ebf25d9302f, type: 3}
+    - Condition: 2
+      Rarity: 1
+      Icon: {fileID: 21300000, guid: 5e7eacf36ebcf6944bf568b6d1e5f690, type: 3}
+    - Condition: 2
+      Rarity: 2
+      Icon: {fileID: 21300000, guid: b01cfaa912ea7724292137fa0c7fe624, type: 3}
   - Id: RenaissanceAmericanBowl
     Descriptive:
       Id: RenaissanceAmericanBowl
@@ -255,6 +619,34 @@ MonoBehaviour:
       ObjectSize: Small
     Icon: {fileID: 21300000, guid: 3d63a1e1009ac4947a7fbc31c9566271, type: 3}
     IsometricSprite: {fileID: 21300000, guid: 942b05326910d2443a3aff86e3edf074, type: 3}
+    ConditionIcons:
+    - Condition: 0
+      Rarity: 0
+      Icon: {fileID: 21300000, guid: 301bcf48c51b49746a683003e3878fe2, type: 3}
+    - Condition: 0
+      Rarity: 1
+      Icon: {fileID: 21300000, guid: 3bdfb0860d93239418b66005b5ffb543, type: 3}
+    - Condition: 0
+      Rarity: 2
+      Icon: {fileID: 21300000, guid: f0be211cc9216fb4ab4dcbcef80ee338, type: 3}
+    - Condition: 1
+      Rarity: 0
+      Icon: {fileID: 21300000, guid: 880270324a3f42447941195cf10f1252, type: 3}
+    - Condition: 1
+      Rarity: 1
+      Icon: {fileID: 21300000, guid: 0a521ef185d91c74b952a88e8cfe1b3e, type: 3}
+    - Condition: 1
+      Rarity: 2
+      Icon: {fileID: 21300000, guid: 86ec1aaa749d2e54eb6f719b6956dacb, type: 3}
+    - Condition: 2
+      Rarity: 0
+      Icon: {fileID: 21300000, guid: 983152517e014a341baafcdb0d50aa60, type: 3}
+    - Condition: 2
+      Rarity: 1
+      Icon: {fileID: 21300000, guid: bc4657bbaea1cce48abb820ad583999f, type: 3}
+    - Condition: 2
+      Rarity: 2
+      Icon: {fileID: 21300000, guid: 1429390633f97174ab7ea05e7becaf4c, type: 3}
   - Id: MedievalNativeAmericanLeatherChestplate
     Descriptive:
       Id: MedievalNativeAmericanLeatherChestplate
@@ -271,6 +663,34 @@ MonoBehaviour:
       ObjectSize: Large
     Icon: {fileID: 21300000, guid: 4d2bb2c6033c4324da94a6241f5be8b0, type: 3}
     IsometricSprite: {fileID: 21300000, guid: 5851f42ff02145b4ba4db72b2c4e2b49, type: 3}
+    ConditionIcons:
+    - Condition: 0
+      Rarity: 0
+      Icon: {fileID: 21300000, guid: 5f7c9465cd989c844a8d28dad4601a98, type: 3}
+    - Condition: 0
+      Rarity: 1
+      Icon: {fileID: 21300000, guid: 90e59112e5cf6514589b43d16dddeb75, type: 3}
+    - Condition: 0
+      Rarity: 2
+      Icon: {fileID: 21300000, guid: 5016d80db4b221b4591da03d380102bb, type: 3}
+    - Condition: 1
+      Rarity: 0
+      Icon: {fileID: 21300000, guid: 6263e0cc92e47c24e84700f9db9bb7c7, type: 3}
+    - Condition: 1
+      Rarity: 1
+      Icon: {fileID: 21300000, guid: 66225be7d56178249971e957943c2716, type: 3}
+    - Condition: 1
+      Rarity: 2
+      Icon: {fileID: 21300000, guid: 887cac302f5dff543b836b9c585df24a, type: 3}
+    - Condition: 2
+      Rarity: 0
+      Icon: {fileID: 21300000, guid: 92f9f4a2933264441b3f700b27d2fd3e, type: 3}
+    - Condition: 2
+      Rarity: 1
+      Icon: {fileID: 21300000, guid: f4f891a5ac981824180de86a7ce510a0, type: 3}
+    - Condition: 2
+      Rarity: 2
+      Icon: {fileID: 21300000, guid: faf930f60d17e7f4dbbf70e2f0c6e73c, type: 3}
   - Id: RenaissanceAmericanIronChestplate
     Descriptive:
       Id: RenaissanceAmericanIronChestplate
@@ -288,6 +708,34 @@ MonoBehaviour:
       ObjectSize: Large
     Icon: {fileID: 21300000, guid: 39126b61f2a903f4c95c655eddef6986, type: 3}
     IsometricSprite: {fileID: 21300000, guid: 402cf2c5b44a2a243a25e447da050297, type: 3}
+    ConditionIcons:
+    - Condition: 0
+      Rarity: 0
+      Icon: {fileID: 21300000, guid: d0a2c8c5cb6e88f4fb640879e33ea75d, type: 3}
+    - Condition: 0
+      Rarity: 1
+      Icon: {fileID: 21300000, guid: 4ebcdb5e674a96541a6546a1cf56c1f6, type: 3}
+    - Condition: 0
+      Rarity: 2
+      Icon: {fileID: 21300000, guid: 0ed9fe94243da574fbadf1ffa995d5d8, type: 3}
+    - Condition: 1
+      Rarity: 0
+      Icon: {fileID: 21300000, guid: 0d26f21dd58d05f4aa033d2fd10a7117, type: 3}
+    - Condition: 1
+      Rarity: 1
+      Icon: {fileID: 21300000, guid: bb2e208b3ff8b5b418488dd80f6c6e45, type: 3}
+    - Condition: 1
+      Rarity: 2
+      Icon: {fileID: 21300000, guid: a2a2c4e4e4fc17e4e935453b5b034961, type: 3}
+    - Condition: 2
+      Rarity: 0
+      Icon: {fileID: 21300000, guid: 0edde4937214b464ab43de9100fbdd1c, type: 3}
+    - Condition: 2
+      Rarity: 1
+      Icon: {fileID: 21300000, guid: d48012d8e3d9e704790faad06534fd86, type: 3}
+    - Condition: 2
+      Rarity: 2
+      Icon: {fileID: 21300000, guid: 7b3e8b2f0e645504d8941cdd1a130603, type: 3}
   - Id: IndustrialAmericanInfantryGear
     Descriptive:
       Id: IndustrialAmericanInfantryGear
@@ -305,6 +753,34 @@ MonoBehaviour:
       ObjectSize: Large
     Icon: {fileID: 21300000, guid: bee2c5bc30624764ba3eee46365a81c3, type: 3}
     IsometricSprite: {fileID: 21300000, guid: 687368009ce13f4499d95e410ff2dec0, type: 3}
+    ConditionIcons:
+    - Condition: 0
+      Rarity: 0
+      Icon: {fileID: 21300000, guid: 4a436810eaca1b34296b09702dba1ee2, type: 3}
+    - Condition: 0
+      Rarity: 1
+      Icon: {fileID: 21300000, guid: 5f58400ba3dfabc4e80491e25c1ba7fa, type: 3}
+    - Condition: 0
+      Rarity: 2
+      Icon: {fileID: 21300000, guid: 985ef6d09cbc8f2409563e43d5770613, type: 3}
+    - Condition: 1
+      Rarity: 0
+      Icon: {fileID: 21300000, guid: 9a7e5b71f82872247a81342fc6a4480d, type: 3}
+    - Condition: 1
+      Rarity: 1
+      Icon: {fileID: 21300000, guid: 0cd0101048d2c6c4ca9d3f8995a191cd, type: 3}
+    - Condition: 1
+      Rarity: 2
+      Icon: {fileID: 21300000, guid: 242aa46ff5d81cd4ca0895b018a469f9, type: 3}
+    - Condition: 2
+      Rarity: 0
+      Icon: {fileID: 21300000, guid: 20e2739656a8b1d46aa5db4f01f6f963, type: 3}
+    - Condition: 2
+      Rarity: 1
+      Icon: {fileID: 21300000, guid: d8b4ba4fa8ad6a247970f920ad050664, type: 3}
+    - Condition: 2
+      Rarity: 2
+      Icon: {fileID: 21300000, guid: 4fe34a2a6eb81784b9261e23f0da3b47, type: 3}
   - Id: AncientNativeAmericanWampumBeadCurrency
     Descriptive:
       Id: AncientNativeAmericanWampumBeadCurrency
@@ -322,6 +798,34 @@ MonoBehaviour:
       ObjectSize: Tiny
     Icon: {fileID: 21300000, guid: a14f901e9c4f91d4f8864053c2cc7ac2, type: 3}
     IsometricSprite: {fileID: 21300000, guid: 46e923ca21b8c134d87888a57433b148, type: 3}
+    ConditionIcons:
+    - Condition: 0
+      Rarity: 0
+      Icon: {fileID: 0}
+    - Condition: 0
+      Rarity: 1
+      Icon: {fileID: 0}
+    - Condition: 0
+      Rarity: 2
+      Icon: {fileID: 0}
+    - Condition: 1
+      Rarity: 0
+      Icon: {fileID: 0}
+    - Condition: 1
+      Rarity: 1
+      Icon: {fileID: 0}
+    - Condition: 1
+      Rarity: 2
+      Icon: {fileID: 0}
+    - Condition: 2
+      Rarity: 0
+      Icon: {fileID: 0}
+    - Condition: 2
+      Rarity: 1
+      Icon: {fileID: 0}
+    - Condition: 2
+      Rarity: 2
+      Icon: {fileID: 0}
   - Id: ClassicalNativeAmericanShellCurrency
     Descriptive:
       Id: ClassicalNativeAmericanShellCurrency
@@ -339,6 +843,34 @@ MonoBehaviour:
       ObjectSize: Tiny
     Icon: {fileID: 21300000, guid: 8e19decec9854504b84829fe6beddbbe, type: 3}
     IsometricSprite: {fileID: 21300000, guid: eb7d8515accdb0843bcba0b9340bd230, type: 3}
+    ConditionIcons:
+    - Condition: 0
+      Rarity: 0
+      Icon: {fileID: 21300000, guid: 54d874934b5953345be554fc66b70ab9, type: 3}
+    - Condition: 0
+      Rarity: 1
+      Icon: {fileID: 21300000, guid: aa3e95f5bbcd8584f87a660412b13fd4, type: 3}
+    - Condition: 0
+      Rarity: 2
+      Icon: {fileID: 21300000, guid: f6263c81f09416b43ba70165dd235b19, type: 3}
+    - Condition: 1
+      Rarity: 0
+      Icon: {fileID: 21300000, guid: 8b736ce5b2c5dcb47b7dfc9a72c3f8e1, type: 3}
+    - Condition: 1
+      Rarity: 1
+      Icon: {fileID: 21300000, guid: 127a79d4786fe024d9a2e9ca4eb9bbd6, type: 3}
+    - Condition: 1
+      Rarity: 2
+      Icon: {fileID: 21300000, guid: da208d76f04aaa5419f907dfb25134b4, type: 3}
+    - Condition: 2
+      Rarity: 0
+      Icon: {fileID: 21300000, guid: bf87160ecafa5494781ebfbf2352fe16, type: 3}
+    - Condition: 2
+      Rarity: 1
+      Icon: {fileID: 21300000, guid: 686bbb671690c244d8b11a884b894e6a, type: 3}
+    - Condition: 2
+      Rarity: 2
+      Icon: {fileID: 21300000, guid: 878e89a5f6a841a4d8c04e318da3f248, type: 3}
   - Id: MedievalNativeAmericanWampumBeadCurrency
     Descriptive:
       Id: MedievalNativeAmericanWampumBeadCurrency
@@ -356,6 +888,34 @@ MonoBehaviour:
       ObjectSize: Tiny
     Icon: {fileID: 21300000, guid: 0446cc8882ceba340a061aac649236df, type: 3}
     IsometricSprite: {fileID: 21300000, guid: 8d763a586fcb9704593b44239cccb6ec, type: 3}
+    ConditionIcons:
+    - Condition: 0
+      Rarity: 0
+      Icon: {fileID: 0}
+    - Condition: 0
+      Rarity: 1
+      Icon: {fileID: 0}
+    - Condition: 0
+      Rarity: 2
+      Icon: {fileID: 0}
+    - Condition: 1
+      Rarity: 0
+      Icon: {fileID: 0}
+    - Condition: 1
+      Rarity: 1
+      Icon: {fileID: 0}
+    - Condition: 1
+      Rarity: 2
+      Icon: {fileID: 0}
+    - Condition: 2
+      Rarity: 0
+      Icon: {fileID: 0}
+    - Condition: 2
+      Rarity: 1
+      Icon: {fileID: 0}
+    - Condition: 2
+      Rarity: 2
+      Icon: {fileID: 0}
   - Id: AncientNativeAmericanVase
     Descriptive:
       Id: AncientNativeAmericanVase
@@ -372,6 +932,34 @@ MonoBehaviour:
       ObjectSize: Medium
     Icon: {fileID: 21300000, guid: ecd176689ffd36144a521aff71124983, type: 3}
     IsometricSprite: {fileID: 21300000, guid: 12d45e508ea3e3b4e8af727019fa175f, type: 3}
+    ConditionIcons:
+    - Condition: 0
+      Rarity: 0
+      Icon: {fileID: 21300000, guid: e9ece34741849de41a09db761062bc9c, type: 3}
+    - Condition: 0
+      Rarity: 1
+      Icon: {fileID: 21300000, guid: 06b4a8ef177b9554cb32538dbdc35989, type: 3}
+    - Condition: 0
+      Rarity: 2
+      Icon: {fileID: 21300000, guid: 064f038ecbbfa9449a4a8bed752ee7f8, type: 3}
+    - Condition: 1
+      Rarity: 0
+      Icon: {fileID: 21300000, guid: 9102e786a45f8554fb11a143ab185667, type: 3}
+    - Condition: 1
+      Rarity: 1
+      Icon: {fileID: 21300000, guid: 59419a0fcc16469478d06286d3ce43dc, type: 3}
+    - Condition: 1
+      Rarity: 2
+      Icon: {fileID: 21300000, guid: 69e454943fe4b8d4d924613096218b1f, type: 3}
+    - Condition: 2
+      Rarity: 0
+      Icon: {fileID: 21300000, guid: 0e13806be42ab534ea64b4d8d2956a79, type: 3}
+    - Condition: 2
+      Rarity: 1
+      Icon: {fileID: 21300000, guid: 349f253c0d640dc4e80f224638dbeaff, type: 3}
+    - Condition: 2
+      Rarity: 2
+      Icon: {fileID: 21300000, guid: e0f8cea6b761ac04ca2d915ba3ccf290, type: 3}
   - Id: MedievalNativeAmericanVase
     Descriptive:
       Id: MedievalNativeAmericanVase
@@ -388,6 +976,34 @@ MonoBehaviour:
       ObjectSize: Medium
     Icon: {fileID: 21300000, guid: d7b86a17745c5d341ab13f563a69668c, type: 3}
     IsometricSprite: {fileID: 21300000, guid: e6c19619b95612f4b810216309073094, type: 3}
+    ConditionIcons:
+    - Condition: 0
+      Rarity: 0
+      Icon: {fileID: 21300000, guid: 45323e3864856374e9ec32646b7336d8, type: 3}
+    - Condition: 0
+      Rarity: 1
+      Icon: {fileID: 21300000, guid: 19fbf26265478c64f80c20aece26856d, type: 3}
+    - Condition: 0
+      Rarity: 2
+      Icon: {fileID: 21300000, guid: cf3bbb10c6f205d459dc465cb5f41311, type: 3}
+    - Condition: 1
+      Rarity: 0
+      Icon: {fileID: 21300000, guid: 0ee4ff86fbff8be47a6748a66e5d5746, type: 3}
+    - Condition: 1
+      Rarity: 1
+      Icon: {fileID: 21300000, guid: 16ec8cd4d610422439434e8301249f42, type: 3}
+    - Condition: 1
+      Rarity: 2
+      Icon: {fileID: 21300000, guid: 1373190d7c626d544a1918c7b40f5068, type: 3}
+    - Condition: 2
+      Rarity: 0
+      Icon: {fileID: 21300000, guid: 669c17fe86ac2f04aa46dc13ca2c6cd1, type: 3}
+    - Condition: 2
+      Rarity: 1
+      Icon: {fileID: 21300000, guid: f3fbaa5aa9f9ecc4ca5b3848406d7eab, type: 3}
+    - Condition: 2
+      Rarity: 2
+      Icon: {fileID: 21300000, guid: aa4b473baab907c4fa84f7ef585f9929, type: 3}
   - Id: RenaissanceAmericanPorcelainVase
     Descriptive:
       Id: RenaissanceAmericanPorcelainVase
@@ -404,6 +1020,34 @@ MonoBehaviour:
       ObjectSize: Medium
     Icon: {fileID: 21300000, guid: 6f9b19e9500a10c40898ab777da0ead0, type: 3}
     IsometricSprite: {fileID: 21300000, guid: 5187d8188b7d9f94899746ef9ce679a5, type: 3}
+    ConditionIcons:
+    - Condition: 0
+      Rarity: 0
+      Icon: {fileID: 21300000, guid: aeea84c1af54cab4c845be62ca2253b8, type: 3}
+    - Condition: 0
+      Rarity: 1
+      Icon: {fileID: 21300000, guid: c4496017daabd9f46a239365f8a38c6d, type: 3}
+    - Condition: 0
+      Rarity: 2
+      Icon: {fileID: 21300000, guid: 6f09ee8a4f66568429b137c6136dbc69, type: 3}
+    - Condition: 1
+      Rarity: 0
+      Icon: {fileID: 21300000, guid: 11aab259fc950904489d8bfba557b3d4, type: 3}
+    - Condition: 1
+      Rarity: 1
+      Icon: {fileID: 21300000, guid: 108ba7f8f41e9474e81a6e3c5e785105, type: 3}
+    - Condition: 1
+      Rarity: 2
+      Icon: {fileID: 21300000, guid: 357492d0a0341c84f9e71a3641527c58, type: 3}
+    - Condition: 2
+      Rarity: 0
+      Icon: {fileID: 21300000, guid: 54b987cd6a95bfa4595b55b81e74e7ca, type: 3}
+    - Condition: 2
+      Rarity: 1
+      Icon: {fileID: 21300000, guid: b3d273505f97e534c8cc3ea69e1d900f, type: 3}
+    - Condition: 2
+      Rarity: 2
+      Icon: {fileID: 21300000, guid: 67dd945fb443645478ec58c758f1b91e, type: 3}
   - Id: IndustrialAmericanPorcelainVase
     Descriptive:
       Id: IndustrialAmericanPorcelainVase
@@ -420,6 +1064,34 @@ MonoBehaviour:
       ObjectSize: Medium
     Icon: {fileID: 0}
     IsometricSprite: {fileID: 0}
+    ConditionIcons:
+    - Condition: 0
+      Rarity: 0
+      Icon: {fileID: 0}
+    - Condition: 0
+      Rarity: 1
+      Icon: {fileID: 0}
+    - Condition: 0
+      Rarity: 2
+      Icon: {fileID: 0}
+    - Condition: 1
+      Rarity: 0
+      Icon: {fileID: 0}
+    - Condition: 1
+      Rarity: 1
+      Icon: {fileID: 0}
+    - Condition: 1
+      Rarity: 2
+      Icon: {fileID: 0}
+    - Condition: 2
+      Rarity: 0
+      Icon: {fileID: 0}
+    - Condition: 2
+      Rarity: 1
+      Icon: {fileID: 0}
+    - Condition: 2
+      Rarity: 2
+      Icon: {fileID: 0}
   - Id: IndustrialAmericanPlate
     Descriptive:
       Id: IndustrialAmericanPlate
@@ -435,6 +1107,34 @@ MonoBehaviour:
       ObjectSize: 
     Icon: {fileID: 0}
     IsometricSprite: {fileID: 21300000, guid: 456fdfce3697c744ab0268368a413d36, type: 3}
+    ConditionIcons:
+    - Condition: 0
+      Rarity: 0
+      Icon: {fileID: 21300000, guid: 2a45f65c9f8f2a24db5936d6e446caac, type: 3}
+    - Condition: 0
+      Rarity: 1
+      Icon: {fileID: 21300000, guid: 063663b23d2dc5943ab2121088f73738, type: 3}
+    - Condition: 0
+      Rarity: 2
+      Icon: {fileID: 21300000, guid: 95937a56f59b18043b9d43cdfba771c9, type: 3}
+    - Condition: 1
+      Rarity: 0
+      Icon: {fileID: 21300000, guid: 0c1597daf57d31345a155e5b563784f7, type: 3}
+    - Condition: 1
+      Rarity: 1
+      Icon: {fileID: 21300000, guid: 058212b41871d3a4a851b1b4e6d27e02, type: 3}
+    - Condition: 1
+      Rarity: 2
+      Icon: {fileID: 21300000, guid: d33083c12f30e094a825376ade7e6ee6, type: 3}
+    - Condition: 2
+      Rarity: 0
+      Icon: {fileID: 21300000, guid: 2377b9799df55c443baa7335bb98097e, type: 3}
+    - Condition: 2
+      Rarity: 1
+      Icon: {fileID: 21300000, guid: a302d6ef977fa9b4cac3076ef243ec1f, type: 3}
+    - Condition: 2
+      Rarity: 2
+      Icon: {fileID: 21300000, guid: d2f14002fa3e43240aa74c9c5e404284, type: 3}
   - Id: ModernAmericanPlate
     Descriptive:
       Id: ModernAmericanPlate
@@ -450,6 +1150,34 @@ MonoBehaviour:
       ObjectSize: 
     Icon: {fileID: 0}
     IsometricSprite: {fileID: 21300000, guid: 50503ed1ea530684c99020cee39f8869, type: 3}
+    ConditionIcons:
+    - Condition: 0
+      Rarity: 0
+      Icon: {fileID: 21300000, guid: d49cc948cdb2d0d4c81c1260517dc382, type: 3}
+    - Condition: 0
+      Rarity: 1
+      Icon: {fileID: 21300000, guid: 332bc75ac41157b4099d34ecde8d3a3c, type: 3}
+    - Condition: 0
+      Rarity: 2
+      Icon: {fileID: 21300000, guid: 9686814bd4a239b44af0fe8fc1ea72b9, type: 3}
+    - Condition: 1
+      Rarity: 0
+      Icon: {fileID: 21300000, guid: 13b69275e99705c409984d8fb78e93c4, type: 3}
+    - Condition: 1
+      Rarity: 1
+      Icon: {fileID: 21300000, guid: 3fc45580f7588ac449ba82ba053a01a9, type: 3}
+    - Condition: 1
+      Rarity: 2
+      Icon: {fileID: 21300000, guid: 8085c6aaf5d8ab344b3c3f80f7bdfa61, type: 3}
+    - Condition: 2
+      Rarity: 0
+      Icon: {fileID: 21300000, guid: 42c4fe80eb7ffcb41987556d7e2f2e1a, type: 3}
+    - Condition: 2
+      Rarity: 1
+      Icon: {fileID: 21300000, guid: b025a279244d1b3428f9593360540c97, type: 3}
+    - Condition: 2
+      Rarity: 2
+      Icon: {fileID: 21300000, guid: 99f18d56af76def468dc870f818b8bf9, type: 3}
   - Id: RenaissanceAmericanSilverCoin
     Descriptive:
       Id: RenaissanceAmericanSilverCoin
@@ -466,6 +1194,34 @@ MonoBehaviour:
       ObjectSize: Tiny
     Icon: {fileID: 21300000, guid: f8247c684795dc4449b895baf1265396, type: 3}
     IsometricSprite: {fileID: 21300000, guid: 285186e85d2a598429bae32a057a83d4, type: 3}
+    ConditionIcons:
+    - Condition: 0
+      Rarity: 0
+      Icon: {fileID: 21300000, guid: 157c4bc73c69abc4193dd28df22e3ce8, type: 3}
+    - Condition: 0
+      Rarity: 1
+      Icon: {fileID: 21300000, guid: a52318a33d133144bb30e1f4427cc78e, type: 3}
+    - Condition: 0
+      Rarity: 2
+      Icon: {fileID: 21300000, guid: c70860b78742b7a41963342086c603b6, type: 3}
+    - Condition: 1
+      Rarity: 0
+      Icon: {fileID: 21300000, guid: 0caccb858e1b3fa429a31e04201eb9d5, type: 3}
+    - Condition: 1
+      Rarity: 1
+      Icon: {fileID: 21300000, guid: df1ee8d881eb24b409a79abe6e8fd7ba, type: 3}
+    - Condition: 1
+      Rarity: 2
+      Icon: {fileID: 21300000, guid: ae523d0c1fb824c4abb1cdc34e694612, type: 3}
+    - Condition: 2
+      Rarity: 0
+      Icon: {fileID: 21300000, guid: f1c0380ea65b0444db83dfe4a55c86ba, type: 3}
+    - Condition: 2
+      Rarity: 1
+      Icon: {fileID: 21300000, guid: 25db6a35f346d80419b8065d72a8c80b, type: 3}
+    - Condition: 2
+      Rarity: 2
+      Icon: {fileID: 21300000, guid: 3579224d0d56fe740b79ff7c7ca20d8d, type: 3}
   - Id: IndustrialAmericanSilverCoin
     Descriptive:
       Id: IndustrialAmericanSilverCoin
@@ -481,6 +1237,34 @@ MonoBehaviour:
       ObjectSize: 
     Icon: {fileID: 0}
     IsometricSprite: {fileID: 0}
+    ConditionIcons:
+    - Condition: 0
+      Rarity: 0
+      Icon: {fileID: 21300000, guid: 3970b2bb18b34cf40aee08b9c55a3d5c, type: 3}
+    - Condition: 0
+      Rarity: 1
+      Icon: {fileID: 21300000, guid: b5167feaaae8b0948ae26b77474a6a63, type: 3}
+    - Condition: 0
+      Rarity: 2
+      Icon: {fileID: 21300000, guid: ebe2c95e2a4028b42b9e302a6c68ddb5, type: 3}
+    - Condition: 1
+      Rarity: 0
+      Icon: {fileID: 21300000, guid: 6ac75fcf46a71ce40b8435dffa58ca67, type: 3}
+    - Condition: 1
+      Rarity: 1
+      Icon: {fileID: 21300000, guid: 597920a79beee614ea254d8a4a4fb8c1, type: 3}
+    - Condition: 1
+      Rarity: 2
+      Icon: {fileID: 21300000, guid: 6f7066dc7fb67ad41b8ccf8db2398cd4, type: 3}
+    - Condition: 2
+      Rarity: 0
+      Icon: {fileID: 21300000, guid: cfd893e698a41ad4fa254ea514d141d0, type: 3}
+    - Condition: 2
+      Rarity: 1
+      Icon: {fileID: 21300000, guid: 75a8addaab5c66745908f03aaff366fe, type: 3}
+    - Condition: 2
+      Rarity: 2
+      Icon: {fileID: 21300000, guid: cf92d5a99886eae45bec094e7dccd3f9, type: 3}
   - Id: ClassicalNativeAmericanVase
     Descriptive:
       Id: ClassicalNativeAmericanVase
@@ -496,6 +1280,34 @@ MonoBehaviour:
       ObjectSize: 
     Icon: {fileID: 0}
     IsometricSprite: {fileID: 21300000, guid: 0a2acfc4748605247abf33ced0426edf, type: 3}
+    ConditionIcons:
+    - Condition: 0
+      Rarity: 0
+      Icon: {fileID: 21300000, guid: 48ba636b5c7989544b7aa301bcda5466, type: 3}
+    - Condition: 0
+      Rarity: 1
+      Icon: {fileID: 21300000, guid: 1b79d41ef9834a646af2b59b008d64bb, type: 3}
+    - Condition: 0
+      Rarity: 2
+      Icon: {fileID: 21300000, guid: 920802c25bdca994796ce5bb16cf3b5e, type: 3}
+    - Condition: 1
+      Rarity: 0
+      Icon: {fileID: 21300000, guid: 840f984153050354981160a299cc9860, type: 3}
+    - Condition: 1
+      Rarity: 1
+      Icon: {fileID: 21300000, guid: 80e2ccdfe3cafc148a410acf34eab532, type: 3}
+    - Condition: 1
+      Rarity: 2
+      Icon: {fileID: 21300000, guid: 232e906d26141444d83192c51216efd6, type: 3}
+    - Condition: 2
+      Rarity: 0
+      Icon: {fileID: 21300000, guid: d6207bf2d38182741bc0086256340c69, type: 3}
+    - Condition: 2
+      Rarity: 1
+      Icon: {fileID: 21300000, guid: f5cb0304d1f49b84081b66f3cb2fbd4e, type: 3}
+    - Condition: 2
+      Rarity: 2
+      Icon: {fileID: 21300000, guid: 48dfb2df38c00d1409a1f7e12bdba9ae, type: 3}
   - Id: MedievalNativeAmericanLeatherBoots
     Descriptive:
       Id: MedievalNativeAmericanLeatherBoots
@@ -512,6 +1324,34 @@ MonoBehaviour:
       ObjectSize: Small
     Icon: {fileID: 21300000, guid: 933b81cc9175a2c4ebc9b1e77fd46e11, type: 3}
     IsometricSprite: {fileID: 21300000, guid: 3579289c89cd01e4c91217771ab74787, type: 3}
+    ConditionIcons:
+    - Condition: 0
+      Rarity: 0
+      Icon: {fileID: 21300000, guid: 7637b854cd63bb8449499febad66a096, type: 3}
+    - Condition: 0
+      Rarity: 1
+      Icon: {fileID: 21300000, guid: a33c94cb2899c3647aa87c8f22696af2, type: 3}
+    - Condition: 0
+      Rarity: 2
+      Icon: {fileID: 21300000, guid: bca6b4bc2e1c5b34d8b5ed14b4070ba7, type: 3}
+    - Condition: 1
+      Rarity: 0
+      Icon: {fileID: 21300000, guid: 348527828337e6d49aeb2150121cbef0, type: 3}
+    - Condition: 1
+      Rarity: 1
+      Icon: {fileID: 21300000, guid: abbdb1bc1346825469caed27b206d95f, type: 3}
+    - Condition: 1
+      Rarity: 2
+      Icon: {fileID: 21300000, guid: e4512e6710c56844aaa567a6204879b5, type: 3}
+    - Condition: 2
+      Rarity: 0
+      Icon: {fileID: 21300000, guid: de26140a88a32944caf48269cd640376, type: 3}
+    - Condition: 2
+      Rarity: 1
+      Icon: {fileID: 21300000, guid: b675861f67ec0f54cb4d6222b63e684b, type: 3}
+    - Condition: 2
+      Rarity: 2
+      Icon: {fileID: 21300000, guid: 32ae6b05566eb1d4892fc274a5066d42, type: 3}
   - Id: IndustrialAmericanFurBoots
     Descriptive:
       Id: IndustrialAmericanFurBoots
@@ -528,6 +1368,34 @@ MonoBehaviour:
       ObjectSize: Small
     Icon: {fileID: 21300000, guid: defc0987cf0670c4fa17caefec6668a2, type: 3}
     IsometricSprite: {fileID: 21300000, guid: 2419275d1f1eb374b9f853b949f0f632, type: 3}
+    ConditionIcons:
+    - Condition: 0
+      Rarity: 0
+      Icon: {fileID: 21300000, guid: d7ec67f4615d893478e9bea40414e8cf, type: 3}
+    - Condition: 0
+      Rarity: 1
+      Icon: {fileID: 21300000, guid: f439446968b89a14daad3afcfe0c691c, type: 3}
+    - Condition: 0
+      Rarity: 2
+      Icon: {fileID: 21300000, guid: 9e04e877a1a9ac846b91126513ea3e51, type: 3}
+    - Condition: 1
+      Rarity: 0
+      Icon: {fileID: 21300000, guid: c498f24ed67e9a142bbf4ba800b093bf, type: 3}
+    - Condition: 1
+      Rarity: 1
+      Icon: {fileID: 21300000, guid: d4e25973edd938b41a402ccac128ece9, type: 3}
+    - Condition: 1
+      Rarity: 2
+      Icon: {fileID: 21300000, guid: f511fd420c45081459a49e947f994a04, type: 3}
+    - Condition: 2
+      Rarity: 0
+      Icon: {fileID: 21300000, guid: eb282f5d739b59a42ab2f31fe8f8002b, type: 3}
+    - Condition: 2
+      Rarity: 1
+      Icon: {fileID: 21300000, guid: a472b85250140bc43ac96ea4aede4a2b, type: 3}
+    - Condition: 2
+      Rarity: 2
+      Icon: {fileID: 21300000, guid: 3862fce1923e2094386b69059730259d, type: 3}
   - Id: ModernAmericanRubberBoots
     Descriptive:
       Id: ModernAmericanRubberBoots
@@ -544,6 +1412,34 @@ MonoBehaviour:
       ObjectSize: Small
     Icon: {fileID: 21300000, guid: 685a2eae8a6f48a419bde0a8ed3241d2, type: 3}
     IsometricSprite: {fileID: 21300000, guid: a62e96f9b123f314db9f2661f842eee1, type: 3}
+    ConditionIcons:
+    - Condition: 0
+      Rarity: 0
+      Icon: {fileID: 21300000, guid: ef1db7450315eba44bc70270b32c5531, type: 3}
+    - Condition: 0
+      Rarity: 1
+      Icon: {fileID: 21300000, guid: 6cc8a7f0bec24214bbc60345381b7f43, type: 3}
+    - Condition: 0
+      Rarity: 2
+      Icon: {fileID: 21300000, guid: 2d76158abcff8ab4aad46242515fe728, type: 3}
+    - Condition: 1
+      Rarity: 0
+      Icon: {fileID: 21300000, guid: f7051817c23e8ba489b92d0176786d07, type: 3}
+    - Condition: 1
+      Rarity: 1
+      Icon: {fileID: 21300000, guid: 85eff460177c63a4f987d78e746e769c, type: 3}
+    - Condition: 1
+      Rarity: 2
+      Icon: {fileID: 21300000, guid: 5ad49628372ae9b46bf86884bb6b921d, type: 3}
+    - Condition: 2
+      Rarity: 0
+      Icon: {fileID: 21300000, guid: c8f815bfd8e3cdd48a5350fe6ea13c5c, type: 3}
+    - Condition: 2
+      Rarity: 1
+      Icon: {fileID: 21300000, guid: 1044990f0c19a9d41a5fada7ca79260a, type: 3}
+    - Condition: 2
+      Rarity: 2
+      Icon: {fileID: 21300000, guid: f42078704ef6ef248b77149946f3c179, type: 3}
   - Id: MedievalNativeAmericanCanoe
     Descriptive:
       Id: MedievalNativeAmericanCanoe
@@ -559,6 +1455,34 @@ MonoBehaviour:
       ObjectSize: 
     Icon: {fileID: 0}
     IsometricSprite: {fileID: 21300000, guid: 580461705e837e24e862d6c8f6eed37f, type: 3}
+    ConditionIcons:
+    - Condition: 0
+      Rarity: 0
+      Icon: {fileID: 21300000, guid: cbe013d4179bcaf4e8c23954ad9f44a4, type: 3}
+    - Condition: 0
+      Rarity: 1
+      Icon: {fileID: 21300000, guid: 288acb647d287cf4cb8fc775eb2a58ec, type: 3}
+    - Condition: 0
+      Rarity: 2
+      Icon: {fileID: 21300000, guid: 1d2aa3bcfee950b44981707dbf602e5c, type: 3}
+    - Condition: 1
+      Rarity: 0
+      Icon: {fileID: 21300000, guid: b4509e6d3996748499d64ad9a561f5a0, type: 3}
+    - Condition: 1
+      Rarity: 1
+      Icon: {fileID: 21300000, guid: 7a6f49ad7c55325498ea7ee6b94093d4, type: 3}
+    - Condition: 1
+      Rarity: 2
+      Icon: {fileID: 21300000, guid: 06ef1b917a0aa6b4d9266588e74f5a20, type: 3}
+    - Condition: 2
+      Rarity: 0
+      Icon: {fileID: 21300000, guid: 7152289b2474b0a4c8ab0f4a40b49a23, type: 3}
+    - Condition: 2
+      Rarity: 1
+      Icon: {fileID: 21300000, guid: fb02ca95534a77e42a083d697996761b, type: 3}
+    - Condition: 2
+      Rarity: 2
+      Icon: {fileID: 21300000, guid: b694b2c83bb8dcb4fa3b5b4f9c936c39, type: 3}
   - Id: RenaissanceNativeAmericanCanoe
     Descriptive:
       Id: RenaissanceNativeAmericanCanoe
@@ -574,6 +1498,34 @@ MonoBehaviour:
       ObjectSize: 
     Icon: {fileID: 0}
     IsometricSprite: {fileID: 21300000, guid: 94821d2dd691e524fa21b7784b8dd3ce, type: 3}
+    ConditionIcons:
+    - Condition: 0
+      Rarity: 0
+      Icon: {fileID: 21300000, guid: 65d94d7d7f813174eac101db58ae32f5, type: 3}
+    - Condition: 0
+      Rarity: 1
+      Icon: {fileID: 21300000, guid: 433abf0c0fd05634e8f567ce8ac28752, type: 3}
+    - Condition: 0
+      Rarity: 2
+      Icon: {fileID: 21300000, guid: 3593b5782f8c84940a4e7315f4a721db, type: 3}
+    - Condition: 1
+      Rarity: 0
+      Icon: {fileID: 21300000, guid: d01cbc495588a4148ab3cfe6e5204fcd, type: 3}
+    - Condition: 1
+      Rarity: 1
+      Icon: {fileID: 21300000, guid: e23bc496d0633c74c91b13ff3ddd950e, type: 3}
+    - Condition: 1
+      Rarity: 2
+      Icon: {fileID: 21300000, guid: 839570e5c9d8f854e83cb661ad640fc2, type: 3}
+    - Condition: 2
+      Rarity: 0
+      Icon: {fileID: 21300000, guid: fac935fff970df44cb616d306b40cb4d, type: 3}
+    - Condition: 2
+      Rarity: 1
+      Icon: {fileID: 21300000, guid: 99dfe4d781e1b6944a6f5906b7814c21, type: 3}
+    - Condition: 2
+      Rarity: 2
+      Icon: {fileID: 21300000, guid: 50df9968a99fb3c4cb730879b5d67336, type: 3}
   - Id: AncientNativeAmericanBeadNecklace
     Descriptive:
       Id: AncientNativeAmericanBeadNecklace
@@ -589,6 +1541,34 @@ MonoBehaviour:
       ObjectSize: 
     Icon: {fileID: 0}
     IsometricSprite: {fileID: 0}
+    ConditionIcons:
+    - Condition: 0
+      Rarity: 0
+      Icon: {fileID: 0}
+    - Condition: 0
+      Rarity: 1
+      Icon: {fileID: 0}
+    - Condition: 0
+      Rarity: 2
+      Icon: {fileID: 0}
+    - Condition: 1
+      Rarity: 0
+      Icon: {fileID: 0}
+    - Condition: 1
+      Rarity: 1
+      Icon: {fileID: 0}
+    - Condition: 1
+      Rarity: 2
+      Icon: {fileID: 0}
+    - Condition: 2
+      Rarity: 0
+      Icon: {fileID: 0}
+    - Condition: 2
+      Rarity: 1
+      Icon: {fileID: 0}
+    - Condition: 2
+      Rarity: 2
+      Icon: {fileID: 0}
   - Id: AncientNativeAmericanShellNecklace
     Descriptive:
       Id: AncientNativeAmericanShellNecklace
@@ -604,6 +1584,34 @@ MonoBehaviour:
       ObjectSize: 
     Icon: {fileID: 0}
     IsometricSprite: {fileID: 0}
+    ConditionIcons:
+    - Condition: 0
+      Rarity: 0
+      Icon: {fileID: 0}
+    - Condition: 0
+      Rarity: 1
+      Icon: {fileID: 0}
+    - Condition: 0
+      Rarity: 2
+      Icon: {fileID: 0}
+    - Condition: 1
+      Rarity: 0
+      Icon: {fileID: 0}
+    - Condition: 1
+      Rarity: 1
+      Icon: {fileID: 0}
+    - Condition: 1
+      Rarity: 2
+      Icon: {fileID: 0}
+    - Condition: 2
+      Rarity: 0
+      Icon: {fileID: 0}
+    - Condition: 2
+      Rarity: 1
+      Icon: {fileID: 0}
+    - Condition: 2
+      Rarity: 2
+      Icon: {fileID: 0}
   - Id: ClassicalNativeAmericanBeadNecklace
     Descriptive:
       Id: ClassicalNativeAmericanBeadNecklace
@@ -620,6 +1628,34 @@ MonoBehaviour:
       ObjectSize: Small
     Icon: {fileID: 21300000, guid: 9adfa3410acd3114f81db527dc054c6f, type: 3}
     IsometricSprite: {fileID: 21300000, guid: 89143bbfa69a3c64b8f6a4c7133c9fa8, type: 3}
+    ConditionIcons:
+    - Condition: 0
+      Rarity: 0
+      Icon: {fileID: 0}
+    - Condition: 0
+      Rarity: 1
+      Icon: {fileID: 0}
+    - Condition: 0
+      Rarity: 2
+      Icon: {fileID: 0}
+    - Condition: 1
+      Rarity: 0
+      Icon: {fileID: 0}
+    - Condition: 1
+      Rarity: 1
+      Icon: {fileID: 0}
+    - Condition: 1
+      Rarity: 2
+      Icon: {fileID: 0}
+    - Condition: 2
+      Rarity: 0
+      Icon: {fileID: 0}
+    - Condition: 2
+      Rarity: 1
+      Icon: {fileID: 0}
+    - Condition: 2
+      Rarity: 2
+      Icon: {fileID: 0}
   - Id: ClassicalNativeAmericanShellNecklace
     Descriptive:
       Id: ClassicalNativeAmericanShellNecklace
@@ -636,6 +1672,34 @@ MonoBehaviour:
       ObjectSize: Small
     Icon: {fileID: 21300000, guid: 6fbeb58ebcd5f684b97f8320b864dfa5, type: 3}
     IsometricSprite: {fileID: 21300000, guid: 37fa3164879349648b1c6abf9af7fc82, type: 3}
+    ConditionIcons:
+    - Condition: 0
+      Rarity: 0
+      Icon: {fileID: 0}
+    - Condition: 0
+      Rarity: 1
+      Icon: {fileID: 0}
+    - Condition: 0
+      Rarity: 2
+      Icon: {fileID: 0}
+    - Condition: 1
+      Rarity: 0
+      Icon: {fileID: 0}
+    - Condition: 1
+      Rarity: 1
+      Icon: {fileID: 0}
+    - Condition: 1
+      Rarity: 2
+      Icon: {fileID: 0}
+    - Condition: 2
+      Rarity: 0
+      Icon: {fileID: 0}
+    - Condition: 2
+      Rarity: 1
+      Icon: {fileID: 0}
+    - Condition: 2
+      Rarity: 2
+      Icon: {fileID: 0}
   - Id: MedievalNativeAmericanGemNecklace
     Descriptive:
       Id: MedievalNativeAmericanGemNecklace
@@ -652,6 +1716,34 @@ MonoBehaviour:
       ObjectSize: Small
     Icon: {fileID: 21300000, guid: b59ada98ce7e92640a33e93bdf02cf83, type: 3}
     IsometricSprite: {fileID: 21300000, guid: 653e8f7fe19474544b22d6cb8ac27bb8, type: 3}
+    ConditionIcons:
+    - Condition: 0
+      Rarity: 0
+      Icon: {fileID: 21300000, guid: a7138b27204f3ef4abbba8615edd4236, type: 3}
+    - Condition: 0
+      Rarity: 1
+      Icon: {fileID: 21300000, guid: 042702330784bd64eac410a7347b8a8e, type: 3}
+    - Condition: 0
+      Rarity: 2
+      Icon: {fileID: 21300000, guid: 8596a380dab037542ad52e1d36b253f0, type: 3}
+    - Condition: 1
+      Rarity: 0
+      Icon: {fileID: 21300000, guid: 872c7a7fa6393534c9d5002d90ad11eb, type: 3}
+    - Condition: 1
+      Rarity: 1
+      Icon: {fileID: 21300000, guid: f02871fff257416448dfc8dcb8b2dd60, type: 3}
+    - Condition: 1
+      Rarity: 2
+      Icon: {fileID: 21300000, guid: 466ccc526dd17ac42b28ef40504cfd2f, type: 3}
+    - Condition: 2
+      Rarity: 0
+      Icon: {fileID: 21300000, guid: ff74cbf773d02df4e97a8d2eb96b2976, type: 3}
+    - Condition: 2
+      Rarity: 1
+      Icon: {fileID: 21300000, guid: bb106a0ef0baf7e4eb81d4b390ef02ed, type: 3}
+    - Condition: 2
+      Rarity: 2
+      Icon: {fileID: 21300000, guid: baef29cf5082ab84798e8a633ef8f363, type: 3}
   - Id: AncientNativeAmericanClayHumanFigurine
     Descriptive:
       Id: AncientNativeAmericanClayHumanFigurine
@@ -668,6 +1760,34 @@ MonoBehaviour:
       ObjectSize: Tiny
     Icon: {fileID: 21300000, guid: 718f1306268e03f4b8f99f44af53215d, type: 3}
     IsometricSprite: {fileID: 21300000, guid: ed885702c5ac5f94fa23868f2ecf9f58, type: 3}
+    ConditionIcons:
+    - Condition: 0
+      Rarity: 0
+      Icon: {fileID: 21300000, guid: c7b899e68abe69c4499450dbfca268f6, type: 3}
+    - Condition: 0
+      Rarity: 1
+      Icon: {fileID: 21300000, guid: 956efe13a3f622a419f27b94931b9ac8, type: 3}
+    - Condition: 0
+      Rarity: 2
+      Icon: {fileID: 21300000, guid: 2bdf55a899e19e54b82c7ba0d327b3a4, type: 3}
+    - Condition: 1
+      Rarity: 0
+      Icon: {fileID: 21300000, guid: 8677c65b9382fb14093b65ff170663c6, type: 3}
+    - Condition: 1
+      Rarity: 1
+      Icon: {fileID: 21300000, guid: 531cd0c5d80192641b72562b64e66ce2, type: 3}
+    - Condition: 1
+      Rarity: 2
+      Icon: {fileID: 21300000, guid: 85a42860b55a57745be21e8814d61218, type: 3}
+    - Condition: 2
+      Rarity: 0
+      Icon: {fileID: 21300000, guid: 4a3f3b2b29c8c6b4884bba1aa518493e, type: 3}
+    - Condition: 2
+      Rarity: 1
+      Icon: {fileID: 21300000, guid: 454080c84bd0d4f48bfb2c8f37d881db, type: 3}
+    - Condition: 2
+      Rarity: 2
+      Icon: {fileID: 21300000, guid: 8df95317d415fae479101f9b46149614, type: 3}
   - Id: ClassicalNativeAmericanClayHumamFigurine
     Descriptive:
       Id: ClassicalNativeAmericanClayHumamFigurine
@@ -683,6 +1803,34 @@ MonoBehaviour:
       ObjectSize: 
     Icon: {fileID: 0}
     IsometricSprite: {fileID: 0}
+    ConditionIcons:
+    - Condition: 0
+      Rarity: 0
+      Icon: {fileID: 21300000, guid: 65ecfacf147e2f44e94667fcb8acbfb8, type: 3}
+    - Condition: 0
+      Rarity: 1
+      Icon: {fileID: 21300000, guid: 4cc867dd65f706f4ba1aea89e363aa2c, type: 3}
+    - Condition: 0
+      Rarity: 2
+      Icon: {fileID: 21300000, guid: c27730658f5af6d418c176d8c43a244c, type: 3}
+    - Condition: 1
+      Rarity: 0
+      Icon: {fileID: 21300000, guid: ea49a56536c19d04697f9105ec63e19b, type: 3}
+    - Condition: 1
+      Rarity: 1
+      Icon: {fileID: 21300000, guid: c5cb7e4fdaf1feb43b5c733029110c68, type: 3}
+    - Condition: 1
+      Rarity: 2
+      Icon: {fileID: 21300000, guid: c31db6813fa217441a8c0c946329012e, type: 3}
+    - Condition: 2
+      Rarity: 0
+      Icon: {fileID: 21300000, guid: 9f489f968d99a21498a9695b41beae59, type: 3}
+    - Condition: 2
+      Rarity: 1
+      Icon: {fileID: 21300000, guid: 845ee456a9f03ae429a7e184e5b23cf6, type: 3}
+    - Condition: 2
+      Rarity: 2
+      Icon: {fileID: 21300000, guid: 9c39d07e6fe346b429b77b2426ff3b9e, type: 3}
   - Id: MedievalNativeAmericanClayPrisonerFigurine
     Descriptive:
       Id: MedievalNativeAmericanClayPrisonerFigurine
@@ -699,6 +1847,34 @@ MonoBehaviour:
       ObjectSize: Tiny
     Icon: {fileID: 21300000, guid: ae4862bc86ba10b418796a72483475c5, type: 3}
     IsometricSprite: {fileID: 21300000, guid: 440efa78040b1a94fb7300890eb57b49, type: 3}
+    ConditionIcons:
+    - Condition: 0
+      Rarity: 0
+      Icon: {fileID: 0}
+    - Condition: 0
+      Rarity: 1
+      Icon: {fileID: 0}
+    - Condition: 0
+      Rarity: 2
+      Icon: {fileID: 0}
+    - Condition: 1
+      Rarity: 0
+      Icon: {fileID: 0}
+    - Condition: 1
+      Rarity: 1
+      Icon: {fileID: 0}
+    - Condition: 1
+      Rarity: 2
+      Icon: {fileID: 0}
+    - Condition: 2
+      Rarity: 0
+      Icon: {fileID: 0}
+    - Condition: 2
+      Rarity: 1
+      Icon: {fileID: 0}
+    - Condition: 2
+      Rarity: 2
+      Icon: {fileID: 0}
   - Id: RenaissanceAmericanWoodenBoatToy
     Descriptive:
       Id: RenaissanceAmericanWoodenBoatToy
@@ -714,6 +1890,34 @@ MonoBehaviour:
       ObjectSize: 
     Icon: {fileID: 0}
     IsometricSprite: {fileID: 0}
+    ConditionIcons:
+    - Condition: 0
+      Rarity: 0
+      Icon: {fileID: 21300000, guid: feecc6cdc1df1c345ab9ea93f31215a7, type: 3}
+    - Condition: 0
+      Rarity: 1
+      Icon: {fileID: 21300000, guid: 6de85b26aac49be47972f7800ac09cbe, type: 3}
+    - Condition: 0
+      Rarity: 2
+      Icon: {fileID: 0}
+    - Condition: 1
+      Rarity: 0
+      Icon: {fileID: 21300000, guid: 830f37cb216eafc408df2a4022d5e623, type: 3}
+    - Condition: 1
+      Rarity: 1
+      Icon: {fileID: 21300000, guid: 016daba379a2d0142b6ad700446ebb6a, type: 3}
+    - Condition: 1
+      Rarity: 2
+      Icon: {fileID: 21300000, guid: 3296ac46e09d2784eb37b92d2aed11c8, type: 3}
+    - Condition: 2
+      Rarity: 0
+      Icon: {fileID: 21300000, guid: a8aa6336f41298a4db1f393c1b7e3bda, type: 3}
+    - Condition: 2
+      Rarity: 1
+      Icon: {fileID: 21300000, guid: 0207831956d6daf42b72e430a0dee77f, type: 3}
+    - Condition: 2
+      Rarity: 2
+      Icon: {fileID: 21300000, guid: 5b330b9606a5fc947a4f2fc4e4ea67e9, type: 3}
   - Id: IndustrialAmericanIronTrainToy
     Descriptive:
       Id: IndustrialAmericanIronTrainToy
@@ -729,6 +1933,34 @@ MonoBehaviour:
       ObjectSize: 
     Icon: {fileID: 0}
     IsometricSprite: {fileID: 21300000, guid: f929d4335c16c8c42975255d8a769657, type: 3}
+    ConditionIcons:
+    - Condition: 0
+      Rarity: 0
+      Icon: {fileID: 21300000, guid: 645b696961c833447908ee88bc1e9352, type: 3}
+    - Condition: 0
+      Rarity: 1
+      Icon: {fileID: 21300000, guid: dacd63d0e81709b4bbb173cc27f2fc6e, type: 3}
+    - Condition: 0
+      Rarity: 2
+      Icon: {fileID: 21300000, guid: 5ff551c671830304086a157f5fbdaa85, type: 3}
+    - Condition: 1
+      Rarity: 0
+      Icon: {fileID: 21300000, guid: f66aa46b302b80a4abf9407eae372831, type: 3}
+    - Condition: 1
+      Rarity: 1
+      Icon: {fileID: 21300000, guid: 2b08869fcebc51c4c8b52d471681ed80, type: 3}
+    - Condition: 1
+      Rarity: 2
+      Icon: {fileID: 21300000, guid: 77cfd6b194d29bc4c9870a7e8ae8e83e, type: 3}
+    - Condition: 2
+      Rarity: 0
+      Icon: {fileID: 21300000, guid: 210d0c823187a524ba239c14d265b199, type: 3}
+    - Condition: 2
+      Rarity: 1
+      Icon: {fileID: 21300000, guid: 0d94ea02c72d40d459c7b95e26347cd4, type: 3}
+    - Condition: 2
+      Rarity: 2
+      Icon: {fileID: 21300000, guid: a80930385915ad944a5807fa28a87307, type: 3}
   - Id: RenaissanceNativeAmericanHorseGear
     Descriptive:
       Id: RenaissanceNativeAmericanHorseGear
@@ -744,6 +1976,34 @@ MonoBehaviour:
       ObjectSize: 
     Icon: {fileID: 0}
     IsometricSprite: {fileID: 0}
+    ConditionIcons:
+    - Condition: 0
+      Rarity: 0
+      Icon: {fileID: 21300000, guid: ab416d7fbea2b3b49aaa40f1155135a4, type: 3}
+    - Condition: 0
+      Rarity: 1
+      Icon: {fileID: 21300000, guid: 0654c1c099b0e2947a6ee4fbbd031de5, type: 3}
+    - Condition: 0
+      Rarity: 2
+      Icon: {fileID: 21300000, guid: 2a3da569d04085a4bb1f2552553203f7, type: 3}
+    - Condition: 1
+      Rarity: 0
+      Icon: {fileID: 21300000, guid: fab33738a6ecfa548abeea51a6a6a991, type: 3}
+    - Condition: 1
+      Rarity: 1
+      Icon: {fileID: 21300000, guid: fee85baec597695468245ae903f0883b, type: 3}
+    - Condition: 1
+      Rarity: 2
+      Icon: {fileID: 21300000, guid: d2fed2e690ab7a348bcaeb0caa4ba1f0, type: 3}
+    - Condition: 2
+      Rarity: 0
+      Icon: {fileID: 21300000, guid: 82e003dfe102a2f4cafc0fc2180d87a0, type: 3}
+    - Condition: 2
+      Rarity: 1
+      Icon: {fileID: 21300000, guid: 29db2dcf7eabd5c409d5eb6d476f6fe1, type: 3}
+    - Condition: 2
+      Rarity: 2
+      Icon: {fileID: 21300000, guid: 3a73366e97876fd49a20bfd7a5afedd1, type: 3}
   - Id: RenaissanceAmericanHorseGear
     Descriptive:
       Id: RenaissanceAmericanHorseGear
@@ -759,6 +2019,34 @@ MonoBehaviour:
       ObjectSize: 
     Icon: {fileID: 0}
     IsometricSprite: {fileID: 21300000, guid: de0991bdd8e9ffe4180cd4d49187de7f, type: 3}
+    ConditionIcons:
+    - Condition: 0
+      Rarity: 0
+      Icon: {fileID: 21300000, guid: 612347932f79baf4c835f10caaffb21a, type: 3}
+    - Condition: 0
+      Rarity: 1
+      Icon: {fileID: 21300000, guid: 07ec45f1e699909438b7edc0075b26f9, type: 3}
+    - Condition: 0
+      Rarity: 2
+      Icon: {fileID: 21300000, guid: 1e9d8eadb5d7f7f4c8f888603a88e68b, type: 3}
+    - Condition: 1
+      Rarity: 0
+      Icon: {fileID: 21300000, guid: 835c5d38825810f47a62334bc485cc4c, type: 3}
+    - Condition: 1
+      Rarity: 1
+      Icon: {fileID: 21300000, guid: e1e8ee10983687348821b26afa781e5b, type: 3}
+    - Condition: 1
+      Rarity: 2
+      Icon: {fileID: 21300000, guid: 3eb399e842b37ea4aa8f5ab8233c4174, type: 3}
+    - Condition: 2
+      Rarity: 0
+      Icon: {fileID: 21300000, guid: b600b27ec3888d8489a57ec2879eeb02, type: 3}
+    - Condition: 2
+      Rarity: 1
+      Icon: {fileID: 21300000, guid: 0eef73611a6d4534f85b9844db2496bd, type: 3}
+    - Condition: 2
+      Rarity: 2
+      Icon: {fileID: 21300000, guid: ace79460da74b5447b70bc6a8a08ebdf, type: 3}
   - Id: MedievalNativeAmericanBoneArrowhead
     Descriptive:
       Id: MedievalNativeAmericanBoneArrowhead
@@ -774,6 +2062,34 @@ MonoBehaviour:
       ObjectSize: 
     Icon: {fileID: 0}
     IsometricSprite: {fileID: 21300000, guid: 790583b7534148142b573054297517eb, type: 3}
+    ConditionIcons:
+    - Condition: 0
+      Rarity: 0
+      Icon: {fileID: 21300000, guid: 4786819e92fcb0c41af3890c10c20f69, type: 3}
+    - Condition: 0
+      Rarity: 1
+      Icon: {fileID: 21300000, guid: 6efd499d8cb77ae4cafe89d560e680c0, type: 3}
+    - Condition: 0
+      Rarity: 2
+      Icon: {fileID: 21300000, guid: eb734bf7a5067af41a129c21070fffad, type: 3}
+    - Condition: 1
+      Rarity: 0
+      Icon: {fileID: 21300000, guid: 3295ddb3ef7946d4c9e2990065a6a0ad, type: 3}
+    - Condition: 1
+      Rarity: 1
+      Icon: {fileID: 21300000, guid: f18137632d172fb4db3d3c59b6c1c971, type: 3}
+    - Condition: 1
+      Rarity: 2
+      Icon: {fileID: 21300000, guid: e8c69796d8ef3f34fb71919befb9fa46, type: 3}
+    - Condition: 2
+      Rarity: 0
+      Icon: {fileID: 21300000, guid: 4ccc0a2740b5b7742b883fd1f5e92066, type: 3}
+    - Condition: 2
+      Rarity: 1
+      Icon: {fileID: 21300000, guid: 4c06a59c2d42a1e4b9d2218471a76129, type: 3}
+    - Condition: 2
+      Rarity: 2
+      Icon: {fileID: 21300000, guid: 9812e656c458e67498ced20f2596bd69, type: 3}
   - Id: IndustrialNativeAmericanSilverBeltBuckle
     Descriptive:
       Id: IndustrialNativeAmericanSilverBeltBuckle
@@ -789,6 +2105,34 @@ MonoBehaviour:
       ObjectSize: 
     Icon: {fileID: 0}
     IsometricSprite: {fileID: 0}
+    ConditionIcons:
+    - Condition: 0
+      Rarity: 0
+      Icon: {fileID: 21300000, guid: 6243c99188f43ff4ea3c3549c2f0e2b7, type: 3}
+    - Condition: 0
+      Rarity: 1
+      Icon: {fileID: 21300000, guid: 31db53650d9090643ad696f92d03cd55, type: 3}
+    - Condition: 0
+      Rarity: 2
+      Icon: {fileID: 21300000, guid: eb6edbd2ada7a354b8e29687e98fa04b, type: 3}
+    - Condition: 1
+      Rarity: 0
+      Icon: {fileID: 21300000, guid: e5a04223bf61b0546a08831c33ce701c, type: 3}
+    - Condition: 1
+      Rarity: 1
+      Icon: {fileID: 21300000, guid: fae1190c62f82b54bbc9fe8bf52c67ea, type: 3}
+    - Condition: 1
+      Rarity: 2
+      Icon: {fileID: 21300000, guid: 712fdb305a05f534681a47d516552a44, type: 3}
+    - Condition: 2
+      Rarity: 0
+      Icon: {fileID: 21300000, guid: 23b7ef97cb8b230499aaaac17b8de5df, type: 3}
+    - Condition: 2
+      Rarity: 1
+      Icon: {fileID: 21300000, guid: b2a7fd13061d3de4eb446e1312a94f17, type: 3}
+    - Condition: 2
+      Rarity: 2
+      Icon: {fileID: 21300000, guid: bbec594fb3d03c945bb1ce634eb648c6, type: 3}
   - Id: IndustrialAmericanGramophone
     Descriptive:
       Id: IndustrialAmericanGramophone
@@ -804,6 +2148,34 @@ MonoBehaviour:
       ObjectSize: 
     Icon: {fileID: 0}
     IsometricSprite: {fileID: 21300000, guid: ba5f5f21aa3810048b049c305deee1d5, type: 3}
+    ConditionIcons:
+    - Condition: 0
+      Rarity: 0
+      Icon: {fileID: 21300000, guid: cd24e2ace1655fa4da50fd6cea80ef7e, type: 3}
+    - Condition: 0
+      Rarity: 1
+      Icon: {fileID: 21300000, guid: 65c1908338a786e48a3391b0618ddbd8, type: 3}
+    - Condition: 0
+      Rarity: 2
+      Icon: {fileID: 21300000, guid: 4ea71a2b566055a4598dbbc917d0d348, type: 3}
+    - Condition: 1
+      Rarity: 0
+      Icon: {fileID: 21300000, guid: 035c05b532810c04cab8df648a6eef33, type: 3}
+    - Condition: 1
+      Rarity: 1
+      Icon: {fileID: 21300000, guid: cfa61c675401f0d4a925677475a52983, type: 3}
+    - Condition: 1
+      Rarity: 2
+      Icon: {fileID: 21300000, guid: be178ba47c5981a4380338801c9a5b9e, type: 3}
+    - Condition: 2
+      Rarity: 0
+      Icon: {fileID: 21300000, guid: 1c0c92f1d0cbe204ea086508140e2edd, type: 3}
+    - Condition: 2
+      Rarity: 1
+      Icon: {fileID: 21300000, guid: c1054e67b420a014992525ad09b333cb, type: 3}
+    - Condition: 2
+      Rarity: 2
+      Icon: {fileID: 21300000, guid: 969b171556ed7cd4ba5afd3a23a012e6, type: 3}
   - Id: RenaissanceAmericanWagon
     Descriptive:
       Id: RenaissanceAmericanWagon
@@ -819,3 +2191,31 @@ MonoBehaviour:
       ObjectSize: 
     Icon: {fileID: 0}
     IsometricSprite: {fileID: 21300000, guid: f9a0889e0030fca46a58a48907c4b5e7, type: 3}
+    ConditionIcons:
+    - Condition: 0
+      Rarity: 0
+      Icon: {fileID: 21300000, guid: 9c9f498fde1413d42941a35aa888c550, type: 3}
+    - Condition: 0
+      Rarity: 1
+      Icon: {fileID: 21300000, guid: 21b338633c47a674bb944a330cdc1b7a, type: 3}
+    - Condition: 0
+      Rarity: 2
+      Icon: {fileID: 21300000, guid: 6fc1d24eb6523b646a61d80d0a977849, type: 3}
+    - Condition: 1
+      Rarity: 0
+      Icon: {fileID: 21300000, guid: 1e210afc3d86f324e9c7779e8c2b72c1, type: 3}
+    - Condition: 1
+      Rarity: 1
+      Icon: {fileID: 21300000, guid: 522e99b6906677846abe5e347658d9e4, type: 3}
+    - Condition: 1
+      Rarity: 2
+      Icon: {fileID: 21300000, guid: 422e43269c4be4749a0c1e88391a2dbd, type: 3}
+    - Condition: 2
+      Rarity: 0
+      Icon: {fileID: 21300000, guid: 73ef8af5734569a4087cddaaa71e6cd2, type: 3}
+    - Condition: 2
+      Rarity: 1
+      Icon: {fileID: 21300000, guid: 1b024dcb59fbb294681f21772df909f0, type: 3}
+    - Condition: 2
+      Rarity: 2
+      Icon: {fileID: 21300000, guid: 639661deebb415b47a8834dc9850da5d, type: 3}

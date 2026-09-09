@@ -29,6 +29,26 @@ namespace ProjectMuseum.Builder
                      "when placed artifacts render in the museum.")]
             public Sprite IsometricSprite;
 
+            [Tooltip("The nine condition x rarity art variants — from " +
+                     "Assets/2D/Common/Artifacts/conditions 100X100/<ArtifactName>. " +
+                     "Ordered DC/IC/PC x CR/RR/LR; entries with no source file are still " +
+                     "listed, with a null Icon.")]
+            public List<ArtifactConditionIcon> ConditionIcons = new List<ArtifactConditionIcon>();
+
+            /// <summary>
+            /// The art for one condition/rarity pairing, or null when that variant has no
+            /// source sprite. Linear scan — the list is nine items, a dictionary would cost
+            /// more than it saves.
+            /// </summary>
+            public Sprite GetConditionIcon(ArtifactCondition condition, ArtifactRarity rarity)
+            {
+                if (ConditionIcons == null) return null;
+                foreach (ArtifactConditionIcon v in ConditionIcons)
+                    if (v != null && v.Condition == condition && v.Rarity == rarity)
+                        return v.Icon;
+                return null;
+            }
+
             public string Name => Descriptive != null && !string.IsNullOrEmpty(Descriptive.ArtifactName)
                 ? Descriptive.ArtifactName
                 : Id;

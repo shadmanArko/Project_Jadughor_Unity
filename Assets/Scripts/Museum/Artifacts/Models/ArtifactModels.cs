@@ -18,6 +18,68 @@ namespace ProjectMuseum.Builder
         public string Description;
     }
 
+    /// <summary>Wear state of an artifact — folder/file prefix DC / IC / PC.</summary>
+    public enum ArtifactCondition
+    {
+        Decrepit = 0,
+        Intact = 1,
+        Pristine = 2,
+    }
+
+    /// <summary>Rarity of an artifact — file suffix CR / RR / LR.</summary>
+    public enum ArtifactRarity
+    {
+        Common = 0,
+        Rare = 1,
+        Legendary = 2,
+    }
+
+    /// <summary>
+    /// One of the nine condition x rarity art variants of an artifact, resolved from
+    /// Assets/2D/Common/Artifacts/conditions 100X100/&lt;ArtifactName&gt;/&lt;CC&gt;_&lt;RR&gt;.png
+    /// at import time (see ArtifactDatabaseImporter).
+    /// </summary>
+    [Serializable]
+    public class ArtifactConditionIcon
+    {
+        public ArtifactCondition Condition;
+        public ArtifactRarity Rarity;
+        public Sprite Icon;
+
+        /// <summary>File-stem code for this pairing, e.g. "PC_LR".</summary>
+        public string Code => $"{ArtifactCodes.Of(Condition)}_{ArtifactCodes.Of(Rarity)}";
+    }
+
+    /// <summary>Two-letter codes used by the condition sprite filenames.</summary>
+    public static class ArtifactCodes
+    {
+        public static string Of(ArtifactCondition c) => c switch
+        {
+            ArtifactCondition.Decrepit => "DC",
+            ArtifactCondition.Intact => "IC",
+            ArtifactCondition.Pristine => "PC",
+            _ => null,
+        };
+
+        public static string Of(ArtifactRarity r) => r switch
+        {
+            ArtifactRarity.Common => "CR",
+            ArtifactRarity.Rare => "RR",
+            ArtifactRarity.Legendary => "LR",
+            _ => null,
+        };
+
+        public static readonly ArtifactCondition[] Conditions =
+        {
+            ArtifactCondition.Decrepit, ArtifactCondition.Intact, ArtifactCondition.Pristine,
+        };
+
+        public static readonly ArtifactRarity[] Rarities =
+        {
+            ArtifactRarity.Common, ArtifactRarity.Rare, ArtifactRarity.Legendary,
+        };
+    }
+
     /// <summary>
     /// Functional data for an artifact — from RawArtifactFunctionalData.json.
     /// Provides the tags shown on cards (Era, Region, Object, ObjectSize, Materials).
