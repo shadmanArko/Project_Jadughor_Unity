@@ -11,6 +11,7 @@ using Systems.MineSystem.EnemySystem.Mob.HedgehogBoss.Model;
 using Systems.MineSystem.EnemySystem.Mob.HedgehogBoss.View;
 using Systems.MineSystem.EnemySystem.Model;
 using Systems.MineSystem.Mine.Model;
+using Systems.MineSystem.PauseSystem.Enum;
 using Systems.MineSystem.PauseSystem.Signal;
 using Systems.Utilities.EventBus;
 using UniRx;
@@ -93,7 +94,11 @@ namespace Systems.MineSystem.EnemySystem.Mob.HedgehogBoss.Controller
             ClearAnimation();
             IsActive = true;
             _view.SetDamageEnabled(true);
-            GlobalEventBus.Fire(new PausableRegisteredSignal(this));
+            // TODO: when a lair minion spawner lands, carry the area on
+            // EnemyInitializeData so every lair-spawned enemy gets it without
+            // an edit per controller class.
+            GlobalEventBus.Fire(
+                new PausableRegisteredSignal(this, PauseArea.BossLair));
         }
 
         private void OnDamageRequested(float amount)

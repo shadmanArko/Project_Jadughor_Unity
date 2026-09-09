@@ -59,6 +59,7 @@ namespace Systems.MineSystem.BossLairSystem.Installer
             Container.Bind<BossLairShellGenerationService>().AsSingle();
             Container.Bind<BossLairDecorService>().AsSingle();
             Container.Bind<BossLairSpawnService>().AsSingle();
+            Container.Bind<BossLairCellGridService>().AsSingle();
             Container.Bind<BossLairBuildService>().AsSingle();
             Container.Bind<BossLairEntryService>().AsSingle();
             Container.Bind<BossLairExitService>().AsSingle();

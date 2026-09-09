@@ -14,6 +14,7 @@ using UnityEngine;
 using Zenject;
 using Systems.MineSystem.MinePlayerSystem.Service;
 using Systems.MineSystem.PauseSystem.Interface;
+using Systems.MineSystem.PauseSystem.Enum;
 using Systems.MineSystem.PauseSystem.Signal;
 
 namespace Systems.MineSystem.MinePlayerSystem.Controller
@@ -92,7 +93,10 @@ namespace Systems.MineSystem.MinePlayerSystem.Controller
             SubscribeToAnimationEvents();
             SubscribeToDamageRequests();
             _collectorRegistry.Register(this);
-            GlobalEventBus.Fire(new PausableRegisteredSignal(this));
+            // Global: the player follows the boss lair pause into the arena, so
+            // a mine-scoped freeze must never cut their physics or input.
+            GlobalEventBus.Fire(
+                new PausableRegisteredSignal(this, PauseArea.Global));
         }
 
         private void InitializePlayerData()

@@ -10,6 +10,7 @@ using Systems.MineSystem.BossLairSystem.Signal;
 using Systems.MineSystem.Mine.Signal;
 using Systems.MineSystem.MinePlayerSystem.Model;
 using Systems.MineSystem.MinePlayerSystem.Scriptable;
+using Systems.MineSystem.PauseSystem.Enum;
 using Systems.MineSystem.PauseSystem.Interface;
 using Systems.MineSystem.PauseSystem.Signal;
 using Systems.Utilities.EventBus;
@@ -29,9 +30,18 @@ namespace Systems.MineSystem.BossLairSystem.Controller
     /// boss state machine will add one when it lands, and it should be bound with
     /// an explicit execution order because <c>PlayerModel.FixedTick</c> writes the
     /// player world position that boss AI will read.
+    ///
+    /// Also an <see cref="IPauser"/>: entering the lair requests a pause scoped
+    /// to <see cref="PauseArea.MineView"/>, so the mine freezes while the arena
+    /// keeps running. It registers itself as <see cref="PauseArea.Global"/> so
+    /// the pause it requests can never freeze the transitions that end the
+    /// visit. Anything spawned for the lair should register as
+    /// <see cref="PauseArea.BossLair"/> to survive that freeze while still
+    /// obeying an unscoped pause from modal UI.
     /// </remarks>
     public sealed class BossLairController :
         IPausable,
+        IPauser,
         IInitializable,
         IDisposable
     {
@@ -49,6 +59,7 @@ namespace Systems.MineSystem.BossLairSystem.Controller
         private CancellationTokenSource _lifetime;
         private CancellationTokenSource _activeTransition;
         private bool _isAffectedByPause = true;
+        private bool _mineFreezeHeld;
         private bool _disposed;
 
         public BossLairController(
@@ -74,6 +85,8 @@ namespace Systems.MineSystem.BossLairSystem.Controller
             _spawnTable = spawnTable;
             _runtime = runtime;
         }
+
+        public string PauserId => "BossLairMineFreeze";
 
         public bool IsAffectedByPause
         {
@@ -113,7 +126,34 @@ namespace Systems.MineSystem.BossLairSystem.Controller
                 .Subscribe(_ => HandlePlayerDeath())
                 .AddTo(_subscriptions);
 
-            GlobalEventBus.Fire(new PausableRegisteredSignal(this));
+            // Global, and deliberately so: OnPause arms the gate that
+            // BossLairExitService awaits *before* the release signal fires, so
+            // scoping this to the mine would trap the player in the arena.
+            GlobalEventBus.Fire(
+                new PausableRegisteredSignal(this, PauseArea.Global));
+        }
+
+        /// <summary>
+        /// Freezes the mine for the duration of the visit. Held behind a flag so
+        /// the pauser is requested and released exactly once per visit however
+        /// the visit ends - exit, death, or the mine being regenerated underneath
+        /// it.
+        /// </summary>
+        private void HoldMineFreeze()
+        {
+            if (_mineFreezeHeld)
+                return;
+            _mineFreezeHeld = true;
+            GlobalEventBus.Fire(
+                new PauseRequestedSignal(this, PauseArea.MineView));
+        }
+
+        private void ReleaseMineFreeze()
+        {
+            if (!_mineFreezeHeld)
+                return;
+            _mineFreezeHeld = false;
+            GlobalEventBus.Fire(new PauseReleasedSignal(this));
         }
 
         public void OnPause() => _pause.Pause();
@@ -128,6 +168,10 @@ namespace Systems.MineSystem.BossLairSystem.Controller
             if (_disposed)
                 return;
 
+            // The mine being regenerated ends any visit in progress. Release
+            // first, or the freeze outlives the mine it was freezing and the new
+            // one is born paused with nothing left to lift it.
+            ReleaseMineFreeze();
             _model.SetState(BossLairState.Idle);
             _build.Teardown();
 
@@ -176,6 +220,7 @@ namespace Systems.MineSystem.BossLairSystem.Controller
 
             _model.SetState(BossLairState.Active);
             GlobalEventBus.Fire(new BossLairEnteredSignal(profile));
+            HoldMineFreeze();
         }
 
         private async UniTask ExitAsync(bool bossDefeated, bool playerDied)
@@ -190,6 +235,7 @@ namespace Systems.MineSystem.BossLairSystem.Controller
             _model.SetState(BossLairState.Idle);
             GlobalEventBus.Fire(
                 new BossLairExitedSignal(profile, bossDefeated, playerDied));
+            ReleaseMineFreeze();
         }
 
         /// <summary>
@@ -208,6 +254,7 @@ namespace Systems.MineSystem.BossLairSystem.Controller
             _model.SetState(BossLairState.Idle);
             GlobalEventBus.Fire(
                 new BossLairExitedSignal(profile, false, playerDied: true));
+            ReleaseMineFreeze();
         }
 
         private CancellationToken BeginTransition()
@@ -229,6 +276,7 @@ namespace Systems.MineSystem.BossLairSystem.Controller
             if (_disposed)
                 return;
             _disposed = true;
+            ReleaseMineFreeze();
             GlobalEventBus.Fire(new PausableUnregisteredSignal(this));
 
             if (_lifetime != null && !_lifetime.IsCancellationRequested)

@@ -23,6 +23,7 @@ namespace Systems.MineSystem.BossLairSystem.Service
         private readonly BossLairDecorService _decor;
         private readonly BossLairFactory _factory;
         private readonly BossLairBossFactory _bossFactory;
+        private readonly BossLairCellGridService _cellGrid;
         private readonly BossLairModel _model;
         private readonly BossLairConfig _config;
         private readonly Random _random = new();
@@ -34,6 +35,7 @@ namespace Systems.MineSystem.BossLairSystem.Service
             BossLairDecorService decor,
             BossLairFactory factory,
             BossLairBossFactory bossFactory,
+            BossLairCellGridService cellGrid,
             BossLairModel model,
             BossLairConfig config)
         {
@@ -43,6 +45,7 @@ namespace Systems.MineSystem.BossLairSystem.Service
             _decor = decor;
             _factory = factory;
             _bossFactory = bossFactory;
+            _cellGrid = cellGrid;
             _model = model;
             _config = config;
         }
@@ -68,6 +71,7 @@ namespace Systems.MineSystem.BossLairSystem.Service
             var placement = _placement.Resolve(
                 lairConfig, ResolveEffectiveGap(lairConfig));
             _model.SetPlacement(placement);
+            _cellGrid.Generate(placement);
 
             var view = _factory.Create(placement);
             _shell.Generate(view, lairConfig, placement);
@@ -87,6 +91,7 @@ namespace Systems.MineSystem.BossLairSystem.Service
 
         public void Teardown()
         {
+            _cellGrid.Clear();
             _bossFactory.Destroy();
             _shell.Clear(_factory.Active);
             _factory.Destroy();

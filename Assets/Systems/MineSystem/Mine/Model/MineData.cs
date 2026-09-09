@@ -166,6 +166,40 @@ namespace Systems.MineSystem.Mine.Model
             return Cells?.FirstOrDefault(c => c.Position == position);
         }
 
+        /// <summary>
+        /// Registers cells into the lookup only, never into <see cref="Cells"/>.
+        /// Used for the boss lair's floor, which must resolve through
+        /// <see cref="GetCell(Vector3Int)"/> for placement validation without
+        /// being visible to the systems that iterate <see cref="Cells"/>
+        /// directly (generation/visualizer services that would otherwise
+        /// treat the lair floor as part of the mine).
+        /// </summary>
+        public void RegisterAuxiliaryCells(IEnumerable<Cell> cells)
+        {
+            _cellLookup ??= new Dictionary<Vector3Int, Cell>();
+            _cellById ??= new Dictionary<string, Cell>();
+            foreach (var cell in cells)
+            {
+                _cellLookup[new Vector3Int(cell.Position.X, cell.Position.Y, 0)] = cell;
+                if (!string.IsNullOrEmpty(cell.Id))
+                    _cellById[cell.Id] = cell;
+            }
+        }
+
+        /// <summary>Undoes <see cref="RegisterAuxiliaryCells"/> for the given positions.</summary>
+        public void ClearAuxiliaryCells(IEnumerable<Vector3Int> positions)
+        {
+            if (_cellLookup == null)
+                return;
+            foreach (var position in positions)
+            {
+                if (_cellLookup.TryGetValue(position, out var cell) &&
+                    !string.IsNullOrEmpty(cell.Id))
+                    _cellById?.Remove(cell.Id);
+                _cellLookup.Remove(position);
+            }
+        }
+
         public Resource GetResource(string cellId) => _resourceByCellId != null && _resourceByCellId.TryGetValue(cellId, out var r) ? r : null;
         public Artifact GetArtifact(string cellId) => _artifactByCellId != null && _artifactByCellId.TryGetValue(cellId, out var a) ? a : null;
         public ArtifactWorldPlacementData GetArtifactPlacement(string cellId) =>

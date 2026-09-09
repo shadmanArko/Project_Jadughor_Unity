@@ -11,14 +11,19 @@ using Systems.MineSystem.Mine.Service.MineResourceService.Model;
 using UniRx;
 using UnityEngine;
 using Zenject;
-using Systems.MineSystem.PauseSystem.Interface;
-using Systems.MineSystem.PauseSystem.Signal;
-using Systems.Utilities.EventBus;
+using Systems.MineSystem.BossLairSystem.Model;
+using Systems.MineSystem.PauseSystem.Enum;
+using Systems.MineSystem.PauseSystem.Service;
 
 namespace Systems.MineSystem.CollectableSystem.Controller
 {
+    /// <summary>
+    /// Drives dropped loot. Items can lie in the mine or inside the boss lair,
+    /// so pause state is tracked per <see cref="PauseArea"/> - freezing the mine
+    /// during a boss fight must not make loot dropped in the arena
+    /// uncollectable.
+    /// </summary>
     public sealed class CollectableController :
-        IPausable,
         IInitializable,
         ITickable,
         IDisposable
@@ -26,33 +31,25 @@ namespace Systems.MineSystem.CollectableSystem.Controller
         private readonly CollectableFactory _factory;
         private readonly CollectorRegistry _collectors;
         private readonly CollectableSystemConfig _config;
+        private readonly BossLairModel _bossLair;
         private readonly List<CollectableModel> _active = new();
         private readonly CompositeDisposable _disposables = new();
-        private bool _isAffectedByPause = true;
-        private bool _isPaused;
+        private bool _minePaused;
+        private bool _lairPaused;
+        private DelegatePausable _minePausable;
+        private DelegatePausable _lairPausable;
         private bool _disposed;
-
-        public bool IsAffectedByPause
-        {
-            get => _isAffectedByPause;
-            set
-            {
-                if (_isAffectedByPause == value)
-                    return;
-                _isAffectedByPause = value;
-                GlobalEventBus.Fire(
-                    new PausableAffectationChangedSignal(this));
-            }
-        }
 
         public CollectableController(
             CollectableFactory factory,
             CollectorRegistry collectors,
-            CollectableSystemConfig config)
+            CollectableSystemConfig config,
+            BossLairModel bossLair)
         {
             _factory = factory;
             _collectors = collectors;
             _config = config;
+            _bossLair = bossLair;
         }
 
         public void Initialize()
@@ -60,20 +57,29 @@ namespace Systems.MineSystem.CollectableSystem.Controller
             _factory.Spawned
                 .Subscribe(Activate)
                 .AddTo(_disposables);
-            GlobalEventBus.Fire(new PausableRegisteredSignal(this));
+
+            _minePausable = new DelegatePausable(
+                () => SetAreaPaused(PauseArea.MineView, true),
+                () => SetAreaPaused(PauseArea.MineView, false));
+            _lairPausable = new DelegatePausable(
+                () => SetAreaPaused(PauseArea.BossLair, true),
+                () => SetAreaPaused(PauseArea.BossLair, false));
+            _minePausable.Register(PauseArea.MineView);
+            _lairPausable.Register(PauseArea.BossLair);
         }
+
+        private bool IsPaused(PauseArea area) =>
+            area == PauseArea.BossLair ? _lairPaused : _minePaused;
 
         public void Tick()
         {
-            if (_isPaused)
-                return;
             var now = Time.time;
             var step = _config.pullSpeed * Time.deltaTime;
 
             for (var i = _active.Count - 1; i >= 0; i--)
             {
                 var model = _active[i];
-                if (!model.IsAttractionAvailable.Value)
+                if (IsPaused(model.Area) || !model.IsAttractionAvailable.Value)
                     continue;
 
                 if (!IsTargetValid(model))
@@ -113,6 +119,7 @@ namespace Systems.MineSystem.CollectableSystem.Controller
 
         private void Activate(CollectableModel model)
         {
+            model.Area = ResolveArea(model);
             model.NextCollectorScanTime =
                 Time.time + Mathf.Max(0f, _config.attractionDelay);
             model.AttractionAvailableTime = model.NextCollectorScanTime;
@@ -131,8 +138,28 @@ namespace Systems.MineSystem.CollectableSystem.Controller
             }
 
             _active.Add(model);
-            if (_isPaused)
+            if (IsPaused(model.Area))
                 Pause(model);
+        }
+
+        /// <summary>
+        /// Tests the drop position against the arena's world rect. World space
+        /// rather than cell space because a collectable is a loose rigidbody,
+        /// not something snapped to the grid.
+        /// </summary>
+        private PauseArea ResolveArea(CollectableModel model)
+        {
+            if (!_bossLair.HasGate || !_bossLair.Placement.IsValid)
+                return PauseArea.MineView;
+
+            var placement = _bossLair.Placement;
+            var origin = placement.RootWorldPosition;
+            var size = placement.InteriorWorldSize;
+            var position = model.View.Transform.position;
+            var insideLair =
+                position.x >= origin.x && position.x <= origin.x + size.x &&
+                position.y >= origin.y && position.y <= origin.y + size.y;
+            return insideLair ? PauseArea.BossLair : PauseArea.MineView;
         }
 
         private static void ScheduleAttraction(
@@ -186,7 +213,7 @@ namespace Systems.MineSystem.CollectableSystem.Controller
 
         private void TryCollect(CollectableModel model, Collider2D collider)
         {
-            if (_isPaused || !model.IsAttractionAvailable.Value ||
+            if (IsPaused(model.Area) || !model.IsAttractionAvailable.Value ||
                 !_collectors.TryGetCollector(collider, out var collector) ||
                 !collector.CanCollect(model.Item) ||
                 !collector.TryCollect(model.Item))
@@ -198,13 +225,26 @@ namespace Systems.MineSystem.CollectableSystem.Controller
                 RemoveAt(index);
         }
 
-        public void OnPause()
+        private void SetAreaPaused(PauseArea area, bool paused)
         {
-            if (_isPaused)
+            if (IsPaused(area) == paused)
                 return;
-            _isPaused = true;
+
+            if (area == PauseArea.BossLair)
+                _lairPaused = paused;
+            else
+                _minePaused = paused;
+
             for (var i = 0; i < _active.Count; i++)
-                Pause(_active[i]);
+            {
+                var model = _active[i];
+                if (model.Area != area)
+                    continue;
+                if (paused)
+                    Pause(model);
+                else
+                    Resume(model);
+            }
         }
 
         private static void Pause(CollectableModel model)
@@ -232,15 +272,6 @@ namespace Systems.MineSystem.CollectableSystem.Controller
             body.linearVelocity = Vector2.zero;
             body.angularVelocity = 0f;
             body.simulated = false;
-        }
-
-        public void OnUnpause()
-        {
-            if (!_isPaused)
-                return;
-            _isPaused = false;
-            for (var i = 0; i < _active.Count; i++)
-                Resume(_active[i]);
         }
 
         private static void Resume(CollectableModel model)
@@ -304,7 +335,8 @@ namespace Systems.MineSystem.CollectableSystem.Controller
             if (_disposed)
                 return;
             _disposed = true;
-            GlobalEventBus.Fire(new PausableUnregisteredSignal(this));
+            _minePausable?.Unregister();
+            _lairPausable?.Unregister();
             for (var i = _active.Count - 1; i >= 0; i--)
                 RemoveAt(i);
 

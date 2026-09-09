@@ -8,6 +8,7 @@ using Unity.Cinemachine;
 using UnityEngine;
 using Zenject;
 using Systems.MineSystem.PauseSystem.Interface;
+using Systems.MineSystem.PauseSystem.Enum;
 using Systems.MineSystem.PauseSystem.Signal;
 using Systems.Utilities.EventBus;
 
@@ -63,7 +64,10 @@ namespace Systems.MineSystem.Utilities.Camera
             _confiner.BoundingShape2D = _mineView.cameraBoundaryCollider;
             ClearFollowTarget();
             SetFreeMovement(true);
-            GlobalEventBus.Fire(new PausableRegisteredSignal(this));
+            // Global: BossLairCameraService drives this same rig for the arena,
+            // so a mine-scoped freeze would freeze the boss fight's camera.
+            GlobalEventBus.Fire(
+                new PausableRegisteredSignal(this, PauseArea.Global));
         }
 
         public void ConfigureMineBounds(MineData mineData)

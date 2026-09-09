@@ -1,11 +1,13 @@
 using System;
 using System.Collections.Generic;
+using Systems.MineSystem.BossLairSystem.Model;
 using Systems.MineSystem.ToolbarSystem.Interface;
 using Systems.MineSystem.ToolbarSystem.Items.Prefabs.Placeables.Elevator.Script;
 using Systems.MineSystem.ToolbarSystem.Model;
 using Systems.MineSystem.ToolbarSystem.Profile;
 using UnityEngine;
 using Zenject;
+using Systems.MineSystem.PauseSystem.Enum;
 using Systems.MineSystem.PauseSystem.Signal;
 using Systems.Utilities.EventBus;
 
@@ -30,6 +32,7 @@ namespace Systems.MineSystem.ToolbarSystem.Service
         private readonly ElevatorPlacementValidator _elevatorValidator;
         private readonly DiContainer _container;
         private readonly PlaceableRuntimeRegistry _registry;
+        private readonly BossLairModel _bossLairModel;
         private readonly Dictionary<string, Pool> _pools =
             new(StringComparer.OrdinalIgnoreCase);
         private readonly Dictionary<IPlaceableRuntime, (Pool Pool, PlaceableSpawnContext Context)> _active = new();
@@ -40,13 +43,15 @@ namespace Systems.MineSystem.ToolbarSystem.Service
             IPlaceableValidator validator,
             ElevatorPlacementValidator elevatorValidator,
             DiContainer container,
-            PlaceableRuntimeRegistry registry)
+            PlaceableRuntimeRegistry registry,
+            BossLairModel bossLairModel)
         {
             _catalog = catalog;
             _validator = validator;
             _elevatorValidator = elevatorValidator;
             _container = container;
             _registry = registry;
+            _bossLairModel = bossLairModel;
         }
 
         public void Initialize()
@@ -107,7 +112,19 @@ namespace Systems.MineSystem.ToolbarSystem.Service
             runtime.Initialize(context);
             _active[runtime] = (pool, context);
             _registry.Register(runtime, context);
-            GlobalEventBus.Fire(new PausableRegisteredSignal(runtime));
+
+            // context.CellPosition is already mine-global cell space
+            // (ItemTargetResolver always converts through the shared
+            // MineView.grid regardless of where the player stands), so this
+            // membership test needs no grid conversion - do not "fix" it into
+            // using the lair's own local grid.
+            var insideLair = _bossLairModel.HasGate &&
+                _bossLairModel.Placement.IsValid &&
+                _bossLairModel.Placement.InteriorCells.Contains(
+                    context.CellPosition);
+            GlobalEventBus.Fire(new PausableRegisteredSignal(
+                runtime,
+                insideLair ? PauseArea.BossLair : PauseArea.MineView));
             return true;
         }
 
