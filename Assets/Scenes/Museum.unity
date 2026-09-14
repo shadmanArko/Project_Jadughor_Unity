@@ -7338,13 +7338,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1276691018}
+  - component: {fileID: 1276691019}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1276691018
 Transform:
   m_ObjectHideFlags: 0
@@ -7361,6 +7362,31 @@ Transform:
   - {fileID: 1538048126}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1276691019
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1276691017}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23886aa17d450724f91287d585e6ec3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ProjectMuseum.Characters.PlayerController
+  grid: {fileID: 1779382418}
+  animator: {fileID: 1538048127}
+  sheetSprite: {fileID: 1538048128}
+  spriteRenderer: {fileID: 1538048129}
+  secondsPerTile: 0.5
+  blockOnUnwalkableTiles: 1
+  walkDownState: walk_forward
+  walkUpState: walk_backward
+  idleDownState: idle_front_facing
+  idleUpState: idle_back_facing
+  spriteFacesScreenRight: 1
+  turnImmediately: 1
+  logBlockedSteps: 0
 --- !u!4 &1286378449 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5220436126945401331, guid: 25669a8e79d1d254a922f4bed5a409a7, type: 3}
