@@ -48,6 +48,9 @@ namespace ProjectMuseum.Guests
 
         public Vector2Int SpawnCell;
 
+        [Tooltip("Index of the spawn zone the guest came from (-1 = prewarmed mid-sidewalk).")]
+        public int SpawnZone = -1;
+
         [Tooltip("How many exhibits this guest wants to see before leaving.")]
         public int ExhibitsToVisit;
 

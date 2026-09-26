@@ -41,6 +41,13 @@ namespace ProjectMuseum.Guests
         }
 
         [Serializable]
+        public class GuestZone
+        {
+            public string name;
+            public RectInt area;
+        }
+
+        [Serializable]
         public class ReactionClip
         {
             [Tooltip("State played when the exhibit is toward the camera (guest faces down).")]
@@ -78,11 +85,16 @@ namespace ProjectMuseum.Guests
         // ── Spawning ───────────────────────────────────────────────────────
 
         [Header("Spawning")]
-        [Tooltip("Cells where guests appear AND are removed (the road ends). Drag the handles in " +
-                 "the Scene view with this object selected.")]
-        [SerializeField] private List<Vector2Int> spawnPoints = new List<Vector2Int>
+        [Tooltip("Rows of cells at the road ends where guests appear AND disappear. A guest spawns " +
+                 "on a random cell of a zone and vanishes the moment it steps onto any cell of its " +
+                 "exit zone. Make each zone span the full width of its sidewalk / crosswalk end. " +
+                 "Drag the handles in the Scene view with this object selected.")]
+        [SerializeField] private List<GuestZone> spawnZones = new List<GuestZone>
         {
-            new Vector2Int(-2, 60), new Vector2Int(62, -2), new Vector2Int(-19, -2), new Vector2Int(-2, -19)
+            new GuestZone { name = "Top-left sidewalk end", area = new RectInt(-3, 60, 3, 1) },
+            new GuestZone { name = "Top-right sidewalk end", area = new RectInt(62, -3, 1, 3) },
+            new GuestZone { name = "Left crosswalk end", area = new RectInt(-19, -3, 1, 8) },
+            new GuestZone { name = "Right crosswalk end", area = new RectInt(-3, -19, 7, 1) }
         };
 
         [Tooltip("Seconds between spawns (random in range).")]
@@ -94,20 +106,28 @@ namespace ProjectMuseum.Guests
         [Tooltip("Guests placed mid-walk on Start so the street isn't empty for the first minute.")]
         [Min(0)] [SerializeField] private int prewarmGuests = 6;
 
-        [Tooltip("An exit point must be at least this many cells (Manhattan) from where the guest " +
+        [Tooltip("An exit zone must be at least this many cells (Manhattan) from where the guest " +
                  "spawned — otherwise guests pop in and straight back out.")]
         [Min(0)] [SerializeField] private int minTravelDistance = 20;
 
         // ── Outside walking ────────────────────────────────────────────────
 
         [Header("Outside Walking")]
-        [Tooltip("Walkable outside areas (sidewalks, crossings) in cells. xMin/yMin + width/height. " +
-                 "Drawn in the Scene view. Museum floor cells inside a rect are ignored — the museum " +
-                 "is only entered through the door.")]
-        [SerializeField] private List<RectInt> outsideWalkAreas = new List<RectInt>
+        [Tooltip("Sidewalk strips in cells (xMin/yMin + width/height), drawn blue in the Scene view. " +
+                 "Wander stops and prewarmed guests only use these. Museum floor cells inside a rect " +
+                 "are ignored — the museum is only entered through the door.")]
+        [SerializeField] private List<RectInt> sidewalkAreas = new List<RectInt>
         {
-            new RectInt(-20, -3, 84, 3), // along the SE (front-right) museum edge, road end to road end
-            new RectInt(-3, -20, 3, 82)  // along the SW (front-left) museum edge
+            new RectInt(-3, -3, 66, 3), // along the SE (front-right) museum edge
+            new RectInt(-3, -3, 3, 64)  // along the SW (front-left) museum edge
+        };
+
+        [Tooltip("Zebra crossings, drawn white. Guests can step between a crossing and a sidewalk " +
+                 "anywhere the two touch, so they cross at any lane — but never pause on the road.")]
+        [SerializeField] private List<RectInt> crosswalkAreas = new List<RectInt>
+        {
+            new RectInt(-19, -3, 16, 8), // left crossing, over the SW road
+            new RectInt(-3, -19, 7, 16)  // right crossing, over the SE road
         };
 
         [Tooltip("Optional: any painted cell on this Tilemap is also walkable outside. Handy for " +
@@ -237,7 +257,6 @@ namespace ProjectMuseum.Guests
         public Vector2 WanderPauseRange => wanderPauseRange;
         public Vector2Int WanderStopsRange => wanderStopsRange;
         public Vector2Int LookAroundRange => lookAroundRange;
-        public List<Vector2Int> SpawnPoints => spawnPoints; // exposed for the editor handles
 
         /// <summary>Found lazily: MuseumObjectPlacementSystem adds it at runtime.</summary>
         public MuseumSortingSystem Sorting
@@ -273,7 +292,7 @@ namespace ProjectMuseum.Guests
 
         private void Update()
         {
-            if (guestTemplate == null || spawnPoints.Count == 0) return;
+            if (guestTemplate == null || spawnZones.Count == 0) return;
 
             _spawnTimer -= Time.deltaTime;
             if (_spawnTimer > 0f) return;
@@ -290,12 +309,18 @@ namespace ProjectMuseum.Guests
             if (guestTemplate == null || grid == null) return null;
 
             Vector2Int startCell;
+            var zoneIndex = -1;
             if (prewarm && TryGetRandomOutsideCell(out var mid)) startCell = mid;
-            else if (spawnPoints.Count > 0) startCell = spawnPoints[UnityEngine.Random.Range(0, spawnPoints.Count)];
+            else if (spawnZones.Count > 0)
+            {
+                zoneIndex = UnityEngine.Random.Range(0, spawnZones.Count);
+                startCell = RandomCellIn(spawnZones[zoneIndex].area);
+            }
             else return null;
 
             var agent = _pool.Count > 0 ? _pool.Pop() : CreateAgent();
             var data = RollGuestData(startCell);
+            data.SpawnZone = zoneIndex;
 
             _active.Add(agent);
             agent.Begin(data, startCell);
@@ -411,14 +436,22 @@ namespace ProjectMuseum.Guests
         {
             if (IsMuseumCell(cell)) return false;
 
-            for (var i = 0; i < outsideWalkAreas.Count; i++)
-                if (outsideWalkAreas[i].Contains(cell)) return true;
+            for (var i = 0; i < sidewalkAreas.Count; i++)
+                if (sidewalkAreas[i].Contains(cell)) return true;
+
+            // Crossings need no special link rule: a crossing cell next to a sidewalk cell is an
+            // ordinary step, so the whole touching edge is a valid place to start crossing.
+            for (var i = 0; i < crosswalkAreas.Count; i++)
+                if (crosswalkAreas[i].Contains(cell)) return true;
 
             if (outsideWalkTilemap != null && outsideWalkTilemap.HasTile(new Vector3Int(cell.x, cell.y, 0)))
                 return true;
 
-            // Spawn points count even if they sit a tile off the drawn sidewalk.
-            return spawnPoints.Contains(cell);
+            // Zones count even if they poke a tile past the drawn sidewalk.
+            for (var i = 0; i < spawnZones.Count; i++)
+                if (spawnZones[i].area.Contains(cell)) return true;
+
+            return false;
         }
 
         /// <summary>
@@ -447,11 +480,11 @@ namespace ProjectMuseum.Guests
         public bool TryGetRandomOutsideCell(out Vector2Int cell)
         {
             cell = default;
-            if (outsideWalkAreas.Count == 0) return false;
+            if (sidewalkAreas.Count == 0) return false;
 
             for (var attempt = 0; attempt < 30; attempt++)
             {
-                var r = outsideWalkAreas[UnityEngine.Random.Range(0, outsideWalkAreas.Count)];
+                var r = sidewalkAreas[UnityEngine.Random.Range(0, sidewalkAreas.Count)];
                 if (r.width <= 0 || r.height <= 0) continue;
 
                 cell = new Vector2Int(UnityEngine.Random.Range(r.xMin, r.xMax), UnityEngine.Random.Range(r.yMin, r.yMax));
@@ -477,24 +510,47 @@ namespace ProjectMuseum.Guests
             return false;
         }
 
-        /// <summary>A random spawn point far enough from <paramref name="from"/>; the farthest if none is.</summary>
-        public Vector2Int ChooseExitPoint(Vector2Int from)
+        /// <summary>
+        /// Picks where a guest leaves: a random zone at least Min Travel Distance away (the
+        /// farthest if none is), skipping <paramref name="excludeZone"/>. The guest aims at a
+        /// random cell of the zone, which spreads crossing lanes, but vanishes on the first
+        /// zone cell it reaches, so nobody shuffles sideways along the road end.
+        /// </summary>
+        public bool ChooseExitZone(Vector2Int from, int excludeZone, out RectInt zone, out Vector2Int target)
         {
-            if (spawnPoints.Count == 0) return from;
+            zone = default;
+            target = from;
+            if (spawnZones.Count == 0) return false;
 
-            var start = UnityEngine.Random.Range(0, spawnPoints.Count);
-            var farthest = spawnPoints[0];
+            var start = UnityEngine.Random.Range(0, spawnZones.Count);
+            var chosen = -1;
             var farthestDist = -1;
 
-            for (var i = 0; i < spawnPoints.Count; i++)
+            for (var i = 0; i < spawnZones.Count; i++)
             {
-                var p = spawnPoints[(start + i) % spawnPoints.Count];
-                var d = Manhattan(p, from);
-                if (d >= minTravelDistance) return p;
-                if (d > farthestDist) { farthestDist = d; farthest = p; }
+                var index = (start + i) % spawnZones.Count;
+                if (index == excludeZone && spawnZones.Count > 1) continue;
+
+                var d = DistanceToRect(from, spawnZones[index].area);
+                if (d >= minTravelDistance) { chosen = index; break; }
+                if (d > farthestDist) { farthestDist = d; chosen = index; }
             }
 
-            return farthest;
+            if (chosen < 0) return false;
+            zone = spawnZones[chosen].area;
+            target = RandomCellIn(zone);
+            return true;
+        }
+
+        private static Vector2Int RandomCellIn(RectInt r) =>
+            new Vector2Int(UnityEngine.Random.Range(r.xMin, Mathf.Max(r.xMin + 1, r.xMax)),
+                           UnityEngine.Random.Range(r.yMin, Mathf.Max(r.yMin + 1, r.yMax)));
+
+        private static int DistanceToRect(Vector2Int p, RectInt r)
+        {
+            var cx = Mathf.Clamp(p.x, r.xMin, Mathf.Max(r.xMin, r.xMax - 1));
+            var cy = Mathf.Clamp(p.y, r.yMin, Mathf.Max(r.yMin, r.yMax - 1));
+            return Manhattan(p, new Vector2Int(cx, cy));
         }
 
         // ── Exhibits ───────────────────────────────────────────────────────
@@ -651,13 +707,15 @@ namespace ProjectMuseum.Guests
                 if (IsMuseumCell(doorOutsideCell))
                     Debug.LogError($"[GuestController] Door outside cell {doorOutsideCell} is museum floor — it must be the sidewalk.", this);
                 else if (!IsOutsideWalkable(doorOutsideCell))
-                    Debug.LogWarning($"[GuestController] Door outside cell {doorOutsideCell} isn't inside any " +
-                                     "Outside Walk Area — guests can't reach the door.", this);
+                    Debug.LogWarning($"[GuestController] Door outside cell {doorOutsideCell} isn't on any " +
+                                     "sidewalk — guests can't reach the door.", this);
             }
 
-            foreach (var p in spawnPoints)
-                if (IsMuseumCell(p))
-                    Debug.LogWarning($"[GuestController] Spawn point {p} is on museum floor.", this);
+            foreach (var z in spawnZones)
+                if (z.area.width <= 0 || z.area.height <= 0)
+                    Debug.LogError($"[GuestController] Spawn zone '{z.name}' has zero size.", this);
+                else if (IsMuseumCell(new Vector2Int(z.area.xMin, z.area.yMin)))
+                    Debug.LogWarning($"[GuestController] Spawn zone '{z.name}' is on museum floor.", this);
 
             if (guestTemplate != null && guestTemplate.GetComponentInChildren<Animator>(true) is { } animator &&
                 animator.runtimeAnimatorController != null)
@@ -697,22 +755,28 @@ namespace ProjectMuseum.Guests
             Vector3 Corner(int x, int y) => g.CellToWorld(new Vector3Int(x, y, 0));
 
             Gizmos.color = new Color(0.3f, 0.8f, 1f, 0.9f);
-            foreach (var r in outsideWalkAreas)
-            {
-                var a = Corner(r.xMin, r.yMin);
-                var b = Corner(r.xMax, r.yMin);
-                var c = Corner(r.xMax, r.yMax);
-                var d = Corner(r.xMin, r.yMax);
-                Gizmos.DrawLine(a, b); Gizmos.DrawLine(b, c); Gizmos.DrawLine(c, d); Gizmos.DrawLine(d, a);
-            }
+            foreach (var r in sidewalkAreas) DrawRect(g, r, false);
+
+            Gizmos.color = new Color(1f, 1f, 1f, 0.9f);
+            foreach (var r in crosswalkAreas) DrawRect(g, r, false);
 
             Gizmos.color = new Color(1f, 0.35f, 0.35f);
-            foreach (var p in spawnPoints) DrawCell(g, p);
+            foreach (var z in spawnZones) DrawRect(g, z.area, true);
 
             Gizmos.color = new Color(0.3f, 1f, 0.4f);
             DrawCell(g, doorInsideCell);
             Gizmos.color = new Color(1f, 0.9f, 0.2f);
             DrawCell(g, doorOutsideCell);
+        }
+
+        private static void DrawRect(Grid g, RectInt r, bool cross)
+        {
+            var a = g.CellToWorld(new Vector3Int(r.xMin, r.yMin, 0));
+            var b = g.CellToWorld(new Vector3Int(r.xMax, r.yMin, 0));
+            var c = g.CellToWorld(new Vector3Int(r.xMax, r.yMax, 0));
+            var d = g.CellToWorld(new Vector3Int(r.xMin, r.yMax, 0));
+            Gizmos.DrawLine(a, b); Gizmos.DrawLine(b, c); Gizmos.DrawLine(c, d); Gizmos.DrawLine(d, a);
+            if (cross) { Gizmos.DrawLine(a, c); Gizmos.DrawLine(b, d); }
         }
 
         private static void DrawCell(Grid g, Vector2Int cell)

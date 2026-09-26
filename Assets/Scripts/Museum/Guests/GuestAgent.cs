@@ -39,6 +39,7 @@ namespace ProjectMuseum.Guests
         private int _pathIndex;
         private Vector2Int _goal;
         private bool _goalIsExit;
+        private RectInt _exitZone;
 
         // Current step.
         private bool _stepping;
@@ -152,6 +153,12 @@ namespace ProjectMuseum.Guests
             if (_stepping)
             {
                 ContinueStep(dt);
+
+                // Chain straight into the next tile in the same frame. Otherwise the frame between
+                // steps reads as "not stepping", plays idle for one frame, and the walk clip
+                // restarts from frame 0 on every tile — only its first few frames ever show.
+                if (!_stepping && _waitTimer <= 0f && _pathIndex < _path.Count && gameObject.activeSelf)
+                    StartNextStep();
             }
             else if (_waitTimer > 0f)
             {
@@ -234,6 +241,14 @@ namespace ProjectMuseum.Guests
             Cell = _stepTarget;
             IsInside = _c.IsMuseumCell(Cell);
 
+            // Vanish on the first cell of the exit zone rather than walking on to the exact
+            // target cell — the target is only there to spread guests across the road end.
+            if (_goalIsExit && !IsInside && _exitZone.Contains(Cell))
+            {
+                _c.Despawn(this);
+                return;
+            }
+
             if (IsInside != wasInside) OnCrossedDoor(IsInside);
             else if (!IsInside) CheckEntryDecision();
         }
@@ -265,8 +280,13 @@ namespace ProjectMuseum.Guests
         {
             Data.State = state;
             _wanderStopsLeft = 0;
-            var exit = _c.ChooseExitPoint(Data.VisitedMuseum ? Cell : Data.SpawnCell);
-            if (!SetDestination(exit, isExit: true)) OnPathFailed();
+            // Non-visitors measure from where they spawned and never leave by the zone they came
+            // in through; visitors leave by any zone far enough from the museum door.
+            var from = Data.VisitedMuseum ? Cell : Data.SpawnCell;
+            var exclude = Data.VisitedMuseum ? -1 : Data.SpawnZone;
+            if (!_c.ChooseExitZone(from, exclude, out _exitZone, out var exit) ||
+                !SetDestination(exit, isExit: true))
+                OnPathFailed();
         }
 
         /// <summary>"When they come close to the museum they have a chance to go inside."</summary>
@@ -452,7 +472,8 @@ namespace ProjectMuseum.Guests
                 case GuestState.WalkingOutside:
                 case GuestState.PausingOutside:
                     Data.State = GuestState.HeadingToExit;
-                    if (SetDestination(_c.ChooseExitPoint(Cell), isExit: true)) return;
+                    if (_c.ChooseExitZone(Cell, -1, out _exitZone, out var exit) &&
+                        SetDestination(exit, isExit: true)) return;
                     break;
             }
 

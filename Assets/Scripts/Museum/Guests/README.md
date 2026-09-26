@@ -22,31 +22,33 @@ leave and walk off at another road end.
    didn't happen, press **Auto-fill From Guest Sheets**. Each pool maps a part folder to a layer
    of the guest's `SheetSpriteGroup`, and each guest picks one sheet per pool. Set **Hidden
    Chance** on a pool (e.g. OVER_CLOTH 0.5) so only some guests wear that layer.
-4. Select the controller and check the Scene view. Use the World/Cell overlay to read cells:
-   - **Red** points are spawn *and* exit points. The defaults are estimated from the road ends,
-     so drag each one onto your ✕ marks. Add or remove entries in the list as needed.
-   - **Yellow / green** mark the door. The outside cell is on the sidewalk, and the inside cell
-     is museum floor. They must be orthogonal neighbours. Defaults are `(5,-1)` / `(5,0)`.
-   - **Blue outlines** are the **Outside Walk Areas**, one rectangle per sidewalk strip or
-     crossing. The defaults are rough, so tune them until they cover the sidewalks, including
-     the corner crossings. For shapes that rectangles can't cover, paint cells on a Tilemap and
-     assign it as **Outside Walk Tilemap**, with its renderer disabled.
-   - Guests must never share a cell with the museum floor outside the door. Museum cells are
-     excluded from walk areas automatically, and the door pair is the only link between them.
+4. Select the controller and check the Scene view. Use the World/Cell overlay to read cells.
+   Drag an area's dot to move it; set width/height in the lists to resize it.
+   - **Red zones** are where guests spawn *and* disappear. Each zone is a row of cells across a
+     road end. A guest spawns on a random cell of a zone and vanishes on the first cell of its
+     exit zone it reaches. Make each zone span the full width of its sidewalk or crosswalk end.
+   - **Blue** areas are **Sidewalks**. Wander stops and prewarmed guests only use these.
+   - **White** areas are **Crosswalks**. Guests step on or off anywhere a crosswalk touches a
+     sidewalk, and never pause on one.
+   - **Yellow / green** mark the door: outside on the sidewalk, inside on the museum floor. They
+     must be orthogonal neighbours. Defaults are `(5,-1)` / `(5,0)`.
+   - Museum cells are excluded from walk areas automatically, and the door pair is the only link.
+     For shapes rectangles can't cover, paint an **Outside Walk Tilemap** (renderer disabled).
 5. Press Play. Startup errors or warnings in the Console name the specific misconfiguration:
    a door cell that isn't floor or sidewalk, a missing animator state, or a missing sorting layer.
 
 ## Behaviour
 
 ```
-spawn at road end ─► WalkingOutside ─(within Approach Radius of door, Enter Chance, once)─► HeadingToMuseum
+spawn in a zone ─► WalkingOutside ─(within Approach Radius of door, Enter Chance, once)─► HeadingToMuseum
      │ optional wander stops (PausingOutside)                                                 │ through door
      ▼                                                                                        ▼
-despawn at another road end ◄─ HeadingToExit ◄─ LeavingMuseum ◄─ WalkingToExhibit ⇄ ViewingExhibit
+vanish on exit zone ◄─ HeadingToExit ◄─ LeavingMuseum ◄─ WalkingToExhibit ⇄ ViewingExhibit
 ```
 
-- **Exit choice:** a random spawn point at least **Min Travel Distance** cells away, or the
-  farthest one if none qualify.
+- **Exit choice:** a random zone at least **Min Travel Distance** cells away, or the farthest if
+  none qualify, never the zone the guest came in by. Guests aim at a random cell of that zone,
+  so they cross the road at different lanes, then vanish on the first zone cell they step on.
 - **Visit:** the guest wants *Exhibits To Visit* exhibits, capped by how many exist. It shuffles
   them and walks to a free spot facing each exhibit. The two camera-facing sides (low X / low Y)
   are preferred. It watches for *View Time*, sometimes playing a reaction (`intrigue_*`,
