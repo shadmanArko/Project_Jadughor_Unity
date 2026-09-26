@@ -41,6 +41,14 @@ namespace ProjectMuseum.Narrative
         /// </summary>
         public static Action<string> OnPlayerPerformedTutorialRequiringAction;
 
+        // ── Town map ────────────────────────────────────────────────────
+        /// <summary>The right-side Town Map button was pressed — open the town map.</summary>
+        public static Action OnTownMapButtonClicked;
+        /// <summary>The town map's close button (or Esc / B) was pressed — close it.</summary>
+        public static Action OnClickCloseTownUi;
+        /// <summary>A living house with nobody home was clicked on the town map.</summary>
+        public static Action OnPlayerClickedAnEmptyHouse;
+
         // ── Player ──────────────────────────────────────────────────────
         /// <summary>The player profile changed (e.g. completed-scene bookkeeping).</summary>
         public static Action<PlayerInfo> OnPlayerInfoUpdated;

@@ -68,7 +68,8 @@ public class MuseumCamera : MonoBehaviour
     void HandlePan()
     {
         // Middle mouse button drag
-        if (Mouse.current.middleButton.wasPressedThisFrame)
+        // Don't start a world pan from on top of UI (e.g. dragging the town map).
+        if (Mouse.current.middleButton.wasPressedThisFrame && !IsPointerOverUi())
         {
             isPanning      = true;
             panOriginWorld = ScreenToWorld(Mouse.current.position.ReadValue());
