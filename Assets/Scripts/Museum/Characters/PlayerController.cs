@@ -1,3 +1,4 @@
+using ProjectMuseum.Builder;
 using ProjectMuseum.Data;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -10,12 +11,17 @@ namespace ProjectMuseum.Characters
     /// starts a step to the neighbouring cell and that step runs to completion before the next
     /// one starts, so the character never ends up between tiles.
     ///
+    /// Because a blocked cell is simply never stepped into, the character always comes to rest a
+    /// full tile clear of an exhibit — no separate stopping-distance tuning needed.
+    ///
     /// Directions are in tile coordinates: W = +Y, S = -Y, A = -X, D = +X.
     /// On the museum's isometric grid that reads as W up-left, S down-right, A down-left,
-    /// D up-right.
+    /// D up-right — which is exactly the two clips the character sheet provides:
     ///
-    /// Only two walk animations are needed. S and A move toward the camera (walk down), W and D
-    /// move away (walk up); within each pair the left-hand direction is the same clip flipped.
+    ///   walk_up_left    unflipped = W (up-left)      flipped = D (up-right)
+    ///   walk_down_right unflipped = S (down-right)   flipped = A (down-left)
+    ///
+    /// so the sprite is flipped precisely when moving along the X axis.
     /// </summary>
     [AddComponentMenu("Project Museum/Player Controller")]
     public class PlayerController : MonoBehaviour
@@ -27,7 +33,7 @@ namespace ProjectMuseum.Characters
         [Tooltip("The museum's isometric Grid. Found in the scene if left empty.")]
         [SerializeField] private Grid grid;
 
-        [Tooltip("Animator holding the walk/idle clips. Taken from this object if left empty.")]
+        [Tooltip("Animator holding the walk/idle clips. Found in children if left empty.")]
         [SerializeField] private Animator animator;
 
         [Tooltip("Sheet sprite to flip. Falls back to a SpriteRenderer if empty.")]
@@ -36,37 +42,50 @@ namespace ProjectMuseum.Characters
         [SerializeField] private SpriteRenderer spriteRenderer;
 
         [Header("Movement")]
-        [Tooltip("Seconds to cross one tile. Lower is faster — this is also how long a queued " +
-                 "turn waits, so very high values feel unresponsive.")]
+        [Tooltip("Seconds to cross one tile. A step cannot be interrupted once started (except " +
+                 "by doubling back), so this is also the worst-case lag between releasing a key " +
+                 "and standing still — keep it short.")]
         [Min(0.01f)]
-        [SerializeField] private float secondsPerTile = 0.3f;
+        [SerializeField] private float tileStepDuration = 0.22f;
 
         [Tooltip("Stop at tiles taken by exhibits and placed items, and at the museum edge.")]
         [SerializeField] private bool blockOnUnwalkableTiles = true;
 
         [Header("Animation states")]
-        [Tooltip("Walking toward the camera — used by S and A.")]
-        [SerializeField] private string walkDownState = "walk_forward";
+        [Tooltip("Walking toward the camera. Unflipped this is S (down-right); flipped it is A. " +
+                 "If the Animator has no state with this name, a known alias is used instead.")]
+        [SerializeField] private string walkDownState = "walk_down_right";
 
-        [Tooltip("Walking away from the camera — used by W and D.")]
-        [SerializeField] private string walkUpState = "walk_backward";
+        [Tooltip("Walking away from the camera. Unflipped this is W (up-left); flipped it is D.")]
+        [SerializeField] private string walkUpState = "walk_up_left";
 
-        [SerializeField] private string idleDownState = "idle_front_facing";
-        [SerializeField] private string idleUpState = "idle_back_facing";
+        [SerializeField] private string idleDownState = "idle_down_right";
+        [SerializeField] private string idleUpState = "idle_up_left";
 
         [Header("Facing")]
-        [Tooltip("On if the artwork is drawn facing screen-right. Turn off if the character " +
-                 "walks the wrong way round — it swaps which directions get flipped.")]
-        [SerializeField] private bool spriteFacesScreenRight = true;
+        [Tooltip("Flip the sprite when moving along the X axis (A/D). Turn off only if the " +
+                 "artwork is mirrored from the usual down-right / up-left pair.")]
+        [SerializeField] private bool flipOnXAxis = true;
 
         [Tooltip("Face a new direction the moment the key is pressed, without waiting to finish " +
-                 "the current tile. Responsive, but the character slides the old way for the rest " +
-                 "of the step while already facing the new one. Turn off to only turn on arrival.")]
+                 "the current tile.")]
         [SerializeField] private bool turnImmediately = true;
+
+        [Header("Sorting")]
+        [Tooltip("Register with MuseumSortingSystem so exhibits in front of the player draw over " +
+                 "it and exhibits behind it do not.")]
+        [SerializeField] private bool useMuseumSorting = true;
+
+        [Tooltip("Sorting layer the player is moved onto. MUST match the layer placed objects " +
+                 "use, or sorting order between them can never be compared.")]
+        [SerializeField] private string placedObjectSortingLayer = "PlacedMuseumObject";
 
         [Header("Diagnostics")]
         [Tooltip("Logs why a step was refused (blocked tile / no tile data).")]
         [SerializeField] private bool logBlockedSteps;
+
+        // Names actually used at runtime, after checking them against the Animator.
+        private string _walkDown, _walkUp, _idleDown, _idleUp;
 
         private Vector3Int _currentCell;
         private Vector3Int _targetCell;
@@ -76,10 +95,14 @@ namespace ProjectMuseum.Characters
         private bool _isMoving;
 
         private Vector2Int _inputDirection;
+        private Vector2Int _stepDirection;
         private bool _facingDown = true;
         private bool _flipped;
         private string _currentState;
         private bool _warnedNoModel;
+
+        private MuseumSortingSystem _sorting;
+        private Vector2Int _sortedCell = new Vector2Int(int.MinValue, int.MinValue);
 
         /// <summary>The cell the player is standing on (or stepping away from mid-step).</summary>
         public Vector3Int CurrentCell => _currentCell;
@@ -87,7 +110,7 @@ namespace ProjectMuseum.Characters
         private void Awake()
         {
             if (grid == null) grid = FindFirstObjectByType<Grid>();
-            if (animator == null) animator = GetComponent<Animator>();
+            if (animator == null) animator = GetComponentInChildren<Animator>(true);
             if (sheetSprite == null) sheetSprite = GetComponentInChildren<SheetSpriteRenderer>(true);
             if (spriteRenderer == null) spriteRenderer = GetComponentInChildren<SpriteRenderer>(true);
         }
@@ -102,8 +125,15 @@ namespace ProjectMuseum.Characters
                 transform.position = CellToWorld(_currentCell);
             }
 
-            ValidateAnimatorStates();
-            PlayState(idleDownState);
+            ResolveAnimatorStates();
+            ApplySortingLayer();
+            PlayState(_idleDown);
+            UpdateSortingCell(_currentCell);
+        }
+
+        private void OnDestroy()
+        {
+            if (_sorting != null) _sorting.UnregisterObject(gameObject);
         }
 
         private void Update()
@@ -114,6 +144,12 @@ namespace ProjectMuseum.Characters
             // between the character answering the key press and answering it a tile later.
             if (turnImmediately && _isMoving && _inputDirection != Vector2Int.zero)
                 Face(_inputDirection);
+
+            // Doubling back is the one mid-step change that needs no tile boundary: the cell
+            // being returned to is the one just left, so the character can turn round on the
+            // spot instead of finishing a step in the direction the player already abandoned.
+            if (_isMoving && _inputDirection != Vector2Int.zero && _inputDirection == -_stepDirection)
+                ReverseStep();
 
             if (_isMoving) ContinueStep();
 
@@ -139,17 +175,39 @@ namespace ProjectMuseum.Characters
             if (!IsWalkable(target)) return;
 
             _targetCell = target;
+            _stepDirection = _inputDirection;
             _stepFrom = transform.position;
             _stepTo = CellToWorld(target);
             _stepTime = 0f;
             _isMoving = true;
         }
 
+        /// <summary>
+        /// Turns the current step around without moving the character: the two endpoints swap and
+        /// the elapsed time mirrors, so position is continuous across the reversal and the step
+        /// finishes on the cell it originally started from.
+        /// </summary>
+        private void ReverseStep()
+        {
+            (_stepFrom, _stepTo) = (_stepTo, _stepFrom);
+            (_currentCell, _targetCell) = (_targetCell, _currentCell);
+
+            // Mirror the progress: t becomes 1 - t, which leaves Lerp(from, to, t) at the exact
+            // position the character already occupies.
+            _stepTime = Mathf.Max(0f, tileStepDuration - _stepTime);
+            _stepDirection = -_stepDirection;
+        }
+
         private void ContinueStep()
         {
             _stepTime += Time.deltaTime;
-            var t = Mathf.Clamp01(_stepTime / secondsPerTile);
+            var t = Mathf.Clamp01(_stepTime / tileStepDuration);
             transform.position = Vector3.Lerp(_stepFrom, _stepTo, t);
+
+            // Hand depth over at the halfway mark — the point where the character visually
+            // crosses the boundary — so it slips behind or in front of a neighbouring exhibit
+            // at the right moment instead of popping a whole tile early or late.
+            if (t >= 0.5f) UpdateSortingCell(_targetCell);
 
             if (t < 1f) return;
 
@@ -197,11 +255,74 @@ namespace ProjectMuseum.Characters
             return true;
         }
 
+        // ── Sorting ────────────────────────────────────────────────
+
+        /// <summary>
+        /// Moves the player onto the same sorting layer as placed museum objects.
+        ///
+        /// This is not cosmetic. Sorting layer is compared before sorting order, and the project's
+        /// layer list puts "Player" before "PlacedMuseumObject" — so while the character sits on
+        /// the Player layer, every exhibit draws over it whatever order it is given, including
+        /// exhibits standing behind it. <see cref="MuseumSortingSystem"/> only ever assigns
+        /// sortingOrder, so the layers have to agree first.
+        /// </summary>
+        private void ApplySortingLayer()
+        {
+            if (!useMuseumSorting || string.IsNullOrEmpty(placedObjectSortingLayer)) return;
+
+            var layerId = SortingLayer.NameToID(placedObjectSortingLayer);
+            if (!SortingLayer.IsValid(layerId))
+            {
+                Debug.LogError($"[PlayerController] Sorting layer '{placedObjectSortingLayer}' does " +
+                               "not exist. Exhibits will keep drawing over the player.", this);
+                return;
+            }
+
+            // Every renderer under the player, so a layered character moves as one unit.
+            foreach (var r in GetComponentsInChildren<SpriteRenderer>(true))
+                if (r != null) r.sortingLayerID = layerId;
+        }
+
+        /// <summary>
+        /// Tells <see cref="MuseumSortingSystem"/> the player now occupies this cell. The player
+        /// is registered as a 1x1 footprint, the same shape the placement ghost uses, so the
+        /// existing pairwise footprint comparison handles it with no special cases.
+        /// </summary>
+        private void UpdateSortingCell(Vector3Int cell)
+        {
+            if (!useMuseumSorting) return;
+
+            var cell2D = new Vector2Int(cell.x, cell.y);
+            if (cell2D == _sortedCell && _sorting != null) return;
+
+            // Looked up lazily: MuseumObjectPlacementSystem adds the component to itself, so it
+            // may not exist yet when this component's Start runs.
+            if (_sorting == null)
+            {
+                _sorting = FindFirstObjectByType<MuseumSortingSystem>();
+                if (_sorting == null) return;
+            }
+
+            // YSortable would fight the sorting system over sortingOrder, on a different scale
+            // and only ever computed at Awake. The placement system strips it from spawned
+            // objects for the same reason.
+            foreach (var y in GetComponentsInChildren<YSortable>(true))
+            {
+                if (!y.enabled) continue;
+                y.enabled = false;
+                Debug.Log("[PlayerController] Disabled YSortable — MuseumSortingSystem now owns " +
+                          "this character's depth.", this);
+            }
+
+            _sortedCell = cell2D;
+            _sorting.UpdateObjectFootprint(gameObject, cell2D, 1, 1);
+        }
+
         // ── Input ──────────────────────────────────────────────────
 
         /// <summary>
         /// The held direction in tile coordinates. One axis at a time: a diagonal would need
-        /// four more animations, so the vertical keys win when both are held.
+        /// four more animations, so the first key in this order wins.
         /// </summary>
         private static Vector2Int ReadDirection()
         {
@@ -223,22 +344,27 @@ namespace ProjectMuseum.Characters
             // S (-Y) and A (-X) head toward the camera; W (+Y) and D (+X) head away.
             _facingDown = direction.x < 0 || direction.y < 0;
 
-            // A and W are the two screen-left directions, so they take the flipped art.
-            var facingScreenLeft = direction.x < 0 || direction.y > 0;
-            SetFlip(spriteFacesScreenRight ? facingScreenLeft : !facingScreenLeft);
+            // The art is drawn down-right and up-left, so the Y-axis keys (S, W) use it as-is
+            // and the X-axis keys (A, D) are the mirrored halves of each pair.
+            var flip = direction.x != 0;
+            SetFlip(flipOnXAxis ? flip : !flip);
         }
 
         /// <summary>
-        /// Walk while a key is held, idle otherwise. Driven from the held input rather than from
-        /// <see cref="_isMoving"/>, so holding a direction into a wall keeps the walk cycle
-        /// running and releasing the key returns to idle on the same frame.
+        /// Walk whenever the character is actually travelling, or a key is held.
+        ///
+        /// Both halves matter. Releasing a key mid-step does not stop the character — it still
+        /// has to finish the tile it is crossing — so keying off input alone played the idle
+        /// pose while the sprite was still moving, which reads as the character sliding across
+        /// the floor. Keying off <see cref="_isMoving"/> alone would drop to idle when walking
+        /// into a wall, where the character is pushing but not travelling.
         /// </summary>
         private void UpdateAnimationState()
         {
-            var walking = _inputDirection != Vector2Int.zero;
+            var walking = _isMoving || _inputDirection != Vector2Int.zero;
 
-            if (walking) PlayState(_facingDown ? walkDownState : walkUpState);
-            else PlayState(_facingDown ? idleDownState : idleUpState);
+            if (walking) PlayState(_facingDown ? _walkDown : _walkUp);
+            else PlayState(_facingDown ? _idleDown : _idleUp);
         }
 
         private void SetFlip(bool flip)
@@ -272,11 +398,21 @@ namespace ProjectMuseum.Characters
         }
 
         /// <summary>
-        /// Animator.Play on a name the controller does not have fails silently, which looks
-        /// exactly like "the animation never changes". Check once at startup and say so.
+        /// Picks a state name the Animator actually has.
+        ///
+        /// Animator.Play on an unknown name fails silently — it looks exactly like "the animation
+        /// never changes". The inspector values are also sticky: editing a field's default in code
+        /// does NOT update a component already saved in a scene, so an object set up against older
+        /// state names keeps them forever. Falling back through known aliases means the character
+        /// animates whichever naming the controller was built with.
         /// </summary>
-        private void ValidateAnimatorStates()
+        private void ResolveAnimatorStates()
         {
+            _walkDown = walkDownState;
+            _walkUp = walkUpState;
+            _idleDown = idleDownState;
+            _idleUp = idleUpState;
+
             if (animator == null)
             {
                 Debug.LogError("[PlayerController] No Animator found — animations cannot play.", this);
@@ -285,22 +421,37 @@ namespace ProjectMuseum.Characters
 
             if (animator.runtimeAnimatorController == null)
             {
-                Debug.LogError("[PlayerController] The Animator has no Controller assigned. Generate " +
-                               "the clips (Tools ▸ Project Museum ▸ Frame Animation Clip Builder) and " +
-                               "assign the resulting Animator Controller.", this);
+                Debug.LogError("[PlayerController] The Animator has no Controller assigned.", this);
                 return;
             }
 
-            foreach (var state in new[] { walkDownState, walkUpState, idleDownState, idleUpState })
-            {
-                if (string.IsNullOrEmpty(state) || animator.HasState(0, Animator.StringToHash(state)))
-                    continue;
-
-                Debug.LogError($"[PlayerController] The Animator Controller has no state named " +
-                               $"'{state}' on layer 0. Rename the state to match, or change the field " +
-                               "on this component. (A state inside a sub-state machine needs its full " +
-                               "path, e.g. 'SubMachine.walk_forward'.)", this);
-            }
+            _walkDown = Resolve(walkDownState, "walk_down_right", "walk_forward", "walk_down");
+            _walkUp = Resolve(walkUpState, "walk_up_left", "walk_backward", "walk_up");
+            _idleDown = Resolve(idleDownState, "idle_down_right", "idle_front_facing", "idle_down");
+            _idleUp = Resolve(idleUpState, "idle_up_left", "idle_back_facing", "idle_up");
         }
+
+        private string Resolve(string configured, params string[] aliases)
+        {
+            if (Has(configured)) return configured;
+
+            foreach (var alias in aliases)
+            {
+                if (!Has(alias)) continue;
+
+                Debug.LogWarning($"[PlayerController] The Animator has no state '{configured}', " +
+                                 $"using '{alias}' instead. Update the field on this component to " +
+                                 "silence this.", this);
+                return alias;
+            }
+
+            Debug.LogError($"[PlayerController] No state matching '{configured}' exists on layer 0 " +
+                           "of the Animator Controller — this animation will not play. Check the " +
+                           "state names in the controller.", this);
+            return configured;
+        }
+
+        private bool Has(string stateName) =>
+            !string.IsNullOrEmpty(stateName) && animator.HasState(0, Animator.StringToHash(stateName));
     }
 }

@@ -34,6 +34,11 @@ namespace ProjectMuseum.Builder
         [Tooltip("Sorting order assigned to the back-most object; the rest count up from here.")]
         [SerializeField] private int baseOrder = 0;
 
+        [Tooltip("Sorting-order gap between consecutive objects. Must stay larger than the " +
+                 "biggest MuseumSortOffset in use, or one object's offset renderers spill into " +
+                 "the next object's band. Raised automatically if an offset exceeds it.")]
+        [SerializeField] private int orderStride = 8;
+
         private class Entry
         {
             public Vector2Int Min;              // anchor (front) cell
@@ -45,6 +50,7 @@ namespace ProjectMuseum.Builder
 
         private readonly Dictionary<GameObject, Entry> _entries = new();
         private readonly List<GameObject> _deadKeys = new();
+        private bool _warnedOrderRange;
 
         // ── Registration API (called by MuseumObjectPlacementSystem) ──────
 
@@ -118,6 +124,26 @@ namespace ProjectMuseum.Builder
 
             var items = new List<Entry>(_entries.Values);
 
+            // Each object owns a band of `stride` sorting orders so its offset renderers
+            // (artifacts +1, exhibit glass +2) stay inside its own band. With a stride of 1 the
+            // glass of one exhibit lands on the NEXT object's order and draws over it — visible
+            // as an exhibit's glass covering a character standing in front of it.
+            int stride = Mathf.Max(1, orderStride);
+            foreach (Entry e in items)
+            {
+                if (e.Offsets == null) continue;
+                foreach (int off in e.Offsets) stride = Mathf.Max(stride, Mathf.Abs(off) + 1);
+            }
+
+            // sortingOrder is a short internally, so a very large museum would wrap and scramble
+            // the depth order. Warn rather than let that happen silently.
+            if (!_warnedOrderRange && baseOrder + (long)(n - 1) * stride > short.MaxValue)
+            {
+                _warnedOrderRange = true;
+                Debug.LogWarning($"[MuseumSortingSystem] {n} objects at stride {stride} exceeds the " +
+                                 "sortingOrder limit of 32767. Lower Order Stride.", this);
+            }
+
             // Build pairwise constraints: edge j→i means "j must draw before i"
             // (i is in front of j). Kept as adjacency + in-degrees for a Kahn pass.
             var drawsAfter = new List<int>[n];
@@ -159,7 +185,7 @@ namespace ProjectMuseum.Builder
                 remaining.Remove(best);
                 foreach (int nb in drawsAfter[best]) inDegree[nb]--;
 
-                int order = baseOrder + assigned++;
+                int order = baseOrder + assigned++ * stride;
                 Entry e = items[best];
                 for (int k = 0; k < e.Renderers.Length; k++)
                 {
