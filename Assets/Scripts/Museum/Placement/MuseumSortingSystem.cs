@@ -96,6 +96,48 @@ namespace ProjectMuseum.Builder
 
         public void ClearAll() => _entries.Clear();
 
+        // ── Deferred API (crowds) ──────────────────────────────────────────
+        //
+        // Every call above runs a full O(n²) Resort immediately. That's right for the
+        // placement ghost and the player, but a crowd of guests each changing cell would
+        // resort several times per frame. These variants only mark the system dirty; one
+        // Resort runs in LateUpdate however many objects moved that frame.
+
+        private bool _resortPending;
+
+        /// <summary>Like <see cref="UpdateObjectFootprint"/>, but resorts once at end of frame.</summary>
+        public void UpdateObjectFootprintDeferred(GameObject go, Vector2Int anchor, int width, int length)
+        {
+            if (go == null) return;
+            if (!_entries.TryGetValue(go, out Entry e))
+            {
+                SpriteRenderer[] renderers = go.GetComponentsInChildren<SpriteRenderer>(true);
+                var offsets = new int[renderers.Length];
+                for (int i = 0; i < renderers.Length; i++)
+                {
+                    var o = renderers[i] != null ? renderers[i].GetComponent<MuseumSortOffset>() : null;
+                    offsets[i] = o != null ? o.offset : 0;
+                }
+                e = new Entry { Renderers = renderers, Offsets = offsets };
+                _entries[go] = e;
+            }
+            e.Min = anchor;
+            e.Max = anchor + new Vector2Int(Mathf.Max(1, width) - 1, Mathf.Max(1, length) - 1);
+            _resortPending = true;
+        }
+
+        /// <summary>Like <see cref="UnregisterObject"/>, but resorts once at end of frame.</summary>
+        public void UnregisterObjectDeferred(GameObject go)
+        {
+            if (go == null) return;
+            if (_entries.Remove(go)) _resortPending = true;
+        }
+
+        private void LateUpdate()
+        {
+            if (_resortPending) Resort();
+        }
+
         // ── Sorting ────────────────────────────────────────────────────────
 
         /// <summary>
@@ -113,6 +155,8 @@ namespace ProjectMuseum.Builder
 
         public void Resort()
         {
+            _resortPending = false;
+
             // Prune destroyed objects (Unity's overloaded == catches them).
             _deadKeys.Clear();
             foreach (KeyValuePair<GameObject, Entry> kv in _entries)
