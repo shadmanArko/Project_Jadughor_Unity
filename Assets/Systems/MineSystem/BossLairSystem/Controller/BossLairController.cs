@@ -1,0 +1,382 @@
+using System;
+using System.Threading;
+using Cysharp.Threading.Tasks;
+using Systems.MineSystem.BossLairSystem.Config;
+using Systems.MineSystem.BossLairSystem.Enum;
+using Systems.MineSystem.BossLairSystem.Model;
+using Systems.MineSystem.BossLairSystem.Scriptable;
+using Systems.MineSystem.BossLairSystem.Service;
+using Systems.MineSystem.BossLairSystem.Signal;
+using Systems.MineSystem.EnemySystem.Model;
+using Systems.MineSystem.Mine.Signal;
+using Systems.MineSystem.MinePlayerSystem.Model;
+using Systems.MineSystem.MinePlayerSystem.Scriptable;
+using Systems.MineSystem.PauseSystem.Enum;
+using Systems.MineSystem.PauseSystem.Interface;
+using Systems.MineSystem.PauseSystem.Signal;
+using Systems.Utilities.EventBus;
+using UniRx;
+using UnityEngine;
+using Zenject;
+
+namespace Systems.MineSystem.BossLairSystem.Controller
+{
+    /// <summary>
+    /// Owns the boss lair lifecycle: rolls for a gate when a mine is generated,
+    /// builds the arena in the same pass, runs entry and exit, and guarantees the
+    /// game is left in a valid state on death or teardown.
+    /// </summary>
+    /// <remarks>
+    /// Uses one <see cref="IFixedTickable"/> only for the active lair boss. The
+    /// explicit execution order follows <c>PlayerModel.FixedTick</c>, whose world
+    /// position the boss reads; there is no Update loop, mine polling, pathfinding,
+    /// wave work, or EnemyManager registration.
+    ///
+    /// Also an <see cref="IPauser"/>: entering the lair requests a pause scoped
+    /// to <see cref="PauseArea.MineView"/>, so the mine freezes while the arena
+    /// keeps running. It registers itself as <see cref="PauseArea.Global"/> so
+    /// the pause it requests can never freeze the transitions that end the
+    /// visit. Anything spawned for the lair should register as
+    /// <see cref="PauseArea.BossLair"/> to survive that freeze while still
+    /// obeying an unscoped pause from modal UI.
+    /// </remarks>
+    public sealed class BossLairController :
+        IPausable,
+        IPauser,
+        IFixedTickable,
+        IInitializable,
+        IDisposable
+    {
+        private readonly BossLairModel _model;
+        private readonly BossGateSpawnService _gateSpawn;
+        private readonly BossGatePlacementService _gatePlacement;
+        private readonly BossLairBuildService _build;
+        private readonly BossLairEntryService _entry;
+        private readonly BossLairExitService _exit;
+        private readonly BossLairPauseService _pause;
+        private readonly BossLairBossFactory _bossFactory;
+        private readonly BossLairConfig _config;
+        private readonly BossSpawnTableScriptable _spawnTable;
+        private readonly RuntimeDataScriptable _runtime;
+        private readonly CompositeDisposable _subscriptions = new();
+        private CancellationTokenSource _lifetime;
+        private CancellationTokenSource _activeTransition;
+        private int _visitVersion;
+        private bool _isAffectedByPause = true;
+        private bool _mineFreezeHeld;
+        private bool _disposed;
+
+        public BossLairController(
+            BossLairModel model,
+            BossGateSpawnService gateSpawn,
+            BossGatePlacementService gatePlacement,
+            BossLairBuildService build,
+            BossLairEntryService entry,
+            BossLairExitService exit,
+            BossLairPauseService pause,
+            BossLairBossFactory bossFactory,
+            BossLairConfig config,
+            BossSpawnTableScriptable spawnTable,
+            RuntimeDataScriptable runtime)
+        {
+            _model = model;
+            _gateSpawn = gateSpawn;
+            _gatePlacement = gatePlacement;
+            _build = build;
+            _entry = entry;
+            _exit = exit;
+            _pause = pause;
+            _bossFactory = bossFactory;
+            _config = config;
+            _spawnTable = spawnTable;
+            _runtime = runtime;
+        }
+
+        public string PauserId => "BossLairMineFreeze";
+
+        public bool IsAffectedByPause
+        {
+            get => _isAffectedByPause;
+            set
+            {
+                if (_isAffectedByPause == value)
+                    return;
+                _isAffectedByPause = value;
+                GlobalEventBus.Fire(new PausableAffectationChangedSignal(this));
+            }
+        }
+
+        public void Initialize()
+        {
+            _lifetime = new CancellationTokenSource();
+
+            // Reported, not thrown: a misconfigured lair must never stop the mine
+            // from being playable. Validating the spawn table here walks the whole
+            // authored chain - profile, gate prefab, boss config, arena config -
+            // so a half-set-up boss is reported at startup rather than failing
+            // quietly on the run where it finally gets rolled.
+            if (_config != null && !_config.Validate(out var configError))
+                Debug.LogError($"[BossLair] {configError}");
+            if (_spawnTable != null && !_spawnTable.Validate(out var tableError))
+                Debug.LogError($"[BossLair] {tableError}");
+
+            GlobalEventBus.OnSignal<MineGeneratedSignal>()
+                .Subscribe(signal => HandleMineGenerated(signal))
+                .AddTo(_subscriptions);
+            GlobalEventBus.OnSignal<BossDefeatedSignal>()
+                .Subscribe(HandleBossDefeated)
+                .AddTo(_subscriptions);
+
+            // Death is a dead end elsewhere in the project: PlayerDeathService
+            // fires no signal and there is no respawn flow. Left alone, dying in
+            // the arena would strand the player with no way back.
+            _runtime.lifeState
+                .Where(state => state == PlayerLifeState.Dead)
+                .Subscribe(_ => HandlePlayerDeath())
+                .AddTo(_subscriptions);
+
+            // Global, and deliberately so: OnPause arms the gate that
+            // BossLairExitService awaits *before* the release signal fires, so
+            // scoping this to the mine would trap the player in the arena.
+            GlobalEventBus.Fire(
+                new PausableRegisteredSignal(this, PauseArea.Global));
+        }
+
+        /// <summary>
+        /// Freezes the mine for the duration of the visit. Held behind a flag so
+        /// the pauser is requested and released exactly once per visit however
+        /// the visit ends - exit, death, or the mine being regenerated underneath
+        /// it.
+        /// </summary>
+        private void HoldMineFreeze()
+        {
+            if (_mineFreezeHeld)
+                return;
+            _mineFreezeHeld = true;
+            GlobalEventBus.Fire(
+                new PauseRequestedSignal(this, PauseArea.MineView));
+        }
+
+        private void ReleaseMineFreeze()
+        {
+            if (!_mineFreezeHeld)
+                return;
+            _mineFreezeHeld = false;
+            GlobalEventBus.Fire(new PauseReleasedSignal(this));
+        }
+
+        public void OnPause() => _pause.Pause();
+        public void OnUnpause() => _pause.Resume();
+
+        /// <summary>
+        /// Rolls for a boss gate and, when one is placed, builds the arena as part
+        /// of the same generation pass. Runs without a boss build nothing.
+        /// </summary>
+        private void HandleMineGenerated(MineGeneratedSignal signal)
+        {
+            if (_disposed)
+                return;
+
+            // The mine being regenerated ends any visit in progress. Release
+            // first, or the freeze outlives the mine it was freezing and the new
+            // one is born paused with nothing left to lift it.
+            _visitVersion++;
+            CancelActiveTransition();
+            ReleaseMineFreeze();
+            _model.SetState(BossLairState.Idle);
+            _model.ResetRunState();
+            _build.Teardown();
+
+            if (!_gateSpawn.TrySpawnForMine(signal.MineData))
+                return;
+            if (_build.Build(_model.Gate.Profile))
+                return;
+
+            // A gate the player could open onto a missing arena would be worse
+            // than no gate at all.
+            Debug.LogWarning(
+                "[BossLair] Arena build failed, so the gate was removed.");
+            _gatePlacement.Clear();
+            _model.ClearGate();
+        }
+
+        public void RequestEnter()
+        {
+            if (_disposed || !_model.IsIdle || !_model.HasGate ||
+                _model.IsCleared)
+                return;
+            EnterAsync().Forget(Debug.LogException);
+        }
+
+        public void RequestExit()
+        {
+            if (_disposed || _model.State.Value != BossLairState.Rewards)
+                return;
+            ExitAsync(bossDefeated: true, playerDied: false)
+                .Forget(Debug.LogException);
+        }
+
+        /// <summary>
+        /// Boss AI must run after PlayerModel's fixed tick has refreshed the
+        /// player position. The boss remains lair-owned and is never registered
+        /// with EnemyManager, whose pause, wave and relocation policies apply
+        /// only to mine enemies.
+        /// </summary>
+        public void FixedTick()
+        {
+            if (_disposed || _model.State.Value != BossLairState.Active)
+                return;
+            _bossFactory.Active?.OnFixedTick(
+                new EnemyTickContext(Time.fixedDeltaTime));
+        }
+
+        private async UniTask EnterAsync()
+        {
+            var profile = _model.Gate.Profile;
+            var visitVersion = _visitVersion;
+            _model.SetState(BossLairState.Entering);
+            var token = BeginTransition(out var transition);
+            var entered = false;
+            try
+            {
+                entered = await _entry.ExecuteAsync(token);
+            }
+            catch (OperationCanceledException)
+            {
+                // Mine regeneration, death, and disposal intentionally cancel
+                // transitions. Their owner already restored the valid state.
+            }
+            finally
+            {
+                EndTransition(transition);
+            }
+
+            if (_disposed || visitVersion != _visitVersion)
+                return;
+            if (!entered)
+            {
+                _model.SetState(BossLairState.Idle);
+                return;
+            }
+
+            _model.SetState(BossLairState.Active);
+            GlobalEventBus.Fire(new BossLairEnteredSignal(profile));
+            HoldMineFreeze();
+        }
+
+        private async UniTask ExitAsync(bool bossDefeated, bool playerDied)
+        {
+            var profile = _model.Gate.Profile;
+            var visitVersion = _visitVersion;
+            _model.SetState(BossLairState.Exiting);
+            var token = BeginTransition(out var transition);
+            try
+            {
+                await _exit.ExecuteAsync(token);
+            }
+            catch (OperationCanceledException)
+            {
+                return;
+            }
+            finally
+            {
+                EndTransition(transition);
+            }
+
+            if (_disposed || visitVersion != _visitVersion)
+                return;
+            _model.SetState(BossLairState.Idle);
+            GlobalEventBus.Fire(
+                new BossLairExitedSignal(profile, bossDefeated, playerDied));
+            ReleaseMineFreeze();
+        }
+
+        private void HandleBossDefeated(BossDefeatedSignal signal)
+        {
+            if (_disposed || _model.State.Value != BossLairState.Active ||
+                !_model.HasGate || _model.Gate.Profile == null ||
+                _model.Gate.Profile.BossVariant != signal.Variant ||
+                _bossFactory.Active == null ||
+                _bossFactory.Active.EnemyId != signal.BossId)
+                return;
+
+            _model.MarkCleared();
+            _model.SetState(BossLairState.Rewards);
+        }
+
+        /// <summary>
+        /// Unwinds a visit when the player dies. Runs synchronously so the state
+        /// cannot be left half-restored while a death animation plays.
+        /// </summary>
+        private void HandlePlayerDeath()
+        {
+            if (_disposed || _model.IsIdle)
+                return;
+
+            var profile = _model.Gate.Profile;
+            _visitVersion++;
+            CancelActiveTransition();
+            _exit.ReturnToMine();
+            _model.SetState(BossLairState.Idle);
+            GlobalEventBus.Fire(
+                new BossLairExitedSignal(profile, false, playerDied: true));
+            ReleaseMineFreeze();
+        }
+
+        private CancellationToken BeginTransition(
+            out CancellationTokenSource transition)
+        {
+            CancelActiveTransition();
+            _activeTransition =
+                CancellationTokenSource.CreateLinkedTokenSource(_lifetime.Token);
+            transition = _activeTransition;
+            return transition.Token;
+        }
+
+        private void EndTransition(CancellationTokenSource transition)
+        {
+            if (_activeTransition != transition)
+                return;
+            _activeTransition = null;
+            transition?.Dispose();
+        }
+
+        private void CancelActiveTransition()
+        {
+            _activeTransition?.Cancel();
+            _activeTransition?.Dispose();
+            _activeTransition = null;
+        }
+
+        public void Dispose()
+        {
+            if (_disposed)
+                return;
+            _disposed = true;
+            _visitVersion++;
+            ReleaseMineFreeze();
+            GlobalEventBus.Fire(new PausableUnregisteredSignal(this));
+
+            if (_lifetime != null && !_lifetime.IsCancellationRequested)
+                _lifetime.Cancel();
+            CancelActiveTransition();
+            _lifetime?.Dispose();
+            _lifetime = null;
+
+            // Only destroy owned objects. Restoring the player and camera is
+            // deliberately skipped: disposal happens during container teardown,
+            // where those components may already be destroyed. The camera service
+            // handles its own restore for the live-teardown case.
+            try
+            {
+                _build.Teardown();
+                _gatePlacement.Clear();
+            }
+            catch (Exception exception)
+            {
+                Debug.LogException(exception);
+            }
+            _subscriptions.Dispose();
+        }
+    }
+}

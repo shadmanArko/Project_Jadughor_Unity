@@ -61,7 +61,9 @@ namespace Systems.MineSystem.MinePlayerSystem.Service
         public bool TryRequestInteraction()
         {
             if (!CanRequestAnimation(PlayerAnimationId.Interact))
+            {
                 return false;
+            }
 
             _requestedAction = PlayerActionState.Interacting;
             _requestedAnimationId = PlayerAnimationId.Interact;
@@ -93,7 +95,9 @@ namespace Systems.MineSystem.MinePlayerSystem.Service
                 _runtime.actionState.Value != PlayerActionState.None ||
                 _runtime.HasRestriction(PlayerRestrictionFlags.Action) ||
                 _requestedAction != PlayerActionState.None)
+            {
                 return false;
+            }
 
             _requestedAction = PlayerActionState.PrimaryAction;
             _requestedAnimationId = animationId;
@@ -134,7 +138,9 @@ namespace Systems.MineSystem.MinePlayerSystem.Service
                 _requestedAction == PlayerActionState.PrimaryAction &&
                 !string.IsNullOrWhiteSpace(_requestedAnimationId);
             if (!hasActiveAction && !hasRequestedAction)
+            {
                 return false;
+            }
 
             _recoveryHandoffRequested = true;
             TryCompleteRecoveryHandoff();
@@ -170,7 +176,9 @@ namespace Systems.MineSystem.MinePlayerSystem.Service
                 var interruptedAnimation =
                     _activeAnimationId ?? _requestedAnimationId;
                 if (!string.IsNullOrEmpty(interruptedAnimation))
+                {
                     _actionFailed.OnNext(interruptedAnimation);
+                }
 
                 _requestedAction = PlayerActionState.None;
                 _requestedAnimationId = null;
@@ -218,7 +226,6 @@ namespace Systems.MineSystem.MinePlayerSystem.Service
             if (animationEvent.Generation != _animationGeneration ||
                 animationEvent.AnimationId != ActiveAnimationId)
                 return;
-
             _markerReached.OnNext(animationEvent);
         }
 
@@ -228,7 +235,6 @@ namespace Systems.MineSystem.MinePlayerSystem.Service
             if (animationEvent.Generation != _animationGeneration ||
                 animationEvent.AnimationId != ActiveAnimationId)
                 return;
-
             CancelAction();
             _actionCompleted.OnNext(animationEvent);
         }
@@ -284,6 +290,7 @@ namespace Systems.MineSystem.MinePlayerSystem.Service
 
         private void CancelAction()
         {
+            var cancelledAnimation = _activeAnimationId ?? _requestedAnimationId;
             _requestedAction = PlayerActionState.None;
             _requestedAnimationId = null;
             _activeAnimationId = null;
@@ -338,5 +345,6 @@ namespace Systems.MineSystem.MinePlayerSystem.Service
             _actionFailed.Dispose();
             _recoveryHandedOff.Dispose();
         }
+
     }
 }

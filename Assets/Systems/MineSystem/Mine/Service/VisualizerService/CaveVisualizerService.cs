@@ -33,7 +33,8 @@ namespace Systems.MineSystem.Mine.Service.VisualizerService
             Cell cell,
             MineData mineData,
             HashSet<Cell> revealedCells,
-            IEnumerable<Vector3Int> revealOffsets)
+            IEnumerable<Vector3Int> revealOffsets,
+            ISet<string> revealedCaveIds)
         {
             if (cell == null ||
                 mineData?.Caves == null ||
@@ -51,13 +52,15 @@ namespace Systems.MineSystem.Mine.Service.VisualizerService
             if (cave.IsRevealed)
                 return true;
 
+            cave.IsRevealed = true;
+            revealedCaveIds?.Add(cave.Id);
             RevealCaveCells(cave, mineData, revealedCells);
             RevealCaveBoundaryCells(
                 cave,
                 mineData,
                 revealedCells,
-                revealOffsets);
-            cave.IsRevealed = true;
+                revealOffsets,
+                revealedCaveIds);
             SpawnFormations(cave, mineData);
             return true;
         }
@@ -114,7 +117,8 @@ namespace Systems.MineSystem.Mine.Service.VisualizerService
             Cave cave,
             MineData mineData,
             HashSet<Cell> revealedCells,
-            IEnumerable<Vector3Int> revealOffsets)
+            IEnumerable<Vector3Int> revealOffsets,
+            ISet<string> revealedCaveIds)
         {
             foreach (var position in cave.CellPositions)
             {
@@ -140,7 +144,8 @@ namespace Systems.MineSystem.Mine.Service.VisualizerService
                                 adjacentCell,
                                 mineData,
                                 revealedCells,
-                                revealOffsets);
+                                revealOffsets,
+                                revealedCaveIds);
                     }
                     else
                     {

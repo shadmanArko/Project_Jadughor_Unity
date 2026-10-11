@@ -2,6 +2,7 @@ using System;
 using Systems.MineSystem.CollectableSystem.Interface;
 using Systems.MineSystem.CollectableSystem.View;
 using Systems.MineSystem.InventorySystem.Model;
+using Systems.MineSystem.PauseSystem.Enum;
 using UniRx;
 
 namespace Systems.MineSystem.CollectableSystem.Model
@@ -16,6 +17,13 @@ namespace Systems.MineSystem.CollectableSystem.Model
         public float NextCollectorScanTime { get; set; }
         public float AttractionAvailableTime { get; set; }
         public CollectablePauseStateData PauseState { get; } = new();
+
+        /// <summary>
+        /// Where this item dropped, fixed at spawn. Decides which pause governs
+        /// it: loot lying in the mine freezes during a boss fight, loot dropped
+        /// inside the arena stays collectable.
+        /// </summary>
+        public PauseArea Area { get; set; } = PauseArea.MineView;
         public IDisposable TriggerSubscription { get; set; }
         public IDisposable AttractionDelaySubscription { get; set; }
         public IReadOnlyReactiveProperty<bool> IsAttractionAvailable =>

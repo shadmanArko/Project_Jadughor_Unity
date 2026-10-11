@@ -1,0 +1,98 @@
+using Systems.MineSystem.BossLairSystem.Config;
+using Systems.MineSystem.BossLairSystem.Controller;
+using Systems.MineSystem.BossLairSystem.Handler;
+using Systems.MineSystem.BossLairSystem.Model;
+using Systems.MineSystem.BossLairSystem.Scriptable;
+using Systems.MineSystem.BossLairSystem.Service;
+using Systems.MineSystem.BossLairSystem.View;
+using Systems.MineSystem.EnemySystem.Mob.HedgehogBoss.View;
+using Systems.MineSystem.EnemySystem.Mob.HedgehogBoss.Service;
+using UnityEngine;
+using Zenject;
+
+namespace Systems.MineSystem.BossLairSystem.Installer
+{
+    /// <summary>
+    /// Bindings for the boss lair feature. Add this to the Mine scene's
+    /// SceneContext installer list.
+    /// </summary>
+    /// <remarks>
+    /// The lair prefab is passed to <see cref="BossLairFactory"/> as a constructor
+    /// argument rather than bound as a <see cref="BossLairView"/>. A
+    /// <c>FromComponentInNewPrefab</c> binding would build the arena at startup on
+    /// every run, including runs with no boss.
+    /// <para>
+    /// Arena geometry is not bound here: it lives on a
+    /// <c>BossProceduralLairConfig</c> per boss, reached through the selected
+    /// <c>BossProfileScriptable</c>.
+    /// </para>
+    /// </remarks>
+    [CreateAssetMenu(
+        fileName = "BossLairInstaller",
+        menuName = "Installers/Boss Lair Installer")]
+    public sealed class BossLairInstaller : ScriptableObjectInstaller<BossLairInstaller>
+    {
+        [Header("Configs")]
+        [Tooltip("Runtime configuration for gate placement and lair transitions.")]
+        [SerializeField] private BossLairConfig lairConfig;
+        [Tooltip("Region and site rules used to select a boss encounter per mine run.")]
+        [SerializeField] private BossSpawnTableScriptable spawnTable;
+        [Tooltip("Authored visual decorations applied to a generated boss lair.")]
+        [SerializeField] private BossLairDecorScriptable decor;
+
+        [Header("Prefabs")]
+        [Tooltip("Arena prefab instantiated during mine generation when a gate is placed.")]
+        [SerializeField] private BossLairView lairPrefab;
+        [Tooltip("Hedgehog boss prefab instantiated alongside the arena.")]
+        [SerializeField] private HedgehogBossView bossPrefab;
+        [Tooltip("Hidden screen-space health bar instantiated once for active lair combat.")]
+        [SerializeField] private BossLairCanvasView bossLairCanvasPrefab;
+
+        public override void InstallBindings()
+        {
+            Container.Bind<BossLairConfig>()
+                .FromScriptableObject(lairConfig).AsSingle();
+            Container.Bind<BossSpawnTableScriptable>()
+                .FromScriptableObject(spawnTable).AsSingle();
+            Container.Bind<BossLairDecorScriptable>()
+                .FromScriptableObject(decor).AsSingle();
+
+            Container.BindInterfacesAndSelfTo<BossLairModel>().AsSingle();
+
+            Container.Bind<BossLairPlacementService>().AsSingle();
+            Container.Bind<BossSelectionService>().AsSingle();
+            Container.Bind<BossGateSpawnService>().AsSingle();
+            Container.Bind<BossLairShellGenerationService>().AsSingle();
+            Container.Bind<BossLairDecorService>().AsSingle();
+            Container.Bind<BossLairCellGridService>().AsSingle();
+            Container.Bind<BossLairBuildService>().AsSingle();
+            Container.Bind<BossLairEntryService>().AsSingle();
+            Container.Bind<BossLairExitService>().AsSingle();
+
+            Container.BindInterfacesAndSelfTo<BossGatePlacementService>()
+                .AsSingle();
+            Container.BindInterfacesAndSelfTo<BossLairCameraService>()
+                .AsSingle();
+            Container.BindInterfacesAndSelfTo<BossLairPauseService>()
+                .AsSingle();
+            Container.BindInterfacesAndSelfTo<BossLairFactory>()
+                .AsSingle().WithArguments(lairPrefab);
+            Container.BindInterfacesAndSelfTo<BossLairBossFactory>()
+                .AsSingle().WithArguments(bossPrefab);
+            Container.Bind<HedgehogBossRewardService>().AsSingle();
+            Container.Bind<BossLairCanvasView>()
+                .FromComponentInNewPrefab(bossLairCanvasPrefab)
+                .AsSingle();
+
+            Container.BindInterfacesAndSelfTo<BossLairController>()
+                .AsSingle().NonLazy();
+            // PlayerModel uses Zenject's default order (0). Boss decisions need
+            // the position it writes in that tick, so run afterward.
+            Container.BindExecutionOrder<BossLairController>(100);
+            Container.BindInterfacesAndSelfTo<BossLairHealthBarController>()
+                .AsSingle().NonLazy();
+            Container.BindInterfacesAndSelfTo<BossGateInteractionHandler>()
+                .AsSingle();
+        }
+    }
+}

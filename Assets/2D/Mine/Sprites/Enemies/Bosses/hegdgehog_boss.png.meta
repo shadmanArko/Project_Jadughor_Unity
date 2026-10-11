@@ -1,0 +1,854 @@
+fileFormatVersion: 2
+guid: 19fd766c34021644bb95a925b5856a7d
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 7496702162254305909
+    second: hegdgehog_boss_0
+  - first:
+      213: 6203655724000064182
+    second: hegdgehog_boss_1
+  - first:
+      213: -6620190539106576567
+    second: hegdgehog_boss_2
+  - first:
+      213: -3202301536466633808
+    second: hegdgehog_boss_3
+  - first:
+      213: -1712630249309880624
+    second: hegdgehog_boss_4
+  - first:
+      213: -4560719102958741516
+    second: hegdgehog_boss_5
+  - first:
+      213: 9169823687121699286
+    second: hegdgehog_boss_6
+  - first:
+      213: -1222443128387056023
+    second: hegdgehog_boss_7
+  - first:
+      213: 8294362889751119382
+    second: hegdgehog_boss_8
+  - first:
+      213: 8488620065041114220
+    second: hegdgehog_boss_9
+  - first:
+      213: -1230455702723009772
+    second: hegdgehog_boss_10
+  - first:
+      213: -1865473224612002760
+    second: hegdgehog_boss_11
+  - first:
+      213: 8173431143776828944
+    second: hegdgehog_boss_12
+  - first:
+      213: -6012514536020263908
+    second: hegdgehog_boss_13
+  - first:
+      213: -2972374287306328021
+    second: hegdgehog_boss_14
+  - first:
+      213: -1987320843655903681
+    second: hegdgehog_boss_15
+  - first:
+      213: 791319505784223438
+    second: hegdgehog_boss_16
+  - first:
+      213: 5927307801788263923
+    second: hegdgehog_boss_17
+  - first:
+      213: 7826325803269460517
+    second: hegdgehog_boss_18
+  - first:
+      213: 7112209175311412150
+    second: hegdgehog_boss_19
+  - first:
+      213: 8366223718128598499
+    second: hegdgehog_boss_20
+  - first:
+      213: 842101446915586284
+    second: hegdgehog_boss_21
+  - first:
+      213: -4258441609971184579
+    second: hegdgehog_boss_22
+  - first:
+      213: -5156359235247112657
+    second: hegdgehog_boss_23
+  - first:
+      213: -6073293893881646709
+    second: hegdgehog_boss_24
+  - first:
+      213: 3068336015243322793
+    second: hegdgehog_boss_25
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 0
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: hegdgehog_boss_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 96
+        width: 42
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 57a1218b5e2a90860800000000000000
+      internalID: 7496702162254305909
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hegdgehog_boss_1
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 96
+        width: 42
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6b2b7d93300d71650800000000000000
+      internalID: 6203655724000064182
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hegdgehog_boss_2
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 96
+        width: 42
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 947962ba7cb5024a0800000000000000
+      internalID: -6620190539106576567
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hegdgehog_boss_3
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 96
+        width: 42
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0bbf73718b32f83d0800000000000000
+      internalID: -3202301536466633808
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hegdgehog_boss_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 64
+        width: 42
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0debb46bcd38b38e0800000000000000
+      internalID: -1712630249309880624
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hegdgehog_boss_5
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 64
+        width: 42
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4f75ecbb32215b0c0800000000000000
+      internalID: -4560719102958741516
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hegdgehog_boss_6
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 64
+        width: 42
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6d10ad34f02c14f70800000000000000
+      internalID: 9169823687121699286
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hegdgehog_boss_7
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 64
+        width: 42
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 96e4f569372090fe0800000000000000
+      internalID: -1222443128387056023
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hegdgehog_boss_8
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 64
+        width: 42
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6164cc15a1f7b1370800000000000000
+      internalID: 8294362889751119382
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hegdgehog_boss_9
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 64
+        width: 42
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c64670a79f2adc570800000000000000
+      internalID: 8488620065041114220
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hegdgehog_boss_10
+      rect:
+        serializedVersion: 2
+        x: 252
+        y: 64
+        width: 42
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 413675fbe0b8ceee0800000000000000
+      internalID: -1230455702723009772
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hegdgehog_boss_11
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 32
+        width: 42
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 834cff46cf18c16e0800000000000000
+      internalID: -1865473224612002760
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hegdgehog_boss_12
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 32
+        width: 42
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 01ebee0125cdd6170800000000000000
+      internalID: 8173431143776828944
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hegdgehog_boss_13
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 32
+        width: 42
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c1cb3a992e14f8ca0800000000000000
+      internalID: -6012514536020263908
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hegdgehog_boss_14
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 32
+        width: 42
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b28f991855100c6d0800000000000000
+      internalID: -2972374287306328021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hegdgehog_boss_15
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 32
+        width: 42
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f360923d83e9b64e0800000000000000
+      internalID: -1987320843655903681
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hegdgehog_boss_16
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 32
+        width: 42
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec63b1ed5e45bfa00800000000000000
+      internalID: 791319505784223438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hegdgehog_boss_17
+      rect:
+        serializedVersion: 2
+        x: 252
+        y: 32
+        width: 42
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3fdadff9a07024250800000000000000
+      internalID: 5927307801788263923
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hegdgehog_boss_18
+      rect:
+        serializedVersion: 2
+        x: 294
+        y: 32
+        width: 42
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 52299583ad1bc9c60800000000000000
+      internalID: 7826325803269460517
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hegdgehog_boss_19
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 42
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6bbe5b61094a3b260800000000000000
+      internalID: 7112209175311412150
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hegdgehog_boss_20
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 0
+        width: 42
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3edb08e352cca1470800000000000000
+      internalID: 8366223718128598499
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hegdgehog_boss_21
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 0
+        width: 42
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ce8fe38edcebfab00800000000000000
+      internalID: 842101446915586284
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hegdgehog_boss_22
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 0
+        width: 42
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d3cccecfae9f6e4c0800000000000000
+      internalID: -4258441609971184579
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hegdgehog_boss_23
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 0
+        width: 42
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f2e7ac8589ee078b0800000000000000
+      internalID: -5156359235247112657
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hegdgehog_boss_24
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 0
+        width: 42
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b81b2a6916357bba0800000000000000
+      internalID: -6073293893881646709
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hegdgehog_boss_25
+      rect:
+        serializedVersion: 2
+        x: 252
+        y: 0
+        width: 42
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9a5ad10695be49a20800000000000000
+      internalID: 3068336015243322793
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hegdgehog_boss_26
+      rect:
+        serializedVersion: 2
+        x: 294
+        y: 0
+        width: 42
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 238dc6cdf449ed741baa4e0dbee17a44
+      internalID: 843890843
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hegdgehog_boss_27
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 0
+        width: 42
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 641a6ed3d1ae4904cba9f3c277128b4d
+      internalID: -65260232
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 99c693957b6aca547b1528b55db6fbe7
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":9.0,"y":4.0},"gridSpriteSize":{"x":42.0,"y":32.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      hegdgehog_boss_0: 7496702162254305909
+      hegdgehog_boss_1: 6203655724000064182
+      hegdgehog_boss_10: -1230455702723009772
+      hegdgehog_boss_11: -1865473224612002760
+      hegdgehog_boss_12: 8173431143776828944
+      hegdgehog_boss_13: -6012514536020263908
+      hegdgehog_boss_14: -2972374287306328021
+      hegdgehog_boss_15: -1987320843655903681
+      hegdgehog_boss_16: 791319505784223438
+      hegdgehog_boss_17: 5927307801788263923
+      hegdgehog_boss_18: 7826325803269460517
+      hegdgehog_boss_19: 7112209175311412150
+      hegdgehog_boss_2: -6620190539106576567
+      hegdgehog_boss_20: 8366223718128598499
+      hegdgehog_boss_21: 842101446915586284
+      hegdgehog_boss_22: -4258441609971184579
+      hegdgehog_boss_23: -5156359235247112657
+      hegdgehog_boss_24: -6073293893881646709
+      hegdgehog_boss_25: 3068336015243322793
+      hegdgehog_boss_26: 843890843
+      hegdgehog_boss_27: -65260232
+      hegdgehog_boss_3: -3202301536466633808
+      hegdgehog_boss_4: -1712630249309880624
+      hegdgehog_boss_5: -4560719102958741516
+      hegdgehog_boss_6: 9169823687121699286
+      hegdgehog_boss_7: -1222443128387056023
+      hegdgehog_boss_8: 8294362889751119382
+      hegdgehog_boss_9: 8488620065041114220
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

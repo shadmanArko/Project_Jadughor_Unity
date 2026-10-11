@@ -14,6 +14,7 @@ using UniRx;
 using UnityEngine;
 using Zenject;
 using Systems.MineSystem.PauseSystem.Interface;
+using Systems.MineSystem.PauseSystem.Enum;
 using Systems.MineSystem.PauseSystem.Signal;
 
 namespace Systems.MineSystem.MineTransitionSystem.Controller
@@ -90,7 +91,10 @@ namespace Systems.MineSystem.MineTransitionSystem.Controller
                 .Subscribe(_ => MineToCampAsync(_lifetime.Token)
                     .Forget(Debug.LogException))
                 .AddTo(_disposables);
-            GlobalEventBus.Fire(new PausableRegisteredSignal(this));
+            // Global: OnPause arms a gate the transition tasks await, so a
+            // mine-scoped freeze would soft-lock a transition begun in the lair.
+            GlobalEventBus.Fire(
+                new PausableRegisteredSignal(this, PauseArea.Global));
         }
 
         public void OnPause() => _pause.Pause();

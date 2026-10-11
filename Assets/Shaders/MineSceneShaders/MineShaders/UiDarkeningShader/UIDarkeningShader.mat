@@ -255,7 +255,7 @@ Material:
     - _HologramStripeColor: {r: 0.09411766, g: 0.03137255, b: 0.18431373, a: 1}
     - _InnerOutlineColor: {r: 1, g: 0, b: 0, a: 1}
     - _OutlineColor: {r: 1, g: 1, b: 1, a: 1}
-    - _OverlayColor: {r: 0.18653974, g: 0.17848867, b: 0.19811311, a: 0.78431374}
+    - _OverlayColor: {r: 0.18653971, g: 0.17848864, b: 0.19811308, a: 0.3882353}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
     - _ShadowColor: {r: 0, g: 0, b: 0, a: 1}
     - _ShineColor: {r: 1, g: 1, b: 1, a: 1}

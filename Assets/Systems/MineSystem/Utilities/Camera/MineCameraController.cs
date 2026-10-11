@@ -8,6 +8,7 @@ using Unity.Cinemachine;
 using UnityEngine;
 using Zenject;
 using Systems.MineSystem.PauseSystem.Interface;
+using Systems.MineSystem.PauseSystem.Enum;
 using Systems.MineSystem.PauseSystem.Signal;
 using Systems.Utilities.EventBus;
 
@@ -63,7 +64,10 @@ namespace Systems.MineSystem.Utilities.Camera
             _confiner.BoundingShape2D = _mineView.cameraBoundaryCollider;
             ClearFollowTarget();
             SetFreeMovement(true);
-            GlobalEventBus.Fire(new PausableRegisteredSignal(this));
+            // Global: BossLairCameraService drives this same rig for the arena,
+            // so a mine-scoped freeze would freeze the boss fight's camera.
+            GlobalEventBus.Fire(
+                new PausableRegisteredSignal(this, PauseArea.Global));
         }
 
         public void ConfigureMineBounds(MineData mineData)
@@ -89,6 +93,26 @@ namespace Systems.MineSystem.Utilities.Camera
                 worldSize.y / Mathf.Max(0.0001f, Mathf.Abs(scale.y)));
             _confiner.InvalidateBoundingShapeCache();
         }
+
+        /// <summary>
+        /// Points the confiner at a different bounding shape, for play areas
+        /// outside the mine such as the boss lair. Swap while the confiner is
+        /// disabled via <see cref="SetFreeMovement"/>, because the confiner
+        /// caches the shape and only re-reads it when invalidated.
+        /// </summary>
+        public void SetBoundingShape(Collider2D shape)
+        {
+            if (shape == null)
+                throw new ArgumentNullException(nameof(shape));
+            _confiner.BoundingShape2D = shape;
+            _confiner.InvalidateBoundingShapeCache();
+        }
+
+        /// <summary>
+        /// Restores the mine's own bounding shape after a temporary swap.
+        /// </summary>
+        public void RestoreMineBoundingShape() =>
+            SetBoundingShape(_mineView.cameraBoundaryCollider);
 
         public void SetFollowTarget(Transform target) => _camera.Follow = target;
         public void ClearFollowTarget() => _camera.Follow = null;

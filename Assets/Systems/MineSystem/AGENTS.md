@@ -84,10 +84,36 @@ coding agents.
   type owns multiple subscriptions. Never leave zombie subscriptions, callbacks,
   or asynchronous work behind.
 
+### Area-scoped pause contract
+
+`PauseArea` is a runtime ownership boundary, not a presentation label. Register
+every pausable with the narrowest area that preserves its required behavior:
+
+- **MineView** pauses ordinary mine simulation: generation-side mine actors,
+  normal enemies, mine collectables, and mine presentation that must freeze while
+  the player visits a lair.
+- **BossLair** keeps the built arena's boss, projectiles, and arena reward loot
+  alive during a boss visit. They still obey an unscoped modal pause.
+- **Global** keeps the player, camera, lair entry/exit transitions, and the
+  modal-pause mechanism alive. Global work must not be frozen by the mine-only
+  pause it may be helping to resolve.
+
+`BossLairController` is both the owner of the visit lifecycle and the mine-only
+pauser. It must hold `PauseArea.MineView` for every successful entry, retain that
+hold through combat and `Rewards`, and release it exactly once on normal exit,
+player-death emergency return, mine regeneration, or disposal. It registers as
+`Global`; lair-spawned actors register as `BossLair`. Never substitute an
+unscoped pause for this contract, or a modal pause will either leave mine work
+running or freeze the transition needed to leave the arena.
+
 ### Configuration and reactive state
 
 - Put adjustable gameplay and presentation values in a focused config or
   ScriptableObject rather than scattering magic numbers through runtime code.
+- Every serialized field on a config, profile, reward definition, or other
+  designer-authored data asset must have a concise `Tooltip` that explains its
+  purpose and units or range semantics where applicable. This is required for
+  all new authored-data types; add missing tooltips to directly touched assets.
 - Use reactive properties when a value must notify consumers or be adjustable at
   runtime. Do not make a value reactive when plain immutable configuration is
   sufficient.
@@ -329,6 +355,7 @@ different design.
 - [ ] Subscriptions, callbacks, tasks, timers, tweens, and registrations are cleaned up.
 - [ ] No prohibited update method, coroutine, polling stream, or perpetual task loop was added.
 - [ ] Config and serialized references are valid.
+- [ ] Every serialized designer-facing field on new or touched config data has a clear Inspector tooltip.
 - [ ] Pooled objects fully reset and cancel their previous lifetime.
 - [ ] `Assembly-CSharp` compiles and Unity reports no new domain-reload errors.
 - [ ] Relevant Edit Mode/Play Mode behavior was tested, or unrun checks are disclosed.

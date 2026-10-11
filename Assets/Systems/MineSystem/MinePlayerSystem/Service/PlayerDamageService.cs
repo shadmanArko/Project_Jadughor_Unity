@@ -45,11 +45,15 @@ namespace Systems.MineSystem.MinePlayerSystem.Service
         {
             if (amount <= 0f ||
                 _runtime.lifeState.Value == PlayerLifeState.Dead)
+            {
                 return false;
+            }
 
             if (kind != PlayerDamageKind.Fall &&
                 _runtime.isInvincible.Value)
+            {
                 return false;
+            }
 
             var health = _player.playerData.health;
             health.Value = Mathf.Max(0f, health.Value - amount);
@@ -116,7 +120,6 @@ namespace Systems.MineSystem.MinePlayerSystem.Service
             _runtime.isHurt.Value = false;
             _runtime.restrictions.Value &= ~_appliedRestrictions;
             _appliedRestrictions = PlayerRestrictionFlags.None;
-
             if (_player.playerData.health.Value <= 0f)
                 _deathService.BeginDeath();
         }
@@ -125,5 +128,6 @@ namespace Systems.MineSystem.MinePlayerSystem.Service
         {
             ClearInvincibility();
         }
+
     }
 }

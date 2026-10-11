@@ -1,9 +1,7 @@
-using System;
 using System.Collections.Generic;
-using Systems.MineSystem.MinePlayerSystem.Model;
+using Systems.MineSystem.MinePlayerSystem.Enum;
 using Systems.MineSystem.MinePlayerSystem.SubSystem.PlayerAnimationSubSystem.Model;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Systems.MineSystem.MinePlayerSystem.SubSystem.PlayerAnimationSubSystem.Scriptable
 {
@@ -16,17 +14,14 @@ namespace Systems.MineSystem.MinePlayerSystem.SubSystem.PlayerAnimationSubSystem
             animationProfiles;
 
         public bool TryGetProfile(
-            string profileId,
+            CharacterType characterType,
             out AnimationProfile profile)
         {
             for (var i = 0; i < animationProfiles.Count; i++)
             {
                 var candidate = animationProfiles[i];
                 if (candidate != null &&
-                    string.Equals(
-                        candidate.id,
-                        profileId,
-                        StringComparison.Ordinal))
+                    candidate.characterType == characterType)
                 {
                     profile = candidate;
                     return true;

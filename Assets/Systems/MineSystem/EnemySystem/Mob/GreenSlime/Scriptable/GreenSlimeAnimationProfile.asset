@@ -1,0 +1,157 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56eff51822024aed8ee5aa1dfa989e58, type: 3}
+  m_Name: GreenSlimeAnimationProfile
+  m_EditorClassIdentifier: 
+  animatorController: {fileID: 9100000, guid: 8aa2f5c4105a53b49b48c633120f18bd, type: 2}
+  visualScale: {x: 1, y: 1}
+  visualOffset: {x: 0, y: 0}
+  animations:
+  - id: Slime.Spawn
+    stateName: GreenSlime_Spawn
+    triggerName: 
+    animationSprites:
+    - {fileID: -1020743363, guid: b5c740ae3c16aa94ba6f44d3fc67f6fe, type: 3}
+    - {fileID: -729977054, guid: b5c740ae3c16aa94ba6f44d3fc67f6fe, type: 3}
+    - {fileID: -1184139652, guid: b5c740ae3c16aa94ba6f44d3fc67f6fe, type: 3}
+    - {fileID: 340944149, guid: b5c740ae3c16aa94ba6f44d3fc67f6fe, type: 3}
+    - {fileID: -885314535, guid: b5c740ae3c16aa94ba6f44d3fc67f6fe, type: 3}
+    - {fileID: -942625225, guid: b5c740ae3c16aa94ba6f44d3fc67f6fe, type: 3}
+    - {fileID: 752186215, guid: b5c740ae3c16aa94ba6f44d3fc67f6fe, type: 3}
+    - {fileID: -588492695, guid: b5c740ae3c16aa94ba6f44d3fc67f6fe, type: 3}
+    - {fileID: 743048801, guid: b5c740ae3c16aa94ba6f44d3fc67f6fe, type: 3}
+    speed: 1
+    playOnlyOnce: 1
+    flipX: 1
+    flipY: 0
+    allowFacingFlip: 1
+  - id: Slime.Idle
+    stateName: GreenSlime_Idle
+    triggerName: 
+    animationSprites:
+    - {fileID: -1186689370, guid: b5c740ae3c16aa94ba6f44d3fc67f6fe, type: 3}
+    - {fileID: -876179540, guid: b5c740ae3c16aa94ba6f44d3fc67f6fe, type: 3}
+    - {fileID: -1503418028, guid: b5c740ae3c16aa94ba6f44d3fc67f6fe, type: 3}
+    - {fileID: -1938543867, guid: b5c740ae3c16aa94ba6f44d3fc67f6fe, type: 3}
+    - {fileID: 817506153, guid: b5c740ae3c16aa94ba6f44d3fc67f6fe, type: 3}
+    - {fileID: 904221458, guid: b5c740ae3c16aa94ba6f44d3fc67f6fe, type: 3}
+    speed: 1
+    playOnlyOnce: 0
+    flipX: 1
+    flipY: 0
+    allowFacingFlip: 1
+  - id: Slime.Aggro
+    stateName: GreenSlime_Aggro
+    triggerName: 
+    animationSprites:
+    - {fileID: 1311911491, guid: b5c740ae3c16aa94ba6f44d3fc67f6fe, type: 3}
+    - {fileID: 2138056169, guid: b5c740ae3c16aa94ba6f44d3fc67f6fe, type: 3}
+    - {fileID: 2001338891, guid: b5c740ae3c16aa94ba6f44d3fc67f6fe, type: 3}
+    - {fileID: -1479889944, guid: b5c740ae3c16aa94ba6f44d3fc67f6fe, type: 3}
+    - {fileID: 1947763590, guid: b5c740ae3c16aa94ba6f44d3fc67f6fe, type: 3}
+    - {fileID: -1041209986, guid: b5c740ae3c16aa94ba6f44d3fc67f6fe, type: 3}
+    speed: 1
+    playOnlyOnce: 1
+    flipX: 1
+    flipY: 0
+    allowFacingFlip: 1
+  - id: Slime.Move
+    stateName: GreenSlime_Move
+    triggerName: 
+    animationSprites:
+    - {fileID: -139761603, guid: b5c740ae3c16aa94ba6f44d3fc67f6fe, type: 3}
+    - {fileID: -57982244, guid: b5c740ae3c16aa94ba6f44d3fc67f6fe, type: 3}
+    - {fileID: 236136337, guid: b5c740ae3c16aa94ba6f44d3fc67f6fe, type: 3}
+    - {fileID: -284653192, guid: b5c740ae3c16aa94ba6f44d3fc67f6fe, type: 3}
+    - {fileID: -593766404, guid: b5c740ae3c16aa94ba6f44d3fc67f6fe, type: 3}
+    - {fileID: -139761603, guid: b5c740ae3c16aa94ba6f44d3fc67f6fe, type: 3}
+    speed: 1
+    playOnlyOnce: 0
+    flipX: 1
+    flipY: 0
+    allowFacingFlip: 1
+  - id: Slime.Attack
+    stateName: GreenSlime_Attack
+    triggerName: 
+    animationSprites:
+    - {fileID: -1050732783, guid: b5c740ae3c16aa94ba6f44d3fc67f6fe, type: 3}
+    - {fileID: 1190502070, guid: b5c740ae3c16aa94ba6f44d3fc67f6fe, type: 3}
+    - {fileID: -1701589661, guid: b5c740ae3c16aa94ba6f44d3fc67f6fe, type: 3}
+    - {fileID: 760703675, guid: b5c740ae3c16aa94ba6f44d3fc67f6fe, type: 3}
+    - {fileID: 393510460, guid: b5c740ae3c16aa94ba6f44d3fc67f6fe, type: 3}
+    - {fileID: 815453646, guid: b5c740ae3c16aa94ba6f44d3fc67f6fe, type: 3}
+    speed: 1
+    playOnlyOnce: 1
+    flipX: 1
+    flipY: 0
+    allowFacingFlip: 1
+  - id: Slime.Hurt
+    stateName: GreenSlime_Hurt
+    triggerName: 
+    animationSprites:
+    - {fileID: -1455392871, guid: b5c740ae3c16aa94ba6f44d3fc67f6fe, type: 3}
+    - {fileID: -563488826, guid: b5c740ae3c16aa94ba6f44d3fc67f6fe, type: 3}
+    - {fileID: -1680253885, guid: b5c740ae3c16aa94ba6f44d3fc67f6fe, type: 3}
+    - {fileID: 904904625, guid: b5c740ae3c16aa94ba6f44d3fc67f6fe, type: 3}
+    - {fileID: 254058215, guid: b5c740ae3c16aa94ba6f44d3fc67f6fe, type: 3}
+    - {fileID: -1991806189, guid: b5c740ae3c16aa94ba6f44d3fc67f6fe, type: 3}
+    - {fileID: -402267924, guid: b5c740ae3c16aa94ba6f44d3fc67f6fe, type: 3}
+    - {fileID: -1889750476, guid: b5c740ae3c16aa94ba6f44d3fc67f6fe, type: 3}
+    - {fileID: 1010093474, guid: b5c740ae3c16aa94ba6f44d3fc67f6fe, type: 3}
+    speed: 1
+    playOnlyOnce: 1
+    flipX: 1
+    flipY: 0
+    allowFacingFlip: 1
+  - id: Slime.Fall
+    stateName: GreenSlime_Fall
+    triggerName: 
+    animationSprites:
+    - {fileID: 327824187, guid: b5c740ae3c16aa94ba6f44d3fc67f6fe, type: 3}
+    - {fileID: -1080865512, guid: b5c740ae3c16aa94ba6f44d3fc67f6fe, type: 3}
+    speed: 1
+    playOnlyOnce: 0
+    flipX: 1
+    flipY: 0
+    allowFacingFlip: 1
+  - id: Slime.Despawn
+    stateName: GreenSlime_Despawn
+    triggerName: 
+    animationSprites:
+    - {fileID: 1153000104, guid: b5c740ae3c16aa94ba6f44d3fc67f6fe, type: 3}
+    - {fileID: -971336423, guid: b5c740ae3c16aa94ba6f44d3fc67f6fe, type: 3}
+    - {fileID: 562692769, guid: b5c740ae3c16aa94ba6f44d3fc67f6fe, type: 3}
+    - {fileID: 360217785, guid: b5c740ae3c16aa94ba6f44d3fc67f6fe, type: 3}
+    - {fileID: -187593354, guid: b5c740ae3c16aa94ba6f44d3fc67f6fe, type: 3}
+    - {fileID: 1804898224, guid: b5c740ae3c16aa94ba6f44d3fc67f6fe, type: 3}
+    - {fileID: -658982289, guid: b5c740ae3c16aa94ba6f44d3fc67f6fe, type: 3}
+    - {fileID: 352469377, guid: b5c740ae3c16aa94ba6f44d3fc67f6fe, type: 3}
+    - {fileID: 2032561312, guid: b5c740ae3c16aa94ba6f44d3fc67f6fe, type: 3}
+    speed: 1
+    playOnlyOnce: 1
+    flipX: 1
+    flipY: 0
+    allowFacingFlip: 1
+  - id: Slime.Death
+    stateName: GreenSlime_Death
+    triggerName: 
+    animationSprites:
+    - {fileID: -304622833, guid: b5c740ae3c16aa94ba6f44d3fc67f6fe, type: 3}
+    - {fileID: -1777601091, guid: b5c740ae3c16aa94ba6f44d3fc67f6fe, type: 3}
+    - {fileID: -1714897892, guid: b5c740ae3c16aa94ba6f44d3fc67f6fe, type: 3}
+    - {fileID: -276558287, guid: b5c740ae3c16aa94ba6f44d3fc67f6fe, type: 3}
+    - {fileID: 172180778, guid: b5c740ae3c16aa94ba6f44d3fc67f6fe, type: 3}
+    speed: 1
+    playOnlyOnce: 1
+    flipX: 1
+    flipY: 0
+    allowFacingFlip: 1

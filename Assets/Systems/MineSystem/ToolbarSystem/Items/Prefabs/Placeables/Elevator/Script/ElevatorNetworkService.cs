@@ -9,16 +9,20 @@ using Systems.MineSystem.MinePlayerSystem.Model;
 using Systems.MineSystem.MinePlayerSystem.Service;
 using Systems.MineSystem.MinePlayerSystem.View;
 using UnityEngine;
-using Systems.MineSystem.PauseSystem.Interface;
-using Systems.MineSystem.PauseSystem.Signal;
-using Systems.Utilities.EventBus;
+using Systems.MineSystem.BossLairSystem.Model;
+using Systems.MineSystem.PauseSystem.Enum;
+using Systems.MineSystem.PauseSystem.Service;
 using Zenject;
 
 namespace Systems.MineSystem.ToolbarSystem.Items.Prefabs.Placeables.Elevator.Script
 {
+    /// <summary>
+    /// Owns every placed elevator. Lifts can stand in the mine or inside the
+    /// boss lair, so pause state is per <see cref="PauseArea"/> - a lift placed
+    /// in the arena must not be born frozen by the mine freeze.
+    /// </summary>
     public sealed class ElevatorNetworkService :
         IPlayerInteractionHandler,
-        IPausable,
         IInitializable,
         IDisposable
     {
@@ -28,6 +32,7 @@ namespace Systems.MineSystem.ToolbarSystem.Items.Prefabs.Placeables.Elevator.Scr
         private readonly RuntimeDataScriptable _runtime;
         private readonly ElevatorInputService _input;
         private readonly PlayerClimbService _climbService;
+        private readonly BossLairModel _bossLair;
         private readonly Dictionary<Vector3Int, ElevatorShaftRuntime> _shafts =
             new();
         private readonly Dictionary<Vector3Int, ElevatorLiftRuntime> _lifts =
@@ -36,20 +41,11 @@ namespace Systems.MineSystem.ToolbarSystem.Items.Prefabs.Placeables.Elevator.Scr
             _controllers = new();
 
         private ElevatorController _activeController;
-        private bool _isAffectedByPause = true;
-        private bool _isPaused;
+        private bool _minePaused;
+        private bool _lairPaused;
+        private DelegatePausable _minePausable;
+        private DelegatePausable _lairPausable;
         private bool _disposed;
-
-        public bool IsAffectedByPause
-        {
-            get => _isAffectedByPause;
-            set
-            {
-                if (_isAffectedByPause == value) return;
-                _isAffectedByPause = value;
-                GlobalEventBus.Fire(new PausableAffectationChangedSignal(this));
-            }
-        }
 
         public ElevatorNetworkService(
             MineModel mine,
@@ -57,7 +53,8 @@ namespace Systems.MineSystem.ToolbarSystem.Items.Prefabs.Placeables.Elevator.Scr
             PlayerView player,
             RuntimeDataScriptable runtime,
             ElevatorInputService input,
-            PlayerClimbService climbService)
+            PlayerClimbService climbService,
+            BossLairModel bossLair)
         {
             _mine = mine;
             _mineView = mineView;
@@ -65,16 +62,39 @@ namespace Systems.MineSystem.ToolbarSystem.Items.Prefabs.Placeables.Elevator.Scr
             _runtime = runtime;
             _input = input;
             _climbService = climbService;
+            _bossLair = bossLair;
         }
 
         public int Priority => 100;
 
-        public void Initialize() =>
-            GlobalEventBus.Fire(new PausableRegisteredSignal(this));
+        public void Initialize()
+        {
+            _minePausable = new DelegatePausable(
+                () => SetAreaPaused(PauseArea.MineView, true),
+                () => SetAreaPaused(PauseArea.MineView, false));
+            _lairPausable = new DelegatePausable(
+                () => SetAreaPaused(PauseArea.BossLair, true),
+                () => SetAreaPaused(PauseArea.BossLair, false));
+            _minePausable.Register(PauseArea.MineView);
+            _lairPausable.Register(PauseArea.BossLair);
+        }
+
+        private bool IsPaused(PauseArea area) =>
+            area == PauseArea.BossLair ? _lairPaused : _minePaused;
+
+        private PauseArea ResolveArea(Vector3Int cell) =>
+            _bossLair.HasGate &&
+            _bossLair.Placement.IsValid &&
+            _bossLair.Placement.InteriorCells.Contains(cell)
+                ? PauseArea.BossLair
+                : PauseArea.MineView;
 
         public bool TryInteract()
         {
-            return !_isPaused && TryUseElevatorFromPlayerPosition();
+            // Gated by the area the player is standing in, so a frozen mine
+            // cannot be operated from the arena and vice versa.
+            return !IsPaused(ResolveArea(GetPlayerCell())) &&
+                   TryUseElevatorFromPlayerPosition();
         }
 
         public bool HasShaft(Vector3Int cell) => _shafts.ContainsKey(cell);
@@ -154,7 +174,7 @@ namespace Systems.MineSystem.ToolbarSystem.Items.Prefabs.Placeables.Elevator.Scr
                 _input,
                 _climbService);
             _controllers[lift] = controller;
-            if (_isPaused)
+            if (IsPaused(ResolveArea(lift.CellPosition)))
                 controller.OnPause();
         }
 
@@ -333,7 +353,8 @@ namespace Systems.MineSystem.ToolbarSystem.Items.Prefabs.Placeables.Elevator.Scr
         {
             if (_disposed) return;
             _disposed = true;
-            GlobalEventBus.Fire(new PausableUnregisteredSignal(this));
+            _minePausable?.Unregister();
+            _lairPausable?.Unregister();
             foreach (var controller in _controllers.Values.ToArray())
                 controller.Dispose();
 
@@ -342,20 +363,25 @@ namespace Systems.MineSystem.ToolbarSystem.Items.Prefabs.Placeables.Elevator.Scr
             _shafts.Clear();
         }
 
-        public void OnPause()
+        private void SetAreaPaused(PauseArea area, bool paused)
         {
-            if (_isPaused) return;
-            _isPaused = true;
-            foreach (var controller in _controllers.Values)
-                controller.OnPause();
-        }
+            if (IsPaused(area) == paused)
+                return;
 
-        public void OnUnpause()
-        {
-            if (!_isPaused) return;
-            _isPaused = false;
-            foreach (var controller in _controllers.Values)
-                controller.OnUnpause();
+            if (area == PauseArea.BossLair)
+                _lairPaused = paused;
+            else
+                _minePaused = paused;
+
+            foreach (var pair in _controllers)
+            {
+                if (ResolveArea(pair.Key.CellPosition) != area)
+                    continue;
+                if (paused)
+                    pair.Value.OnPause();
+                else
+                    pair.Value.OnUnpause();
+            }
         }
     }
 }

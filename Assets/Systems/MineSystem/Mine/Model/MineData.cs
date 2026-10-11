@@ -143,21 +143,61 @@ namespace Systems.MineSystem.Mine.Model
         }
 
         public Cell GetCell(GridPosition position) => GetCell(new Vector3Int(position.X, position.Y, 0));
-        public Cell GetCellById(string id) =>
-            !string.IsNullOrEmpty(id) &&
-            _cellById != null &&
-            _cellById.TryGetValue(id, out var cell)
-                ? cell
-                : Cells?.FirstOrDefault(candidate => candidate.Id == id);
+        public Cell GetCellById(string id)
+        {
+            if (string.IsNullOrEmpty(id))
+                return null;
+            // Same reasoning as GetCell: only scan before the cache is built.
+            if (_cellById != null)
+                return _cellById.TryGetValue(id, out var cell) ? cell : null;
+            return Cells?.FirstOrDefault(candidate => candidate.Id == id);
+        }
 
         public Cell GetCell(Vector3Int position)
         {
-            if (_cellLookup != null && _cellLookup.TryGetValue(position, out var cell))
-            {
-                return cell;
-            }
-            // Fallback in case cache isn't initialized yet
+            // Once the cache exists a miss means the cell does not exist, so
+            // return null instead of scanning. The linear fallback below is only
+            // for the pre-cache window: it allocates a closure and walks every
+            // cell, and it used to run on every out-of-bounds lookup - which is
+            // every frame while the player is outside the mine grid, for example
+            // inside the boss lair.
+            if (_cellLookup != null)
+                return _cellLookup.TryGetValue(position, out var cell) ? cell : null;
             return Cells?.FirstOrDefault(c => c.Position == position);
+        }
+
+        /// <summary>
+        /// Registers cells into the lookup only, never into <see cref="Cells"/>.
+        /// Used for the boss lair's floor, which must resolve through
+        /// <see cref="GetCell(Vector3Int)"/> for placement validation without
+        /// being visible to the systems that iterate <see cref="Cells"/>
+        /// directly (generation/visualizer services that would otherwise
+        /// treat the lair floor as part of the mine).
+        /// </summary>
+        public void RegisterAuxiliaryCells(IEnumerable<Cell> cells)
+        {
+            _cellLookup ??= new Dictionary<Vector3Int, Cell>();
+            _cellById ??= new Dictionary<string, Cell>();
+            foreach (var cell in cells)
+            {
+                _cellLookup[new Vector3Int(cell.Position.X, cell.Position.Y, 0)] = cell;
+                if (!string.IsNullOrEmpty(cell.Id))
+                    _cellById[cell.Id] = cell;
+            }
+        }
+
+        /// <summary>Undoes <see cref="RegisterAuxiliaryCells"/> for the given positions.</summary>
+        public void ClearAuxiliaryCells(IEnumerable<Vector3Int> positions)
+        {
+            if (_cellLookup == null)
+                return;
+            foreach (var position in positions)
+            {
+                if (_cellLookup.TryGetValue(position, out var cell) &&
+                    !string.IsNullOrEmpty(cell.Id))
+                    _cellById?.Remove(cell.Id);
+                _cellLookup.Remove(position);
+            }
         }
 
         public Resource GetResource(string cellId) => _resourceByCellId != null && _resourceByCellId.TryGetValue(cellId, out var r) ? r : null;

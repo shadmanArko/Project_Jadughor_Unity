@@ -6,7 +6,9 @@ using Systems.MineSystem.Mine.Enum;
 using Systems.MineSystem.Mine.Service.MineArtifactService.Test;
 using Systems.MineSystem.Mine.Service.MineResourceService.Service;
 using Systems.MineSystem.Mine.Service.VisualizerService;
+using Systems.MineSystem.Mine.Signal;
 using Systems.MineSystem.MinePlayerSystem.Scriptable;
+using Systems.Utilities.EventBus;
 using UniRx;
 using UnityEngine;
 using Zenject;
@@ -29,6 +31,10 @@ namespace Systems.MineSystem.Mine.Model
         
         private ReactiveProperty<MineData> _mineData = new();
         public IReadOnlyReactiveProperty<MineData> MineData => _mineData;
+        private readonly HashSet<GridPosition> _brokenCellSet = new();
+        private readonly List<GridPosition> _brokenCellPositions = new();
+        public IReadOnlyList<GridPosition> BrokenCellPositions =>
+            _brokenCellPositions;
 
         private Subject<Cell> _onCellModified = new();
         public IObservable<Cell> OnCellModified => _onCellModified;
@@ -89,11 +95,49 @@ namespace Systems.MineSystem.Mine.Model
 
         public void SetMineData(MineData mineData)
         {
-            // mineData?.InitializeLookupCache();
+            mineData?.InitializeLookupCache();
+            RebuildBrokenCellCache(mineData);
             _mineData.Value = mineData;
             _artifactVisualizerService.SetMineData(mineData);
             _cellCrackVisualizerService.RefreshCellCracks(mineData);
             UpdateAllCellsBrokenEdges();
+        }
+
+        public bool IsBrokenCell(GridPosition position) =>
+            _brokenCellSet.Contains(position);
+
+        public bool TryGetCell(GridPosition position, out Cell cell)
+        {
+            cell = _mineData.Value?.GetCell(position);
+            return cell != null;
+        }
+
+        public void RegisterBrokenCell(Cell cell)
+        {
+            if (cell == null || !cell.IsBroken)
+                return;
+            var position = cell.Position;
+            if (!_brokenCellSet.Add(position))
+                return;
+            _brokenCellPositions.Add(position);
+        }
+
+        public void RegisterBrokenCells(IEnumerable<Cell> cells)
+        {
+            if (cells == null)
+                return;
+            foreach (var cell in cells)
+                RegisterBrokenCell(cell);
+        }
+
+        private void RebuildBrokenCellCache(MineData mineData)
+        {
+            _brokenCellSet.Clear();
+            _brokenCellPositions.Clear();
+            if (mineData?.Cells == null)
+                return;
+            for (var i = 0; i < mineData.Cells.Count; i++)
+                RegisterBrokenCell(mineData.Cells[i]);
         }
 
         #region Autotiling Logic
@@ -190,6 +234,8 @@ namespace Systems.MineSystem.Mine.Model
             cell.HitPoint -= damage;
             
             cell.IsBroken = cell.HitPoint <= 0;
+            if (cell.IsBroken && !wasBroken)
+                RegisterBrokenCell(cell);
             _onCellModified.OnNext(cell);
 
             if (cell.IsBroken)
@@ -208,18 +254,25 @@ namespace Systems.MineSystem.Mine.Model
                 }
 
                 var revealedCells = new HashSet<Cell>();
+                var revealedCaveIds = new HashSet<string>();
                 
                 cell.IsRevealed = true;
                 revealedCells.Add(cell);
 
-                RevealAdjacentCells(cellPos, revealedCells);
+                RevealAdjacentCells(
+                    cellPos,
+                    revealedCells,
+                    revealedCaveIds);
 
                 if (!string.IsNullOrEmpty(cell.CaveId))
                     _caveVisualizerService.TryRevealCave(
                         cell,
                         MineData.Value,
                         revealedCells,
-                        _adjacentBrokenEdges.Keys);
+                        _adjacentBrokenEdges.Keys,
+                        revealedCaveIds);
+                
+                RegisterBrokenCells(revealedCells);
 
                 foreach (var c in revealedCells)
                 {
@@ -227,6 +280,9 @@ namespace Systems.MineSystem.Mine.Model
                     c.BrokenSides = CalculateBrokenEdges(c.GetPosition());
                     _onCellModified.OnNext(c);
                 }
+
+                foreach (var caveId in revealedCaveIds)
+                    GlobalEventBus.Fire(new CaveRevealedSignal(caveId));
             }
             
             //TODO: make resource, artifact null after spawning those as items
@@ -239,7 +295,10 @@ namespace Systems.MineSystem.Mine.Model
                 _onCellModified.OnNext(cell);
         }
 
-        private void RevealAdjacentCells(Vector3Int cellPos, HashSet<Cell> revealedCells)
+        private void RevealAdjacentCells(
+            Vector3Int cellPos,
+            HashSet<Cell> revealedCells,
+            ISet<string> revealedCaveIds)
         {
             foreach (var adjacentCell in _adjacentBrokenEdges.Keys.Select(offset => 
                          cellPos + offset).Select(adjacentCellPos => 
@@ -256,7 +315,8 @@ namespace Systems.MineSystem.Mine.Model
                             adjacentCell,
                             MineData.Value,
                             revealedCells,
-                            _adjacentBrokenEdges.Keys);
+                            _adjacentBrokenEdges.Keys,
+                            revealedCaveIds);
                 }
                 else
                     revealedCells.Add(adjacentCell);

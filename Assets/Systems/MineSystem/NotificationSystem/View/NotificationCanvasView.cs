@@ -12,6 +12,9 @@ namespace Systems.MineSystem.NotificationSystem.View
 
         public void ShowNotification(string content)
         {
+            if (notificationPanel == null || notificationText == null || canvasGroup == null)
+                return;
+
             notificationPanel.SetActive(true);
             notificationText.SetText(content);
             notificationText.ForceMeshUpdate();
@@ -28,12 +31,17 @@ namespace Systems.MineSystem.NotificationSystem.View
 
         public void HideNotification()
         {
-            canvasGroup.alpha = 0f;
-            if(notificationPanel == null) return;
-            notificationPanel.SetActive(false);
+            if (canvasGroup != null)
+                canvasGroup.alpha = 0f;
+
+            if (notificationPanel != null)
+                notificationPanel.SetActive(false);
         }
 
-        public void SetAlpha(float alpha) =>
-            canvasGroup.alpha = Mathf.Clamp01(alpha);
+        public void SetAlpha(float alpha)
+        {
+            if (canvasGroup != null)
+                canvasGroup.alpha = Mathf.Clamp01(alpha);
+        }
     }
 }

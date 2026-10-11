@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading;
 using Cysharp.Threading.Tasks;
+using Systems.MineSystem.BossLairSystem.Model;
 using Systems.MineSystem.Damage;
 using Systems.MineSystem.Mine.Model;
 using Systems.MineSystem.Mine.View;
@@ -10,55 +11,70 @@ using Systems.MineSystem.ToolbarSystem.Model;
 using Systems.Utilities.ScreenShake;
 using UnityEngine;
 using DG.Tweening;
-using Systems.MineSystem.PauseSystem.Interface;
-using Systems.MineSystem.PauseSystem.Signal;
-using Systems.Utilities.EventBus;
+using Systems.MineSystem.PauseSystem.Enum;
+using Systems.MineSystem.PauseSystem.Service;
 using Zenject;
 
 namespace Systems.MineSystem.ToolbarSystem.Items.Prefabs.Placeables.Dynamite.Script
 {
-    public sealed class DynamiteExplosionService :
-        IPausable,
-        IInitializable,
-        IDisposable
+    /// <summary>
+    /// Runs staged dynamite blasts. One service drives explosions in both the
+    /// mine and the boss lair, so its pause state is kept per
+    /// <see cref="PauseArea"/>: freezing the mine must not stall a blast the
+    /// player set off inside the arena, and vice versa.
+    /// </summary>
+    public sealed class DynamiteExplosionService : IInitializable, IDisposable
     {
+        /// <summary>
+        /// Everything an explosion has in flight for one area. Delays are a list
+        /// rather than a single tween because blasts overlap - a single field
+        /// was silently dropped by the next detonation, leaving its tween
+        /// unpausable.
+        /// </summary>
+        private sealed class AreaState
+        {
+            public readonly List<Tween> StageDelays = new();
+            public readonly List<ExplosionSmokeView> ActiveSmoke = new();
+            public bool IsPaused;
+        }
+
         private readonly MineModel _mine;
         private readonly MineView _mineView;
         private readonly ExplosionSmokePool _smokePool;
         private readonly ICellDamageService _cellDamage;
+        private readonly BossLairModel _bossLair;
         private readonly CancellationTokenSource _lifetime = new();
-        private readonly List<ExplosionSmokeView> _activeSmoke = new();
-        private Tween _stageDelay;
-        private bool _stageDelayWasPlaying;
-        private bool _isAffectedByPause = true;
-        private bool _isPaused;
+        private readonly AreaState _mineState = new();
+        private readonly AreaState _lairState = new();
+        private DelegatePausable _minePausable;
+        private DelegatePausable _lairPausable;
         private bool _disposed;
-
-        public bool IsAffectedByPause
-        {
-            get => _isAffectedByPause;
-            set
-            {
-                if (_isAffectedByPause == value) return;
-                _isAffectedByPause = value;
-                GlobalEventBus.Fire(new PausableAffectationChangedSignal(this));
-            }
-        }
 
         public DynamiteExplosionService(
             MineModel mine,
             MineView mineView,
             ExplosionSmokePool smokePool,
-            ICellDamageService cellDamage)
+            ICellDamageService cellDamage,
+            BossLairModel bossLair)
         {
             _mine = mine;
             _mineView = mineView;
             _smokePool = smokePool;
             _cellDamage = cellDamage;
+            _bossLair = bossLair;
         }
 
-        public void Initialize() =>
-            GlobalEventBus.Fire(new PausableRegisteredSignal(this));
+        public void Initialize()
+        {
+            _minePausable = new DelegatePausable(
+                () => PauseState(_mineState),
+                () => ResumeState(_mineState));
+            _lairPausable = new DelegatePausable(
+                () => PauseState(_lairState),
+                () => ResumeState(_lairState));
+            _minePausable.Register(PauseArea.MineView);
+            _lairPausable.Register(PauseArea.BossLair);
+        }
 
         public void Detonate(
             PlaceableSpawnContext context,
@@ -67,6 +83,7 @@ namespace Systems.MineSystem.ToolbarSystem.Items.Prefabs.Placeables.Dynamite.Scr
             RunExplosionAsync(
                     context,
                     config,
+                    ResolveState(context.CellPosition),
                     _lifetime.Token)
                 .Forget(exception =>
                 {
@@ -75,9 +92,21 @@ namespace Systems.MineSystem.ToolbarSystem.Items.Prefabs.Placeables.Dynamite.Scr
                 });
         }
 
+        /// <summary>
+        /// Which area's pause governs this blast, decided once from where the
+        /// stick was placed.
+        /// </summary>
+        private AreaState ResolveState(Vector3Int cell) =>
+            _bossLair.HasGate &&
+            _bossLair.Placement.IsValid &&
+            _bossLair.Placement.InteriorCells.Contains(cell)
+                ? _lairState
+                : _mineState;
+
         private async UniTask RunExplosionAsync(
             PlaceableSpawnContext context,
             DynamiteConfig config,
+            AreaState state,
             CancellationToken cancellationToken)
         {
             var damaged = new HashSet<IDamageable>();
@@ -87,8 +116,9 @@ namespace Systems.MineSystem.ToolbarSystem.Items.Prefabs.Placeables.Dynamite.Scr
                 new[] { center },
                 config,
                 damaged,
+                state,
                 cancellationToken);
-            await WaitBetweenStagesAsync(config, cancellationToken);
+            await WaitBetweenStagesAsync(config, state, cancellationToken);
 
             if (config.BlastPattern == DynamiteBlastPattern.AdjacentEight)
             {
@@ -104,6 +134,7 @@ namespace Systems.MineSystem.ToolbarSystem.Items.Prefabs.Placeables.Dynamite.Scr
                         center + new Vector3Int(1, 1, 0)),
                     config,
                     damaged,
+                    state,
                     cancellationToken);
                 return;
             }
@@ -114,6 +145,7 @@ namespace Systems.MineSystem.ToolbarSystem.Items.Prefabs.Placeables.Dynamite.Scr
                     CollectSquareArea(center, 2),
                     config,
                     damaged,
+                    state,
                     cancellationToken);
                 return;
             }
@@ -124,8 +156,9 @@ namespace Systems.MineSystem.ToolbarSystem.Items.Prefabs.Placeables.Dynamite.Scr
                     center + Vector3Int.right),
                 config,
                 damaged,
+                state,
                 cancellationToken);
-            await WaitBetweenStagesAsync(config, cancellationToken);
+            await WaitBetweenStagesAsync(config, state, cancellationToken);
 
             await RunStageAsync(
                 CollectParticipatingCells(
@@ -133,27 +166,31 @@ namespace Systems.MineSystem.ToolbarSystem.Items.Prefabs.Placeables.Dynamite.Scr
                     center + Vector3Int.down),
                 config,
                 damaged,
+                state,
                 cancellationToken);
         }
 
         private UniTask WaitBetweenStagesAsync(
             DynamiteConfig config,
+            AreaState state,
             CancellationToken cancellationToken)
         {
             return config.DelayBetweenStages <= 0f
                 ? UniTask.CompletedTask
                 : AwaitStageDelayAsync(
                     config.DelayBetweenStages,
+                    state,
                     cancellationToken);
         }
 
         private async UniTask AwaitStageDelayAsync(
             float seconds,
+            AreaState state,
             CancellationToken cancellationToken)
         {
             var tween = DOVirtual.DelayedCall(seconds, () => { }, false);
-            _stageDelay = tween;
-            if (_isPaused) tween.Pause();
+            state.StageDelays.Add(tween);
+            if (state.IsPaused) tween.Pause();
             var completion = new UniTaskCompletionSource();
             var finished = false;
             CancellationTokenRegistration registration = default;
@@ -174,8 +211,14 @@ namespace Systems.MineSystem.ToolbarSystem.Items.Prefabs.Placeables.Dynamite.Scr
                 else completion.TrySetResult();
             });
             registration = cancellationToken.Register(() => tween.Kill());
-            await completion.Task;
-            if (ReferenceEquals(_stageDelay, tween)) _stageDelay = null;
+            try
+            {
+                await completion.Task;
+            }
+            finally
+            {
+                state.StageDelays.Remove(tween);
+            }
         }
 
         private Vector3Int[] CollectParticipatingCells(
@@ -227,6 +270,7 @@ namespace Systems.MineSystem.ToolbarSystem.Items.Prefabs.Placeables.Dynamite.Scr
             IReadOnlyList<Vector3Int> positions,
             DynamiteConfig config,
             HashSet<IDamageable> damaged,
+            AreaState state,
             CancellationToken cancellationToken)
         {
             if (positions.Count == 0)
@@ -264,6 +308,7 @@ namespace Systems.MineSystem.ToolbarSystem.Items.Prefabs.Placeables.Dynamite.Scr
                         },
                         impactReached,
                         config,
+                        state,
                         cancellationToken)
                     .Forget();
             }
@@ -277,12 +322,13 @@ namespace Systems.MineSystem.ToolbarSystem.Items.Prefabs.Placeables.Dynamite.Scr
             Action impact,
             UniTaskCompletionSource impactReached,
             DynamiteConfig config,
+            AreaState state,
             CancellationToken cancellationToken)
         {
             try
             {
-                _activeSmoke.Add(smoke);
-                if (_isPaused) smoke.PausePlayback();
+                state.ActiveSmoke.Add(smoke);
+                if (state.IsPaused) smoke.PausePlayback();
                 await smoke.PlayAsync(
                     worldPosition,
                     config,
@@ -310,7 +356,7 @@ namespace Systems.MineSystem.ToolbarSystem.Items.Prefabs.Placeables.Dynamite.Scr
             }
             finally
             {
-                _activeSmoke.Remove(smoke);
+                state.ActiveSmoke.Remove(smoke);
                 _smokePool.Despawn(smoke);
             }
         }
@@ -329,37 +375,43 @@ namespace Systems.MineSystem.ToolbarSystem.Items.Prefabs.Placeables.Dynamite.Scr
                 damaged);
         }
 
+        private static void PauseState(AreaState state)
+        {
+            if (state.IsPaused) return;
+            state.IsPaused = true;
+            for (var i = 0; i < state.StageDelays.Count; i++)
+            {
+                var tween = state.StageDelays[i];
+                if (tween != null && tween.IsActive() && tween.IsPlaying())
+                    tween.Pause();
+            }
+            for (var i = 0; i < state.ActiveSmoke.Count; i++)
+                state.ActiveSmoke[i].PausePlayback();
+        }
+
+        private static void ResumeState(AreaState state)
+        {
+            if (!state.IsPaused) return;
+            state.IsPaused = false;
+            for (var i = 0; i < state.StageDelays.Count; i++)
+            {
+                var tween = state.StageDelays[i];
+                if (tween != null && tween.IsActive())
+                    tween.Play();
+            }
+            for (var i = 0; i < state.ActiveSmoke.Count; i++)
+                state.ActiveSmoke[i].ResumePlayback();
+        }
+
         public void Dispose()
         {
             if (_disposed) return;
             _disposed = true;
-            GlobalEventBus.Fire(new PausableUnregisteredSignal(this));
+            _minePausable?.Unregister();
+            _lairPausable?.Unregister();
             if (!_lifetime.IsCancellationRequested)
                 _lifetime.Cancel();
             _lifetime.Dispose();
-        }
-
-        public void OnPause()
-        {
-            if (_isPaused) return;
-            _isPaused = true;
-            _stageDelayWasPlaying = _stageDelay != null &&
-                                    _stageDelay.IsActive() &&
-                                    _stageDelay.IsPlaying();
-            if (_stageDelayWasPlaying) _stageDelay.Pause();
-            for (var i = 0; i < _activeSmoke.Count; i++)
-                _activeSmoke[i].PausePlayback();
-        }
-
-        public void OnUnpause()
-        {
-            if (!_isPaused) return;
-            _isPaused = false;
-            if (_stageDelayWasPlaying && _stageDelay != null &&
-                _stageDelay.IsActive()) _stageDelay.Play();
-            _stageDelayWasPlaying = false;
-            for (var i = 0; i < _activeSmoke.Count; i++)
-                _activeSmoke[i].ResumePlayback();
         }
     }
 }

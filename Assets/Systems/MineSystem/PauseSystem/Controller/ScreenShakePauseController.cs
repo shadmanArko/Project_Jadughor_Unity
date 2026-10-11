@@ -1,5 +1,6 @@
 using System;
 using Systems.MineSystem.PauseSystem.Interface;
+using Systems.MineSystem.PauseSystem.Enum;
 using Systems.MineSystem.PauseSystem.Signal;
 using Systems.Utilities.EventBus;
 using Systems.Utilities.ScreenShake;
@@ -30,8 +31,11 @@ namespace Systems.MineSystem.PauseSystem.Controller
             }
         }
 
+        // Global: one shared shake rig - a boss stomp must still shake while
+        // the mine is frozen.
         public void Initialize() =>
-            GlobalEventBus.Fire(new PausableRegisteredSignal(this));
+            GlobalEventBus.Fire(
+                new PausableRegisteredSignal(this, PauseArea.Global));
 
         public void OnPause() => _screenShake.PauseActiveShake();
         public void OnUnpause() => _screenShake.ResumeActiveShake();

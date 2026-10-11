@@ -14,6 +14,7 @@ using UnityEngine;
 using Zenject;
 using Systems.MineSystem.MinePlayerSystem.Service;
 using Systems.MineSystem.PauseSystem.Interface;
+using Systems.MineSystem.PauseSystem.Enum;
 using Systems.MineSystem.PauseSystem.Signal;
 
 namespace Systems.MineSystem.MinePlayerSystem.Controller
@@ -92,7 +93,10 @@ namespace Systems.MineSystem.MinePlayerSystem.Controller
             SubscribeToAnimationEvents();
             SubscribeToDamageRequests();
             _collectorRegistry.Register(this);
-            GlobalEventBus.Fire(new PausableRegisteredSignal(this));
+            // Global: the player follows the boss lair pause into the arena, so
+            // a mine-scoped freeze must never cut their physics or input.
+            GlobalEventBus.Fire(
+                new PausableRegisteredSignal(this, PauseArea.Global));
         }
 
         private void InitializePlayerData()
@@ -144,27 +148,42 @@ namespace Systems.MineSystem.MinePlayerSystem.Controller
         private void SubscribeToInputSignals()
         {
             GlobalEventBus.OnSignal<MovementInputSignal>()
-                .Subscribe(signal => _model.SetMovementInput(signal.Direction))
+                .Subscribe(signal =>
+                {
+                    _model.SetMovementInput(signal.Direction);
+                })
                 .AddTo(_disposables);
             GlobalEventBus.OnSignal<ClimbInputSignal>()
-                .Subscribe(_ => _model.ToggleClimb())
+                .Subscribe(_ =>
+                {
+                    _model.ToggleClimb();
+                })
                 .AddTo(_disposables);
         }
 
         private void SubscribeToAnimationEvents()
         {
             _view.AnimationMarkers
-                .Subscribe(_model.HandleAnimationMarker)
+                .Subscribe(animationEvent =>
+                {
+                    _model.HandleAnimationMarker(animationEvent);
+                })
                 .AddTo(_disposables);
             _view.AnimationCompleted
-                .Subscribe(_model.HandleAnimationCompleted)
+                .Subscribe(animationEvent =>
+                {
+                    _model.HandleAnimationCompleted(animationEvent);
+                })
                 .AddTo(_disposables);
         }
 
         private void SubscribeToDamageRequests()
         {
             _view.DamageRequested
-                .Subscribe(_model.ApplyDamage)
+                .Subscribe(amount =>
+                {
+                    _model.ApplyDamage(amount);
+                })
                 .AddTo(_disposables);
         }
 
@@ -236,5 +255,6 @@ namespace Systems.MineSystem.MinePlayerSystem.Controller
 
             _disposables.Dispose();
         }
+
     }
 }

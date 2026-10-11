@@ -1,0 +1,4812 @@
+fileFormatVersion: 2
+guid: e9d3c6bb046d19d459fadca021813a4f
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -4393205851554392437
+    second: PlayerSpriteSheet_Girl_0
+  - first:
+      213: 9189842831499744495
+    second: PlayerSpriteSheet_Girl_1
+  - first:
+      213: 483400597961398067
+    second: PlayerSpriteSheet_Girl_2
+  - first:
+      213: 3304408955559511237
+    second: PlayerSpriteSheet_Girl_3
+  - first:
+      213: -6578707556819159931
+    second: PlayerSpriteSheet_Girl_4
+  - first:
+      213: 2592807248082739289
+    second: PlayerSpriteSheet_Girl_5
+  - first:
+      213: 5791016691804409741
+    second: PlayerSpriteSheet_Girl_6
+  - first:
+      213: 1042501163107371553
+    second: PlayerSpriteSheet_Girl_7
+  - first:
+      213: 5483473598459476475
+    second: PlayerSpriteSheet_Girl_8
+  - first:
+      213: -8805957259579968208
+    second: PlayerSpriteSheet_Girl_9
+  - first:
+      213: 8330210791991066123
+    second: PlayerSpriteSheet_Girl_10
+  - first:
+      213: -7239527311440460699
+    second: PlayerSpriteSheet_Girl_11
+  - first:
+      213: -3503336532243962751
+    second: PlayerSpriteSheet_Girl_12
+  - first:
+      213: 2786164857818640823
+    second: PlayerSpriteSheet_Girl_13
+  - first:
+      213: 4147577116620069021
+    second: PlayerSpriteSheet_Girl_14
+  - first:
+      213: -4238481738975316779
+    second: PlayerSpriteSheet_Girl_15
+  - first:
+      213: -3389231929741396553
+    second: PlayerSpriteSheet_Girl_16
+  - first:
+      213: 4641507199540080258
+    second: PlayerSpriteSheet_Girl_17
+  - first:
+      213: -8034713807523596225
+    second: PlayerSpriteSheet_Girl_18
+  - first:
+      213: 5100419212316733021
+    second: PlayerSpriteSheet_Girl_19
+  - first:
+      213: -4826531899214803525
+    second: PlayerSpriteSheet_Girl_20
+  - first:
+      213: 4262844220951155538
+    second: PlayerSpriteSheet_Girl_21
+  - first:
+      213: -7764766906130613503
+    second: PlayerSpriteSheet_Girl_22
+  - first:
+      213: -5849974702816267434
+    second: PlayerSpriteSheet_Girl_23
+  - first:
+      213: 8542928459902012550
+    second: PlayerSpriteSheet_Girl_24
+  - first:
+      213: -4900976875340110581
+    second: PlayerSpriteSheet_Girl_25
+  - first:
+      213: -6420696262621271988
+    second: PlayerSpriteSheet_Girl_26
+  - first:
+      213: -289505543278300138
+    second: PlayerSpriteSheet_Girl_27
+  - first:
+      213: 991327551460814390
+    second: PlayerSpriteSheet_Girl_28
+  - first:
+      213: -6217813317498845186
+    second: PlayerSpriteSheet_Girl_29
+  - first:
+      213: 2747365872948381363
+    second: PlayerSpriteSheet_Girl_30
+  - first:
+      213: -719892849611821834
+    second: PlayerSpriteSheet_Girl_31
+  - first:
+      213: 7781994191741636181
+    second: PlayerSpriteSheet_Girl_32
+  - first:
+      213: -6109571309463991939
+    second: PlayerSpriteSheet_Girl_33
+  - first:
+      213: 3034768066830837484
+    second: PlayerSpriteSheet_Girl_34
+  - first:
+      213: -1221469096647669183
+    second: PlayerSpriteSheet_Girl_35
+  - first:
+      213: -9141285458647552471
+    second: PlayerSpriteSheet_Girl_36
+  - first:
+      213: -5581378602825286893
+    second: PlayerSpriteSheet_Girl_37
+  - first:
+      213: -7192885595128930106
+    second: PlayerSpriteSheet_Girl_38
+  - first:
+      213: 2168863721423050487
+    second: PlayerSpriteSheet_Girl_39
+  - first:
+      213: -4397087680983307406
+    second: PlayerSpriteSheet_Girl_40
+  - first:
+      213: 8497529356154380595
+    second: PlayerSpriteSheet_Girl_41
+  - first:
+      213: 5108950734620960966
+    second: PlayerSpriteSheet_Girl_42
+  - first:
+      213: -7618988666724274206
+    second: PlayerSpriteSheet_Girl_43
+  - first:
+      213: -8917641291412410130
+    second: PlayerSpriteSheet_Girl_44
+  - first:
+      213: 5826260880656105594
+    second: PlayerSpriteSheet_Girl_45
+  - first:
+      213: 2602979122996534880
+    second: PlayerSpriteSheet_Girl_46
+  - first:
+      213: 1155522711556218435
+    second: PlayerSpriteSheet_Girl_47
+  - first:
+      213: 5397467807285532321
+    second: PlayerSpriteSheet_Girl_48
+  - first:
+      213: 3652565701128040728
+    second: PlayerSpriteSheet_Girl_49
+  - first:
+      213: -6801438793481500334
+    second: PlayerSpriteSheet_Girl_50
+  - first:
+      213: -6695313991687392856
+    second: PlayerSpriteSheet_Girl_51
+  - first:
+      213: -5486347457657520015
+    second: PlayerSpriteSheet_Girl_52
+  - first:
+      213: 2312660677651430943
+    second: PlayerSpriteSheet_Girl_53
+  - first:
+      213: -234599083520067321
+    second: PlayerSpriteSheet_Girl_54
+  - first:
+      213: -876583185402846396
+    second: PlayerSpriteSheet_Girl_55
+  - first:
+      213: 2150482260978839509
+    second: PlayerSpriteSheet_Girl_56
+  - first:
+      213: -2979664531579414550
+    second: PlayerSpriteSheet_Girl_57
+  - first:
+      213: -5504408382865514808
+    second: PlayerSpriteSheet_Girl_58
+  - first:
+      213: 1787560173384361852
+    second: PlayerSpriteSheet_Girl_59
+  - first:
+      213: -13742994213203067
+    second: PlayerSpriteSheet_Girl_60
+  - first:
+      213: -7106576183320936389
+    second: PlayerSpriteSheet_Girl_61
+  - first:
+      213: -1914760101708008406
+    second: PlayerSpriteSheet_Girl_62
+  - first:
+      213: -5156193209046313174
+    second: PlayerSpriteSheet_Girl_63
+  - first:
+      213: 7853332336514044704
+    second: PlayerSpriteSheet_Girl_64
+  - first:
+      213: 5888028602275370202
+    second: PlayerSpriteSheet_Girl_65
+  - first:
+      213: -4186213697609933441
+    second: PlayerSpriteSheet_Girl_66
+  - first:
+      213: 4664244737662740374
+    second: PlayerSpriteSheet_Girl_67
+  - first:
+      213: 8986948393284877123
+    second: PlayerSpriteSheet_Girl_68
+  - first:
+      213: 2080807518744397220
+    second: PlayerSpriteSheet_Girl_69
+  - first:
+      213: 5782611516213858375
+    second: PlayerSpriteSheet_Girl_70
+  - first:
+      213: 3099588438870934843
+    second: PlayerSpriteSheet_Girl_71
+  - first:
+      213: -3253553452869985399
+    second: PlayerSpriteSheet_Girl_72
+  - first:
+      213: -8139836227264935050
+    second: PlayerSpriteSheet_Girl_73
+  - first:
+      213: -5129445791933195158
+    second: PlayerSpriteSheet_Girl_74
+  - first:
+      213: -3534774841860892172
+    second: PlayerSpriteSheet_Girl_75
+  - first:
+      213: -892510585944154529
+    second: PlayerSpriteSheet_Girl_76
+  - first:
+      213: -5547149016631331694
+    second: PlayerSpriteSheet_Girl_77
+  - first:
+      213: 7046452543633375471
+    second: PlayerSpriteSheet_Girl_78
+  - first:
+      213: -5203299988531701063
+    second: PlayerSpriteSheet_Girl_79
+  - first:
+      213: 3345214716650173035
+    second: PlayerSpriteSheet_Girl_80
+  - first:
+      213: -8816769590118324958
+    second: PlayerSpriteSheet_Girl_81
+  - first:
+      213: 2704787458309376014
+    second: PlayerSpriteSheet_Girl_82
+  - first:
+      213: -6761422805467821597
+    second: PlayerSpriteSheet_Girl_83
+  - first:
+      213: -4571798006750205973
+    second: PlayerSpriteSheet_Girl_84
+  - first:
+      213: 6036298938198817434
+    second: PlayerSpriteSheet_Girl_85
+  - first:
+      213: -6324371233599822916
+    second: PlayerSpriteSheet_Girl_86
+  - first:
+      213: -5380438145251205172
+    second: PlayerSpriteSheet_Girl_87
+  - first:
+      213: -1544323781991140814
+    second: PlayerSpriteSheet_Girl_88
+  - first:
+      213: -475563166388502662
+    second: PlayerSpriteSheet_Girl_89
+  - first:
+      213: 7308436807336753716
+    second: PlayerSpriteSheet_Girl_90
+  - first:
+      213: 1648785048745909313
+    second: PlayerSpriteSheet_Girl_91
+  - first:
+      213: -6278892668568210353
+    second: PlayerSpriteSheet_Girl_92
+  - first:
+      213: 5173405656826799325
+    second: PlayerSpriteSheet_Girl_93
+  - first:
+      213: 106108132408160851
+    second: PlayerSpriteSheet_Girl_94
+  - first:
+      213: 4982325656658733070
+    second: PlayerSpriteSheet_Girl_95
+  - first:
+      213: -4092807471709086630
+    second: PlayerSpriteSheet_Girl_96
+  - first:
+      213: -3593087278449049880
+    second: PlayerSpriteSheet_Girl_97
+  - first:
+      213: 7536391497047467234
+    second: PlayerSpriteSheet_Girl_98
+  - first:
+      213: 5832464364393245979
+    second: PlayerSpriteSheet_Girl_99
+  - first:
+      213: -5627871373104450407
+    second: PlayerSpriteSheet_Girl_100
+  - first:
+      213: 1262963798627077719
+    second: PlayerSpriteSheet_Girl_101
+  - first:
+      213: 4011482725901421414
+    second: PlayerSpriteSheet_Girl_102
+  - first:
+      213: 5255997429982426075
+    second: PlayerSpriteSheet_Girl_103
+  - first:
+      213: -6042991990061708401
+    second: PlayerSpriteSheet_Girl_104
+  - first:
+      213: 224605788454927437
+    second: PlayerSpriteSheet_Girl_105
+  - first:
+      213: 8767911086259594934
+    second: PlayerSpriteSheet_Girl_106
+  - first:
+      213: -5331102331935217535
+    second: PlayerSpriteSheet_Girl_107
+  - first:
+      213: -435726993494526243
+    second: PlayerSpriteSheet_Girl_108
+  - first:
+      213: -6204589650911745685
+    second: PlayerSpriteSheet_Girl_109
+  - first:
+      213: -2440318052210459053
+    second: PlayerSpriteSheet_Girl_110
+  - first:
+      213: 4716556669840009094
+    second: PlayerSpriteSheet_Girl_111
+  - first:
+      213: 6586265406965153455
+    second: PlayerSpriteSheet_Girl_112
+  - first:
+      213: 684559970005287443
+    second: PlayerSpriteSheet_Girl_113
+  - first:
+      213: -8697711380310517954
+    second: PlayerSpriteSheet_Girl_114
+  - first:
+      213: 8827066832407857414
+    second: PlayerSpriteSheet_Girl_115
+  - first:
+      213: 2219018486864948280
+    second: PlayerSpriteSheet_Girl_116
+  - first:
+      213: -8360979107503131484
+    second: PlayerSpriteSheet_Girl_117
+  - first:
+      213: 6899689937114739890
+    second: PlayerSpriteSheet_Girl_118
+  - first:
+      213: 3701632776430550920
+    second: PlayerSpriteSheet_Girl_119
+  - first:
+      213: 7633863292419350942
+    second: PlayerSpriteSheet_Girl_120
+  - first:
+      213: 6138459930529329002
+    second: PlayerSpriteSheet_Girl_121
+  - first:
+      213: 1242893377772725518
+    second: PlayerSpriteSheet_Girl_122
+  - first:
+      213: -3230740941237064524
+    second: PlayerSpriteSheet_Girl_123
+  - first:
+      213: 8725197348712827586
+    second: PlayerSpriteSheet_Girl_124
+  - first:
+      213: 8829428652477759373
+    second: PlayerSpriteSheet_Girl_125
+  - first:
+      213: -5236090800742855335
+    second: PlayerSpriteSheet_Girl_126
+  - first:
+      213: -6217802442501054258
+    second: PlayerSpriteSheet_Girl_127
+  - first:
+      213: -3917901008670704332
+    second: PlayerSpriteSheet_Girl_128
+  - first:
+      213: -824875883102355018
+    second: PlayerSpriteSheet_Girl_129
+  - first:
+      213: -6723129527213874678
+    second: PlayerSpriteSheet_Girl_130
+  - first:
+      213: -5257557633625185254
+    second: PlayerSpriteSheet_Girl_131
+  - first:
+      213: -2481084211776765997
+    second: PlayerSpriteSheet_Girl_132
+  - first:
+      213: -3828349186964084545
+    second: PlayerSpriteSheet_Girl_133
+  - first:
+      213: -7739479517669539763
+    second: PlayerSpriteSheet_Girl_134
+  - first:
+      213: -4319129003805764794
+    second: PlayerSpriteSheet_Girl_135
+  - first:
+      213: -8807404677427198269
+    second: PlayerSpriteSheet_Girl_136
+  - first:
+      213: 8589306465022877287
+    second: PlayerSpriteSheet_Girl_137
+  - first:
+      213: -870786867138353648
+    second: PlayerSpriteSheet_Girl_138
+  - first:
+      213: -6914443829241922358
+    second: PlayerSpriteSheet_Girl_139
+  - first:
+      213: -4786371081516342599
+    second: PlayerSpriteSheet_Girl_140
+  - first:
+      213: -8607146815162608889
+    second: PlayerSpriteSheet_Girl_141
+  - first:
+      213: -7720791091633593570
+    second: PlayerSpriteSheet_Girl_142
+  - first:
+      213: 6858062094359503404
+    second: PlayerSpriteSheet_Girl_143
+  - first:
+      213: -683412211296770802
+    second: PlayerSpriteSheet_Girl_144
+  - first:
+      213: 855434364910132286
+    second: PlayerSpriteSheet_Girl_145
+  - first:
+      213: -4289182045639053112
+    second: PlayerSpriteSheet_Girl_146
+  - first:
+      213: -6105692676109748227
+    second: PlayerSpriteSheet_Girl_147
+  - first:
+      213: -5692571662129574267
+    second: PlayerSpriteSheet_Girl_148
+  - first:
+      213: -8049000708734950195
+    second: PlayerSpriteSheet_Girl_149
+  - first:
+      213: 6674014822244362233
+    second: PlayerSpriteSheet_Girl_150
+  - first:
+      213: 754598182832449466
+    second: PlayerSpriteSheet_Girl_151
+  - first:
+      213: 4575014844427901154
+    second: PlayerSpriteSheet_Girl_152
+  - first:
+      213: -5368748292892244357
+    second: PlayerSpriteSheet_Girl_153
+  - first:
+      213: -3391070428586233878
+    second: PlayerSpriteSheet_Girl_154
+  - first:
+      213: 3350930282537931099
+    second: PlayerSpriteSheet_Girl_155
+  - first:
+      213: 3814975182448028179
+    second: PlayerSpriteSheet_Girl_156
+  - first:
+      213: 204403800130326911
+    second: PlayerSpriteSheet_Girl_157
+  - first:
+      213: -2801650925142699467
+    second: PlayerSpriteSheet_Girl_158
+  - first:
+      213: 2598265458300453431
+    second: PlayerSpriteSheet_Girl_159
+  - first:
+      213: -6407592597935127571
+    second: PlayerSpriteSheet_Girl_160
+  - first:
+      213: -1075809137326276119
+    second: PlayerSpriteSheet_Girl_161
+  - first:
+      213: 7873234712387053330
+    second: PlayerSpriteSheet_Girl_162
+  - first:
+      213: 8033045574756129661
+    second: PlayerSpriteSheet_Girl_163
+  - first:
+      213: 5595310561855890487
+    second: PlayerSpriteSheet_Girl_164
+  - first:
+      213: 1878887333344536652
+    second: PlayerSpriteSheet_Girl_165
+  - first:
+      213: -6584541278018157238
+    second: PlayerSpriteSheet_Girl_166
+  - first:
+      213: -1547964414736065944
+    second: PlayerSpriteSheet_Girl_167
+  - first:
+      213: 9184006847136028012
+    second: PlayerSpriteSheet_Girl_168
+  - first:
+      213: 4650259080540188966
+    second: PlayerSpriteSheet_Girl_169
+  - first:
+      213: 4552291158880753473
+    second: PlayerSpriteSheet_Girl_170
+  - first:
+      213: -6618299291107797304
+    second: PlayerSpriteSheet_Girl_171
+  - first:
+      213: -8620487253555621142
+    second: PlayerSpriteSheet_Girl_172
+  - first:
+      213: 6021602419027270816
+    second: PlayerSpriteSheet_Girl_173
+  - first:
+      213: 6950080471630828996
+    second: PlayerSpriteSheet_Girl_174
+  - first:
+      213: 4363690100163654011
+    second: PlayerSpriteSheet_Girl_175
+  - first:
+      213: -2432241080695915396
+    second: PlayerSpriteSheet_Girl_176
+  - first:
+      213: -2941434494087601711
+    second: PlayerSpriteSheet_Girl_177
+  - first:
+      213: -4623442756795754793
+    second: PlayerSpriteSheet_Girl_178
+  - first:
+      213: -462483883657330269
+    second: PlayerSpriteSheet_Girl_179
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 0
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_0
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 830
+        width: 11
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b86dee0ed823803c0800000000000000
+      internalID: -4393205851554392437
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_1
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 830
+        width: 11
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fe456398d51e88f70800000000000000
+      internalID: 9189842831499744495
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_2
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 830
+        width: 11
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 33753bd584265b600800000000000000
+      internalID: 483400597961398067
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_3
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 830
+        width: 11
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5c48eb4007e9bdd20800000000000000
+      internalID: 3304408955559511237
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_4
+      rect:
+        serializedVersion: 2
+        x: 124
+        y: 830
+        width: 11
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 584bd92255cb3b4a0800000000000000
+      internalID: -6578707556819159931
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_5
+      rect:
+        serializedVersion: 2
+        x: 153
+        y: 830
+        width: 11
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 950a70174708bf320800000000000000
+      internalID: 2592807248082739289
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_6
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 806
+        width: 11
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d8f0c53cff2dd5050800000000000000
+      internalID: 5791016691804409741
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_7
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 805
+        width: 11
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 12a42f0d845b77e00800000000000000
+      internalID: 1042501163107371553
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_8
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 807
+        width: 11
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf9f8636f26391c40800000000000000
+      internalID: 5483473598459476475
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_9
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 805
+        width: 11
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 035b6734784fac580800000000000000
+      internalID: -8805957259579968208
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_10
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 780
+        width: 11
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b0eb0c8749ada9370800000000000000
+      internalID: 8330210791991066123
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_11
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 780
+        width: 11
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5644ad35448088b90800000000000000
+      internalID: -7239527311440460699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_12
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 780
+        width: 11
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 18423f24cf5a16fc0800000000000000
+      internalID: -3503336532243962751
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_13
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 780
+        width: 11
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b1f4fb2d227aa620800000000000000
+      internalID: 2786164857818640823
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_14
+      rect:
+        serializedVersion: 2
+        x: 124
+        y: 780
+        width: 11
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d989daaa9672f8930800000000000000
+      internalID: 4147577116620069021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_15
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 755
+        width: 11
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5d475699053ed25c0800000000000000
+      internalID: -4238481738975316779
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_16
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 755
+        width: 11
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b53a5e448707f0d0800000000000000
+      internalID: -3389231929741396553
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_17
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 755
+        width: 11
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 28e210bc432f96040800000000000000
+      internalID: 4641507199540080258
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_18
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 755
+        width: 11
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f3831ae9c56fe7090800000000000000
+      internalID: -8034713807523596225
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_19
+      rect:
+        serializedVersion: 2
+        x: 124
+        y: 755
+        width: 11
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d5e67bb104458c640800000000000000
+      internalID: 5100419212316733021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_20
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 730
+        width: 11
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bbdc53a4fc6b40db0800000000000000
+      internalID: -4826531899214803525
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_21
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 731
+        width: 11
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 253de92cb3aa82b30800000000000000
+      internalID: 4262844220951155538
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_22
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 733
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 10b306c63a10e3490800000000000000
+      internalID: -7764766906130613503
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_23
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 730
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6537d959007b0dea0800000000000000
+      internalID: -5849974702816267434
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_24
+      rect:
+        serializedVersion: 2
+        x: 123
+        y: 730
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 68cc8020c249e8670800000000000000
+      internalID: 8542928459902012550
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_25
+      rect:
+        serializedVersion: 2
+        x: 154
+        y: 730
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b05e2f49f7b3cfbb0800000000000000
+      internalID: -4900976875340110581
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_26
+      rect:
+        serializedVersion: 2
+        x: 181
+        y: 732
+        width: 12
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c48e7c774ca15e6a0800000000000000
+      internalID: -6420696262621271988
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_27
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 732
+        width: 12
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 614f3640e387bfbf0800000000000000
+      internalID: -289505543278300138
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_28
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 730
+        width: 11
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 63e21e0e727e1cd00800000000000000
+      internalID: 991327551460814390
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_29
+      rect:
+        serializedVersion: 2
+        x: 269
+        y: 730
+        width: 11
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ef7c9ca2bb3e5b9a0800000000000000
+      internalID: -6217813317498845186
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_30
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 705
+        width: 13
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3b68e1d84ba902620800000000000000
+      internalID: 2747365872948381363
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_31
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 705
+        width: 11
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6fc2b86744d6206f0800000000000000
+      internalID: -719892849611821834
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_32
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 705
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 55ec9e29c723ffb60800000000000000
+      internalID: 7781994191741636181
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_33
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 705
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d790b719341763ba0800000000000000
+      internalID: -6109571309463991939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_34
+      rect:
+        serializedVersion: 2
+        x: 122
+        y: 705
+        width: 13
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ce6a6275a79ad1a20800000000000000
+      internalID: 3034768066830837484
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_35
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 680
+        width: 13
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 14ac23604587c0fe0800000000000000
+      internalID: -1221469096647669183
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_36
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 680
+        width: 12
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 92e6ed6de41a32180800000000000000
+      internalID: -9141285458647552471
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_37
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 680
+        width: 17
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 31bf1ad6bb5fa82b0800000000000000
+      internalID: -5581378602825286893
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_38
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 680
+        width: 16
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c0e05829acbd2c90800000000000000
+      internalID: -7192885595128930106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_39
+      rect:
+        serializedVersion: 2
+        x: 122
+        y: 680
+        width: 13
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7f617a1401a591e10800000000000000
+      internalID: 2168863721423050487
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_40
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 655
+        width: 13
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 27b6eb80d086af2c0800000000000000
+      internalID: -4397087680983307406
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_41
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 655
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 33129067de94de570800000000000000
+      internalID: 8497529356154380595
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_42
+      rect:
+        serializedVersion: 2
+        x: 62
+        y: 653
+        width: 15
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c8ad00ff93a6e640800000000000000
+      internalID: 5108950734620960966
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_43
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 653
+        width: 13
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ef2c2cbc2ae34690800000000000000
+      internalID: -7618988666724274206
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_44
+      rect:
+        serializedVersion: 2
+        x: 122
+        y: 655
+        width: 13
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ee0f10f3e7c2e3480800000000000000
+      internalID: -8917641291412410130
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_45
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 630
+        width: 11
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a700340f6690bd050800000000000000
+      internalID: 5826260880656105594
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_46
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 630
+        width: 11
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 06e57ff98b3af1420800000000000000
+      internalID: 2602979122996534880
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_47
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 605
+        width: 12
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 34e5430b8cd390010800000000000000
+      internalID: 1155522711556218435
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_48
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 605
+        width: 11
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a65cdbaf58a7ea40800000000000000
+      internalID: 5397467807285532321
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_49
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 580
+        width: 11
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 811338e272580b230800000000000000
+      internalID: 3652565701128040728
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_50
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 580
+        width: 11
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 25949f0f37f6c91a0800000000000000
+      internalID: -6801438793481500334
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_51
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 555
+        width: 11
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a135c9d5677513a0800000000000000
+      internalID: -6695313991687392856
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_52
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 555
+        width: 12
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 170c4ff1e049cd3b0800000000000000
+      internalID: -5486347457657520015
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_53
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 555
+        width: 12
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f1e7d6122a8381020800000000000000
+      internalID: 2312660677651430943
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_54
+      rect:
+        serializedVersion: 2
+        x: 122
+        y: 555
+        width: 12
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 709772260698ebcf0800000000000000
+      internalID: -234599083520067321
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_55
+      rect:
+        serializedVersion: 2
+        x: 181
+        y: 555
+        width: 12
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 443abf9bc30c5d3f0800000000000000
+      internalID: -876583185402846396
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_56
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 555
+        width: 11
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5df2c6df83c08dd10800000000000000
+      internalID: 2150482260978839509
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_57
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 555
+        width: 11
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae7d06d35ea16a6d0800000000000000
+      internalID: -2979664531579414550
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_58
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 530
+        width: 11
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8ce5e984db96c93b0800000000000000
+      internalID: -5504408382865514808
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_59
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 530
+        width: 12
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c77e53db180bec810800000000000000
+      internalID: 1787560173384361852
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_60
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 530
+        width: 12
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 58395cfc1dc2fcff0800000000000000
+      internalID: -13742994213203067
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_61
+      rect:
+        serializedVersion: 2
+        x: 122
+        y: 530
+        width: 12
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b3087ef0d9e506d90800000000000000
+      internalID: -7106576183320936389
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_62
+      rect:
+        serializedVersion: 2
+        x: 181
+        y: 530
+        width: 12
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a247a9315d76d65e0800000000000000
+      internalID: -1914760101708008406
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_63
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 530
+        width: 11
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a27538558958178b0800000000000000
+      internalID: -5156193209046313174
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_64
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 530
+        width: 11
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 023120db624acfc60800000000000000
+      internalID: 7853332336514044704
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_65
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 505
+        width: 12
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ad496f151da76b150800000000000000
+      internalID: 5888028602275370202
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_66
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 505
+        width: 17
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f7dd51052d497e5c0800000000000000
+      internalID: -4186213697609933441
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_67
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 505
+        width: 17
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6976fdd60e9bab040800000000000000
+      internalID: 4664244737662740374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_68
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 505
+        width: 15
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 34b3384e2fd08bc70800000000000000
+      internalID: 8986948393284877123
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_69
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 505
+        width: 15
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4a5c8b8e96380ec10800000000000000
+      internalID: 2080807518744397220
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_70
+      rect:
+        serializedVersion: 2
+        x: 149
+        y: 505
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 74092025986ff3050800000000000000
+      internalID: 5782611516213858375
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_71
+      rect:
+        serializedVersion: 2
+        x: 178
+        y: 505
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b354fc84343f30b20800000000000000
+      internalID: 3099588438870934843
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_72
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 505
+        width: 11
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 98b50f76f5e09d2d0800000000000000
+      internalID: -3253553452869985399
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_73
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 505
+        width: 12
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 67b8408f31e790f80800000000000000
+      internalID: -8139836227264935050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_74
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 480
+        width: 13
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a6c133daa3c80d8b0800000000000000
+      internalID: -5129445791933195158
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_75
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 480
+        width: 11
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4f9d4e56205f1fec0800000000000000
+      internalID: -3534774841860892172
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_76
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 479
+        width: 18
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f5ed58ec95a2d93f0800000000000000
+      internalID: -892510585944154529
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_77
+      rect:
+        serializedVersion: 2
+        x: 87
+        y: 480
+        width: 18
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 29438830c519403b0800000000000000
+      internalID: -5547149016631331694
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_78
+      rect:
+        serializedVersion: 2
+        x: 122
+        y: 480
+        width: 13
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fe04ae531470ac160800000000000000
+      internalID: 7046452543633375471
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_79
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 455
+        width: 11
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9ba16cb8a3a2ac7b0800000000000000
+      internalID: -5203299988531701063
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_80
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 455
+        width: 11
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b62b753af079c6e20800000000000000
+      internalID: 3345214716650173035
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_81
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 456
+        width: 11
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 225e78265ca84a580800000000000000
+      internalID: -8816769590118324958
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_82
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 457
+        width: 11
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e08467ddcd5598520800000000000000
+      internalID: 2704787458309376014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_83
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 430
+        width: 13
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3e98ddf28c99a22a0800000000000000
+      internalID: -6761422805467821597
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_84
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 430
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: be7a0de6fe5bd80c0800000000000000
+      internalID: -4571798006750205973
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_85
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 405
+        width: 11
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a9a786117ed35c350800000000000000
+      internalID: 6036298938198817434
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_86
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 405
+        width: 11
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cb36599fed15b38a0800000000000000
+      internalID: -6324371233599822916
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_87
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 405
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ccf17508308d455b0800000000000000
+      internalID: -5380438145251205172
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_88
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 405
+        width: 17
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 232fa34d3b5719ae0800000000000000
+      internalID: -1544323781991140814
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_89
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 380
+        width: 15
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a7f372fd1d57669f0800000000000000
+      internalID: -475563166388502662
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_90
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 380
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 43a72b4fd88cc6560800000000000000
+      internalID: 7308436807336753716
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_91
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 354
+        width: 11
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 14c99752449a1e610800000000000000
+      internalID: 1648785048745909313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_92
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 354
+        width: 11
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f44ff2b8264ecd8a0800000000000000
+      internalID: -6278892668568210353
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_93
+      rect:
+        serializedVersion: 2
+        x: 59
+        y: 354
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dd46826f801abc740800000000000000
+      internalID: 5173405656826799325
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_94
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 354
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 352f7f3c8c8f87100800000000000000
+      internalID: 106108132408160851
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_95
+      rect:
+        serializedVersion: 2
+        x: 119
+        y: 354
+        width: 14
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e08657889c6c42540800000000000000
+      internalID: 4982325656658733070
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_96
+      rect:
+        serializedVersion: 2
+        x: 153
+        y: 354
+        width: 11
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a5c17b20a4d6337c0800000000000000
+      internalID: -4092807471709086630
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_97
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 329
+        width: 11
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8eeb111482ac22ec0800000000000000
+      internalID: -3593087278449049880
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_98
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 329
+        width: 17
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2e4e9c51324a69860800000000000000
+      internalID: 7536391497047467234
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_99
+      rect:
+        serializedVersion: 2
+        x: 62
+        y: 329
+        width: 17
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b1da8cc007311f050800000000000000
+      internalID: 5832464364393245979
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_100
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 329
+        width: 13
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 994f48ccdc8c5e1b0800000000000000
+      internalID: -5627871373104450407
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_101
+      rect:
+        serializedVersion: 2
+        x: 124
+        y: 329
+        width: 12
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 75e485522e2f68110800000000000000
+      internalID: 1262963798627077719
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_102
+      rect:
+        serializedVersion: 2
+        x: 153
+        y: 329
+        width: 11
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 66b48f31946aba730800000000000000
+      internalID: 4011482725901421414
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_103
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 304
+        width: 11
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd3f77aa0dd01f840800000000000000
+      internalID: 5255997429982426075
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_104
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 302
+        width: 11
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f8b47db5dcaf22ca0800000000000000
+      internalID: -6042991990061708401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_105
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 300
+        width: 15
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d4c3a5b46c5fd1300800000000000000
+      internalID: 224605788454927437
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_106
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 300
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6b666b6bda0eda970800000000000000
+      internalID: 8767911086259594934
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_107
+      rect:
+        serializedVersion: 2
+        x: 119
+        y: 303
+        width: 14
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 188aebbacae1406b0800000000000000
+      internalID: -5331102331935217535
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_108
+      rect:
+        serializedVersion: 2
+        x: 153
+        y: 304
+        width: 11
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dd6b5b5ab9cf3f9f0800000000000000
+      internalID: -435726993494526243
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_109
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 279
+        width: 11
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b692758f59ed4e9a0800000000000000
+      internalID: -6204589650911745685
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_110
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 279
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 35eb50f29af322ed0800000000000000
+      internalID: -2440318052210459053
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_111
+      rect:
+        serializedVersion: 2
+        x: 62
+        y: 279
+        width: 15
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 68720d44d43947140800000000000000
+      internalID: 4716556669840009094
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_112
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 279
+        width: 13
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: faef99afd7d176b50800000000000000
+      internalID: 6586265406965153455
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_113
+      rect:
+        serializedVersion: 2
+        x: 124
+        y: 279
+        width: 11
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3120e9f6aab008900800000000000000
+      internalID: 684559970005287443
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_114
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 254
+        width: 11
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e3718b105958b4780800000000000000
+      internalID: -8697711380310517954
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_115
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 254
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6098d4a248a008a70800000000000000
+      internalID: 8827066832407857414
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_116
+      rect:
+        serializedVersion: 2
+        x: 62
+        y: 254
+        width: 16
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 83c2c939e898bce10800000000000000
+      internalID: 2219018486864948280
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_117
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 254
+        width: 12
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4a430d2dcc5d7fb80800000000000000
+      internalID: -8360979107503131484
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_118
+      rect:
+        serializedVersion: 2
+        x: 124
+        y: 254
+        width: 11
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b4bf02117f90cf50800000000000000
+      internalID: 6899689937114739890
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_119
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 229
+        width: 11
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 88ff518e567de5330800000000000000
+      internalID: 3701632776430550920
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_120
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 229
+        width: 8
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e91ac80f73ee0f960800000000000000
+      internalID: 7633863292419350942
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_121
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 229
+        width: 14
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a6f6b2ba8c0303550800000000000000
+      internalID: 6138459930529329002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_122
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 229
+        width: 12
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e0524d321f4af3110800000000000000
+      internalID: 1242893377772725518
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_123
+      rect:
+        serializedVersion: 2
+        x: 124
+        y: 229
+        width: 11
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4bce04c2b3a1a23d0800000000000000
+      internalID: -3230740941237064524
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_124
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 204
+        width: 11
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ca4535b2c0261970800000000000000
+      internalID: 8725197348712827586
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_125
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 204
+        width: 15
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d8fb790449e688a70800000000000000
+      internalID: 8829428652477759373
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_126
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 204
+        width: 14
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 95d0802a82ba557b0800000000000000
+      internalID: -5236090800742855335
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_127
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 204
+        width: 11
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec02b233f9de5b9a0800000000000000
+      internalID: -6217802442501054258
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_128
+      rect:
+        serializedVersion: 2
+        x: 124
+        y: 204
+        width: 11
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 43db9016ac1d0a9c0800000000000000
+      internalID: -3917901008670704332
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_129
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 177
+        width: 11
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6b1c5e331c37d84f0800000000000000
+      internalID: -824875883102355018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_130
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 177
+        width: 11
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a022a7fc055a2b2a0800000000000000
+      internalID: -6723129527213874678
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_131
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 178
+        width: 13
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a14a0ad10376907b0800000000000000
+      internalID: -5257557633625185254
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_132
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 179
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3df37330e0b619dd0800000000000000
+      internalID: -2481084211776765997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_133
+      rect:
+        serializedVersion: 2
+        x: 119
+        y: 179
+        width: 15
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fb8a9daa2b8fedac0800000000000000
+      internalID: -3828349186964084545
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_134
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 188
+        width: 5
+        height: 5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d4045ea5268d79490800000000000000
+      internalID: -7739479517669539763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_135
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 179
+        width: 20
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 64312150e0f5f04c0800000000000000
+      internalID: -4319129003805764794
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_136
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 183
+        width: 5
+        height: 5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c686d80c10d5c580800000000000000
+      internalID: -8807404677427198269
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_137
+      rect:
+        serializedVersion: 2
+        x: 177
+        y: 177
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 76e97aac8b8533770800000000000000
+      internalID: 8589306465022877287
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_138
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 177
+        width: 11
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 016a42d35f75ae3f0800000000000000
+      internalID: -870786867138353648
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_139
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 155
+        width: 13
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: accb4aab8f5fa00a0800000000000000
+      internalID: -6914443829241922358
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_140
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 155
+        width: 11
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9b224035cd4639db0800000000000000
+      internalID: -4786371081516342599
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_141
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 156
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 703199003954d8880800000000000000
+      internalID: -8607146815162608889
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_142
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 154
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e13ed2e986d3ad490800000000000000
+      internalID: -7720791091633593570
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_143
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 129
+        width: 11
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c22aed5a32bbc2f50800000000000000
+      internalID: 6858062094359503404
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_144
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 129
+        width: 8
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e05ed76f6380486f0800000000000000
+      internalID: -683412211296770802
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_145
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 129
+        width: 8
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e3c5129c50d1fdb00800000000000000
+      internalID: 855434364910132286
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_146
+      rect:
+        serializedVersion: 2
+        x: 125
+        y: 129
+        width: 8
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c073b097a3c974c0800000000000000
+      internalID: -4289182045639053112
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_147
+      rect:
+        serializedVersion: 2
+        x: 183
+        y: 129
+        width: 8
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: df736c44cd8344ba0800000000000000
+      internalID: -6105692676109748227
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_148
+      rect:
+        serializedVersion: 2
+        x: 212
+        y: 129
+        width: 8
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 58ecf4cdb3ceff0b0800000000000000
+      internalID: -5692571662129574267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_149
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 129
+        width: 11
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc46cf630843c4090800000000000000
+      internalID: -8049000708734950195
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_150
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 104
+        width: 11
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f72191de1dde9c50800000000000000
+      internalID: 6674014822244362233
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_151
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 104
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ab722eb9c0fd87a00800000000000000
+      internalID: 754598182832449466
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_152
+      rect:
+        serializedVersion: 2
+        x: 62
+        y: 104
+        width: 15
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2e89344f2c7bd7f30800000000000000
+      internalID: 4575014844427901154
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_153
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 104
+        width: 14
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b764ca95fdf5e75b0800000000000000
+      internalID: -5368748292892244357
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_154
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 79
+        width: 11
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aef29cf696f70f0d0800000000000000
+      internalID: -3391070428586233878
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_155
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 79
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b51d5c58655e08e20800000000000000
+      internalID: 3350930282537931099
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_156
+      rect:
+        serializedVersion: 2
+        x: 62
+        y: 79
+        width: 16
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 31aeeb047b381f430800000000000000
+      internalID: 3814975182448028179
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_157
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 79
+        width: 12
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f7112895c2036d200800000000000000
+      internalID: 204403800130326911
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_158
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 54
+        width: 11
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 532993ec3598e19d0800000000000000
+      internalID: -2801650925142699467
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_159
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 54
+        width: 11
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7328a2a0ba4ee0420800000000000000
+      internalID: 2598265458300453431
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_160
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 54
+        width: 11
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: de387a62b78a317a0800000000000000
+      internalID: -6407592597935127571
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_161
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 54
+        width: 11
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9e14c8b1a45f111f0800000000000000
+      internalID: -1075809137326276119
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_162
+      rect:
+        serializedVersion: 2
+        x: 125
+        y: 54
+        width: 10
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 217ea19b149534d60800000000000000
+      internalID: 7873234712387053330
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_163
+      rect:
+        serializedVersion: 2
+        x: 153
+        y: 54
+        width: 11
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d7bdcdba36c1b7f60800000000000000
+      internalID: 8033045574756129661
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_164
+      rect:
+        serializedVersion: 2
+        x: 182
+        y: 54
+        width: 11
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 734696f8f4986ad40800000000000000
+      internalID: 5595310561855890487
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_165
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 29
+        width: 11
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c486bfc2316231a10800000000000000
+      internalID: 1878887333344536652
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_166
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 31
+        width: 13
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a45c4d218920f94a0800000000000000
+      internalID: -6584541278018157238
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_167
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 32
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 86a16b6f096848ae0800000000000000
+      internalID: -1547964414736065944
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_168
+      rect:
+        serializedVersion: 2
+        x: 119
+        y: 45
+        width: 5
+        height: 5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c655c4a8195247f70800000000000000
+      internalID: 9184006847136028012
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_169
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 31
+        width: 19
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 621f121eef9098040800000000000000
+      internalID: 4650259080540188966
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_170
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 31
+        width: 20
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1471d3f90bcfc2f30800000000000000
+      internalID: 4552291158880753473
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_171
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 29
+        width: 11
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c6dc482cd31724a0800000000000000
+      internalID: -6618299291107797304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_172
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 29
+        width: 8
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae2d8052480ed5880800000000000000
+      internalID: -8620487253555621142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_173
+      rect:
+        serializedVersion: 2
+        x: 178
+        y: 29
+        width: 13
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0acd0cc0f77019350800000000000000
+      internalID: 6021602419027270816
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_174
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 4
+        width: 11
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4c55fe7ad55a37060800000000000000
+      internalID: 6950080471630828996
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_175
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 4
+        width: 9
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b71b42ab601fe8c30800000000000000
+      internalID: 4363690100163654011
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_176
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 1
+        width: 12
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c7cf109af91fe3ed0800000000000000
+      internalID: -2432241080695915396
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_177
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 2
+        width: 12
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 756decf03cd891e4f8369c03b3d6bfb9
+      internalID: -2941434494087601711
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_178
+      rect:
+        serializedVersion: 2
+        x: 121
+        y: 4
+        width: 12
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9965d0a3883c9e74bb46225b1c8cfc1e
+      internalID: -4623442756795754793
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_Girl_179
+      rect:
+        serializedVersion: 2
+        x: 153
+        y: 4
+        width: 11
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5ebecebacfa4c94cbc8a388dc01e3b4
+      internalID: -462483883657330269
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 57c98c5d559b2ce4f96209bc6283b3b0
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":10.0,"y":34.0},"gridSpriteSize":{"x":28.0,"y":25.0},"gridSpriteOffset":{"x":3.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":true,"isAlternate":false}'
+    nameFileIdTable:
+      PlayerSpriteSheet_Girl_0: -4393205851554392437
+      PlayerSpriteSheet_Girl_1: 9189842831499744495
+      PlayerSpriteSheet_Girl_10: 8330210791991066123
+      PlayerSpriteSheet_Girl_100: -5627871373104450407
+      PlayerSpriteSheet_Girl_101: 1262963798627077719
+      PlayerSpriteSheet_Girl_102: 4011482725901421414
+      PlayerSpriteSheet_Girl_103: 5255997429982426075
+      PlayerSpriteSheet_Girl_104: -6042991990061708401
+      PlayerSpriteSheet_Girl_105: 224605788454927437
+      PlayerSpriteSheet_Girl_106: 8767911086259594934
+      PlayerSpriteSheet_Girl_107: -5331102331935217535
+      PlayerSpriteSheet_Girl_108: -435726993494526243
+      PlayerSpriteSheet_Girl_109: -6204589650911745685
+      PlayerSpriteSheet_Girl_11: -7239527311440460699
+      PlayerSpriteSheet_Girl_110: -2440318052210459053
+      PlayerSpriteSheet_Girl_111: 4716556669840009094
+      PlayerSpriteSheet_Girl_112: 6586265406965153455
+      PlayerSpriteSheet_Girl_113: 684559970005287443
+      PlayerSpriteSheet_Girl_114: -8697711380310517954
+      PlayerSpriteSheet_Girl_115: 8827066832407857414
+      PlayerSpriteSheet_Girl_116: 2219018486864948280
+      PlayerSpriteSheet_Girl_117: -8360979107503131484
+      PlayerSpriteSheet_Girl_118: 6899689937114739890
+      PlayerSpriteSheet_Girl_119: 3701632776430550920
+      PlayerSpriteSheet_Girl_12: -3503336532243962751
+      PlayerSpriteSheet_Girl_120: 7633863292419350942
+      PlayerSpriteSheet_Girl_121: 6138459930529329002
+      PlayerSpriteSheet_Girl_122: 1242893377772725518
+      PlayerSpriteSheet_Girl_123: -3230740941237064524
+      PlayerSpriteSheet_Girl_124: 8725197348712827586
+      PlayerSpriteSheet_Girl_125: 8829428652477759373
+      PlayerSpriteSheet_Girl_126: -5236090800742855335
+      PlayerSpriteSheet_Girl_127: -6217802442501054258
+      PlayerSpriteSheet_Girl_128: -3917901008670704332
+      PlayerSpriteSheet_Girl_129: -824875883102355018
+      PlayerSpriteSheet_Girl_13: 2786164857818640823
+      PlayerSpriteSheet_Girl_130: -6723129527213874678
+      PlayerSpriteSheet_Girl_131: -5257557633625185254
+      PlayerSpriteSheet_Girl_132: -2481084211776765997
+      PlayerSpriteSheet_Girl_133: -3828349186964084545
+      PlayerSpriteSheet_Girl_134: -7739479517669539763
+      PlayerSpriteSheet_Girl_135: -4319129003805764794
+      PlayerSpriteSheet_Girl_136: -8807404677427198269
+      PlayerSpriteSheet_Girl_137: 8589306465022877287
+      PlayerSpriteSheet_Girl_138: -870786867138353648
+      PlayerSpriteSheet_Girl_139: -6914443829241922358
+      PlayerSpriteSheet_Girl_14: 4147577116620069021
+      PlayerSpriteSheet_Girl_140: -4786371081516342599
+      PlayerSpriteSheet_Girl_141: -8607146815162608889
+      PlayerSpriteSheet_Girl_142: -7720791091633593570
+      PlayerSpriteSheet_Girl_143: 6858062094359503404
+      PlayerSpriteSheet_Girl_144: -683412211296770802
+      PlayerSpriteSheet_Girl_145: 855434364910132286
+      PlayerSpriteSheet_Girl_146: -4289182045639053112
+      PlayerSpriteSheet_Girl_147: -6105692676109748227
+      PlayerSpriteSheet_Girl_148: -5692571662129574267
+      PlayerSpriteSheet_Girl_149: -8049000708734950195
+      PlayerSpriteSheet_Girl_15: -4238481738975316779
+      PlayerSpriteSheet_Girl_150: 6674014822244362233
+      PlayerSpriteSheet_Girl_151: 754598182832449466
+      PlayerSpriteSheet_Girl_152: 4575014844427901154
+      PlayerSpriteSheet_Girl_153: -5368748292892244357
+      PlayerSpriteSheet_Girl_154: -3391070428586233878
+      PlayerSpriteSheet_Girl_155: 3350930282537931099
+      PlayerSpriteSheet_Girl_156: 3814975182448028179
+      PlayerSpriteSheet_Girl_157: 204403800130326911
+      PlayerSpriteSheet_Girl_158: -2801650925142699467
+      PlayerSpriteSheet_Girl_159: 2598265458300453431
+      PlayerSpriteSheet_Girl_16: -3389231929741396553
+      PlayerSpriteSheet_Girl_160: -6407592597935127571
+      PlayerSpriteSheet_Girl_161: -1075809137326276119
+      PlayerSpriteSheet_Girl_162: 7873234712387053330
+      PlayerSpriteSheet_Girl_163: 8033045574756129661
+      PlayerSpriteSheet_Girl_164: 5595310561855890487
+      PlayerSpriteSheet_Girl_165: 1878887333344536652
+      PlayerSpriteSheet_Girl_166: -6584541278018157238
+      PlayerSpriteSheet_Girl_167: -1547964414736065944
+      PlayerSpriteSheet_Girl_168: 9184006847136028012
+      PlayerSpriteSheet_Girl_169: 4650259080540188966
+      PlayerSpriteSheet_Girl_17: 4641507199540080258
+      PlayerSpriteSheet_Girl_170: 4552291158880753473
+      PlayerSpriteSheet_Girl_171: -6618299291107797304
+      PlayerSpriteSheet_Girl_172: -8620487253555621142
+      PlayerSpriteSheet_Girl_173: 6021602419027270816
+      PlayerSpriteSheet_Girl_174: 6950080471630828996
+      PlayerSpriteSheet_Girl_175: 4363690100163654011
+      PlayerSpriteSheet_Girl_176: -2432241080695915396
+      PlayerSpriteSheet_Girl_177: -2941434494087601711
+      PlayerSpriteSheet_Girl_178: -4623442756795754793
+      PlayerSpriteSheet_Girl_179: -462483883657330269
+      PlayerSpriteSheet_Girl_18: -8034713807523596225
+      PlayerSpriteSheet_Girl_19: 5100419212316733021
+      PlayerSpriteSheet_Girl_2: 483400597961398067
+      PlayerSpriteSheet_Girl_20: -4826531899214803525
+      PlayerSpriteSheet_Girl_21: 4262844220951155538
+      PlayerSpriteSheet_Girl_22: -7764766906130613503
+      PlayerSpriteSheet_Girl_23: -5849974702816267434
+      PlayerSpriteSheet_Girl_24: 8542928459902012550
+      PlayerSpriteSheet_Girl_25: -4900976875340110581
+      PlayerSpriteSheet_Girl_26: -6420696262621271988
+      PlayerSpriteSheet_Girl_27: -289505543278300138
+      PlayerSpriteSheet_Girl_28: 991327551460814390
+      PlayerSpriteSheet_Girl_29: -6217813317498845186
+      PlayerSpriteSheet_Girl_3: 3304408955559511237
+      PlayerSpriteSheet_Girl_30: 2747365872948381363
+      PlayerSpriteSheet_Girl_31: -719892849611821834
+      PlayerSpriteSheet_Girl_32: 7781994191741636181
+      PlayerSpriteSheet_Girl_33: -6109571309463991939
+      PlayerSpriteSheet_Girl_34: 3034768066830837484
+      PlayerSpriteSheet_Girl_35: -1221469096647669183
+      PlayerSpriteSheet_Girl_36: -9141285458647552471
+      PlayerSpriteSheet_Girl_37: -5581378602825286893
+      PlayerSpriteSheet_Girl_38: -7192885595128930106
+      PlayerSpriteSheet_Girl_39: 2168863721423050487
+      PlayerSpriteSheet_Girl_4: -6578707556819159931
+      PlayerSpriteSheet_Girl_40: -4397087680983307406
+      PlayerSpriteSheet_Girl_41: 8497529356154380595
+      PlayerSpriteSheet_Girl_42: 5108950734620960966
+      PlayerSpriteSheet_Girl_43: -7618988666724274206
+      PlayerSpriteSheet_Girl_44: -8917641291412410130
+      PlayerSpriteSheet_Girl_45: 5826260880656105594
+      PlayerSpriteSheet_Girl_46: 2602979122996534880
+      PlayerSpriteSheet_Girl_47: 1155522711556218435
+      PlayerSpriteSheet_Girl_48: 5397467807285532321
+      PlayerSpriteSheet_Girl_49: 3652565701128040728
+      PlayerSpriteSheet_Girl_5: 2592807248082739289
+      PlayerSpriteSheet_Girl_50: -6801438793481500334
+      PlayerSpriteSheet_Girl_51: -6695313991687392856
+      PlayerSpriteSheet_Girl_52: -5486347457657520015
+      PlayerSpriteSheet_Girl_53: 2312660677651430943
+      PlayerSpriteSheet_Girl_54: -234599083520067321
+      PlayerSpriteSheet_Girl_55: -876583185402846396
+      PlayerSpriteSheet_Girl_56: 2150482260978839509
+      PlayerSpriteSheet_Girl_57: -2979664531579414550
+      PlayerSpriteSheet_Girl_58: -5504408382865514808
+      PlayerSpriteSheet_Girl_59: 1787560173384361852
+      PlayerSpriteSheet_Girl_6: 5791016691804409741
+      PlayerSpriteSheet_Girl_60: -13742994213203067
+      PlayerSpriteSheet_Girl_61: -7106576183320936389
+      PlayerSpriteSheet_Girl_62: -1914760101708008406
+      PlayerSpriteSheet_Girl_63: -5156193209046313174
+      PlayerSpriteSheet_Girl_64: 7853332336514044704
+      PlayerSpriteSheet_Girl_65: 5888028602275370202
+      PlayerSpriteSheet_Girl_66: -4186213697609933441
+      PlayerSpriteSheet_Girl_67: 4664244737662740374
+      PlayerSpriteSheet_Girl_68: 8986948393284877123
+      PlayerSpriteSheet_Girl_69: 2080807518744397220
+      PlayerSpriteSheet_Girl_7: 1042501163107371553
+      PlayerSpriteSheet_Girl_70: 5782611516213858375
+      PlayerSpriteSheet_Girl_71: 3099588438870934843
+      PlayerSpriteSheet_Girl_72: -3253553452869985399
+      PlayerSpriteSheet_Girl_73: -8139836227264935050
+      PlayerSpriteSheet_Girl_74: -5129445791933195158
+      PlayerSpriteSheet_Girl_75: -3534774841860892172
+      PlayerSpriteSheet_Girl_76: -892510585944154529
+      PlayerSpriteSheet_Girl_77: -5547149016631331694
+      PlayerSpriteSheet_Girl_78: 7046452543633375471
+      PlayerSpriteSheet_Girl_79: -5203299988531701063
+      PlayerSpriteSheet_Girl_8: 5483473598459476475
+      PlayerSpriteSheet_Girl_80: 3345214716650173035
+      PlayerSpriteSheet_Girl_81: -8816769590118324958
+      PlayerSpriteSheet_Girl_82: 2704787458309376014
+      PlayerSpriteSheet_Girl_83: -6761422805467821597
+      PlayerSpriteSheet_Girl_84: -4571798006750205973
+      PlayerSpriteSheet_Girl_85: 6036298938198817434
+      PlayerSpriteSheet_Girl_86: -6324371233599822916
+      PlayerSpriteSheet_Girl_87: -5380438145251205172
+      PlayerSpriteSheet_Girl_88: -1544323781991140814
+      PlayerSpriteSheet_Girl_89: -475563166388502662
+      PlayerSpriteSheet_Girl_9: -8805957259579968208
+      PlayerSpriteSheet_Girl_90: 7308436807336753716
+      PlayerSpriteSheet_Girl_91: 1648785048745909313
+      PlayerSpriteSheet_Girl_92: -6278892668568210353
+      PlayerSpriteSheet_Girl_93: 5173405656826799325
+      PlayerSpriteSheet_Girl_94: 106108132408160851
+      PlayerSpriteSheet_Girl_95: 4982325656658733070
+      PlayerSpriteSheet_Girl_96: -4092807471709086630
+      PlayerSpriteSheet_Girl_97: -3593087278449049880
+      PlayerSpriteSheet_Girl_98: 7536391497047467234
+      PlayerSpriteSheet_Girl_99: 5832464364393245979
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,81 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e830bbb99f3fae669512ae72f7e4519c, type: 3}
+  m_Name: FungalVegetationConfig
+  m_EditorClassIdentifier: Assembly-CSharp::Systems.MineSystem.FungalVegetationSystem.Config.FungalVegetationConfig
+  maturationGameMinutes: 180
+  growthChance: 0.4
+  secondGrowthChance: 0.6
+  caveSeedChance: 0.6
+  maxGrowthsPerTick: 12
+  maxTotalGrowths: 1000
+  enforceSpacing: 1
+  allowGrowthInsideCameraBounds: 0
+  cameraBoundsMarginCells: 2
+  maxCandidateScansPerTick: 96
+  floorWeight: 5
+  ceilingWeight: 4
+  leftWallWeight: 2
+  rightWallWeight: 2
+  vegetationEntries:
+  - id: fungal_floor_01
+    sprite: {fileID: 21300000, guid: 8605267c64a0b5f46b24fbe0ca87fd2f, type: 3}
+    anchor: 0
+    weight: 3
+  - id: fungal_floor_02
+    sprite: {fileID: 21300000, guid: 0ce673b274638a3448021139daf7ccd3, type: 3}
+    anchor: 0
+    weight: 3
+  - id: fungal_floor_03
+    sprite: {fileID: 21300000, guid: d80c01565141fef4cb29247ad95b6a68, type: 3}
+    anchor: 0
+    weight: 2
+  - id: fungal_floor_04
+    sprite: {fileID: 21300000, guid: 5d4918dfe0fbadb449ee3ad5c3374cb0, type: 3}
+    anchor: 0
+    weight: 1
+  - id: fungal_ceiling_01
+    sprite: {fileID: 21300000, guid: 5b40dc874cba341478a3378858f361d7, type: 3}
+    anchor: 1
+    weight: 2
+  - id: fungal_ceiling_02
+    sprite: {fileID: 21300000, guid: 49361fcee779fcd49817e25b5d50a8d7, type: 3}
+    anchor: 1
+    weight: 2
+  - id: fungal_ceiling_03
+    sprite: {fileID: 21300000, guid: b9b2f1b5acfafeb4f982b2a267ba647d, type: 3}
+    anchor: 1
+    weight: 1
+  - id: fungal_ceiling_04
+    sprite: {fileID: 21300000, guid: b03df5918468cac4ca004f8fa8bfde03, type: 3}
+    anchor: 1
+    weight: 1
+  - id: fungal_ceiling_05
+    sprite: {fileID: 21300000, guid: 970e8528bacc9be47a9da212d6a0442d, type: 3}
+    anchor: 1
+    weight: 2
+  - id: fungal_left_01
+    sprite: {fileID: 21300000, guid: 2bfeb5bf9ec8f214f815198290fb9553, type: 3}
+    anchor: 2
+    weight: 2
+  - id: fungal_left_02
+    sprite: {fileID: 21300000, guid: ddb1dc2716b64bb458b74279218e1041, type: 3}
+    anchor: 2
+    weight: 2
+  - id: fungal_right_01
+    sprite: {fileID: 21300000, guid: cf6017a8b89ace94f816ad5dc990ef79, type: 3}
+    anchor: 3
+    weight: 2
+  - id: fungal_right_02
+    sprite: {fileID: 21300000, guid: ade237f0f1c194f4bb3ec9abd313fe5e, type: 3}
+    anchor: 3
+    weight: 2
