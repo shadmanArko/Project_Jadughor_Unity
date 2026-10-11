@@ -1,0 +1,533 @@
+fileFormatVersion: 2
+guid: 75380367fd024124f83ff8378832b9c1
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -5699292605455360750
+    second: Guest Base Walk_0
+  - first:
+      213: 5394531820836898302
+    second: Guest Base Walk_1
+  - first:
+      213: 8223645352811474165
+    second: Guest Base Walk_2
+  - first:
+      213: 4920420920498626183
+    second: Guest Base Walk_3
+  - first:
+      213: -32021764405797921
+    second: Guest Base Walk_4
+  - first:
+      213: 3520500695960785600
+    second: Guest Base Walk_5
+  - first:
+      213: -5764063766484885182
+    second: Guest Base Walk_6
+  - first:
+      213: 5217137604245184998
+    second: Guest Base Walk_7
+  - first:
+      213: 1164783396317111844
+    second: Guest Base Walk_8
+  - first:
+      213: -7200141101838943561
+    second: Guest Base Walk_9
+  - first:
+      213: -6514537833412050019
+    second: Guest Base Walk_10
+  - first:
+      213: 1261784417731773025
+    second: Guest Base Walk_11
+  - first:
+      213: 4424110118500134672
+    second: Guest Base Walk_12
+  - first:
+      213: -474030004380410219
+    second: Guest Base Walk_13
+  - first:
+      213: -7086707060948359069
+    second: Guest Base Walk_14
+  - first:
+      213: 5899750070476816503
+    second: Guest Base Walk_15
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Guest Base Walk_0
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 93
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 21d92dc429b08e0b0800000000000000
+      internalID: -5699292605455360750
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Guest Base Walk_1
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 93
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ef5468e0c1a3dda40800000000000000
+      internalID: 5394531820836898302
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Guest Base Walk_2
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 93
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5fcae1da0e1402270800000000000000
+      internalID: 8223645352811474165
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Guest Base Walk_3
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 93
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 78e98b7f1c8d84440800000000000000
+      internalID: 4920420920498626183
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Guest Base Walk_4
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 93
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fdbd28bff5c3e8ff0800000000000000
+      internalID: -32021764405797921
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Guest Base Walk_5
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 92
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c212460bb45bd030800000000000000
+      internalID: 3520500695960785600
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Guest Base Walk_6
+      rect:
+        serializedVersion: 2
+        x: 137
+        y: 92
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 241e7ff2b8ee100b0800000000000000
+      internalID: -5764063766484885182
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Guest Base Walk_7
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 92
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6e1ed5d620ff66840800000000000000
+      internalID: 5217137604245184998
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Guest Base Walk_8
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 30
+        width: 17
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 42621c1e3542a2010800000000000000
+      internalID: 1164783396317111844
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Guest Base Walk_9
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 28
+        width: 36
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7ba333cd0d5f31c90800000000000000
+      internalID: -7200141101838943561
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Guest Base Walk_10
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 49
+        width: 15
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d93c1a32b56b795a0800000000000000
+      internalID: -6514537833412050019
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Guest Base Walk_11
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 50
+        width: 15
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 16286022e32c28110800000000000000
+      internalID: 1261784417731773025
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Guest Base Walk_12
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 29
+        width: 32
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 01f696c76b8956d30800000000000000
+      internalID: 4424110118500134672
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Guest Base Walk_13
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 29
+        width: 17
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 59e5708f838eb69f0800000000000000
+      internalID: -474030004380410219
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Guest Base Walk_14
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 47
+        width: 15
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 368abec9975f6ad90800000000000000
+      internalID: -7086707060948359069
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Guest Base Walk_15
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 28
+        width: 31
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7704b5e4e6f10e150800000000000000
+      internalID: 5899750070476816503
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Guest Base Walk_0: -5699292605455360750
+      Guest Base Walk_1: 5394531820836898302
+      Guest Base Walk_10: -6514537833412050019
+      Guest Base Walk_11: 1261784417731773025
+      Guest Base Walk_12: 4424110118500134672
+      Guest Base Walk_13: -474030004380410219
+      Guest Base Walk_14: -7086707060948359069
+      Guest Base Walk_15: 5899750070476816503
+      Guest Base Walk_2: 8223645352811474165
+      Guest Base Walk_3: 4920420920498626183
+      Guest Base Walk_4: -32021764405797921
+      Guest Base Walk_5: 3520500695960785600
+      Guest Base Walk_6: -5764063766484885182
+      Guest Base Walk_7: 5217137604245184998
+      Guest Base Walk_8: 1164783396317111844
+      Guest Base Walk_9: -7200141101838943561
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

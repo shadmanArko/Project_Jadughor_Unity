@@ -1,0 +1,533 @@
+fileFormatVersion: 2
+guid: 2c60ec6aa3158c74faa57a9188fb7f23
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 2691649134231987919
+    second: MALE_HAIR_1_OUTLINE_0
+  - first:
+      213: 4147780566100283964
+    second: MALE_HAIR_1_OUTLINE_1
+  - first:
+      213: -8580150281915209749
+    second: MALE_HAIR_1_OUTLINE_2
+  - first:
+      213: -2221903786884400899
+    second: MALE_HAIR_1_OUTLINE_3
+  - first:
+      213: 8077923390044693278
+    second: MALE_HAIR_1_OUTLINE_4
+  - first:
+      213: 1062685631515891949
+    second: MALE_HAIR_1_OUTLINE_5
+  - first:
+      213: 6777261545552824823
+    second: MALE_HAIR_1_OUTLINE_6
+  - first:
+      213: 5046269780571834396
+    second: MALE_HAIR_1_OUTLINE_7
+  - first:
+      213: -7539560023703589774
+    second: MALE_HAIR_1_OUTLINE_8
+  - first:
+      213: -8576163590979968402
+    second: MALE_HAIR_1_OUTLINE_9
+  - first:
+      213: 123229140801832423
+    second: MALE_HAIR_1_OUTLINE_10
+  - first:
+      213: 3114829593588911173
+    second: MALE_HAIR_1_OUTLINE_11
+  - first:
+      213: -8475640195658738907
+    second: MALE_HAIR_1_OUTLINE_12
+  - first:
+      213: -2152330874661618929
+    second: MALE_HAIR_1_OUTLINE_13
+  - first:
+      213: -5145877624497156249
+    second: MALE_HAIR_1_OUTLINE_14
+  - first:
+      213: 4361901063125454924
+    second: MALE_HAIR_1_OUTLINE_15
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: MALE_HAIR_1_OUTLINE_0
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 73
+        width: 15
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fc6a2e960a8aa5520800000000000000
+      internalID: 2691649134231987919
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MALE_HAIR_1_OUTLINE_1
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 72
+        width: 15
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c321da0f270ef8930800000000000000
+      internalID: 4147780566100283964
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MALE_HAIR_1_OUTLINE_2
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 72
+        width: 15
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: be7e9f637ce2de880800000000000000
+      internalID: -8580150281915209749
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MALE_HAIR_1_OUTLINE_3
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 72
+        width: 15
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: df8f8a927463a21e0800000000000000
+      internalID: -2221903786884400899
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MALE_HAIR_1_OUTLINE_4
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 73
+        width: 15
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e13ee6a468c8a1070800000000000000
+      internalID: 8077923390044693278
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MALE_HAIR_1_OUTLINE_5
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 72
+        width: 15
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: de89a6693fa6fbe00800000000000000
+      internalID: 1062685631515891949
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MALE_HAIR_1_OUTLINE_6
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 71
+        width: 15
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7f9479cd77bad0e50800000000000000
+      internalID: 6777261545552824823
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MALE_HAIR_1_OUTLINE_7
+      rect:
+        serializedVersion: 2
+        x: 158
+        y: 72
+        width: 15
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c18c5cf01a3f70640800000000000000
+      internalID: 5046269780571834396
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MALE_HAIR_1_OUTLINE_8
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 29
+        width: 15
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 27c6960da1a1e5790800000000000000
+      internalID: -7539560023703589774
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MALE_HAIR_1_OUTLINE_9
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 28
+        width: 15
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e62200807a85bf880800000000000000
+      internalID: -8576163590979968402
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MALE_HAIR_1_OUTLINE_10
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 27
+        width: 15
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7e5487b204cc5b100800000000000000
+      internalID: 123229140801832423
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MALE_HAIR_1_OUTLINE_11
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 28
+        width: 15
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 54ccdb523091a3b20800000000000000
+      internalID: 3114829593588911173
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MALE_HAIR_1_OUTLINE_12
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 29
+        width: 14
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5231dbdd52a706a80800000000000000
+      internalID: -8475640195658738907
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MALE_HAIR_1_OUTLINE_13
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 28
+        width: 15
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f0b30b819726122e0800000000000000
+      internalID: -2152330874661618929
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MALE_HAIR_1_OUTLINE_14
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 27
+        width: 15
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 76f4736809b2698b0800000000000000
+      internalID: -5145877624497156249
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MALE_HAIR_1_OUTLINE_15
+      rect:
+        serializedVersion: 2
+        x: 158
+        y: 28
+        width: 15
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c40ddf418e5988c30800000000000000
+      internalID: 4361901063125454924
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      MALE_HAIR_1_OUTLINE_0: 2691649134231987919
+      MALE_HAIR_1_OUTLINE_1: 4147780566100283964
+      MALE_HAIR_1_OUTLINE_10: 123229140801832423
+      MALE_HAIR_1_OUTLINE_11: 3114829593588911173
+      MALE_HAIR_1_OUTLINE_12: -8475640195658738907
+      MALE_HAIR_1_OUTLINE_13: -2152330874661618929
+      MALE_HAIR_1_OUTLINE_14: -5145877624497156249
+      MALE_HAIR_1_OUTLINE_15: 4361901063125454924
+      MALE_HAIR_1_OUTLINE_2: -8580150281915209749
+      MALE_HAIR_1_OUTLINE_3: -2221903786884400899
+      MALE_HAIR_1_OUTLINE_4: 8077923390044693278
+      MALE_HAIR_1_OUTLINE_5: 1062685631515891949
+      MALE_HAIR_1_OUTLINE_6: 6777261545552824823
+      MALE_HAIR_1_OUTLINE_7: 5046269780571834396
+      MALE_HAIR_1_OUTLINE_8: -7539560023703589774
+      MALE_HAIR_1_OUTLINE_9: -8576163590979968402
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

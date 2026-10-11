@@ -1,0 +1,231 @@
+[
+  {
+    "Id": "Tut1",
+    "SceneNo": 1,
+    "ContinuesStory": true,
+    "StoryNumber": 5,
+    "TutorialSceneEntries": [
+      {
+        "EntryNo": "Tut1a",
+        "TutorialText": "Use {W}, {A}, {S}, {D} to move around the museum.",
+        "KeyBindsNeedsToPerform": [
+          "move_left",
+          "move_right",
+          "move_up",
+          "move_down"
+        ],
+        "ActionsNeedsToPerform": []
+      },
+      {
+        "EntryNo": "Tut1b",
+        "TutorialText": "Use {Scroll Wheel} to zoom in and out.",
+        "KeyBindsNeedsToPerform": [
+          "ui_wheel_up",
+          "ui_wheel_down"
+        ],
+        "ActionsNeedsToPerform": []
+      }
+    ]
+  },
+  {
+    "Id": "Tut2",
+    "SceneNo": 2,
+    "ContinuesStory": true,
+    "StoryNumber": 6,
+    "TutorialSceneEntries": [
+      {
+        "EntryNo": "Tut2a",
+        "TutorialText": "Use {Right Click} to select the exhibit.",
+        "KeyBindsNeedsToPerform": [],
+        "ActionsNeedsToPerform": [
+          "SelectItem"
+        ]
+      },
+      {
+        "EntryNo": "Tut2b",
+        "TutorialText": "{Left Click} and Drag the artifact from the storage area on the left to the display slot on the right.",
+        "KeyBindsNeedsToPerform": [],
+        "ActionsNeedsToPerform": [
+          "PlaceArtifactOnDisplaySlot"
+        ]
+      }
+    ]
+  },
+  {
+    "Id": "Tut3",
+    "SceneNo": 3,
+    "ContinuesStory": true,
+    "StoryNumber": 7,
+    "TutorialSceneEntries": [
+      {
+        "EntryNo": "Tut3a",
+        "TutorialText": "Click on the Town Map Button.",
+        "KeyBindsNeedsToPerform": [],
+        "ActionsNeedsToPerform": [
+          "ClickedTownMap"
+        ]
+      },
+      {
+        "EntryNo": "Tut3b",
+        "TutorialText": "Click on the various houses until you find someone willing to assist you on archaeology excavations.",
+        "KeyBindsNeedsToPerform": [],
+        "ActionsNeedsToPerform": [
+          "FoundDiggingBuddy"
+        ]
+      }
+    ]
+  },
+  {
+    "Id": "Tut4",
+    "SceneNo": 4,
+    "ContinuesStory": true,
+    "StoryNumber": 9,
+    "TutorialSceneEntries": [
+      {
+        "EntryNo": "Tut4a",
+        "TutorialText": "Go to the yellow square near the entrance to save and sleep for the night. ",
+        "KeyBindsNeedsToPerform": [],
+        "ActionsNeedsToPerform": [
+          "SleepAndSave"
+        ]
+      }
+    ]
+  },
+  {
+    "Id": "Tut5",
+    "SceneNo": 5,
+    "ContinuesStory": false,
+    "StoryNumber": 0,
+    "TutorialSceneEntries": [
+      {
+        "EntryNo": "Tut5a",
+        "TutorialText": "Click on the Digging and Permits Button.",
+        "KeyBindsNeedsToPerform": [],
+        "ActionsNeedsToPerform": [
+          "ClickedDiggingPermitsButton"
+        ]
+      },
+      {
+        "EntryNo": "Tut5b",
+        "TutorialText": "Select the Possible Battle Site from the North American list.",
+        "KeyBindsNeedsToPerform": [],
+        "ActionsNeedsToPerform": [
+          "SelectedMineSite"
+        ]
+      }
+    ]
+  },
+  {
+    "Id": "Tut6",
+    "SceneNo": 6,
+    "ContinuesStory": true,
+    "StoryNumber": 10,
+    "TutorialSceneEntries": [
+      {
+        "EntryNo": "Tut6a",
+        "TutorialText": "Welcome to the excavation screen! Move left and right using {A} and {D}",
+        "KeyBindsNeedsToPerform": [
+          "move_left",
+          "move_right"
+        ],
+        "ActionsNeedsToPerform": []
+      },
+      {
+        "EntryNo": "Tut6b",
+        "TutorialText": "Equip your pickaxe with {2}. You can toggle between your sword and pickaxe using {1} and {2}.",
+        "KeyBindsNeedsToPerform": [],
+        "ActionsNeedsToPerform": [
+          "PickaxeSelected"
+        ]
+      },
+      {
+        "EntryNo": "Tut6c",
+        "TutorialText": "Break the block directly below you using {Left Click}, while the pickaxe is selected.",
+        "KeyBindsNeedsToPerform": [],
+        "ActionsNeedsToPerform": [
+          "OnDigFirstOrdinaryCell"
+        ]
+      },
+      {
+        "EntryNo": "Tut6d",
+        "TutorialText": "The block directly below you has an artifact. {Left Click} with the cursor below your character.",
+        "KeyBindsNeedsToPerform": [],
+        "ActionsNeedsToPerform": [
+          "OnDigFirstArtifactCell"
+        ]
+      },
+      {
+        "EntryNo": "Tut6e",
+        "TutorialText": "There\u0027s a mini game to extract the artifact! ",
+        "KeyBindsNeedsToPerform": [],
+        "ActionsNeedsToPerform": [
+          "MiniGamesWon"
+        ]
+      },
+      {
+        "EntryNo": "Tut6f",
+        "TutorialText": "You can press {Q} to toggle climbing mode. Try it. Press Q again when you want to stop climbing. ",
+        "KeyBindsNeedsToPerform": [],
+        "ActionsNeedsToPerform": [
+          "ToggleGrab"
+        ]
+      }
+    ]
+  },
+  {
+    "Id": "Tut7",
+    "SceneNo": 7,
+    "ContinuesStory": true,
+    "StoryNumber": 15,
+    "TutorialSceneEntries": [
+      {
+        "EntryNo": "Tut7a",
+        "TutorialText": "Speak to the Professor once you are ready to open the museum to visitors.",
+        "KeyBindsNeedsToPerform": [],
+        "ActionsNeedsToPerform": [
+          "TalkToProfessor"
+        ]
+      }
+    ]
+  },
+  {
+    "Id": "Tut8",
+    "SceneNo": 8,
+    "ContinuesStory": false,
+    "StoryNumber": 16,
+    "TutorialSceneEntries": [
+      {
+        "EntryNo": "Tut8a",
+        "TutorialText": "Click on the Zoning Button below.",
+        "KeyBindsNeedsToPerform": [],
+        "ActionsNeedsToPerform": [
+          "ClickOnZoningButton"
+        ]
+      },
+      {
+        "EntryNo": "Tut8b",
+        "TutorialText": "Click on the New Zone Button.",
+        "KeyBindsNeedsToPerform": [],
+        "ActionsNeedsToPerform": [
+          "ClickOnNewZoneButton"
+        ]
+      },
+      {
+        "EntryNo": "Tut8c",
+        "TutorialText": "Create a zone by dragging {Left Click} across a set of tiles.",
+        "KeyBindsNeedsToPerform": [],
+        "ActionsNeedsToPerform": [
+          "CreateZone"
+        ]
+      },
+      {
+        "EntryNo": "Tut8d",
+        "TutorialText": "Place, within exhibits in your recently-created zone, atleast 2 artifacts with atleast 2 matching tags.",
+        "KeyBindsNeedsToPerform": [],
+        "ActionsNeedsToPerform": [
+          "PlaceTwoMatchingArtifactsInZone"
+        ]
+      }
+    ]
+  }
+]
