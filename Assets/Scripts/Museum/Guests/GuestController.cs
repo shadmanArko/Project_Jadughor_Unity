@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using ProjectMuseum.Builder;
 using ProjectMuseum.Characters;
 using ProjectMuseum.Data;
+using ProjectMuseum.Narrative;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using Zenject;
@@ -276,6 +277,11 @@ namespace ProjectMuseum.Guests
             if (guestParent == null) guestParent = transform;
             _pathfinder = new GuestPathfinder(CanStep);
         }
+
+        // The OPEN / CLOSE sign by the clock decides whether guests may enter.
+        private void OnEnable() => MuseumActions.OnClickMuseumGateToggle += SetMuseumOpen;
+        private void OnDisable() => MuseumActions.OnClickMuseumGateToggle -= SetMuseumOpen;
+        private void SetMuseumOpen(bool open) => museumOpen = open;
 
         private void Start()
         {

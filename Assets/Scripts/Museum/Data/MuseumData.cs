@@ -43,6 +43,26 @@ namespace ProjectMuseum.Data
         /// slot — see <see cref="ExhibitData.Slots"/>.
         /// </summary>
         public List<OwnedArtifactData> Artifacts = new List<OwnedArtifactData>();
+
+        /// <summary>The museum clock / calendar, advanced by <c>MuseumTimeSystem</c>.</summary>
+        public MuseumTimeData Clock = new MuseumTimeData();
+    }
+
+    /// <summary>
+    /// Museum date and time (Godot <c>ProjectMuseum.Models.Time</c>). Calendar: 60 min,
+    /// 24 h, 30 days per month, 4 months (seasons) per year. Defaults are the Godot
+    /// new-game start (Game Data/Starting Data/time.json): 09:50, day 1, month 1, year 1.
+    /// </summary>
+    [Serializable]
+    public class MuseumTimeData
+    {
+        public int Minutes = 50;
+        public int Hours = 9;
+        public int Days = 1;
+        public int Months = 1;
+        public int Years = 1;
+        /// <summary>Real seconds accumulated toward the next 10-minute tick.</summary>
+        public float Seconds;
     }
 
     /// <summary>One artifact the player owns. <see cref="InstanceId"/> is unique per

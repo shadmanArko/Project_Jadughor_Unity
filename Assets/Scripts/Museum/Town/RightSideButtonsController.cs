@@ -1,3 +1,4 @@
+using ProjectMuseum.Narrative;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -26,7 +27,11 @@ namespace ProjectMuseum.Town
         /// <summary>Town Map button.</summary>
         public void OpenTownMap() => TownMapController.RequestOpen();
 
-        /// <summary>Digging and Permits button — no Unity port of that menu yet.</summary>
-        public void OpenDiggingPermits() => Debug.Log("[RightSideButtons] Digging & Permits is not ported yet.");
+        /// <summary>Digging and Permits button — opens the map selection panel (Godot MuseumUi).</summary>
+        public void OpenDiggingPermits()
+        {
+            MuseumActions.OnPlayerPerformedTutorialRequiringAction?.Invoke("ClickedDiggingPermitsButton");
+            MuseumActions.OnClickDiggingPermitsButton?.Invoke();
+        }
     }
 }

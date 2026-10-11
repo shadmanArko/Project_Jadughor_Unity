@@ -460,5 +460,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed243aa94c024f808035fc8cd8387cb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ProjectMuseum.Town.RightSideButtonsController
-  notImplementedButtons:
-  - {fileID: 3778031157061876442}
+  notImplementedButtons: []

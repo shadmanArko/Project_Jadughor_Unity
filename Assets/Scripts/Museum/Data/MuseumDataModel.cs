@@ -40,6 +40,12 @@ namespace ProjectMuseum.Data
         public IReadOnlyList<MuseumTileData> Tiles => Data.Tiles;
         public IReadOnlyList<WallData> Walls => Data.Walls;
 
+        /// <summary>
+        /// The live clock record. Read it through this property each time — a reload swaps
+        /// the whole data object. Old saves without a clock get the new-game start time.
+        /// </summary>
+        public MuseumTimeData Clock => Data.Clock ??= new MuseumTimeData();
+
         public static string SavePath => Path.Combine(Application.persistentDataPath, "museumData.json");
 
         public MuseumDataModel(MuseumDataAsset asset)
