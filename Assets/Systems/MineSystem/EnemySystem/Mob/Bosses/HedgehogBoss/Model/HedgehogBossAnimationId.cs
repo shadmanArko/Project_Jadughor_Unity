@@ -3,7 +3,7 @@ namespace Systems.MineSystem.EnemySystem.Mob.HedgehogBoss.Model
     /// <summary>
     /// Animation ids the boss's <c>EnemyAnimationProfileScriptable</c> must
     /// author clips for. Idle/Move/Roar drive the lair-entry cutscene; the
-    /// rest are here for the combat pass to use once it exists.
+    /// remaining IDs drive active lair combat.
     /// </summary>
     public static class HedgehogBossAnimationId
     {
@@ -14,5 +14,8 @@ namespace Systems.MineSystem.EnemySystem.Mob.HedgehogBoss.Model
         public const string Roar = "Hedgehog.Roar";
         public const string Death = "Hedgehog.Death";
         public const string RollOut = "Hedgehog.RollOut";
+        public const string Roll = "Hedgehog.Roll";
+        public const string Stunned = "Hedgehog.Stunned";
+        public const string Hurt = "Hedgehog.Hurt";
     }
 }

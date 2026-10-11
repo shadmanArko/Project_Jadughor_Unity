@@ -19,16 +19,6 @@ namespace Systems.MineSystem.BossLairSystem.Config
         [Tooltip("Easing applied to scripted player movement during transitions.")]
         [SerializeField] private Ease playerMovementEase = Ease.Linear;
 
-        [Header("Spawning")]
-        [Tooltip(
-            "Probes downward from the arena's spawn anchor and places the player " +
-            "on the floor beneath it. The anchor still decides the spawn column; " +
-            "only the height is corrected. Turn off to use the anchor position " +
-            "exactly, at the risk of fall damage on arrival.")]
-        [SerializeField] private bool snapSpawnPointsToGround = true;
-        [Tooltip("How far down, in cells, to look for the arena floor.")]
-        [Min(1)] [SerializeField] private int spawnGroundProbeDistanceInCells = 64;
-
         [Header("Decor Randomization")]
         [Tooltip("Minimum number of randomized decor props placed in the arena.")]
         [Min(0)] [SerializeField] private int minimumDecorCount = 6;
@@ -75,8 +65,6 @@ namespace Systems.MineSystem.BossLairSystem.Config
         public float GateApproachDuration => gateApproachDuration;
         public float ArenaEntryDuration => arenaEntryDuration;
         public Ease PlayerMovementEase => playerMovementEase;
-        public bool SnapSpawnPointsToGround => snapSpawnPointsToGround;
-        public int SpawnGroundProbeDistanceInCells => spawnGroundProbeDistanceInCells;
         public int MinimumDecorCount => minimumDecorCount;
         public int MaximumDecorCount => maximumDecorCount;
         public bool UseFixedDecorSeed => useFixedDecorSeed;

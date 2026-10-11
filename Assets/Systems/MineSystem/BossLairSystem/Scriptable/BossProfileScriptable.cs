@@ -45,6 +45,7 @@ namespace Systems.MineSystem.BossLairSystem.Scriptable
             string.IsNullOrWhiteSpace(displayName)
                 ? bossVariant.ToString()
                 : displayName;
+        public BossVariant BossVariant => bossVariant;
         public GameObject GatePrefab => gatePrefab;
         public EnemyConfigScriptable BossConfig => bossConfig;
         public BossProceduralLairConfig ProceduralLairConfig => proceduralLairConfig;

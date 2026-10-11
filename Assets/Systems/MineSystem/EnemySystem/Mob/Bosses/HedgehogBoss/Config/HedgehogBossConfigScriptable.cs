@@ -3,15 +3,15 @@ using Systems.MineSystem.EnemySystem.Animation.Scriptable;
 using Systems.MineSystem.EnemySystem.Config;
 using Systems.MineSystem.EnemySystem.Enum;
 using Systems.MineSystem.EnemySystem.Mob.HedgehogBoss.Model;
+using Systems.MineSystem.EnemySystem.Mob.HedgehogBoss.View;
 using Systems.MineSystem.EnemySystem.Model;
 using UnityEngine;
 
 namespace Systems.MineSystem.EnemySystem.Mob.HedgehogBoss.Config
 {
     /// <summary>
-    /// Authored values for the hedgehog boss. Behaviour scripts land in a later
-    /// pass; this config exists so the numbers can be designed and reviewed
-    /// first.
+    /// Authored combat, projectile, phase, and reward values for the Hedgehog
+    /// lair boss. Generic mine-enemy timing does not drive this singleton.
     /// </summary>
     /// <remarks>
     /// No pool size field, unlike the other mob configs: the boss is a
@@ -28,6 +28,19 @@ namespace Systems.MineSystem.EnemySystem.Mob.HedgehogBoss.Config
         menuName = "Enemy/Hedgehog Boss Config")]
     public sealed class HedgehogBossConfigScriptable : EnemyConfigScriptable
     {
+        private static readonly string[] RequiredAnimationIdsInternal =
+        {
+            HedgehogBossAnimationId.Idle,
+            HedgehogBossAnimationId.Move,
+            HedgehogBossAnimationId.GroundSmash,
+            HedgehogBossAnimationId.SpikeThrow,
+            HedgehogBossAnimationId.RollOut,
+            HedgehogBossAnimationId.Roll,
+            HedgehogBossAnimationId.Stunned,
+            HedgehogBossAnimationId.Hurt,
+            HedgehogBossAnimationId.Death
+        };
+
         [Header("Variant And Presentation")]
         [Tooltip("Concrete boss identity represented by this config asset.")]
         [SerializeField] private BossVariant bossVariant = BossVariant.Hedgehog;
@@ -41,30 +54,38 @@ namespace Systems.MineSystem.EnemySystem.Mob.HedgehogBoss.Config
         [Min(0f)] [SerializeField] private float aggroDistance = 4f;
         [Tooltip("World-space tolerance used when deciding the boss reached a target.")]
         [Min(0.001f)] [SerializeField] private float positionTolerance = 0.05f;
-        [Tooltip("Seconds the boss waits before making its next decision.")]
-        [Min(0f)] [SerializeField] private float idleDuration = 0.75f;
 
-        [Header("Spawn And Death")]
-        [Tooltip("Seconds the boss cannot be damaged for after its spawn animation.")]
-        [Min(0f)] [SerializeField] private float spawnInvulnerabilitySeconds = 0.5f;
-        [Tooltip("Seconds the death sequence plays before the fight is resolved.")]
-        [Min(0f)] [SerializeField] private float deathDuration = 2f;
-
-        [Header("Attack Timing")]
-        [Tooltip("Seconds of telegraph before an attack becomes damaging.")]
-        [Min(0f)] [SerializeField] private float attackWindupSeconds = 0.4f;
-        [Tooltip("Seconds an attack stays damaging.")]
-        [Min(0f)] [SerializeField] private float attackActiveSeconds = 0.2f;
+        [Header("Recovery")]
         [Tooltip("Seconds the boss is vulnerable after an attack finishes.")]
         [Min(0f)] [SerializeField] private float attackRecoverySeconds = 0.6f;
-        [Tooltip("World-space distance required before a melee attack can land.")]
-        [Min(0f)] [SerializeField] private float attackContactDistance = 0.2f;
+
+        [Header("Ground Smash")]
+        [Tooltip("World-space range checked when the Ground Smash marker fires.")]
+        [Min(0.01f)] [SerializeField] private float groundSmashRange = 1.25f;
+        [Tooltip("Duration of the small camera shake at the Ground Smash impact marker.")]
+        [Min(0.01f)] [SerializeField] private float groundSmashScreenShakeDuration = 0.2f;
+        [Tooltip("Camera-shake displacement used for Ground Smash.")]
+        [Min(0f)] [SerializeField] private float groundSmashScreenShakeStrength = 0.025f;
+
+        [Header("Spike Throw")]
+        [Tooltip("Minimum horizontal world-space separation required to select Spike Throw.")]
+        [Min(0f)] [SerializeField] private float spikeThrowMinimumRange = 1.5f;
+        [Tooltip("Maximum horizontal world-space separation at which Spike Throw can be selected.")]
+        [Min(0.01f)] [SerializeField] private float spikeThrowMaximumRange = 6f;
+        [Tooltip("Pooled projectile prefab launched by the Spike Throw impact marker.")]
+        [SerializeField] private HedgehogSpikeProjectileView spikeProjectilePrefab;
+        [Tooltip("Number of spike projectiles prewarmed for this one boss encounter.")]
+        [Min(1)] [SerializeField] private int initialSpikeProjectilePoolSize = 4;
+        [Tooltip("World units per second travelled by a launched spike projectile.")]
+        [Min(0.01f)] [SerializeField] private float spikeProjectileSpeed = 6f;
+        [Tooltip("Seconds a spike remains alive before returning to its pool.")]
+        [Min(0.01f)] [SerializeField] private float spikeProjectileLifetimeSeconds = 3f;
+        [Tooltip("Multiplier applied to base boss damage when a spike hits the player.")]
+        [Min(0f)] [SerializeField] private float spikeProjectileDamageMultiplier = 0.75f;
 
         [Header("Rolling Charge")]
         [Tooltip("Movement speed while rolling. Should exceed the base move speed.")]
         [Min(0f)] [SerializeField] private float chargeSpeed = 4f;
-        [Tooltip("Seconds of windup before the roll launches.")]
-        [Min(0f)] [SerializeField] private float chargeWindupSeconds = 0.5f;
         [Tooltip("Maximum seconds a single roll lasts before the boss recovers.")]
         [Min(0f)] [SerializeField] private float chargeMaxDuration = 1.5f;
         [Tooltip("Seconds between roll attempts.")]
@@ -73,6 +94,12 @@ namespace Systems.MineSystem.EnemySystem.Mob.HedgehogBoss.Config
         [Min(0f)] [SerializeField] private float chargeDamage = 2f;
         [Tooltip("Seconds the boss is stunned after rolling into a wall.")]
         [Min(0f)] [SerializeField] private float chargeWallStunSeconds = 1.5f;
+        [Tooltip("Minimum horizontal world-space separation required to select Roll Charge.")]
+        [Min(0.01f)] [SerializeField] private float chargeMinimumRange = 3f;
+        [Tooltip("Maximum horizontal world-space separation at which Roll Charge can be selected.")]
+        [Min(0.01f)] [SerializeField] private float chargeMaximumRange = 9f;
+        [Tooltip("Forward world-space probe used to detect the arena wall during Roll Charge.")]
+        [Min(0.01f)] [SerializeField] private float chargeObstacleProbeDistance = 0.45f;
 
         [Header("Phases")]
         [Tooltip(
@@ -83,11 +110,13 @@ namespace Systems.MineSystem.EnemySystem.Mob.HedgehogBoss.Config
             new HedgehogBossPhaseData()
         };
 
-        [Header("Movement And Grounding")]
-        [Tooltip("Distance used by the ground probe beneath the boss collider.")]
-        [Min(0f)] [SerializeField] private float groundProbeDistance = 0.1f;
+        [Header("Arena Collision")]
         [Tooltip("Physics layers considered ground by boss movement checks.")]
         [SerializeField] private LayerMask groundLayerMask;
+
+        [Header("Rewards")]
+        [Tooltip("Guaranteed rows always drop; optional rows roll independently.")]
+        [SerializeField] private List<HedgehogBossRewardDropEntry> rewardDrops = new();
 
         [Header("Status Effect")]
         [Tooltip("Status effect applied by boss attacks, if any.")]
@@ -100,25 +129,33 @@ namespace Systems.MineSystem.EnemySystem.Mob.HedgehogBoss.Config
         public BossVariant BossVariant => bossVariant;
         public override string VariantId => bossVariant.ToString();
         public EnemyAnimationProfileScriptable AnimationProfile => animationProfile;
+        public static IReadOnlyList<string> RequiredAnimationIds =>
+            RequiredAnimationIdsInternal;
         public Color BossColor => bossColor;
         public float AggroDistance => aggroDistance;
         public float PositionTolerance => positionTolerance;
-        public float IdleDuration => idleDuration;
-        public float SpawnInvulnerabilitySeconds => spawnInvulnerabilitySeconds;
-        public float DeathDuration => deathDuration;
-        public float AttackWindupSeconds => attackWindupSeconds;
-        public float AttackActiveSeconds => attackActiveSeconds;
         public float AttackRecoverySeconds => attackRecoverySeconds;
-        public float AttackContactDistance => attackContactDistance;
+        public float GroundSmashRange => groundSmashRange;
+        public float GroundSmashScreenShakeDuration => groundSmashScreenShakeDuration;
+        public float GroundSmashScreenShakeStrength => groundSmashScreenShakeStrength;
+        public float SpikeThrowMinimumRange => spikeThrowMinimumRange;
+        public float SpikeThrowMaximumRange => spikeThrowMaximumRange;
+        public HedgehogSpikeProjectileView SpikeProjectilePrefab => spikeProjectilePrefab;
+        public int InitialSpikeProjectilePoolSize => initialSpikeProjectilePoolSize;
+        public float SpikeProjectileSpeed => spikeProjectileSpeed;
+        public float SpikeProjectileLifetimeSeconds => spikeProjectileLifetimeSeconds;
+        public float SpikeProjectileDamageMultiplier => spikeProjectileDamageMultiplier;
         public float ChargeSpeed => chargeSpeed;
-        public float ChargeWindupSeconds => chargeWindupSeconds;
         public float ChargeMaxDuration => chargeMaxDuration;
         public float ChargeCooldown => chargeCooldown;
         public float ChargeDamage => chargeDamage;
         public float ChargeWallStunSeconds => chargeWallStunSeconds;
+        public float ChargeMinimumRange => chargeMinimumRange;
+        public float ChargeMaximumRange => chargeMaximumRange;
+        public float ChargeObstacleProbeDistance => chargeObstacleProbeDistance;
         public IReadOnlyList<HedgehogBossPhaseData> Phases => phases;
-        public float GroundProbeDistance => groundProbeDistance;
         public LayerMask GroundLayerMask => groundLayerMask;
+        public IReadOnlyList<HedgehogBossRewardDropEntry> RewardDrops => rewardDrops;
         public EnemyStatusEffectSpec StatusEffect => new(
             statusEffectType,
             statusEffectDuration,
@@ -165,6 +202,12 @@ namespace Systems.MineSystem.EnemySystem.Mob.HedgehogBoss.Config
                 error = $"{name} requires a configured animation profile.";
                 return false;
             }
+            if (Damage <= 0f)
+            {
+                error = $"{name} requires positive base damage for Ground " +
+                    "Smash and Spike Throw.";
+                return false;
+            }
             if (chargeSpeed < MoveSpeed)
             {
                 error =
@@ -177,7 +220,54 @@ namespace Systems.MineSystem.EnemySystem.Mob.HedgehogBoss.Config
                 error = $"{name} requires at least one phase.";
                 return false;
             }
-            return ValidatePhases(out error);
+            if (groundLayerMask.value == 0)
+            {
+                error = $"{name} requires a non-empty ground layer mask.";
+                return false;
+            }
+            if (groundSmashRange <= 0f || groundSmashScreenShakeDuration <= 0f ||
+                groundSmashScreenShakeStrength < 0f || spikeThrowMinimumRange < 0f ||
+                spikeThrowMaximumRange < spikeThrowMinimumRange ||
+                chargeMinimumRange <= 0f || chargeMaximumRange < chargeMinimumRange ||
+                chargeObstacleProbeDistance <= 0f)
+            {
+                error = $"{name} contains invalid combat ranges.";
+                return false;
+            }
+            if (spikeProjectilePrefab == null || initialSpikeProjectilePoolSize < 1 ||
+                spikeProjectileSpeed <= 0f || spikeProjectileLifetimeSeconds <= 0f)
+            {
+                error = $"{name} requires a valid spike projectile setup.";
+                return false;
+            }
+            if (ChargeCooldown < 0f || ChargeWallStunSeconds < 0f ||
+                AttackCooldown < 0f || AttackRecoverySeconds < 0f)
+            {
+                error = $"{name} contains invalid recovery or cooldown values.";
+                return false;
+            }
+            if (!ValidateAnimationIds(out error) || !ValidatePhases(out error) ||
+                !ValidateRewards(out error))
+                return false;
+            return true;
+        }
+
+        private bool ValidateAnimationIds(out string error)
+        {
+            for (var i = 0; i < RequiredAnimationIdsInternal.Length; i++)
+            {
+                if (!animationProfile.TryGet(
+                        RequiredAnimationIdsInternal[i], out var animation) ||
+                    animation.animationSprites == null ||
+                    animation.animationSprites.Count == 0)
+                {
+                    error = $"{name} requires populated animation '" +
+                        $"{RequiredAnimationIdsInternal[i]}'.";
+                    return false;
+                }
+            }
+            error = null;
+            return true;
         }
 
         private bool ValidatePhases(out string error)
@@ -207,6 +297,14 @@ namespace Systems.MineSystem.EnemySystem.Mob.HedgehogBoss.Config
                         "multiplier.";
                     return false;
                 }
+                if (phase.groundSmashWeight < 0f || phase.spikeThrowWeight < 0f ||
+                    phase.chargeWeight < 0f ||
+                    phase.groundSmashWeight + phase.spikeThrowWeight +
+                    (phase.allowChargeAttack ? phase.chargeWeight : 0f) <= 0f)
+                {
+                    error = $"{name} phase {i} requires a positive usable attack weight.";
+                    return false;
+                }
                 previousThreshold = phase.healthThresholdPercent;
             }
 
@@ -220,6 +318,31 @@ namespace Systems.MineSystem.EnemySystem.Mob.HedgehogBoss.Config
                 return false;
             }
 
+            error = null;
+            return true;
+        }
+
+        private bool ValidateRewards(out string error)
+        {
+            if (rewardDrops == null)
+            {
+                error = $"{name} reward drops list is null.";
+                return false;
+            }
+            for (var i = 0; i < rewardDrops.Count; i++)
+            {
+                var entry = rewardDrops[i];
+                if (entry == null)
+                {
+                    error = $"{name} reward drop {i} is empty.";
+                    return false;
+                }
+                if (!entry.Validate(out var entryError))
+                {
+                    error = $"{name} reward drop {i} {entryError}.";
+                    return false;
+                }
+            }
             error = null;
             return true;
         }

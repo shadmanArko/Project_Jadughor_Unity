@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4092075209556610452}
   - component: {fileID: 5205938561784373526}
   - component: {fileID: 2012065322449355892}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: HedgeHogSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -141,7 +141,7 @@ GameObject:
   - component: {fileID: 3137550189230089592}
   - component: {fileID: 3620337608589271319}
   - component: {fileID: 1651926744581841520}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: HedgeHogView
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -159,7 +159,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 4898172098591845799}
   - {fileID: 5464655745770787582}
@@ -274,7 +274,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5464655745770787582}
   - component: {fileID: 1809668738529002132}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: HurtBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}

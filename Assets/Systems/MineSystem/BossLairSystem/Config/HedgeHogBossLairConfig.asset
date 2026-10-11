@@ -15,8 +15,6 @@ MonoBehaviour:
   gateApproachDuration: 1
   arenaEntryDuration: 1
   playerMovementEase: 1
-  snapSpawnPointsToGround: 1
-  spawnGroundProbeDistanceInCells: 64
   minimumDecorCount: 6
   maximumDecorCount: 14
   useFixedDecorSeed: 0

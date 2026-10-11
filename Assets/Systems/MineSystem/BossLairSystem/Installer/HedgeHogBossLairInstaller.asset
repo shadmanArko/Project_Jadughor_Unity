@@ -17,3 +17,4 @@ MonoBehaviour:
   decor: {fileID: 11400000, guid: 0af3b9dd359bd6f458e9b29612f1539d, type: 2}
   lairPrefab: {fileID: 8629193355401020719, guid: 3ae40ac505e286c47b5945d4aaaae4bd, type: 3}
   bossPrefab: {fileID: 3620337608589271319, guid: 02ad06b84eaf3bd4ea0bdd3da5016192, type: 3}
+  bossLairCanvasPrefab: {fileID: 7574192881143103456, guid: c8f94a06d0ebc174d8f594a1c3869bed, type: 3}

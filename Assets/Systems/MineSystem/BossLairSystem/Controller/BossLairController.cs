@@ -7,6 +7,7 @@ using Systems.MineSystem.BossLairSystem.Model;
 using Systems.MineSystem.BossLairSystem.Scriptable;
 using Systems.MineSystem.BossLairSystem.Service;
 using Systems.MineSystem.BossLairSystem.Signal;
+using Systems.MineSystem.EnemySystem.Model;
 using Systems.MineSystem.Mine.Signal;
 using Systems.MineSystem.MinePlayerSystem.Model;
 using Systems.MineSystem.MinePlayerSystem.Scriptable;
@@ -26,10 +27,10 @@ namespace Systems.MineSystem.BossLairSystem.Controller
     /// game is left in a valid state on death or teardown.
     /// </summary>
     /// <remarks>
-    /// No tick is registered. Nothing in the lair needs per-frame work yet; the
-    /// boss state machine will add one when it lands, and it should be bound with
-    /// an explicit execution order because <c>PlayerModel.FixedTick</c> writes the
-    /// player world position that boss AI will read.
+    /// Uses one <see cref="IFixedTickable"/> only for the active lair boss. The
+    /// explicit execution order follows <c>PlayerModel.FixedTick</c>, whose world
+    /// position the boss reads; there is no Update loop, mine polling, pathfinding,
+    /// wave work, or EnemyManager registration.
     ///
     /// Also an <see cref="IPauser"/>: entering the lair requests a pause scoped
     /// to <see cref="PauseArea.MineView"/>, so the mine freezes while the arena
@@ -42,6 +43,7 @@ namespace Systems.MineSystem.BossLairSystem.Controller
     public sealed class BossLairController :
         IPausable,
         IPauser,
+        IFixedTickable,
         IInitializable,
         IDisposable
     {
@@ -52,12 +54,14 @@ namespace Systems.MineSystem.BossLairSystem.Controller
         private readonly BossLairEntryService _entry;
         private readonly BossLairExitService _exit;
         private readonly BossLairPauseService _pause;
+        private readonly BossLairBossFactory _bossFactory;
         private readonly BossLairConfig _config;
         private readonly BossSpawnTableScriptable _spawnTable;
         private readonly RuntimeDataScriptable _runtime;
         private readonly CompositeDisposable _subscriptions = new();
         private CancellationTokenSource _lifetime;
         private CancellationTokenSource _activeTransition;
+        private int _visitVersion;
         private bool _isAffectedByPause = true;
         private bool _mineFreezeHeld;
         private bool _disposed;
@@ -70,6 +74,7 @@ namespace Systems.MineSystem.BossLairSystem.Controller
             BossLairEntryService entry,
             BossLairExitService exit,
             BossLairPauseService pause,
+            BossLairBossFactory bossFactory,
             BossLairConfig config,
             BossSpawnTableScriptable spawnTable,
             RuntimeDataScriptable runtime)
@@ -81,6 +86,7 @@ namespace Systems.MineSystem.BossLairSystem.Controller
             _entry = entry;
             _exit = exit;
             _pause = pause;
+            _bossFactory = bossFactory;
             _config = config;
             _spawnTable = spawnTable;
             _runtime = runtime;
@@ -116,6 +122,9 @@ namespace Systems.MineSystem.BossLairSystem.Controller
 
             GlobalEventBus.OnSignal<MineGeneratedSignal>()
                 .Subscribe(signal => HandleMineGenerated(signal))
+                .AddTo(_subscriptions);
+            GlobalEventBus.OnSignal<BossDefeatedSignal>()
+                .Subscribe(HandleBossDefeated)
                 .AddTo(_subscriptions);
 
             // Death is a dead end elsewhere in the project: PlayerDeathService
@@ -171,8 +180,11 @@ namespace Systems.MineSystem.BossLairSystem.Controller
             // The mine being regenerated ends any visit in progress. Release
             // first, or the freeze outlives the mine it was freezing and the new
             // one is born paused with nothing left to lift it.
+            _visitVersion++;
+            CancelActiveTransition();
             ReleaseMineFreeze();
             _model.SetState(BossLairState.Idle);
+            _model.ResetRunState();
             _build.Teardown();
 
             if (!_gateSpawn.TrySpawnForMine(signal.MineData))
@@ -190,28 +202,57 @@ namespace Systems.MineSystem.BossLairSystem.Controller
 
         public void RequestEnter()
         {
-            if (_disposed || !_model.IsIdle || !_model.HasGate)
+            if (_disposed || !_model.IsIdle || !_model.HasGate ||
+                _model.IsCleared)
                 return;
             EnterAsync().Forget(Debug.LogException);
         }
 
         public void RequestExit()
         {
+            if (_disposed || _model.State.Value != BossLairState.Rewards)
+                return;
+            ExitAsync(bossDefeated: true, playerDied: false)
+                .Forget(Debug.LogException);
+        }
+
+        /// <summary>
+        /// Boss AI must run after PlayerModel's fixed tick has refreshed the
+        /// player position. The boss remains lair-owned and is never registered
+        /// with EnemyManager, whose pause, wave and relocation policies apply
+        /// only to mine enemies.
+        /// </summary>
+        public void FixedTick()
+        {
             if (_disposed || _model.State.Value != BossLairState.Active)
                 return;
-            ExitAsync(bossDefeated: false, playerDied: false)
-                .Forget(Debug.LogException);
+            _bossFactory.Active?.OnFixedTick(
+                new EnemyTickContext(Time.fixedDeltaTime));
         }
 
         private async UniTask EnterAsync()
         {
             var profile = _model.Gate.Profile;
+            var visitVersion = _visitVersion;
             _model.SetState(BossLairState.Entering);
-            var token = BeginTransition();
+            var token = BeginTransition(out var transition);
+            var entered = false;
+            try
+            {
+                entered = await _entry.ExecuteAsync(token);
+            }
+            catch (OperationCanceledException)
+            {
+                // Mine regeneration, death, and disposal intentionally cancel
+                // transitions. Their owner already restored the valid state.
+            }
+            finally
+            {
+                EndTransition(transition);
+            }
 
-            var entered = await _entry.ExecuteAsync(token);
-            EndTransition();
-
+            if (_disposed || visitVersion != _visitVersion)
+                return;
             if (!entered)
             {
                 _model.SetState(BossLairState.Idle);
@@ -226,16 +267,41 @@ namespace Systems.MineSystem.BossLairSystem.Controller
         private async UniTask ExitAsync(bool bossDefeated, bool playerDied)
         {
             var profile = _model.Gate.Profile;
+            var visitVersion = _visitVersion;
             _model.SetState(BossLairState.Exiting);
-            var token = BeginTransition();
+            var token = BeginTransition(out var transition);
+            try
+            {
+                await _exit.ExecuteAsync(token);
+            }
+            catch (OperationCanceledException)
+            {
+                return;
+            }
+            finally
+            {
+                EndTransition(transition);
+            }
 
-            await _exit.ExecuteAsync(token);
-
-            EndTransition();
+            if (_disposed || visitVersion != _visitVersion)
+                return;
             _model.SetState(BossLairState.Idle);
             GlobalEventBus.Fire(
                 new BossLairExitedSignal(profile, bossDefeated, playerDied));
             ReleaseMineFreeze();
+        }
+
+        private void HandleBossDefeated(BossDefeatedSignal signal)
+        {
+            if (_disposed || _model.State.Value != BossLairState.Active ||
+                !_model.HasGate || _model.Gate.Profile == null ||
+                _model.Gate.Profile.BossVariant != signal.Variant ||
+                _bossFactory.Active == null ||
+                _bossFactory.Active.EnemyId != signal.BossId)
+                return;
+
+            _model.MarkCleared();
+            _model.SetState(BossLairState.Rewards);
         }
 
         /// <summary>
@@ -248,25 +314,36 @@ namespace Systems.MineSystem.BossLairSystem.Controller
                 return;
 
             var profile = _model.Gate.Profile;
-            _activeTransition?.Cancel();
+            _visitVersion++;
+            CancelActiveTransition();
             _exit.ReturnToMine();
-            EndTransition();
             _model.SetState(BossLairState.Idle);
             GlobalEventBus.Fire(
                 new BossLairExitedSignal(profile, false, playerDied: true));
             ReleaseMineFreeze();
         }
 
-        private CancellationToken BeginTransition()
+        private CancellationToken BeginTransition(
+            out CancellationTokenSource transition)
         {
-            _activeTransition?.Dispose();
+            CancelActiveTransition();
             _activeTransition =
                 CancellationTokenSource.CreateLinkedTokenSource(_lifetime.Token);
-            return _activeTransition.Token;
+            transition = _activeTransition;
+            return transition.Token;
         }
 
-        private void EndTransition()
+        private void EndTransition(CancellationTokenSource transition)
         {
+            if (_activeTransition != transition)
+                return;
+            _activeTransition = null;
+            transition?.Dispose();
+        }
+
+        private void CancelActiveTransition()
+        {
+            _activeTransition?.Cancel();
             _activeTransition?.Dispose();
             _activeTransition = null;
         }
@@ -276,14 +353,13 @@ namespace Systems.MineSystem.BossLairSystem.Controller
             if (_disposed)
                 return;
             _disposed = true;
+            _visitVersion++;
             ReleaseMineFreeze();
             GlobalEventBus.Fire(new PausableUnregisteredSignal(this));
 
             if (_lifetime != null && !_lifetime.IsCancellationRequested)
                 _lifetime.Cancel();
-            _activeTransition?.Cancel();
-            _activeTransition?.Dispose();
-            _activeTransition = null;
+            CancelActiveTransition();
             _lifetime?.Dispose();
             _lifetime = null;
 

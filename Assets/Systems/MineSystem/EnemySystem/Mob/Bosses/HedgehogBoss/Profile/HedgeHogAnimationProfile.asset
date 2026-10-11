@@ -13,26 +13,22 @@ MonoBehaviour:
   m_Name: HedgeHogAnimationProfile
   m_EditorClassIdentifier: Assembly-CSharp::Systems.MineSystem.EnemySystem.Animation.Scriptable.EnemyAnimationProfileScriptable
   animatorController: {fileID: 9100000, guid: 874fc1489c4667e42bb627f0d8f1e5b5, type: 2}
-  visualScale: {x: 1, y: 1}
+  visualScale: {x: 2, y: 2}
   visualOffset: {x: 0, y: 0}
   animations:
   - id: Hedgehog.Idle
-    stateName: idle
+    stateName: Base Layer.idle
     triggerName: 
     animationSprites:
-    - {fileID: 7496702162254305909, guid: 19fd766c34021644bb95a925b5856a7d, type: 3}
-    - {fileID: 6203655724000064182, guid: 19fd766c34021644bb95a925b5856a7d, type: 3}
-    - {fileID: -6620190539106576567, guid: 19fd766c34021644bb95a925b5856a7d, type: 3}
     - {fileID: -3202301536466633808, guid: 19fd766c34021644bb95a925b5856a7d, type: 3}
     - {fileID: -1712630249309880624, guid: 19fd766c34021644bb95a925b5856a7d, type: 3}
-    - {fileID: 7496702162254305909, guid: 19fd766c34021644bb95a925b5856a7d, type: 3}
     speed: 1
     playOnlyOnce: 0
     flipX: 0
     flipY: 0
     allowFacingFlip: 1
   - id: Hedgehog.Move
-    stateName: move
+    stateName: Base Layer.move
     triggerName: 
     animationSprites:
     - {fileID: 7496702162254305909, guid: 19fd766c34021644bb95a925b5856a7d, type: 3}
@@ -43,47 +39,103 @@ MonoBehaviour:
     flipY: 0
     allowFacingFlip: 1
   - id: Hedgehog.GroundSmash
-    stateName: groundSmash
+    stateName: Base Layer.groundSmash
     triggerName: 
-    animationSprites: []
+    animationSprites:
+    - {fileID: 8366223718128598499, guid: 19fd766c34021644bb95a925b5856a7d, type: 3}
+    - {fileID: 842101446915586284, guid: 19fd766c34021644bb95a925b5856a7d, type: 3}
+    - {fileID: -4258441609971184579, guid: 19fd766c34021644bb95a925b5856a7d, type: 3}
+    - {fileID: -5156359235247112657, guid: 19fd766c34021644bb95a925b5856a7d, type: 3}
+    - {fileID: -6073293893881646709, guid: 19fd766c34021644bb95a925b5856a7d, type: 3}
+    - {fileID: 3068336015243322793, guid: 19fd766c34021644bb95a925b5856a7d, type: 3}
+    - {fileID: 843890843, guid: 19fd766c34021644bb95a925b5856a7d, type: 3}
+    - {fileID: -65260232, guid: 19fd766c34021644bb95a925b5856a7d, type: 3}
     speed: 1
     playOnlyOnce: 1
     flipX: 0
     flipY: 0
     allowFacingFlip: 1
   - id: Hedgehog.SpikeThrow
-    stateName: spikeThrow
+    stateName: Base Layer.spikeThrow
     triggerName: 
-    animationSprites: []
+    animationSprites:
+    - {fileID: 7826325803269460517, guid: 19fd766c34021644bb95a925b5856a7d, type: 3}
+    - {fileID: 5927307801788263923, guid: 19fd766c34021644bb95a925b5856a7d, type: 3}
+    - {fileID: 791319505784223438, guid: 19fd766c34021644bb95a925b5856a7d, type: 3}
     speed: 1
     playOnlyOnce: 1
     flipX: 0
     flipY: 0
     allowFacingFlip: 1
   - id: Hedgehog.Roar
-    stateName: roar
+    stateName: Base Layer.roar
     triggerName: 
-    animationSprites: []
+    animationSprites:
+    - {fileID: -6012514536020263908, guid: 19fd766c34021644bb95a925b5856a7d, type: 3}
+    - {fileID: -1222443128387056023, guid: 19fd766c34021644bb95a925b5856a7d, type: 3}
+    - {fileID: 842101446915586284, guid: 19fd766c34021644bb95a925b5856a7d, type: 3}
     speed: 1
     playOnlyOnce: 1
     flipX: 0
     flipY: 0
     allowFacingFlip: 1
   - id: Hedgehog.Death
-    stateName: death
+    stateName: Base Layer.death
     triggerName: 
-    animationSprites: []
+    animationSprites:
+    - {fileID: 9169823687121699286, guid: 19fd766c34021644bb95a925b5856a7d, type: 3}
     speed: 1
     playOnlyOnce: 1
     flipX: 0
     flipY: 0
     allowFacingFlip: 1
   - id: Hedgehog.RollOut
-    stateName: rollOut
+    stateName: Base Layer.rollOut
     triggerName: 
-    animationSprites: []
+    animationSprites:
+    - {fileID: 7112209175311412150, guid: 19fd766c34021644bb95a925b5856a7d, type: 3}
+    - {fileID: 8366223718128598499, guid: 19fd766c34021644bb95a925b5856a7d, type: 3}
+    - {fileID: 842101446915586284, guid: 19fd766c34021644bb95a925b5856a7d, type: 3}
     speed: 1
     playOnlyOnce: 1
     flipX: 0
     flipY: 0
     allowFacingFlip: 1
+  - id: Hedgehog.Roll
+    stateName: Base Layer.roll
+    triggerName: 
+    animationSprites:
+    - {fileID: -1712630249309880624, guid: 19fd766c34021644bb95a925b5856a7d, type: 3}
+    - {fileID: -3202301536466633808, guid: 19fd766c34021644bb95a925b5856a7d, type: 3}
+    - {fileID: -6620190539106576567, guid: 19fd766c34021644bb95a925b5856a7d, type: 3}
+    - {fileID: 6203655724000064182, guid: 19fd766c34021644bb95a925b5856a7d, type: 3}
+    speed: 1
+    playOnlyOnce: 0
+    flipX: 0
+    flipY: 0
+    allowFacingFlip: 1
+  - id: Hedgehog.Stunned
+    stateName: Base Layer.stunned
+    triggerName: 
+    animationSprites:
+    - {fileID: -3202301536466633808, guid: 19fd766c34021644bb95a925b5856a7d, type: 3}
+    - {fileID: -6620190539106576567, guid: 19fd766c34021644bb95a925b5856a7d, type: 3}
+    - {fileID: -3202301536466633808, guid: 19fd766c34021644bb95a925b5856a7d, type: 3}
+    speed: 1
+    playOnlyOnce: 1
+    flipX: 0
+    flipY: 0
+    allowFacingFlip: 1
+  - id: Hedgehog.Hurt
+    stateName: Base Layer.hurt
+    triggerName: 
+    animationSprites:
+    - {fileID: 7496702162254305909, guid: 19fd766c34021644bb95a925b5856a7d, type: 3}
+    - {fileID: -6620190539106576567, guid: 19fd766c34021644bb95a925b5856a7d, type: 3}
+    - {fileID: 7496702162254305909, guid: 19fd766c34021644bb95a925b5856a7d, type: 3}
+    speed: 1
+    playOnlyOnce: 1
+    flipX: 0
+    flipY: 0
+    allowFacingFlip: 1
+

@@ -1,4 +1,5 @@
 using System;
+using Systems.MineSystem.BossLairSystem.Interface;
 using Systems.MineSystem.BossLairSystem.View;
 using Systems.MineSystem.EnemySystem.Mob.HedgehogBoss.Config;
 using Systems.MineSystem.EnemySystem.Mob.HedgehogBoss.Controller;
@@ -36,6 +37,7 @@ namespace Systems.MineSystem.BossLairSystem.Service
         }
 
         public HedgehogBossController Active => _active;
+        public IBossHealthSource ActiveHealthSource => _active;
 
         public HedgehogBossController Create(
             BossLairView lairView,
@@ -47,17 +49,28 @@ namespace Systems.MineSystem.BossLairSystem.Service
             if (_prefab == null || lairView.bossSpawnPoint == null)
                 return null;
 
-            _instance = _container.InstantiatePrefabForComponent<HedgehogBossView>(
-                _prefab, lairView.transform);
-            var controller = new HedgehogBossController(_instance);
-            var spawnPosition = lairView.bossSpawnPoint.position;
-            var spawnCell = lairView.grid.WorldToCell(spawnPosition);
-            controller.Initialize(new EnemyInitializeData(
-                config,
-                new GridPosition(spawnCell.x, spawnCell.y),
-                spawnPosition));
-            _active = controller;
-            return controller;
+            HedgehogBossController controller = null;
+            try
+            {
+                _instance = _container.InstantiatePrefabForComponent<HedgehogBossView>(
+                    _prefab, lairView.transform);
+                controller = _container.Instantiate<HedgehogBossController>(
+                    new object[] { _instance, lairView.transform });
+                var spawnPosition = lairView.bossSpawnPoint.position;
+                var spawnCell = lairView.grid.WorldToCell(spawnPosition);
+                controller.Initialize(new EnemyInitializeData(
+                    config,
+                    new GridPosition(spawnCell.x, spawnCell.y),
+                    spawnPosition));
+                _active = controller;
+                return controller;
+            }
+            catch
+            {
+                controller?.Dispose();
+                Destroy();
+                throw;
+            }
         }
 
         public void Destroy()

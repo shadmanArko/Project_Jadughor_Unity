@@ -37,7 +37,6 @@ namespace Systems.MineSystem.BossLairSystem.Service
         private readonly BossLairCameraService _camera;
         private readonly BossLairFactory _factory;
         private readonly BossLairBossFactory _bossFactory;
-        private readonly BossLairSpawnService _spawn;
         private readonly BossGatePlacementService _gatePlacement;
         private readonly BossLairPauseService _pause;
         private readonly BossLairModel _model;
@@ -48,7 +47,6 @@ namespace Systems.MineSystem.BossLairSystem.Service
             BossLairCameraService camera,
             BossLairFactory factory,
             BossLairBossFactory bossFactory,
-            BossLairSpawnService spawn,
             BossGatePlacementService gatePlacement,
             BossLairPauseService pause,
             BossLairModel model,
@@ -58,7 +56,6 @@ namespace Systems.MineSystem.BossLairSystem.Service
             _camera = camera;
             _factory = factory;
             _bossFactory = bossFactory;
-            _spawn = spawn;
             _gatePlacement = gatePlacement;
             _pause = pause;
             _model = model;
@@ -77,8 +74,17 @@ namespace Systems.MineSystem.BossLairSystem.Service
                 return false;
             }
 
-            if (!TryResolveSpawnPosition(view, placement, out var spawnPosition))
+            if (view.playerSpawnPoint == null)
+            {
+                Debug.LogError(
+                    "[BossLair] Entry requested without a PlayerSpawn anchor.");
                 return false;
+            }
+
+            // The authored PlayerSpawn anchor is the authoritative position.
+            // Do not apply a ground probe or offset here: designers use this
+            // Transform to control the exact entry point.
+            var spawnPosition = (Vector2)view.playerSpawnPoint.position;
 
             _player.SetManualControlsEnabled(false);
             try
@@ -154,45 +160,6 @@ namespace Systems.MineSystem.BossLairSystem.Service
                     cancellationToken: cancellationToken);
 
             boss.ClearAnimation();
-        }
-
-        /// <summary>
-        /// Resolves where the player lands. Probing for the floor beneath the
-        /// authored anchor keeps the anchor in charge of the spawn column while
-        /// making it impossible for a stale anchor height to deal fall damage —
-        /// which at 8 cells is an outright kill.
-        /// </summary>
-        private bool TryResolveSpawnPosition(
-            BossLairView view,
-            BossLairPlacement placement,
-            out Vector2 spawnPosition)
-        {
-            spawnPosition = view.playerSpawnPoint.position;
-            if (!_config.SnapSpawnPointsToGround)
-                return true;
-
-            var probeDistance =
-                _config.SpawnGroundProbeDistanceInCells * placement.CellWorldSize;
-            if (!_spawn.TryResolveGroundedPosition(
-                    spawnPosition, probeDistance, out var grounded, out var drop))
-            {
-                Debug.LogError(
-                    "[BossLair] No floor found beneath the arena's PlayerSpawn " +
-                    $"anchor within {_config.SpawnGroundProbeDistanceInCells} " +
-                    "cells, so entry was refused rather than dropping the player " +
-                    "into empty space. Move PlayerSpawn over the arena floor.");
-                return false;
-            }
-
-            if (_spawn.IsDropUnsafe(drop, placement.CellWorldSize))
-                Debug.LogWarning(
-                    "[BossLair] PlayerSpawn sits " +
-                    $"{drop / placement.CellWorldSize:0.#} cells above the floor, " +
-                    "which would deal fall damage without snapping. Move the " +
-                    "anchor down onto the floor.");
-
-            spawnPosition = grounded;
-            return true;
         }
 
         private async UniTask WalkToGateAsync(CancellationToken cancellationToken)

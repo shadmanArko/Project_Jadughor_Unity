@@ -12,8 +12,11 @@ using UniRx;
 using UnityEngine;
 using Zenject;
 using Systems.MineSystem.BossLairSystem.Model;
+using Systems.MineSystem.BossLairSystem.Enum;
 using Systems.MineSystem.PauseSystem.Enum;
 using Systems.MineSystem.PauseSystem.Service;
+using Systems.MineSystem.Mine.Signal;
+using Systems.Utilities.EventBus;
 
 namespace Systems.MineSystem.CollectableSystem.Controller
 {
@@ -36,6 +39,7 @@ namespace Systems.MineSystem.CollectableSystem.Controller
         private readonly CompositeDisposable _disposables = new();
         private bool _minePaused;
         private bool _lairPaused;
+        private bool _lairRewardsClosed = true;
         private DelegatePausable _minePausable;
         private DelegatePausable _lairPausable;
         private bool _disposed;
@@ -57,6 +61,15 @@ namespace Systems.MineSystem.CollectableSystem.Controller
             _factory.Spawned
                 .Subscribe(Activate)
                 .AddTo(_disposables);
+            _lairRewardsClosed =
+                _bossLair.State.Value != BossLairState.Rewards;
+            _bossLair.State
+                .SkipLatestValueOnSubscribe()
+                .Subscribe(HandleBossLairStateChanged)
+                .AddTo(_disposables);
+            GlobalEventBus.OnSignal<MineGeneratedSignal>()
+                .Subscribe(_ => ClearBossLairCollectables())
+                .AddTo(_disposables);
 
             _minePausable = new DelegatePausable(
                 () => SetAreaPaused(PauseArea.MineView, true),
@@ -69,7 +82,9 @@ namespace Systems.MineSystem.CollectableSystem.Controller
         }
 
         private bool IsPaused(PauseArea area) =>
-            area == PauseArea.BossLair ? _lairPaused : _minePaused;
+            area == PauseArea.BossLair
+                ? _lairPaused || _lairRewardsClosed
+                : _minePaused;
 
         public void Tick()
         {
@@ -227,23 +242,54 @@ namespace Systems.MineSystem.CollectableSystem.Controller
 
         private void SetAreaPaused(PauseArea area, bool paused)
         {
-            if (IsPaused(area) == paused)
-                return;
+            var wasPaused = IsPaused(area);
 
             if (area == PauseArea.BossLair)
                 _lairPaused = paused;
             else
                 _minePaused = paused;
 
+            if (wasPaused == IsPaused(area))
+                return;
+
             for (var i = 0; i < _active.Count; i++)
             {
                 var model = _active[i];
                 if (model.Area != area)
                     continue;
-                if (paused)
+                if (IsPaused(area))
                     Pause(model);
                 else
                     Resume(model);
+            }
+        }
+
+        private void HandleBossLairStateChanged(BossLairState state)
+        {
+            var wasPaused = IsPaused(PauseArea.BossLair);
+            _lairRewardsClosed =
+                state != BossLairState.Rewards;
+            if (wasPaused == IsPaused(PauseArea.BossLair))
+                return;
+
+            for (var i = 0; i < _active.Count; i++)
+            {
+                var model = _active[i];
+                if (model.Area != PauseArea.BossLair)
+                    continue;
+                if (IsPaused(PauseArea.BossLair))
+                    Pause(model);
+                else
+                    Resume(model);
+            }
+        }
+
+        private void ClearBossLairCollectables()
+        {
+            for (var i = _active.Count - 1; i >= 0; i--)
+            {
+                if (_active[i].Area == PauseArea.BossLair)
+                    RemoveAt(i);
             }
         }
 

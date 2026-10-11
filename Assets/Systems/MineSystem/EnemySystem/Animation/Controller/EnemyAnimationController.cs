@@ -25,6 +25,16 @@ namespace Systems.MineSystem.EnemySystem.Animation.Controller
                 ? 0f
                 : CurrentClip.animationSprites.Count / CurrentClip.speed;
 
+        /// <summary>
+        /// Confirms the loaded animator controller contains the authored state
+        /// used by an animation-profile entry. Boss setup calls this before
+        /// combat begins so a profile/controller mismatch cannot silently play
+        /// the animator's default state.
+        /// </summary>
+        public bool HasState(EnemyAnimationData data) =>
+            animator != null && data != null && data.AnimatorStateHash != 0 &&
+            animator.HasState(0, data.AnimatorStateHash);
+
         public void ApplyProfile(EnemyAnimationProfileScriptable profile)
         {
             if (profile == null)

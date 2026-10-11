@@ -6,6 +6,7 @@ using Systems.MineSystem.BossLairSystem.Scriptable;
 using Systems.MineSystem.BossLairSystem.Service;
 using Systems.MineSystem.BossLairSystem.View;
 using Systems.MineSystem.EnemySystem.Mob.HedgehogBoss.View;
+using Systems.MineSystem.EnemySystem.Mob.HedgehogBoss.Service;
 using UnityEngine;
 using Zenject;
 
@@ -32,8 +33,11 @@ namespace Systems.MineSystem.BossLairSystem.Installer
     public sealed class BossLairInstaller : ScriptableObjectInstaller<BossLairInstaller>
     {
         [Header("Configs")]
+        [Tooltip("Runtime configuration for gate placement and lair transitions.")]
         [SerializeField] private BossLairConfig lairConfig;
+        [Tooltip("Region and site rules used to select a boss encounter per mine run.")]
         [SerializeField] private BossSpawnTableScriptable spawnTable;
+        [Tooltip("Authored visual decorations applied to a generated boss lair.")]
         [SerializeField] private BossLairDecorScriptable decor;
 
         [Header("Prefabs")]
@@ -41,6 +45,8 @@ namespace Systems.MineSystem.BossLairSystem.Installer
         [SerializeField] private BossLairView lairPrefab;
         [Tooltip("Hedgehog boss prefab instantiated alongside the arena.")]
         [SerializeField] private HedgehogBossView bossPrefab;
+        [Tooltip("Hidden screen-space health bar instantiated once for active lair combat.")]
+        [SerializeField] private BossLairCanvasView bossLairCanvasPrefab;
 
         public override void InstallBindings()
         {
@@ -58,7 +64,6 @@ namespace Systems.MineSystem.BossLairSystem.Installer
             Container.Bind<BossGateSpawnService>().AsSingle();
             Container.Bind<BossLairShellGenerationService>().AsSingle();
             Container.Bind<BossLairDecorService>().AsSingle();
-            Container.Bind<BossLairSpawnService>().AsSingle();
             Container.Bind<BossLairCellGridService>().AsSingle();
             Container.Bind<BossLairBuildService>().AsSingle();
             Container.Bind<BossLairEntryService>().AsSingle();
@@ -74,8 +79,17 @@ namespace Systems.MineSystem.BossLairSystem.Installer
                 .AsSingle().WithArguments(lairPrefab);
             Container.BindInterfacesAndSelfTo<BossLairBossFactory>()
                 .AsSingle().WithArguments(bossPrefab);
+            Container.Bind<HedgehogBossRewardService>().AsSingle();
+            Container.Bind<BossLairCanvasView>()
+                .FromComponentInNewPrefab(bossLairCanvasPrefab)
+                .AsSingle();
 
             Container.BindInterfacesAndSelfTo<BossLairController>()
+                .AsSingle().NonLazy();
+            // PlayerModel uses Zenject's default order (0). Boss decisions need
+            // the position it writes in that tick, so run afterward.
+            Container.BindExecutionOrder<BossLairController>(100);
+            Container.BindInterfacesAndSelfTo<BossLairHealthBarController>()
                 .AsSingle().NonLazy();
             Container.BindInterfacesAndSelfTo<BossGateInteractionHandler>()
                 .AsSingle();

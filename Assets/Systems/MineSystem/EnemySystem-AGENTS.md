@@ -31,7 +31,7 @@ enemy, the same way Slime, Bat, and Snake were built.
 ```text
 EnemySystem/
 |-- Config/            EnemyConfigScriptable (abstract base), EnemyWaveConfig
-|-- Controller/         EnemyManager (the only IFixedTickable driver)
+|-- Controller/         EnemyManager (normal mine-enemy fixed-tick driver)
 |-- Enum/               EnemyType, EnemyMovementType, PlaceableCollisionBehavior, ...
 |-- Interface/          IEnemyController, IEnemyFactory, IEnemyPathfindingService, ...
 |-- Model/              Structs/records shared across all enemies
@@ -52,10 +52,51 @@ fit — all driven by fields on `EnemyConfigScriptable`). The factory then
 the resulting `IEnemyController` in `_activeEnemies` and calls
 `OnFixedTick` on all of them from its own single `FixedTick()`.
 
-**Despawn/death:** enemies fire `EnemyDiedSignal` or `EnemyDespawnedSignal`
+**Despawn/death:** normal mine enemies fire `EnemyDiedSignal` or `EnemyDespawnedSignal`
 on the global event bus when their death/despawn animation completes.
 `EnemyManager` subscribes to both and removes+releases the enemy back to
 its pool. Never remove an enemy from `_activeEnemies` any other way.
+
+## Boss-lair exception: Nuclear Hog Lanny
+
+The Hedgehog is deliberately **not** a normal `EnemyManager` enemy. The current
+boss-lair path is:
+
+```text
+mine generation
+  -> BossSelectionService resolves a profile by region/site
+  -> BossGateSpawnService places a reachable cave gate
+  -> BossLairBuildService creates a dormant arena and its Hedgehog singleton
+  -> player enters; intro completes
+  -> BossLairEnteredSignal activates combat
+```
+
+`BossLairBossFactory` owns that singleton and destroys it only when the mine is
+regenerated or the lair is disposed. Do not register it with `EnemyManager`, add
+it to waves, give it mine pathfinding/relocation, or make it emit
+`EnemyDiedSignal`: none of those systems own its lifetime. `BossLairController`
+is the owner and, as the narrow fixed-tick exception, invokes the active boss
+only while `BossLairState.Active`, after `PlayerModel` has updated. This is the
+only permitted boss-specific `IFixedTickable`; it exists because grounded arena
+physics, charge contact, and projectile lifetime require fixed simulation.
+
+The Hedgehog facade implements `IEnemyController` and `IActor` only so it can
+participate in the existing intro and damage contracts. Its
+`HedgehogBossStateMachine` owns health, phase selection, cooldowns, attack
+decisions, cancellable/pause-sensitive work, and projectile lifetime. The boss
+starts dormant and damage-disabled; it becomes active only after
+`BossLairEnteredSignal`. `BossDefeatedSignal` contains the boss variant and
+instance id, allowing `BossLairController` to validate that the active lair
+boss—not an unrelated enemy—has finished its death animation.
+
+On a validated defeat, the lair moves from locked `Active` combat to `Rewards`.
+The mine-only freeze remains held. Reward entries create full runtime items and
+spawn ordinary world collectables around the corpse; they never enter inventory
+directly. In `Rewards`, the player may collect items and leave through the exit
+anchor. Leaving intentionally forfeits uncollected loot: the cleared gate stays
+visible but rejects re-entry, while the dormant cleared arena and its remaining
+collectables persist until the next mine generation. Player death uses the
+emergency return path without marking the boss cleared.
 
 **Relocation (the leash):** enemies are otherwise never culled — without
 this they tick full AI for the whole mine session no matter where the
@@ -110,9 +151,10 @@ system.
   `IPlayerDamageService` + `IEnemyStatusEffectApplier` behind one
   `TryAttack(damage, statusEffect)` call.
 
-## Per-enemy composition (the pattern to copy)
+## Per-normal-mine-enemy composition (the pattern to copy)
 
-Every enemy under `Mob/<Name>/` follows the same eight-piece shape. Use
+Every normal mine enemy under `Mob/<Name>/` follows the same eight-piece shape.
+Use
 `SlimeX`/`BatX` as the literal template — file-for-file — when adding a new
 enemy.
 
@@ -386,8 +428,10 @@ in real builds.
       `AnimationEvent_AdvanceFrame` count/timing was revisited once real
       frames were dropped in, and that any `AttackImpact` marker still
       lands on the intended frame.
-- [ ] No `Update`/`FixedUpdate`/coroutines were added — all per-frame logic
-      runs through `EnemyManager.FixedTick` -> `IEnemyController.OnFixedTick`.
+- [ ] No `Update`/`FixedUpdate`/coroutines were added. Normal mine-enemy fixed-tick
+      work runs through `EnemyManager.FixedTick` -> `IEnemyController.OnFixedTick`;
+      the Hedgehog boss is the documented lair-owned `BossLairController.IFixedTickable`
+      exception.
 - [ ] `Controller`, `StateMachine`, `Model`, and `Pool` all implement and
       correctly cascade `IDisposable`.
 - [ ] Manually spawned the enemy (via wave config or a debug spawn call)

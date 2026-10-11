@@ -63,8 +63,8 @@ namespace Systems.MineSystem.BossLairSystem.Handler
 
             return _model.State.Value switch
             {
-                BossLairState.Idle => TryEnter(),
-                BossLairState.Active => TryExit(),
+                BossLairState.Idle when !_model.IsCleared => TryEnter(),
+                BossLairState.Rewards => TryExit(),
                 _ => false
             };
         }

@@ -26,6 +26,13 @@ namespace Systems.MineSystem.BossLairSystem.Model
 
         public bool HasGate => Gate.IsValid;
 
+        /// <summary>
+        /// True after the current run's boss has completed its death sequence.
+        /// The gate remains visible as a marker, but cannot open the lair again.
+        /// Reset only when a newly generated mine replaces this run.
+        /// </summary>
+        public bool IsCleared { get; private set; }
+
         public bool IsIdle => _state.Value == BossLairState.Idle;
 
         /// <summary>
@@ -38,6 +45,14 @@ namespace Systems.MineSystem.BossLairSystem.Model
         public void SetGate(BossGatePlacement gate) => Gate = gate;
 
         public void ClearGate() => Gate = default;
+
+        public void MarkCleared() => IsCleared = true;
+
+        public void ResetRunState()
+        {
+            IsCleared = false;
+            Placement = default;
+        }
 
         public void SetPlacement(BossLairPlacement placement) =>
             Placement = placement;
@@ -56,6 +71,7 @@ namespace Systems.MineSystem.BossLairSystem.Model
             _disposed = true;
             Gate = default;
             Placement = default;
+            IsCleared = false;
             _state.Dispose();
         }
     }

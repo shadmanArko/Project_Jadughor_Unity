@@ -15,7 +15,7 @@ MonoBehaviour:
   enemyType: 4
   prefab: {fileID: 6945493060639995540, guid: 02ad06b84eaf3bd4ea0bdd3da5016192, type: 3}
   maxHealth: 200
-  damage: 30
+  damage: 2
   moveSpeed: 1
   aggroRangeInTiles: 4
   attackRangeInTiles: 1
@@ -37,29 +37,62 @@ MonoBehaviour:
   bossColor: {r: 1, g: 1, b: 1, a: 1}
   aggroDistance: 4
   positionTolerance: 0.05
-  idleDuration: 0.75
-  spawnInvulnerabilitySeconds: 0.5
-  deathDuration: 2
-  attackWindupSeconds: 0.4
-  attackActiveSeconds: 0.2
   attackRecoverySeconds: 0.6
-  attackContactDistance: 0.2
+  groundSmashRange: 1.25
+  groundSmashScreenShakeDuration: 0.2
+  groundSmashScreenShakeStrength: 0.025
+  spikeThrowMinimumRange: 2
+  spikeThrowMaximumRange: 6
+  spikeProjectilePrefab: {fileID: 601011006, guid: 96b8f2e5d96e4c30a07e04d580e1bfcc, type: 3}
+  initialSpikeProjectilePoolSize: 4
+  spikeProjectileSpeed: 6
+  spikeProjectileLifetimeSeconds: 3
+  spikeProjectileDamageMultiplier: 0.75
   chargeSpeed: 4
-  chargeWindupSeconds: 0.5
   chargeMaxDuration: 1.5
   chargeCooldown: 4
   chargeDamage: 2
   chargeWallStunSeconds: 1.5
+  chargeMinimumRange: 3
+  chargeMaximumRange: 9
+  chargeObstacleProbeDistance: 0.45
   phases:
   - healthThresholdPercent: 100
     moveSpeedMultiplier: 1
     damageMultiplier: 1
     attackCooldownMultiplier: 1
+    groundSmashWeight: 1
+    spikeThrowWeight: 0.8
+    chargeWeight: 0.6
     allowChargeAttack: 1
-  groundProbeDistance: 0.1
+  - healthThresholdPercent: 60
+    moveSpeedMultiplier: 1.1
+    damageMultiplier: 1.1
+    attackCooldownMultiplier: 0.85
+    groundSmashWeight: 0.6
+    spikeThrowWeight: 0.2
+    chargeWeight: 1
+    allowChargeAttack: 1
+  - healthThresholdPercent: 30
+    moveSpeedMultiplier: 1.2
+    damageMultiplier: 1.2
+    attackCooldownMultiplier: 0.65
+    groundSmashWeight: 0.5
+    spikeThrowWeight: 0.4
+    chargeWeight: 0.2
+    allowChargeAttack: 1
   groundLayerMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
+  rewardDrops:
+  - item: {fileID: 11400000, guid: d2b777b5444d4766bc6b45038f3bb64e, type: 2}
+    quantity: 3
+    isGuaranteed: 1
+    dropChancePercent: 100
+  - item: {fileID: 11400000, guid: 6958a3252ef74a23944a7070ca7a3d82, type: 2}
+    quantity: 1
+    isGuaranteed: 0
+    dropChancePercent: 35
   statusEffectType: 0
   statusEffectDuration: 0
   statusEffectPower: 0
