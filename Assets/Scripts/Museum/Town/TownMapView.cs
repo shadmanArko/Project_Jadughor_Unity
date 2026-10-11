@@ -140,8 +140,8 @@ namespace ProjectMuseum.Town
 
         private void ApplyZoom()
         {
-            townCamera.orthographicSize = ground.bounds.extents.y / _zoom;
-            MoveCamera(Vector2.zero); // re-clamp at the new size
+            // townCamera.orthographicSize = ground.bounds.extents.y / _zoom;
+            // MoveCamera(Vector2.zero); // re-clamp at the new size
         }
 
         private void MoveCamera(Vector2 delta)
