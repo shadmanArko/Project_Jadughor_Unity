@@ -4,6 +4,9 @@ namespace Systems.MineSystem.MineTransitionSystem.Model
     {
         CampToMine,
         CampToMuseum,
-        MineToCamp
+        MineToCamp,
+        BackToMine,
+        SleepForNight,
+        MineToMuseum
     }
 }

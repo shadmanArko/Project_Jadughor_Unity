@@ -16,11 +16,21 @@ using Zenject;
 using Systems.MineSystem.PauseSystem.Interface;
 using Systems.MineSystem.PauseSystem.Enum;
 using Systems.MineSystem.PauseSystem.Signal;
+using Systems.MineSystem.DayAndTimeSystem.Controllers;
+using Systems.MineSystem.DayAndTimeSystem.Configs;
+using Systems.MineSystem.DayAndTimeSystem.Structs;
+using Systems.MineSystem.Mine.View;
+using Systems.MineSystem.MinePlayerSystem.SubSystem.PlayerAnimationSubSystem.Enum;
+using Systems.MineSystem.MinePlayerSystem.Model;
+using Systems.MineSystem.MineTransitionSystem.Config;
+using Systems.MineSystem.MineTransitionSystem.FadeTransitionSystem.Controller;
+using UnityEngine.SceneManagement;
 
 namespace Systems.MineSystem.MineTransitionSystem.Controller
 {
     public sealed class MineTransitionController :
         IPausable,
+        IPauser,
         IInitializable,
         IDisposable
     {
@@ -31,6 +41,12 @@ namespace Systems.MineSystem.MineTransitionSystem.Controller
         private readonly PlayerTransitionService _playerTransitionService;
         private readonly MineCameraController _camera;
         private readonly MineTransitionCanvasView _canvas;
+        private readonly MineEntranceTriggerView _entrance;
+        private readonly MineView _mineView;
+        private readonly MineTransitionConfig _config;
+        private readonly FadeTransitionController _fade;
+        private readonly IDayAndTimeController _time;
+        private readonly DayAndTimeConfig _timeConfig;
         private readonly CompositeDisposable _disposables = new();
         private readonly ReactiveProperty<MineTransitionState> _state =
             new(MineTransitionState.Idle);
@@ -39,6 +55,12 @@ namespace Systems.MineSystem.MineTransitionSystem.Controller
         private readonly MineTransitionPauseService _pause;
         private bool _isAffectedByPause = true;
         private bool _disposed;
+        private bool _insideMine;
+        private bool _entranceArmed;
+        private bool _holdsMinePause;
+        private bool _holdsEntranceClimb;
+
+        public string PauserId => "MineEntranceTransition";
 
         public bool IsAffectedByPause
         {
@@ -60,6 +82,12 @@ namespace Systems.MineSystem.MineTransitionSystem.Controller
             PlayerTransitionService playerTransitionService,
             MineCameraController camera,
             MineTransitionCanvasView canvas,
+            MineEntranceTriggerView entrance,
+            MineView mineView,
+            MineTransitionConfig config,
+            FadeTransitionController fade,
+            IDayAndTimeController time,
+            DayAndTimeConfig timeConfig,
             MineTransitionPauseService pause)
         {
             _mineController = mineController;
@@ -69,12 +97,29 @@ namespace Systems.MineSystem.MineTransitionSystem.Controller
             _playerTransitionService = playerTransitionService;
             _camera = camera;
             _canvas = canvas;
+            _entrance = entrance;
+            _mineView = mineView;
+            _config = config;
+            _fade = fade;
+            _time = time;
+            _timeConfig = timeConfig;
             _pause = pause;
         }
 
         public void Initialize()
         {
+            ValidateReferences();
             _lifetime = new CancellationTokenSource();
+            _entrance.Configure(_mineView.grid,
+                _playerTransitionService.PlayerCollider);
+            _entrance.Entered.Subscribe(_ => OpenMinePopup())
+                .AddTo(_disposables);
+            _entrance.Exited.Subscribe(_ => _entranceArmed = true)
+                .AddTo(_disposables);
+            _playerTransitionService.LifeState
+                .Where(state => state == PlayerLifeState.Dead)
+                .Subscribe(_ => HandlePlayerDeath())
+                .AddTo(_disposables);
             SetPanels(false, false);
             _mineController.MineGenerated
                 .Subscribe(PrepareCamp)
@@ -87,10 +132,19 @@ namespace Systems.MineSystem.MineTransitionSystem.Controller
                 .Subscribe(_ => CampToMuseumAsync(_lifetime.Token)
                     .Forget(Debug.LogException))
                 .AddTo(_disposables);
-            _canvas.mineToCampButton.OnClickAsObservable()
-                .Subscribe(_ => MineToCampAsync(_lifetime.Token)
+            _canvas.backToMineButton.OnClickAsObservable()
+                .Subscribe(_ => RunMineChoiceAsync(
+                    MineTransitionRoute.BackToMine, BackToMineAsync)
                     .Forget(Debug.LogException))
                 .AddTo(_disposables);
+            _canvas.sleepForTheNightButton.OnClickAsObservable()
+                .Subscribe(_ => RunMineChoiceAsync(
+                    IsFinalDay ? MineTransitionRoute.MineToMuseum :
+                    MineTransitionRoute.SleepForNight,
+                    IsFinalDay ? ReturnToMuseumAsync : SleepAsync)
+                    .Forget(Debug.LogException))
+                .AddTo(_disposables);
+            _canvas.mineToCampButton.interactable = false;
             // Global: OnPause arms a gate the transition tasks await, so a
             // mine-scoped freeze would soft-lock a transition begun in the lair.
             GlobalEventBus.Fire(
@@ -100,8 +154,34 @@ namespace Systems.MineSystem.MineTransitionSystem.Controller
         public void OnPause() => _pause.Pause();
         public void OnUnpause() => _pause.Resume();
 
+        private bool IsFinalDay =>
+            _time.GetCurrentTime().day >= _timeConfig.totalDays;
+
+        private void ValidateReferences()
+        {
+            if (_canvas == null || _canvas.campTransitionPanel == null ||
+                _canvas.mineTransitionPanel == null ||
+                _canvas.campToMineButton == null ||
+                _canvas.campToMuseumButton == null ||
+                _canvas.sleepForTheNightButton == null ||
+                _canvas.mineToCampButton == null ||
+                _canvas.backToMineButton == null ||
+                _canvas.sleepButtonLabel == null ||
+                _mineView == null || _mineView.grid == null ||
+                _timeConfig == null || _timeConfig.totalDays < 1 ||
+                _timeConfig.dayStartHour != 8)
+                throw new InvalidOperationException(
+                    "Mine transition UI, grid, or day/time configuration is incomplete.");
+        }
+
         private void PrepareCamp(MineData mineData)
         {
+            _activeTransition?.Cancel();
+            _fade.Hide();
+            ReleaseEntranceClimbHold();
+            ReleaseMinePause();
+            _insideMine = false;
+            _entranceArmed = false;
             _camera.ConfigureMineBounds(mineData);
             RestoreCampPresentation();
         }
@@ -131,8 +211,8 @@ namespace Systems.MineSystem.MineTransitionSystem.Controller
 
         public UniTask<MineTransitionResult> MineToCampAsync(
             CancellationToken cancellationToken = default) =>
-            ExecuteAsync(MineTransitionRoute.MineToCamp,
-                _mineToCamp.ExecuteAsync, cancellationToken);
+            UniTask.FromResult(MineTransitionResult.Unavailable(
+                "Go To Camp is not available yet."));
 
         private async UniTask<MineTransitionResult> ExecuteAsync(
             MineTransitionRoute route,
@@ -143,9 +223,9 @@ namespace Systems.MineSystem.MineTransitionSystem.Controller
                 return MineTransitionResult.Unavailable(
                     "Another mine transition is already running.");
 
-            _activeTransition?.Dispose();
-            _activeTransition = CancellationTokenSource.CreateLinkedTokenSource(
+            var source = CancellationTokenSource.CreateLinkedTokenSource(
                 _lifetime.Token, cancellationToken);
+            _activeTransition = source;
             _state.Value = MineTransitionState.Running;
             SetPanels(false, false);
             GlobalEventBus.Fire(new MineTransitionStartedSignal { Route = route });
@@ -153,7 +233,7 @@ namespace Systems.MineSystem.MineTransitionSystem.Controller
             MineTransitionResult result;
             try
             {
-                result = await execute(_activeTransition.Token);
+                result = await execute(source.Token);
             }
             catch (OperationCanceledException)
             {
@@ -165,16 +245,198 @@ namespace Systems.MineSystem.MineTransitionSystem.Controller
                 Debug.LogException(exception);
             }
 
-            _activeTransition?.Dispose();
-            _activeTransition = null;
+            if (ReferenceEquals(_activeTransition, source))
+                _activeTransition = null;
+            var cancelled = source.IsCancellationRequested;
+            source.Dispose();
+            if (_disposed || cancelled)
+                return result;
             _state.Value = result.State;
             PublishResult(route, result);
-            if (!result.Succeeded && route == MineTransitionRoute.CampToMine)
+            if (result.Succeeded && route == MineTransitionRoute.CampToMine)
+            {
+                _insideMine = true;
+                _entranceArmed = !_entrance.IsPlayerInside;
+            }
+            else if (!result.Succeeded && route == MineTransitionRoute.CampToMine)
                 RestoreCampPresentation();
             else if (result.State == MineTransitionState.Unavailable &&
                      route != MineTransitionRoute.MineToCamp)
                 SetPanels(true, false);
             return result;
+        }
+
+        private void OpenMinePopup()
+        {
+            if (_disposed || !_insideMine || !_entranceArmed ||
+                _state.Value == MineTransitionState.Running || _holdsMinePause)
+                return;
+
+            if (!_playerTransitionService.TryHoldMineEntranceClimb())
+                return;
+
+            _holdsEntranceClimb = true;
+            _entranceArmed = false;
+            _playerTransitionService.SetManualControlsEnabled(false);
+            _camera.ClearFollowTarget();
+            _canvas.sleepButtonLabel.text = IsFinalDay
+                ? "Go Back to Museum" : "Sleep For The Night";
+            HoldMinePause();
+            SetPanels(false, true);
+            _state.Value = MineTransitionState.Idle;
+        }
+
+        private async UniTask RunMineChoiceAsync(MineTransitionRoute route,
+            Func<CancellationToken, UniTask<MineTransitionResult>> execute)
+        {
+            if (_disposed || !_holdsMinePause ||
+                _state.Value == MineTransitionState.Running)
+                return;
+
+            ReleaseEntranceClimbHold();
+            var source = CancellationTokenSource.CreateLinkedTokenSource(
+                _lifetime.Token);
+            _activeTransition = source;
+            _state.Value = MineTransitionState.Running;
+            SetPanels(false, false);
+            GlobalEventBus.Fire(new MineTransitionStartedSignal { Route = route });
+            MineTransitionResult result;
+            try
+            {
+                result = await execute(source.Token);
+            }
+            catch (OperationCanceledException)
+            {
+                result = MineTransitionResult.Cancelled();
+            }
+            catch (Exception exception)
+            {
+                Debug.LogException(exception);
+                result = MineTransitionResult.Failed(exception.Message);
+            }
+            finally
+            {
+                if (ReferenceEquals(_activeTransition, source))
+                    _activeTransition = null;
+                source.Dispose();
+            }
+
+            if (_disposed || !_insideMine)
+                return;
+            _state.Value = result.State;
+            PublishResult(route, result);
+            if (!result.Succeeded)
+            {
+                _fade.Hide();
+                _playerTransitionService.Teleport(Cell(0, -1));
+            }
+            if (route != MineTransitionRoute.MineToMuseum || !result.Succeeded)
+            {
+                _playerTransitionService.ClearForcedAnimation();
+                _camera.SetFollowTarget(
+                    _playerTransitionService.PlayerTransform);
+                _playerTransitionService.SetManualControlsEnabled(true);
+                _playerTransitionService.TryBeginClimbImmediately();
+                ReleaseMinePause();
+                _entranceArmed = !_entrance.IsPlayerInside;
+                _state.Value = MineTransitionState.Idle;
+            }
+        }
+
+        private async UniTask<MineTransitionResult> BackToMineAsync(
+            CancellationToken token)
+        {
+            _playerTransitionService.PlayForcedAnimation(
+                PlayerAnimationId.ClimbVertical, PlayerFacingDirection.Right);
+            await _playerTransitionService.AutoMoveAsync(Cell(0, -1),
+                _config.backToMineDuration, _config.playerMovementEase, token);
+            return MineTransitionResult.Completed();
+        }
+
+        private async UniTask<MineTransitionResult> SleepAsync(
+            CancellationToken token)
+        {
+            await ClimbOutAsync(token);
+            var nextDay = _time.GetCurrentTime().day + 1;
+            await _fade.FadeInAsync($"Day {nextDay:D2}", token);
+            _time.SetTime(new MineTime(nextDay,
+                _timeConfig.dayStartHour, 0));
+            await _fade.HoldDayAsync(token);
+            _playerTransitionService.Teleport(
+                Cell(_config.mineEntryStartCell.x,
+                    _config.mineEntryStartCell.y));
+            await _fade.FadeOutAsync(token);
+            _playerTransitionService.PlayForcedAnimation(
+                PlayerAnimationId.ClimbVertical, PlayerFacingDirection.Right);
+            await _playerTransitionService.AutoMoveAsync(Cell(0, -2),
+                _config.overnightReturnDuration,
+                _config.playerMovementEase, token);
+            return MineTransitionResult.Completed();
+        }
+
+        private async UniTask<MineTransitionResult> ReturnToMuseumAsync(
+            CancellationToken token)
+        {
+            if (!Application.CanStreamedLevelBeLoaded("Museum"))
+                return MineTransitionResult.Unavailable(
+                    "Museum scene is missing from Build Settings.");
+            await ClimbOutAsync(token);
+            await _fade.FadeInAsync(null, token);
+            token.ThrowIfCancellationRequested();
+            SceneManager.LoadScene("Museum");
+            return MineTransitionResult.Completed();
+        }
+
+        private async UniTask ClimbOutAsync(CancellationToken token)
+        {
+            _camera.ClearFollowTarget();
+            _playerTransitionService.PlayForcedAnimation(
+                PlayerAnimationId.ClimbVertical, PlayerFacingDirection.Right);
+            await _playerTransitionService.AutoMoveAsync(
+                Cell(_config.mineEntryStartCell.x,
+                    _config.mineEntryStartCell.y),
+                _config.mineExitDuration, _config.playerMovementEase, token);
+        }
+
+        private Vector2 Cell(int x, int y) =>
+            _mineView.grid.GetCellCenterWorld(new Vector3Int(x, y, 0));
+
+        private void ReleaseEntranceClimbHold()
+        {
+            if (!_holdsEntranceClimb)
+                return;
+
+            _holdsEntranceClimb = false;
+            _playerTransitionService.ReleaseMineEntranceClimbHold();
+        }
+
+        private void HandlePlayerDeath()
+        {
+            if (_disposed || !_holdsMinePause)
+                return;
+
+            _activeTransition?.Cancel();
+            ReleaseEntranceClimbHold();
+            ReleaseMinePause();
+            SetPanels(false, false);
+            _insideMine = false;
+            _entranceArmed = false;
+            _state.Value = MineTransitionState.Cancelled;
+        }
+
+        private void HoldMinePause()
+        {
+            if (_holdsMinePause) return;
+            _holdsMinePause = true;
+            GlobalEventBus.Fire(new PauseRequestedSignal(this,
+                PauseArea.MineView));
+        }
+
+        private void ReleaseMinePause()
+        {
+            if (!_holdsMinePause) return;
+            _holdsMinePause = false;
+            GlobalEventBus.Fire(new PauseReleasedSignal(this));
         }
 
         private static void PublishResult(MineTransitionRoute route,
@@ -209,11 +471,13 @@ namespace Systems.MineSystem.MineTransitionSystem.Controller
         {
             if (_disposed) return;
             _disposed = true;
-            GlobalEventBus.Fire(new PausableUnregisteredSignal(this));
             if (_lifetime != null && !_lifetime.IsCancellationRequested)
                 _lifetime.Cancel();
             _activeTransition?.Cancel();
-            _activeTransition?.Dispose();
+            _fade.Hide();
+            ReleaseEntranceClimbHold();
+            ReleaseMinePause();
+            GlobalEventBus.Fire(new PausableUnregisteredSignal(this));
             _lifetime?.Dispose();
             _disposables.Dispose();
             _state.Dispose();

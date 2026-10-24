@@ -121,6 +121,19 @@ namespace Systems.MineSystem.MinePlayerSystem.Model
 
         public void ClearForcedAnimation() => _autoAnimationService.Clear();
 
+        public bool TryHoldMineEntranceClimb() =>
+            _climbService.TryHoldMineEntranceClimb();
+
+        public void ReleaseMineEntranceClimbHold() =>
+            _climbService.ReleaseMineEntranceClimbHold();
+
+        public bool TryBeginClimbImmediately()
+        {
+            _groundingService.OnFixedTick();
+            return !_runtime.isGrounded.Value &&
+                   _climbService.TryBeginClimbImmediately();
+        }
+
         public void PrepareForTransport() => _climbService.PrepareForTransport();
 
         public void FixedTick()

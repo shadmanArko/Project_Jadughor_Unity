@@ -18,4 +18,7 @@ MonoBehaviour:
   campWalkDuration: 2
   cameraPanDuration: 2
   mineEntryDuration: 1.5
+  mineExitDuration: 1.5
+  overnightReturnDuration: 1.5
+  backToMineDuration: 0.6
   playerMovementEase: 1

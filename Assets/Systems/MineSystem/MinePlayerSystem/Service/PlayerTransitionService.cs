@@ -1,3 +1,4 @@
+using System;
 using System.Threading;
 using Cysharp.Threading.Tasks;
 using DG.Tweening;
@@ -36,6 +37,8 @@ namespace Systems.MineSystem.MinePlayerSystem.Service
 
         public Transform PlayerTransform => _view.transform;
         public Vector2 Position => _view.Body.position;
+        public Collider2D PlayerCollider => _view.PlayerCollider;
+        public IObservable<PlayerLifeState> LifeState => _runtimeData.lifeState;
 
         public void SpawnForTransition()
         {
@@ -80,6 +83,26 @@ namespace Systems.MineSystem.MinePlayerSystem.Service
             _model.PlayForcedAnimation(animationId, facing);
 
         public void ClearForcedAnimation() => _model.ClearForcedAnimation();
+
+        public bool TryHoldMineEntranceClimb()
+        {
+            if (!_model.TryHoldMineEntranceClimb())
+                return false;
+
+            _model.ClearForcedAnimation();
+            return true;
+        }
+
+        public void ReleaseMineEntranceClimbHold()
+        {
+            _model.ReleaseMineEntranceClimbHold();
+            if (!_runtimeData.canMove.Value &&
+                _runtimeData.lifeState.Value != PlayerLifeState.Dead)
+                _view.SetGravityScale(0f);
+        }
+
+        public bool TryBeginClimbImmediately() =>
+            _model.TryBeginClimbImmediately();
 
         UniTask IActor.MoveToAsync(
             Vector2 destination,

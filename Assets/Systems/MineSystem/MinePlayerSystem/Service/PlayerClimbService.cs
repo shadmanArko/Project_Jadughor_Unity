@@ -23,6 +23,7 @@ namespace Systems.MineSystem.MinePlayerSystem.Service
         private readonly PlayerFallService _fallService;
         private readonly PlayerActionService _actionService;
 
+        private bool _mineEntranceClimbHeld;
         private bool _toggleRequested;
         private bool _wasGrounded;
 
@@ -53,6 +54,30 @@ namespace Systems.MineSystem.MinePlayerSystem.Service
             _toggleRequested = true;
         }
 
+        public bool TryHoldMineEntranceClimb()
+        {
+            if (_runtime.lifeState.Value == PlayerLifeState.Dead)
+                return false;
+
+            _mineEntranceClimbHeld = true;
+            _toggleRequested = false;
+            _runtime.movementInput.Value = Vector2.zero;
+            _runtime.velocity.Value = Vector2.zero;
+            _view.Stop();
+            BeginClimb();
+            return true;
+        }
+
+        public void ReleaseMineEntranceClimbHold()
+        {
+            if (!_mineEntranceClimbHeld)
+                return;
+
+            _mineEntranceClimbHeld = false;
+            if (_runtime.lifeState.Value != PlayerLifeState.Dead)
+                PrepareForTransport();
+        }
+
         public bool TryBeginClimbImmediately()
         {
             var isInsideClimbable = IsInsideClimbableCell();
@@ -71,6 +96,7 @@ namespace Systems.MineSystem.MinePlayerSystem.Service
 
         public void PrepareForTransport()
         {
+            _mineEntranceClimbHeld = false;
             _toggleRequested = false;
             _runtime.isClimbing.Value = false;
             _runtime.velocity.Value = Vector2.zero;
@@ -88,10 +114,19 @@ namespace Systems.MineSystem.MinePlayerSystem.Service
 
             if (_runtime.lifeState.Value == PlayerLifeState.Dead)
             {
+                _mineEntranceClimbHeld = false;
                 if (_runtime.isClimbing.Value)
                     EndClimb();
                 _toggleRequested = false;
                 _wasGrounded = isGrounded;
+                return;
+            }
+
+            if (_mineEntranceClimbHeld)
+            {
+                _view.Stop();
+                _runtime.velocity.Value = Vector2.zero;
+                _runtime.locomotionState.Value = PlayerLocomotionState.Climbing;
                 return;
             }
 

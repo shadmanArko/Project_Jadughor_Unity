@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Systems.MineSystem.MineTransitionSystem.Installer.MineTransitionInstaller
   campPrefab: {fileID: 6111111111111111102, guid: a9a25115be03b1e45afa1140f44823b8, type: 3}
   canvasPrefab: {fileID: 7934895543193986887, guid: d7d60f4aec915f74b906ddb9778d2931, type: 3}
+  entranceTriggerPrefab: {fileID: 11400000, guid: b2222222222222222222222222222222, type: 3}
   transitionConfig: {fileID: 11400000, guid: c0000000000000000000000000000006, type: 2}
   cameraConfig: {fileID: 11400000, guid: c0000000000000000000000000000005, type: 2}
