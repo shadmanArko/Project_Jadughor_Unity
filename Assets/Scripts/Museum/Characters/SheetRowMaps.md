@@ -97,6 +97,35 @@ assuming 8 x 4 gives 27.5 px cells and a garbage grid. The frame numbers therefo
 ⚠ Row 4 has 10 drawn frames and **no clip in the Godot scene** — an animation that was drawn but
 never hooked up. Worth a look before porting; it may be the counter/ticket-handling action.
 
+## Janitor — `JANITOR_ANIMATION_SPRITE.png`, 8 x 19
+
+`184x855` → 23x45 px cells (same cell size as the guests). Counts measured from the PNG alpha.
+All clips 10 fps. Clips + controller: `Assets/Animations/Characters/JanitorAnimations/`.
+
+| Row | Animation | Frames | Count | Loop |
+| --- | --- | --- | --- | --- |
+| 0 | `walk_forward` | 0–7 | 8 | loop |
+| 1 | `walk_backward` | 8–15 | 8 | loop |
+| 2 | `idle_front_facing` | 16–21 | 6 | loop |
+| 3 | `idle_back_facing` | 24–29 | 6 | loop |
+| 4 | `thinking_transition_front` | 32–34 | 3 | once → `thinking_loop_front` |
+| 5 | `thinking_transition_back` | 40–42 | 3 | once (holds) |
+| 6 | `thinking_loop_front` | 48–50 | 3 | loop |
+| 7 | `sit_down_front` | 56–60 | 5 | once (holds seated) |
+| 8 | `sit_down_back` | 64–68 | 5 | once (holds seated) |
+| 9 | `stand_up_front` | 72–78 | 7 | once → idle front |
+| 10 | `stand_up_back` | 80–86 | 7 | once → idle back |
+| 11 | `interact_front` | 88–93 | 6 | once → idle front |
+| 12 | `interact_back` | 96–101 | 6 | once → idle back |
+| 13 | `eat_front` | 104–111 | 8 | loop |
+| 14 | `eat_back` | 112–119 | 8 | loop |
+| 15 | `sweeping_front` | 120–125 | 6 | loop |
+| 16 | `sweeping_back` | 128–133 | 6 | loop |
+| 17 | `cleaning_glass_front` | 136–143 | 8 | loop |
+| 18 | `cleaning_glass_back` | 144–151 | 8 | loop |
+
+⚠ Only 19 rows: the thinking loop is drawn **front-only** (same as the guest's `intrigue_blink_front`).
+
 ## Paste-ready clip lists
 
 For `Tools ▸ Project Museum ▸ Frame Animation Clip Builder`. The guest list is in

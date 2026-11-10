@@ -280,6 +280,10 @@ namespace ProjectMuseum.Data
             if (type == BuilderCardType.Exhibit)
                 Data.Exhibits.Add(new ExhibitData { Id = placed.Id });
 
+            // Litter under a new object would be unreachable forever — the object covers it.
+            foreach (Vector2Int cell in placed.OccupiedTiles)
+                if (TryGetTrashAt(cell, out TrashData litter)) RemoveTrash(litter.Id);
+
             AddMoney(-cost);
             _placedObjectCount.Value = Data.PlacedObjects.Count;
             BuilderActions.OnObjectPlaced?.Invoke(placed);
@@ -418,6 +422,58 @@ namespace ProjectMuseum.Data
         }
 
         public void ClearAllWallpapers() => SetAllWallpapers("");
+
+        // ── Trash ───────────────────────────────────────────────────────
+        // Linear scans on purpose: TrashSystem caps litter at a few dozen pieces.
+
+        public IReadOnlyList<TrashData> Trash => Data.Trash ??= new List<TrashData>();
+
+        /// <summary>
+        /// Drop litter on a walkable museum tile. One piece per tile; returns null if the tile
+        /// is undeveloped, blocked by an object, or already littered.
+        /// </summary>
+        public TrashData AddTrash(Vector2Int cell, int variant = 0)
+        {
+            if (!_tileLookup.TryGetValue(cell, out MuseumTileData tile) || !tile.Walkable) return null;
+            if (TryGetTrashAt(cell, out _)) return null;
+
+            var trash = new TrashData { Id = Guid.NewGuid().ToString(), X = cell.x, Y = cell.y, Variant = variant };
+            Data.Trash.Add(trash);
+            ProjectMuseum.Staff.StaffActions.OnTrashAdded?.Invoke(trash);
+            return trash;
+        }
+
+        public bool RemoveTrash(string id)
+        {
+            List<TrashData> list = Data.Trash;
+            if (list == null) return false;
+            for (int i = 0; i < list.Count; i++)
+            {
+                if (list[i].Id != id) continue;
+                TrashData removed = list[i];
+                list.RemoveAt(i);
+                ProjectMuseum.Staff.StaffActions.OnTrashRemoved?.Invoke(removed);
+                return true;
+            }
+            return false;
+        }
+
+        public TrashData FindTrash(string id)
+        {
+            if (Data.Trash == null || string.IsNullOrEmpty(id)) return null;
+            foreach (TrashData t in Data.Trash)
+                if (t.Id == id) return t;
+            return null;
+        }
+
+        public bool TryGetTrashAt(Vector2Int cell, out TrashData trash)
+        {
+            trash = null;
+            if (Data.Trash == null) return false;
+            foreach (TrashData t in Data.Trash)
+                if (t.X == cell.x && t.Y == cell.y) { trash = t; return true; }
+            return false;
+        }
 
         // ── Money ───────────────────────────────────────────────────────
 

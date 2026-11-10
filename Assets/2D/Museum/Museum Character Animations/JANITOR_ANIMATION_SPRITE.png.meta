@@ -1,0 +1,3161 @@
+fileFormatVersion: 2
+guid: 695705ecb69324043b03d8de75e886b9
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -2770762445893823473
+    second: JANITOR_ANIMATION_SPRITE_0
+  - first:
+      213: 7359210417468767821
+    second: JANITOR_ANIMATION_SPRITE_1
+  - first:
+      213: 896044911282036039
+    second: JANITOR_ANIMATION_SPRITE_2
+  - first:
+      213: 3346041014805405019
+    second: JANITOR_ANIMATION_SPRITE_3
+  - first:
+      213: -8716031085481326539
+    second: JANITOR_ANIMATION_SPRITE_4
+  - first:
+      213: -5945093557006602285
+    second: JANITOR_ANIMATION_SPRITE_5
+  - first:
+      213: 1560647916595044473
+    second: JANITOR_ANIMATION_SPRITE_6
+  - first:
+      213: -247578810186248742
+    second: JANITOR_ANIMATION_SPRITE_7
+  - first:
+      213: -5154256743929573844
+    second: JANITOR_ANIMATION_SPRITE_8
+  - first:
+      213: -1635432907492292361
+    second: JANITOR_ANIMATION_SPRITE_9
+  - first:
+      213: 177254470455713714
+    second: JANITOR_ANIMATION_SPRITE_10
+  - first:
+      213: 6326263315039450205
+    second: JANITOR_ANIMATION_SPRITE_11
+  - first:
+      213: -6789311401276414104
+    second: JANITOR_ANIMATION_SPRITE_12
+  - first:
+      213: -3622479885397013628
+    second: JANITOR_ANIMATION_SPRITE_13
+  - first:
+      213: 9140084521045232699
+    second: JANITOR_ANIMATION_SPRITE_14
+  - first:
+      213: -6544663828427029155
+    second: JANITOR_ANIMATION_SPRITE_15
+  - first:
+      213: 8035154596886004576
+    second: JANITOR_ANIMATION_SPRITE_16
+  - first:
+      213: 598304953541551906
+    second: JANITOR_ANIMATION_SPRITE_17
+  - first:
+      213: -8213864004619278256
+    second: JANITOR_ANIMATION_SPRITE_18
+  - first:
+      213: -6117671462465201937
+    second: JANITOR_ANIMATION_SPRITE_19
+  - first:
+      213: -3531161858790221536
+    second: JANITOR_ANIMATION_SPRITE_20
+  - first:
+      213: 2857399975338631238
+    second: JANITOR_ANIMATION_SPRITE_21
+  - first:
+      213: 4756560504776412101
+    second: JANITOR_ANIMATION_SPRITE_22
+  - first:
+      213: 5490406079195984438
+    second: JANITOR_ANIMATION_SPRITE_23
+  - first:
+      213: 5515037727680875386
+    second: JANITOR_ANIMATION_SPRITE_24
+  - first:
+      213: 5030209258975781845
+    second: JANITOR_ANIMATION_SPRITE_25
+  - first:
+      213: 3251419593063536371
+    second: JANITOR_ANIMATION_SPRITE_26
+  - first:
+      213: 4911790732895166354
+    second: JANITOR_ANIMATION_SPRITE_27
+  - first:
+      213: 6072580313571520490
+    second: JANITOR_ANIMATION_SPRITE_28
+  - first:
+      213: -9084494458824771879
+    second: JANITOR_ANIMATION_SPRITE_29
+  - first:
+      213: 8901842164644210823
+    second: JANITOR_ANIMATION_SPRITE_30
+  - first:
+      213: 962965792903259752
+    second: JANITOR_ANIMATION_SPRITE_31
+  - first:
+      213: -2695074245461907611
+    second: JANITOR_ANIMATION_SPRITE_32
+  - first:
+      213: 2719267286079370403
+    second: JANITOR_ANIMATION_SPRITE_33
+  - first:
+      213: -2508997418322454595
+    second: JANITOR_ANIMATION_SPRITE_34
+  - first:
+      213: 2249160079460227620
+    second: JANITOR_ANIMATION_SPRITE_35
+  - first:
+      213: -2980668312216956463
+    second: JANITOR_ANIMATION_SPRITE_36
+  - first:
+      213: -5381217340980871339
+    second: JANITOR_ANIMATION_SPRITE_37
+  - first:
+      213: -4522194413553026208
+    second: JANITOR_ANIMATION_SPRITE_38
+  - first:
+      213: 7695499619186255140
+    second: JANITOR_ANIMATION_SPRITE_39
+  - first:
+      213: -8433798524837119840
+    second: JANITOR_ANIMATION_SPRITE_40
+  - first:
+      213: -9109864741730210493
+    second: JANITOR_ANIMATION_SPRITE_41
+  - first:
+      213: -4106417666745906350
+    second: JANITOR_ANIMATION_SPRITE_42
+  - first:
+      213: -6264034157891029933
+    second: JANITOR_ANIMATION_SPRITE_43
+  - first:
+      213: 5284242971050285653
+    second: JANITOR_ANIMATION_SPRITE_44
+  - first:
+      213: 8804986320798478116
+    second: JANITOR_ANIMATION_SPRITE_45
+  - first:
+      213: 3316684605679552812
+    second: JANITOR_ANIMATION_SPRITE_46
+  - first:
+      213: 4050363935684665883
+    second: JANITOR_ANIMATION_SPRITE_47
+  - first:
+      213: -725350241970654156
+    second: JANITOR_ANIMATION_SPRITE_48
+  - first:
+      213: 6019144266532925291
+    second: JANITOR_ANIMATION_SPRITE_49
+  - first:
+      213: -5019243365666029951
+    second: JANITOR_ANIMATION_SPRITE_50
+  - first:
+      213: -8959293452178629403
+    second: JANITOR_ANIMATION_SPRITE_51
+  - first:
+      213: -1687339868805373830
+    second: JANITOR_ANIMATION_SPRITE_52
+  - first:
+      213: 7875683206071685227
+    second: JANITOR_ANIMATION_SPRITE_53
+  - first:
+      213: 4337662153850193249
+    second: JANITOR_ANIMATION_SPRITE_54
+  - first:
+      213: -1671728817680276422
+    second: JANITOR_ANIMATION_SPRITE_55
+  - first:
+      213: -4895118426700375023
+    second: JANITOR_ANIMATION_SPRITE_56
+  - first:
+      213: -6169555685209747235
+    second: JANITOR_ANIMATION_SPRITE_57
+  - first:
+      213: -2329023920941321585
+    second: JANITOR_ANIMATION_SPRITE_58
+  - first:
+      213: 1926443036708114448
+    second: JANITOR_ANIMATION_SPRITE_59
+  - first:
+      213: 3496563584444168778
+    second: JANITOR_ANIMATION_SPRITE_60
+  - first:
+      213: 3004443878734182177
+    second: JANITOR_ANIMATION_SPRITE_61
+  - first:
+      213: 1026590662569900935
+    second: JANITOR_ANIMATION_SPRITE_62
+  - first:
+      213: 7223594497060619664
+    second: JANITOR_ANIMATION_SPRITE_63
+  - first:
+      213: 2460030300911420977
+    second: JANITOR_ANIMATION_SPRITE_64
+  - first:
+      213: 6356594326823975218
+    second: JANITOR_ANIMATION_SPRITE_65
+  - first:
+      213: -4726715442479521261
+    second: JANITOR_ANIMATION_SPRITE_66
+  - first:
+      213: -9203725926940174003
+    second: JANITOR_ANIMATION_SPRITE_67
+  - first:
+      213: -7329458602486347898
+    second: JANITOR_ANIMATION_SPRITE_68
+  - first:
+      213: 2821683636453383398
+    second: JANITOR_ANIMATION_SPRITE_69
+  - first:
+      213: 3533152689779229319
+    second: JANITOR_ANIMATION_SPRITE_70
+  - first:
+      213: 6293125344726558430
+    second: JANITOR_ANIMATION_SPRITE_71
+  - first:
+      213: -7541622263975724213
+    second: JANITOR_ANIMATION_SPRITE_72
+  - first:
+      213: 6584195157661553579
+    second: JANITOR_ANIMATION_SPRITE_73
+  - first:
+      213: 1537033077961646694
+    second: JANITOR_ANIMATION_SPRITE_74
+  - first:
+      213: 2535084291926317142
+    second: JANITOR_ANIMATION_SPRITE_75
+  - first:
+      213: -6671236629571450217
+    second: JANITOR_ANIMATION_SPRITE_76
+  - first:
+      213: 8612215569084363311
+    second: JANITOR_ANIMATION_SPRITE_77
+  - first:
+      213: -940235601079557039
+    second: JANITOR_ANIMATION_SPRITE_78
+  - first:
+      213: -7742905143883117823
+    second: JANITOR_ANIMATION_SPRITE_79
+  - first:
+      213: -6715606937988056634
+    second: JANITOR_ANIMATION_SPRITE_80
+  - first:
+      213: 3469866049827996608
+    second: JANITOR_ANIMATION_SPRITE_81
+  - first:
+      213: 8761720480663331080
+    second: JANITOR_ANIMATION_SPRITE_82
+  - first:
+      213: -6924593753825197672
+    second: JANITOR_ANIMATION_SPRITE_83
+  - first:
+      213: -5300374840545120767
+    second: JANITOR_ANIMATION_SPRITE_84
+  - first:
+      213: -4273773288802282270
+    second: JANITOR_ANIMATION_SPRITE_85
+  - first:
+      213: -7927719333766891139
+    second: JANITOR_ANIMATION_SPRITE_86
+  - first:
+      213: -99123324353700620
+    second: JANITOR_ANIMATION_SPRITE_87
+  - first:
+      213: 2047880410256901101
+    second: JANITOR_ANIMATION_SPRITE_88
+  - first:
+      213: 6890932231645423705
+    second: JANITOR_ANIMATION_SPRITE_89
+  - first:
+      213: 2136078228599910612
+    second: JANITOR_ANIMATION_SPRITE_90
+  - first:
+      213: -3641973214822875559
+    second: JANITOR_ANIMATION_SPRITE_91
+  - first:
+      213: 918144262698793603
+    second: JANITOR_ANIMATION_SPRITE_92
+  - first:
+      213: 1129770497736353337
+    second: JANITOR_ANIMATION_SPRITE_93
+  - first:
+      213: -6641166564205910177
+    second: JANITOR_ANIMATION_SPRITE_94
+  - first:
+      213: 2834137493015638253
+    second: JANITOR_ANIMATION_SPRITE_95
+  - first:
+      213: 5959279200770302490
+    second: JANITOR_ANIMATION_SPRITE_96
+  - first:
+      213: -7018014368583059586
+    second: JANITOR_ANIMATION_SPRITE_97
+  - first:
+      213: -5507521619024409320
+    second: JANITOR_ANIMATION_SPRITE_98
+  - first:
+      213: 8855885292427831078
+    second: JANITOR_ANIMATION_SPRITE_99
+  - first:
+      213: -6440093189947387504
+    second: JANITOR_ANIMATION_SPRITE_100
+  - first:
+      213: 1893403341653109120
+    second: JANITOR_ANIMATION_SPRITE_101
+  - first:
+      213: -5494718071237781577
+    second: JANITOR_ANIMATION_SPRITE_102
+  - first:
+      213: 2981403756481959725
+    second: JANITOR_ANIMATION_SPRITE_103
+  - first:
+      213: -3244051566095286464
+    second: JANITOR_ANIMATION_SPRITE_104
+  - first:
+      213: -8845633195761553346
+    second: JANITOR_ANIMATION_SPRITE_105
+  - first:
+      213: 901559371776503975
+    second: JANITOR_ANIMATION_SPRITE_106
+  - first:
+      213: 8668501391581135840
+    second: JANITOR_ANIMATION_SPRITE_107
+  - first:
+      213: -6080433123142259559
+    second: JANITOR_ANIMATION_SPRITE_108
+  - first:
+      213: -8389048554762713230
+    second: JANITOR_ANIMATION_SPRITE_109
+  - first:
+      213: 2687435220608002920
+    second: JANITOR_ANIMATION_SPRITE_110
+  - first:
+      213: -6697279543938673700
+    second: JANITOR_ANIMATION_SPRITE_111
+  - first:
+      213: 270493529608453913
+    second: JANITOR_ANIMATION_SPRITE_112
+  - first:
+      213: -6835545673385675223
+    second: JANITOR_ANIMATION_SPRITE_113
+  - first:
+      213: -3383439832465699758
+    second: JANITOR_ANIMATION_SPRITE_114
+  - first:
+      213: 3837527291530716537
+    second: JANITOR_ANIMATION_SPRITE_115
+  - first:
+      213: 6732459839215998562
+    second: JANITOR_ANIMATION_SPRITE_116
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: JANITOR_ANIMATION_SPRITE_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 810
+        width: 23
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f04918f4c364c89d0800000000000000
+      internalID: -2770762445893823473
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JANITOR_ANIMATION_SPRITE_1
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 810
+        width: 23
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d4e749842ea212660800000000000000
+      internalID: 7359210417468767821
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JANITOR_ANIMATION_SPRITE_2
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 810
+        width: 23
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 74d13cf69146f6c00800000000000000
+      internalID: 896044911282036039
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JANITOR_ANIMATION_SPRITE_3
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 810
+        width: 23
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b5d1d5b23968f6e20800000000000000
+      internalID: 3346041014805405019
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JANITOR_ANIMATION_SPRITE_4
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 810
+        width: 23
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5388f9248ef6a0780800000000000000
+      internalID: -8716031085481326539
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JANITOR_ANIMATION_SPRITE_5
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 810
+        width: 23
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3df682a88e8ce7da0800000000000000
+      internalID: -5945093557006602285
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JANITOR_ANIMATION_SPRITE_6
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 810
+        width: 23
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 970e910f20988a510800000000000000
+      internalID: 1560647916595044473
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JANITOR_ANIMATION_SPRITE_7
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 810
+        width: 23
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: add4fe4426c609cf0800000000000000
+      internalID: -247578810186248742
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JANITOR_ANIMATION_SPRITE_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 765
+        width: 23
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c2e8ae0ccc66878b0800000000000000
+      internalID: -5154256743929573844
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JANITOR_ANIMATION_SPRITE_9
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 765
+        width: 23
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7f800fe7f66cd49e0800000000000000
+      internalID: -1635432907492292361
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JANITOR_ANIMATION_SPRITE_10
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 765
+        width: 23
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2bfdc52700cb57200800000000000000
+      internalID: 177254470455713714
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JANITOR_ANIMATION_SPRITE_11
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 765
+        width: 23
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d54f28097f66bc750800000000000000
+      internalID: 6326263315039450205
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JANITOR_ANIMATION_SPRITE_12
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 765
+        width: 23
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 867e869704587c1a0800000000000000
+      internalID: -6789311401276414104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JANITOR_ANIMATION_SPRITE_13
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 765
+        width: 23
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 48bc9e8acbd5abdc0800000000000000
+      internalID: -3622479885397013628
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JANITOR_ANIMATION_SPRITE_14
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 765
+        width: 23
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b3c82f5127a18de70800000000000000
+      internalID: 9140084521045232699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JANITOR_ANIMATION_SPRITE_15
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 765
+        width: 23
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d5542445ceeac25a0800000000000000
+      internalID: -6544663828427029155
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JANITOR_ANIMATION_SPRITE_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 720
+        width: 23
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 063ccb6a88a928f60800000000000000
+      internalID: 8035154596886004576
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JANITOR_ANIMATION_SPRITE_17
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 720
+        width: 23
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 227633f6f2b9d4800800000000000000
+      internalID: 598304953541551906
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JANITOR_ANIMATION_SPRITE_18
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 720
+        width: 23
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 058ec4be43e720e80800000000000000
+      internalID: -8213864004619278256
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JANITOR_ANIMATION_SPRITE_19
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 720
+        width: 23
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fe8973bb73aa91ba0800000000000000
+      internalID: -6117671462465201937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JANITOR_ANIMATION_SPRITE_20
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 720
+        width: 23
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 02996629ffacefec0800000000000000
+      internalID: -3531161858790221536
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JANITOR_ANIMATION_SPRITE_21
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 720
+        width: 23
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 640e44f632687a720800000000000000
+      internalID: 2857399975338631238
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JANITOR_ANIMATION_SPRITE_22
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 675
+        width: 23
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5cbc9d7e392b20240800000000000000
+      internalID: 4756560504776412101
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JANITOR_ANIMATION_SPRITE_23
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 675
+        width: 23
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6323f175d37d13c40800000000000000
+      internalID: 5490406079195984438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JANITOR_ANIMATION_SPRITE_24
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 675
+        width: 23
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a7bcb49e799598c40800000000000000
+      internalID: 5515037727680875386
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JANITOR_ANIMATION_SPRITE_25
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 675
+        width: 23
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5d3e12b7ba4eec540800000000000000
+      internalID: 5030209258975781845
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JANITOR_ANIMATION_SPRITE_26
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 675
+        width: 23
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3f61c44a4ec5f1d20800000000000000
+      internalID: 3251419593063536371
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JANITOR_ANIMATION_SPRITE_27
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 675
+        width: 23
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 29f9545d5af2a2440800000000000000
+      internalID: 4911790732895166354
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JANITOR_ANIMATION_SPRITE_28
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 630
+        width: 23
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aefe57c0f93264450800000000000000
+      internalID: 6072580313571520490
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JANITOR_ANIMATION_SPRITE_29
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 630
+        width: 23
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9d6beb1eb646de180800000000000000
+      internalID: -9084494458824771879
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JANITOR_ANIMATION_SPRITE_30
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 630
+        width: 23
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7886636e842b98b70800000000000000
+      internalID: 8901842164644210823
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JANITOR_ANIMATION_SPRITE_31
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 585
+        width: 23
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 866e9d069442d5d00800000000000000
+      internalID: 962965792903259752
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JANITOR_ANIMATION_SPRITE_32
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 585
+        width: 23
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 56760fbb04c299ad0800000000000000
+      internalID: -2695074245461907611
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JANITOR_ANIMATION_SPRITE_33
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 585
+        width: 23
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3a4f91c7037ccb520800000000000000
+      internalID: 2719267286079370403
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JANITOR_ANIMATION_SPRITE_34
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 540
+        width: 23
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: db7948a24204e2dd0800000000000000
+      internalID: -2508997418322454595
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JANITOR_ANIMATION_SPRITE_35
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 540
+        width: 23
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 42a573bfc2f963f10800000000000000
+      internalID: 2249160079460227620
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JANITOR_ANIMATION_SPRITE_36
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 540
+        width: 23
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1d19b0956f982a6d0800000000000000
+      internalID: -2980668312216956463
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JANITOR_ANIMATION_SPRITE_37
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 495
+        width: 23
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 55fb9abd6531255b0800000000000000
+      internalID: -5381217340980871339
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JANITOR_ANIMATION_SPRITE_38
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 495
+        width: 23
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 06b7ae6f320fd31c0800000000000000
+      internalID: -4522194413553026208
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JANITOR_ANIMATION_SPRITE_39
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 495
+        width: 23
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 42520c29128ebca60800000000000000
+      internalID: 7695499619186255140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JANITOR_ANIMATION_SPRITE_40
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 495
+        width: 23
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0a8bed30de025fa80800000000000000
+      internalID: -8433798524837119840
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JANITOR_ANIMATION_SPRITE_41
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 495
+        width: 23
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 34da0559842439180800000000000000
+      internalID: -9109864741730210493
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JANITOR_ANIMATION_SPRITE_42
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 450
+        width: 23
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 25bc83a83e21307c0800000000000000
+      internalID: -4106417666745906350
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JANITOR_ANIMATION_SPRITE_43
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 450
+        width: 23
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 354fdf52f1ea119a0800000000000000
+      internalID: -6264034157891029933
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JANITOR_ANIMATION_SPRITE_44
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 450
+        width: 23
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 55a9e4c2cf6655940800000000000000
+      internalID: 5284242971050285653
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JANITOR_ANIMATION_SPRITE_45
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 450
+        width: 23
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 42fed5f6868913a70800000000000000
+      internalID: 8804986320798478116
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JANITOR_ANIMATION_SPRITE_46
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 450
+        width: 23
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c294989831b370e20800000000000000
+      internalID: 3316684605679552812
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JANITOR_ANIMATION_SPRITE_47
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 405
+        width: 23
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b12a98d2a88c53830800000000000000
+      internalID: 4050363935684665883
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JANITOR_ANIMATION_SPRITE_48
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 405
+        width: 23
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 43478994cc90fe5f0800000000000000
+      internalID: -725350241970654156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JANITOR_ANIMATION_SPRITE_49
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 405
+        width: 23
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b6f2682d1db488350800000000000000
+      internalID: 6019144266532925291
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JANITOR_ANIMATION_SPRITE_50
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 405
+        width: 23
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 18e7d3480c0185ab0800000000000000
+      internalID: -5019243365666029951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JANITOR_ANIMATION_SPRITE_51
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 405
+        width: 23
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ecd868d2123aa380800000000000000
+      internalID: -8959293452178629403
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JANITOR_ANIMATION_SPRITE_52
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 405
+        width: 23
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a706088445d5598e0800000000000000
+      internalID: -1687339868805373830
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JANITOR_ANIMATION_SPRITE_53
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 405
+        width: 23
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b609965162c0c4d60800000000000000
+      internalID: 7875683206071685227
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JANITOR_ANIMATION_SPRITE_54
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 360
+        width: 23
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 16585eb3fb8723c30800000000000000
+      internalID: 4337662153850193249
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JANITOR_ANIMATION_SPRITE_55
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 360
+        width: 23
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a34226d5f73dcc8e0800000000000000
+      internalID: -1671728817680276422
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JANITOR_ANIMATION_SPRITE_56
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 360
+        width: 23
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 11c1e03f9bb011cb0800000000000000
+      internalID: -4895118426700375023
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JANITOR_ANIMATION_SPRITE_57
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 360
+        width: 23
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dd0d411cac5516aa0800000000000000
+      internalID: -6169555685209747235
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JANITOR_ANIMATION_SPRITE_58
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 360
+        width: 23
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f82b7e66515adafd0800000000000000
+      internalID: -2329023920941321585
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JANITOR_ANIMATION_SPRITE_59
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 360
+        width: 23
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 01013033cb91cba10800000000000000
+      internalID: 1926443036708114448
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JANITOR_ANIMATION_SPRITE_60
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 360
+        width: 23
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a4a7c51fd0a468030800000000000000
+      internalID: 3496563584444168778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JANITOR_ANIMATION_SPRITE_61
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 315
+        width: 23
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1273c8b1acde1b920800000000000000
+      internalID: 3004443878734182177
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JANITOR_ANIMATION_SPRITE_62
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 315
+        width: 23
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 78b363cb4ce2f3e00800000000000000
+      internalID: 1026590662569900935
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JANITOR_ANIMATION_SPRITE_63
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 315
+        width: 23
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 095c3ce3cec5f3460800000000000000
+      internalID: 7223594497060619664
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JANITOR_ANIMATION_SPRITE_64
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 315
+        width: 23
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 136c58e5688c32220800000000000000
+      internalID: 2460030300911420977
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JANITOR_ANIMATION_SPRITE_65
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 315
+        width: 23
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2393b9f8cd8273850800000000000000
+      internalID: 6356594326823975218
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JANITOR_ANIMATION_SPRITE_66
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 315
+        width: 23
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 312a7a82955576eb0800000000000000
+      internalID: -4726715442479521261
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JANITOR_ANIMATION_SPRITE_67
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 270
+        width: 23
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d499daa680cc54080800000000000000
+      internalID: -9203725926940174003
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JANITOR_ANIMATION_SPRITE_68
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 270
+        width: 23
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 687ced2fb38884a90800000000000000
+      internalID: -7329458602486347898
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JANITOR_ANIMATION_SPRITE_69
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 270
+        width: 23
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ec16534152a82720800000000000000
+      internalID: 2821683636453383398
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JANITOR_ANIMATION_SPRITE_70
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 270
+        width: 23
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 782c183e6a7480130800000000000000
+      internalID: 3533152689779229319
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JANITOR_ANIMATION_SPRITE_71
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 270
+        width: 23
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ed62f6b982ca55750800000000000000
+      internalID: 6293125344726558430
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JANITOR_ANIMATION_SPRITE_72
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 270
+        width: 23
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b4bbc851286c65790800000000000000
+      internalID: -7541622263975724213
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JANITOR_ANIMATION_SPRITE_73
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 225
+        width: 23
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ba393408c92cf5b50800000000000000
+      internalID: 6584195157661553579
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JANITOR_ANIMATION_SPRITE_74
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 225
+        width: 23
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 662edebd073a45510800000000000000
+      internalID: 1537033077961646694
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JANITOR_ANIMATION_SPRITE_75
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 225
+        width: 23
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 658d0f76bbd6e2320800000000000000
+      internalID: 2535084291926317142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JANITOR_ANIMATION_SPRITE_76
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 225
+        width: 23
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 79ac1d191a10b63a0800000000000000
+      internalID: -6671236629571450217
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JANITOR_ANIMATION_SPRITE_77
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 225
+        width: 23
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f22bc5c3e6cb48770800000000000000
+      internalID: 8612215569084363311
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JANITOR_ANIMATION_SPRITE_78
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 225
+        width: 23
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1542a70d3bc93f2f0800000000000000
+      internalID: -940235601079557039
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JANITOR_ANIMATION_SPRITE_79
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 225
+        width: 23
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 10b4d499bccab8490800000000000000
+      internalID: -7742905143883117823
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JANITOR_ANIMATION_SPRITE_80
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 225
+        width: 23
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c9b21a121f5dc2a0800000000000000
+      internalID: -6715606937988056634
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JANITOR_ANIMATION_SPRITE_81
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 180
+        width: 23
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c38f26c9c0772030800000000000000
+      internalID: 3469866049827996608
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JANITOR_ANIMATION_SPRITE_82
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 180
+        width: 23
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 801e3370b52e79970800000000000000
+      internalID: 8761720480663331080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JANITOR_ANIMATION_SPRITE_83
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 180
+        width: 23
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8914c514ba6e6ef90800000000000000
+      internalID: -6924593753825197672
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JANITOR_ANIMATION_SPRITE_84
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 180
+        width: 23
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 10ee3e44a294176b0800000000000000
+      internalID: -5300374840545120767
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JANITOR_ANIMATION_SPRITE_85
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 180
+        width: 23
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2e4136656d180b4c0800000000000000
+      internalID: -4273773288802282270
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JANITOR_ANIMATION_SPRITE_86
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 180
+        width: 23
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d79f3dfc4451bf190800000000000000
+      internalID: -7927719333766891139
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JANITOR_ANIMATION_SPRITE_87
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 180
+        width: 23
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4fc11f69cd7df9ef0800000000000000
+      internalID: -99123324353700620
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JANITOR_ANIMATION_SPRITE_88
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 180
+        width: 23
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: de308db02688b6c10800000000000000
+      internalID: 2047880410256901101
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JANITOR_ANIMATION_SPRITE_89
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 135
+        width: 23
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 958e38eda5281af50800000000000000
+      internalID: 6890932231645423705
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JANITOR_ANIMATION_SPRITE_90
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 135
+        width: 23
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4d0b42cd4dfd4ad10800000000000000
+      internalID: 2136078228599910612
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JANITOR_ANIMATION_SPRITE_91
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 135
+        width: 23
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 95ebef838ac157dc0800000000000000
+      internalID: -3641973214822875559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JANITOR_ANIMATION_SPRITE_92
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 135
+        width: 23
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 38a79b6a757edbc00800000000000000
+      internalID: 918144262698793603
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JANITOR_ANIMATION_SPRITE_93
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 135
+        width: 23
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 936aa4b2840cdaf00800000000000000
+      internalID: 1129770497736353337
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JANITOR_ANIMATION_SPRITE_94
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 135
+        width: 23
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f572e4e3236d5d3a0800000000000000
+      internalID: -6641166564205910177
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JANITOR_ANIMATION_SPRITE_95
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 90
+        width: 23
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: de030d3b801e45720800000000000000
+      internalID: 2834137493015638253
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JANITOR_ANIMATION_SPRITE_96
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 90
+        width: 23
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a12a9470cdc93b250800000000000000
+      internalID: 5959279200770302490
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JANITOR_ANIMATION_SPRITE_97
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 90
+        width: 23
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e77f4046d110b9e90800000000000000
+      internalID: -7018014368583059586
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JANITOR_ANIMATION_SPRITE_98
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 90
+        width: 23
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 81d0441844a5193b0800000000000000
+      internalID: -5507521619024409320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JANITOR_ANIMATION_SPRITE_99
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 90
+        width: 23
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 62764c2c0cc66ea70800000000000000
+      internalID: 8855885292427831078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JANITOR_ANIMATION_SPRITE_100
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 90
+        width: 23
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 09116c46d5130a6a0800000000000000
+      internalID: -6440093189947387504
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JANITOR_ANIMATION_SPRITE_101
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 45
+        width: 23
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 08965cbbe48b64a10800000000000000
+      internalID: 1893403341653109120
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JANITOR_ANIMATION_SPRITE_102
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 45
+        width: 23
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b7d3f6c607deb3b0800000000000000
+      internalID: -5494718071237781577
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JANITOR_ANIMATION_SPRITE_103
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 45
+        width: 23
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d275f1d9be2106920800000000000000
+      internalID: 2981403756481959725
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JANITOR_ANIMATION_SPRITE_104
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 45
+        width: 23
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 04f37d1d940daf2d0800000000000000
+      internalID: -3244051566095286464
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JANITOR_ANIMATION_SPRITE_105
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 45
+        width: 23
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e30ba31897ffd3580800000000000000
+      internalID: -8845633195761553346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JANITOR_ANIMATION_SPRITE_106
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 45
+        width: 23
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7a0b9a2d87bf28c00800000000000000
+      internalID: 901559371776503975
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JANITOR_ANIMATION_SPRITE_107
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 45
+        width: 23
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0e34c248614bc4870800000000000000
+      internalID: 8668501391581135840
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JANITOR_ANIMATION_SPRITE_108
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 45
+        width: 23
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 99c269e3a46fd9ba0800000000000000
+      internalID: -6080433123142259559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JANITOR_ANIMATION_SPRITE_109
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 23
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2774dd959cc149b80800000000000000
+      internalID: -8389048554762713230
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JANITOR_ANIMATION_SPRITE_110
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 0
+        width: 23
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 86ba6313810bb4520800000000000000
+      internalID: 2687435220608002920
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JANITOR_ANIMATION_SPRITE_111
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 0
+        width: 23
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cd39b0e0dbb7e03a0800000000000000
+      internalID: -6697279543938673700
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JANITOR_ANIMATION_SPRITE_112
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 0
+        width: 23
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 91f7a5a9e6cf0c300800000000000000
+      internalID: 270493529608453913
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JANITOR_ANIMATION_SPRITE_113
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 0
+        width: 23
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 92673e32d634321a0800000000000000
+      internalID: -6835545673385675223
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JANITOR_ANIMATION_SPRITE_114
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 0
+        width: 23
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 25c89fa066b9b01d0800000000000000
+      internalID: -3383439832465699758
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JANITOR_ANIMATION_SPRITE_115
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 0
+        width: 23
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9752e835db2a14530800000000000000
+      internalID: 3837527291530716537
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JANITOR_ANIMATION_SPRITE_116
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 0
+        width: 23
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2669d0dbd808e6d50800000000000000
+      internalID: 6732459839215998562
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 970b38a80c71f704aa657bb97321a5fb
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":8.0,"y":19.0},"gridSpriteSize":{"x":23.0,"y":45.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      JANITOR_ANIMATION_SPRITE_0: -2770762445893823473
+      JANITOR_ANIMATION_SPRITE_1: 7359210417468767821
+      JANITOR_ANIMATION_SPRITE_10: 177254470455713714
+      JANITOR_ANIMATION_SPRITE_100: -6440093189947387504
+      JANITOR_ANIMATION_SPRITE_101: 1893403341653109120
+      JANITOR_ANIMATION_SPRITE_102: -5494718071237781577
+      JANITOR_ANIMATION_SPRITE_103: 2981403756481959725
+      JANITOR_ANIMATION_SPRITE_104: -3244051566095286464
+      JANITOR_ANIMATION_SPRITE_105: -8845633195761553346
+      JANITOR_ANIMATION_SPRITE_106: 901559371776503975
+      JANITOR_ANIMATION_SPRITE_107: 8668501391581135840
+      JANITOR_ANIMATION_SPRITE_108: -6080433123142259559
+      JANITOR_ANIMATION_SPRITE_109: -8389048554762713230
+      JANITOR_ANIMATION_SPRITE_11: 6326263315039450205
+      JANITOR_ANIMATION_SPRITE_110: 2687435220608002920
+      JANITOR_ANIMATION_SPRITE_111: -6697279543938673700
+      JANITOR_ANIMATION_SPRITE_112: 270493529608453913
+      JANITOR_ANIMATION_SPRITE_113: -6835545673385675223
+      JANITOR_ANIMATION_SPRITE_114: -3383439832465699758
+      JANITOR_ANIMATION_SPRITE_115: 3837527291530716537
+      JANITOR_ANIMATION_SPRITE_116: 6732459839215998562
+      JANITOR_ANIMATION_SPRITE_12: -6789311401276414104
+      JANITOR_ANIMATION_SPRITE_13: -3622479885397013628
+      JANITOR_ANIMATION_SPRITE_14: 9140084521045232699
+      JANITOR_ANIMATION_SPRITE_15: -6544663828427029155
+      JANITOR_ANIMATION_SPRITE_16: 8035154596886004576
+      JANITOR_ANIMATION_SPRITE_17: 598304953541551906
+      JANITOR_ANIMATION_SPRITE_18: -8213864004619278256
+      JANITOR_ANIMATION_SPRITE_19: -6117671462465201937
+      JANITOR_ANIMATION_SPRITE_2: 896044911282036039
+      JANITOR_ANIMATION_SPRITE_20: -3531161858790221536
+      JANITOR_ANIMATION_SPRITE_21: 2857399975338631238
+      JANITOR_ANIMATION_SPRITE_22: 4756560504776412101
+      JANITOR_ANIMATION_SPRITE_23: 5490406079195984438
+      JANITOR_ANIMATION_SPRITE_24: 5515037727680875386
+      JANITOR_ANIMATION_SPRITE_25: 5030209258975781845
+      JANITOR_ANIMATION_SPRITE_26: 3251419593063536371
+      JANITOR_ANIMATION_SPRITE_27: 4911790732895166354
+      JANITOR_ANIMATION_SPRITE_28: 6072580313571520490
+      JANITOR_ANIMATION_SPRITE_29: -9084494458824771879
+      JANITOR_ANIMATION_SPRITE_3: 3346041014805405019
+      JANITOR_ANIMATION_SPRITE_30: 8901842164644210823
+      JANITOR_ANIMATION_SPRITE_31: 962965792903259752
+      JANITOR_ANIMATION_SPRITE_32: -2695074245461907611
+      JANITOR_ANIMATION_SPRITE_33: 2719267286079370403
+      JANITOR_ANIMATION_SPRITE_34: -2508997418322454595
+      JANITOR_ANIMATION_SPRITE_35: 2249160079460227620
+      JANITOR_ANIMATION_SPRITE_36: -2980668312216956463
+      JANITOR_ANIMATION_SPRITE_37: -5381217340980871339
+      JANITOR_ANIMATION_SPRITE_38: -4522194413553026208
+      JANITOR_ANIMATION_SPRITE_39: 7695499619186255140
+      JANITOR_ANIMATION_SPRITE_4: -8716031085481326539
+      JANITOR_ANIMATION_SPRITE_40: -8433798524837119840
+      JANITOR_ANIMATION_SPRITE_41: -9109864741730210493
+      JANITOR_ANIMATION_SPRITE_42: -4106417666745906350
+      JANITOR_ANIMATION_SPRITE_43: -6264034157891029933
+      JANITOR_ANIMATION_SPRITE_44: 5284242971050285653
+      JANITOR_ANIMATION_SPRITE_45: 8804986320798478116
+      JANITOR_ANIMATION_SPRITE_46: 3316684605679552812
+      JANITOR_ANIMATION_SPRITE_47: 4050363935684665883
+      JANITOR_ANIMATION_SPRITE_48: -725350241970654156
+      JANITOR_ANIMATION_SPRITE_49: 6019144266532925291
+      JANITOR_ANIMATION_SPRITE_5: -5945093557006602285
+      JANITOR_ANIMATION_SPRITE_50: -5019243365666029951
+      JANITOR_ANIMATION_SPRITE_51: -8959293452178629403
+      JANITOR_ANIMATION_SPRITE_52: -1687339868805373830
+      JANITOR_ANIMATION_SPRITE_53: 7875683206071685227
+      JANITOR_ANIMATION_SPRITE_54: 4337662153850193249
+      JANITOR_ANIMATION_SPRITE_55: -1671728817680276422
+      JANITOR_ANIMATION_SPRITE_56: -4895118426700375023
+      JANITOR_ANIMATION_SPRITE_57: -6169555685209747235
+      JANITOR_ANIMATION_SPRITE_58: -2329023920941321585
+      JANITOR_ANIMATION_SPRITE_59: 1926443036708114448
+      JANITOR_ANIMATION_SPRITE_6: 1560647916595044473
+      JANITOR_ANIMATION_SPRITE_60: 3496563584444168778
+      JANITOR_ANIMATION_SPRITE_61: 3004443878734182177
+      JANITOR_ANIMATION_SPRITE_62: 1026590662569900935
+      JANITOR_ANIMATION_SPRITE_63: 7223594497060619664
+      JANITOR_ANIMATION_SPRITE_64: 2460030300911420977
+      JANITOR_ANIMATION_SPRITE_65: 6356594326823975218
+      JANITOR_ANIMATION_SPRITE_66: -4726715442479521261
+      JANITOR_ANIMATION_SPRITE_67: -9203725926940174003
+      JANITOR_ANIMATION_SPRITE_68: -7329458602486347898
+      JANITOR_ANIMATION_SPRITE_69: 2821683636453383398
+      JANITOR_ANIMATION_SPRITE_7: -247578810186248742
+      JANITOR_ANIMATION_SPRITE_70: 3533152689779229319
+      JANITOR_ANIMATION_SPRITE_71: 6293125344726558430
+      JANITOR_ANIMATION_SPRITE_72: -7541622263975724213
+      JANITOR_ANIMATION_SPRITE_73: 6584195157661553579
+      JANITOR_ANIMATION_SPRITE_74: 1537033077961646694
+      JANITOR_ANIMATION_SPRITE_75: 2535084291926317142
+      JANITOR_ANIMATION_SPRITE_76: -6671236629571450217
+      JANITOR_ANIMATION_SPRITE_77: 8612215569084363311
+      JANITOR_ANIMATION_SPRITE_78: -940235601079557039
+      JANITOR_ANIMATION_SPRITE_79: -7742905143883117823
+      JANITOR_ANIMATION_SPRITE_8: -5154256743929573844
+      JANITOR_ANIMATION_SPRITE_80: -6715606937988056634
+      JANITOR_ANIMATION_SPRITE_81: 3469866049827996608
+      JANITOR_ANIMATION_SPRITE_82: 8761720480663331080
+      JANITOR_ANIMATION_SPRITE_83: -6924593753825197672
+      JANITOR_ANIMATION_SPRITE_84: -5300374840545120767
+      JANITOR_ANIMATION_SPRITE_85: -4273773288802282270
+      JANITOR_ANIMATION_SPRITE_86: -7927719333766891139
+      JANITOR_ANIMATION_SPRITE_87: -99123324353700620
+      JANITOR_ANIMATION_SPRITE_88: 2047880410256901101
+      JANITOR_ANIMATION_SPRITE_89: 6890932231645423705
+      JANITOR_ANIMATION_SPRITE_9: -1635432907492292361
+      JANITOR_ANIMATION_SPRITE_90: 2136078228599910612
+      JANITOR_ANIMATION_SPRITE_91: -3641973214822875559
+      JANITOR_ANIMATION_SPRITE_92: 918144262698793603
+      JANITOR_ANIMATION_SPRITE_93: 1129770497736353337
+      JANITOR_ANIMATION_SPRITE_94: -6641166564205910177
+      JANITOR_ANIMATION_SPRITE_95: 2834137493015638253
+      JANITOR_ANIMATION_SPRITE_96: 5959279200770302490
+      JANITOR_ANIMATION_SPRITE_97: -7018014368583059586
+      JANITOR_ANIMATION_SPRITE_98: -5507521619024409320
+      JANITOR_ANIMATION_SPRITE_99: 8855885292427831078
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

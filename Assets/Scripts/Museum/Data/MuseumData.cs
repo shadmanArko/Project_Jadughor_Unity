@@ -46,6 +46,24 @@ namespace ProjectMuseum.Data
 
         /// <summary>The museum clock / calendar, advanced by <c>MuseumTimeSystem</c>.</summary>
         public MuseumTimeData Clock = new MuseumTimeData();
+
+        /// <summary>
+        /// Litter lying on the floor (dropped by guests, or debug-spawned). At most one per
+        /// tile. Swept up by janitors — see <c>ProjectMuseum.Staff.JanitorAgent</c>.
+        /// </summary>
+        public List<TrashData> Trash = new List<TrashData>();
+    }
+
+    /// <summary>One piece of litter on a museum floor tile.</summary>
+    [Serializable]
+    public class TrashData
+    {
+        public string Id;      // GUID
+        public int X;
+        public int Y;
+        /// <summary>Which trash sprite to show (index into TrashSystem's sprite list).</summary>
+        public int Variant;
+        public Vector2Int Cell => new Vector2Int(X, Y);
     }
 
     /// <summary>
