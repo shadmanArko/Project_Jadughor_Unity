@@ -13,3 +13,7 @@ MonoBehaviour:
   m_Name: MainMenuInstaller
   m_EditorClassIdentifier: Assembly-CSharp::Systems.MainMenuSystem.Installers.MainMenuInstaller
   mainMenuView: {fileID: 1943411016597228617, guid: 668db753564904a4d92a7a3006007b20, type: 3}
+  newGameSetupPrefab: {fileID: 0}
+  characterArt: {fileID: 21300000, guid: 242ff4459f3f4e22b72c34eb3fc47d4c, type: 3}
+  tutorialToggleInteractable: 1
+  museumSceneName: Museum

@@ -12,13 +12,15 @@ namespace Systems.MainMenuSystem.Controllers
     {
         private readonly IMainMenuModel _model;
         private readonly MainMenuView _view;
+        private readonly NewGameSetupController _newGameSetup;
 
         private CompositeDisposable _disposables;
 
-        public MainMenuController(IMainMenuModel model, MainMenuView view)
+        public MainMenuController(IMainMenuModel model, MainMenuView view, NewGameSetupController newGameSetup)
         {
             _model = model;
             _view = view;
+            _newGameSetup = newGameSetup;
         }
 
         public void Initialize()
@@ -27,6 +29,12 @@ namespace Systems.MainMenuSystem.Controllers
             
             SubscribeToButtonHovers();
             SubscribeToButtonClicks();
+
+            // Continue is only usable once a save exists (Godot always enabled it and
+            // relied on the backend; here there is nothing to continue without a save).
+            _model.HasSaveData
+                .Subscribe(has => _view.ContinueButton.interactable = has)
+                .AddTo(_disposables);
         }
 
         private void SubscribeToButtonHovers()
@@ -101,6 +109,9 @@ namespace Systems.MainMenuSystem.Controllers
         private void NewGameButtonClicked()
         {
             _model.ExecuteNewGame();
+            // Godot MainMenu.NewGameButtonOnPressed: hide menu, show setup screen.
+            _view.Hide();
+            _newGameSetup.Show();
         }
 
         private void OptionsButtonClicked()

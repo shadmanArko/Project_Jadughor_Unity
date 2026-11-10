@@ -26,12 +26,17 @@ namespace ProjectMuseum.Narrative
 
         private void Awake()
         {
-            Current = new PlayerInfo
-            {
-                Name = playerName,
-                Gender = gender,
-                Tutorial = tutorialsEnabled
-            };
+            // A profile saved by the main menu's New Game screen (or a previous
+            // session) wins; the inspector values are only a fallback for
+            // starting the Museum scene directly in the editor.
+            Current = PlayerProfileStore.TryLoad(out var saved)
+                ? saved
+                : new PlayerInfo
+                {
+                    Name = playerName,
+                    Gender = gender,
+                    Tutorial = tutorialsEnabled
+                };
 
             DontDestroyOnLoad(gameObject);
             MuseumActions.OnPlayerInfoUpdated += OnPlayerInfoUpdated;
@@ -44,7 +49,9 @@ namespace ProjectMuseum.Narrative
 
         private static void OnPlayerInfoUpdated(PlayerInfo info)
         {
-            if (info != null) Current = info;
+            if (info == null) return;
+            Current = info;
+            PlayerProfileStore.Save(info); // keep tutorial/story progress for Continue
         }
 
         /// <summary>Replace the active profile and notify listeners.</summary>
